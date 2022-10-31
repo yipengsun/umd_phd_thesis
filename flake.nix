@@ -1,10 +1,10 @@
 {
-  description = "ANA for RDX run 2.";
+  description = "UMD PhD thesis.";
 
   inputs = {
-    root-curated.url = "github:umd-lhcb/root-curated";
-    nixpkgs.follows = "root-curated/nixpkgs";
-    flake-utils.follows = "root-curated/flake-utils";
+    nixpkgs-pointer.url = "github:yipengsun/nixpkgs-pointer";
+    nixpkgs.follows = "nixpkgs-pointer/nixpkgs";
+    flake-utils.follows = "nixpkgs-pointer/flake-utils";
   };
 
   outputs = { self, nixpkgs, flake-utils, root-curated }:
@@ -16,7 +16,7 @@
       in
       {
         devShell = pkgs.mkShell {
-          name = "rdx-run2-ana-dev";
+          name = "umd_phd_thesis";
           buildInputs = (with pkgs; [
             # LaTeX
             (texlive.combine {
@@ -40,6 +40,10 @@
                 makecell
                 placeins
                 setspace
+                titlesec
+                supertabular
+                natbib
+                babel
                 # Implicit dependencies
                 mciteplus
                 cite
