@@ -7,4 +7,4 @@ rdx-run2-ana.pdf:
 	@cp build/thesis.pdf yipengsun-umd_phd_thesis.pdf
 
 clean:
-	@rm -rf ./build/main.*
+	@rm -rf ./build/thesis.*

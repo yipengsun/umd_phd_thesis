@@ -1,4 +1,4 @@
-ensure_path(TEXINPUTS, './misc//', './external', './appendix', './chapter', './addon');
+ensure_path(TEXINPUTS, './include//', './external', './appendix', './chapter', './addon');
 ensure_path(BIBINPUTS, './bibliography');
 ensure_path(BSTINPUTS, './external');
 $pdflatex="pdflatex -shell-escape %O %S";

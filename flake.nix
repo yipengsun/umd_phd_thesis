@@ -7,7 +7,7 @@
     flake-utils.follows = "nixpkgs-pointer/flake-utils";
   };
 
-  outputs = { self, nixpkgs, flake-utils, root-curated }:
+  outputs = { self, nixpkgs, flake-utils, ... }:
     flake-utils.lib.eachDefaultSystem (system:
       let
         pkgs = import nixpkgs {
@@ -44,6 +44,10 @@
                 supertabular
                 natbib
                 babel
+                babel-english
+                float
+                tocloft
+                tabls
                 # Implicit dependencies
                 mciteplus
                 cite
