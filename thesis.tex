@@ -1,0 +1,263 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% May 2022 - This template was prepared by Dorothea F. Brosius of the Institute
+% for Electronics and Applied Physics, University of Maryland, College Park, MD
+% To be used with when typing your own bibliography or when using Bibtex files
+%
+% The template was last updated in January 2022 - margins changed to 1 inch on
+% all sides Thesis Main Page used with thesis.sty based on the University of
+% Maryland Electronic Thesis and Dissertation (ETD) Style Guide, 2021 Edition
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Select the version that fits how you are making this LaTeX document (its
+% driver). The first two are the most likely ones to be needed.
+\newcommand{\mydriver}{pdflatex} %Making a PDF directly using pdflatex.
+\documentclass[12pt,\mydriver]{thesis}  %12pt is larger than 11pt
+
+% packages %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%
+% graphics %
+%%%%%%%%%%%%
+\usepackage{tikz}
+\usepackage{graphicx}
+
+
+%%%%%%%%%%
+% floats %
+%%%%%%%%%%
+\usepackage{float}
+\usepackage{caption}
+\usepackage{subcaption}
+%\usepackage{wrapfig}
+
+% Don't float across chapters!
+\usepackage[above,below]{placeins}
+
+
+%%%%%%%%%%%%%%%%%%%%%%
+% general appearance %
+%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{titlesec}
+\titleformat{\chapter}{\normalfont\large}{Chapter \thechapter:}{1em}{}
+
+% indent first paragraph after section header
+\usepackage{indentfirst}
+
+% Times New Roman maybe, probably should switch to newtx
+%\usepackage{times}
+
+% better typesetting
+\usepackage{microtype}
+
+% some special symbols?
+%\usepackage{latexsym}
+
+% adds space between chapter/appendix and title in toc
+\usepackage{tocloft,calc}
+\renewcommand{\cftlottitlefont}{\hspace*{\fill}\large}
+\renewcommand{\cftafterlottitle}{\hspace*{\fill}}
+\renewcommand{\cftloftitlefont}{\hspace*{\fill}\large}
+\renewcommand{\cftafterloftitle}{\hspace*{\fill}}
+\renewcommand{\cftchapaftersnum}{:\ }
+\renewcommand{\cftchappresnum}{\chaptername\space}
+\setlength{\cftchapnumwidth}{\widthof{\textbf{Appendix\ }}}
+\makeatletter
+\g@addto@macro\appendix{%
+    \addtocontents{toc}{%
+        \protect\renewcommand{\protect\cftchappresnum}{\appendixname\space}%
+    }%
+} \setlength{\cftchapnumwidth}{6em} % space add here
+
+% use cm super
+\usepackage[T1]{fontenc}
+
+
+%%%%%%%%%%
+% layout %
+%%%%%%%%%%
+\usepackage{lscape}
+%\usepackage{multirow}
+
+
+%%%%%%%%%%
+% tables %
+%%%%%%%%%%
+
+% better vertical spacing in tables and arrays
+\usepackage{tabls}
+
+% slash cell for tables
+%\usepackage{slashbox}
+
+% longtables and alternatives
+\usepackage{longtable}
+\usepackage{supertabular}
+
+% multi-line cell
+\usepackage{makecell}
+
+% continuous vertical line w/ booktabs
+\usepackage{booktabs}
+\aboverulesep=0ex
+\belowrulesep=0ex
+%\renewcommand{\arraystretch}{1.28}
+
+
+%%%%%%%%
+% math %
+%%%%%%%%
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+% citations, links, etc %
+%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[sort,square,numbers]{natbib}
+
+% used for placing bibliography after each chapter
+%\usepackage[sectionbib]{chapterbib}
+%\usepackage{bibentry}
+
+% citation: Ref. [n]
+\let\oldcite\cite
+\renewcommand{\cite}[1]{Ref.~\oldcite{#1}}
+
+% links
+\usepackage[colorlinks=true,urlcolor=black,linkcolor=blue,citecolor=blue]{hyperref}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+% geometry and spacing %
+%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{setspace}
+
+% margins
+\setlength{\textwidth}{6.4in}
+\setlength{\textheight}{9in}
+\setlength{\topmargin}{-.55in}
+%\setlength{\topmargin}{0in}    % use this setting if the printer makes the top margin 1/2 inch instead of 1 inch
+\setlength{\oddsidemargin}{.1in}   % sets left margin to 1 inch
+\setlength{\parindent}{.4in}
+
+% Always single-space equations
+\usepackage{etoolbox}
+\BeforeBeginEnvironment{equation}{\begin{singlespace}}
+\AfterEndEnvironment{equation}{\end{singlespace}\noindent\ignorespaces}
+\BeforeBeginEnvironment{align}{\begin{singlespace}}
+\AfterEndEnvironment{align}{\end{singlespace}\noindent\ignorespaces}
+
+
+%%%%%%%%
+% misc %
+%%%%%%%%
+\usepackage{xspace}
+
+% hyphenation
+\usepackage[english]{babel}
+\hyphenation{
+    tem-po-ral-ly
+    pro-cesses
+    ex-pe-ri-men-tal-ly
+    fluc-tua-tions
+    si-mu-la-tions
+}
+
+% automatically bold math when using \bfseries command
+% this is very useful for section headings
+\makeatletter
+\g@addto@macro\bfseries{\boldmath}
+\makeatother
+
+\newcommand{\smalltt}[1]{{\small\texttt{#1}}}
+
+% commands for technical links (might want to disable them all together)
+\newcommand{\techlink}[1]{For info on related code/software, see \cref{#1}.}
+\newcommand{\techurllink}[2]{\href{#1}{\nolinkurl{#2}}}
+
+% graphics base paths
+\graphicspath{{./appendix}{./chapter}{./addon}}
+
+
+% include %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\input{lhcb-symbols-def.tex}
+\input{document-variables.tex}
+
+
+% main text %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+\pagestyle{empty}
+\doublespacing
+\include{abstract}   % (must be first, required, non-numbered)
+% \include{titlepage}  % (must follow Abstract, required, non-numbered)
+\include{copyright}  % (highly recommended, non-numbered)
+
+% pages from this point start at lower-case Roman number ii)
+% \pagestyle{plain} \pagenumbering{roman} \setcounter{page}{2}
+% \addcontentsline{toc}{chapter}{Preface}
+% \include{Preface}  %(if present, start at lower-case Roman number ii)
+% \addcontentsline{toc}{chapter}{Foreword}
+% \include{Foreword} %(if present, lower-case Roman)
+% \addcontentsline{toc}{chapter}{Dedication}
+% \include{Dedication} %(if present, lower-case Roman)
+% \addcontentsline{toc}{chapter}{Acknowledgements}
+% \include{Acknowledgements} %(if present, lower-case Roman)
+% \cleardoublepage
+% \phantomsection
+
+\normalsize \singlespacing
+
+\addcontentsline{toc}{chapter}{Table of Contents}
+\renewcommand{\contentsname}{Table of Contents}
+\tableofcontents
+\newpage
+
+\addcontentsline{toc}{chapter}{List of Tables}
+\renewcommand{\contentsname}{List of Tables}
+\listoftables
+\newpage
+
+\addcontentsline{toc}{chapter}{List of Figures}
+\renewcommand{\contentsname}{List of Figures}
+\listoffigures
+\newpage
+
+
+% list of abbreviations
+\addcontentsline{toc}{chapter}{List of Abbreviations}
+\include{Abbreviations-supertabular}
+\newpage
+\setlength{\parskip}{0em}
+
+%%%%%%%%%%%%%%%%%%%%
+% chapters, really %
+%%%%%%%%%%%%%%%%%%%%
+\normalsize \doublespacing
+
+% pages from this point start at Arabic numeral 1
+\setcounter{page}{1}
+\pagenumbering{arabic}
+
+
+%%%%%%%%%%%%%%
+% appendices %
+%%%%%%%%%%%%%%
+\titleformat{\chapter}{\normalfont\large}{Appendix \thechapter:}{1em}{}
+
+% \include{AppendixA}
+
+
+%%%%%%%%%%%%%%%%
+% bibliography %
+%%%%%%%%%%%%%%%%
+\normalsize \singlespacing
+
+\addcontentsline{toc}{chapter}{Bibliography}
+\newpage
+\bibliographystyle{unsrtnat}
+\bibliography{Galactic,Dottie}
+
+
+\end{document}
