@@ -48,6 +48,7 @@
                 float
                 tocloft
                 tabls
+                biblatex
                 # Implicit dependencies
                 mciteplus
                 cite

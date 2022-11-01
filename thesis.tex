@@ -119,7 +119,27 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage[colorlinks=true,urlcolor=black,linkcolor=blue,citecolor=blue]{hyperref}
 \usepackage{cleveref}
-\usepackage{cite}
+
+% bibliography
+% \usepackage[sort,square,numbers]{natbib}
+\usepackage[
+    %style=phys,
+    giveninits=true,
+    %backref=true,
+    natbib=true,
+    backend=biber,
+    firstinits=true,
+    doi=false,
+    % Sort by the order of citation
+    sorting=none,
+    % This options ensures that no automatic et al. is generated
+    %maxbibnames=99,
+    % This option must be enabled with 'babel' package
+    useprefix=false
+]{biblatex}
+\addbibresource{external.bib}
+\addbibresource{LHCb-MISC.bib}
+\addbibresource{LHCb-PAPER.bib}
 
 % used for placing bibliography after each chapter
 %\usepackage[sectionbib]{chapterbib}
@@ -258,9 +278,7 @@
 \normalsize \singlespacing
 
 \addcontentsline{toc}{chapter}{Bibliography}
-\newpage
-\bibliographystyle{unsrt}
-\bibliography{LHCb-MISC,LHCb-PAPER,external}
+\printbibliography
 
 
 \end{document}
