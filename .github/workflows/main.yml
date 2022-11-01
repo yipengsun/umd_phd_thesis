@@ -1,0 +1,27 @@
+name: "CI"
+
+on:
+  pull_request:
+  push:
+
+jobs:
+  tests:
+    if: "!contains(github.event.head_commit.message, 'skip ci')"
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: cachix/install-nix-action@v18
+      with:
+          extra_nix_config: |
+              access-tokens = github.com=${{ secrets.GITHUB_TOKEN }}
+
+    - run: nix develop --no-update-lock-file -c make
+    - run: ls
+
+    - uses: softprops/action-gh-release@v1
+      if: startsWith(github.ref, 'refs/tags/')
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        files: |
+          yipengsun-umd_phd_thesis.pdf
