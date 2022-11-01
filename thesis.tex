@@ -102,6 +102,9 @@
 \belowrulesep=0ex
 %\renewcommand{\arraystretch}{1.28}
 
+% parnote inside floating table
+\usepackage[symbol,restart,breakwithin]{parnotes}
+
 
 %%%%%%%%
 % math %
@@ -114,7 +117,9 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%
 % citations, links, etc %
 %%%%%%%%%%%%%%%%%%%%%%%%%
-\usepackage[sort,square,numbers]{natbib}
+\usepackage[colorlinks=true,urlcolor=black,linkcolor=blue,citecolor=blue]{hyperref}
+\usepackage{cleveref}
+\usepackage{cite}
 
 % used for placing bibliography after each chapter
 %\usepackage[sectionbib]{chapterbib}
@@ -123,9 +128,6 @@
 % citation: Ref. [n]
 \let\oldcite\cite
 \renewcommand{\cite}[1]{Ref.~\oldcite{#1}}
-
-% links
-\usepackage[colorlinks=true,urlcolor=black,linkcolor=blue,citecolor=blue]{hyperref}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%
@@ -227,7 +229,7 @@
 
 % list of abbreviations
 \addcontentsline{toc}{chapter}{List of Abbreviations}
-\include{Abbreviations-supertabular}
+\include{abbreviations}
 \newpage
 \setlength{\parskip}{0em}
 
@@ -239,6 +241,7 @@
 % pages from this point start at Arabic numeral 1
 \setcounter{page}{1}
 \pagenumbering{arabic}
+\include{selection.tex}
 
 
 %%%%%%%%%%%%%%
@@ -256,8 +259,8 @@
 
 \addcontentsline{toc}{chapter}{Bibliography}
 \newpage
-\bibliographystyle{unsrtnat}
-\bibliography{Galactic,Dottie}
+\bibliographystyle{unsrt}
+\bibliography{LHCb-MISC,LHCb-PAPER,external}
 
 
 \end{document}
