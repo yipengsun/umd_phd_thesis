@@ -117,7 +117,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%
 % citations, links, etc %
 %%%%%%%%%%%%%%%%%%%%%%%%%
-\usepackage[colorlinks=true,urlcolor=black,linkcolor=blue,citecolor=blue]{hyperref}
+\usepackage[pdfencoding=auto,psdextra]{hyperref}
+\hypersetup{breaklinks,citecolor=blue}
 \usepackage{cleveref}
 
 % bibliography
@@ -217,7 +218,7 @@
 \include{copyright}  % (highly recommended, non-numbered)
 
 % pages from this point start at lower-case Roman number ii)
-% \pagestyle{plain} \pagenumbering{roman} \setcounter{page}{2}
+\pagestyle{plain} \pagenumbering{roman} \setcounter{page}{2}
 % \addcontentsline{toc}{chapter}{Preface}
 % \include{Preface}  %(if present, start at lower-case Roman number ii)
 % \addcontentsline{toc}{chapter}{Foreword}
@@ -259,8 +260,7 @@
 \normalsize \doublespacing
 
 % pages from this point start at Arabic numeral 1
-\setcounter{page}{1}
-\pagenumbering{arabic}
+\pagestyle{plain} \setcounter{page}{1} \pagenumbering{arabic}
 \include{selection.tex}
 
 
