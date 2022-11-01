@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+INDENT=6
+
+biber --tool \
+    --output_align \
+    --output_indent=$INDENT \
+    --output_fieldcase=lower \
+    $1
+
+mv $(basename $1 .bib)_bibertool.bib $1
+rm -f ./*.blg
