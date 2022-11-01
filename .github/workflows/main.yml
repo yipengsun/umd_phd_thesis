@@ -25,3 +25,6 @@ jobs:
       with:
         files: |
           yipengsun-umd_phd_thesis.pdf
+
+permissions:
+  contents: write
