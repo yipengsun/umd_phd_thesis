@@ -258,9 +258,11 @@
 % chapters, really %
 %%%%%%%%%%%%%%%%%%%%
 \normalsize \doublespacing
-
 % pages from this point start at Arabic numeral 1
 \pagestyle{plain} \setcounter{page}{1} \pagenumbering{arabic}
+
+\include{chapter/intro.tex}
+
 \part{Preliminary measurement of \RDX with LHCb 2016 data}
 \include{selection.tex}
 
@@ -270,6 +272,8 @@
 %%%%%%%%%%%%%%
 % appendices %
 %%%%%%%%%%%%%%
+
+\part{Appendices}
 \titleformat{\chapter}{\normalfont\large}{Appendix \thechapter:}{1em}{}
 
 % \include{AppendixA}
