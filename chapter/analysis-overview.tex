@@ -1,0 +1,35 @@
+\chapter{Analysis overview}
+\label{ref:overview}
+
+This analysis aims at an extraction of \RD and \RDst from
+LHCb 2016 data\footnote{
+    It is planned to use full LHCb run 2 data (2016--2018) at a later date.
+}, reconstructed in $\Dstarp\mun$ and $\Dz\mun$ final states.
+These states are chosen so that the final state particles
+(e.g. $K^-, \pi^+, \mu^-$) are all charged, because the LHCb detector is not
+well-suited for neutral particle reconstruction.
+A complication of these states is that they are \emph{inhomogeneous},
+that is, not all \Dz\mun final state events are actually in \Dz\mun final
+states:
+\Dstarp\mun states feed down into the \Dz\mun states,
+because \Dstarp decays strongly to a \Dz and a slow \pip,
+with the latter often missed in the reconstruction;
+for example, a slow \pip with a softer momentum may fail to register a
+well-defined track in the detector, thus no \Dstarp is constructed for this
+event.
+In addition, \Dstarz\mun states,
+which has a branch fraction of about 2.5 times larger compared to \Dz\mun
+states\footnote{
+    More precisely, the relevant branching fractions are:
+    $\Bm \rightarrow \Dstarz \ell^- \neulb$ and
+    $\Bm \rightarrow \Dz \ell^- \neulb$.
+},
+are contributing exclusively to the \Dz\mun states, because the neutral slow
+\piz, a product of \Dstarz decay, is entirely missed.
+Therefore, a \emph{simultaneous} fit,
+assuming isospin symmetry,
+to both \Dstarp\mun and \Dz\mun states is needed to
+account for the correlation\footnote{
+    \RD and \RDst are considered, however, theoretically uncorrelated.
+} between \RD and \RDst due to experimental limitations mentioned above.
+
