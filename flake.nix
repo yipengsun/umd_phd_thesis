@@ -49,6 +49,7 @@
                 tocloft
                 tabls
                 biblatex
+                appendix
                 # Implicit dependencies
                 mciteplus
                 cite
