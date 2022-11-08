@@ -103,64 +103,19 @@ uncertainty, making \emph{simulating} every detector response impractical.
 Both the reason (with more details) and the emulation procedure are discussed in
 \cref{ref:mc-emulation}.
 After, various discrepancies between data and MC simulation,
-mainly in detector responses, are corrected and the procedures detailed
+mainly in detector responses, are corrected with the procedures detailed
 in \cref{ref:mc-correction}.
 Finally, \RDX are extracted from a simultaneous fit, with fit procedure and
 results listed in \cref{ref:fit}
 and selected systematic uncertainties discussed in
 \cref{ref:sys-uncert}.
-More detailed workflow is plotted in \cref{fig:workflow}
-for reference.
 As an update to LHCb \RDX run 1 analysis, this analysis shares a similar
 workflow with that of run 1.
-Many technologies developed in run 1 are carried out to this analysis.
+Many technologies developed in run 1 are carried over to this analysis.
 The main additional difficulties this analysis has to face are the emulation
 on MC (already listed above) and a wide variety of software usage, including
 different versions of the same software.
 The latter is summarized as a side in \cref{ref:reprod-analysis}.
-
-\begin{figure}[htb]
-\centering
-
-\begin{tikzpicture}[
-    node distance = 8mm and 16mm,
-      start chain = A going below,
-      base/.style = {draw, minimum width=32mm, minimum height=8mm,
-                     align=center, on chain=A},
- startstop/.style = {base, rounded corners, fill=red!30},
-   process/.style = {base, fill=orange!30},
-        io/.style = {base, trapezium,
-                     trapezium left angle=70, trapezium right angle=110,
-                     fill=blue!30},
-  decision/.style = {base, diamond, fill=green!30},
-  every edge quotes/.style = {auto=right}]
-
-\node [startstop]       {Start};            % <-- A-1
-\node [process]         {k $\gets$ 0};
-\node [io]              {Loop ?};
-\node [decision]        {Yes or No ?};
-\node [process]         {Print k};
-\node [process]         {Stop};             % <-- A-6
-%
-\node [process,                             % <-- A-7
-       right=of A-4]    {k $\gets$ k + 1};
-%%
-\draw [arrows=-Stealth]
-    (A-1) edge["init"]          (A-2)
-    (A-2) edge["start stop"]    (A-3)
-    (A-3) edge["looping"]       (A-4)
-    (A-4) edge["no"]            (A-5)
-    (A-5) edge["exit"]          (A-6)
-    (A-4) edge["yes"']          (A-7)       % <-- by ' is swapped label position
-    (A-7) |- ($(A-2.south east)!0.5!(A-3.north east)$)
-          -| ([xshift=7mm] A-3.north);
-\end{tikzpicture}
-
-    \caption{
-        More detailed workflow for LHCb \RDX analysis based on 2016 data.
-    }
-    \label{fig:workflow}
-\end{figure}
 
 Additional information is organized as follows:
 An overview of theory of semileptonic \B decay is provided in
