@@ -47,8 +47,9 @@ The differentiating kinematic variables, defined in the \B rest frame,
 are the following:
 %%%%
 \begin{itemize}
-    \item \mmSq: Defined as $(p_B - p_{D^{(*)}} - p_\mu)^2$.
-        Typically due to missing neutrino(s).
+    \item \mmSq: Defined as $(p_B - p_{D^{(*)}} - p_\mu)^2$,
+        the missing mass (squared) is typically due to missing (unreconstructed)
+        neutrino(s).
         For $B \rightarrow D \mun \neumb$ decays, only 1 neutrino is missing,
         so \mmSq is small ($\sim$ the mass of neutrino);
         for $B \rightarrow D \taum (\rightarrow \mun\neumb\neut) \neutb$,
@@ -74,7 +75,7 @@ are the following:
 These variables, however, cannot be deduced exactly at LHCb,
 because \B mesons
 are typically produced from hadronization of $pp$ collisions,
-carrying an unknown part of $pp$ momenta,
+carrying an unknown portion of $pp$ momenta,
 so the \B rest frame is not known.
 A technology, termed ``rest frame approximation'' (RFA), is developed for LHCb
 to estimate the rest frame variables.
@@ -91,3 +92,23 @@ More information about RFA can be found in \cref{appx:rfa}.
 %     }
 %     \label{fig:rfa-variables}
 % \end{figure}
+
+The workflow of this analysis is the following:
+First, \Dstarp\mun and \Dz\mun final states are selected, which is discussed
+in \cref{ref:selection}.
+Then, emulation of certain detector responses to MC are carried out offline:
+This analysis requires a large number of MC events to control statistical
+uncertainty, making \emph{simulating} every detector response impractical.
+Both the reason and the emulation procedure is discussed in
+\cref{ref:mc-emulation}.
+After, various discrepancies between data and MC simulation,
+mainly in detector responses, are corrected and the procedures detailed
+in \cref{ref:mc-correction}.
+Finally, \RDX are extracted from a simultaneous fit, with fit procedure listed
+in \cref{ref:fit} and selected systematic uncertainties discussed in
+\cref{ref:sys-uncert}.
+
+This part of the thesis is organized as following:
+An overview of theory on semileptonic \B decay is provided in
+\cref{ref:theory},
+followed by a brief introduction to the LHCb detector in \cref{ref:detector}.
