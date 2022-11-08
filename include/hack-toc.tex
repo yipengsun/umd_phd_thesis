@@ -1,0 +1,13 @@
+% This is to resolve problems when using 'include' s.t. the appendix TOC
+% are still 'Chapter A', instead of 'Appendix A'.
+% See the following SE answers for more info:
+%   https://tex.stackexchange.com/questions/56839/chaptername-is-used-even-for-appendix-chapters-in-toc
+%   https://tex.stackexchange.com/questions/50036/first-chapter-appearing-before-first-line-in-table-of-contents/50037#50037
+
+\part*{Appendices}
+\addcontentsline{toc}{part}{Appendices}
+
+\addtocontents{toc}{%
+    \protect\renewcommand{\protect\cftchappresnum}{\appendixname\space}
+    \setlength{\cftchapnumwidth}{\widthof{\bfseries Appendix~AAA~}}
+}

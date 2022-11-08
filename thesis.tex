@@ -38,7 +38,7 @@
 % general appearance %
 %%%%%%%%%%%%%%%%%%%%%%
 \usepackage{titlesec}
-\titleformat{\chapter}{\normalfont\large}{Chapter \thechapter:}{1em}{}
+\titleformat{\chapter}{\normalfont\large}{\chaptername\ \thechapter:}{1em}{}
 
 % indent first paragraph after section header
 \usepackage{indentfirst}
@@ -46,30 +46,31 @@
 % Times New Roman maybe, probably should switch to newtx
 %\usepackage{times}
 
-% better typesetting
-\usepackage{microtype}
-
 % some special symbols?
 %\usepackage{latexsym}
 
-% adds space between chapter/appendix and title in toc
-\usepackage{tocloft,calc}
-\renewcommand{\cftlottitlefont}{\hspace*{\fill}\large}
-\renewcommand{\cftafterlottitle}{\hspace*{\fill}}
-\renewcommand{\cftloftitlefont}{\hspace*{\fill}\large}
-\renewcommand{\cftafterloftitle}{\hspace*{\fill}}
-\renewcommand{\cftchapaftersnum}{:\ }
-\renewcommand{\cftchappresnum}{\chaptername\space}
-\setlength{\cftchapnumwidth}{\widthof{\textbf{Appendix\ }}}
-\makeatletter
-\g@addto@macro\appendix{%
-    \addtocontents{toc}{%
-        \protect\renewcommand{\protect\cftchappresnum}{\appendixname\space}%
-    }%
-} \setlength{\cftchapnumwidth}{6em} % space add here
-
 % use cm super
 \usepackage[T1]{fontenc}
+
+% adds space between chapter/appendix and title in toc
+\usepackage{titletoc,tocloft,calc}
+\renewcommand{\cftlottitlefont}{\hspace*{\fill}\large}
+\renewcommand{\cftloftitlefont}{\hspace*{\fill}\large}
+\renewcommand{\cftafterlottitle}{\hspace*{\fill}}
+\renewcommand{\cftafterloftitle}{\hspace*{\fill}}
+
+\renewcommand{\cftchappresnum}{\chaptername\space}
+\renewcommand{\cftchapaftersnum}{:\space}
+\setlength{\cftchapnumwidth}{\widthof{\bfseries Chapter~999~}}
+
+\makeatletter
+\g@addto@macro\appendix{%
+    \renewcommand{\chaptername}{Appendix}
+}
+\makeatother
+
+% better typesetting
+\usepackage{microtype}
 
 
 %%%%%%%%%%
@@ -129,7 +130,6 @@
     %backref=true,
     natbib=true,
     backend=biber,
-    firstinits=true,
     doi=false,
     % Sort by the order of citation
     sorting=none,
@@ -274,11 +274,9 @@
 %%%%%%%%%%%%%%
 % appendices %
 %%%%%%%%%%%%%%
-
-\part{Appendices}
-\titleformat{\chapter}{\normalfont\large}{Appendix \thechapter:}{1em}{}
-
-% \include{AppendixA}
+\appendix
+\include{include/hack-toc.tex}  % workaround problems due to 'include'
+\include{appendix/rest-frame-approximation.tex}
 
 
 %%%%%%%%%%%%%%%%
@@ -286,6 +284,7 @@
 %%%%%%%%%%%%%%%%
 \normalsize \singlespacing
 
+\phantomsection
 \addcontentsline{toc}{chapter}{Bibliography}
 \printbibliography
 
