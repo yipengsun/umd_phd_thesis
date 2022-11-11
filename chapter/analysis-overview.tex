@@ -32,6 +32,7 @@ assuming isospin symmetry,
 to both \Dstarp\mun and \Dz\mun states is needed to
 account for the correlations\footnote{
     \RD and \RDst are, however, considered to be theoretically uncorrelated.
+    % FIXME: Add ref and a bit more explanation.
 } between \RD and \RDst and improve precision\footnote{
     As opposed to extract \RDst from \Dstarp\mun sample alone.
 } for \RDst.
@@ -94,9 +95,11 @@ More information about RFA can be found in \cref{appx:rfa}.
 %     \label{fig:rfa-variables}
 % \end{figure}
 
-The workflow of this analysis is the following:
-First, \Dstarp\mun and \Dz\mun final states are selected, which is discussed
-in \cref{ref:selection}.
+As an update to LHCb \RDX run 1 analysis, this analysis shares a similar
+workflow with that of run 1.
+The workflow of this analysis is:
+First, \Dstarp\mun and \Dz\mun final states are selected with procedure
+described in \cref{ref:selection}.
 Then, emulation of certain detector responses to MC are carried out offline:
 This analysis requires a large number of MC events to control statistical
 uncertainty, making \emph{simulating} every detector response impractical.
@@ -109,9 +112,7 @@ Finally, \RDX are extracted from a simultaneous fit, with fit procedure and
 results listed in \cref{ref:fit}
 and selected systematic uncertainties discussed in
 \cref{ref:sys-uncert}.
-As an update to LHCb \RDX run 1 analysis, this analysis shares a similar
-workflow with that of run 1.
-Many technologies developed in run 1 are carried over to this analysis.
+Many technologies developed for run 1 are carried over to this analysis.
 The main additional difficulties this analysis has to face are the emulation
 on MC (already listed above) and a wide variety of software usage, including
 different versions of the same software.
