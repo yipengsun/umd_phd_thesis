@@ -2,17 +2,16 @@
 \label{ref:selection}
 
 This chapter describes the selection procedure for samples used in this
-analysis.
-A generic selection procedure involves two parts: online and offline selection.
+analysis which involves two parts: online and offline selection.
 The first online selection are a composition of
-pre-defined triggers and additional cuts provided by the LHCb experiment;
+pre-defined triggers and cuts provided by the LHCb experiment;
 some of them may be limiting so extra care is needed to avoid biasing important
 physical quantities.
 The follow-up offline selection are entirely imposed by analysts
 to further balance signal selection and background rejection efficiencies.
 
 Most of the samples are directly used in building fit templates;
-these are discussed in \cref{ref:selection:data} and
+the selection procedure for these are discussed in \cref{ref:selection:data} and
 \cref{ref:selection:mc}.
 Selection of samples used in auxiliary studies is discussed in
 \cref{ref:selection:aux-study}.
@@ -21,22 +20,19 @@ Selection of samples used in auxiliary studies is discussed in
 \section{Real data}
 \label{ref:selection:data}
 
-\subsection{Nominal data sample}
+This analysis currently uses 1665~pb$^{-1}$ of proton-proton collision data
+recorded by LHCb in 2016, at $\sqrt{s} = 13$~TeV.
+It is planned to extend the use of data to 2016-2018 LHCb data.
 
 
-\section{MC simulation}
-\label{ref:selection:mc}
+\subsection{Signal data sample}
 
-
-\section{Auxiliary samples}
-\label{ref:selection:aux-study}
-
-
-\section{Trigger and stripping}
-\label{ref:selection:stripping}
-
-The trigger paths selected for this analysis are listed in \cref{tab:triggers}.
-The L0 paths are chosen to make sure events are not trigged by \muon
+The \Dz\mun final states, henceforth referred as \Dz channel, are selected first
+by an online trigger path,
+a composition of hardware and fast software triggers,
+listed in \cref{tab:triggers}.
+%%%%
+The L0 triggers are chosen to make sure events are not trigged by \muon
 \emph{alone} which will introduce a \pt bias\footnote{
     According to table 1 in \cite{LHCb-DP-2019-001},
     the minimum \pt threshold across all L0 triggers is 1.35 GeV for 2018
@@ -46,16 +42,21 @@ which is very problematic for this analysis as \muon from signal
 $\tauon \rightarrow \muon \neumb \neut$ decays are typically softer and
 have smaller \pt,
 making signal events less likely to be selected.
+%%%%
 The HLT1 paths are updated to the inclusive triggers for LHCb run 2,
 as described in \cite{LHCb-INT-2019-025}, Section 6.7.1.
 The \smalltt{Hlt2XcMuXForTauB2XcMu} is specifically designed for this analysis
 to maintain minimal \pt bias on selected \muon.
 The cuts imposed by the HLT2 line are listed in \cref{tab:cut-hlt2}.
+%%%%
 The \smalltt{Strippingb2D0MuXB2DMuForTauMuLine} requirements are
 listed in \cref{tab:cut-stripping}.
+Overall, the trigger path requires a \muon candidate to form a vertex with a
+high $p_T$ $\Dz (\rightarrow \Km \pip)$ candidate, without any cut on the
+invariant mass on the \Dz\mupm pair, nor on the \muon \pt.
 
 \begin{table}[htb]
-    \caption{Trigger paths selected for this analysis.}
+    \caption{Trigger path for this analysis.}
     \label{tab:triggers}
     \centering
     \parnotereset
@@ -114,6 +115,22 @@ listed in \cref{tab:cut-stripping}.
     \end{tabular}
 \end{table}
 
+
+\section{MC simulation}
+\label{ref:selection:mc}
+
+
+\section{Auxiliary samples}
+\label{ref:selection:aux-study}
+
+
+\section{Trigger and stripping}
+\label{ref:selection:stripping}
+
+The trigger paths selected for this analysis are listed in \cref{tab:triggers}.
+
+
+
 \begin{table}[htb]
     \caption{Cuts defined in \smalltt{Strippingb2D0MuXB2DMuForTauMuLine}.}
     \label{tab:cut-stripping}
@@ -136,7 +153,7 @@ listed in \cref{tab:cut-stripping}.
         \midrule
         \Dz                     & $|\pi\;\pt|+|K\;\pt|$        & $> 2.5$ GeV              \\
                                 & $m - m_\text{PDG}$           & $< 80$ MeV               \\
-                                & \anyChiSq{fit}/nof           & $< 4$                    \\
+                                & \anyChiSq{vertex}/nof        & $< 4$                    \\
                                 & \anyChiSq{FD}                & $> 25$                   \\
                                 & \DIRA                        & $> 0.999$                \\
         \midrule
@@ -147,7 +164,7 @@ listed in \cref{tab:cut-stripping}.
                                 & GhostProb                    & $< 0.5$                 \\
         \midrule
         \Dz\muon                & $m$                          & 0--10 GeV               \\
-                                & \anyChiSq{fit}/ndf           & $< 6$                   \\
+                                & \anyChiSq{vertex}/ndf        & $< 6$                   \\
                                 & \DIRA                        & $>0.999$                \\
         \bottomrule
     \end{tabular}
