@@ -1,17 +1,29 @@
 \section{Real data}
-\label{ref:selection:data}
+\label{ref:sel:data}
 
 This analysis currently uses 1665~pb$^{-1}$ of proton-proton collision data
 recorded by LHCb in 2016, at $\sqrt{s} = 13$~TeV.
 It is planned to extend the use of data to 2016--2018 LHCb data.
+The rest of the section describes selection procedures for various data samples.
 
 
 \subsection{Global online selection}
+\label{ref:sel:global-online}
 
-The \Dz\mun final states, henceforth referred as \Dz channel, are selected first
-by an online trigger path,
-a composition of hardware and fast software triggers,
-listed in \cref{tab:triggers}.
+The \Dz\mun and \Dstarp\mun final states,
+henceforth referred as \Dz channel and \Dstar channel,
+share the sample online selection which involves
+an online trigger path,
+that is,
+a composition of hardware (L0) and fast software triggers (HLT1, HLT2),
+and additional pre-defined online cuts.
+Overall, the online selection requires a \muon candidate to form
+a well-defined vertex,
+displaced from the $pp$ vertex,
+with a high $p_T$ $\Dz (\rightarrow \Km \pip)$ candidate, without any cut on the
+invariant mass on the \Dz\mupm pair, nor on the \muon \pt.
+
+The trigger path is listed in \cref{tab:triggers}.
 %%%%
 The L0 triggers are chosen to make sure events are not trigged by \muon
 \emph{alone} which will introduce a \pt bias\footnote{
@@ -40,13 +52,8 @@ The cuts imposed by the HLT2 line are listed in \cref{tab:cut-hlt2}.
 Additional online cuts,
 listed in \cref{tab:cut-stripping},
 further tighten the kinematic, vertex quality, and particle identification (PID)
-requirements on the selected candidates.
+requirements.
 
-Overall, the online selection for \Dz channel requires a \muon candidate to form
-a well-defined vertex,
-displaced from the $pp$ vertex,
-with a high $p_T$ $\Dz (\rightarrow \Km \pip)$ candidate, without any cut on the
-invariant mass on the \Dz\mupm pair, nor on the \muon \pt.
 
 \begin{table}[htb]
     \caption{
