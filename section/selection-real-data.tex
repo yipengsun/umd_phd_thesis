@@ -19,7 +19,7 @@ a composition of hardware (L0) and fast software triggers (HLT1, HLT2),
 and additional pre-defined online cuts.
 Overall, the online selection requires a \muon candidate to form
 a well-defined vertex,
-displaced from the $pp$ vertex,
+displaced from the $pp$ vertex (PV),
 with a high $p_T$ $\Dz (\rightarrow \Km \pip)$ candidate, without any cut on the
 invariant mass on the \Dz\mupm pair, nor on the \muon \pt.
 
@@ -37,7 +37,7 @@ have smaller \pt,
 making signal events less likely to be selected.
 %%%%
 The inclusive HLT1 triggers select events containing a particle whose decay
-vertex is displaced from the $pp$ vertex,
+vertex is displaced from the PV,
 in this case a $\Dz \rightarrow \Km \pip$,
 as described in \cite{LHCb-INT-2019-025}, Section 6.7.1.
 %%%%
@@ -183,9 +183,8 @@ The \Dstar in \cref{tab:offline-cut-dst}.
 Some of the cutting variables are not standard LHCb variables;
 these are marked in the tables and will be discussed in \cref{ref:sel:tech}.
 
-Due to the fact that \Dstar\muon candidates arise from \Dz\muon ones,
-as required by the selection procedure,
-some candidates will appear in both \Dz and \Dstar channel,
+Due to the fact that both \Dz and \Dstar channel have the same online selection,
+some candidates will appear in both,
 making the two channels correlated.
 %%%%
 This correlation is removed by a \Dstar veto procedure in the \Dz channel;
