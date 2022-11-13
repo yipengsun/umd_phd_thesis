@@ -54,14 +54,6 @@ listed in \cref{tab:cut-stripping},
 further tighten the kinematic, vertex quality, and particle identification (PID)
 requirements.
 
-Due to the fact that \Dstar\muon pairs arises from \Dz\muon pairs, as required
-by the selection procedure, some candidates will appear in both
-\Dz and \Dstar channel, making the two channels correlated.
-This correlation is removed by a \Dstar veto procedure in the \Dz channel;
-such procedure makes the two channels orthogonal, and is discussed in
-\cref{ref:sel:tech:veto}.
-
-
 \begin{table}[htb]
     \caption{
         Trigger path for this analysis.
@@ -171,12 +163,16 @@ such procedure makes the two channels orthogonal, and is discussed in
 Additional offline selection with stricter vertex quality and PID requirements,
 mostly aligned with the \emph{online} selection in LHCb run 1,
 are applied to both \Dz and \Dstar channels.
-Furthermore, only the \Dz\mup, referred as ``right-sign'' combinations, are
-kept.
+%%%%
+Furthermore, only the $D^{0,*+}\mun$ candidates,
+referred as ``right-sign'' combinations,
+are kept.
+%%%%
 The initial motivation was to bring 2016 data on par with run 1 data so
 distributions of the same variables in 2016 and run 1 can be compared in a more
 meaningful way,
 providing check points for the development of this analysis.
+%%%%
 Later, it is checked with a survey of selection efficiencies of different decay
 modes that the run 1 selection is still optimal.
 
@@ -186,6 +182,15 @@ The additional \Dz only cuts are listed in \cref{tab:offline-cut-d0},
 The \Dstar in \cref{tab:offline-cut-dst}.
 Some of the cutting variables are not standard LHCb variables;
 these are marked in the tables and will be discussed in \cref{ref:sel:tech}.
+
+Due to the fact that \Dstar\muon candidates arise from \Dz\muon ones,
+as required by the selection procedure,
+some candidates will appear in both \Dz and \Dstar channel,
+making the two channels correlated.
+%%%%
+This correlation is removed by a \Dstar veto procedure in the \Dz channel;
+such procedure makes the two channels mostly orthogonal, and is discussed in
+\cref{ref:sel:tech:veto}.
 
 \begin{table}[htb]
     \caption{Offline cuts shared among \Dz and \Dstar channels.}
