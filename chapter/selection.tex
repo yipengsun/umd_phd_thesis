@@ -15,6 +15,9 @@ the selection procedure for these are discussed in \cref{ref:selection:data} and
 \cref{ref:selection:mc}.
 Selection of samples used in auxiliary studies is discussed in
 \cref{ref:selection:aux-study}.
+Additional technologies are developed for this analysis to aid the selection
+process; these are described in more details in
+\cref{ref:selection:tech}.
 
 
 \section{Real data}
@@ -43,10 +46,9 @@ $\tauon \rightarrow \muon \neumb \neut$ decays are typically softer and
 have smaller \pt,
 making signal events less likely to be selected.
 %%%%
-The HLT1 paths are updated to the inclusive triggers,
-which select events containing a particle whose decay vertex is displaced
-from the $pp$ vertex,
-for LHCb run 2,
+The inclusive HLT1 triggers select events containing a particle whose decay
+vertex is displaced from the $pp$ vertex,
+in this case a $\Dz \rightarrow \Km \pip$,
 as described in \cite{LHCb-INT-2019-025}, Section 6.7.1.
 %%%%
 The \smalltt{Hlt2XcMuXForTauB2XcMu} is specifically designed for this analysis
@@ -59,12 +61,13 @@ The cuts imposed by the HLT2 line are listed in \cref{tab:cut-hlt2}.
 %%%%
 Additional online cuts,
 listed in \cref{tab:cut-stripping},
-further tighten the kinematic and vertex quality requirements on the selected
-candidates.
+further tighten the kinematic, vertex quality, and particle identification (PID)
+requirements on the selected candidates.
 
 Overall, the online selection for \Dz channel requires a \muon candidate to form
-a well-defined vertex displaced from the $pp$ vertex with a
-high $p_T$ $\Dz (\rightarrow \Km \pip)$ candidate, without any cut on the
+a well-defined vertex,
+displaced from the $pp$ vertex,
+with a high $p_T$ $\Dz (\rightarrow \Km \pip)$ candidate, without any cut on the
 invariant mass on the \Dz\mupm pair, nor on the \muon \pt.
 
 \begin{table}[htb]
@@ -170,78 +173,27 @@ invariant mass on the \Dz\mupm pair, nor on the \muon \pt.
     \end{tabular}
 \end{table}
 
-
-\section{MC simulation}
-\label{ref:selection:mc}
-
-
-\section{Auxiliary samples}
-\label{ref:selection:aux-study}
-
-
-\section{Trigger and stripping}
-\label{ref:selection:stripping}
-
-The trigger paths selected for this analysis are listed in \cref{tab:triggers}.
-
-
-
-
-
-\section{Candidate reconstruction}
-\label{ref:selection:cand-reco}
-
-Both real data and MC samples are reconstructed with \davinci{v45r6}.
-For real data, only events passing corresponding stripping requirements are
-reconstructed.
-Due to the lack of stripping and minimal filtering for the MC samples, the
-stripping selections (\cref{tab:cut-stripping}) are re-applied in \davinci,
-without PID requirements.
-
-The reconstruction sequences\footnote{
-    The \davinci reconstruction script can be found at
-    \techurllink{https://github.com/umd-lhcb/lhcb-ntuples-gen/blob/master/run2-rdx/reco_Dst_D0.py}{
-        github/umd-lhcb/lhcb-ntuples-gen}.
-}
-are identical for both \Dz and \Dstar channels,
-up to the reconstruction of \Dz\muon pair.
-The \Dstar channel additionally requires a slow \pion\footnote{
-    For real data, it is from the \texttt{StdAllLoosePions} TES location.
-    For MC, \texttt{StdAllNoPIDsPions}.
-} to form a \Dstar vertex with already reconstructed \Dz
-which subsequently forms a \Bz vertex with reconstructed \muon.
-
-Due to the fact that \Dstar\muon pairs arises from \Dz\muon pairs, as required
-by the reconstruction sequences, some candidates will appear in both
-\Dz and \Dstar channel, making the two channels correlated.
-This correlation is removed by vetoing \Dstar candidates in the \Dz channel;
-such procedure makes the two channels orthogonal, and is discussed in
-\cref{ref:selection:veto}.
-
-
-\section{Offline selections}
-\label{ref:selection:offline}
-
-Additional offline selections with stricter vertex quality and PID requirements,
-mostly aligned with the old stripping line with the same name in LHCb run 1,
-are applied to reconstructed samples.
+Additional offline selection with stricter vertex quality and PID requirements,
+mostly aligned with the \emph{online} selection in LHCb run 1,
+are applied to both \Dz and \Dstar channels.
+Furthermore, only the \Dz\mup, referred as ``right-sign'' combinations, are
+kept.
 The initial motivation was to bring 2016 data on par with run 1 data so
 distributions of the same variables in 2016 and run 1 can be compared in a more
 meaningful way,
 providing check points for the development of this analysis.
-Later, it is checked with a figure of merit study that the run 1 selections
-are still optimal.
-% TODO: Cite Alex's candidacy paper maybe?
+Later, it is checked with a survey of selection efficiencies of different decay
+modes that the run 1 selection is still optimal.
 
-The selections that are shared among \Dz and \Dstar channels are listed in
-\cref{tab:offline-cut-common}.
-The additional \Dz only selections are listed in \cref{tab:offline-cut-d0},
+The offline cuts that are shared among \Dz and \Dstar channels are listed
+in \cref{tab:offline-cut-common}.
+The additional \Dz only cuts are listed in \cref{tab:offline-cut-d0},
 The \Dstar in \cref{tab:offline-cut-dst}.
-Some of the selection variables are not standard LHCb variables;
-these are marked in the tables and will be discussed in the subsequent sections.
+Some of the cutting variables are not standard LHCb variables;
+these are marked in the tables and will be discussed later.
 
 \begin{table}[htb]
-    \caption{Offline selections shared among \Dz and \Dstar channels.}
+    \caption{Offline cuts shared among \Dz and \Dstar channels.}
     \label{tab:offline-cut-common}
     \centering
     \begin{tabular}{c|rll}
@@ -301,7 +253,7 @@ these are marked in the tables and will be discussed in the subsequent sections.
 \end{table}
 
 \begin{table}[htb]
-    \caption{Offline selections exclusive to \Dz channel.}
+    \caption{Offline cuts exclusive to \Dz channel.}
     \label{tab:offline-cut-d0}
     \centering
     \begin{tabular}{c|rll}
@@ -333,7 +285,7 @@ these are marked in the tables and will be discussed in the subsequent sections.
 \end{table}
 
 \begin{table}[htb]
-    \caption{Offline selections exclusive to \Dstar channel.}
+    \caption{Offline cuts exclusive to \Dstar channel.}
     \label{tab:offline-cut-dst}
     \centering
     \begin{tabular}{c|rll}
@@ -352,16 +304,7 @@ these are marked in the tables and will be discussed in the subsequent sections.
         \midrule
         \Dz\muon\parnote{
             This pair is not available at \davinci output.
-        }              & \anyChiSq{vertex}/ndf \parnote{
-                           This is extracted by
-                           \texttt{TupleToolTagDiscardDstMu}.
-                           Add this tool to the reconstructed \Bz
-                           in \davinci.
-                           The tool can be found at
-                           \techurllink{https://github.com/umd-lhcb/TupleToolSemiLeptonic/blob/master/Phys/TupleToolSemiLeptonic/src/TupleToolTagDiscardDstMu.cpp}{
-                               github/umd-lhcb/TupleToolSemiLeptonic
-                           }.
-                       }                                 & $< 6$         \\
+        }              & \anyChiSq{vertex}/ndf           & $< 6$         \\
                        & \DIRA\parnote{
                            This cut is applied at \davinci level,
                            \emph{not} offline.
@@ -378,6 +321,56 @@ these are marked in the tables and will be discussed in the subsequent sections.
         \parnotes
     \end{flushleft}
 \end{table}
+
+
+\section{MC simulation}
+\label{ref:selection:mc}
+
+
+\section{Auxiliary samples}
+\label{ref:selection:aux-study}
+
+
+\section{Trigger and stripping}
+\label{ref:selection:stripping}
+
+
+
+
+\section{Candidate reconstruction}
+\label{ref:selection:cand-reco}
+
+Both real data and MC samples are reconstructed with \davinci{v45r6}.
+For real data, only events passing corresponding stripping requirements are
+reconstructed.
+Due to the lack of stripping and minimal filtering for the MC samples, the
+stripping selections (\cref{tab:cut-stripping}) are re-applied in \davinci,
+without PID requirements.
+
+The reconstruction sequences\footnote{
+    The \davinci reconstruction script can be found at
+    \techurllink{https://github.com/umd-lhcb/lhcb-ntuples-gen/blob/master/run2-rdx/reco_Dst_D0.py}{
+        github/umd-lhcb/lhcb-ntuples-gen}.
+}
+are identical for both \Dz and \Dstar channels,
+up to the reconstruction of \Dz\muon pair.
+The \Dstar channel additionally requires a slow \pion\footnote{
+    For real data, it is from the \texttt{StdAllLoosePions} TES location.
+    For MC, \texttt{StdAllNoPIDsPions}.
+} to form a \Dstar vertex with already reconstructed \Dz
+which subsequently forms a \Bz vertex with reconstructed \muon.
+
+Due to the fact that \Dstar\muon pairs arises from \Dz\muon pairs, as required
+by the reconstruction sequences, some candidates will appear in both
+\Dz and \Dstar channel, making the two channels correlated.
+This correlation is removed by vetoing \Dstar candidates in the \Dz channel;
+such procedure makes the two channels orthogonal, and is discussed in
+\cref{ref:selection:veto}.
+
+
+\section{Offline selections}
+\label{ref:selection:offline}
+
 
 
 \section{Muon PID}
