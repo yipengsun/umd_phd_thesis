@@ -43,20 +43,36 @@ $\tauon \rightarrow \muon \neumb \neut$ decays are typically softer and
 have smaller \pt,
 making signal events less likely to be selected.
 %%%%
-The HLT1 paths are updated to the inclusive triggers for LHCb run 2,
+The HLT1 paths are updated to the inclusive triggers,
+which select events containing a particle whose decay vertex is displaced
+from the $pp$ vertex,
+for LHCb run 2,
 as described in \cite{LHCb-INT-2019-025}, Section 6.7.1.
+%%%%
 The \smalltt{Hlt2XcMuXForTauB2XcMu} is specifically designed for this analysis
-to maintain minimal \pt bias on selected \muon.
+to select \Dz\mupm candidates\footnote{
+    Yes, both signs of \muon are selected.
+    The reason will become obvious in later sections.
+} with a high \pt requirement on \Dz,
+while maintain minimal \pt bias on the \mupm.
 The cuts imposed by the HLT2 line are listed in \cref{tab:cut-hlt2}.
 %%%%
-The \smalltt{Strippingb2D0MuXB2DMuForTauMuLine} requirements are
-listed in \cref{tab:cut-stripping}.
-Overall, the trigger path requires a \muon candidate to form a vertex with a
+Additional online cuts,
+listed in \cref{tab:cut-stripping},
+further tighten the kinematic and vertex quality requirements on the selected
+candidates.
+
+Overall, the online selection requires a \muon candidate to form a well-defined
+vertex displaced from the $pp$ vertex with a
 high $p_T$ $\Dz (\rightarrow \Km \pip)$ candidate, without any cut on the
 invariant mass on the \Dz\mupm pair, nor on the \muon \pt.
 
 \begin{table}[htb]
-    \caption{Trigger path for this analysis.}
+    \caption{
+        Trigger path for this analysis.
+        For terminologies such as TIS and TOS, refer to
+        \cref{appx:t}.
+    }
     \label{tab:triggers}
     \centering
     \parnotereset
@@ -73,7 +89,7 @@ invariant mass on the \Dz\mupm pair, nor on the \muon \pt.
                 Henceforth these two trigger paths are considered equivalent.
             } || \\ \Dz Hlt1TwoTrackMVA TOS
         } \\
-        HLT2 & \B Hlt2XcMuXForTauB2XcMu \\
+        HLT2 & \B Hlt2XcMuXForTauB2XcMu TOS \\
         \bottomrule
     \end{tabular}
     \begin{flushleft}
@@ -115,24 +131,8 @@ invariant mass on the \Dz\mupm pair, nor on the \muon \pt.
     \end{tabular}
 \end{table}
 
-
-\section{MC simulation}
-\label{ref:selection:mc}
-
-
-\section{Auxiliary samples}
-\label{ref:selection:aux-study}
-
-
-\section{Trigger and stripping}
-\label{ref:selection:stripping}
-
-The trigger paths selected for this analysis are listed in \cref{tab:triggers}.
-
-
-
 \begin{table}[htb]
-    \caption{Cuts defined in \smalltt{Strippingb2D0MuXB2DMuForTauMuLine}.}
+    \caption{Additional online cuts.}
     \label{tab:cut-stripping}
     \centering
     \begin{tabular}{c|rll}
@@ -169,6 +169,22 @@ The trigger paths selected for this analysis are listed in \cref{tab:triggers}.
         \bottomrule
     \end{tabular}
 \end{table}
+
+\section{MC simulation}
+\label{ref:selection:mc}
+
+
+\section{Auxiliary samples}
+\label{ref:selection:aux-study}
+
+
+\section{Trigger and stripping}
+\label{ref:selection:stripping}
+
+The trigger paths selected for this analysis are listed in \cref{tab:triggers}.
+
+
+
 
 
 \section{Candidate reconstruction}
