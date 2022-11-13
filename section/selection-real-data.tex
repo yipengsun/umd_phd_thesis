@@ -8,7 +8,7 @@ The rest of the section describes selection procedures for various data samples.
 
 
 \subsection{Global online selection}
-\label{ref:sel:global-online}
+\label{ref:sel:data:global-online}
 
 The \Dz\mun and \Dstarp\mun final states,
 henceforth referred as \Dz channel and \Dstar channel,
@@ -53,6 +53,13 @@ Additional online cuts,
 listed in \cref{tab:cut-stripping},
 further tighten the kinematic, vertex quality, and particle identification (PID)
 requirements.
+
+Due to the fact that \Dstar\muon pairs arises from \Dz\muon pairs, as required
+by the selection procedure, some candidates will appear in both
+\Dz and \Dstar channel, making the two channels correlated.
+This correlation is removed by a \Dstar veto procedure in the \Dz channel;
+such procedure makes the two channels orthogonal, and is discussed in
+\cref{ref:sel:tech:veto}.
 
 
 \begin{table}[htb]
@@ -178,7 +185,7 @@ in \cref{tab:offline-cut-common}.
 The additional \Dz only cuts are listed in \cref{tab:offline-cut-d0},
 The \Dstar in \cref{tab:offline-cut-dst}.
 Some of the cutting variables are not standard LHCb variables;
-these are marked in the tables and will be discussed later.
+these are marked in the tables and will be discussed in \cref{ref:sel:tech}.
 
 \begin{table}[htb]
     \caption{Offline cuts shared among \Dz and \Dstar channels.}
