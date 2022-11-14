@@ -7,13 +7,20 @@ It is planned to extend the use of data to 2016--2018 LHCb data.
 The rest of the section describes selection procedures for various data samples.
 
 
-\subsection{Global online selection}
-\label{ref:sel:data:global-online}
+\subsection{Right sign samples with a ``real'' muon}
+\label{ref:sel:data:rs}
 
-The \Dz\mun and \Dstarp\mun final states,
+It is important to first define the terms ``right sign'' and ```real' muon''.
+``Right sign'' means the $D^{(*)} \mu$ pair can form a legitimate $B$ meson.
+That is, only \Dz\mun and \Dstarp\mun (and their charge conjugates) pairs are
+of the ``right sign''.
+As of ``real'' muon, it requires the selected \muon to pass certain particle
+identification requirements.
+
+The online selection for \Dz\mun and \Dstarp\mun final states,
 henceforth referred as \Dz channel and \Dstar channel,
-share the sample online selection which involves
-an online trigger path,
+are identical.
+The selection involves an online trigger path,
 that is,
 a composition of hardware (L0) and fast software triggers (HLT1, HLT2),
 and additional pre-defined online cuts.
@@ -22,16 +29,17 @@ a well-defined vertex,
 displaced from the $pp$ vertex (PV),
 with a high $p_T$ $\Dz (\rightarrow \Km \pip)$ candidate, without any cut on the
 invariant mass on the \Dz\mupm pair, nor on the \muon \pt.
+More details regarding the online selection is given below.
 
 The trigger path is listed in \cref{tab:triggers}.
 %%%%
-The L0 triggers are chosen to make sure events are not trigged by \muon
-\emph{alone} which will introduce a \pt bias\footnote{
+The L0 triggers are chosen to make sure events are not trigged by
+the \muon candidate \emph{alone} which will introduce a \pt bias\footnote{
     According to table 1 in \cite{LHCb-DP-2019-001},
     the minimum \pt threshold across all L0 triggers is 1.35 GeV for 2018
     L0Muon trigger.
-} on \muon,
-which is very problematic for this analysis as \muon from signal
+} on \muon.
+Such bias is very problematic for this analysis as \muon from signal
 $\tauon \rightarrow \muon \neumb \neut$ decays are typically softer and
 have smaller \pt,
 making signal events less likely to be selected.
@@ -156,17 +164,14 @@ requirements.
         \bottomrule
     \end{tabular}
 \end{table}
+%%%%
 
-
-\subsection{Global offline selection}
 
 Additional offline selection with stricter vertex quality and PID requirements,
 mostly aligned with the \emph{online} selection in LHCb run 1,
 are applied to both \Dz and \Dstar channels.
 %%%%
-Furthermore, only the $D^{0,*+}\mun$ candidates,
-referred as ``right-sign'' combinations,
-are kept.
+Furthermore, only the right-sign $D^{(*)}\mu$ candidates are kept.
 %%%%
 The initial motivation was to bring 2016 data on par with run 1 data so
 distributions of the same variables in 2016 and run 1 can be compared in a more
@@ -174,22 +179,29 @@ meaningful way,
 providing check points for the development of this analysis.
 %%%%
 Later, it is checked with a survey of selection efficiencies of different decay
-modes that the run 1 selection is still optimal.
+modes on MC cocktail,
+whose relative yields adjusted according fitted yields,
+that the run 1 selection is still optimal.
 
 The offline cuts that are shared among \Dz and \Dstar channels are listed
 in \cref{tab:offline-cut-common}.
 The additional \Dz only cuts are listed in \cref{tab:offline-cut-d0},
 The \Dstar in \cref{tab:offline-cut-dst}.
-Some of the cutting variables are not standard LHCb variables;
-these are marked in the tables and will be discussed in \cref{ref:sel:tech}.
 
 Due to the fact that both \Dz and \Dstar channel have the same online selection,
 some candidates will appear in both,
 making the two channels correlated.
 %%%%
-This correlation is removed by a \Dstar veto procedure in the \Dz channel;
-such procedure makes the two channels mostly orthogonal, and is discussed in
-\cref{ref:sel:tech:veto}.
+This correlation is removed by a \Dstar veto procedure in the \Dz channel,
+and is discussed in \cref{ref:sel:tech:veto}.
+
+The standard LHCb \muon PID has low efficiency at low \pt.
+However, previous analysis (\cite{LHCb-ANA-2020-056}) showed that a tighter
+\muon PID reduces other charged species misidentified (misID) as \mu, reducing
+the systematic uncertainty due to misID effects.
+Therefore, an offline \muon PID method, termed UBDT, is developed to reduce
+misID while maintain a flat \pt response.
+A brief overview on this method is provided in \cref{ref:sel:tech:ubdt}.
 
 \begin{table}[htb]
     \caption{Offline cuts shared among \Dz and \Dstar channels.}
@@ -241,7 +253,7 @@ such procedure makes the two channels mostly orthogonal, and is discussed in
                             & \PID{$e$}                    & $< 1$                    \\
                             & \UBDT\parnote{
                                 This is a BDT-based \muon PID algorithm,
-                                which is discussed in \cref{ref:selection:mu-pid}.
+                                which is discussed in \cref{ref:sel:tech:ubdt}.
                             }
                                                            & $> 0.25$                 \\
         \bottomrule
@@ -269,7 +281,7 @@ such procedure makes the two channels mostly orthogonal, and is discussed in
                             \label{parnote:dst-veto}
                             To reduce overlapping events between
                             \Dz and \Dstar channels.
-                            Discussed in \cref{ref:selection:veto}.
+                            Discussed in \cref{ref:selection:tech:veto}.
                         }                              & $> 4$ MeV       \\
                         & $\Delta m_\text{alt hypo}$\parnoteref{parnote:dst-veto}
                                                        & $> 165$ MeV     \\
@@ -301,13 +313,8 @@ such procedure makes the two channels mostly orthogonal, and is discussed in
                        }                                 & $< 2$ MeV     \\
                        & \anyChiSq{vertex}/ndf           & $< 10$        \\
         \midrule
-        \Dz\muon\parnote{
-            This pair is not available at \davinci output.
-        }              & \anyChiSq{vertex}/ndf           & $< 6$         \\
-                       & \DIRA\parnote{
-                           This cut is applied at \davinci level,
-                           \emph{not} offline.
-                       }                                 & $> 0.999$     \\
+        \Dz\muon       & \anyChiSq{vertex}/ndf           & $< 6$         \\
+                       & \DIRA\parnote                   & $> 0.999$     \\
         \midrule
         \Dstarp\muon   & $m$                             & $< 5280$ MeV  \\
                        & transverse flight distance      & $< 7$ mm      \\
@@ -322,143 +329,44 @@ such procedure makes the two channels mostly orthogonal, and is discussed in
 \end{table}
 
 
-\subsection{Signal (ISO) and control (1OS, 2OS, DD) samples}
-\label{ref:sel:data:skims}
+\subsection{Wrong sign samples with a ``real'' muon}
+\label{ref:sel:data:ws}
 
-The signal and control samples are selected by inspecting if there exists
-additional charged tracks that are compatible with coming from the
-reconstructed \B vertex.
-To predict the possibility of a charged track originating from the \B vertex,
-a multivariate BDT, referred as ``isolation BDT'', is used.
-The BDT is conceptually identical to the one used in
-\cite{LHCb-ANA-2020-056} but with the BDT re-trained based on LHCb run 2
-simulation.
+The wrong sign samples are used to model combinatorial backgrounds which are
+most dominate in the $D^{(*)}\mu$ pairs,
+as only one-sided mass cut is applied on them, as opposed to a two-sided
+mass window cut
+(e.g. $m < 5280$ instead of $5280 - \epsilon < m < 5280 + \epsilon$).
+This is because the momenta and energies of the neutrinos are not taken into
+account,
+the invariant mass of $D^{(*)}\mu$ pairs might be far away from known $B$ meson
+masses so \emph{no suitable} mass window cut can be applied.
+For \Dz channel, the \emph{unphysical}\footnote{
+    Recall that the right-sign sample are reconstructed as the following decay:
+    $\Bm \rightarrow \Dz (\rightarrow \Km \pip) \mun$,
+    so \Dz\mup pairs are unphysical.
+} \Dz\mup pairs are purely of combinatorial
+nature and is the only dominate combinatorial and is referred as
+\emph{wrong-sign \mu}.
+For \Dstar channel, a \Dstarp may randomly combine with a
+\emph{wrong-sign \mup}; alternatively, a \Dz may combine with a
+\emph{wrong-sign slow \pim} to form a \Dstarm.
 
-The isolation BDT\footnote{
-    The isolation BDT can be found at
-    \techurllink{https://github.com/umd-lhcb/TupleToolSemiLeptonic/blob/master/Phys/TupleToolSemiLeptonic/src/TupleToolApplyIsolation.cpp}{github/umd-lhcb/TupleToolSemiLeptonic}.
-} is added to the \davinci reconstruction sequence.
-It loops over all charged tracks in the event\footnote{
-    More specifically, these tracks are coming from
-    \texttt{StdAllNoPIDsPions}, \texttt{StdNoPIDsUpPions},
-    and \texttt{StdNoPIDsVeloPions}.
-},
-providing isolation scores for each of them where
-higher score implies higher probability of coming from the vertex, named as
-``anti-isolated''.
-Three tracks with highest isolation scores\footnote{
-    The ones that are most likely to be anti-isolated.
-} are saved in the output file, in descending order\footnote{
-    So the first one is the most anti-isolated one among all charged tracks
-    in the event.
-}.
-
-Below a brief description for the signal sample and the main physics background
-control samples is provided.
-The actual isolation selections are listed in \cref{tab:skim-cut}.
+The online selection for wrong sign samples are the same as the right sign,
+as described in \cref{ref:sel:data:rs}.
+The offline selection is also mostly identical, with differences listed below:
 
 \begin{itemize}
-    \item ISO: $B \rightarrow D^{(*)} \lepton \neulb$, with $\lepton \in \{\muon,
-        \tauon\}$.
-        This is referred as signal, or ``isolated'', sample.
-        It requires that no additional charged track is from the \B vertex
-        (in a probabilistic sense, with probability related to the isolation
-        score)
-        and is compatible with a fully reconstructed \B decay
-        (ignoring missing neutrino(s)).
-
-    \item DD: $B \rightarrow D^{(*)}D X$,
-        with dominate $D \rightarrow \Kp \mun \neumb X$ sub-decays.
-        This is a double-charm ($DD$) control sample,
-        which is selected by requiring at least one anti-isolated track,
-        a \kaon-like long track\footnote{
-            This means the track went through both upstream and downstream
-            trackers, and is generally of good tracking quality.
-        } and a hard track in the three most anti-isolated tracks\footnote{
-            Note that these three requirements can be satisfied by a single
-            track.
-        }.
-
-    \item 1OS: $B \rightarrow D^{**} \lepton \neulb$.
-        This control sample, enriched in excited charm states,
-        requires one and only one additional anti-isolated charged long track
-        that is compatible with a \pion PID hypothesis and has correct charge
-        for a $D^{**} \rightarrow D^{(*+)}\pim$ decay.
-
-    \item 2OS: $B \rightarrow D^{**}_H \lepton \neulb$,
-        where $H$ stands for ``heavy''.
-        This control sample is enriched in highly excited (heavy) charm states,
-        which is selected by requiring two and only two anti-isolated \pion-like
-        long tracks of opposite charge,
-        capable of $D^{**}_H \rightarrow D^{(*)} \pip\pim$ decay.
-
-        % Why?
-        This sample also provides an independent selection of
-        $B \rightarrow D^{(*)}D X$ backgrounds, where the \pip\pim fit into the
-        $X$ category and \kaon escapes isolation detection.
+    \item \Dz channel, wrong-sign \mu:
+        The wrong-sign \Dz\mup candidates are used in place of the right-sign
+        \Dz\mun.
+    \item \Dstar channel, wrong-sign \mu:
+        The wrong-sign \Dz\mup candidates are used.
+    \item \Dstar channel, wrong-sign \pi:
+        The right-sign \Dz\mun candidates are used.
+        Furthermore, a wrong-sign slow \pim is selected so the \Dstar has the
+        wrong-sign.
 \end{itemize}
 
-\begin{table}[htb]
-    \caption{Signal and control sample isolation requirements.}
-    \label{tab:skim-cut}
-    \centering
-    \begin{tabular}{c|rll}
-        \toprule
-        {\bf Sample}  & {\bf Variable}              & {\bf Cuts}     \\
-        \midrule
-        ISO           & \isoBDT{1}                  & $< 0.15$       \\
-        \midrule
-        1OS           & \isoBDT{1}                  & $> 0.15$       \\
-                      & \isoBDT{2}                  & $< 0.15$       \\
-                      & \isoTrack{1}                & $= 3$\parnote{
-                          This means a long track.
-                      }                                              \\
-                      & $p_1$                       & $> 5$ GeV      \\
-                      & $p_{T,1}$                   & $> 0.15$ GeV   \\
-                      & \ProbNN{$K_1$}              & $< 0.2$        \\
-                      & $Q_1 \cdot \text{PID}_\Dz$\parnote{
-                          Apply to \Dz channel,
-                          which implies that the anti-isolated \pip can
-                          form a \Dstarp with the \Dz.
-                      }                             & $> 0$          \\
-                      & $Q_1 \cdot \text{PID}_\Dstar$\parnote{
-                          Apply to \Dstar channel.
-                          Here it is required that the anti-isolated \pim can
-                          form a $D^{**0}$ with the \Dstarp.
-                      }                             & $< 0$          \\
-        \midrule
-        2OS           & \isoBDT{1}                  & $> 0.15$       \\
-                      & \isoBDT{2}                  & $> 0.15$       \\
-                      & \isoBDT{3}                  & $< 0.15$       \\
-                      & \isoTrack{1}                & $= 3$          \\
-                      & \isoTrack{2}                & $= 3$          \\
-                      & {\footnotesize
-                         Max$(p_1 \cdot (p_{T,1} > 0.15 \text{ GeV}),
-                              p_2 \cdot (p_{T,2} > 0.15 \text{ GeV}))$
-                        }
-                                                    & $> 5$ GeV      \\
-                      & \ProbNN{$K_1$}              & $< 0.2$        \\
-                      & \ProbNN{$K_2$}              & $< 0.2$        \\
-                      & $Q_1 \cdot Q_2$             & $< 0$          \\
-        \midrule
-        DD            & \isoBDT{1}                  & $> 0.15$       \\
-                      & {\footnotesize$\begin{aligned}
-                            \text{Max}(
-                            &p_1 \cdot (p_{T,1} > 0.15\text{ GeV}),  \\
-                            &p_2 \cdot (p_{T,2} > 0.15\text{ GeV})
-                                 \cdot (\text{\isoBDT{2}} > -1.1),   \\
-                            &p_3 \cdot (p_{T,3} > 0.15\text{ GeV})
-                                 \cdot (\text{\isoBDT{3}} > -1.1)
-                            )
-                        \end{aligned}$}             & $> 5$ GeV      \\
-                      & Max(\ProbNN{$K_{1,2,3}$})   & $> 0.2$        \\
-                      & \isoTrack{\text{the one passing $K$ PID requirement}}
-                                                    & $= 3$          \\
-                      & \isoBDT{\text{the one passing $K$ PID requirement}}
-                                                    & $> -1.1$       \\
-        \bottomrule
-    \end{tabular}
-    \begin{flushleft}
-        \parnotes
-    \end{flushleft}
-\end{table}
+
+\subsection{Fake muon samples}

@@ -11,9 +11,11 @@ The follow-up offline selection are entirely imposed by analysts
 to further balance signal selection and background rejection efficiencies
 and separate the signal-like sample from various backgrounds.
 
-Most of the samples are directly used in building fit templates;
-the selection procedure for these are discussed in \cref{ref:sel:data} and
-\cref{ref:sel:mc}.
+Various data and MC samples are selected with procedure described
+in \cref{ref:sel:data,ref:sel:mc}.
+Each sample is further divided into signal-like and control background
+sub-samples, also known as ``skims'', with selections listed in
+\cref{ref:sel:skims}.
 Selection of samples used in auxiliary studies is discussed in
 \cref{ref:sel:aux-study}.
 Additional technologies are used in the selection process;
@@ -23,13 +25,12 @@ these are described in more details in
 
 \input{section/selection-real-data.tex}
 
-
 \section{MC simulation}
 \label{ref:sel:mc}
 
+\input{section/selection-skims.tex}
 
 \section{Auxiliary samples}
-\label{ref:sel:aux-study}
-
+\label{ref:sel:aux}
 
 \input{section/selection-tech.tex}
