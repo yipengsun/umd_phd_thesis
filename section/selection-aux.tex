@@ -1,0 +1,44 @@
+\section{Auxiliary samples}
+\label{ref:sel:aux}
+
+A $\Bp \rightarrow \jpsi \Kp$ sample is used to derive $B$ kinematic and
+multiplicity corrections to MC.
+The data sample is reconstructed from the
+\smalltt{StrippingBetaSBu2JpsiKDetachedLine}, and fitted with
+a \sPlot procedure.
+The MC sample used to compare with $\jpsi \Kp$ data is listed in
+\cref{tab:add-mc-samples}.
+The procedure is described in \cref{sec:data-mc:init-rwt:jpsi-k-correction}.
+
+A simulated $\Dz \rightarrow \Km \pip$ MC sample,
+also listed in \cref{tab:add-mc-samples},
+is requested to model the momentum smearing in the misID sample due to
+decay-in-flight effect, which is described in
+\cref{sec:data-driven-templates:mu-misid:dif}.
+
+\begin{table}[htb]
+    \caption{
+        Additional MC control samples.
+        All samples are full simulations.
+    }
+    \label{tab:add-mc-samples}
+    \centering
+    \parnotereset
+    \begin{tabular}{l|c|c|c}
+        \toprule
+        \makecell{\centering\bf MC ID} & {\bf Decay mode} & {\bf Sim08}\parnote{
+            This is a mixture of Sim08e (\pythia{6}, \pythia{8})
+            and Sim08i (\pythia{8}).
+        } & {\bf Sim09k} \\
+        \midrule
+        22162000\parnote{
+            Currently the 2012 MC are still used for this analysis.
+            It is planned to update to a run 2 MC at a future time.
+        } & $\Dz \rightarrow K \pi$ & 3M & -- \\
+            12143001 & $\Bp \rightarrow \jpsi \Kp$ & -- & 4M \\
+        \bottomrule
+    \end{tabular}
+    \begin{flushleft}
+        \parnotes
+    \end{flushleft}
+\end{table}
