@@ -42,7 +42,7 @@ the \muon candidate \emph{alone} which will introduce a \pt bias\footnote{
 Such bias is very problematic for this analysis as \muon from signal
 $\tauon \rightarrow \muon \neumb \neut$ decays are typically softer and
 have smaller \pt,
-making signal events less likely to be selected.
+making signal events less likely to be selected in the presence of a \pt bias.
 %%%%
 The inclusive HLT1 triggers select events containing a particle whose decay
 vertex is displaced from the PV,
@@ -180,8 +180,12 @@ providing check points for the development of this analysis.
 %%%%
 Later, it is checked with a survey of selection efficiencies of different decay
 modes on MC cocktail,
-whose relative yields adjusted according fitted yields,
+whose relative yields are adjusted according fitted yields,
 that the run 1 selection is still optimal.
+More detailed study on the offline cut optimization based on maximizing the
+figure of merit ($S / \sqrt{S^2 + B^2}$) might be carried out in the future
+but is not a priority because plenty of candidates are retained with
+the current selection.
 
 The offline cuts that are shared among \Dz and \Dstar channels are listed
 in \cref{tab:offline-cut-common}.
@@ -195,11 +199,10 @@ making the two channels correlated.
 This correlation is removed by a \Dstar veto procedure in the \Dz channel,
 and is discussed in \cref{ref:sel:tech:veto}.
 
-The standard LHCb \muon PID has low efficiency at low \pt.
-However, previous analyses (\cite{PhysRevLett.115.111803,LHCb-ANA-2020-056})
-showed that a tighter
-\muon PID reduces other charged species misidentified (misID) as \mu, reducing
-the systematic uncertainty due to misID effects.
+Previous analyses (\cite{PhysRevLett.115.111803,LHCb-ANA-2020-056})
+showed that a tighter \muon PID reduces other charged species misidentified
+(misID) as \muon, reducing the systematic uncertainty due to misID effects.
+However, the standard LHCb \muon PID has low efficiency at low \pt.
 Therefore, an offline \muon PID method, termed UBDT, is developed to reduce
 misID while maintain a flat \pt response.
 A brief overview on this method is provided in \cref{ref:sel:tech:ubdt}.
