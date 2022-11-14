@@ -338,10 +338,11 @@ most dominate in the $D^{(*)}\mu$ pairs,
 as only one-sided mass cut is applied on them, as opposed to a two-sided
 mass window cut
 (e.g. $m < 5280$ instead of $5280 - \epsilon < m < 5280 + \epsilon$).
-This is because the momenta and energies of the neutrinos are not taken into
-account,
-the invariant mass of $D^{(*)}\mu$ pairs might be far away from known $B$ meson
-masses so \emph{no suitable} mass window cut can be applied.
+Due to the presence of missing neutrino(s), the $B$ meson 4-momentum is not
+fully reconstructed.
+Therefore,
+the invariant mass of $D^{(*)}\mu$ pairs might be far away from the known $B$
+meson mass and \emph{no suitable} mass window cut can be applied.
 For \Dz channel, the \emph{unphysical}\footnote{
     Recall that the right-sign sample are reconstructed as the following decay:
     $\Bm \rightarrow \Dz (\rightarrow \Km \pip) \mun$,
@@ -352,6 +353,8 @@ nature and is the only dominate combinatorial and is referred as
 For \Dstar channel, a \Dstarp may randomly combine with a
 \emph{wrong-sign \mup}; alternatively, a \Dz may combine with a
 \emph{wrong-sign slow \pim} to form a \Dstarm.
+The modelling of these backgrounds are discussed in more details in
+\cref{ref:fit:tmpl:data-driven}.
 
 The online selection for wrong sign samples are the same as the right sign,
 as described in \cref{ref:sel:data:rs}.
@@ -376,5 +379,5 @@ The fake \muon samples are used to model the misidentification of a charged
 particle to a \muon.
 Both right-sign and wrong-sign misID samples share the same selections
 as the respective ``real'' \muon sample,
-except for \muon PID, which is replaced by an explicit \muon veto
+except for \muon PID which is replaced by an explicit \muon veto
 (not \isMuon).
