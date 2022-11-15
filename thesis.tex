@@ -89,6 +89,9 @@
 \usepackage{lscape}
 %\usepackage{multirow}
 
+% footnote always at the bottom of the page
+\usepackage[bottom]{footmisc}
+
 
 %%%%%%%%%%
 % tables %
@@ -201,6 +204,7 @@
 }
 \lstset{escapeinside={<@}{@>}}
 \newcommand{\codecolor}[2]{\textcolor{#1}{#2}}
+\newcommand{\smalltt}[1]{{\small\texttt{#1}}}
 
 
 %%%%%%%%
