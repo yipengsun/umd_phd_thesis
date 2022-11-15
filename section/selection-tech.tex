@@ -1,22 +1,29 @@
 \section{Additional technologies used in selection}
 \label{ref:sel:tech}
 
+All technologies described in this selection has been employed in the previous
+analysis (\cite{LHCb-ANA-2020-056}), which uses LHCb run 1 data, but has been
+updated to work with LHCb run 2 data.
+Only a brief description for each technology is reproduced here.
+For more details, refer to \cite{LHCb-ANA-2014-052,LHCb-ANA-2020-056}.
+
 \subsection{Isolation BDT}
 \label{ref:sel:tech:iso-bdt}
 
-To predict the possibility of a charged track originating from the \B vertex,
-a multivariate BDT, referred as ``isolation BDT'', is used.
-The BDT is conceptually identical to the one used in
-\cite{LHCb-ANA-2020-056} but with the BDT re-trained based on LHCb run 2
-simulation.
+A multivariate BDT, referred as ``isolation BDT'',
+conceptually identical to the one used in \cite{LHCb-ANA-2020-056},
+is trained on LHCb run 2 simulation
+%with training variables listed in \cref{tab:iso-bdt-input},
+to provide a score-based estimation on if a charged track is originating from
+the \B ($D^{(*)}\mu$) vertex or not.
 
-The isolation BDT loops over all charged tracks in the event,
+The isolation BDT applies to all charged tracks in the event,
 providing isolation scores for each of them where
 higher score implies higher probability of coming from the vertex, named as
 ``anti-isolated''.
 Three tracks with highest isolation scores\footnote{
     The ones that are most likely to be anti-isolated.
-} are saved in the output file, in descending order\footnote{
+} are saved in descending order\footnote{
     So the first one is the most anti-isolated one among all charged tracks
     in the event.
 }.
@@ -29,46 +36,47 @@ Three tracks with highest isolation scores\footnote{
 % TODO: The number need to be updated
 Since the selection of a \Dstar\muon pair always requires the existence
 of a \Dz\muon pair,
-there is about 35\% of events in the signal sample\footnote{
-    Defined in \cref{ref:sel:data:iso}.
-} of the \Dstar channel leaks into \Dz channel.
+there is about 35\% of events in the signal (ISO) skim of the \Dstar channel
+leaks into \Dz channel.
+%%%%
 This is likely due to the fact that slow \pion typically has poor tracking
-resolution (small \ipChiSq), making the \Dz\pion vertex of poor quality which
-makes the reconstruction fail and \Dstar partially reconstructed as \Dz.
-To make \Dstar and \Dz channel more orthgonoal
+resolution (small \ipChiSq), making the slow \pion to be more likely
+\emph{unassociated} with the \Dz\mun vertex thus the reconstruction of \Dstar
+would fail.
 
 To veto the overlapping candidates between \Dz and \Dstar channel,
-a tool\footnote{
-    Named \texttt{TupleToolApplyIsolationVetoDst}, which can be found at
-    \techurllink{https://github.com/umd-lhcb/TupleToolSemiLeptonic/blob/master/Phys/TupleToolSemiLeptonic/src/TupleToolApplyIsolationVetoDst.cpp}{github/umd-lhcb/TupleToolSemiLeptonic}
-}.
-is added to the \davinci reconstruction sequence, which processes all tracks
-in the event with the following procedure:
+a tool, named \texttt{TupleToolApplyIsolationVetoDst},
+is added to the selection procedure, which processes all tracks
+in the event in the following manner:
 
 \begin{enumerate}
-    \item Denote the track as $t$
+    \item Denote the track as $t$.
     \item Refit a vertex from \Dz and $t$.
-    \item Compute $\Delta m_\text{veto} \equiv m_{\Dz t} - m_\Dz$
+    \item Compute $\Delta m_\text{veto} \equiv m_{\Dz t} - m_\Dz$.
     \item Test if $\Delta m_\text{veto} \in [140~\text{GeV}, 160~\text{GeV}]$.
         If it is, record $\Delta m_\text{veto}$ and the isolation BDT
         score of this track.
 \end{enumerate}
 
 From all recorded BDT scores and $\Delta m_\text{veto}$, the
-$\Delta m_\text{veto}$ of the tracks with top two BDT scores are saved.
-It is then filtered offline (listed in \cref{tab:offline-cut-d0})
+$\Delta m_\text{veto}$ of the tracks with top two BDT scores are saved
+for future use.
+It is then required offline (listed in \cref{tab:offline-cut-d0})
 that these two tracks,
 the best slow \pion candidates,
 are \emph{incompatible} with
-forming a \Dz\pion vertex with a mass close to \Dstar PDG mass.
+forming a \Dz\pion vertex with a mass close to \Dstar reference mass.
 
-Note that this tool does not rank tracks based \emph{solely} on the isolation,
-because the poor tracking resolution of the slow \pion implies that the track is
-\emph{not guaranteed} to have a large isolation score, as it maybe more
-compatible to be originating from PV, instead of the \B vertex.
-Ranking tracks that fall within the $[140~\text{GeV}, 160~\text{GeV}]$
-mass window based on their BDT scores
-makes the veto procedure more robust, as reported in \cite{LHCb-ANA-2020-056}.
+Note that this tool does not rank tracks based \emph{solely} on the isolation:
+The poor tracking resolution of the slow \pion makes the association of
+the track more ambiguous; sometime the track may be associated with the PV,
+instead of the \B vertex, in which case the track would receive a small BDT
+score.
+By ranking based on the BDT scores of the tracks that fall within the
+$[140~\text{GeV}, 160~\text{GeV}]$
+mass window only,
+it is more robust to retain the best slow \pion candidates,
+as reported in \cite{LHCb-ANA-2020-056}.
 
 In addition, an alternative mass hypothesis is tested
 (offline, also listed in \cref{tab:offline-cut-d0}), where the reconstructed
@@ -86,15 +94,12 @@ The veto procedures are applied on all samples of the \Dz channel only.
 \label{ref:sel:tech:ubdt}
 
 To maintain minimum bias on \muon \pt, a multivariate BDT,
-referred as \UBDT, using uBDT method in TMVA class,
+referred as \UBDT, using \texttt{uBDT} method in TMVA class,
 is trained to reject misidentified \muon while keeping rejection
 efficiency flat on \pt,
 as described in \cite{LHCb-ANA-2020-056}.
 
-The \UBDT has been re-trained on LHCb run 2 MC\footnote{
-    The updated project can be found at
-    \techurllink{https://github.com/umd-lhcb/MuonBDTPid}{github/umd-lhcb/MuonBDTPid}.
-}.
+The \UBDT has been re-trained on LHCb run 2 MC samples.
 There is ongoing effort to study its efficiency against standard run 2 PID
 variables.
 Early report suggests the flatness on \pt is maintained while rejection
