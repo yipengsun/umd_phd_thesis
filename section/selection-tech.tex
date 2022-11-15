@@ -1,9 +1,25 @@
 \section{Additional technologies used in selection}
 \label{ref:sel:tech}
 
-
 \subsection{Isolation BDT}
 \label{ref:sel:tech:iso-bdt}
+
+To predict the possibility of a charged track originating from the \B vertex,
+a multivariate BDT, referred as ``isolation BDT'', is used.
+The BDT is conceptually identical to the one used in
+\cite{LHCb-ANA-2020-056} but with the BDT re-trained based on LHCb run 2
+simulation.
+
+The isolation BDT loops over all charged tracks in the event,
+providing isolation scores for each of them where
+higher score implies higher probability of coming from the vertex, named as
+``anti-isolated''.
+Three tracks with highest isolation scores\footnote{
+    The ones that are most likely to be anti-isolated.
+} are saved in the output file, in descending order\footnote{
+    So the first one is the most anti-isolated one among all charged tracks
+    in the event.
+}.
 
 
 \subsection{Veto of overlapping candidates}

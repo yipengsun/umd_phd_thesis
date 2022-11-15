@@ -1,36 +1,16 @@
 \section{Signal (ISO) and control background (1OS, 2OS, DD) skims}
 \label{ref:sel:skims}
 
-The signal and control skims are selected by inspecting if there exists
-additional charged tracks that are compatible with coming from the
+The signal and control skims (subsamples) are separated by inspecting if there
+exists additional charged tracks that are compatible with coming from the
 reconstructed \B vertex.
-To predict the possibility of a charged track originating from the \B vertex,
-a multivariate BDT, referred as ``isolation BDT'', is used.
-The BDT is conceptually identical to the one used in
-\cite{LHCb-ANA-2020-056} but with the BDT re-trained based on LHCb run 2
-simulation.
-
-The isolation BDT\footnote{
-    The isolation BDT can be found at
-    \techurllink{https://github.com/umd-lhcb/TupleToolSemiLeptonic/blob/master/Phys/TupleToolSemiLeptonic/src/TupleToolApplyIsolation.cpp}{github/umd-lhcb/TupleToolSemiLeptonic}.
-} is added to the \davinci reconstruction sequence.
-It loops over all charged tracks in the event\footnote{
-    More specifically, these tracks are coming from
-    \texttt{StdAllNoPIDsPions}, \texttt{StdNoPIDsUpPions},
-    and \texttt{StdNoPIDsVeloPions}.
-},
-providing isolation scores for each of them where
-higher score implies higher probability of coming from the vertex, named as
-``anti-isolated''.
-Three tracks with highest isolation scores\footnote{
-    The ones that are most likely to be anti-isolated.
-} are saved in the output file, in descending order\footnote{
-    So the first one is the most anti-isolated one among all charged tracks
-    in the event.
-}.
+The isolation BDT, described in \cref{ref:sel:tech:iso-bdt}, provides an
+estimation on how likely a nearby charged track comes from the same \B vertex.
 
 Below a brief description for the signal sample and the main physics background
 control samples is provided.
+The dominate decay mode for each skim is also listed; these skims still contain
+a composition of many decay modes.
 The actual isolation selections are listed in \cref{tab:skim-cut}.
 
 \begin{itemize}
@@ -42,6 +22,7 @@ The actual isolation selections are listed in \cref{tab:skim-cut}.
         score)
         and is compatible with a fully reconstructed \B decay
         (ignoring missing neutrino(s)).
+        % FIXME: Maybe list yield, and compare to run 1, and include figures?
 
     \item DD: $B \rightarrow D^{(*)}D X$,
         with dominate $D \rightarrow \Kp \mun \neumb X$ sub-decays.
