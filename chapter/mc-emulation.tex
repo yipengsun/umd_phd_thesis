@@ -13,9 +13,9 @@ that about 85\% of the computation time is spent on simulating RICH and the
 calorimeter system.
 Tracker-only (TO) MC sets all but the tracking system of the detector to
 passive material, making the simulation about 8 times faster than FullSim.
-Hence, to reach target statistical uncertainties for MC,
+Hence, to reach target statistical uncertainties,
 TO MC is (almost) exclusively used for this analysis.
-Therefore, detector responses, like trigger and particle identification (PID),
+Therefore, detector responses like trigger and particle identification (PID)
 need to be emulated offline.
 The emulation procedures for these responses are described in the rest of the
 chapter.
@@ -38,42 +38,37 @@ one L0 trigger
     determine if it triggers at least a L0 trigger.
 }).
 
-The L0 hadron is triggered when the sum of the transverse energy $E_T$ deposited
+The L0 hadron is triggered when the sum of the transverse energy\footnote{
+    Defined as: $E_T \equiv \sqrt{m^2 + p^2} \sin\theta$.
+    In massless limit, $E_T = p_T$.
+} $E_T$ deposited
 in a single $2 \times 2$ HCAL cluster is above a set threshold\footnote{
     See Table 1 in \cite{LHCb-DP-2019-001} for year-by-year thresholds of each
     L0 trigger.
 }, as described in \cite{LHCb-DP-2019-001}.
 For L0Hadron TOS, it is required that for all HCAL clusters associated with the
 signal track (\Dz in this case), with association predicted by the tracking
-system\footnote{
-    The association algorithm can be looked up at the LHCb reconstruction
-    software, located at
-    \url{https://gitlab.cern.ch/lhcb/Analysis/-/blob/run2-patches/Phys/DecayTreeTupleTrigger/src/TupleToolL0Calo.cpp}.
-    See the \lstinline{getAssociatedCluster} method.
-},
+system,
 the highest $E_T$ is above the triggering threshold.
 
-Tracker-only MC does not have $E_T$ simulated, but it does record the
-tracker-predicted position where a track hits the calorimeters.
-In other words, though the triggering variable $E_T$ is not accessible,
+Tracker-only MC records the tracker-predicted position where a track hits the
+calorimeters.
+Hence, though the triggering variable $E_T$ is not accessible,
 variables related to $E_T$, or, equivalently, trigger decision, are.
 It is conceivable that L0Hadron TOS can be emulated by providing
-the relevant variables, listed in \cref{tab:l0-hadron-emu-vars}, and the trigger
-decision to train some regressor,
+the relevant variables and the trigger decision to train some regressor,
 which can in turn be used to predict trigger decisions based on the training
-variables alone, without requiring emulating $E_T$ directly.
-Below the emulation procedure, inspired by \cite{LHCb-INT-2019-025}, is described:
+variables alone, without requiring emulating $E_T$ at all.
+Below the emulation procedure, inspired by \cite{LHCb-INT-2019-025}, is
+described:
 
 \begin{enumerate}
     \item The \lstinline{TupleToolL0Calo} is configured to save HCAL
         information.
-    \item A BDT-based regressor, \xgboost, is used.
     \item The training variables, listed in \cref{tab:l0-hadron-emu-vars}, and
-        the trigger decision from a FullSim MC\footnote{
-            MC decay ID: \lstinline{11574021}.
-        } of decay
+        the trigger decision from a FullSim MC of decay
         $\Bz \rightarrow \Dstarp \mu \nu$, a normalization mode,
-        is used to train \xgboost.
+        is used to train \xgboost, a BDT-based regressor.
     \item Once the model is trained, with just the training variables,
         \xgboost predicts the probabilities of events passing L0 hadron trigger.
     \item The probabilities are applied as weights to the same FullSim MC
@@ -155,8 +150,8 @@ Indeed, for data reconstructed in
 $\Bm \rightarrow \Dz (\rightarrow \Km \pip) \mun \neumb$ mode which is used in
 this analysis,
 the average number of tracks per event is 170,
-whereas the reconstruction contains only 3 tracks (\Km, \pip, and \mun, as \Dz
-and \Bm are reconstructed)!
+whereas the selected \Dz\mun final state contains only 3 tracks (\Km, \pip, and
+\mun, as \Dz and \Bm are reconstructed from these tracks)!
 Therefore, it can be argued that the rest of event are essentially the same
 between different reconstructions,
 and L0Global TIS efficiencies are portable across different \B decay modes.
@@ -175,8 +170,8 @@ above should work:
     \item The L0Global TIS efficiencies do not depend on \B decay mode.
 \end{enumerate}
 
-Before we proceed, let us define L0Global TIS efficiency,
-$\epsilon_\text{L0Global TIS}$, more precisely.
+Before we proceed, let us define L0Global TIS efficiency
+$\epsilon_\text{L0Global TIS}$ more precisely.
 According to \cite{LHCb-PUB-2014-039}, in LHCb $\epsilon_\text{L0Global TIS}$
 is conventionally defined as:
 
@@ -202,9 +197,10 @@ uncorrelated,
 $\epsilon_\text{L0Global TIS|L0Muon TOS}$ is equivalent to
 $\epsilon_\text{L0Global TIS}$.
 Such a method is called \emph{TISTOS method}.
-Unfortunately, there is a correlation between the two triggers introduced by
-the fact that \bbbar are produced in pairs, making kinematics of the signal \B
-meson and the background \Bbar meson, part of rest of event, correlated.
+Unfortunately, there is a correlation between the two triggers due to
+the fact that \bbbar are produced in pairs, making kinematics of the selected
+signal \B meson and the background \Bbar meson, part of rest of event,
+correlated.
 
 Still, it is argued in \cite{LHCb-PUB-2014-039} that L0Global TIS and L0Muon TOS
 are \emph{uncorrelated} in a small region of signal \B phase space.

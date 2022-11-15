@@ -182,6 +182,27 @@
 \AfterEndEnvironment{align}{\end{singlespace}\noindent\ignorespaces}
 
 
+%%%%%%%%%%%%%%
+% code block %
+%%%%%%%%%%%%%%
+
+\usepackage{listings} % typesetting code/CLI output, etc.
+\usepackage{lstautogobble}
+\lstset{
+    basicstyle=\footnotesize\ttfamily,
+    breaklines=true,
+    basewidth={.53em},
+    keepspaces=true,
+    frame=single,
+    framerule=0pt,
+    framesep=2mm,
+    autogobble=true,
+    backgroundcolor=\color[gray]{0.8}
+}
+\lstset{escapeinside={<@}{@>}}
+\newcommand{\codecolor}[2]{\textcolor{#1}{#2}}
+
+
 %%%%%%%%
 % misc %
 %%%%%%%%
@@ -211,6 +232,9 @@
 
 % graphics base paths
 \graphicspath{{./appendix}{./chapter}{./addon}{./section}}
+
+% don't break footnote onto the next page
+\interfootnotelinepenalty=10000
 
 
 % include %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
