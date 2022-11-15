@@ -54,8 +54,9 @@ in the event in the following manner:
     \item Refit a vertex from \Dz and $t$.
     \item Compute $\Delta m_\text{veto} \equiv m_{\Dz t} - m_\Dz$.
     \item Test if $\Delta m_\text{veto} \in [140~\text{GeV}, 160~\text{GeV}]$.
-        If it is, record $\Delta m_\text{veto}$ and the isolation BDT
-        score of this track.
+        If it is, the track $t$ is able to form a \Dstar-like particle with \Dz,
+        and the $\Delta m_\text{veto}$ and isolation BDT score
+        of the track are recorded.
 \end{enumerate}
 
 From all recorded BDT scores and $\Delta m_\text{veto}$, the
@@ -74,7 +75,7 @@ instead of the \B vertex, in which case the track would receive a small BDT
 score.
 By ranking based on the BDT scores of the tracks that fall within the
 $[140~\text{GeV}, 160~\text{GeV}]$
-mass window only,
+$\Delta m_\text{veto}$ window only,
 it is more robust to retain the best slow \pion candidates,
 as reported in \cite{LHCb-ANA-2020-056}.
 
