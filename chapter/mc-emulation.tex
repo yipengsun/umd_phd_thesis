@@ -71,8 +71,8 @@ described:
         is used to train \xgboost, a BDT-based regressor.
     \item Once the model is trained, with just the training variables,
         \xgboost predicts the probabilities of events passing L0 hadron trigger.
-    \item The probabilities are applied as weights to the same FullSim MC
-        to check the quality of the emulation.
+    \item The probabilities are applied as weights to a separate validation
+        sample of the same FullSim MC to check the quality of the emulation.
         It is shown in \cref{fig:l0hadron-tos-emu} that emulated L0Hadron TOS
         trigger has excellent agreement with \emph{simulated} trigger in
         FullSim.
@@ -405,9 +405,9 @@ can be seen in \cref{fig:hlt1-trackmva-emu,fig:hlt1-twotrackmva-emu}.
 
 \subsection{Emulation of Hlt2XcMuXForTauB2XcMu}
 
-The reconstructed \B is required to TOS on Hlt2XcMuXForTauB2XcMu. All selection
-variables are available directly, and the selections are applied directly in
-event reconstruction.
+The selected \B is required to TOS on Hlt2XcMuXForTauB2XcMu. All selection
+variables listed in \cref{tab:cut-hlt2} are available in the selection procedure
+so these cuts are applied directly.
 
 
 \section{Particle identification emulation}
