@@ -204,7 +204,6 @@
 }
 \lstset{escapeinside={<@}{@>}}
 \newcommand{\codecolor}[2]{\textcolor{#1}{#2}}
-\newcommand{\smalltt}[1]{{\small\texttt{#1}}}
 
 
 %%%%%%%%
@@ -231,7 +230,7 @@
 \newcommand{\smalltt}[1]{{\small\texttt{#1}}}
 
 % commands for technical links (might want to disable them all together)
-\newcommand{\techlink}[1]{For info on related code/software, see \cref{#1}.}
+\newcommand{\techlink}[1]{}
 \newcommand{\techurllink}[2]{\href{#1}{\nolinkurl{#2}}}
 
 % graphics base paths
@@ -328,6 +327,7 @@
 %%%%%%%%%%%%%%
 \appendix
 \include{include/hack-toc.tex}  % workaround problems due to 'include'
+\include{appendix/supplemental-plots.tex}
 \include{appendix/rest-frame-approximation.tex}
 \include{appendix/trigger-categories.tex}
 
