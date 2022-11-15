@@ -203,7 +203,7 @@ Previous analyses (\cite{PhysRevLett.115.111803,LHCb-ANA-2020-056})
 showed that a tighter \muon PID reduces other charged species misidentified
 (misID) as \muon, reducing the systematic uncertainty due to misID effects.
 However, the standard LHCb \muon PID has low efficiency at low \pt.
-Therefore, an offline \muon PID method, termed UBDT, is developed to reduce
+Therefore, an offline \muon PID method, termed \UBDT, is developed to reduce
 misID while maintain a flat \pt response.
 A brief overview on this method is provided in \cref{ref:sel:tech:ubdt}.
 
@@ -311,14 +311,14 @@ A brief overview on this method is provided in \cref{ref:sel:tech:ubdt}.
         \midrule
         \Dstarp        & $|m - m_\Dz - 145.454|$\parnote{
                            This is to require $m_\Dstarp$ to close to
-                           its PDG mass,
+                           its reference (PDG) mass,
                            up to a reconstruction effect on
                            $m_\Dz$.
                        }                                 & $< 2$ MeV     \\
                        & \anyChiSq{vertex}/ndf           & $< 10$        \\
         \midrule
         \Dz\muon       & \anyChiSq{vertex}/ndf           & $< 6$         \\
-                       & \DIRA\parnote                   & $> 0.999$     \\
+                       & \DIRA                           & $> 0.999$     \\
         \midrule
         \Dstarp\muon   & $m$                             & $< 5280$ MeV  \\
                        & transverse flight distance      & $< 7$ mm      \\
@@ -351,13 +351,13 @@ For \Dz channel, the \emph{unphysical}\footnote{
     $\Bm \rightarrow \Dz (\rightarrow \Km \pip) \mun$,
     so \Dz\mup pairs are unphysical.
 } \Dz\mup pairs are purely of combinatorial
-nature and is the only dominate combinatorial and is referred as
-\emph{wrong-sign \mu}.
+nature and is the only dominate combinatorial;
+this is referred as \BComb.
 For \Dstar channel, a \Dstarp may randomly combine with a
-\emph{wrong-sign \mup}; alternatively, a \Dz may combine with a
-\emph{wrong-sign slow \pim} to form a \Dstarm.
+\emph{wrong-sign \mup} (\BComb); alternatively, a \Dz may combine with a
+\emph{wrong-sign slow \pim} to form a \Dstarm (\DstComb).
 The modelling of these backgrounds are discussed in more details in
-\cref{ref:fit:tmpl:data-driven:comb}.
+\cref{ref:fit:tmpl:comb}.
 
 The online selection for wrong sign samples are the same as the right sign,
 as described in \cref{ref:sel:data:rs}.
@@ -385,4 +385,4 @@ as the respective ``real'' \muon sample,
 except for \muon PID which is replaced by an explicit \muon veto
 (not \isMuon).
 The estimation procedure is documented in
-\cref{ref:fit:tmpl:data-driven:misid}.
+\cref{ref:fit:tmpl:misid}.
