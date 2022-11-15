@@ -419,15 +419,38 @@ applied directly on MC.
 Therefore, PID cuts for MC are emulated as efficiencies (binned in some
 variables, typically $p$, $\eta$, and nTracks) and applied as weights.
 
-Most of PID efficiencies are obtained with \pidcalib, except for ghost and
-$e$ \UBDT efficiencies. The ghost PID efficiencies are obtained from the bachelor
-$\mu$ tracks truth-matched to ghost in
-2016 inclusive $J/\psi K$ MC, % FIXME: MC IDs
-and the $e$ \UBDT efficiency, a \emph{conditional efficiency}, is obtained from
-$\mu$ track truth-matched to $e$ in 2016 $D^*\mu$ MC.
+Most of PID efficiencies are obtained with \pidcalib, an official LHCb package
+which provide PID efficiencies evaluated at user-specified cuts on
+officially produced PID samples from real data with a customizable binning.
+the PID samples are highly enriched in charged $K, \pi, p, e, \mu$, and are
+obtained from reconstructed $K_s^0 \rightarrow \pip \pim$,
+$\Lambda_c^0 \rightarrow p^+ \pim$,
+$\Dstarp \rightarrow \Dz (\rightarrow \Km \pip) \pip$,
+$\jpsi \rightarrow \mup \mun$, and
+$\Bp \rightarrow \jpsi (\rightarrow e^+ e^-) \Kp$ data samples.
+These samples are shown to have high purity in \cite{LHCb-DP-2012-003}.
 
 It is worth noting that \pidcalib does not populate under and overflow bins,
 therefore an custom binning scheme, extended from the official scheme, is used
-for \pidcalib efficiencies to ensure a wider coverage.
+for \pidcalib efficiencies to
+avoid introducing unnecessarily tight kinematic cuts\footnote{
+    Still, a momentum upper bound cut is applied, which is
+    listed in \cref{tab:offline-cut-common}.
+}.
+Another thing to note is that the $e$ sample lacks \UBDT, so an
+incremental \UBDT efficiency is obtained from true $e$ reconstructed as \muon
+in 2016 $D^*\mu$ MC.
+
+The isolation selection contains a \ProbNN{$K$} PID cut on a track of
+unknown particle type.
+To emulate this cut, the PID efficiencies from all particle types, namely
+$K, \pi, p, e, \mu$, and ghost, are needed.
+The ghost type arises from combinations of random hits forming a fake track,
+and is not enriched in \emph{any} data sample.
+Therefore, the PID efficiency is obtained from a 2016 inclusive \jpsi\muon MC
+sample with the reconstructed bachelor \muon truth-matched to ghost\footnote{
+    That is, the truth-matching failed to find a matching MC true particle.
+}.
+
 
 \techlink{appx:tech:obtain-pid-eff}
