@@ -4,10 +4,10 @@
 A large number of MC simulation samples is used to
 model the signal, normalization, and partially reconstructed backgrounds in
 data.
-To reduce computation time, tracker-only (TO) MC, which has all but the tracking
+To reduce simulation time, tracker-only (TO) MC, which has all but the tracking
 system of the detector turned off (set to passive material), are used.
 Additional small full simulation (FullSim) samples are produced for year 2016 to
-aid emulations of the missing detector responses (mainly trigger and PID).
+aid emulations of the missing detector responses (mainly for trigger).
 The emulation procedures are discussed in \cref{ref:mc-emulation}.
 
 MC samples used for both \Dz and \Dstar channels are listed in
@@ -20,8 +20,8 @@ Some samples contribute to both channels due to feed down\footnote{
 }, and are indicated in the same table.
 
 Both TO and FullSim MC samples are loosely filtered to keep events in LHCb
-acceptance, with filtering cuts listed in \cref{tab:gen-cut}.
-The filtering is mainly to save storage space.
+acceptance, with filtering cuts, mostly to save storage space,
+listed in \cref{tab:gen-cut}.
 %%%%
 The online and offline selection are aligned with that of right sign real \muon
 sample,
@@ -34,7 +34,7 @@ Additional truth level requirements\footnote{
     particle ID. The truth level requirements (truth-matching) demands that
     the true ID is the same as specified in the simulation.
     For example, for a candidate from  MC $\Bm \rightarrow \Dz\mun$ decay,
-    the reconstructed \mu is required to have a true ID of a MC true \mu.
+    the reconstructed \muon is required to have a true ID of a MC true \muon.
 } are placed to ensure the selected decay
 chain is compatible with simulation specification.
 This effectively removes ghost and misidentified tracks, providing a consistent
@@ -72,5 +72,5 @@ The missing $\piz \piz$ contribution is modelled by randomly selecting $\frac{1}
 {3}$ of $\pip \pim$ candidates and treating them as \emph{isolated} regardless
 of their isolation BDT scores.
 The isolation BDT, briefly discussed in \cref{ref:sel:tech:iso-bdt},
-is used to estimate the probability of nearby charged tracks to originate
-from the same $\D^{*}\mu$ vertex.
+is used to estimate the probability of unused nearby charged tracks to originate
+from the same $\D^{(*)}\mu$ vertex.
