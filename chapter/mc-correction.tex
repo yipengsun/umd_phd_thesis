@@ -57,8 +57,8 @@ in this analysis to reweight
 $B \rightarrow (\Dz| \Dstar| D^{**}) \lepton\neub$ MC samples.
 The details are given below.
 
-\paragraph{\Dz} The \Dz MC samples are generated with an up-to-date
-CLN form factor model.
+\paragraph{\Dz}
+The \Dz MC samples are generated with an up-to-date CLN form factor model.
 Still, it is reweighted to a BGL model whose parameters are taken
 from Table 4 in \cite{Bigi_2016} at $N = 2$, as these
 parameters are obtained from a fit to lattice and experimental data.
@@ -84,9 +84,10 @@ The changes are minimal because both models are up-to-date.
     \label{fig:ff-d0}
 \end{figure}
 
-\paragraph{\Dstar} The \Dstar MC samples are reweighted from a CLN
-to a BGL model with parameters taken from the right-most column of Table XII
-in the \textbf{v1} version of \cite{Bazavov_2021},
+\paragraph{\Dstar}
+The \Dstar MC samples are reweighted from a CLN to a BGL model with parameters
+taken from the right-most column of Table XII in the \textbf{v1} version of
+\cite{Bazavov_2021},
 the first work to calculate \Dstar form factors at non-zero recoil
 based on lattice-QCD with constraints from external measurements.
 
@@ -114,6 +115,79 @@ removed.
         Form factor reweight for $B \rightarrow \D^* \lepton\neub$ MC samples.
     }
     \label{fig:ff-d0}
+\end{figure}
+
+\paragraph{$D^{**}$}
+
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.24\textwidth]{
+        ./figs-mc-correction/reweighting-form-factors/DststMu/D0stst0Mu.pdf
+    }
+    \includegraphics[width=0.24\textwidth]{
+        ./figs-mc-correction/reweighting-form-factors/DststMu/D0ststMu.pdf
+    }
+    \includegraphics[width=0.24\textwidth]{
+        ./figs-mc-correction/reweighting-form-factors/DststMu/D1pstst0Mu.pdf
+    }
+    \includegraphics[width=0.24\textwidth]{
+        ./figs-mc-correction/reweighting-form-factors/DststMu/D1pststMu.pdf
+    }
+
+    \includegraphics[width=0.24\textwidth]{
+        ./figs-mc-correction/reweighting-form-factors/DststMu/D1stst0Mu.pdf
+    }
+    \includegraphics[width=0.24\textwidth]{
+        ./figs-mc-correction/reweighting-form-factors/DststMu/D1ststMu.pdf
+    }
+    \includegraphics[width=0.24\textwidth]{
+        ./figs-mc-correction/reweighting-form-factors/DststMu/D2stst0Mu.pdf
+    }
+    \includegraphics[width=0.24\textwidth]{
+        ./figs-mc-correction/reweighting-form-factors/DststMu/D2ststMu.pdf
+    }
+
+    \caption{
+        Form factor reweight effect on $D^{**}\mu$ MC templates.
+        Parameters are shifted based an initial fit.
+    }
+    \label{fig:ff-rwt-Dstst-norm-like}
+\end{figure}
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.24\textwidth]{
+        ./figs-mc-correction/reweighting-form-factors/DststTau/D0stst0Tau.pdf
+    }
+    \includegraphics[width=0.24\textwidth]{
+        ./figs-mc-correction/reweighting-form-factors/DststTau/D0ststTau.pdf
+    }
+    \includegraphics[width=0.24\textwidth]{
+        ./figs-mc-correction/reweighting-form-factors/DststTau/D1pstst0Tau.pdf
+    }
+    \includegraphics[width=0.24\textwidth]{
+        ./figs-mc-correction/reweighting-form-factors/DststTau/D1pststTau.pdf
+    }
+
+    \includegraphics[width=0.24\textwidth]{
+        ./figs-mc-correction/reweighting-form-factors/DststTau/D1stst0Tau.pdf
+    }
+    \includegraphics[width=0.24\textwidth]{
+        ./figs-mc-correction/reweighting-form-factors/DststTau/D1ststTau.pdf
+    }
+    \includegraphics[width=0.24\textwidth]{
+        ./figs-mc-correction/reweighting-form-factors/DststTau/D2stst0Tau.pdf
+    }
+    \includegraphics[width=0.24\textwidth]{
+        ./figs-mc-correction/reweighting-form-factors/DststTau/D2ststTau.pdf
+    }
+
+    \caption{
+        Form factor reweight effect on $D^{**}\tau$ MC templates.
+        Parameters are shifted based an initial fit.
+    }
+    \label{fig:ff-rwt-Dstst-sig-like}
 \end{figure}
 
 
