@@ -27,9 +27,9 @@ reweighting}.
 
 \subsection{Form factor model}
 
-The form factor model for a $B \rightarrow D \ell\neulb$ \emph{defines} the
-truth-level \qSq distribution (with angular variables integrated out) which
-in turn affect the estimated \qSq, a fit variable.
+The form factor model for a $B \rightarrow D \ell\neulb$ process \emph{defines}
+the truth-level \qSq distribution (with angular variables integrated out) which
+in turn affect the estimated \qSq which is a fit variable.
 Therefore, it is important to use the state-of-art form factor models.
 Naively this is hard, because the form model model is defined at MC generator
 level, any change in form factor may require a regeneration of all MC samples.
@@ -54,7 +54,7 @@ by $r$.
 
 \Hammer, the current state-of-art form factor reweighting program, is used
 in this analysis to reweight
-$B \rightarrow (\Dz| \Dstar| D^{**}) \lepton\neub$ MC samples.
+$B \rightarrow (\Dz| \Dstar| D^{**}) \lepton\neulb$ MC samples.
 The details are given below.
 
 \paragraph{\Dz}
@@ -62,7 +62,7 @@ The \Dz MC samples are generated with an up-to-date CLN form factor model.
 Still, it is reweighted to a BGL model whose parameters are taken
 from Table 4 in \cite{Bigi_2016} at $N = 2$, as these
 parameters are obtained from a fit to lattice and experimental data.
-The $N = 2$ is chosen because it is the only case where the covariance matrix
+The $N = 2$ is chosen because it is the only case where the correlation matrix
 is reported.
 \Cref{fig:ff-d0} shows the shift of true \qSq distributions due to form factor
 reweighting for \Dz samples.
@@ -79,7 +79,7 @@ The changes are minimal because both models are up-to-date.
         ./figs-mc-correction/reweighting-form-factors/sig/D0Tau.pdf
     }
     \caption{
-        Form factor reweight for $B \rightarrow \Dz \lepton\neub$ MC samples.
+        Form factor reweight for $B \rightarrow \Dz \lepton\neulb$ MC samples.
     }
     \label{fig:ff-d0}
 \end{figure}
@@ -112,13 +112,16 @@ removed.
         ./figs-mc-correction/reweighting-form-factors/sig/Dst0Tau.pdf
     }
     \caption{
-        Form factor reweight for $B \rightarrow \D^* \lepton\neub$ MC samples.
+        Form factor reweight for $B \rightarrow \D^* \lepton\neulb$ MC samples.
     }
     \label{fig:ff-d0}
 \end{figure}
 
 \paragraph{$D^{**}$}
-
+The four $1P$ $D^{**}$ states ($D^*_0$, $D_1$, $D'_1$, $D^*_2$) with decay mode
+$B \rightarrow D^{**}\lepton\neulb$,
+generated with ISGW2 form factor model,
+are reweighted to BLR model.
 
 \begin{figure}[ht]
     \centering
