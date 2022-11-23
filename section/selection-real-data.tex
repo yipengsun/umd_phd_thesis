@@ -218,7 +218,7 @@ A brief overview on this method is provided in \cref{ref:sel:tech:ubdt}.
         GEC                 & nSPDhits                     & $< 450$\parnote{
             This is to reduce correlation for \emph{TIS and TOS} candidates to make
             trigger emulation more robust.
-            See \cref{ref:emulation-for-to-mc:correlation-tos-tis} for more details.
+            See \cref{ref:mc-emulation:correlation-tos-tis} for more details.
         }                                                                             \\
         \toprule
         {\bf Particle}      & {\bf Variable}               & {\bf Cuts}               \\
@@ -275,7 +275,13 @@ A brief overview on this method is provided in \cref{ref:sel:tech:ubdt}.
         \toprule
         {\bf Particle}  & {\bf Variable}               & {\bf Cuts}      \\
         \midrule
-        \Dz\muon        & $m$                          & $< 5200$ MeV    \\
+        \Dz\muon        & $m$                          & $< 5200$ MeV\parnote{
+            The odd-looking 5200 is to avoid a peak around 5280 due to misID
+            in \Bm mass spectrum.
+            For \Bzb, the misID peak around 5280 is insignificant, so the cut
+            is placed at 5280, at which value the neutrino is produced
+            \emph{at rest in $B$ frame}, which covers a small phase space.
+        }    \\
                         & {\footnotesize$\begin{aligned}
                                 \text{Max}(
                                     &|\Delta m_\text{veto,1} - 145.454|, \\
