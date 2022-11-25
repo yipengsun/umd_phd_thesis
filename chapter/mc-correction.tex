@@ -12,7 +12,7 @@ Then, the known problematic detector responses,
 such as tracking efficiency and \B production kinematics,
 are corrected.
 This is termed as \emph{initial reweighting}, and is described in
-\cref{sec:data-mc:init-rwt}.
+\cref{sec:data-mc:init}.
 %%%%
 After, a \emph{preliminary} fit is performed to build
 \emph{post-fit cocktail},
@@ -21,7 +21,7 @@ Finally, agreements between data and cocktail on additional kinematic
 and geometric variables of the \B decay daughters are assessed,
 and a multi-stage reweighting process is
 performed to correct disagreements if necessary.
-Outlined in \cref{sec:data-mc:final-rwt}, such procedure is called \emph{final
+Outlined in \cref{ref:mc-cor:final}, such procedure is called \emph{final
 reweighting}.
 
 
@@ -65,6 +65,7 @@ factor models used in this analysis, namely BGL and BLR.
 The details of the form factor reweighting are given below.
 
 \subsection{$B \rightarrow \Dz$ decays}
+
 The \Dz MC samples are generated with an up-to-date CLN form factor model.
 Still, it is reweighted to a BGL model whose parameters are taken
 from Table 4 in \cite{Bigi_2016} at $N = 2$, as these
@@ -93,6 +94,7 @@ The changes are minimal because both models are up-to-date.
 
 
 \subsection{$B \rightarrow \Dstar$ decays}
+
 The \Dstar MC samples are reweighted from a CLN to a BGL model with parameters
 taken from the right-most column of Table XII in the \textbf{v1} version of
 \cite{Bazavov_2021},
@@ -128,6 +130,7 @@ removed.
 
 
 \subsection{$B \rightarrow \Dstst$ decays}
+
 The four 1P \Dstst states ($D^*_0$, $D_1$, $D'_1$, $D^*_2$) with decay mode
 $B \rightarrow D^{**}\lepton\neulb$,
 generated with ISGW2 form factor model,
@@ -232,7 +235,7 @@ The change of fit variables with the parameters taken from
 
 
 \section{Initial reweighting}
-\label{sec:data-mc:init-rwt}
+\label{ref:mc-cor:init}
 
 \subsection{Tracking efficiency}
 
@@ -338,66 +341,16 @@ It is hoped that additional discrepancy will be corrected in the
 
 
 \subsection{$B$ kinematics and multiplicity}
-\label{sec:data-mc:init-rwt:jpsi-k-correction}
+\label{ref:mc-cor:init:jpsi-k}
 
 Another known source of inconsistency between data and MC is the \B production
 kinematics and multiplicity.
 This is corrected by a separate set of
 $\Bp \rightarrow \jpsi (\rightarrow \mun\mup) \Kp$
-control samples, as described
-in \cref{sec:reconstructed-samples:add-ctrl}, with both data and MC\footnote{
-    In this case the MC is also \emph{stripped}, so the stripping line
-    decisions exist.
-}
-sample filtered on the \smalltt{StrippingBetaSBu2JpsiKDetachedLine}.
-Additional selections,
-listed in \cref{tab:cut-jpsik},
-are applied on the reconstructed sample, with PID
-selections applied as weights (obtained from \pidcalib) for MC.
-Tracking efficiency ratio corrections are also applied as weights
-(obtained from \trackcalib) on MC samples.
-
-An extended PID binning range is chosen to cover as much phase space of
-\kaon and \muon as possible.
-There may still be events outside the covering region, in which case the PID
-weights from nearby bin is applied,
-to avoid explicit cuts on the \jpsi\kaon data control sample.
-The same strategy is applied on tracking weights.
-
-\begin{table}[htb]
-    \caption{Additional selections on $\jpsi K$ samples.}
-    \label{tab:cut-jpsik}
-    \centering
-    \begin{tabular}{ c | rll}
-        \toprule
-        {\bf Particle}    & {\bf Variable}               & {\bf Cuts}               \\
-        \midrule
-        \kaon             & \pt                          & $> 500$ MeV              \\
-                          & \PID{$K$}                    & $> 4$                    \\
-        \midrule
-        \mun, \mup        & \pt                          & $> 500$ MeV              \\
-                          & \ipChiSq                     & $> 4$                    \\
-                          & \PID{\muon}                  & $> 2$                    \\
-        \midrule
-        \mun\mup (\jpsi)  & $m_\text{mea}$\parnote{
-            $m_\text{mea}$ refers to measured mass, which is the invariant
-            mass given by the sum of daughters' four momenta,
-            without any topological constraint.
-            On the other hand, $m$ is given by a vertex fit,
-            which is typically of better quality.
-        }                                                & 3060--3140 MeV           \\
-                          & \anyChiSq{FD}                & $> 25$                   \\
-        \midrule
-        \Bp               & $m$                          & 5150--5350 MeV           \\
-                          & \anyChiSq{vertex}            & $< 18$                   \\
-                          & \ipChiSq                     & $< 12$                   \\
-                          & \DIRA                        & $> 0.9995$               \\
-        \bottomrule
-    \end{tabular}
-    \begin{flushleft}
-        \parnotes
-    \end{flushleft}
-\end{table}
+control samples, selected by a procedure described
+in \cref{ref:sel:aux}.
+Additionally, the track efficiency correction described in the previous section
+is applied on the \jpsi\kaon MC sample.
 
 A \sPlot\ is then performed on $J/\psi K$ data control sample to subtract
 the combinatorial background, which is shown in \cref{fig:fit-JpsiK-data}.
@@ -506,7 +459,7 @@ differences in \B kinematics and occupancy.
 
 
 \section{Post-fit cocktail}
-\label{sec:data-mc:postfit-cocktail}
+\label{ref:mc-cor:postfit-cocktail}
 
 Selected data samples are themselves cocktails because many
 decay modes contribute to the $D^{(*)}\mu$ final state.
@@ -568,7 +521,7 @@ A separate Python script\footnote{
 
 
 \section{Final reweighting}
-\label{sec:data-mc:final-rwt}
+\label{ref:mc-cor:final}
 
 The final reweighting is a multi-stage reweighting process by comparing
 selected

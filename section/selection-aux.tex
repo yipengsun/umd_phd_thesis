@@ -2,16 +2,64 @@
 \label{ref:sel:aux}
 
 A $\Bp \rightarrow \jpsi \Kp$ sample is used to derive $B$ kinematic and
-multiplicity corrections to MC samples.
+multiplicity corrections\footnote{
+    The correction procedure is described in \cref{ref:mc-cor:init:jpsi-k}.
+} to MC samples.
 The data sample is selected from \mup\mun\Kp final states, with the \mup\mun
 pair at \jpsi resonance,
 and the invariant mass of the 3-particle final state around the reference mass
 of \Bp.
+The offline selection cuts for $\jpsi\Kp$ are listed in
+\cref{tab:cut-jpsik}.
 The MC sample used to compare with $\jpsi \Kp$ data is selected with the same
-procedure, with total production number after filtering\footnote{
+procedure, with PID cuts applied as weights\footnote{
+    The weights are obtained from \pidcalib, with a method similar to that in
+    \cref{ref:mc-emulation:pid}).
+
+    An extended PID binning range is chosen to cover as much phase space of
+    \kaon and \muon as possible.
+    There may still be events outside the covering region, in which case the PID
+    weights from nearby bin is applied,
+    to avoid explicit cuts on the \jpsi\kaon data control sample.
+}.
+The number of MC events after filtering\footnote{
     This is also referred as ``event on disk''.
-} listed in \cref{tab:add-mc-samples}.
-The procedure is described in \cref{ref:mc-cor:init:jpsi-k}.
+} is listed in \cref{tab:add-mc-samples}.
+
+\begin{table}[htb]
+    \caption{Offline cuts on $\jpsi K$ samples.}
+    \label{tab:cut-jpsik}
+    \centering
+    \begin{tabular}{ c | rll}
+        \toprule
+        {\bf Particle}    & {\bf Variable}               & {\bf Cuts}               \\
+        \midrule
+        \kaon             & \pt                          & $> 500$ MeV              \\
+                          & \PID{$K$}                    & $> 4$                    \\
+        \midrule
+        \mun, \mup        & \pt                          & $> 500$ MeV              \\
+                          & \ipChiSq                     & $> 4$                    \\
+                          & \PID{\muon}                  & $> 2$                    \\
+        \midrule
+        \mun\mup (\jpsi)  & $m_\text{mea}$\parnote{
+            $m_\text{mea}$ refers to measured mass, which is the invariant
+            mass given by the sum of daughters' four momenta,
+            without any topological constraint.
+            On the other hand, $m$ is given by a vertex fit,
+            which is typically of better quality.
+        }                                                & 3060--3140 MeV           \\
+                          & \anyChiSq{FD}                & $> 25$                   \\
+        \midrule
+        \Bp               & $m$                          & 5150--5350 MeV           \\
+                          & \anyChiSq{vertex}            & $< 18$                   \\
+                          & \ipChiSq                     & $< 12$                   \\
+                          & \DIRA                        & $> 0.9995$               \\
+        \bottomrule
+    \end{tabular}
+    \begin{flushleft}
+        \parnotes
+    \end{flushleft}
+\end{table}
 
 A simulated $\Dz \rightarrow \Km \pip$ MC sample,
 also listed in \cref{tab:add-mc-samples},
