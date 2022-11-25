@@ -71,7 +71,7 @@ from Table 4 in \cite{Bigi_2016} at $N = 2$, as these
 parameters are obtained from a fit to lattice and experimental data.
 The $N = 2$ is chosen because it is the only case where the correlation matrix
 is reported.
-\Cref{fig:ff-d0} shows the shift of true \qSq distributions due to form factor
+\Cref{fig:ff-d0} shows the change of true \qSq distributions due to form factor
 reweighting for \Dz samples.
 The changes are minimal because both models are up-to-date.
 
@@ -98,10 +98,11 @@ taken from the right-most column of Table XII in the \textbf{v1} version of
 \cite{Bazavov_2021},
 the first work to calculate \Dstar form factors at non-zero recoil
 based on lattice-QCD with constraints from external measurements.
+The change of true \qSq is shown in \cref{fig:ff-dst}.
 
 The $c_3$ and $d_2$ parameters are not implemented in \Hammer (yet).
 Given the large uncertainties on these sub-dominate parameters,
-they are set to 0 with the corresponding entries in the covariance matrix
+they are set to 0 with the corresponding entries in the correlation matrix
 removed.
 
 \begin{figure}[htb]
@@ -122,7 +123,7 @@ removed.
     \caption{
         Form factor reweight for $B \rightarrow \D^* \lepton\neulb$ MC samples.
     }
-    \label{fig:ff-d0}
+    \label{fig:ff-dst}
 \end{figure}
 
 
@@ -152,7 +153,7 @@ To workaround the large deviations from nominal, the \emph{nominal} values for
 $D^{**}$ form factor parameters are \emph{shifted} based on the fit, so that
 the deviations are small ($\leq 2\sigma$) and the
 interpolation/extrapolation remains physical.
-The change of fit variables with the \emph{shifted} parameters are
+The change of true \qSq with the \emph{shifted} parameters are
 plotted in \cref{fig:ff-rwt-Dstst-norm-like,fig:ff-rwt-Dstst-sig-like},
 which are used in the fit as the nominal.
 The change of fit variables with the parameters taken from
