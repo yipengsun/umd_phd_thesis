@@ -48,7 +48,7 @@ its contribution (weight) in the new model is given by the ratio of differential
 decay rates
 \begin{equation}
     r = \left.
-            \frac{d\Gamma_\text{new} / d\PSpt}{d\Gamma_\text{old} / d\PSpt}
+            \frac{d\Gamma_\text{target} / d\PSpt}{d\Gamma_\text{source} / d\PSpt}
         \right|_\text{eval at phase space point}
 \end{equation}
 So a change in form factor model is equivalently to a reweight, with weight given
@@ -60,8 +60,8 @@ $B \rightarrow (\Dz| \Dstar| D^{**}) \lepton\neulb$ MC samples.
 \Hammer implements a fast reweighting procedure with a multi-dimensional
 expansion of form factors around a central point in the form factor parameter
 space.
-The expansion is in general an approximation, but is exact for the form factor
-models used in this analysis, namely BGL and BLR.
+The expansion is in general an approximation, but is exact for the target form
+factor models used in this analysis, namely BGL and BLR.
 The details of the form factor reweighting are given below.
 
 \subsection{$B \rightarrow \Dz$ decays}
@@ -127,16 +127,37 @@ removed.
 
 
 \subsection{$B \rightarrow \Dstst$ decays}
-The four $1P$ \Dstst states ($D^*_0$, $D_1$, $D'_1$, $D^*_2$) with decay mode
+The four 1P \Dstst states ($D^*_0$, $D_1$, $D'_1$, $D^*_2$) with decay mode
 $B \rightarrow D^{**}\lepton\neulb$,
 generated with ISGW2 form factor model,
 are reweighted to BLR model.
 These \Dstst states can be further split into two heavy quark spin symmetry
-doublets: $D^{1/2+} (D^*_0, D'_1)$ and $D^(3/2+): (D_1, D^*_2)$.
+doublets: $D^{1/2+} (D^*_0, D'_1)$ and $D^{3/2+}: (D_1, D^*_2)$.
+The BLR parameters for the doublets are taken from Table V of
+\cite{Bernlochner_2018}.
 
-one notable thing shifted ff due to large alpha, at which point extrapolation
-become unphysical. the shifted ff are ploated in.
-the original ff are plotted in.
+The form factor parameters are allowed to float in the fit from the nominal
+values, with the shift of fit variables due to these parameters account for via
+an interpolation/extrapolation mechanism\footnote{
+    % FIXME: Implement the ref
+    More details regarding the interpolation/extrapolation are discussed
+    in \cref{ref:fit:var}.
+}.
+Uniquely for $D^{**}$, the fitted parameters have large deviations from the
+nominal (up to $7\sigma$!), at which point the extrapolation becomes
+unphysical.
+Similar effect has been reported in the previous analysis.
+
+To workaround the large deviations from nominal, the \emph{nominal} values for
+$D^{**}$ form factor parameters are \emph{shifted} based on the fit, so that
+the deviations are small ($\leq 2\sigma$) and the
+interpolation/extrapolation remains physical.
+The change of fit variables with the \emph{shifted} parameters are
+plotted in \cref{fig:ff-rwt-Dstst-norm-like,fig:ff-rwt-Dstst-sig-like},
+which are used in the fit as the nominal.
+The change of fit variables with the parameters taken from
+\cite{Bernlochner_2018} are plotted separately in
+\cref{fig:ff-rwt-raw-Dstst-norm-like,fig:ff-rwt-raw-Dstst-sig-like}.
 
 \begin{figure}[ht]
     \centering
