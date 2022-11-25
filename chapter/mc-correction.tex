@@ -60,8 +60,6 @@ $B \rightarrow (\Dz| \Dstar| D^{**}) \lepton\neulb$ MC samples.
 \Hammer implements a fast reweighting procedure with a multi-dimensional
 expansion of form factors around a central point in the form factor parameter
 space.
-The expansion is in general an approximation, but is exact for the target form
-factor models used in this analysis, namely BGL and BLR.
 The details of the form factor reweighting are given below.
 
 \subsection{$B \rightarrow \Dz$ decays}
@@ -280,11 +278,7 @@ and the tracking efficiency is computed as:
 For more information, refer to \cite{LHCb-PUB-2011-025,LHCb-DP-2013-002}.
 
 To correct for the tracking discrepancy between data and MC,
-the efficiency ratios\footnote{
-    The efficiency ratios are taken from
-    \techurllink{https://twiki.cern.ch/twiki/bin/viewauth/LHCbInternal/LHCbTrackingEfficiencies}{
-        twiki/internal/LHCbTrackingEfficiencies}.
-}
+the efficiency ratios
 ($\frac{\epsilon_\text{data}}{\epsilon_\text{MC}}$),
 binned in $\eta$ and \ptot of the track,
 between data and MC are provided by the LHCb collaboration, which are
@@ -352,10 +346,17 @@ in \cref{ref:sel:aux}.
 Additionally, the track efficiency correction described in the previous section
 is applied on the \jpsi\kaon MC sample.
 
-A \sPlot\ is then performed on $J/\psi K$ data control sample to subtract
-the combinatorial background, which is shown in \cref{fig:fit-JpsiK-data}.
-The fit models consists of a double Gaussian plus a Crystal bell for signal,
-and an exponential background.
+To separate the \jpsi\kaon signal from the combinatorial background,
+A fit, shown in \cref{fig:fit-JpsiK-data},
+is performed on invariant mass of the $B$ meson ($m_B$) of \jpsi\kaon data.
+The fit model consists of a double Gaussian plus a Crystal bell for
+signal, and an exponential background.
+A \sPlot\ procedure,
+a fit-based approach to subtract background as described in
+\cite{Pivk_2005},
+then computes signal and background weight for each event.
+Distributions of variables uncorrelated with $m_B$, for example \pt of $B$,
+are produced by applying signal weights (\sWeight) obtained above.
 
 % Generated in /lhcb-ntuples-gen/run2-JpsiK, with:
 %   make fit-2016
@@ -385,8 +386,8 @@ A multi-stage\footnote{
 (both are normalized, so the reweighting only corrects shape differences),
 with stages defined in \cref{tab:rwt-JpsiK},
 and the results shown in \cref{fig:rwt-JpsiK}.
-The occupancy (nTracks) has to be corrected first,
-because the PID efficiency weights depend this variable, and the weights alter
+The occupancy (nTracks) has to be corrected first before $B$ kinematics,
+because the PID efficiency weights depend on nTracks, and the PID weights alter
 the shapes of the kinematic distributions of the \B decay daughters, which in
 turn affect the \B kinematic distributions themselves.
 The reweighting binning ranges are chosen such that:
@@ -399,15 +400,13 @@ The reweighting binning ranges are chosen such that:
 When applying the \jpsi\kaon-derived weights to the nominal MC sample,
 for events outside the binning regions,
 the weights from nearby bins are applied.
-This is to avoid introduce explicit kinematic cuts on the \B meson,
+This is to avoid introducing explicit kinematic cuts on the \B meson,
 which is hard to apply consistently due to the fact that for
 $B \rightarrow \jpsi\kaon$ decays,
 there is no missing particle in the decay chain thus the \B momentum is
 reconstructed in a more complete way,
 whereas for $B \rightarrow D^{(*)} \lepton\neulb$, the missing neutrino(s)
-makes the reconstructed \B momentum less precise.
-It is assumed that the final reweighting is able to correct the remaining
-differences in \B kinematics and occupancy.
+makes the reconstructed \B momentum incomplete.
 
 \begin{table}[htb]
     \centering
