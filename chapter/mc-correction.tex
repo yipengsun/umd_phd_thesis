@@ -481,7 +481,7 @@ Since the main objective of final reweighting is to correct the remaining
 inconsistencies between data and MC due to detector responses,
 it is important to reweight in a region where most discrepancies are induced by
 such responses.
-Therefore, a $\mmSq < 0.4$ GeV region,
+Therefore, a $\mmSq < 0.4$ GeV$^2$ region,
 termed reweighting region,
 dominated in normalization decay mode,
 mostly free of effects due to choice of modelling on background modes,
@@ -489,7 +489,7 @@ is used to derive the final weights.
 The post-fit cocktail is built with the following procedure:
 
 \begin{enumerate}
-    \item Apply the $\mmSq < 0.4$ GeV cut to obtain yields in the reweighting
+    \item Apply the $\mmSq < 0.4$ GeV$^2$ cut to obtain yields in the reweighting
         region based on total fitted yields.
 
     \item Some fit templates have variations which are specified by
@@ -512,11 +512,11 @@ The post-fit cocktail is built with the following procedure:
 \section{Final reweighting}
 \label{ref:mc-cor:final}
 
-Final reweighting is a multi-stage process by comparing
+Final reweighting is a multi-stage reweighting process by comparing
 selected kinematic and geometric variables of the \B decay daughters,
 listed in \cref{tab:rwt-final-vars},
 between \emph{post-fit cocktail} and \emph{subtracted data}
-in the reweighting region, selected by a $\mmSq < 0.4$ GeV cut,
+in the reweighting region, selected by a $\mmSq < 0.4$ GeV$^2$ cut,
 and generate binned $\frac{\text{data}}{\text{MC}}$ ratios as weights for each
 variable.
 The reweighting is performed separately for \Dz and \Dstar channel;
@@ -785,7 +785,10 @@ the reweighting process.
 
 \section{Validation of final reweighting}
 
-This is a work in progress.
+As shown in the previous section, the kinematic variables, for example \pt
+and $\eta$, of $B$ decay daughters are in good agreements.
+
+
 
 
 % Generated in umd-lhcb/rdx-run2-analysis/fit:
