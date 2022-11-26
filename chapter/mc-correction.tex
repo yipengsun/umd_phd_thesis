@@ -482,7 +482,7 @@ inconsistencies between data and MC due to detector responses,
 it is important to reweight in a region where most discrepancies are induced by
 such responses.
 Therefore, a $\mmSq < 0.4$ GeV region,
-termed normalization enriched region,
+termed reweighting region,
 dominated in normalization decay mode,
 mostly free of effects due to choice of modelling on background modes,
 is used to derive the final weights.
@@ -499,7 +499,7 @@ The post-fit cocktail is built with the following procedure:
 
     \item After effecting possible variations,
         each fit template is rescaled such that the scaled integral of the
-        template matches the fitted yield in the normalization enriched region.
+        template matches the fitted yield in the reweighting region.
 
     \item All MC templates are added together to form the
         \emph{post-fit cocktail}.
@@ -512,18 +512,20 @@ The post-fit cocktail is built with the following procedure:
 \section{Final reweighting}
 \label{ref:mc-cor:final}
 
-The final reweighting is a multi-stage reweighting process by comparing
-selected
-kinematic and geometric variables of the \B decay daughters,
+Final reweighting is a multi-stage process by comparing
+selected kinematic and geometric variables of the \B decay daughters,
 listed in \cref{tab:rwt-final-vars},
 between \emph{post-fit cocktail} and \emph{subtracted data}
-in the reweighting region, selected by a $\mmSq < 0.4$ GeV cut.
+in the reweighting region, selected by a $\mmSq < 0.4$ GeV cut,
+and generate binned $\frac{\text{data}}{\text{MC}}$ ratios as weights for each
+variable.
 The reweighting is performed separately for \Dz and \Dstar channel;
 the latter contains additional stages due to corrections to slow \pion.
 
 The effects of final reweighting can be seen at
 \cref{fig:final-rwt-d0} for \Dz channel, and
 \cref{fig:final-rwt-dst} for \Dstar channel.
+Some important technical details are provided below.
 
 \begin{figure}[htb]
     \begin{subfigure}{\textwidth}
