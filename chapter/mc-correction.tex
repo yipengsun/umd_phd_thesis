@@ -23,6 +23,10 @@ and a multi-stage reweighting process is
 performed to correct disagreements if necessary.
 Outlined in \cref{ref:mc-cor:final}, such procedure is called \emph{final
 reweighting}.
+Additional corrections on vertex resolution is applied after inspecting the
+final reweighting results.
+This correction, discussed in \cref{ref:mc-cor:vertex}, is included
+\emph{before} initial reweighting.
 
 
 \section{Form factor models}
@@ -519,7 +523,10 @@ between \emph{post-fit cocktail} and \emph{subtracted data}
 in the reweighting region, selected by a $\mmSq < 0.4$ GeV$^2$ cut,
 and generate binned $\frac{\text{data}}{\text{MC}}$ ratios as weights for each
 variable.
-The reweighting is performed separately for \Dz and \Dstar channel;
+The reweighting sequence is arranged such that correlated variables are
+handled in the same stage, and the most important variables are placed in the
+last stages.
+The final reweighting is performed separately for \Dz and \Dstar channel;
 the latter contains additional stages due to corrections to slow \pion.
 
 The effects of final reweighting can be seen at
@@ -783,11 +790,33 @@ the reweighting process.
 \end{figure}
 
 
-\section{Validation of final reweighting}
+\section{Additional correction on $B$ vertex resolution}
+\label{ref:mc-cor:vertex}
 
-As shown in the previous section, the kinematic variables, for example \pt
-and $\eta$, of $B$ decay daughters are in good agreements.
+Although final reweighting brings the selected variables to good agreement
+between data and MC, the fit for \mmSq now has worse pulls, as can be seen
+in \cref{fig:worse-pulls-after-final-rwt}.
 
+% TODO: Use actual plot to show w/o vertex smearing, mm2 has poorer agreements.
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.45\textwidth]{./figs-mc-correction/reweighting-final/plot_step12-Dst_iso-spi_comp.pdf}
+    \includegraphics[width=0.45\textwidth]{./figs-mc-correction/reweighting-final/plot_step12-Dst_iso-spi_log_ip_chi2.pdf}
+
+    \caption{
+        Without additional vertex resolution correction,
+        the agreement between data and fitted result becomes poorer
+        after final reweighting,
+        as the pulls become worse.
+    }
+    \label{fig:worse-pulls-after-final-rwt}
+\end{figure}
+
+
+- vertex smearing -> change mm2
+- degrade ip and ip chi2
+
+one of them cannnot is not fixed in final reweighting included
 
 
 
