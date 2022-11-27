@@ -18,13 +18,7 @@ jobs:
     - run: nix develop --no-update-lock-file -c make
     - run: ls
 
-    - uses: softprops/action-gh-release@v1
+    - run: gh release create $GITHUB_REF_NAME yipengsun-umd_phd_thesis.pdf
       if: startsWith(github.ref, 'refs/tags/')
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        files: |
-          yipengsun-umd_phd_thesis.pdf
-
-permissions:
-  contents: write
+          GH_TOKEN: ${{ github.token }}
