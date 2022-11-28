@@ -1,6 +1,69 @@
 \chapter{Signal extraction fit}
 \label{ref:fit}
 
+The general fit strategy in this analysis is:
+First determine control fit parameters related to background processes,
+such as $D^{**}$ form factors,
+via a simultaneous fit to the 3 control skims
+(1OS, 2OS, DD; these skims are discussed in \cref{ref:sel:skims}),
+then apply the fitted control parameters and their uncertainties as a
+constraint to the signal (ISO) fit
+when fitting the remaining parameters, including \RD and \RDst.
+Without the help of control skims, the control parameters cannot be determined
+from the ISO skim alone precisely,
+as these backgrounds are a small fraction of the ISO skim.
+
+Both the control and signal fit are binned maximum likelihood template fit,
+with a fitter based on the \HistFactory fitter
+used in the previous run 1 analysis described in
+\cite{LHCb-ANA-2020-056}\footnote{
+    With code refactored and dependencies updated to enhance readability and
+    configurability,
+    but the core structure is the same.
+}.
+% Fit variables, include binning
+The fit templates are three-dimensional histograms of \mmSq, \el, and \qSq,
+with binning scheme listed in \cref{tab:fit-vars-binning}.
+Events outside the binning ranges of the fit variables are cut out to avoid
+potential impact of under/overflow bins on the fitter.
+To account for external constraints on fit parameters or uncertainties on
+modelling of certain backgrounds,
+additional variations are introduced on selected templates.
+
+\begin{table}[htb]
+    \centering
+    \caption{
+        Fit variables and their binnings,
+        obtained by the rest frame approximation technique as described
+        in \cref{appx:rfa}.
+    }
+    \label{tab:fit-vars-binning}
+    \begin{tabular}{c|l}
+        \toprule
+        {\bf Variable} & {\bf Binning} \\
+        \midrule
+        \mmSq [\GeVSq] & 43, -2 -- 10.9 \\
+        \el [MeV]      & 34, 100 -- 2650 \\
+        \qSq [\GeVSq]  & 4, -0.4 -- 12.6 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+% Pointer to later subsections
+The remainder of this chapter is organized as following:
+A description on template generation,
+followed by a discussion on all components of fit templates,
+is described in \cref{ref:fit:tmpl}.
+The fit template variations are explained in
+\cref{ref:fit:var}.
+An overview of both control and signal fit procedure,
+followed by a detailed description of the fit model,
+is provided in \cref{ref:fit:procedure}.
+Finally, the blinded fitted results are provided in
+\cref{ref:fit:results}.
+
+
 \input{section/fit-fit-templates.tex}
-\input{section/fit-fit-procedure.tex}
 \input{section/fit-fit-variations.tex}
+\input{section/fit-fit-procedure.tex}
+\input{section/fit-fit-results.tex}
