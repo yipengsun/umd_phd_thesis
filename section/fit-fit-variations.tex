@@ -92,29 +92,4 @@ A DiF-smeared template is produced according to
 variation.
 
 
-\section{Fit procedure}
-\label{sec:fit-to-data:fit-procedure}
 
-The fit procedure is broken into 3 steps:
-
-\begin{enumerate}
-    \item Pre-control:
-        Performed on control samples (1OS, 2OS, DD).
-        In this step, all but the \Kstar variations are turned off.
-    \item Control:
-        Performed on control samples (1OS, 2OS, DD).
-        All but the signal and normalization variations are turned on.
-        The fitted parameters from previous steps are loaded along with their
-        errors as a starting point for the control fit.
-    \item Signal:
-        Performed on signal sample (ISO).
-        The variations for $D^{**}, D_H^{**}$, and misID DiF are loaded as
-        constraints to the signal fit;
-        the $DDX$ variations are set to constant with fitted value from previous
-        step,
-\end{enumerate}
-
-The fit models for each step are listed in TAB.
-Selected fit parameters are explained in
-\cref{sec:fit-to-data:fit-tmpl,sec:fit-to-data:fit-tmpl-vars}.
-An index for these parameters is tabulated in \cref{tab:selected-fit-params}.
