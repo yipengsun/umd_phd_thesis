@@ -804,17 +804,17 @@ as a run 1 study (\cite{LHCb-ANA-2020-056}, Appendix G) showed that:
         and MC
     \item This effect can be emulated on MC with an IP smearing tool which
         smears the position of the first hit (VELO hit) of every track based on
-        a \pt-dependent Gaussian resolution.
+        random sampling of a \pt-dependent Gaussian resolution.
         The smearing worsens the resolution of \B vertex.
     \item The worsened \B vertex resolution has two consequences:
-        1) The impact parameter (IP) between the \B vertex and PV becomes
-        poorer.
+        1) The resolution of impact parameter (IP) between the \B vertex and PV
+        becomes poorer.
         2) The \B meson \emph{flight vector}
         (an unit vector from PV pointing to the \B vertex) has poorer
         resolution,
         which notably changes the estimated \mmSq with RFA technique.
     \item By applying weights from final reweighting, it is shown that
-        the IP resolution is corrected as unsmeared/smeared
+        the IP resolution is corrected as unsmeared/smeared-and-final-reweighted
         MC has good agreement.
     \item However, the \mmSq agreement remains poor.
         The proxy variable for \mmSq is the difference in azimuthal angle
