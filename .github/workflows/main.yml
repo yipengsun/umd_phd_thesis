@@ -22,3 +22,6 @@ jobs:
       if: startsWith(github.ref, 'refs/tags/')
       env:
           GH_TOKEN: ${{ github.token }}
+
+permissions:
+  contents: write
