@@ -392,6 +392,7 @@ shown in \cref{fig:comb-vs-sig}.
 \end{figure}
 
 \subsubsection{$D^*$ combinatorial}
+\label{dst-comb}
 
 The $D^*$ combinatorial background (\DstComb) arises from a reconstructed $D^0$
 combining with an random slow $\pi$, forming a fake $D^*$ vertex and
@@ -485,9 +486,10 @@ The fit is performed in the following manner:
 \begin{enumerate}
     \item Remove misID contribution from RS sample.
     \item Remove misID contribution from WS $\mu$ sample.
-    \item Perfome a fit on RS sample in the upper-sideband region to determine
+    \item Perform a fit on RS sample in the upper-sideband region to determine
         contribution from \DstComb, with procedure identical to that in
-        \cref{dst-comb}. Remove the fitted \DstComb.
+        \cref{dst-comb}.
+        Then remove the fitted \DstComb.
     \item Fit and remove \DstComb\ from WS $\mu$ sample.
     \item Compute the ratio between RS and WS $\mu$, perform a fit to obtain
         the linear scaling factor.
@@ -549,7 +551,7 @@ fit channels.
 As a side, the \Dz\muon template has notably softer \qSq spectrum compared to
 that of \Dstar\muon, due to reduced helicity states available in the
 $B \rightarrow D \ell \neulb$ transitions
-(discussed in \cref{ref:theory:form-factors}),
+(discussed in \cref{ref:theory:ff-d0-dst}),
 as shown in \cref{fig:d0-norm-vs-dst-norm}.
 The \Dstarp templates (both muonic and tauonic) contribute to both fit channels
 due to feed down.
@@ -650,9 +652,9 @@ as shown in \cref{fig:dstst-mu-vs-d0-sig}.
 The \el spectrum is comparable, but typically softer, than that in normalization,
 due to $D^{**}$ states having higher masses compared to \Dz and \Dstar.
 These decays are suppressed at zero recoil, as discussed in
-\cref{theory:form-factors:dstst},
+\cref{ref:theory:ff-dstst},
 but translates weakly in the reconstructed \qSq spectrum, due to rest frame
-approximation (\cref{theory:rfa}) and definition of \qSq being
+approximation (\cref{appx:rfa}) and definition of \qSq being
 $(p_B - p_D)^2$, instead of $(p_B - p_{D^{**}})^2$.
 
 Currently, the constraints for these modes are
@@ -740,7 +742,7 @@ phase space models with a three-body decay, so additional deformations
 to the phase space are provided in the fitter to allow for a more
 data-driven approach in the determination of their yields.
 More details will be discussed in
-\cref{sec:fit-to-data:fit-tmpl-vars:ddx}.
+\cref{ref:fit:var:ddx}.
 The shape of the $DDX$ templates are somewhat similar to the signal templates,
 as can be seen in \cref{fig:ddx-vs-d0-sig}.
 
