@@ -1,61 +1,61 @@
 \chapter{Unfolding procedure of fake muon control sample}
 \label{appx:unfold-tech}
 
-The notation that we use in the main text and throughout this appendix is as follows:
+This appendix provides more technical information on step 2--4 in \muon misID
+unfolding.
+
+\paragraph{Step 2}
+The efficiency \misEff[t]{\hat{t}'}
+for a track of true species $t$ satisfying requirements of
+a tagged species $\hat{t}'$ is obtained from $t$-enriched \pidcalib samples
+which is taken as truth.
+Let us first define the subsamples used to evaluate the efficiency,
+as shown schematically in \cref{fig:relation-unfolding-sets}:
 
 \begin{itemize}
-\item Hats as that in $\hat{t}$ refer to species tagged as a track of species $t$ based
-  on the cuts listed in \cref{tab:selection-for-tagged-species}.
-\item Apostrophes as that in $t'$ are used simply to indicate that the track species may or may not
-  be the same that in $t$.
-\item Subscripts such as $t_\text{fake}$ indicate which selection the event satisfies.
-\item Yields denoted with the letter $n$ refer to the number of events in the \pidcalib (or MC) samples, while
-  yields with tilde ($\tilde{n}$) refer the number of events in our fake \muon samples.
-\end{itemize}
-
-The various samples considered in this procedure are described below and shown
-schematically in \cref{fig:relation-unfolding-sets}:
-
-\begin{itemize}
-\item $t_\text{PIDCalib}$: The \pidcalib sample (or MC in the case of ghost) with minimal cuts
-  that is considered to be pure in the track species $t$.
-\item $t_\text{acc}$: The subset of $t_\text{PIDCalib}$ that satisfies all \muon
-cuts other than PID (i.e., track in \muon acceptance).
-\item $t_\text{fake}$: The subset of $t_{acc}$ that \emph{fails} \muon PID and thus contributes exclusively to the fake \muon sample.
-\item $\hat{\mu}_\text{sig}$: The subset of $t_{acc}$ that \emph{passes} \muon PID
-  and thus contributes to the real \muon samples.
-\item $\hat{t}'_\text{fake}$: The subset of $t_\text{fake}$ that passes the $\hat{t}'$ tagging requirements
-  from \cref{tab:selection-for-tagged-species}.
+    \item $t_\text{PIDCalib}$: The $t$-enriched \pidcalib sample itself
+        (or MC in the case of ghost).
+        The sample contains minimal cuts.
+    \item $t_\text{acc}$: The subset of $t_\text{PIDCalib}$ that satisfies all \muon
+        cuts other than PID (i.e., track in \muon acceptance).
+        Note that this subsample is further divided into two subsamples:
+        $t_\text{fake}$ and $\hat{\mu}$.
+    \item $t_\text{fake}$: The subset of $t_{acc}$ that \emph{fails} \muon PID
+        from \cref{tab:offline-cut-common}.
+    \item $\hat{\mu}_t$: The subset of $t_{acc}$ that \emph{passes} \muon PID
+    \item $\hat{t}'_\text{fake}$: The subset of $t_\text{fake}$ that passes the
+        $\hat{t}'$ tagging requirements
+        from \cref{tab:selection-for-tagged-species}.
 \end{itemize}
 
 \begin{figure}[ht]
     \centering
-    \resizebox{0.9\columnwidth}{!}{
+    \resizebox{0.8\columnwidth}{!}{
         \input{figs-misid-unfolding/pid-sample-relations.tikz}
     }
-    \caption{Relations between $t$-specie-enriched samples used in unfolding.}
+    \caption{Subsamples of $t$-enriched \pidcalib samples used in unfolding.}
     \label{fig:relation-unfolding-sets}
 \end{figure}
 
 
-We now describe step 2 and 3 in the main text with more detail.
-
-\paragraph{Step 2} The probability of a true $t$ to be classified as $\hat{t}'$ can
-be computed as:
+The efficiency \misEff[t]{\hat{t}'} of a true $t$ to be classified as $\hat{t}'$
+can be computed as:
 
 \begin{equation}
-    \misEff[t_\text{fake}]{\hat{t}'_\text{fake}} = \frac{n_{\hat{t}'_\text{fake}}}{n_{t_\text{fake}}}
+    \misEff[t]{\hat{t}'} =
+    \misEff[t^{\phantom{}}_\text{fake}]{\hat{t}'_\text{fake}} = \frac{n_{\hat{t}'_\text{fake}}}{n_{t_\text{fake}}}
 \end{equation}
-
-where $n$ denote yields in the \emph{fake} samples as shown
+where $n$ denote yields in the \pidcalib \emph{fake} subsamples as shown
 in \cref{fig:relation-unfolding-sets}.
-Note that all efficiencies are binned in $p_B$, $\eta_B$, and nTracks with a
-consistent binning scheme.
+All efficiencies are binned in $p_B$, $\eta_B$, and nTracks with a consistent
+binning scheme.
 
 
-\paragraph{Step 3} In a particular bin, the measured
-yields $\tilde{n}_{\hat{t}'}$, the true yields $\tilde{n}_{t}$, and the response matrix $M$
-have the following relation:
+\paragraph{Step 3}
+In a particular $p_B$-$\eta_B$-nTracks bin,
+the measured yields $\tilde{n}_{\hat{t}'}$,
+the true yields $\tilde{n}_{t}$,
+and the response matrix $M$ have the following relation:
 
 \begin{equation}
     \begin{pmatrix*}[l]
@@ -81,43 +81,46 @@ have the following relation:
         \tilde{n}_{{g}}   \\
     \end{pmatrix*}
 \end{equation}
-where $\tilde{n}$ denote yields in the fake \muon sample,
-and the $t/\hat{t}'$ subscripts in $\tilde{n}$ only refer to
-the true/tagged species, without any relation on \pidcalib samples.
-The \emph{fake} subscripts in the efficiencies are dropped for readability.
+where $\tilde{n}$ denote yields in the fake \muon control sample
+as described in \cref{ref:sel:data:fake-mu},
+and \misEff[t]{\hat{t}'} are obtained from step-2.
 
 The Bayesian (iterative) unfolding method provided by \RooUnfold\ is used to
-obtain the true yields.
+obtain the true yields $\tilde{n}_t$.
+At this stage, there is no guarantee that
+$\sum_t \tilde{n}_t = \sum_{t'} \tilde{n}_{t'}$.
 Naive matrix inversion cannot be used because it is sensitive to statistical
 fluctuations.  % TODO: Should I cite Cowan here?
 
-To find $\misEff[\hat{t}_\text{fake}']{t_\text{fake}}$, recall its definition:
+To find $\misEff[\hat{t}']{t}$, recall its definition:
 
 \begin{equation}
-    \misEff[\hat{t}_\text{fake}']{t_\text{fake}} \equiv
+    \misEff[\hat{t}']{t^{\phantom{}}} \equiv
         \frac{
-            \text{Number of $\hat{t}'$ from $t$}
+            \text{Number of $\hat{t}'$-tagged tracks from true $t$ tracks}
         }{
-            \text{Total number of $\hat{t}'$ based on unfolding}
+            \text{Total number of $\hat{t}'$-tagged tracks based on unfolding}
         }
 \end{equation}
 
 With the unfolded true yields, we can compute:
 
 \begin{itemize}
-    \item Number of $\hat{t}'$ from $t$:
-        $\tilde{n}_t \cdot \misEff[t_\text{fake}]{\hat{t}_\text{fake}'}$
-    \item Total number of $\hat{t}'$ based on unfolding:
-        $\sum_t \tilde{n}_t \cdot \misEff[t_\text{fake}]{\hat{t}_\text{fake}'}$
+    \item Number of $\hat{t}'$-tagged tracks in true $t$ tracks:
+        $\tilde{n}_t \cdot \misEff[t]{\hat{t}'}$.
+    \item Total number of $\hat{t}'$-tagged tracks based on unfolding:
+        $\sum_t \tilde{n}_t \cdot \misEff[t]{\hat{t}'}$.
+        The definition used here ensures the total number of tracks before and
+        after unfolding is constant.
 \end{itemize}
 
-Therefore:
+Put them together:
 
 \begin{equation}
-    \misEff[\hat{t}_\text{fake}']{t_\text{fake}} =
+    \misEff[\hat{t}']{t^{\phantom{}}} =
         \frac{
-            \tilde{n}_t \cdot \misEff[t_\text{fake}]{\hat{t}_\text{fake}'}
+            \tilde{n}_t \cdot \misEff[t^{\phantom{}}]{\hat{t}'}
         }{
-            \sum_t \tilde{n}_t \cdot \misEff[t_\text{fake}]{\hat{t}_\text{fake}'}
+            \sum_t \tilde{n}_t \cdot \misEff[t^{\phantom{}}]{\hat{t}'}
         }
 \end{equation}

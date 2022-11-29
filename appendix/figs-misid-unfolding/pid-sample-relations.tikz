@@ -4,43 +4,39 @@
     \pgfsetlayers{nodelayer,edgelayer}
 
 	\begin{pgfonlayer}{nodelayer}
-		\node (0) at (-7.75, -4) {};
-		\node (1) at (8.25, -4) {};
-		\node (2) at (-7.75, 4) {};
-		\node (3) at (8.25, 4) {};
-		\node (6) at (-6.5, -3.5) {$t_\text{PIDCalib}$};
+		\node (0) at (-6, -3.5) {};
+		\node (1) at (6, -3.5) {};
+		\node (2) at (-6, 3.5) {};
+		\node (3) at (6, 3.5) {};
+		\node (6) at (-5, 3) {$t_\text{PIDCalib}$};
 		\node (7) at (-6, 3) {};
 		\node (8) at (-6, -3) {};
 		\node (9) at (6, -3) {};
 		\node (10) at (6, 3) {};
-		\node (11) at (-5.3, -2.6) {$t_\text{acc}$};
+        \node[red] (11) at (-3.3, -1.6) {$t_\text{acc}$};
 		\node (14) at (0.75, -2) {};
 		\node (15) at (0.75, 2) {};
 		\node (17) at (-1, -1.25) {$t_\text{fake}$};
-		\node (18) at (1.75, -1.25) {$\hat{\mu}_\text{sig}$};
+		\node (18) at (1.75, -1.25) {$\hat{\mu}_t$};
 		\node (19) at (-3, 1) {};
 		\node (20) at (-3, -0.5) {};
 		\node (21) at (-1, -0.5) {};
 		\node (22) at (-1, 1) {};
 		\node (23) at (-2, 0.25) {};
-		\node (24) at (-2, 0.25) {$\hat{t}'_\text{fake}$};
+        \node[blue] (24) at (-2, 0.25) {$\hat{t}'_\text{fake}$};
 	\end{pgfonlayer}
 	\begin{pgfonlayer}{edgelayer}
-		\draw (1.center)
+        \draw[line width=0.3mm] (1.center)
 			 to (0.center)
 			 to (2.center)
 			 to (3.center)
 			 to cycle;
-		\draw (10.center)
-			 to (9.center)
-			 to (8.center)
-			 to (7.center)
-			 to cycle;
-		\draw (15.center)
+        \draw[red, line width=0.35mm] (15.center)
 			 to [in=180, out=180, looseness=4.50] (14.center)
-			 to [in=0, out=0, looseness=2.50] cycle
+			 to [in=0, out=0, looseness=2.50] cycle;
+        \draw[line width=0.3mm] (15.center)
 			 to (14.center);
-		\draw (19.center)
+        \draw[blue, line width=0.35mm] (19.center)
 			 to (22.center)
 			 to (21.center)
 			 to (20.center)
