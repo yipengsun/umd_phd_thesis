@@ -1,0 +1,179 @@
+\chapter{Form factor variation}
+\label{appx:ff-var}
+
+Suppose a form factor $\mathcal{F}$ can be estimated with:
+
+\begin{equation}
+    \mathcal{F}(z) \approx f_0 + f_1 z + f_2 z^2
+\end{equation}
+
+where $z$ is some expansion parameter, and $\bm{f} = (f_0, f_1, f_2)^T$ are
+expansion coefficients.
+
+The log-likelihood of the polynomial can be written as:
+
+\begin{equation}
+    \log L(\bm{f}) = - \frac{1}{2}
+    \underbrace{
+        \sum_{i}^N
+        \frac{(\mathcal{F^\text{mea}_\text{$i$}} -
+            \bm{z_i}^T \bm{f})^2}{\sigma_i^2}
+    }_{\equiv \chi^2}
+\end{equation}
+
+where $\bm{z_i} = (1, z_i, z_i^2)^T$,
+$\mathcal{F^\text{mea}_\text{$i$}}$ indicates each measured value of
+$\mathcal{F}$,
+and $\sigma_i$ the uncertainty associated with each measurement, assuming each
+measurement is an independent Gaussian random variable.
+
+To obtain best fit values of $\bm{f}$, we maximize $\chi^2$ by requiring
+$\nabla_{\bm{f}} \chi^2 = \bm{0}$.
+Noting $\chi^2$ can be rewritten more concisely in a tensorial form:
+
+\begin{equation}
+    \chi^2 = (\bm{\mathcal{F^\text{mea}}} - Z \bm{f})^T V^{-1}
+        (\bm{\mathcal{F^\text{mea}}} - Z \bm{f})
+\end{equation}
+
+where $Z$ is a $N \times 3$ matrix with
+$Z_i \equiv \bm{z_i} = (1, z_i, z^2_i)^T$,
+and $V$ a $N \times N$ matrix with $V_{ij} = \delta_{ij} \sigma^2_j$.
+
+Computing $\nabla_{\bm{f}} \chi^2$:
+
+\begin{align}
+    \nabla_{\bm{f}} \chi^2 &=
+            -Z^T V^{-1} (\bm{\mathcal{F^\text{mea}}} - Z \bm{f})
+            - (\bm{\mathcal{F^\text{mea}}} - Z \bm{f})^T V^{-1} Z
+        \\
+        %%%%
+        &=
+            -Z^T V^{-1} (\bm{\mathcal{F^\text{mea}}} - Z \bm{f})
+            -Z^T \underbrace{(V^{-1})^T}_{ = V^{-1}}
+                (\bm{\mathcal{F^\text{mea}}} - Z \bm{f})
+        \\
+        %%%%
+        & = -2 Z^T V^{-1} (\bm{\mathcal{F^\text{mea}}} - Z \bm{f})
+\end{align}
+
+Therefore, the best fit ${\bm{\hat{f}}}$ are linear functions of the
+measurements $\bm{\mathcal{F^\text{mea}}}$:
+
+\begin{align}
+    & -2 Z^T V^{-1} (\bm{\mathcal{F^\text{mea}}} - Z \bm{\hat{f}}) = 0 \\
+    &\Longrightarrow Z^T V^{-1} Z \bm{\hat{f}}
+        = Z^T V^{-1} \bm{\mathcal{F^\text{mea}}} \\
+    &\Longrightarrow \bm{\hat{f}}
+        = \underbrace{
+            (Z^T V^{-1} Z)^{-1} Z^T V^{-1}
+        }_{\equiv B} \bm{\mathcal{F^\text{mea}}}
+\end{align}
+
+Using error propagation to find uncertainties of $\bm{\hat{f}}$, denote as U:
+
+\begin{equation}
+    U = B V B^T = (Z^T V^{-1} Z)^{-1}
+\end{equation}
+
+In the case where each $\mathcal{F^\text{mea}_\text{$i$}}$ is independent and
+identically distributed with a variance of $\sigma^2$,
+$V^{-1} = \frac{1}{\sigma^2} \text{Id}_N$,
+and $U$ (a $3 \times 3$ matrix) becomes:
+
+\begin{equation}
+    U = (Z^T Z)^{-1} \sigma^2
+\end{equation}
+
+However, $\bm{\hat{f}}$ are often correlated, making linear expansion in terms
+of them hard.
+Still, we can always find a linear transformation $A$ s.t.
+$\bm{\tilde{f}} \equiv A \bm{\hat{f}}$ has an identity covariance matrix.
+
+\begin{enumerate}
+    \item Find the eigenvectors $\bm{r^i_j}$ satisfying
+        $(\bm{r^i})^T \bm{r^j} = \delta_{ij}$,
+        and eigenvalues $\lambda_i$ of of $U$.
+
+        Note that $\lambda_i$ are all positive because $U$ is positive-definite.
+
+    \item For $M_{ij} = \bm{r^i_j}$, $M \bm{\hat{f}}$ has a covariance
+        matrix element
+        $V_{ij} = M_{ik} U_{kl} M^T_{lj} = \bm{r^i_k} U_{kl} \bm{r^j_l}
+            = \lambda_j \delta_{ij}$.
+
+    \item Let $C_{ij} = \delta_{ij} \frac{1}{\sqrt{\lambda_j}}$, without summing
+        over repeated indices.
+        Then $A = C M$.
+
+    \item Note that
+        $\mathcal{\hat{F}}(z) = \bm{z}^T \bm{\hat{f}} = \bm{z}^T A^{-1} \bm{\tilde{f}}$.
+        Its linear variations in terms of $\bm{\tilde{f}}$ are
+        $\bm{z}^T A^{-1} \bm{\delta \tilde{f}}$.
+\end{enumerate}
+
+In our \Hammer-based form factor variation, the covariance $U$ are taken from
+corresponding papers directly, and the expansion coefficients are defined in
+terms of $\bm{\hat{f}}$, which are often correlated.
+Still, the variations must be uncorrelated due to \HistFactory\ requirements.
+
+Thus, a typical variation workflow for generating $\pm 1 \sigma$ form factor
+variations is:
+
+\begin{enumerate}
+    \item Find $A^{-1}$ as defined in the previous paragraph.
+
+    \item Provide form factor variation information to \Hammer.
+        We have 2 equivalent procedures:
+
+        \begin{itemize}
+            \item We can supply the $A^{-1}$ to \Hammer\ form factor class
+                directly.
+
+                For example, for \lstinline{BGLVar} form factor of $B \rightarrow D$
+                decays,
+                the matrix is named as \lstinline{apa0mat}.
+
+                In this case, the form factor variations are in an
+                \emph{orthonormal} error eigenbasis, so the form of variations
+                are very simple. For example, a $+1\sigma$ variation in the
+                first component can be supplied as\footnote{
+                    Here \lstinline{delta_ap0} is a misnomer.
+                }:
+                \begin{lstlisting}
+                    ham.setFFEigenvectors{"BtoD", "BGLVar", {"delta_ap0", 1}};
+                \end{lstlisting}
+
+            \item Alternatively, contract $A^{-1} \delta\bm{\hat{f}}$ manually,
+                and provide the variation in the original basis the form factors
+                are parameterized.
+
+                This works well for \lstinline{BGLVar}, because by default the
+                covariance is set to identity.
+
+                In this case, one does not manually input the 2-dimensional
+                covariance matrix manually in C++.
+                The trade-off is: the variations become more complex.
+                For example, the same $+1\sigma$ variation in the
+                error eigenbasis now becomes:
+
+                \begin{lstlisting}
+                    ham.setFFEigenvectors("BtoD", "BGLVar",
+                      {{"delta_ap0", -1.7339e-05}, {"delta_ap1", 0.0001643},
+                       {"delta_ap2", 0.000192972}, {"delta_a01", -0.100070},
+                       {"delta_a02", 0.002478870}, {"delta_a00", 0.0064648}}
+                    );
+                \end{lstlisting}
+
+                with precisions reduced for simplicity\footnote{
+                    Now \lstinline{delta_ap0} etc. are consistent with the common
+                    form factor parameterization in the literature.
+                    Also note that the \lstinline{delta_a00} is fixed by the
+                    unitarity requirement.
+                }.
+        \end{itemize}
+
+        In both cases, the matrix $\bm{z}^T A^{-1}$
+        ($\bm{z}^T \text{Id}$ in the second case) is computed only once,
+        which can be contracted with any linear variation at a later time.
+\end{enumerate}
