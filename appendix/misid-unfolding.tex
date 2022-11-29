@@ -88,7 +88,7 @@ and \misEff[t]{\hat{t}'} are obtained from step-2.
 The Bayesian (iterative) unfolding method provided by \RooUnfold\ is used to
 obtain the true yields $\tilde{n}_t$.
 At this stage, there is no guarantee that
-$\sum_t \tilde{n}_t = \sum_{t'} \tilde{n}_{t'}$.
+$\sum_t \tilde{n}_t = \sum_{\hat{t}'} \tilde{n}_{\hat{t}'}$.
 Naive matrix inversion cannot be used because it is sensitive to statistical
 fluctuations.  % TODO: Should I cite Cowan here?
 
@@ -110,8 +110,8 @@ With the unfolded true yields, we can compute:
         $\tilde{n}_t \cdot \misEff[t]{\hat{t}'}$.
     \item Total number of $\hat{t}'$-tagged tracks based on unfolding:
         $\sum_t \tilde{n}_t \cdot \misEff[t]{\hat{t}'}$.
-        The definition used here ensures the total number of tracks before and
-        after unfolding is constant.
+        The definition used here ensures the total number of tracks is
+        conserved by unfolding.
 \end{itemize}
 
 Put them together:
