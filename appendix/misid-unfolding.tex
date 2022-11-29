@@ -92,7 +92,7 @@ $\sum_t \tilde{n}_t = \sum_{t'} \tilde{n}_{t'}$.
 Naive matrix inversion cannot be used because it is sensitive to statistical
 fluctuations.  % TODO: Should I cite Cowan here?
 
-To find $\misEff[\hat{t}']{t}$, recall its definition:
+To find \misEff[\hat{t}']{t}, recall its definition:
 
 \begin{equation}
     \misEff[\hat{t}']{t^{\phantom{}}} \equiv
@@ -124,3 +124,30 @@ Put them together:
             \sum_t \tilde{n}_t \cdot \misEff[t^{\phantom{}}]{\hat{t}'}
         }
 \end{equation}
+
+\paragraph{Step 4}
+To obtain \misEff[\hat{t}']{\hat{\mu}},
+what is really needed is:
+$\misEff[\hat{t}']{t_\text{acc}} \cdot \misEff[t_\text{acc}]{\hat{\mu}}$.
+However, \misEff[\hat{t}']{t} is obtained with \emph{fake} \muon control
+samples, which is directly comparable to $t_\text{fake}$ subsample in
+\cref{fig:relation-unfolding-sets}.
+It is assumed that:
+
+\begin{equation}
+    \misEff[\hat{t}']{t_\text{acc}} =
+    \frac{
+        \misEff[\hat{t}']{t}
+    }{
+        \misEff[t_\text{acc}]{t}
+    } \approx
+    \frac{
+        \misEff[\hat{t}']{t}
+    }{
+        \misEff[t_\text{acc}]{t_\text{fake}}
+    }
+\end{equation}
+note that the nominator uses $t/t'$ as labels to species, whereas the
+denominator uses $t_\text{acc}/t_\text{fake}$ as labels to subsamples
+in the $t$-enriched \pidcalib sample.
+This is unfortunate but clearer notations can be much more verbose.
