@@ -43,7 +43,8 @@ can be computed as:
 
 \begin{equation}
     \misEff[t]{\hat{t}'} =
-    \misEff[t^{\phantom{}}_\text{fake}]{\hat{t}'_\text{fake}} = \frac{n_{\hat{t}'_\text{fake}}}{n_{t_\text{fake}}}
+        \misEff[t^{\phantom{}}_\text{fake}]{\hat{t}'_\text{fake}} =
+        \frac{n_{\hat{t}'_\text{fake}}}{n_{t_\text{fake}}}
 \end{equation}
 where $n$ denote yields in the \pidcalib \emph{fake} subsamples as shown
 in \cref{fig:relation-unfolding-sets}.
@@ -126,13 +127,21 @@ Put them together:
 \end{equation}
 
 \paragraph{Step 4}
-To obtain \misEff[\hat{t}']{\hat{\mu}},
-what is really needed is:
-$\misEff[\hat{t}']{t_\text{acc}} \cdot \misEff[t_\text{acc}]{\hat{\mu}}$.
-However, \misEff[\hat{t}']{t} is obtained with \emph{fake} \muon control
-samples, which is directly comparable to $t_\text{fake}$ subsample in
-\cref{fig:relation-unfolding-sets}.
-It is assumed that:
+The transfer factor \misEff[\hat{t}']{\hat{\mu}}
+can be computed with:
+
+\begin{equation}
+    \misEff[\hat{t}']{\hat{\mu}} =
+        \misEff[\hat{t}']{t_\text{acc}} \cdot \misEff[t_\text{acc}]{\hat{\mu}}
+\end{equation}
+
+The first efficiency \misEff[\hat{t}']{t_\text{acc}} is not directly measurable
+but can be converted from the unfolded \misEff[\hat{t}']{t}
+by noting that the \emph{fake} \muon control samples,
+inputs to the unfolding,
+is directly comparable to the $t_\text{fake}$ subsample
+in \cref{fig:relation-unfolding-sets}.
+The conversion formula is:
 
 \begin{equation}
     \misEff[\hat{t}']{t_\text{acc}} =
@@ -151,3 +160,12 @@ note that the nominator uses $t/t'$ as labels to species, whereas the
 denominator uses $t_\text{acc}/t_\text{fake}$ as labels to subsamples
 in the $t$-enriched \pidcalib sample.
 This is unfortunate but clearer notations can be much more verbose.
+
+The second efficiency \misEff[t_\text{acc}]{\hat{\mu}} is measured directly
+in $t$-enriched \pidcalib sample:
+
+\begin{equation}
+    \misEff[t_\text{acc}]{\hat{\mu}} =
+        \misEff[t_\text{acc}]{\hat{\mu}_t} =
+        \frac{n_{\hat{\mu}_t}}{n_{t_\text{acc}}}
+\end{equation}
