@@ -1,8 +1,9 @@
 \section{Fit templates}
 \label{ref:fit:tmpl}
 
-This selection describes generation of fit templates and comments on features
-of the included templates.
+This selection describes generation of fit templates, followed by comments on
+features of the included templates and explanation of important fit parameters
+associated with them.
 There are a total of 37 templates in \Dz channel and 24 in \Dstar channel,
 with some templates contributing to both, as listed in
 \cref{tab:fit-templates-d0,tab:fit-templates-dst}.
@@ -150,16 +151,17 @@ consists of the following steps:
 
 \begin{figure}[htb]
     \centering
-    \begin{subfigure}[t]{0.45\textwidth}
+    \begin{subfigure}{0.9\textwidth}
         \centering
         \caption{
-            misID vs. signal in \Dz channel.
+            \muon misID vs. $\Bm \rightarrow \Dz\taum\neutb$ in \Dz channel.
         }
     \end{subfigure}
-    \begin{subfigure}[t]{0.45\textwidth}
+
+    \begin{subfigure}{0.9\textwidth}
         \centering
         \caption{
-            misID vs. signal in \Dstar channel.
+            \muon misID vs. $\Bzb \rightarrow \Dstarp\taum\neutb$ in \Dstar channel.
         }
     \end{subfigure}
 
@@ -280,12 +282,13 @@ A more detailed description of the unfolding procedure is documented in
     \caption[misID tagged vs. unfolded.]{
         Unfolding effect displayed in $p$ and $\eta$ of the fake $\mu$ track,
         and nTracks of the reconstructed event.
-        Top are the raw tagged yields in the fake \muon control sample,
+        Top are the raw tagged yields,
         bottom are the unfolded true yields.
         The number of events is conserved by unfolding.
 
-        The samples displayed here are 2016 $D^0$ misID control samples
-        $B^- \rightarrow D^0 t^-$ passing nominal global cuts.
+        The samples displayed here are 2016 $D^0$ fake \muon control samples
+        $B^- \rightarrow D^0 t^-$ passing selections listed in
+        \cref{ref:sel:data:fake-mu}.
     }
     \label{fig:unfolding-binning-vars}
 \end{figure}
@@ -368,16 +371,17 @@ shown in \cref{fig:comb-vs-sig}.
 % TODO: Implement comb. bkg. tmpl. comparison
 \begin{figure}[htb]
     \centering
-    \begin{subfigure}[t]{0.45\textwidth}
+    \begin{subfigure}[t]{0.9\textwidth}
         \centering
         \caption{
-            \BComb and \DstComb in \Dstar channel.
+            \BComb and \DstComb vs. $\Bm \rightarrow \Dz\taum\neutb$ in \Dz channel.
         }
     \end{subfigure}
-    \begin{subfigure}[t]{0.45\textwidth}
+
+    \begin{subfigure}[t]{0.9\textwidth}
         \centering
         \caption{
-            \BComb in \Dz channel.
+            \BComb vs. $\Bzb \rightarrow \Dstarp\taum\neutb$ in \Dstar channel.
         }
     \end{subfigure}
 
@@ -393,14 +397,13 @@ The $D^*$ combinatorial background (\DstComb) arises from a reconstructed $D^0$
 combining with an random slow $\pi$, forming a fake $D^*$ vertex and
 passing all selection requirements.
 
-The shape of \DstComb is determined by wrong-sign $\pi$ (WS $\pi$) control
-sample, which contains $D^0 \pi^-$ pairs.
-Note the charge of the $\pi$ is explicitly required to be inconsistent with
-forming a $D^*$ with $D^0$.
+The shape of \DstComb can be determined from wrong-sign $\pi$ (WS $\pi$) control
+sample which contains mostly $D^0 \pi^-$ pairs.
 Still, the yields of \DstComb between nominal right-sign (RS) sample and
-WS $\pi$ are not the same. Thus a fit on the RS sample is performed to obtain
+WS $\pi$ are not the same,
+likely due to differences in selection efficiencies.
+Thus a fit on the RS sample is performed to obtain
 the yield of \DstComb, then the WS $\pi$ is rescaled to match the fitted yield.
-
 The fit procedure is the following:
 
 \begin{enumerate}
@@ -628,11 +631,12 @@ For tauonic mode, the \RDstz is set to be equal to \RDstp in the nominal fit.
 
 \subsection{Feed down through $B \rightarrow D^{**}\ellm\neulb$ modes}
 \label{tmpl:dstst}
+% FIXME: D** descr is pretty bad!
 
-The feed downs from 4 1P $D^{**}$ states
+The feed downs from 4 $1P$ $D^{**}$ states
 ($D_1(2420), D_2^*(2460), D_0^*(2430), D'_1(2430)$, including both isospin
-pairs)
-are included in the fit, with $10+10$ ($\mu+\tau$) templates in \Dz channel
+pairs) are included in the fit,
+with $10+10$ ($\mu+\tau$) templates in \Dz channel
 and $6+6$ in \Dstar.
 These $D^{**}$ decay into a \Dz either directly or in a
 cascade via a \Dstar or a lighter $D^{**}$,
