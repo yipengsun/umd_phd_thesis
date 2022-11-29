@@ -1,0 +1,141 @@
+\chapter{Formal description of selected methods used in this analysis}
+
+\section{Shift negative efficiencies} \label{appx:formal:shift-neg-eff}
+
+Sometimes efficiencies obtained from \sPlot is negative, which is unphysical.
+Here we present a procedure to shift negative efficiencies back to positive,
+using the mean $\mu$ and standard deviation $\sigma$ from \sPlot.
+
+For a given efficiency, assuming Gaussian distributed,
+we can compute the total probability between $[0, 1]$,
+the region where the efficiency have a physical meaning,
+then pick $\mu_\text{shifted}$ such that
+$P([0, \mu_\text{shifted}]) = P([\mu_\text{shifted}, 1])$ as the new efficiency.
+
+For a Gaussian distribution with mean $\mu$ and standard deviation $\sigma$, its
+cumulative distribution function (c.d.f) is given by:
+
+% formula from PDG 2020, 39.4.3, p. 236
+\begin{equation}
+    P([-\infty, x]) =
+        \frac{1}{2} \left( 1 + \text{erf}\left( \frac{x - \mu}{\sigma \sqrt{2}} \right) \right)
+\end{equation}
+where \erf\ is the error function.
+
+Therefore, the total probability between $[0, 1]$ is:
+
+\begin{align}
+    P([0, 1]) &=
+        \frac{1}{2} \left( 1 + \erf\left( \frac{1 - \mu}{\sigma \sqrt{2}} \right) \right) -
+        \frac{1}{2} \left( 1 + \erf\left( \frac{0 - \mu}{\sigma \sqrt{2}} \right) \right) \\
+              & = \frac{1}{2} \left(
+                \erf\left( \frac{1 - \mu}{\sigma \sqrt{2}} \right) -
+                \erf\left( \frac{0 - \mu}{\sigma \sqrt{2}} \right)
+              \right)
+\end{align}
+
+And the c.d.f evaluated at $\mu_\text{shifted}$ is:
+\begin{align}
+    P([-\infty, \mu_\text{shifted}])
+        &= P([-\infty, 0]) + \frac{1}{2} P([0, 1]) \\
+        &= \frac{1}{2} \left[
+            1 + \frac{1}{2} \left(
+                \erf\left( \frac{0 - \mu}{\sigma \sqrt{2}} \right) +
+                \erf\left( \frac{1 - \mu}{\sigma \sqrt{2}} \right)
+            \right)
+        \right]
+\end{align}
+
+Define $k \equiv \frac{1}{2} \left(
+    \erf\left( \frac{0 - \mu}{\sigma \sqrt{2}} \right) +
+    \erf\left( \frac{1 - \mu}{\sigma \sqrt{2}} \right)
+\right)$,
+using \erfinv, we find the expression for $\mu_\text{shifted}$:
+
+\begin{equation}
+    \mu_\text{shifted} = \sigma \sqrt{2} \erfinv{k} + \mu
+\end{equation}
+
+
+\section{Apply fit yields as a weight}
+
+Often times, it is desirable to look at distributions of variables other than
+fit variables.
+One can construct such distributions with nominal fit template building
+procedure by replacing fit variables with variables of interest, but this
+approach is not very flexible:
+For example, if a different binning scheme is required, the distributions need
+to be rebuilt from scratch.
+
+It is possible to construct an event-by-event weight $u$ such that building
+distributions of any variable (of arbitrary binning scheme, possibly unbinned)
+with $u$ gives correct fitted yield and shape.
+In the following paragraphs, a method of constructing $u$ is provided.
+
+The weight $u$ is constructed from fit templates and fitted yields.
+A typical fit template consists of a nominal template and several variational
+ones. Denote:
+
+\begin{itemize}
+    \item A fit template can be represented by its yield $N$.\footnote{
+            When a binned template has only 1 bin, it is exactly represented by
+            $N$.
+        }
+    \item A nominal fit template with yield\footnote{
+        By \emph{yield}, we mean \texttt{histogram.Interal()}.}
+        $N$ is constructed with weight $w$ and
+        scaling factor\footnote{
+            The scaling factor $s$ is unabsorbed from $w$ for convenience.
+        } $s \equiv 1$.
+        Denote as: $(N; w, 1)$.
+    \item Each variation is represented by a parameter $\alpha_i$, with
+        two templates specifying variations at $\alpha_i = \pm 1$.
+
+        Denote $\pm$ variation templates as
+        $(N_{\alpha_i}^\pm; w_{\alpha_i}^\pm, s_{\alpha_i}^\pm)$.
+
+        When $\alpha_i$ is not at $\pm 1$, an interpolation function $f$ is used
+        to approximate template at this given $\alpha_i$.
+        Denote the (yield of the) interpolated template as
+        $f(\alpha_i; N, N_{\alpha_i}^+, N_{\alpha_i}^-)$.
+\end{itemize}
+
+Thus, the final variated template of yield $N_f$ with $m$ variations can be
+written as:
+
+\begin{equation}
+    N_f = N + \sum_i^m f(\alpha_i; N, N_{\alpha_i}^+, N_{\alpha_i}^-)
+    \label{eqn:formal:final-template-yield}
+\end{equation}
+
+Suppose the binning is fine enough such that \emph{each event is in its own bin},
+then for each bin $N = w \cdot s = w$.
+Thus \cref{eqn:formal:final-template-yield} can be rewritten as:
+
+\begin{equation}
+    w_f = w + \sum_i^m
+    f(\alpha_i;
+      w,
+      w_{\alpha_i}^+ \cdot s_{\alpha_i}^+,
+      w_{\alpha_i}^- \cdot s_{\alpha_i}^-
+     )
+\end{equation}
+
+Noting $N_f$ and fitted yield $N_\text{fitted}$ are related by a constant
+scaling factor $k \equiv \frac{N_\text{fitted}}{N_f}$, the expression for $u$ is
+obtained:
+
+\begin{equation}
+    u = k \cdot \left( w + \sum_i^m
+    f(\alpha_i;
+      w,
+      w_{\alpha_i}^+ \cdot s_{\alpha_i}^+,
+      w_{\alpha_i}^- \cdot s_{\alpha_i}^-
+     )\right)
+\end{equation}
+
+\paragraph{Remark} Often (but not always!) variation templates are required to
+have the same yield as the nominal template (this is to represent a
+\emph{shape-only} variation), thus a scaling factor
+$s_{\alpha_i}^\pm \equiv \frac{N}{N_{\alpha_i,\text{raw}}^\pm}$
+is applied on top of $w_{\alpha_i}^\pm$.
