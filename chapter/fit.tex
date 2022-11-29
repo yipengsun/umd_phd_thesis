@@ -13,22 +13,23 @@ Without the help of control skims, the control parameters cannot be determined
 from the ISO skim alone precisely,
 as these backgrounds are a small fraction of the ISO skim.
 
-Both the control and signal fit are binned maximum likelihood template fit,
-with a fitter based on the \HistFactory fitter
+Both the control and signal fit are binned extended maximum likelihood template
+fit, with a fitter based on the \HistFactory fitter
 used in the previous run 1 analysis described in
 \cite{LHCb-ANA-2020-056}\footnote{
     With code refactored and dependencies updated to enhance readability and
     configurability,
-    but the core structure is the same.
+    but the fit model is largely the same.
 }.
 % Fit variables, include binning
-The fit templates are three-dimensional histograms of \mmSq, \el, and \qSq,
+The fit templates are three-dimensional correlation-preserving
+histograms of \mmSq, \el, and \qSq,
 with binning scheme listed in \cref{tab:fit-vars-binning}.
 Events outside the binning ranges of the fit variables are cut out to avoid
 potential impact of under/overflow bins on the fitter.
 To account for external constraints on fit parameters or uncertainties on
 modelling of certain backgrounds,
-additional variations are introduced on selected templates.
+additional shape variations are introduced on selected templates.
 
 \begin{table}[htb]
     \centering
