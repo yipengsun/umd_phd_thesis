@@ -84,18 +84,19 @@ allowing for a data-driven approach to determine the shapes of these modes.
 A comparison between nominal and variated $D_H^{**}$ templates can be seen at.
 
 
-\subsection{Effect of Kaon, pion decay-in-flight in muon misID template}
-\label{ref:fit:tmpl:misid:dif}
+\subsection{Effect of kaon, pion decay-in-flight in muon misID template}
+\label{ref:fit:var:misid-dif}
 
 \kaon and \pion have some probability of decay to a \muon between upstream and
 downstream tracking (decay-in-flight, DiF),
 which leads to a mis-measurement of the track momentum,
 and authentic signals in the muon stations.
-In our misID sample, however, we only select events \emph{without} any \muon
-signal, thus \emph{none} of the misID \kaon and \pion has the DiF effect.
+In our fake \muon sample, however, only events \emph{without} any \muon
+signal are selected, thus \emph{none} of the mis-identified \kaon and \pion has
+the DiF effect.
 
 To account for the DiF effect, we use a smearing approach on top of the
-unfolding:
+unfolding described in \cref{ref:fit:tmpl:misid}:
 
 \begin{enumerate}
     % FIXME: Find the MC sample ID and regenerate for run 2!
@@ -191,13 +192,12 @@ in \cref{fig:unfolding-fit-vars-smear}.
     \end{subfigure}
     \caption[Effect of DiF on fit variables]{
         Effect of DiF on fit variables.
-
-        The plots displayed here are contributions of 2016 $D^0$ misID control
-        samples ($B^- \rightarrow D^0 t^-$) to the fit variables.
+        The plots displayed here are contributions of 2016 $D^0$ fake \muon
+        control samples ($B^- \rightarrow D^0 t^-$) to the fit variables.
 
         The first column is unsmeared misID fit variables \mmSq, \qSq, \el; the
         second column smeared; the third column comparison between the overall
-        shape of unsmeared/smeared fit variables. \\
+        shape of unsmeared/smeared fit variables.
         Note that the total number of events is not guaranteed to be conserved,
         because smearing may put fit variables outside of the
         acceptance range.
