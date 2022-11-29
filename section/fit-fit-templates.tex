@@ -137,14 +137,29 @@ with weight-capping strategy specified:
 \subsection{Muon misID backgrounds}
 \label{ref:fit:tmpl:misid}
 
+The \muon misID templates,
+shown in \cref{fig:misid-vs-sig},
+representing contributions from non-\muon tracks passing the \muon
+identification requirements in ``real'' \muon samples,
+are generated from the fake \muon control sample
+(as in \cref{ref:sel:data:fake-mu}) with an unfolding technique.
+First conceived in \cite{LHCb-ANA-2016-059}, the unfolding technique
+consists of the following steps:
+
 \begin{figure}[htb]
-    %\begin{subfigure}{\textwidth}
-    %    \caption{
-    %        $\Bm \rightarrow \Dz\taum\neutb$ v
-    %        $\Bzb \rightarrow \Dstarp\taum\neutb$.
-    %    }
-    %    \label{fig:d0-sig-vs-dst-sig}
-    %\end{subfigure}
+    \centering
+    \begin{subfigure}[t]{0.45\textwidth}
+        \centering
+        \caption{
+            misID vs. signal in \Dz channel.
+        }
+    \end{subfigure}
+    \begin{subfigure}[t]{0.45\textwidth}
+        \centering
+        \caption{
+            misID vs. signal in \Dstar channel.
+        }
+    \end{subfigure}
 
     \caption{
         Comparison between misID and the signal templates in their
@@ -153,67 +168,68 @@ with weight-capping strategy specified:
     \label{fig:misid-vs-sig}
 \end{figure}
 
-
-% TODO: Steal a lot from run 1 ANA, sec 8.5. Should we cite that?
-The key input to build the \muon misID template is a fake \muon control sample
-that passes the \texttt{b2D0MuXFakeB2DMuForTauMuLine} stripping line.
-This line contains a normally reconstructed $D^{0}$
-paired with a track $t$ that \emph{fails} muon identification but passes all other
-nominal muon cuts such as acceptance.
-
-The misID template,
-representing non-\muon tracks that pass the \muon identification requirements in
-the signal region,
-is generated from the control sample above with an unfolding technique.
-This technique, first conceived in \cite{LHCb-ANA-2016-059},
-consists of the following steps:
-
 \begin{enumerate}
     \item Tag the fake \muon sample into $\pi$, $K$, $p$,
-        $e$, and ghost species with the selection requirements listed in
+        $e$, and ghost\footnote{
+            ``Ghost'' refers to tracks formed by random combination of hits.
+        }-like species with the selection requirements listed in
         \cref{tab:selection-for-tagged-species}.
         Denote tagged species with a hat:
-        $\hat{t} \in \{\hat{\pi}, \hat{K}, \hat{p}, \hat{e}, \hat{g}\}$.
+        $\hat{t} \in \{\hat{\pi}, \hat{K}, \hat{p}, \hat{e}, \hat{g}\}$,
 
-    \item Obtain the efficiency for an event in the fake \muon sample that contains a true track species $t$ to be classified as a
-        another (or the same) track species $\hat{t}'$: $\misEff[t_\text{fake}]{\hat{t}_\text{fake}'}$.
-        These efficiencies are obtained from \pidcalib for $\pi, K, p, e$ and from MC for $g$.
+    \item Obtain the efficiency for a track of true species $t$ passing \muon
+        acceptance to be classified as a tagged species $\hat{t}'$
+        (where $t$ and $t'$ can be the same species, e.g. a true electron
+        (passing \muon acceptance) classified as a tagged electron):
+        $\misEff[t]{\hat{t}'}$.
+        These efficiencies are obtained from \pidcalib for $\pi, K, p, e$ and
+        from MC for $g$.
 
-    \item Given the measured yields in the fake \muon sample $n_{\hat{t}_\text{fake}'}$ and response matrix
-        $M_{\hat{t}_\text{fake}', t_\text{fake}^{\phantom{}}} = \misEff[t_\text{fake}]{\hat{t}_\text{fake}'}$,
+    \item Given the measured yields in the fake \muon sample $\tilde{n}_{\hat{t}'}
+        $ and response matrix
+        $M_{\hat{t}', t^{\phantom{}}} = \misEff[t^{\phantom{}}]{\hat{t}'}$,
         % NOTE: The subscript of M is indeed tag, true!!! NOT true, tag!!!
-        unfold the true yields $n_{t_\text{fake}}$.
+        unfold the true yields $\tilde{n}_{t}$.
         A Bayesian unfolding (iterative unfolding) algorithm is used to obtain
         the true yields  % FIXME: citation: RooUnfold; d'Agostini's Bayesian unfolding paper
         and subsequently the efficiencies of a tagged
-        $\hat{t}'_\text{fake}$ being a true $t_\text{fake}$: $\misEff[\hat{t}_\text{fake}']{t_\text{fake}}$.
+        $\hat{t}'$ being a true $t$: $\misEff[\hat{t}']{t}$
 
-      \item Find $\misEff[\hat{t}'_\text{fake}]{\hat{\mu}_\text{sig}}$,
-        the transfer factor from the fake \muon to the signal sample,
+      \item Find $\misEff[\hat{t}']{\hat{\mu}}$,
+        the transfer factor from the fake \muon sample
+        (of tagged species $\hat{t}'$) to the ``real'' \muon
+        samples\footnote{
+            A subtlety is that here ``real'' \muon refers to the samples passing
+            \muon PID cuts listed in \cref{ref:sel:data:rs}.
+            Because the \muon-like particles are selected by a set of cuts,
+            a hat is placed on \muon ($\hat{\mu}$!)
+            to remind the reader that this sample is nothing but a \muon tag
+            and is unrelated to the \muon-enriched sample (true \muon) as used
+            by \pidcalib.
+        },
         based on
         \begin{itemize}
-          \item the efficiencies obtained in the step above,
-          \item the probability of a true track $t$ that satisfies \muon
-              acceptance cuts to also satisfy the \muon PID requirements in the
-              signal sample:
-            $\misEff[t_\text{acc}]{\hat{\mu}_\text{sig}}$
-          \item and the probability of $t_\text{acc}$ to fail \muon PID:
-            $\misEff[t_\text{acc}]{t_\text{fake}}$.
+            \item the efficiencies obtained in the step above,
+            \item the probability of a track of true species $t$ that falls
+                within \muon acceptance to also pass the \muon PID cuts
+                $\misEff[t_\text{acc}]{\hat{\mu}}$,
+            \item and the probability of $t_\text{acc}$ to \emph{fail} the \muon
+                PID:
+                $\misEff[t_\text{acc}]{t_\text{fake}}$.
         \end{itemize}
 
         \begin{equation}
-            \misEff[\hat{t}'_\text{fake}]{\hat{\mu}_\text{sig}} =
+            \misEff[\hat{t}']{\hat{\mu}} =
                 \sum_{t}
-                \frac{\misEff[\hat{t}'_\text{fake}]{t_\text{fake}}}{\misEff[t_\text{acc}]{t_\text{fake}}}
-                \misEff[t_\text{acc}]{\hat{\mu}_\text{sig}}
+                \frac{\misEff[\hat{t}']{t}}{\misEff[t_\text{acc}]{t}}
+                \misEff[t_\text{acc}]{\hat{\mu}}
         \end{equation}
+        The last two efficiencies are found from \pidcalib.
 
-        These probabilities are also found from \pidcalib.
-
-    \item Apply $\misEff[\hat{t}'_\text{fake}]{\hat{\mu}_\text{sig}}$ as a weight for each
-        tagged species $\hat{t}'_\text{fake}$.
-        The weighted tagged species represent the misID contributions of the
-        species to the signal sample.
+    \item Apply $\misEff[\hat{t}']{\hat{\mu}}$ as a weight for each
+        tagged species $\hat{t}'$ in the fake \muon sample.
+        The weighted yield of tagged species $\hat{t}$ represents the \muon misID
+        contributions of $\hat{t}$ to the ``real'' \muon samples.
 \end{enumerate}
 
 Comparisons between some raw and unfolded variables of the misID sample are
@@ -496,7 +512,7 @@ fit channels.
 As a side, the \Dz\muon template has notably softer \qSq spectrum compared to
 that of \Dstar\muon, due to reduced helicity states available in the
 $B \rightarrow D \ell \neulb$ transitions
-(discussed in \cref{sec:theory:form-factors}),
+(discussed in \cref{ref:theory:form-factors}),
 as shown in \cref{fig:d0-norm-vs-dst-norm}.
 The \Dstarp templates (both muonic and tauonic) contribute to both fit channels
 due to feed down.
@@ -625,8 +641,6 @@ For each sample (i.e. ISO, 1OS, 2OS, DD),
 \paragraph{Tauonic}
 As in run 1, the tauonic $D^{**}$ decays are treated as fixed fractions
 to their muonic counterparts.
-The tauonic modes currently do not have enough MC statistics, and it is planned
-to request more for these modes in the near future.
 
 
 \subsection{Feed down through $B \rightarrow D_H^{**}(\rightarrow D^{(*)}\pi\pi)\mun\neumb$ modes}
