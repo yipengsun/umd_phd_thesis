@@ -143,6 +143,8 @@ representing contributions from non-\muon tracks passing the \muon
 identification requirements in ``real'' \muon samples,
 are generated from the fake \muon control sample
 (as in \cref{ref:sel:data:fake-mu}) with an unfolding technique.
+The \muon misID templates have similar shapes to the signal templates when
+looking at 1D projections of fit variables.
 First conceived in \cite{LHCb-ANA-2016-059}, the unfolding technique
 consists of the following steps:
 
@@ -232,8 +234,10 @@ consists of the following steps:
         contributions of $\hat{t}$ to the ``real'' \muon samples.
 \end{enumerate}
 
-Comparisons between some raw and unfolded variables of the misID sample are
-shown in \cref{fig:unfolding-binning-vars}.
+Comparisons between tagged and unfolded (true) yields of the fake \muon sample
+are shown in \cref{fig:unfolding-binning-vars}.
+The weighted yields are projected in fit variables with finer binning;
+these are shown in \cref{fig:unfolding-fit-vars}.
 Some of the efficiencies obtained with \pidcalib are negative; these are shifted
 back to a value between $[0, 1]$ with a procedure described in
 \cref{appx:formal:shift-neg-eff}.
@@ -278,11 +282,41 @@ A more detailed description of the unfolding procedure is documented in
         and nTracks of the reconstructed event.
         Top are the raw tagged yields in the fake \muon control sample,
         bottom are the unfolded true yields.
+        The number of events is conserved by unfolding.
 
         The samples displayed here are 2016 $D^0$ misID control samples
         $B^- \rightarrow D^0 t^-$ passing nominal global cuts.
     }
     \label{fig:unfolding-binning-vars}
+\end{figure}
+
+% Generated in /lhcb-ntuples-gen/studies/plot-RDX_misid_unfold_fit_vars, by
+% running the script gen.sh inside
+\begin{figure}[htb]
+    \centering
+    \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figs-fit-fit-templates/data-driven-plots/misid/D0_mm2.pdf}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figs-fit-fit-templates/data-driven-plots/misid/D0_el}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figs-fit-fit-templates/data-driven-plots/misid/D0_q2.pdf}
+    \end{subfigure}
+    \caption[Weighted yields of fake \muon sample.]{
+        The weighted yields of each species of fake \muon sample projected in
+        fit variables.
+        The dominate contributions to the ``real'' muon samples are from
+        \pion-like and ghost-like tracks.
+        The binning are finer compared to \cref{fig:misid-vs-sig}. Actual
+        yields are displayed without any rescaling.
+    }
+    \label{fig:unfolding-fit-vars}
 \end{figure}
 
 \begin{table}[htb]
