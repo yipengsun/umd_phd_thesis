@@ -83,6 +83,7 @@ A comparison between nominal and variated $D_H^{**}$ templates can be seen at.
 
 
 \subsection{misID decay-in-flight}
+\label{ref:fit:tmpl:misid:dif}
 
 The \muon misID templates are subject to \kaon, \pion decay-in-flight (DiF)
 effect,
@@ -90,3 +91,122 @@ which is not present in the \muon misID control sample.
 A DiF-smeared template is produced according to
 \cref{sec:data-driven-templates:mu-misid:dif} and included in the fit as a
 variation.
+
+
+\kaon and \pion have some probability of decay to a \muon between upstream and
+downstream tracking (decay-in-flight, DiF),
+which leads to a mis-measurement of the track momentum,
+and authentic signals in the muon stations.
+In our misID sample, however, we only select events \emph{without} any \muon
+signal, thus \emph{none} of the misID \kaon and \pion has the DiF effect.
+
+To account for the DiF effect, we use a smearing approach on top of the
+unfolding:
+
+\begin{enumerate}
+    % FIXME: Find the MC sample ID and regenerate for run 2!
+    \item Select $K, \pi$ passing truth-matching and nominal $\mu$ selection
+        requirements from a MC sample.
+
+    \item Find the true and reconstructed momenta of
+        $K, \pi$.
+        Use ratios of
+        $\text{smear factor}_i \equiv \frac{\text{reco}_i}{\text{true}_i}$
+        as the smearing factor for the $i$-component of the 3-momentum,
+        with the assumption that MC models DiF sufficiently correctly.
+
+    \item Put all smearing factors in an array,
+        and for the fake \muon track of each misID event,
+        randomly select one to smear the reconstructed momentum:
+
+        \begin{equation}
+            p_{i,\text{smeared}} =
+                p_{i,\text{reco}} \times \text{smear factor}_i
+        \end{equation}
+
+    \item Estimate the $B$ meson rest frame momentum with the rest frame
+        approximation technique. % FIXME: Citation?
+    \item Recompute fit variables
+        $\{\mmSq, \qSq, \el\}_K, \{\mmSq, \qSq, \el\}_\pi$
+        with the new fake \muon track momentum.
+        These sets of variables will be refer as $K$-smeared and $\pi$-smeared.
+\end{enumerate}
+
+When building the fit variable templates, for each event of tagged species
+$\hat{t}'$,
+the nominal fit variables $\{\mmSq, \qSq, \el\}$ and the two sets of the smeared
+fit variables are weighted according to the following rules:
+
+\begin{itemize}
+    \item $K$-smeared: \misEff[\hat{t}']{K}
+    \item $\pi$-smeared: \misEff[\hat{t}']{\pi}
+    \item Nominal: $1 - \misEff[\hat{t}']{K} - \misEff[\hat{t}']{\pi}$
+\end{itemize}
+where the efficiencies are obtained from the unfolding procedure.
+A comparison between unsmeared and smeared misID fit variables is shown
+in \cref{fig:unfolding-fit-vars-smear}.
+\techlink{appx:tech:apply-misid-dif-weights}
+
+% Generated in /lhcb-ntuples-gen/studies/plot-RDX_misid_unfold_fit_vars, by
+% running the script gen.sh inside
+\begin{figure}[htb]
+    \centering
+    \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figs-fit-fit-templates/data-driven-plots/misid/D0_mm2.pdf}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figs-fit-fit-templates/data-driven-plots/misid/D0_mm2_smr.pdf}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figs-fit-fit-templates/data-driven-plots/misid/D0_mm2_comp.pdf}
+    \end{subfigure}
+    \\
+    \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figs-fit-fit-templates/data-driven-plots/misid/D0_q2.pdf}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figs-fit-fit-templates/data-driven-plots/misid/D0_q2_smr.pdf}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figs-fit-fit-templates/data-driven-plots/misid/D0_q2_comp.pdf}
+    \end{subfigure}
+    \\
+    \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figs-fit-fit-templates/data-driven-plots/misid/D0_el.pdf}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figs-fit-fit-templates/data-driven-plots/misid/D0_el_smr.pdf}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figs-fit-fit-templates/data-driven-plots/misid/D0_el_comp.pdf}
+    \end{subfigure}
+    \caption[Effect of DiF on fit variables]{
+        Effect of DiF on fit variables.
+
+        The plots displayed here are contributions of 2016 $D^0$ misID control
+        samples ($B^- \rightarrow D^0 t^-$) to the fit variables.
+
+        The first column is unsmeared misID fit variables \mmSq, \qSq, \el; the
+        second column smeared; the third column comparison between the overall
+        shape of unsmeared/smeared fit variables. \\
+        Note that the total number of events is not guaranteed to be conserved,
+        because smearing may put fit variables outside of the
+        acceptance range.
+    }
+    \label{fig:unfolding-fit-vars-smear}
+\end{figure}

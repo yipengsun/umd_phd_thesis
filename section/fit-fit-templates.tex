@@ -8,8 +8,8 @@ with some templates contributing to both, as listed in
 \cref{tab:fit-templates-d0,tab:fit-templates-dst}.
 
 The data-driven templates,
-namely combinatorial background and \muon misID templates,
-are discussed first in \cref{ref:fit:tmpl:comb,ref:fit:tmpl:misid}.
+namely \muon misID and combinatorial background templates,
+are discussed first in \cref{ref:fit:tmpl:misid,ref:fit:tmpl:comb}.
 
 The rest are all MC templates which can be categorized into signal,
 normalization, feed downs from \Dstst/heavy \Dstst/$D^{**}_s$, and contributions
@@ -25,8 +25,10 @@ with weight-capping strategy specified:
 
 \begin{equation}
     w_\text{tot} = \underbrace{\left(
-            w_\text{trigger} \cdot w_\text{tracking} \cdot
-            w_\text{PID} \cdot w_{\jpsi\kaon}
+            w_\text{trigger} \cdot w_\text{PID} \cdot
+            \overbrace{
+                w_\text{tracking} \cdot w_{\jpsi\kaon}
+            }^\text{initial weight}
         \right)}_\text{capped at 10} \;\; \times
         \underbrace{w_\text{form factor}}_{\substack{
             \text{capped at} \\
@@ -132,184 +134,6 @@ with weight-capping strategy specified:
 \end{table}
 
 
-\subsection{Combinatorial backgrounds}
-\label{ref:fit:tmpl:comb}
-
-A comparison between combinatorial backgrounds and signal templates is
-shown in \cref{fig:comb-vs-sig}.
-The generation procedure is documented below.
-
-% TODO: Implement comb. bkg. tmpl. comparison
-\begin{figure}[htb]
-    \centering
-    \begin{subfigure}[t]{0.45\textwidth}
-        \centering
-        \caption{
-            \BComb and \DstComb in \Dstar channel.
-        }
-    \end{subfigure}
-    \begin{subfigure}[t]{0.45\textwidth}
-        \centering
-        \caption{
-            \BComb in \Dz channel.
-        }
-    \end{subfigure}
-
-    \caption{
-        Comparison between combinatorial backgrounds and signal template.
-    }
-    \label{fig:comb-vs-sig}
-\end{figure}
-
-\subsubsection{$D^*$ combinatorial}
-\label{ref:fit:tmpl:comb:dst-comb}
-
-The $D^*$ combinatorial background (\DstComb) arises from a reconstructed $D^0$
-combining with an random slow $\pi$, forming a fake $D^*$ vertex and
-passing all selection requirements.
-
-The shape of \DstComb is determined by wrong-sign $\pi$ (WS $\pi$) control
-sample, which contains $D^0 \pi^-$ pairs.
-Note the charge of the $\pi$ is explicitly required to be inconsistent with
-forming a $D^*$ with $D^0$.
-Still, the yields of \DstComb between nominal right-sign (RS) sample and
-WS $\pi$ are not the same. Thus a fit on the RS sample is performed to obtain
-the yield of \DstComb, then the WS $\pi$ is rescaled to match the fitted yield.
-
-The fit procedure is the following:
-
-\begin{enumerate}
-    \item Remove misID contribution from RS sample.
-    \item Remove misID contribution from WS $\pi$ sample\footnote{
-            A WS $\pi$ control sample from misID sample is reconstructed to
-            obtain the misID contribution for data WS $\pi$.
-        }.
-    \item Fit the mass window $m_{D^*} - m_{D^0}$ (including events normally
-        outside the window) on RS sample with a
-        double-Gaussian signal and an exponential background.
-        The background yield under the mass window where a $D^*$ is nominally
-        accepted is taken as the yield of \DstComb.
-
-        The fit to ISO skim is shown in \cref{fig:dst-comb-fit}.
-        The effect of scaling for the ISO skim is shown in
-        \cref{fig:dst-comb-scale}.
-        For fit to 1OS, 2OS, and DD skims, refer to \cref{appx:suppl:dst-comb}.
-\end{enumerate}
-
-\techlink{appx:tech:fit-to-comb-bkg}
-
-% Generated in /rdx-run2-analysis/fit with the command:
-%   make fit-DstComb
-\begin{figure}[htb]
-    \centering
-    \includegraphics[width=\textwidth]{figs-fit-fit-templates/data-driven-plots/dst_comb/fit_dst_comb_iso_comb.pdf}
-    \caption{
-        \DstComb\ auxiliary fit to the ISO skim.
-        Right plot shows the same fit as in the left, but with a logarithmic $y$
-        axis.
-    }
-    \label{fig:dst-comb-fit}
-\end{figure}
-
-\begin{figure}[htb]
-    \centering
-    \includegraphics[width=0.55\textwidth]{figs-fit-fit-templates/data-driven-plots/dst_comb/fit_dst_comb_scaled_comp_iso_log.pdf}
-    \caption{
-        Effect of scaling for the ISO skim on the \DstComb\ template.
-    }
-    \label{fig:dst-comb-scale}
-\end{figure}
-
-\subsubsection{$B$ combinatorial in $D^*$ channel}
-\label{b-comb-dst}
-
-The $B$ combinatorial (\BComb) in $D^*$ fit channel comes from randomly
-combined $D^* \mu$ pairs.
-Again, the shape of the \BComb\ is determined by wrong-sign $\mu$ (WS $\mu$)
-control sample containing $D^{*+} \mu^+$ pairs.
-
-Further, it is assumed that the \BComb\ from WS $\mu$ and \BComb\ from RS
-differs by a factor linear in $m_B$.
-This is justified by assuming \BComb\ are slow-varying exponential decays in
-terms of $m_B$ for both RS and WS $\mu$, thus the ratio between the two is also
-an exponential.
-Since they are slow-varying, Taylor expansion to the first order (i.e. of the
-form $a + b m_B$) agrees well with the ratio in a sufficiently large region.
-
-Unlike $m_\Dstar$ in \DstComb,
-$m_B$ does not have a clear lower side-band.
-This is because \B is only \emph{partially} reconstructed
-due to missing neutrino(s).
-Therefore, only the upper-sideband, defined as $m_B > 5400$ MeV,
-which contains purely combinatorial and misID, can be used to
-study \BComb.
-
-A fit is performed in $B$ mass upper-sideband  to obtain
-the linear scaling factor $a + b m_B$.
-In the upper-sideband, it is assumed that both WS $\mu$ and RS samples contain
-are pure, that is, containing only combinatorial backgrounds and misID.
-The linear scaling factor is assumed to be the same for all skims\footnote{
-    This is mainly because there is not enough number of events in the
-    upper-sideband to perform fits skim-by-skim.
-}.
-The fit is performed in the following manner:
-
-\begin{enumerate}
-    \item Remove misID contribution from RS sample.
-    \item Remove misID contribution from WS $\mu$ sample.
-    \item Perfome a fit on RS sample in the upper-sideband region to determine
-        contribution from \DstComb, with procedure identical to that in
-        \cref{dst-comb}. Remove the fitted \DstComb.
-    \item Fit and remove \DstComb\ from WS $\mu$ sample.
-    \item Compute the ratio between RS and WS $\mu$, perform a fit to obtain
-        the linear scaling factor.
-        The fit, as well as
-        The raw RS and WS $\mu$ templates, as well as scaled WS $\mu$
-        template, is shown in \cref{fig:b-comb-dst}.
-\end{enumerate}
-
-% FIXME: Replace quad. fit w/ an exp. fit
-% Generated in /rdx-run2-analysis/fit with the command:
-%   make fit-BCombDst
-\begin{figure}[htb]
-    \centering
-    \includegraphics[width=0.48\textwidth]{figs-fit-fit-templates/data-driven-plots/b_comb/fit_b_comb_dst_fit.pdf}
-    \includegraphics[width=0.48\textwidth]{figs-fit-fit-templates/data-driven-plots/b_comb/fit_b_comb_dst_scaled.pdf}
-
-    \caption[\BComb\ fit result for $D^*$ channel]{
-        \BComb\ fit result for $D^*$ channel.
-
-        Left: \BComb\ auxiliary fit in the $m_B$ upper-sideband region for all skims.
-        A quadratic fit is also performed for possible systematic studies.
-
-        Right: The scaling effect on the WS $\mu$ \BComb\ template.
-    }
-    \label{fig:b-comb-dst}
-\end{figure}
-
-\subsubsection{$B$ combinatorial in $D^0$ channel}
-\label{b-comb-d0}
-
-The procedure is similar to that in \cref{b-comb-dst}, but without \DstComb\
-removal. The fit is shown in \cref{fig:b-comb-d0}.
-
-% FIXME: Replace quad. fit w/ an exp. fit
-% Generated in /rdx-run2-analysis/fit with the command:
-%   make fit-BCombD0
-\begin{figure}[htb]
-    \centering
-    \includegraphics[width=0.48\textwidth]{figs-fit-fit-templates/data-driven-plots/b_comb/fit_b_comb_d0_fit.pdf}
-    \includegraphics[width=0.48\textwidth]{figs-fit-fit-templates/data-driven-plots/b_comb/fit_b_comb_d0_scaled.pdf}
-
-    \caption{
-        \BComb\ fit result for $D^*$ channel.
-        Left: \BComb\ auxiliary fit.
-        Right: The scaling effect on the WS $\mu$ \BComb\ template.
-    }
-    \label{fig:b-comb-d0}
-\end{figure}
-
-
 \subsection{Muon misID backgrounds}
 \label{ref:fit:tmpl:misid}
 
@@ -329,9 +153,6 @@ removal. The fit is shown in \cref{fig:b-comb-d0}.
     \label{fig:misid-vs-sig}
 \end{figure}
 
-
-\subsubsection{Unfolding of fake muon control sample}
-\label{sec:data-driven-templates:mu-misid:unfold-fake-mu}
 
 % TODO: Steal a lot from run 1 ANA, sec 8.5. Should we cite that?
 The key input to build the \muon misID template is a fake \muon control sample
@@ -484,125 +305,183 @@ A more detailed description of the unfolding procedure is documented in
     \end{tabular}
 \end{table}
 
-\subsubsection{Modelling of $K, \pi$ decay-in-flight}
-\label{ref:fit:tmpl:misid:dif}
 
-\kaon and \pion have some probability of decay to a \muon between upstream and
-downstream tracking (decay-in-flight, DiF),
-which leads to a mis-measurement of the track momentum,
-and authentic signals in the muon stations.
-In our misID sample, however, we only select events \emph{without} any \muon
-signal, thus \emph{none} of the misID \kaon and \pion has the DiF effect.
+\subsection{Combinatorial backgrounds}
+\label{ref:fit:tmpl:comb}
 
-To account for the DiF effect, we use a smearing approach on top of the
-unfolding:
+The selection procedures for all combinatorial backgrounds are listed
+in \cref{ref:sel:data:ws}.
+The generation procedure for these templates is documented below.
+A comparison between combinatorial backgrounds and signal templates is
+shown in \cref{fig:comb-vs-sig}.
 
-\begin{enumerate}
-    % FIXME: Find the MC sample ID and regenerate for run 2!
-    \item Select $K, \pi$ passing truth-matching and nominal $\mu$ selection
-        requirements from a MC sample.
-
-    \item Find the true and reconstructed momenta of
-        $K, \pi$.
-        Use ratios of
-        $\text{smear factor}_i \equiv \frac{\text{reco}_i}{\text{true}_i}$
-        as the smearing factor for the $i$-component of the 3-momentum,
-        with the assumption that MC models DiF sufficiently correctly.
-
-    \item Put all smearing factors in an array,
-        and for the fake \muon track of each misID event,
-        randomly select one to smear the reconstructed momentum:
-
-        \begin{equation}
-            p_{i,\text{smeared}} =
-                p_{i,\text{reco}} \times \text{smear factor}_i
-        \end{equation}
-
-    \item Estimate the $B$ meson rest frame momentum with the rest frame
-        approximation technique. % FIXME: Citation?
-    \item Recompute fit variables
-        $\{\mmSq, \qSq, \el\}_K, \{\mmSq, \qSq, \el\}_\pi$
-        with the new fake \muon track momentum.
-        These sets of variables will be refer as $K$-smeared and $\pi$-smeared.
-\end{enumerate}
-
-When building the fit variable templates, for each event of tagged species
-$\hat{t}'$,
-the nominal fit variables $\{\mmSq, \qSq, \el\}$ and the two sets of the smeared
-fit variables are weighted according to the following rules:
-
-\begin{itemize}
-    \item $K$-smeared: \misEff[\hat{t}']{K}
-    \item $\pi$-smeared: \misEff[\hat{t}']{\pi}
-    \item Nominal: $1 - \misEff[\hat{t}']{K} - \misEff[\hat{t}']{\pi}$
-\end{itemize}
-where the efficiencies are obtained from the unfolding procedure.
-A comparison between unsmeared and smeared misID fit variables is shown
-in \cref{fig:unfolding-fit-vars-smear}.
-\techlink{appx:tech:apply-misid-dif-weights}
-
-% Generated in /lhcb-ntuples-gen/studies/plot-RDX_misid_unfold_fit_vars, by
-% running the script gen.sh inside
+% TODO: Implement comb. bkg. tmpl. comparison
 \begin{figure}[htb]
     \centering
-    \begin{subfigure}[b]{0.32\textwidth}
+    \begin{subfigure}[t]{0.45\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{figs-fit-fit-templates/data-driven-plots/misid/D0_mm2.pdf}
+        \caption{
+            \BComb and \DstComb in \Dstar channel.
+        }
     \end{subfigure}
-    \hfill
-    \begin{subfigure}[b]{0.32\textwidth}
+    \begin{subfigure}[t]{0.45\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{figs-fit-fit-templates/data-driven-plots/misid/D0_mm2_smr.pdf}
+        \caption{
+            \BComb in \Dz channel.
+        }
     \end{subfigure}
-    \hfill
-    \begin{subfigure}[b]{0.32\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{figs-fit-fit-templates/data-driven-plots/misid/D0_mm2_comp.pdf}
-    \end{subfigure}
-    \\
-    \begin{subfigure}[b]{0.32\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{figs-fit-fit-templates/data-driven-plots/misid/D0_q2.pdf}
-    \end{subfigure}
-    \hfill
-    \begin{subfigure}[b]{0.32\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{figs-fit-fit-templates/data-driven-plots/misid/D0_q2_smr.pdf}
-    \end{subfigure}
-    \hfill
-    \begin{subfigure}[b]{0.32\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{figs-fit-fit-templates/data-driven-plots/misid/D0_q2_comp.pdf}
-    \end{subfigure}
-    \\
-    \begin{subfigure}[b]{0.32\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{figs-fit-fit-templates/data-driven-plots/misid/D0_el.pdf}
-    \end{subfigure}
-    \hfill
-    \begin{subfigure}[b]{0.32\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{figs-fit-fit-templates/data-driven-plots/misid/D0_el_smr.pdf}
-    \end{subfigure}
-    \hfill
-    \begin{subfigure}[b]{0.32\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{figs-fit-fit-templates/data-driven-plots/misid/D0_el_comp.pdf}
-    \end{subfigure}
-    \caption[Effect of DiF on fit variables]{
-        Effect of DiF on fit variables.
 
-        The plots displayed here are contributions of 2016 $D^0$ misID control
-        samples ($B^- \rightarrow D^0 t^-$) to the fit variables.
-
-        The first column is unsmeared misID fit variables \mmSq, \qSq, \el; the
-        second column smeared; the third column comparison between the overall
-        shape of unsmeared/smeared fit variables. \\
-        Note that the total number of events is not guaranteed to be conserved,
-        because smearing may put fit variables outside of the
-        acceptance range.
+    \caption{
+        Comparison between combinatorial backgrounds and signal template.
     }
-    \label{fig:unfolding-fit-vars-smear}
+    \label{fig:comb-vs-sig}
+\end{figure}
+
+\subsubsection{$D^*$ combinatorial}
+
+The $D^*$ combinatorial background (\DstComb) arises from a reconstructed $D^0$
+combining with an random slow $\pi$, forming a fake $D^*$ vertex and
+passing all selection requirements.
+
+The shape of \DstComb is determined by wrong-sign $\pi$ (WS $\pi$) control
+sample, which contains $D^0 \pi^-$ pairs.
+Note the charge of the $\pi$ is explicitly required to be inconsistent with
+forming a $D^*$ with $D^0$.
+Still, the yields of \DstComb between nominal right-sign (RS) sample and
+WS $\pi$ are not the same. Thus a fit on the RS sample is performed to obtain
+the yield of \DstComb, then the WS $\pi$ is rescaled to match the fitted yield.
+
+The fit procedure is the following:
+
+\begin{enumerate}
+    \item Remove misID contribution from RS sample.
+    \item Remove misID contribution from WS $\pi$ sample\footnote{
+            A WS $\pi$ control sample from misID sample is reconstructed to
+            obtain the misID contribution for data WS $\pi$.
+        }.
+    \item Fit the mass window $m_{D^*} - m_{D^0}$ (including events normally
+        outside the window) on RS sample with a
+        double-Gaussian signal and an exponential background.
+        The background yield under the mass window where a $D^*$ is nominally
+        accepted is taken as the yield of \DstComb.
+
+        The fit to ISO skim is shown in \cref{fig:dst-comb-fit}.
+        The effect of scaling for the ISO skim is shown in
+        \cref{fig:dst-comb-scale}.
+        For fit to 1OS, 2OS, and DD skims, refer to \cref{appx:suppl:dst-comb}.
+\end{enumerate}
+
+\techlink{appx:tech:fit-to-comb-bkg}
+
+% Generated in /rdx-run2-analysis/fit with the command:
+%   make fit-DstComb
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=\textwidth]{figs-fit-fit-templates/data-driven-plots/dst_comb/fit_dst_comb_iso_comb.pdf}
+    \caption{
+        \DstComb\ auxiliary fit to the ISO skim.
+        Right plot shows the same fit as in the left, but with a logarithmic $y$
+        axis.
+    }
+    \label{fig:dst-comb-fit}
+\end{figure}
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.55\textwidth]{figs-fit-fit-templates/data-driven-plots/dst_comb/fit_dst_comb_scaled_comp_iso_log.pdf}
+    \caption{
+        Effect of scaling for the ISO skim on the \DstComb\ template.
+    }
+    \label{fig:dst-comb-scale}
+\end{figure}
+
+\subsubsection{$B$ combinatorial in $D^*$ channel}
+\label{b-comb-dst}
+
+The $B$ combinatorial (\BComb) in $D^*$ fit channel comes from randomly
+combined $D^* \mu$ pairs.
+Again, the shape of the \BComb\ is determined by wrong-sign $\mu$ (WS $\mu$)
+control sample containing $D^{*+} \mu^+$ pairs.
+
+Further, it is assumed that the \BComb\ from WS $\mu$ and \BComb\ from RS
+differs by a factor linear in $m_B$.
+This is justified by assuming \BComb\ are slow-varying exponential decays in
+terms of $m_B$ for both RS and WS $\mu$, thus the ratio between the two is also
+an exponential.
+Since they are slow-varying, Taylor expansion to the first order (i.e. of the
+form $a + b m_B$) agrees well with the ratio in a sufficiently large region.
+
+Unlike $m_\Dstar$ in \DstComb,
+$m_B$ does not have a clear lower side-band.
+This is because \B is only \emph{partially} reconstructed
+due to missing neutrino(s).
+Therefore, only the upper-sideband, defined as $m_B > 5400$ MeV,
+which contains purely combinatorial and misID, can be used to
+study \BComb.
+
+A fit is performed in $B$ mass upper-sideband  to obtain
+the linear scaling factor $a + b m_B$.
+In the upper-sideband, it is assumed that both WS $\mu$ and RS samples contain
+are pure, that is, containing only combinatorial backgrounds and misID.
+The linear scaling factor is assumed to be the same for all skims\footnote{
+    This is mainly because there is not enough number of events in the
+    upper-sideband to perform fits skim-by-skim.
+}.
+The fit is performed in the following manner:
+
+\begin{enumerate}
+    \item Remove misID contribution from RS sample.
+    \item Remove misID contribution from WS $\mu$ sample.
+    \item Perfome a fit on RS sample in the upper-sideband region to determine
+        contribution from \DstComb, with procedure identical to that in
+        \cref{dst-comb}. Remove the fitted \DstComb.
+    \item Fit and remove \DstComb\ from WS $\mu$ sample.
+    \item Compute the ratio between RS and WS $\mu$, perform a fit to obtain
+        the linear scaling factor.
+        The fit, as well as
+        The raw RS and WS $\mu$ templates, as well as scaled WS $\mu$
+        template, is shown in \cref{fig:b-comb-dst}.
+\end{enumerate}
+
+% FIXME: Replace quad. fit w/ an exp. fit
+% Generated in /rdx-run2-analysis/fit with the command:
+%   make fit-BCombDst
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.48\textwidth]{figs-fit-fit-templates/data-driven-plots/b_comb/fit_b_comb_dst_fit.pdf}
+    \includegraphics[width=0.48\textwidth]{figs-fit-fit-templates/data-driven-plots/b_comb/fit_b_comb_dst_scaled.pdf}
+
+    \caption[\BComb\ fit result for $D^*$ channel]{
+        \BComb\ fit result for $D^*$ channel.
+
+        Left: \BComb\ auxiliary fit in the $m_B$ upper-sideband region for all skims.
+        A quadratic fit is also performed for possible systematic studies.
+
+        Right: The scaling effect on the WS $\mu$ \BComb\ template.
+    }
+    \label{fig:b-comb-dst}
+\end{figure}
+
+\subsubsection{$B$ combinatorial in $D^0$ channel}
+\label{b-comb-d0}
+
+The procedure is similar to that in \cref{b-comb-dst}, but without \DstComb\
+removal. The fit is shown in \cref{fig:b-comb-d0}.
+
+% FIXME: Replace quad. fit w/ an exp. fit
+% Generated in /rdx-run2-analysis/fit with the command:
+%   make fit-BCombD0
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.48\textwidth]{figs-fit-fit-templates/data-driven-plots/b_comb/fit_b_comb_d0_fit.pdf}
+    \includegraphics[width=0.48\textwidth]{figs-fit-fit-templates/data-driven-plots/b_comb/fit_b_comb_d0_scaled.pdf}
+
+    \caption{
+        \BComb\ fit result for $D^*$ channel.
+        Left: \BComb\ auxiliary fit.
+        Right: The scaling effect on the WS $\mu$ \BComb\ template.
+    }
+    \label{fig:b-comb-d0}
 \end{figure}
 
 
