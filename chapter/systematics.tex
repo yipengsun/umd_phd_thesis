@@ -148,7 +148,7 @@ at best fit values, as described in \cref{sys-ff-d0-dst}.
 The situation is similar to \cref{sys-tau-dstst}.
 The uncertainty on the \tauon vs. \muon relative fractions,
 discussed in \cref{ref:fit:tmpl:ddx},
-is evaluated with results from floating vs. fixed at best values.
+is evaluated with results from floating vs. fixing at best values.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -186,9 +186,32 @@ phase space limit of a 3 body decay.
 \section{\muon misID decay-in-flight correction}
 \label{sys-model-dif}
 
+As discussed in \cref{ref:fit:var:misid-dif},
+the DiF effect is included as a shape variation to allow the fit to determine
+the strength of the DiF effect.
+The uncertainty due to this variation is evaluated with results
+from floating vs. fixing at best value for the associated $\alpha$ parameter.
+
 
 \section{Combinatoric background shapes}
 \label{sys-model-comb}
+
+The nominal \BComb templates include a linear correction depend on $m_B$,
+which is discussed in \cref{ref:fit:tmpl:comb}.
+However, the actual correction is of a form $e^{-\lambda m_B}$
+(where $\lambda$ is fitted from data;
+the exponential fits are displayed side-by-side with the linear fits in
+\cref{fig:b-comb-d0,fig:b-comb-dst}.)
+and the linear correction is only the leading order approximation of the
+exponential.
+
+The uncertainty on the linear correction factor is quantified by
+repeating the fit with the nominal \BComb templates substituted with
+the ones generated with the exponential correction.
+The quadrature difference between \RDX is taken as the associated systematic
+uncertainty.
+The exponential correction is \emph{not taken as the nominal} because the
+existing data cannot resolve $\lambda$ to high precision.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
