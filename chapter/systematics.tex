@@ -15,6 +15,7 @@ these are omitted from the table.
         All uncertainties are absolute, not relative.
         The additive uncertainties are sorted in descending order by their run 1
         significance.
+        Currently the MC statistical uncertainties are not taken into account.
     }
     \label{tab:sys-uncert}
     \centering
@@ -49,7 +50,7 @@ these are omitted from the table.
         Coulomb correction to $\mathcal{R}(\Dstarp)$ vs. $\mathcal{R}(\Dstarz)$ &
         (0.17) & (0.3) \\
         %%%%
-        misID decay-in-flight correction &
+        \muon misID decay-in-flight correction &
         (0.06) & (0.16) \\
         %%%%
         Comb. bkg. shape &
@@ -70,8 +71,8 @@ these are omitted from the table.
         0.23 & 0.23 \\
         \midrule
         %%%%
-        Total &
-        (3.07) & (9.49) \\
+        Sys + stats. &
+        ? & ? \\
         \bottomrule
     \end{tabular}
 \end{table}
@@ -80,9 +81,17 @@ The remainder of the chapter is dedicated to explain the evaluation method
 for each tabulated systematic uncertainties.
 These uncertainties can be loosely classified into the following groups:
 Form factors (\cref{sys-ff-d0-dst,sys-ff-dstst}),
-Under-constrained $\tau$ components ()
+under-constrained $\tau$ components (\cref{sys-tau-dstst,sys-tau-ddx}),
+uncertainties on the modelling of the background components
+(\cref{sys-model-ctrl,sys-model-ddx,sys-model-comb}),
+uncertainties on employed algorithms (\cref{sys-algo-misid}),
+theoretical corrections not included in the nominal fit
+(\cref{sys-theory-coulomb}),
+and uncertainties on data/MC corrections
+(\cref{sys-cor-vtx,sys-cor-rwt}).
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{$B \rightarrow D^{(*)}\ell\neulb$ form factors}
 \label{sys-ff-d0-dst}
 
@@ -91,4 +100,46 @@ Under-constrained $\tau$ components ()
 \label{sys-ff-dstst}
 
 
-% \section{}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{$B \rightarrow D^{**}\tau\neutb$ background}
+\label{sys-tau-dstst}
+
+
+\section{$B \rightarrow D^{(*)} D^{**}_s (\rightarrow \tau\neutb) X$ fraction}
+\label{sys-tau-ddx}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Control sample shape parameters}
+\label{sys-model-ctrl}
+
+
+\section{$DD$ model dependence}
+\label{sys-model-ddx}
+
+
+\section{\muon misID decay-in-flight correction}
+\label{sys-model-dif}
+
+
+\section{Combinatoric background shapes}
+\label{sys-model-comb}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{\muon misID unfolding algorithm}
+\label{sys-algo-misid}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Coulomb correction to $\mathcal{R}(\Dstarp)$ vs. $\mathcal{R}(\Dstarz)$}
+\label{sys-theory-coulomb}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Vertex resolution correction}
+\label{sys-cor-vtx}
+
+
+\section{Data/MC corrections}
+\label{sys-cor-rwt}
