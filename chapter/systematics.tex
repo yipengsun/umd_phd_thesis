@@ -13,8 +13,12 @@ these are omitted from the table.
         Evaluated systematic uncertainties.
         Run 1 uncertainties are provided as a reference inside parentheses.
         All uncertainties are absolute, not relative.
+        The additive uncertainties are sorted in descending order by their run 1
+        significance.
     }
+    \label{tab:sys-uncert}
     \centering
+    \small
     \begin{tabular}{r | c | c }
         \toprule
         {\bf Source} & {\bf $\RD \times 10^3$} &
@@ -24,6 +28,50 @@ these are omitted from the table.
         $B \rightarrow D^{(*)}\ell\neulb$ form factors &
         (0.58) & (2.37) \\
         %%%%
+        $B \rightarrow D^{**}\ell\neulb$ form factors &
+        (0.78) & (1.01) \\
+        %%%%
+        Control sample shape params &
+        (0.87) & (4.36) \\
+        %%%%
+        $DD$ model dependence &
+        (0.63) & (0.74) \\
+        %%%%
+        $B \rightarrow D^{**}\tau\neutb$ bkg &
+        (0.17) & (0.30) \\
+        %%%%
+        $B \rightarrow D^{(*)} D^{**}_s (\rightarrow \tau\neutb) X$ frac &
+        (0.25) & (1.21) \\
+        %%%%
+        \muon misID unfolding algorithm &
+        (0.74) & (1.19) \\
+        %%%%
+        Coulomb correction to $\mathcal{R}(\Dstarp)$ vs. $\mathcal{R}(\Dstarz)$ &
+        (0.17) & (0.3) \\
+        %%%%
+        misID decay-in-flight correction &
+        (0.06) & (0.16) \\
+        %%%%
+        Comb. bkg. shape &
+        (0.03) & (0.18) \\
+        %%%%
+        Vertex resolution correction &
+        (0.03) & (0.21) \\
+        %%%%
+        Data/MC corrections (add.) &
+        (0.40) & (0.75) \\
+        %%%%
+        \midrule
+        Data/MC corrections (mul.) &
+        \makecell{$? \times \RDst$ \\ ($1.16 \times \RDst$)} &
+        \makecell{$? \times \RDst$ \\ ($0.91 \times \RDst$)} \\ % FIXME: Really? Both R(D*)?
+        %%%%
+        $\mathcal{B}(\taum \rightarrow \mun\neumb\neut)$ &
+        0.23 & 0.23 \\
+        \midrule
+        %%%%
+        Total &
+        (3.07) & (9.49) \\
         \bottomrule
     \end{tabular}
 \end{table}
@@ -32,6 +80,7 @@ The remainder of the chapter is dedicated to explain the evaluation method
 for each tabulated systematic uncertainties.
 These uncertainties can be loosely classified into the following groups:
 Form factors (\cref{sys-ff-d0-dst,sys-ff-dstst}),
+Under-constrained $\tau$ components ()
 
 
 \section{$B \rightarrow D^{(*)}\ell\neulb$ form factors}
@@ -42,3 +91,4 @@ Form factors (\cref{sys-ff-d0-dst,sys-ff-dstst}),
 \label{sys-ff-dstst}
 
 
+% \section{}
