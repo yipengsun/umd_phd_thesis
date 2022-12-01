@@ -22,8 +22,8 @@ these are omitted from the table.
     \small
     \begin{tabular}{r | c | c }
         \toprule
-        {\bf Source} & {\bf $\RD \times 10^3$} &
-                       {\bf $\RD \times 10^3$} \\
+        {\bf Source} & {\bf $\RDst \times 10^2$} &
+                       {\bf $\RD   \times 10^2$} \\
         \midrule
         %%%%
         $B \rightarrow D^{(*)}\ell\neulb$ form factors &
@@ -224,6 +224,27 @@ This is a work in progress.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Coulomb correction to $\mathcal{R}(\Dstarp)$ vs. $\mathcal{R}(\Dstarz)$}
 \label{sys-theory-coulomb}
+
+The MC simulation lacks the corrections from Coulomb interactions between
+the lepton and the charged hadrons in
+$\Bzb \rightarrow \Dstarp\ell\neulb$ decays.
+This correction leads to three effects:
+
+\begin{enumerate}
+    \item A deformation of the templates, particularly
+        $\Bzb \rightarrow \Dstarp\tauon\neutb$ decays.
+    \item A shift in the efficiency ratio between $\Dstarp\tau$ and $\Dstarp\mu$
+        decays.
+    \item Breaking of isospin symmetry between
+        $\mathcal{R}(\Dstarp)$ and $\mathcal{R}(\Dstarz)$
+\end{enumerate}
+
+The first two effects are checked in \cite{LHCb-ANA-2020-056} to be negligible
+compared to existing additive and multiplicative uncertainties.
+The third effect results in about 1\% relative enhancement in $\mathcal{R}
+(\Dstarp)$ compared to $\mathcal{R}(\Dstarz)$,
+as reported in \cite{Cal__2019}.
+A refit is performed to evaluate the uncertainty to due this change.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
