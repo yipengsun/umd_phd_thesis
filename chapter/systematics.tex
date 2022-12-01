@@ -270,3 +270,16 @@ uncertainty due to the smearing.
 
 \section{Data/MC corrections}
 \label{sys-cor-rwt}
+
+Had the data/MC corrections been perfect,
+after an iteration of the fit is performed,
+the low \mmSq region between data and post-fit cocktail
+(defined in \cref{ref:mc-cor:postfit-cocktail}) should be in perfect agreement
+(statistically speaking)
+because this normalization enriched region is insensitive to other effects
+due to modelling of physics backgrounds.
+In reality the data/MC corrections are not perfect,
+and the uncertainty due to this is assessed by repeating
+the final reweighting (explained in \cref{ref:mc-cor:final}),
+regenerating the fit templates,
+then repeating the fit.
