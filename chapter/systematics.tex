@@ -230,6 +230,22 @@ This is a work in progress.
 \section{Vertex resolution correction}
 \label{sys-cor-vtx}
 
+As mentioned in \cref{ref:mc-cor:vertex},
+the mis-modelling of the $B$ flight vector in MC is corrected by a smearing
+on the azimuthal angle of the flight vector.
+To access the uncertainty due to this smearing, an additional
+variation to either strengthen or suppress the smearing effect is introduced
+\emph{for every single MC template}.
+
+Due to the fact that the smearing changes the shape of fit variables for all
+MC templates, the variation introduces a non-trivial correlation to every
+shape variation parameter.
+To evaluate the uncertainty \emph{purely due to the variation on smearing},
+all other shape variations are fixed at the best fit values before a refit is
+performed.
+The results are subtracted in quadrature as usual to obtain the systematic
+uncertainty due to the smearing.
+
 
 \section{Data/MC corrections}
 \label{sys-cor-rwt}
