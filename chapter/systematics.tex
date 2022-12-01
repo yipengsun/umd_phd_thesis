@@ -41,7 +41,7 @@ these are omitted from the table.
         $B \rightarrow D^{**}\tau\neutb$ bkg &
         (0.17) & (0.30) \\
         %%%%
-        $B \rightarrow D^{(*)} D^{**}_s (\rightarrow \tau\neutb) X$ frac &
+        $B \rightarrow D^{(*)} D^{**}_s (\rightarrow \tau\neutb) X$ bkg &
         (0.25) & (1.21) \\
         %%%%
         \muon misID unfolding algorithm &
@@ -78,7 +78,7 @@ these are omitted from the table.
 \end{table}
 
 The remainder of the chapter is dedicated to explain the evaluation method
-for each tabulated systematic uncertainties.
+for each tabulated systematic uncertainty.
 These uncertainties can be loosely classified into the following groups:
 Form factors (\cref{sys-ff-d0-dst,sys-ff-dstst}),
 under-constrained $\tau$ components (\cref{sys-tau-dstst,sys-tau-ddx}),
@@ -104,16 +104,16 @@ manner:
     \item Fix the variations ($\alpha$ parameters) associated with \Dz and
         \Dstar form factor parameters at best fitted value.
         This removes the constrains due to these $\alpha$ parameters in the
-        likelihood to maximize thus
+        likelihood thus
         eliminates all uncertainties due to these parameters.
     \item Repeat the fit with the $\alpha$ parameters fixed at the best fitted
         value.
         Say now the fitted value for
         $\RD = V'\;{+\sigma'_+}\;{-\sigma'_-}$.
     \item The systematic uncertainty due to \Dz and \Dstar form factors are
-        obtained from subtract uncertainties of $V, V'$ in quadrature.
+        obtained from subtracting uncertainties of $V, V'$ in quadrature.
         More specifically, due to the asymmetric nature of the error,
-        the systematic uncertainty is obtained by
+        the systematic uncertainty is calculated with
         \cref{eqn:sys-uncert-sub-quad}:
 
         \begin{equation}
@@ -134,9 +134,21 @@ being: Now the fixed parameters are $D^{**}$ form factors.
 \section{$B \rightarrow D^{**}\tau\neutb$ background}
 \label{sys-tau-dstst}
 
+As discussed in \cref{tmpl:dstst},
+the tauonic yields are not well-constrained by external measurements, and
+are floated with a Gaussian constraint for each fit channel.
+The systematic uncertainty introduced by the Gaussian constrains
+is evaluated based on differences between floating and fixing these parameters
+at best fit values, as described in \cref{sys-ff-d0-dst}.
 
-\section{$B \rightarrow D^{(*)} D^{**}_s (\rightarrow \tau\neutb) X$ fraction}
+
+\section{$B \rightarrow D^{(*)} D^{**}_s (\rightarrow \tau\neutb) X$ background}
 \label{sys-tau-ddx}
+
+The situation is similar to \cref{sys-tau-dstst}.
+The uncertainty on the \tauon vs. \muon relative fractions,
+discussed in \cref{ref:fit:tmpl:ddx},
+is evaluated with results from floating vs. fixed at best values.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

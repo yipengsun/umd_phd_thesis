@@ -631,8 +631,8 @@ For tauonic mode, the \RDstz is set to be equal to \RDstp in the nominal fit.
 
 \subsection{Feed down through $B \rightarrow D^{**}\ellm\neulb$ modes}
 \label{tmpl:dstst}
-% FIXME: D** descr is pretty bad!
 
+% FIXME: D** descr is pretty bad!
 The feed downs from 4 $1P$ $D^{**}$ states
 ($D_1(2420), D_2^*(2460), D_0^*(2430), D'_1(2430)$, including both isospin
 pairs) are included in the fit,
@@ -678,7 +678,17 @@ For each sample (i.e. ISO, 1OS, 2OS, DD),
 
 \paragraph{Tauonic}
 As in run 1, the tauonic $D^{**}$ decays are treated as fixed fractions
-to their muonic counterparts.
+to their muonic counterparts individually, with each $\mathcal{R}(D^{**})$
+fraction given by \cite{Bernlochner_2018} within their ``Approximation C'',
+for an weighted average of 0.085.
+However, the run 1 \RDst analysis (\cite{LHCb-ANA-2014-052}) used
+0.12, instead 0.085,
+though the values agree within errors specified in that analysis.
+Suffice to say, $R(D^{**})$ ratios are not measured to precision.
+Therefore, a Gaussian constraint with a width of 30\% is added,
+allowing the yields to float around the nominal values.
+The Gaussian constraint is shared among all $1P$ $D^{**}$ species within
+each fit channel (e.g. \Dz channel) but is distinct across channels.
 
 
 \subsection{Feed down through $B \rightarrow D_H^{**}(\rightarrow D^{(*)}\pi\pi)\mun\neumb$ modes}
@@ -731,18 +741,29 @@ seen at \cref{fig:d_s-vs-d0-sig}.
 
 
 \subsection{Double-charm ($DDX$) backgrounds}
+\label{ref:fit:tmpl:ddx}
 
 The double-charm backgrounds include contributions from
 $B \rightarrow D^{(*)}(\rightarrow \mun\neumb)\bar{D}^{(*)} X$ decays, where $X$
 is either a \kaon, a \Kstar, or a higher \Kstar resonance.
-These modes are not understood well, and the MC samples are generated with
-phase space models with a three-body decay, so additional deformations
-to the phase space are provided in the fitter to allow for a more
-data-driven approach in the determination of their yields.
-More details will be discussed in
+The $DDX$ are poorly understood as these MC are generated with
+a phase space model so generated events are distributed evenly in the available
+phase space, without taking the resonance structure,
+which itself is not precisely known for $n \geq 3$-body decays,
+of the Dalitz plane into account.
+Additionally, the $D \rightarrow X \ell\neulb$ decay form factors are
+parameterized with the quark-model of ISGW2,
+which is known to unable describe data sufficiently well\footnote{
+    As commented in \cite{LHCb-ANA-2020-056}:
+    ``In the current literature it is found that single-pole-dominance provides
+    a much better description of the data than quark-model calculations.''
+}.
+More details regarding the variations will be discussed in
 \cref{ref:fit:var:ddx}.
-The shape of the $DDX$ templates are somewhat similar to the signal templates,
+Both muonic and tauonic $DDX$ templates are similar to the signal templates,
 as can be seen in \cref{fig:ddx-vs-d0-sig}.
+This is due to the fact that a large portion of energy is taken by the
+unreconstructed $D$ meson.
 
 \begin{figure}[htb]
     %\begin{subfigure}{\textwidth}
@@ -756,3 +777,13 @@ as can be seen in \cref{fig:ddx-vs-d0-sig}.
     \caption{Comparison between $DDX$ and \Dz\taum signal templates.}
     \label{fig:ddx-vs-d0-sig}
 \end{figure}
+
+
+The relative fractions for the muonic modes are fixed from known branching
+fractions.
+There is an additional degree of freedom on isospin (\Bm vs. \Bzb) with
+a Gaussian constrain.
+Similar to $1P$ $D^{**}$ tauonic modes,
+the $DDX$ tauonic modes are constrained near the relative branching fractions
+(\tauon vs. \muon) with a 30\% Gaussian variation,
+without any isospin degree of freedom.
