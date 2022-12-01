@@ -71,7 +71,7 @@ these are omitted from the table.
         0.23 & 0.23 \\
         \midrule
         %%%%
-        Sys + stats. &
+        Sys. + stats. &
         ? & ? \\
         \bottomrule
     \end{tabular}
@@ -83,7 +83,7 @@ These uncertainties can be loosely classified into the following groups:
 Form factors (\cref{sys-ff-d0-dst,sys-ff-dstst}),
 under-constrained $\tau$ components (\cref{sys-tau-dstst,sys-tau-ddx}),
 uncertainties on the modelling of the background components
-(\cref{sys-model-ctrl,sys-model-ddx,sys-model-comb}),
+(\cref{sys-model-ctrl,sys-model-ddx,sys-model-dif,sys-model-comb}),
 uncertainties on employed algorithms (\cref{sys-algo-misid}),
 theoretical corrections not included in the nominal fit
 (\cref{sys-theory-coulomb}),
@@ -95,9 +95,39 @@ and uncertainties on data/MC corrections
 \section{$B \rightarrow D^{(*)}\ell\neulb$ form factors}
 \label{sys-ff-d0-dst}
 
+The uncertainties due to $D^(*)$ form factors can be determined in the following
+manner:
+
+\begin{enumerate}
+    \item Perform a fit with nominal setting. Say the fitted value for
+        $\RD = V\;{+\sigma_+}\;{-\sigma_-}$.
+    \item Fix the variations ($\alpha$ parameters) associated with \Dz and
+        \Dstar form factor parameters at best fitted value.
+        This removes the constrains due to these $\alpha$ parameters in the
+        likelihood to maximize thus
+        eliminates all uncertainties due to these parameters.
+    \item Repeat the fit with the $\alpha$ parameters fixed at the best fitted
+        value.
+        Say now the fitted value for
+        $\RD = V'\;{+\sigma'_+}\;{-\sigma'_-}$.
+    \item The systematic uncertainty due to \Dz and \Dstar form factors are
+        obtained from subtract uncertainties of $V, V'$ in quadrature.
+        More specifically, due to the asymmetric nature of the error,
+        the systematic uncertainty is obtained by
+        \cref{eqn:sys-uncert-sub-quad}:
+
+        \begin{equation}
+            \sigma_\text{sys} = \sqrt{\sigma_+ \sigma_- - \sigma'_+ \sigma'_-}
+            \label{eqn:sys-uncert-sub-quad}
+        \end{equation}
+\end{enumerate}
+
 
 \section{$B \rightarrow D^{**}\ell\neulb$ form factors}
 \label{sys-ff-dstst}
+
+The procedure is identical to that in \cref{sys-ff-d0-dst}; the only difference
+being: Now the fixed parameters are $D^{**}$ form factors.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -117,6 +147,29 @@ and uncertainties on data/MC corrections
 \section{$DD$ model dependence}
 \label{sys-model-ddx}
 
+In the nominal fit, two variations on $m_{DD^{*}}$,
+a key proxy variable to 3-body decay phase space,
+are introduced on $DDX$ templates to allow for a data-driven approach to
+determine the shape of these templates, as described in
+\cref{ref:fit:var:ddx}.
+
+To estimate the dependence on the choice of proxy variable to the phase space,
+alternative proxy variables, namely $m_{DK}$ and $p_D$ in the \B rest frame,
+are deformed linearly and quadratically and the nominal $DDX$ templates are
+replaced with these alternative variations and a refit performed.
+A profile likelihood study then determine the uncertainty of \RD and \RDst
+based on a likelihood profile study\footnote{
+    For more details, see APPX % TODO: List details for profile likelihood study
+} of both the nominal and the alternative variations.
+
+The variations of $m_{DK}$ take the same form as
+\cref{eqn:dal-var-lin,eqn:dal-var-quad}, with $m_{DD^{(*)}}$ replaced by
+$m_{DK}$.
+The mass limits are also reset:
+$m_\text{min} = m_{D^{(*)}} + m_K$, $m_\text{max} = m_B - m_D^{(*)}$.
+Similarly, for variations of $p_D$, the min and max are computed based on the
+limit of 3 body decays.
+
 
 \section{\muon misID decay-in-flight correction}
 \label{sys-model-dif}
@@ -129,6 +182,8 @@ and uncertainties on data/MC corrections
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{\muon misID unfolding algorithm}
 \label{sys-algo-misid}
+
+This is a work in progress.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
