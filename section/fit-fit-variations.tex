@@ -66,24 +66,55 @@ A sample $\pm 1\sigma$ variation of the \Dz\mun templates is listed in
 \subsection{Data-driven Dalitz-inspired deformations to $DDX$ model}
 \label{ref:fit:var:ddx}
 
-The $DDX$ are poorly understood and the phase space model are known to be
-unphysical but no better model is available.
-Additional variations are introduced to give more freedom to the fit variables,
-allowing for a data-driven approach for the determination of $DDX$ decays.
+The $DDX$ are poorly understood as these MC are generated with
+a phase space model without consideration of information
+about the Dalitz plane of the $n \geq 3$ body decays,
+which itself is not precisely known.
+Additionally, the MC parameterizes the form factors of
+$D \rightarrow X \ell\neulb$ decays with the quark-model of ISGW2,
+which is known to unable describe data sufficiently well\footnote{
+    As commented in \cite{LHCb-ANA-2020-056}:
+    ``In the current literature it is found that single-pole-dominance provides
+    a much better description of the data than quark-model calculations.''
+}.
+To mitigate these physical shortcomings on the modelling of $DDX$ decays,
+additional variations are introduced to give more freedom to the fit variables,
+allowing for a data-driven approach for the determination of the shapes of $DDX$
+background.
 
 The variations are inspired by Dalitz plots, where a single scaler decays into
-three scaler, and the phase space is uniquely determined by two variables.
-Here the invariant mass of $DD$ is chosen as the proxy to deform the phase
-space linearly and quadratically, as defined in EQN.
+three scalers, and the phase space is uniquely determined by two variables.
+Here the \emph{true} invariant mass of the $DD^{(*)}$ pair is chosen as the
+proxy to deform the phase space linearly and quadratically
+as a weight, defined in \cref{eqn:dal-var-lin,eqn:dal-var-quad} evaluated at
+$\alpha = \pm 1$ as usual:
+
+\begin{equation}
+    w_\text{lin}^\pm = 1 \pm 2 \cdot \left(\sqrt{
+        \frac{m_{DD^{(*)}}^2 - m_\text{min}^2}{m_\text{max}^2 - m_\text{min}^2}
+    } - 1/2 \right)
+    \label{eqn:dal-var-lin}
+\end{equation}
+
+\begin{equation}
+    w_\text{quad}^\pm = (1 \mp 1) \pm 8 \cdot
+    \left(\sqrt{
+        \frac{m_{DD^{(*)}}^2 - m_\text{min}^2}{m_\text{max}^2 - m_\text{min}^2}
+    } - 1/2 \right)^2
+    \label{eqn:dal-var-quad}
+\end{equation}
+
+Note that the range for both sets of weights are between $[0, 2]$,
+$m_\text{min} = m_{D^{(*)}} + m_D$, and $m_\text{max} = m_B - m_K$.
 
 
 \subsection{\Kstar weight up/down in $DDX$ templates}
 
 An $DDX$ event is considered to contain a \Kstar if
 $(p_B - p_{D_\text{1st}} - p_{D_\text{2nd}})^2 > 680$ MeV.
-The \Kstar events are weighted up (to 2) and down (to 0) to allow additional
-variations for the $DDX$ templates, because the
-branching fraction of \Kstar is not precisely known.
+The \Kstar events are weighted up (to 2) and down (to 0) and are included as
+a variation to float the relative fractions between \kaon and \Kstar in the fit,
+as the relative selection efficiencies for these modes are not precisely known.
 
 
 \subsection{Data-driven phenomenological deformation to $D_H^{**}$ model}
