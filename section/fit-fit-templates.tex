@@ -491,9 +491,9 @@ The fit is performed in the following manner:
     \item Fit and remove \DstComb\ from WS $\mu$ sample.
     \item Compute the ratio between RS and WS $\mu$, perform a fit to obtain
         the linear scaling factor.
-        The fit, as well as
-        The raw RS and WS $\mu$ templates, as well as scaled WS $\mu$
-        template, is shown in \cref{fig:b-comb-dst}.
+        The fit,
+        as well as the raw RS, raw WS \muon, and scaled WS \muon templates,
+        is shown in \cref{fig:b-comb-dst}.
 \end{enumerate}
 
 % FIXME: Replace quad. fit w/ an exp. fit
@@ -655,13 +655,18 @@ but translates weakly in the reconstructed \qSq spectrum, due to rest frame
 approximation (\cref{appx:rfa}) and definition of \qSq being
 $(p_B - p_D)^2$, instead of $(p_B - p_{D^{**}})^2$.
 
-Currently, the constraints for these modes are
-taken from the run 1 analysis (\cite{LHCb-ANA-2020-056}), which uses PDG data.
-For each sample (i.e. ISO, 1OS, 2OS, DD),
-%It is worth noting that a factor
-%$n^{0,*}_{D^{**}} \equiv 10^{-3} / \mathcal{B}(B \rightarrow D^{0,*}\mun\neumb)$
-%is include such that floating parameters may be read as a branching fractions
-%times an efficiency directly.
+% FIXME: D** light fit model not understood well.
+An overall normalization is shared among all $D^{**}$ modes for \Dstar fit
+channel;
+Currently, the expected relative yields between each $D^{**}$ are
+taken from the run 1 analysis (\cite{LHCb-ANA-2020-056}),
+which are computed based on PDG branching fractions.
+These branching fractions are multiplied by average isolation efficiencies
+for each \B meson type which are found in MC.
+Note that the shared normalization factor
+$f^\text{nominal}_{D^{**}} \equiv 10^{-3} / \mathcal{B}(B \rightarrow D^{0,*}\mun\neumb)$
+is include so that the floating parameters may be read as a branching fractions
+times an efficiency directly.
 
 \begin{figure}[htb]
     %\begin{subfigure}{\textwidth}
