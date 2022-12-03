@@ -86,12 +86,18 @@ where $\tilde{n}$ denote yields in the fake \muon control sample
 as described in \cref{ref:sel:data:fake-mu},
 and \misEff[t]{\hat{t}'} are obtained from step-2.
 
-The Bayesian (iterative) unfolding method provided by \RooUnfold\ is used to
+The Bayesian (iterative\footnote{
+    As described in \cite{StatisticalMethods},
+    some people prefer to label this method as \emph{iterative} rather
+    than Bayesian as this method only uses Bayes' theorem in an intermediate
+    step but does not explicitly produce a posterior p.d.f based on
+    likelihood and prior p.d.f.s (both are specified by the user).
+}) unfolding method provided by \RooUnfold\ is used to
 obtain the true yields $\tilde{n}_t$.
 At this stage, there is no guarantee that
 $\sum_t \tilde{n}_t = \sum_{\hat{t}'} \tilde{n}_{\hat{t}'}$.
 Naive matrix inversion cannot be used because it is sensitive to statistical
-fluctuations.  % TODO: Should I cite Cowan here?
+fluctuations \cite{Cowan_1998}.
 
 To find \misEff[\hat{t}']{t}, recall its definition:
 
