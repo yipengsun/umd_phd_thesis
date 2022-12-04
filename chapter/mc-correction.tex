@@ -859,32 +859,35 @@ described in this section.
 \begin{figure}[!htb]
     \begin{subfigure}[t]{0.32\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{./figs-mc-correction/reweighting-final/plot_step12-Dst_iso-spi_comp.pdf}
+        \includegraphics[width=\textwidth]{./figs-mc-correction/reweighting-vertex/mm2-no_rwt.pdf}
         \caption{Without final reweighting.}
         \label{fig:worse-pulls-after-final-rwt:no-final-rwt}
     \end{subfigure}
     %%%%
     \begin{subfigure}[t]{0.32\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{./figs-mc-correction/reweighting-final/plot_step12-Dst_iso-spi_comp.pdf}
+        \includegraphics[width=\textwidth]{./figs-mc-correction/reweighting-vertex/mm2-final_rwt.pdf}
         \caption{With final reweighting only.}
         \label{fig:worse-pulls-after-final-rwt:final-rwt-only}
     \end{subfigure}
     %%%%
     \begin{subfigure}[t]{0.32\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{./figs-mc-correction/reweighting-final/plot_step12-Dst_iso-spi_comp.pdf}
+        \includegraphics[width=\textwidth]{./figs-mc-correction/reweighting-vertex/mm2-final_rwt_vertex_smr.pdf}
         \caption{With both final reweighting and vertex resolution smearing.}
         \label{fig:worse-pulls-after-final-rwt:both}
     \end{subfigure}
 
     \caption{
+        Fitted \mmSq distributions in the \Dstar channel.
         Without additional vertex resolution correction,
         the agreement between data and fitted result becomes poorer
         after final reweighting,
         as the pulls become worse.
         Applying a vertex resolution smearing brings \mmSq back to good
         agreement.
+        These plots are taken from an older fit configuration and do not
+        represent final fit results.
     }
     \label{fig:worse-pulls-after-final-rwt}
 \end{figure}
