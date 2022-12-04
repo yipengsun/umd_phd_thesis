@@ -46,7 +46,7 @@ with weight-capping strategy specified:
 % Generated in umd-lhcb/rdx-run2-analysis/fit:
 %   with: make tab-fit-templates
 %% D0
-\begin{table}[htb]
+\begin{table}[!htb]
     \caption{Fit templates included in \Dz channel fit.}
     \label{tab:fit-templates-d0}
     \footnotesize
@@ -97,7 +97,7 @@ with weight-capping strategy specified:
 \end{table}
 
 %% Dst
-\begin{table}[htb]
+\begin{table}[!htb]
     \caption{Fit templates included in \Dstar channel fit.}
     \label{tab:fit-templates-dst}
     \footnotesize
@@ -147,7 +147,7 @@ are generated from the fake \muon control sample
 First conceived in \cite{LHCb-ANA-2016-059}, the unfolding technique
 consists of the following steps:
 
-\begin{figure}[htb]
+\begin{figure}[!htb]
     \centering
     \begin{subfigure}{0.9\textwidth}
         \centering
@@ -246,7 +246,7 @@ A more detailed description of the unfolding procedure is documented in
 
 % Generated in /misid-unfolding, with the command
 %   make plot-rdx-bin_vars-ana-2016
-\begin{figure}[htb]
+\begin{figure}[!htb]
     \centering
     \begin{subfigure}[b]{0.32\textwidth}
         \centering
@@ -293,7 +293,7 @@ A more detailed description of the unfolding procedure is documented in
 
 % Generated in /lhcb-ntuples-gen/studies/plot-RDX_misid_unfold_fit_vars, by
 % running the script gen.sh inside
-\begin{figure}[htb]
+\begin{figure}[!htb]
     \centering
     \begin{subfigure}[b]{0.32\textwidth}
         \centering
@@ -320,7 +320,7 @@ A more detailed description of the unfolding procedure is documented in
     \label{fig:unfolding-fit-vars}
 \end{figure}
 
-\begin{table}[htb]
+\begin{table}[!htb]
     \centering
     \caption{Selections for each tagged species in fake \muon sample.}
     \label{tab:selection-for-tagged-species}
@@ -367,7 +367,7 @@ A comparison between combinatorial backgrounds and signal templates is
 shown in \cref{fig:comb-vs-sig}.
 
 % TODO: Implement comb. bkg. tmpl. comparison
-\begin{figure}[htb]
+\begin{figure}[!htb]
     \centering
     \begin{subfigure}[t]{0.9\textwidth}
         \centering
@@ -427,7 +427,7 @@ The fit procedure is the following:
 
 % Generated in /rdx-run2-analysis/fit with the command:
 %   make fit-DstComb
-\begin{figure}[htb]
+\begin{figure}[!htb]
     \centering
     \includegraphics[width=\textwidth]{figs-fit-fit-templates/data-driven-plots/dst_comb/fit_dst_comb_iso_comb.pdf}
     \caption{
@@ -438,7 +438,7 @@ The fit procedure is the following:
     \label{fig:dst-comb-fit}
 \end{figure}
 
-\begin{figure}[htb]
+\begin{figure}[!htb]
     \centering
     \includegraphics[width=0.55\textwidth]{figs-fit-fit-templates/data-driven-plots/dst_comb/fit_dst_comb_scaled_comp_iso_log.pdf}
     \caption{
@@ -499,7 +499,7 @@ The fit is performed in the following manner:
 % FIXME: Replace quad. fit w/ an exp. fit
 % Generated in /rdx-run2-analysis/fit with the command:
 %   make fit-BCombDst
-\begin{figure}[htb]
+\begin{figure}[!htb]
     \centering
     \includegraphics[width=0.48\textwidth]{figs-fit-fit-templates/data-driven-plots/b_comb/fit_b_comb_dst_fit.pdf}
     \includegraphics[width=0.48\textwidth]{figs-fit-fit-templates/data-driven-plots/b_comb/fit_b_comb_dst_scaled.pdf}
@@ -524,7 +524,7 @@ removal. The fit is shown in \cref{fig:b-comb-d0}.
 % FIXME: Replace quad. fit w/ an exp. fit
 % Generated in /rdx-run2-analysis/fit with the command:
 %   make fit-BCombD0
-\begin{figure}[htb]
+\begin{figure}[!htb]
     \centering
     \includegraphics[width=0.48\textwidth]{figs-fit-fit-templates/data-driven-plots/b_comb/fit_b_comb_d0_fit.pdf}
     \includegraphics[width=0.48\textwidth]{figs-fit-fit-templates/data-driven-plots/b_comb/fit_b_comb_d0_scaled.pdf}
@@ -554,7 +554,7 @@ as shown in \cref{fig:d0-norm-vs-dst-norm}.
 The \Dstarp templates (both muonic and tauonic) contribute to both fit channels
 due to feed down.
 
-\begin{figure}[htb]
+\begin{figure}[!htb]
     \caption{
         Comparison between $\Bm \rightarrow \Dz\mun\neumb$ and
         $\Bzb \rightarrow \Dstarp\mun\neumb$ templates.
@@ -572,7 +572,7 @@ Also, the \Dz\tauon has a softer \qSq distribution, due to the same reason
 mentioned in the normalization comparison, which is displayed in
 \cref{fig:d0-sig-vs-dst-sig,fig:d0-sig-vs-dst0-sig}.
 
-\begin{figure}[htb]
+\begin{figure}[!htb]
     \begin{subfigure}{\textwidth}
         \caption{
             $\Bm \rightarrow \Dz\mun\neumb$ vs.
@@ -599,7 +599,7 @@ mentioned in the normalization comparison, which is displayed in
     \caption{Comparison between signal and normalization templates.}
 \end{figure}
 
-\begin{figure}[htb]
+\begin{figure}[!htb]
     \begin{subfigure}{\textwidth}
         \caption{
             $\Bm \rightarrow \Dz\taum\neutb$ vs.
@@ -668,7 +668,7 @@ $f^\text{nominal}_{D^{**}} \equiv 10^{-3} / \mathcal{B}(B \rightarrow D^{0,*}\mu
 is include so that the floating parameters may be read as a branching fractions
 times an efficiency directly.
 
-\begin{figure}[htb]
+\begin{figure}[!htb]
     %\begin{subfigure}{\textwidth}
     %    \caption{
     %        $\Bm \rightarrow \Dz\taum\neutb$ vs.
@@ -705,7 +705,7 @@ $D^{**}$ states.
 A comparison between the $D_H^{**}$ templates and \Dz\taum signal can be
 seen at \ref{fig:dstst-heavy-vs-d0-sig}
 
-\begin{figure}[htb]
+\begin{figure}[!htb]
     %\begin{subfigure}{\textwidth}
     %    \caption{
     %        $\Bm \rightarrow \Dz\taum\neutb$ vs.
@@ -730,7 +730,7 @@ These modes are constrained based on available measurements.
 A comparison between the $D_s^{**}$ templates and \Dz\taum signal can be
 seen at \cref{fig:d_s-vs-d0-sig}.
 
-\begin{figure}[htb]
+\begin{figure}[!htb]
     %\begin{subfigure}{\textwidth}
     %    \caption{
     %        $\Bm \rightarrow \Dz\taum\neutb$ vs.
@@ -769,7 +769,7 @@ as can be seen in \cref{fig:ddx-vs-d0-sig}.
 This is due to the fact that a large portion of energy is taken by the
 unreconstructed $D$ meson.
 
-\begin{figure}[htb]
+\begin{figure}[!htb]
     %\begin{subfigure}{\textwidth}
     %    \caption{
     %        $\Bm \rightarrow \Dz\taum\neutb$ vs.

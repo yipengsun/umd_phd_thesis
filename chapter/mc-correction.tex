@@ -82,7 +82,7 @@ The changes are minimal because both models are up-to-date.
 
 % Generated in /rdx-run2-analysis with:
 %   make plot-all-ff-rwt
-\begin{figure}[htb]
+\begin{figure}[!htb]
     \centering
     \includegraphics[width=0.45\textwidth]{
         ./figs-mc-correction/reweighting-form-factors/norm/D0Mu.pdf
@@ -111,7 +111,7 @@ Given the large uncertainties on these sub-dominate parameters,
 they are set to 0 with the corresponding entries in the correlation matrix
 removed.
 
-\begin{figure}[htb]
+\begin{figure}[!htb]
     \centering
     \includegraphics[width=0.45\textwidth]{
         ./figs-mc-correction/reweighting-form-factors/norm/DstMu.pdf
@@ -294,7 +294,7 @@ The correction is applied as a weight on a per-event basis.
 The efficiency ratio table is shown in \cref{fig:trackcalib-eff}.
 
 % Taken from RD+'s ANA
-\begin{figure}[htb]
+\begin{figure}[!htb]
     \centering
     \includegraphics[width=0.6\textwidth]{./figs-mc-correction/reweighting-tracking/tracking_eff_2016.pdf}
     \caption{
@@ -324,7 +324,7 @@ It is hoped that additional discrepancy will be corrected in the
 
 % Generated in lhcb-ntuples-gen/studies/plot-RDX_spi_tracking_eff:
 %   ./plot_spi_tracking.py
-\begin{figure}[htb]
+\begin{figure}[!htb]
     \centering
     \includegraphics[width=0.7\textwidth]{./figs-mc-correction/reweighting-tracking/Dst_spi_p_eta.pdf}
     \caption{
@@ -371,7 +371,7 @@ data events.
 % need to install zfit, which can be done via:
 %   pip install -r ./requirements.txt
 % in the same folder. And for now this probably doesn't work on macOS
-\begin{figure}[htb]
+\begin{figure}[!htb]
     \centering
     \includegraphics[width=0.45\textwidth]{./figs-mc-correction/reweighting-JpsiK/fit-JpsiK/fit_final.pdf}
     \hspace{1em}
@@ -416,7 +416,7 @@ reconstructed in a more complete way,
 whereas for $B \rightarrow D^{(*)} \lepton\neulb$, the missing neutrino(s)
 makes the reconstructed \B momentum incomplete.
 
-\begin{table}[htb]
+\begin{table}[!htb]
     \centering
     \caption{
         Reweighting stages and binning schemes for \B kinematic and
@@ -437,7 +437,7 @@ makes the reconstructed \B momentum incomplete.
 % by running:
 %   plot_JpsiK_reweighting.py
 % in the specified folder
-\begin{figure}[htb]
+\begin{figure}[!htb]
     \begin{subfigure}{\textwidth}
         \centering
         \includegraphics[width=0.45\textwidth]{./figs-mc-correction/reweighting-JpsiK/reweight-JpsiK/b_ownpv_ndof.pdf}
@@ -564,7 +564,7 @@ The under and overflow bins are taken into account during
 the reweighting process.
 
 
-\begin{figure}[htb]
+\begin{figure}[!htb]
     \begin{subfigure}{\textwidth}
         \centering
         \includegraphics[width=0.32\textwidth]{./figs-mc-correction/reweighting-final/plot_step0-D0_iso-k_comp.pdf}
@@ -580,7 +580,7 @@ the reweighting process.
     \label{fig:final-rwt-d0-idx0}
 \end{figure}
 
-\begin{figure}[htb]
+\begin{figure}[!htb]
     \begin{subfigure}{\textwidth}
         \centering
         \includegraphics[width=0.32\textwidth]{./figs-mc-correction/reweighting-final/plot_step1-D0_iso-b_log_fd_chi2.pdf}
@@ -617,7 +617,7 @@ the reweighting process.
     \label{fig:final-rwt-d0-idx1}
 \end{figure}
 
-\begin{figure}[htb]
+\begin{figure}[!htb]
     \begin{subfigure}{\textwidth}
         \centering
         \includegraphics[width=0.32\textwidth]{./figs-mc-correction/reweighting-final/plot_step5-D0_iso-d0_comp.pdf}
@@ -651,7 +651,7 @@ the reweighting process.
     \label{fig:final-rwt-d0-idx2}
 \end{figure}
 
-\begin{figure}[htb]
+\begin{figure}[!htb]
     \begin{subfigure}{\textwidth}
         \centering
         \includegraphics[width=0.32\textwidth]{./figs-mc-correction/reweighting-final/plot_step9-D0_iso-mu_eta.pdf}
@@ -672,7 +672,7 @@ the reweighting process.
 %%%%
 %%%%
 
-\begin{figure}[htb]
+\begin{figure}[!htb]
     \begin{subfigure}{\textwidth}
         \centering
         \includegraphics[width=0.32\textwidth]{./figs-mc-correction/reweighting-final/plot_step0-Dst_iso-k_comp.pdf}
@@ -688,7 +688,7 @@ the reweighting process.
     \label{fig:final-rwt-dst-idx0}
 \end{figure}
 
-\begin{figure}[htb]
+\begin{figure}[!htb]
     \begin{subfigure}{\textwidth}
         \centering
         \includegraphics[width=0.32\textwidth]{./figs-mc-correction/reweighting-final/plot_step1-Dst_iso-b_log_fd_chi2.pdf}
@@ -725,7 +725,7 @@ the reweighting process.
     \label{fig:final-rwt-dst-idx1}
 \end{figure}
 
-\begin{figure}[htb]
+\begin{figure}[!htb]
     \begin{subfigure}{\textwidth}
         \centering
         \includegraphics[width=0.32\textwidth]{./figs-mc-correction/reweighting-final/plot_step5-Dst_iso-d0_comp.pdf}
@@ -759,7 +759,7 @@ the reweighting process.
     \label{fig:final-rwt-dst-idx2}
 \end{figure}
 
-\begin{figure}[htb]
+\begin{figure}[!htb]
     \begin{subfigure}{\textwidth}
         \centering
         \includegraphics[width=0.32\textwidth]{./figs-mc-correction/reweighting-final/plot_step9-D0_iso-mu_eta.pdf}
@@ -856,7 +856,7 @@ described in this section.
 % FIXME: Maybe plot deltaTheta (corrected by the 2 parameters)
 
 % TODO: Use actual plot to show w/o vertex smearing, mm2 has poorer agreements.
-\begin{figure}[htb]
+\begin{figure}[!htb]
     \begin{subfigure}[t]{0.32\textwidth}
         \centering
         \includegraphics[width=\textwidth]{./figs-mc-correction/reweighting-final/plot_step12-Dst_iso-spi_comp.pdf}
