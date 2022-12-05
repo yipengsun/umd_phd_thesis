@@ -10,8 +10,13 @@ $\sqrt{s} = 13$~TeV during its run 2 (2016--2018) operation period.
 Located 100 meter underground at Franco-Swiss border,
 the LHCb detector,
 shown in \cref{fig:lhcb-detector},
-is a forward only spectrometer covering the pseudorapidity range
-$1.9 < \eta < 4.9$.
+is a forward only spectrometer covering the pseudorapidity\footnote{
+    Defined as the following:
+    $\eta \equiv -\ln\left[\tan\left(\frac{\theta}{2}\right)\right]$,
+    with $\theta$ the angle between the 3-momentum of a particle
+    and the positive direction of the beam axis.
+}
+range $1.9 < \eta < 4.9$.
 The unusual geometry of the LHCb detector
 (as opposed to $4\pi$ detectors,
 for example the other three large experiments at the LHC,
@@ -21,8 +26,13 @@ the dominate production mode is gluon fusion in which case the momenta of the
 incoming partons are highly asymmetric in the lab frame.
 As a result, the \bbbar center of mass is boosted either forward or backward
 in the beam direction, as stated in \cite{Altarelli_2008}.
-Simulation of \bbbar production angular distribution is shown in
-\cref{fig:bbbar-prod-angular}.
+Simulation of \bbbar production angular distribution,
+shown in \cref{fig:bbbar-prod-angular},
+confirms the claim above.
+With just about 4\% solid angle coverage,
+the LHCb detector efficiently and economically reconstructs about 20\%
+of all produced \bbbar pairs
+(\cite{Belyaev_2021}).
 
 \begin{figure}[!htb]
     \centering
@@ -40,10 +50,3 @@ Simulation of \bbbar production angular distribution is shown in
     }
     \label{fig:bbbar-prod-angular}
 \end{figure}
-
-still it is very efficient in capturing 40\% of \bbbar
-this can be seen in the simuation FIGURE.
-
-the detector has a high-precision tracking system with shit calorimeters and
-other pid systems.
-capable of resoution
