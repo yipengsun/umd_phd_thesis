@@ -35,6 +35,27 @@ With just about 4\% solid angle coverage,
 the LHCb detector efficiently and economically reconstructs about 20\%
 of all produced \bbbar pairs \cite{Belyaev_2021}.
 
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.95\textwidth]{./figs-detector/lhcb_detector_view.pdf}
+    \caption{
+        The LHCb detector.
+        $z$ axis indicates \bbbar travelling direction.
+        The impact point is at $z = 0$.
+    }
+    \label{fig:lhcb-detector}
+\end{figure}
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.6\textwidth]{./figs-detector/14_rad_acc_scheme_right.pdf}
+    \caption{
+        Simulated \bbbar production angular distribution at $\sqrt{s} = 14$ GeV.
+        Taken from \cite{LHCb_bb_prod_angle}.
+    }
+    \label{fig:bbbar-prod-angular}
+\end{figure}
+
 % luminosity run 1+2
 At the designed LHC luminosity, multiple $pp$ collisions happen within the
 same bunch crossing (an effect called ``pile up'')
@@ -56,31 +77,23 @@ integrated luminosity of $\sim 8.7$~fb$^{-1}$
 \cite{LHCb_lumi},
 an unprecedented number for $b$-physics.
 
+In general, the LHCb detector has the following features,
+all of which required by $b$-physics measurements:
+a precise tracking system providing excellent track and vertex resolution;
+a good particle identification performance separating \kaon, \pion, $e$, \muon,
+and proton;
+a versatile trigger scheme efficient for both hadron and lepton
+with lower \pt thresholds\footnote{
+    Compared to CMS and ATLAS, but the lepton trigger \pt threshold is still too
+    high for this analysis.
+}.
 The rest of chapter provides a brief introduction for the subdetectors of the
-LHCb detector, grouped based on the main utility of
-each subdetector.
+LHCb detector relevant for this analysis, grouped by the features listed above.
 An overview of reconstruction of charged particles is provided in
 \cref{ref:detector:tracking};
-the particle identification is described in \cref{ref:detector:pid};
+particle identification is described in \cref{ref:detector:pid};
 the basics of trigger implementation is explained in
 \cref{ref:detector:trigger}.
-
-\begin{figure}[!htb]
-    \centering
-    \includegraphics[width=0.95\textwidth]{./figs-detector/lhcb_detector_view.pdf}
-    \caption{The LHCb detector.}
-    \label{fig:lhcb-detector}
-\end{figure}
-
-\begin{figure}[!htb]
-    \centering
-    \includegraphics[width=0.6\textwidth]{./figs-detector/14_rad_acc_scheme_right.pdf}
-    \caption{
-        Simulated \bbbar production angular distribution at $\sqrt{s} = 14$ GeV.
-        Taken from \cite{LHCb_bb_prod_angle}.
-    }
-    \label{fig:bbbar-prod-angular}
-\end{figure}
 
 
 \section{Reconstruction of charged particles}
@@ -91,17 +104,27 @@ which consists of the following components
 (sorted based on the proximity from the $pp$ interaction point):
 
 \begin{itemize}
-    \item VErtex LOcator: The VErtex LOcator (VELO) is a compact multi-layered
+    \item VErtex LOcator:
+        The VErtex LOcator (VELO) is a compact multi-layered
         silicon-strip detector placed closest to the $pp$ interaction point
         (10.6~cm downstream).
-        Each layer of the VELO provides the radial and azimuthal angular
-        position of the track.
-        The VELO detects particles with a pseudorapidity ranging from
+        VELO detects particles with a pseudorapidity ranging from
         $1.6 < \eta < 4.9$ \cite{The_LHCb_Collaboration_2008}.
+        Each layer of VELO provides the radial and azimuthal angular
+        position of the track.
         Combining the positional information from all layers,
-        a resolution of about 4~$\mu$m at best is achieved
+        a tracking resolution of about 4~$\mu$m at best is achieved
         \cite{Aaij_2014}.
-    \item
+        The primary vertex (PV) resolution depends on number of tracks (nTracks)
+        used in vertex reconstruction,
+        ranging from 35--10~$\mu$m in the transverse plane
+        (low nTracks to high),
+        and 260--60~$\mu$m in the beam axis
+        \cite{Aaij_2014}.
+    \item Tracker Turicensis:
+        The Tracker Turicensis (TT) is a silicon-strip detector located
+        downstream of VELO and immediately before the Magnet.
+
 \end{itemize}
 
 
