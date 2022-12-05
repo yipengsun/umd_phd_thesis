@@ -105,26 +105,46 @@ which consists of the following components
 
 \begin{itemize}
     \item VErtex LOcator:
-        The VErtex LOcator (VELO) is a compact multi-layered
-        silicon-strip detector placed closest to the $pp$ interaction point
-        (10.6~cm downstream).
-        VELO detects particles with a pseudorapidity ranging from
-        $1.6 < \eta < 4.9$ \cite{The_LHCb_Collaboration_2008}.
-        Each layer of VELO provides the radial and azimuthal angular
-        position of the track.
-        Combining the positional information from all layers,
-        a tracking resolution of about 4~$\mu$m at best is achieved
+        The VErtex LOcator (VELO),
+        detecting particles with a pseudorapidity ranging from
+        $1.6 < \eta < 4.9$,
+        is a compact 21-layer silicon-strip detector placed closest to the $pp$
+        interaction point (10.6~cm downstream)
+        \cite{The_LHCb_Collaboration_2008}.
+        Each layer of VELO,
+        made of two silicon half disks with a minimum pitch\footnote{
+            ``Pitch'' refers to the size of a single silicon strip, akin to a
+            ``pixel'' in the LCD screen.
+            A smaller pitch generally implies a better resolution.
+        } of 32~$\upmu$m,
+        provides radial and azimuthal angular position measurements of a track.
+        Combining positional information from all layers (with a fit),
+        a tracking resolution of about 4~$\upmu$m at best is achieved
         \cite{Aaij_2014}.
         The primary vertex (PV) resolution depends on number of tracks (nTracks)
         used in vertex reconstruction,
-        ranging from 35--10~$\mu$m in the transverse plane
+        ranging from 35--10~$\upmu$m in the transverse plane
         (low nTracks to high),
-        and 260--60~$\mu$m in the beam axis
-        \cite{Aaij_2014}.
-    \item Tracker Turicensis:
-        The Tracker Turicensis (TT) is a silicon-strip detector located
-        downstream of VELO and immediately before the Magnet.
+        and 260--60~$\mu$m in the beam axis.
 
+    \item Tracker Turicensis:
+        Located downstream of VELO and immediately before the Magnet,
+        Tracker Turicensis (TT) consists of 4 planes of silicon-strip sensor,
+        each of a size 150~cm $\times$ 130~cm,
+        with a strip pitch of 183~$\upmu$m arranged in a $x$-$u$-$v$-$x$
+        configuration\footnote{
+            This will be explained in \cref{part:ut}.
+        }.
+        It covers the full acceptance of the LHCb experiment, and has a spatial
+        resolution of about 50~$\upmu$m
+        \cite{The_LHCb_Collaboration_2008}.
+
+        The author actively participated in the upgrade of Upstream Tracker (UT)
+        which replaces TT.
+        More technical details for both subdetectors will be provided in
+        \cref{part:ut}.
+
+    \item T-stations and Outer Tracker:
 \end{itemize}
 
 
