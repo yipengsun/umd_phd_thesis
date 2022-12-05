@@ -86,17 +86,22 @@ the basics of trigger implementation is explained in
 \section{Reconstruction of charged particles}
 \label{ref:detector:tracking}
 
-The tracking system of the LHCb detector consists of the following components
+Charged particle reconstruction relies on the tracking system,
+which consists of the following components
 (sorted based on the proximity from the $pp$ interaction point):
 
 \begin{itemize}
     \item VErtex LOcator: The VErtex LOcator (VELO) is a compact multi-layered
-        silicon-strip detector placed closest to the $pp$ collision point.
+        silicon-strip detector placed closest to the $pp$ interaction point
+        (10.6~cm downstream).
         Each layer of the VELO provides the radial and azimuthal angular
         position of the track.
+        The VELO detects particles with a pseudorapidity ranging from
+        $1.6 < \eta < 4.9$ \cite{The_LHCb_Collaboration_2008}.
         Combining the positional information from all layers,
         a resolution of about 4~$\mu$m at best is achieved
         \cite{Aaij_2014}.
+    \item
 \end{itemize}
 
 
