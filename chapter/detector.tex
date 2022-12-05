@@ -4,10 +4,12 @@
 The LHCb experiment is dedicated for $b$ and $c$-physics precision measurements.
 It is one of the four large experiments
 (CMS, ATLAS, ALICE, LHCb) at the Large Hadron Collider (LHC),
-a superconducting circular $pp$ collider with a center of mass energy
+a superconducting circular $pp$ collider, built and managed by
+the European Organization for Nuclear Research (CERN),
+with a center of mass energy
 $\sqrt{s} = 13$~TeV during its run 2 (2016--2018) operation period.
 
-Located 100 meter underground at Franco-Swiss border,
+Located 100 meters underground at Franco-Swiss border,
 the LHCb detector,
 shown in \cref{fig:lhcb-detector},
 is a forward only spectrometer covering the pseudorapidity\footnote{
@@ -19,22 +21,39 @@ is a forward only spectrometer covering the pseudorapidity\footnote{
 range $1.9 < \eta < 4.9$.
 % coverage of bbbar
 The unusual geometry of the LHCb detector
-(as opposed to $4\pi$ detectors,
-for example the other three large experiments at the LHC,
-with full solid angle coverage)
+(as opposed to $4\pi$ detectors with full solid angle coverage,
+for example the other three large experiments at the LHC)
 is largely driven by the \bbbar production mechanism at the LHC:
 the dominate production mode is gluon fusion in which case the momenta of the
 incoming partons are highly asymmetric in the lab frame.
 As a result, the \bbbar center of mass is boosted either forward or backward
-in the beam direction, as stated in \cite{Altarelli_2008}.
-Simulation of \bbbar production angular distribution
-\cref{fig:bbbar-prod-angular},
+in the beam direction \cite{Altarelli_2008}.
+Simulation of \bbbar production angular distribution,
+shown in \cref{fig:bbbar-prod-angular},
 confirms the claim above.
 With just about 4\% solid angle coverage,
 the LHCb detector efficiently and economically reconstructs about 20\%
 of all produced \bbbar pairs \cite{Belyaev_2021}.
 
 % luminosity run 1+2
+At the designed LHCb luminosity, multiple $pp$ collisions happen within the
+same bunch crossing (pile up)
+which greatly complicate \bbbar production and event reconstruction because
+the event\footnote{
+    An event is defined as \emph{everything} produced in a single bunch
+    crossing.
+} is significantly more \emph{busy}
+\cite{Altarelli_2008}.
+To maintain the luminosity at optimal values for LHCb,
+a technique termed \emph{luminosity levelling} is implemented to dynamically
+\emph{defocus} beams by offsetting them in the transverse direction based
+on reported LHC instantaneous luminosity
+\cite{https://doi.org/10.5170/cern-2014-004.183}.
+%%%%
+Over the course of run 1 and 2 operation periods, LHCb recorded a total
+integrated luminosity of $\sim 8.7$~fb$^{-1}$
+\cite{LHCb_lumi},
+an unprecedented number for $b$-physics.
 
 \begin{figure}[!htb]
     \centering
