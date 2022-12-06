@@ -68,7 +68,8 @@ described:
     \item The training variables, listed in \cref{tab:l0-hadron-emu-vars}, and
         the trigger decision from a FullSim MC of decay
         $\Bz \rightarrow \Dstarp \mu \nu$, a normalization mode,
-        is used to train \xgboost, a BDT-based regressor.
+        is used to train \xgboost, a BDT-based regressor
+        \cite{Chen:2016:XST:2939672.2939785}.
     \item Once the model is trained, with just the training variables,
         \xgboost predicts the probabilities of events passing L0 hadron trigger.
     \item The probabilities are applied as weights to a separate validation
