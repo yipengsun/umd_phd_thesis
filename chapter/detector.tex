@@ -111,15 +111,15 @@ which consists of the following components
         The VErtex LOcator (VELO),
         detecting particles with a pseudorapidity ranging from
         $1.6 < \eta < 4.9$,
-        is a compact 21-layer silicon-strip detector placed closest to the $pp$
-        interaction point (10.6~cm downstream)
+        is a compact multi-layer silicon-strip detector placed immediately
+        around the $pp$ interaction point
         \cite{The_LHCb_Collaboration_2008}.
         Each layer of VELO,
-        made of two silicon half disks with a pitch\footnote{
+        made of two retractable silicon half disks with a pitch\footnote{
             ``Pitch'' refers to the size of a single silicon strip, akin to a
             ``pixel'' in the LCD screen.
             A smaller pitch generally implies a better resolution.
-        } ranging from 38 to 102~$\upmu$m (increase with radius),
+        } ranging from 37 to 98~$\upmu$m (increase with radius),
         provides radial and azimuthal angular position measurements of a track.
         Combining positional information from all layers (with a fit),
         a tracking resolution of about 4~$\upmu$m at best is achieved
@@ -154,11 +154,36 @@ which consists of the following components
         covering a cross-shaped region around the beam pipe,
         and the Outer Tracker (OT),
         covering the rest of the LHCb acceptance.
-        IT is made of silicon strips whereas OT gas-tight straw-tubes.
+        IT is made of silicon strips (same technology as in TT) whereas OT
+        gas-tight straw-tubes.
         IT has a spatial resolution identical to that of TT, namely 50~$\upmu$m.
         For OT, its resolution is about 205~$\upmu$m
         \cite{OT_2014}.
 \end{itemize}
+
+Due to the design of the LHCb detector, tracks are approximately straight lines
+separately in the upstream and downstream (in terms of the Magnet) segments
+because of a lack of magnet field.
+The downstream and upstream segments,
+labelled as upstream track and T-track,
+are first reconstructed separately before attempted to matched by algorithms
+forming long tracks.
+During the matching,
+if compatible hits are found in TT, they are added to the track to further
+improve momentum resolution and reduce fake tracks (ghost).
+Different track types are shown in \cref{fig:track-types}.
+In most analyses, this one included, only long tracks are used because they
+provide the best momentum resolution
+\cite{LHCb-DP-2013-002}.
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.75\textwidth]{./figs-detector/tracking/track_type.pdf}
+    \caption{
+        Reconstructed track types at LHCb.
+    }
+    \label{fig:track-types}
+\end{figure}
 
 
 \section{Particle identification}
