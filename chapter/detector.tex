@@ -83,8 +83,8 @@ an unprecedented number for $b$-physics.
 In general, the LHCb detector has the following features,
 all of which required by $b$-physics measurements:
 a precise tracking system providing excellent track and vertex resolution;
-a good particle identification performance separating \kaon, \pion, $e$, \muon,
-and proton;
+a good particle identification performance separating \pion, \kaon, $e$, \muon,
+and $p$ (proton);
 a versatile trigger scheme efficient for both hadron and lepton
 with lower \pt thresholds\footnote{
     Compared to CMS and ATLAS, but the lepton trigger \pt threshold is still too
@@ -165,7 +165,7 @@ Due to the design of the LHCb detector, tracks are approximately straight lines
 separately in the upstream and downstream (in terms of the Magnet) segments
 because of a lack of magnet field.
 The downstream and upstream segments,
-labelled as upstream track and T-track,
+labelled as VELO track and T-track,
 are first reconstructed separately before attempted to matched by algorithms
 forming long tracks.
 During the matching,
@@ -188,6 +188,70 @@ provide the best momentum resolution
 
 \section{Particle identification}
 \label{ref:detector:pid}
+
+The particle identification (PID) system consists of three subsystems:
+
+\begin{itemize}
+    \item Two Ring Imaging CHerenkov (RICH) detectors:
+        RICH1 and RICH2.
+        The former situates between VELO and TT, the latter after T-station.
+        The RICH detectors provide identification for charged hadrons,
+        with limited discrimination power for $e$ and \muon.
+        These two detectors measure the Cherenkov angle of charged particles
+        traversing through medium which depends on the refractive index $n$ of
+        the medium, the momentum $p$ of the particle, and the mass $m$ of the
+        particle:
+
+        \begin{equation}
+            \theta_c = \frac{\sqrt{1 + (m/p)^2}}{n}
+        \end{equation}
+
+        Particles with different masses result in different Cherenkov angle.
+        At sufficiently large momentum,
+        Cherenkov angles saturate and can no longer tell different particles
+        apart.
+        To ensure good PID performance across a wider range of momentum,
+        materials with different refractive indices are used in RICH1 and RICH2.
+
+        RICH1 uses a gas layer of $\text{C}_4 \text{F}_{10}$ with $n = 1.0014$.
+        This material provides hadron identification from about 1 to 60~GeV,
+        and covers the full LHCb acceptance.
+        RICH2 has a smaller angular acceptance corresponding to a region enriched
+        of high-momentum particles.
+        It uses a $\text{C}\text{F}_{10}$ gas radiator with $n = 1.00046$,
+        providing PID up to 150~GeV
+        \cite{Belyaev_2021}.
+        In \cref{fig:rich-plots}, Cherenkov angles of different particles are
+        shown; it also displays a real measurement of Cherenkov angles from
+        RICH1.
+
+    \item A Calorimeter system:
+    \item Five muon stations:
+\end{itemize}
+
+\begin{figure}[!htb]
+    \centering
+    \begin{subfigure}[t]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{./figs-detector/pid/cherenkov_angle_media.pdf}
+        \caption{
+            Cherenkov angles for different particles traversing different media.
+            ``Aerogel'' is irrelevant for run 2.
+        }
+    \end{subfigure}
+    \hspace{12pt}
+    %%%%
+    \begin{subfigure}[t]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{./figs-detector/pid/rich1_measurement.pdf}
+        \caption{Cherenkov angles measured by RICH1.}
+    \end{subfigure}
+
+    \caption{
+        PID in RICH detectors.
+    }
+    \label{fig:rich-plots}
+\end{figure}
 
 
 \section{Trigger}
