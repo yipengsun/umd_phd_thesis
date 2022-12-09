@@ -366,12 +366,13 @@ Despite the fact that the LHCb experiment operates at reduced luminosity,
 it is still impractical to record the total output of all events due to readout
 bandwidth and storage limitations.
 %%%%
-To reduce the readout bandwidth from 40~MHz, the LHC bunch crossing frequency,
-to 1~MHz,
-the hardware trigger,
-referred as Level-0 (L0) triggers,
-reconstruct transverse energy $E_T$ and momentum $p_T$ in real time and select
-events with large $E_T$ or $p_T$,
+To reduce the readout bandwidth,
+the readout \emph{rate} is reduced from 40~MHz,
+the LHC bunch crossing frequency,
+to 1~MHz by hardware triggers,
+referred as Level-0 (L0) triggers.
+The L0 triggers reconstruct transverse energy $E_T$ and momentum $p_T$ in real
+time and select events with large $E_T$ or $p_T$,
 a signature of $B$ meson decays due to their large masses.
 In addition, number of $pp$ interactions and number of tracks are estimated and
 events with large pile-up or multiplicity are rejected
@@ -382,7 +383,7 @@ The selected events are further reconstructed by software high-level
 triggers (HLT1 and HLT2) and only events with high-\pt tracks and/or large
 impact parameters are further filtered with pre-defined cuts before retained on
 disk for offline analysis.
-The HLT triggers reduce the bandwidth to about 2~kHz
+The HLT triggers reduce the output rate to about 2~kHz
 \cite{The_LHCb_Collaboration_2008}.
 
 One of the main objective of the ongoing detector upgrade is to increase the
