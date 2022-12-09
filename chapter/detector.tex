@@ -401,10 +401,14 @@ a final trigger decision, as shown in \cref{fig:l0-schematic}:
 
 \begin{itemize}
     \item Pile-up system:
-        The pile-up system distinguishes single and multiple $pp$ interactions
-        in a bunch crossing,
-        with the help of four silicon sensors with the same type as in the VELO
-        to measure the radial positions of tracks.
+        located upstream of VELO, the pile-up system consists of two sets
+        silicon disks of the same type used in VELO.
+        It is the only detector that can estimate the track multiplicity
+        in the backward direction.
+        The intended use of the system was to veto events with multiple $pp$
+        interactions but is unused because efficient high level triggers
+        made pile-up less harmful \cite{Oggero:1635658}.
+        As a reference, for year 2012, the average pile-up is about 1.74.
 
     \item Calorimeter trigger system:
         The Calorimeter trigger system identifies the cluster with the largest
@@ -414,15 +418,15 @@ a final trigger decision, as shown in \cref{fig:l0-schematic}:
         of 3.7~GeV for year 2016 \cite{LHCb-DP-2019-001}.
 
         In addition, the total number of SPD cells with a hit is counted to
-        estimated number of tracks (charged particles) in the events.
+        estimated number of tracks (charged particles) in the event.
         Typically events are required to have less than 450 SPD hits.
 
     \item Muon trigger system:
         The muon stations can provide an independent measurement of the track
         \pt with a resolution of about 25\% on average
         \cite{LHCb-DP-2019-001}.
-        The L0 muon triggers requires either the largest muon \pt exceeds
-        1.8~GeV or product of two largest muon \pt exceeds 2.25~GeV$^2$
+        The L0 muon triggers require either the largest muon \pt exceeds
+        1.8~GeV or the product of two largest muon \pt exceeds 2.25~GeV$^2$
         (both are 2016 thresholds).
         As will be discussed in \cref{ref:sel:data:rs},
         this analysis relies on low-\pt muon thus no L0 muon trigger can be
