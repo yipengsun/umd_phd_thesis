@@ -242,6 +242,10 @@ The particle identification (PID) system consists of three subsystems:
         while also invisible to the tracking system,
         neutral hadrons deposit energy in both ECAL and HCAL
         \cite{Belyaev_2021}.
+        Note that PID in calorimeters is a destructive measurement:
+        All particles except muons and neutrinos deposit all their energy
+        in the calorimeters by producing electromagnetic or hadronic showers
+        \cite{Lippmann_2012}.
 
         All calorimeters are made of segments of scintillators with different
         granularity,
@@ -317,6 +321,39 @@ The particle identification (PID) system consists of three subsystems:
         PID in RICH detectors.
     }
     \label{fig:rich-plots}
+\end{figure}
+
+As a summary, the PID system exploits the fact that different types of
+particles leave different signatures in the detectors,
+schematically shown in \cref{fig:pid-signature},
+to identify charged hadrons and leptons, as well as neutral hadrons.
+Overall, the LHCb experiment provides two types of PID variables
+\cite{Seuthe:2021fcn}:
+
+\begin{itemize}
+    \item DLL$_X$:
+        These variables are the log likelihood difference between $X$ and \pion,
+        with the log likelihoods combined from all three PID subsystems
+        (RICH, calorimeters, muon stations):
+        $\mathcal{L} = \mathcal{L}_\text{RICH} \cdot \mathcal{L}_\text{Calo}
+        \cdot \mathcal{L}_\text{Muon}$.
+
+    \item ProbNN$_X$:
+        These variables are outputs from neural networks (NN) trained to
+        identify $X$.
+        The training inputs are from both the PID and the tracking system,
+        with data-driven corrections from calibration samples.
+\end{itemize}
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.5\textwidth]{./figs-detector/pid/pid_signatures.pdf}
+    \caption{
+        Signatures of different particles in a typical configuration
+        of a modern detector.
+        Taken from \cite{Lippmann_2012}.
+    }
+    \label{fig:pid-signature}
 \end{figure}
 
 
