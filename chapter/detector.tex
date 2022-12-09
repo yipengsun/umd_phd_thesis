@@ -369,10 +369,22 @@ bandwidth and storage limitations\footnote{
     It is estimated in \cite{The_LHCb_Collaboration_2008} that to readout all
     visible events from the detector, a bandwidth of $\tilde 10$~MHz is needed.
 }.
-The hardware trigger, referred as Level-0 (L0) triggers, reduces the bandwidth
-from 40~MHz to 1~MHz, at which rate events are readout and further processed by
-software high-level triggers (HLT1 and HLT2) to further reduce the rate down to
-about 2~kHz before writing to disk for offline analysis
+
+To reduce the readout bandwidth from 40~MHz to 1~MHz,
+The hardware trigger,
+referred as Level-0 (L0) triggers,
+reconstruct transverse energy $E_T$ and momentum $p_T$ in real time and select
+events with large $E_T$ or $p_T$,
+a signature of $B$ meson decays due to their large masses.
+In addition, number of $pp$ interactions and number of tracks are estimated and
+events with large pile-up or multiplicity are rejected
+as these events require a disproportionally large fraction of readout bandwidth
+and are typically of poorer tracking quality.
+The selected events are further reconstructed by software high-level
+triggers (HLT1 and HLT2) and only events with high-\pt tracks and/or large
+impact parameters are further filtered with pre-defined cuts before retained on
+disk for offline analysis.
+The HLT triggers reduce the bandwidth to about 2~kHz
 \cite{The_LHCb_Collaboration_2008}.
 
 One of the main objective of the ongoing detector upgrade is to increase the
