@@ -364,14 +364,11 @@ Overall, the LHCb experiment provides two types of PID variables
 
 Despite the fact that the LHCb experiment operates at reduced luminosity,
 it is still impractical to record the total output of all events due to readout
-bandwidth and storage limitations\footnote{
-    The LHC bunch crossing frequency is 40~MHz.
-    It is estimated in \cite{The_LHCb_Collaboration_2008} that to readout all
-    visible events from the detector, a bandwidth of $\tilde 10$~MHz is needed.
-}.
-
-To reduce the readout bandwidth from 40~MHz to 1~MHz,
-The hardware trigger,
+bandwidth and storage limitations.
+%%%%
+To reduce the readout bandwidth from 40~MHz, the LHC bunch crossing frequency,
+to 1~MHz,
+the hardware trigger,
 referred as Level-0 (L0) triggers,
 reconstruct transverse energy $E_T$ and momentum $p_T$ in real time and select
 events with large $E_T$ or $p_T$,
@@ -380,6 +377,7 @@ In addition, number of $pp$ interactions and number of tracks are estimated and
 events with large pile-up or multiplicity are rejected
 as these events require a disproportionally large fraction of readout bandwidth
 and are typically of poorer tracking quality.
+%%%%
 The selected events are further reconstructed by software high-level
 triggers (HLT1 and HLT2) and only events with high-\pt tracks and/or large
 impact parameters are further filtered with pre-defined cuts before retained on
@@ -395,3 +393,46 @@ will no longer be a part of LHCb run 3 program but is of crucial importance to
 this analysis.
 The high-level triggers will be discussed and compared between run 1, 2 and run
 3 with more details in \cref{ref:lhcb-upgrade-overview:hlt}.
+
+The L0 trigger is divided into three components, with each connected to a
+detector and its information collected by the Level-0 Decision Unit to evaluate
+a final trigger decision, as shown in \cref{fig:l0-schematic}:
+
+\begin{itemize}
+    \item Pile-up system:
+        The pile-up system distinguishes single and multiple $pp$ interactions
+        in a bunch crossing,
+        with the help of four silicon sensors with the same type as in the VELO
+        to measure the radial positions of tracks.
+
+    \item Calorimeter trigger system:
+        The Calorimeter trigger system identifies the cluster with the largest
+        $E_T$ and provides a PID decision (hadron, electron, or photon) of the
+        cluster based on the calorimeter system only.
+        This analysis uses L0 hadron trigger which has a $E_T$ threshold
+        of 3.7~GeV for year 2016 \cite{LHCb-DP-2019-001}.
+
+        In addition, the total number of SPD cells with a hit is counted to
+        estimated number of tracks (charged particles) in the events.
+        Typically events are required to have less than 450 SPD hits.
+
+    \item Muon trigger system:
+        The muon stations can provide an independent measurement of the track
+        \pt with a resolution of about 25\% on average
+        \cite{LHCb-DP-2019-001}.
+        The L0 muon triggers requires either the largest muon \pt exceeds
+        1.8~GeV or product of two largest muon \pt exceeds 2.25~GeV$^2$
+        (both are 2016 thresholds).
+        As will be discussed in \cref{ref:sel:data:rs},
+        this analysis relies on low-\pt muon thus no L0 muon trigger can be
+        used \emph{standalone}.
+\end{itemize}
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.6\textwidth]{./figs-detector/trigger/l0_system_schematic.pdf}
+    \caption{
+        Schematic of the L0 trigger system.
+    }
+    \label{fig:l0-schematic}
+\end{figure}
