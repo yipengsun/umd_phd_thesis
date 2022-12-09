@@ -197,8 +197,9 @@ The particle identification (PID) system consists of three subsystems:
         The former situates between VELO and TT, the latter after T-station.
         The RICH detectors provide identification for charged hadrons,
         with limited discrimination power for $e$ and \muon.
-        These two detectors measure the Cherenkov angle of charged particles
-        traversing through medium which depends on the refractive index $n$ of
+        These two detectors measure the Cherenkov angle of emitted photons from
+        charged particles traversing through medium,
+        which depends on the refractive index $n$ of
         the medium, the momentum $p$ of the particle, and the mass $m$ of the
         particle:
 
@@ -225,8 +226,73 @@ The particle identification (PID) system consists of three subsystems:
         shown; it also displays a real measurement of Cherenkov angles from
         RICH1.
 
-    \item A Calorimeter system:
+    \item A calorimeter system:
+        The calorimeter system is composed of 4 subdetectors:
+        the Scintillator Pad Detector (SPD), the Preshower Detector (PS),
+        the Electromagnetic CALorimeter (ECAL),
+        and the Hadron CALorimeter (HCAL).
+        Located downstream of the T-stations, the calorimeter energy deposit
+        from all particles.
+        Combining information from the tracking system,
+        the calorimeters indicates the presence of $e, \gamma$ and neutral
+        hadrons:
+        $e$ leaves a trajectory in the tracking system, while depositing most
+        of its energy in ECAL;
+        $\gamma$ is invisible to tracking but deposits most energy in ECAL;
+        while also invisible to the tracking system,
+        neutral hadrons deposit energy in both ECAL and HCAL
+        \cite{Belyaev_2021}.
+
+        All calorimeters are made of segments of scintillators with different
+        granularity,
+        with ECAL and HCAL having multiple layers of alternating scintillators
+        and absorbers.
+        The calorimeters detects light from scintillators,
+        emitted by particles travelling through,
+        using photomultipliers as a way to measure energy deposit.
+
+        The ECAL employs the \emph{Shashlik} technology with 66 layers of
+        independent modules constructed from 2~mm of lead plates
+        followed by 4~mm of scintillator material with WLS optical fibers
+        guiding the light to photomultipliers.
+        The energy resolution for ECAL is:
+
+        \begin{equation}
+            \frac{\sigma(E)}{E} = \frac{10\%}{\sqrt{E}} \oplus 1\%
+        \end{equation}
+        where $E$ is the electron energy in GeV.
+
+        The HCAL consists of layers of iron absorber with scintillating tiles as
+        the active material.
+        Compared to ECAL, HCAL has a coarser granularity with a reduced
+        energy resolution:
+
+        \begin{equation}
+            \frac{\sigma(E)}{E} = \frac{(69 \pm 5)\%}{\sqrt{E}} \oplus
+            (9 \pm 2)\%
+        \end{equation}
+        where $E$ is the hadron energy in GeV.
+
     \item Five muon stations:
+        Labelled as M1--M5, M1 is located in front of the calorimeter system
+        whereas M2--M5 after.
+        Each muon station is of rectangular shape and made up by 1368
+        multi-wire proportional chambers supplemented by 12 triple GEM chambers
+        in the inner region of the first station \cite{Belyaev_2021}.
+        The muon stations have an acceptance in the bending plane from
+        20~mrad to 306~mrad and from 16~mrad to 258~mrad in the non-bending
+        plane, resulting in a total acceptance of about 20\% for muons from
+        semileptonic inclusive $b$ decays.
+
+        The muon stations provide space point measurement
+        (i.e. tracking with less precision) as most other particles,
+        charged or uncharged, are absorbed by the detector before reaching M5.
+        By requiring muon-like particles to produce hits in certain muon
+        stations in a momentum-dependent way\footnote{
+            The actual requirement can be looked up from Table 1 of
+            \cite{LHCB-DP-2013-001}.
+        },
+        a binary muon PID decision, \isMuon, is produced.
 \end{itemize}
 
 \begin{figure}[!htb]
