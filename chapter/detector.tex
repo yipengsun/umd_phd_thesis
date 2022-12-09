@@ -289,8 +289,10 @@ The particle identification (PID) system consists of three subsystems:
         semileptonic inclusive $b$ decays.
 
         The muon stations provide space point measurement
-        (i.e. tracking with less precision) as most other particles,
-        charged or uncharged, are absorbed by the detector before reaching M5.
+        as well as timing measurement of the remaining tracks, the vast majority
+        of them being muons as most other particles,
+        charged or uncharged, are absorbed by the detector before reaching the
+        stations.
         By requiring muon-like particles to produce hits in certain muon
         stations in a momentum-dependent way\footnote{
             The actual requirement can be looked up from Table 1 of
@@ -359,3 +361,25 @@ Overall, the LHCb experiment provides two types of PID variables
 
 \section{Trigger}
 \label{ref:detector:trigger}
+
+Despite the fact that the LHCb experiment operates at reduced luminosity,
+it is still impractical to record the total output of all events due to readout
+bandwidth and storage limitations\footnote{
+    The LHC bunch crossing frequency is 40~MHz.
+    It is estimated in \cite{The_LHCb_Collaboration_2008} that to readout all
+    visible events from the detector, a bandwidth of $\tilde 10$~MHz is needed.
+}.
+The hardware trigger, referred as Level-0 (L0) triggers, reduces the bandwidth
+from 40~MHz to 1~MHz, at which rate events are readout and further processed by
+software high-level triggers (HLT1 and HLT2) to further reduce the rate down to
+about 2~kHz before writing to disk for offline analysis
+\cite{The_LHCb_Collaboration_2008}.
+
+One of the main objective of the ongoing detector upgrade is to increase the
+bandwidth of the detector readout thus removing the need of hardware triggers,
+and all the limitations that come with them.
+This section is dedicated to discussion of hardware triggers (L0) as they
+will no longer be a part of LHCb run 3 program but is of crucial importance to
+this analysis.
+The high-level triggers will be discussed and compared between run 1, 2 and run
+3 with more details in \cref{part:ut}.
