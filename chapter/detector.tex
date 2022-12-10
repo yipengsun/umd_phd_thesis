@@ -238,7 +238,7 @@ The particle identification (PID) system consists of three subsystems:
         Located downstream of the T-stations, the calorimeter energy deposit
         from all particles.
         Combining information from the tracking system,
-        the calorimeters indicates the presence of $e, \gamma$ and neutral
+        the calorimeter system indicates the presence of $e, \gamma$ and neutral
         hadrons:
         $e$ leaves a trajectory in the tracking system, while depositing most
         of its energy in ECAL;
@@ -415,9 +415,12 @@ a final trigger decision, as shown in \cref{fig:l0-schematic}:
         As a reference, for year 2012, the average pile-up is about 1.74.
 
     \item Calorimeter trigger system:
-        The Calorimeter trigger system identifies the cluster with the largest
+        The Calorimeter trigger system identifies the cluster
+        ($2 \times 2$ cells of scintillators) with the largest
         $E_T$ and provides a PID decision (hadron, electron, or photon) of the
         cluster based on the calorimeter system only.
+        The required $E_T / p_T$ threshold is set differently
+        for each particle type.
         This analysis uses L0 hadron trigger which has a $E_T$ threshold
         of 3.7~GeV for year 2016 \cite{LHCb-DP-2019-001}.
 
