@@ -7,8 +7,9 @@ It has entered the second long shutdown (LS2) period since then.
 During this period,
 the upgrade on the LHC has enabled the accelerator to operate at
 an unprecedented center of mass energy $\sqrt{s} = 13.6$~TeV with an
-instantaneous luminosity of up to $2 \times 10^{33}$~cm$^{-2}$~s$^{-1}$ (a
-five-fold increase compared to run 2's number)
+instantaneous luminosity of $2 \times 10^{33}$~cm$^{-2}$~s$^{-1}$
+(for LHCb, a five-fold increase compared to run 2's number.
+CMS and ATLAS operate at a luminosity 10 times as large)
 \cite{CERN_news:2022,Piucci_2017}.
 As of now\footnote{
     As a reminder, ``now'' refers to November 2022.
@@ -16,24 +17,44 @@ As of now\footnote{
 being upgraded.
 
 % Motivate the LHCb upgrade
-The upgraded LHC, however, poses an unique problem for the LHCb experiment:
-the run 2 \pt-based hadronic trigger yields saturate at current luminosity which means
-no increse in event yield as luminosity increase with currently hardware.
-as shown in \cref{fig:l0-trigger-eff}.
-to fix the problem, it is required to readout the full detector instead of triggering
-on \pt only.
-to do this, the full detector has to be read out at the LHC bunch crossing rate,
-40~Mhz, far exceeding current capability of 1~MHz readout rate.
+The upgraded LHC, however, poses unique problems for the LHCb experiment:
+%%%%
+With current hardware triggers\footnote{
+    As discussed in \cref{ref:detector:trigger},
+    the hardware triggers require the event to be above a certain $\pt / E_T$
+    threshold.
+},
+to maintain a constant readout rate of 1~MHz,
+the thresholds for \pt and $E_T$ have to increase,
+which largely cancels the benefit of running at higher luminosity.
+As shown in \cref{fig:l0-trigger-eff},
+the \pt-based hadronic trigger yields are saturating even at run 2 luminosity
+($4 \times 10^{32}$~cm$^{-2}$~s$^{-1}$).
+%%%%
+In addition, at $2 \times 10^{33}$~cm$^{-2}$~s$^{-1}$ a significant portion of
+bunch crossings contains $b$ and $c$ signals.
+With the current inclusive trigger scheme,
+there will be too many ``signal-like'' events to write offline on storage
+\cite{Albrecht_2014}.
 
 \begin{figure}[!htb]
     \centering
     \includegraphics[width=0.5\textwidth]{./figs-lhcb-upgrade-overview/trigger_efficiency.pdf}
     \caption{
-        L0 trigger yields for LHCb run 1 and 2.
+        L0 trigger yields normalized to that of run 1.
         The hadronic triggers are already saturated at run 2 luminosity.
+        Taken from \cite{Albrecht_2014}.
     }
     \label{fig:l0-trigger-eff}
 \end{figure}
+
+To solve these problem, the detector readout rate is upgraded to 40~MHz,
+the LHC bunch crossing rate,
+without any hardware trigger.
+By exposing all low-level variables to purely software-based high-level
+triggers with more exclusive selection criteria,
+events can be \emph{categorized} into exclusive signal decay modes more
+efficiently with reasonable write throughputs.
 
 \begin{figure}[!htb]
     \centering
@@ -52,11 +73,15 @@ to do this, the full detector has to be read out at the LHC bunch crossing rate,
 
     \caption{
         The LHCb detector before (left) and after (right) LS2 upgrade.
+        Note the upgrade on the tracking system:
+        TT $\rightarrow$ UT, T-stations $\rightarrow$ SciFi;
+        the removal of subdetectors relevant to L0 trigger only:
+        The M1 muon station and SPD/PS have been removed.
     }
     \label{fig:lhcb-detector-comparison}
 \end{figure}
 
-The remaining chapter provides an overview of the LHCb detector upgrade in LS2.
+The rest of the chapter provides an overview of the LHCb upgrade in LS2.
 \cref{ref:lhcb-upgrade-overview:readout} describes the upgrade of the detector
 readout system across all subdetectors.
 Some subdetectors are undergoing upgrade to improve its performance, notably
