@@ -48,13 +48,32 @@ there will be too many ``signal-like'' events to write offline on storage
     \label{fig:l0-trigger-eff}
 \end{figure}
 
-To solve these problem, the detector readout rate is upgraded to 40~MHz,
+To solve these problems, the detector readout rate is upgraded to 40~MHz,
 the LHC bunch crossing rate,
 without any hardware trigger.
 By exposing all low-level variables to purely software-based high-level
 triggers with more exclusive selection criteria,
 events can be \emph{categorized} into exclusive signal decay modes more
 efficiently with reasonable write throughputs.
+
+Aside from the upgrade of the readout system and trigger scheme,
+the tracking system is upgraded to provide better resolution and more
+radiation tolerance to sustain the increased luminosity.
+The subdetectors mainly used in L0 trigger, namely Muon station 1, SPD, and PS,
+are removed altogether to reduce material in front of the calorimeters to
+improve energy resolution.
+The RICH1 detector which is responsible for PID is upgraded to reduce
+occupancy\footnote{
+    Defined as the fraction of detected photons over the total number of
+    channels
+    \cite{D_Ambrosio_2017}.
+}
+thus maintaining good PID efficiency.
+The calorimeters (ECAL and HCAL) and the muon system will not undergo
+substantial upgrades
+\cite{Piucci_2017}.
+The changes in the LHCb detector betwen run 1, 2 and run 3 are indicated
+in \cref{fig:lhcb-detector-comparison}.
 
 \begin{figure}[!htb]
     \centering
@@ -94,8 +113,11 @@ provides an comparison of the trigger schemes between run 2 and run 3 and
 explains how the detector upgrade solves the trigger bottleneck.
 
 
-\section{Detector readout}
-\label{ref:lhcb-upgrade-overview:readout}
+\section{Readout system}
+
+
+\section{Trigger schemes in run 2 and run 3}
+\label{ref:lhcb-upgrade-overview:trigger}
 
 
 \section{Tracking system}
@@ -108,5 +130,3 @@ explains how the detector upgrade solves the trigger bottleneck.
 \label{ref:lhcb-upgrade-overview:tracking}
 
 
-\section{High-level triggers in run 2 and run 3}
-\label{ref:lhcb-upgrade-overview:hlt}
