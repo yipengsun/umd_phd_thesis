@@ -43,7 +43,7 @@ there will be too many ``signal-like'' events to write offline on storage
     \caption{
         L0 trigger yields normalized to that of run 1.
         The hadronic triggers are already saturated at run 2 luminosity.
-        Taken from \cite{Albrecht_2014}.
+        Taken from \cite{CERN-LHCC-2011-001}.
     }
     \label{fig:l0-trigger-eff}
 \end{figure}
@@ -113,13 +113,18 @@ these will be discussed in \cref{ref:lhcb-upgrade-overview:tracking} and
 \label{ref:lhcb-upgrade-overview:trigger}
 
 As can be seen in \cref{fig:trigger-comp},
-the two main differences between run 2 and run 3 trigger scheme are:
+the three main differences between run 2 and run 3 trigger scheme are:
 The limited detector readout rate of 1~MHz is increased to 40~MHz\footnote{
     In the figure the frequency is labelled as ``30~MHz inelastic event rate''
-    because it is the only type of collision that is visible to the detector.
+    because it is the only type of collision that is visible to the LHCb
+    detector.
     The readout rate is still 40~MHz, fully synchronous to the LHC frequency.
 };
-the storage write throughput is increased from 0.6~GB/s to 10~GB/s.
+the HLT software triggers perform full event reconstruction at the first stage,
+instead of partial reconstruction;
+the storage write throughput is increased from 0.6~GB/s to 10~GB/s;
+The implications of these differences are discussed in more details in the
+following text.
 
 \begin{figure}[!htb]
     \centering
@@ -141,6 +146,19 @@ the storage write throughput is increased from 0.6~GB/s to 10~GB/s.
     }
     \label{fig:trigger-comp}
 \end{figure}
+
+The first point, reading out at 40~MHz, is due hadronic L0 trigger saturation,
+which has been briefly discussed previously:
+The hadronic L0 trigger requires the maximum energy $E_T$ deposited in the
+calorimeters to be at least 3.7~GeV (for 2016) to reduce the triggering rate
+at an acceptable level;
+the threshold is already a significant portion of the $B$ meson mass
+($\sim 5.3$~GeV).
+Any further increase in luminosity requires an increase of the threshold,
+which removes a significant portion of the signal events
+that contains $B$ mesons,
+resulting in an almost constant signal yield \cite{CERN-LHCC-2011-001}.
+
 
 
 \section{Tracking system}
