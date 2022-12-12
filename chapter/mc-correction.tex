@@ -791,6 +791,42 @@ the reweighting process.
     \caption{Final reweighting for \Dstar channel, stages 10--13 (cont'd).}
     \label{fig:final-rwt-dst-idx3}
 \end{figure}
+% Generated in umd-lhcb/rdx-run2-analysis/fit:
+
+%   make tab-reweight
+\begin{landscape}
+\begin{table}[p]
+    \centering
+    \caption{
+        Reweighting stages and binning schemes for final reweighting.
+    }
+    \label{tab:rwt-final-vars}
+    \begin{tabular}{c|l|c|l|c|l}
+        \toprule
+         {\bf Variable 1}             & {\bf Binning 1}   & {\bf Variable 2}               & {\bf Binning 2}   & {\bf Variable 3}                     & {\bf Binning 3}   \\
+        \midrule
+         $K$ $\sqrt{IP\, \chi^2} / IP$ & 10, 0 -- 100     & $\pi$ $\sqrt{IP\, \chi^2} / IP$ & 10, 0 -- 100     & $D^0$ $\sqrt{IP\, \chi^2} / IP$      & 10, 15 -- 110     \\
+         $D^0\mu$ $\log(FD\, \chi^2)$  & 10, 4 -- 12.5     & $D^0$ $\log(IP\, \chi^2)$      & 10, 2 -- 9       & $\mu$ $\log(IP\, \chi^2)$            & 10, 3.6 -- 11     \\
+         $K$ $p_T$ [GeV]               & 10, 0 -- 11       & $K$ $\log(IP\, \chi^2)$        & 10, 3.6 -- 10.2  & $K$ $\sqrt{IP\, \chi^2} / IP$        & 10, 5 -- 100      \\
+         $\pi$ $p_T$ [GeV]             & 10, 0 -- 12.5     & $\pi$ $\log(IP\, \chi^2)$      & 10, 3.6 -- 10.2  & $\pi$ $\sqrt{IP\, \chi^2} / IP$      & 10, 5 -- 100      \\
+         $\mu$ $p_T$ [GeV]             & 10, 0 -- 12       & $\mu$ $\log(IP\, \chi^2)$      & 10, 3.6 -- 10.8  & $\mu$ $\sqrt{IP\, \chi^2} / IP$      & 10, 0 -- 100      \\
+         $D^0$ $p_T$ [GeV]             & 10, 2 -- 18.5     & $D^0$ $\log(IP\, \chi^2)$      & 10, 2 -- 9       & $D^0$ $\sqrt{IP\, \chi^2} / IP$      & 10, 18 -- 102     \\
+         $D^0$ $p_T$ [GeV]             & 20, 2 -- 18.5     & $D^0$ $\eta$                   & 10, 1.8 -- 5     & --                                   & --                \\
+         $K$ $p_T$ [GeV]               & 20, 0 -- 11       & $K$ $\eta$                     & 10, 1.8 -- 5     & --                                   & --                \\
+         $\pi$ $p_T$ [GeV]             & 20, 0 -- 12.5     & $\pi$ $\eta$                   & 10, 1.8 -- 5     & --                                   & --                \\
+         $\mu$ $p_T$ [GeV]             & 20, 0 -- 12       & $\mu$ $\eta$                   & 10, 1.8 -- 5     & --                                   & --                \\
+         $D^0$ $\log(1 - DIRA)$        & 20, -14.2 -- -8.4 & --                             & --               & --                                   & --                \\
+         slow $\pi$ [GeV]\parnote{
+             \label{parnote:final-rwt-dst}
+             This is for \Dstar channel only.
+         }                            & 6, 0 -- 1.6       & slow $\pi$ $\eta$              & 10, 1.8 -- 4.8    & --                                   & --                \\
+         slow $\pi$ $p_T$ [GeV]\parnoteref{parnote:final-rwt-dst}
+                                      & 6, 0 -- 1.6       & slow $\pi$ $\log(IP\, \chi^2)$ & 10, -4 -- 7       & slow $\pi$ $\sqrt{IP\, \chi^2} / IP$ & 10, 0 -- 50       \\
+        \bottomrule
+    \end{tabular}
+    \parnotes
+\end{table}
+\end{landscape}
 
 
 \section{Additional correction on $B$ vertex resolution}
@@ -891,40 +927,3 @@ described in this section.
     }
     \label{fig:worse-pulls-after-final-rwt}
 \end{figure}
-
-
-% Generated in umd-lhcb/rdx-run2-analysis/fit:
-%   make tab-reweight
-\begin{landscape}
-\begin{table}[p]
-    \centering
-    \caption{
-        Reweighting stages and binning schemes for final reweighting.
-    }
-    \label{tab:rwt-final-vars}
-    \begin{tabular}{c|l|c|l|c|l}
-        \toprule
-         {\bf Variable 1}             & {\bf Binning 1}   & {\bf Variable 2}               & {\bf Binning 2}   & {\bf Variable 3}                     & {\bf Binning 3}   \\
-        \midrule
-         $K$ $\sqrt{IP\, \chi^2} / IP$ & 10, 0 -- 100     & $\pi$ $\sqrt{IP\, \chi^2} / IP$ & 10, 0 -- 100     & $D^0$ $\sqrt{IP\, \chi^2} / IP$      & 10, 15 -- 110     \\
-         $D^0\mu$ $\log(FD\, \chi^2)$  & 10, 4 -- 12.5     & $D^0$ $\log(IP\, \chi^2)$      & 10, 2 -- 9       & $\mu$ $\log(IP\, \chi^2)$            & 10, 3.6 -- 11     \\
-         $K$ $p_T$ [GeV]               & 10, 0 -- 11       & $K$ $\log(IP\, \chi^2)$        & 10, 3.6 -- 10.2  & $K$ $\sqrt{IP\, \chi^2} / IP$        & 10, 5 -- 100      \\
-         $\pi$ $p_T$ [GeV]             & 10, 0 -- 12.5     & $\pi$ $\log(IP\, \chi^2)$      & 10, 3.6 -- 10.2  & $\pi$ $\sqrt{IP\, \chi^2} / IP$      & 10, 5 -- 100      \\
-         $\mu$ $p_T$ [GeV]             & 10, 0 -- 12       & $\mu$ $\log(IP\, \chi^2)$      & 10, 3.6 -- 10.8  & $\mu$ $\sqrt{IP\, \chi^2} / IP$      & 10, 0 -- 100      \\
-         $D^0$ $p_T$ [GeV]             & 10, 2 -- 18.5     & $D^0$ $\log(IP\, \chi^2)$      & 10, 2 -- 9       & $D^0$ $\sqrt{IP\, \chi^2} / IP$      & 10, 18 -- 102     \\
-         $D^0$ $p_T$ [GeV]             & 20, 2 -- 18.5     & $D^0$ $\eta$                   & 10, 1.8 -- 5     & --                                   & --                \\
-         $K$ $p_T$ [GeV]               & 20, 0 -- 11       & $K$ $\eta$                     & 10, 1.8 -- 5     & --                                   & --                \\
-         $\pi$ $p_T$ [GeV]             & 20, 0 -- 12.5     & $\pi$ $\eta$                   & 10, 1.8 -- 5     & --                                   & --                \\
-         $\mu$ $p_T$ [GeV]             & 20, 0 -- 12       & $\mu$ $\eta$                   & 10, 1.8 -- 5     & --                                   & --                \\
-         $D^0$ $\log(1 - DIRA)$        & 20, -14.2 -- -8.4 & --                             & --               & --                                   & --                \\
-         slow $\pi$ [GeV]\parnote{
-             \label{parnote:final-rwt-dst}
-             This is for \Dstar channel only.
-         }                            & 6, 0 -- 1.6       & slow $\pi$ $\eta$              & 10, 1.8 -- 4.8    & --                                   & --                \\
-         slow $\pi$ $p_T$ [GeV]\parnoteref{parnote:final-rwt-dst}
-                                      & 6, 0 -- 1.6       & slow $\pi$ $\log(IP\, \chi^2)$ & 10, -4 -- 7       & slow $\pi$ $\sqrt{IP\, \chi^2} / IP$ & 10, 0 -- 50       \\
-        \bottomrule
-    \end{tabular}
-    \parnotes
-\end{table}
-\end{landscape}
