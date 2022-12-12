@@ -101,8 +101,6 @@ in \cref{fig:lhcb-detector-comparison}.
 \end{figure}
 
 The rest of the chapter provides an overview of the LHCb upgrade in LS2.
-\cref{ref:lhcb-upgrade-overview:readout} describes the upgrade of the detector
-readout system across all subdetectors.
 \cref{ref:lhcb-upgrade-overview:trigger}
 provides an comparison of the trigger schemes between run 2 and run 3.
 Some subdetectors are undergoing upgrade to improve its performance, notably
@@ -111,29 +109,38 @@ these will be discussed in \cref{ref:lhcb-upgrade-overview:tracking} and
 \cref{ref:lhcb-upgrade-overview:pid}, respectively.
 
 
-\section{Readout system}
-\label{ref:lhcb-upgrade-overview:readout}
-
-% overview of the old 1MHz system
-The readout of run 1, 2 is mostly built on off-the-shelf components.
-
-% limitation of the old
-
-% overview of the new system
-
-% custom chips/boards for the new system
-
-\subsection{GBTx ASIC}
-
-
-\subsection{Versatile transciver}
-
-
-\subsection{PCIe40}
-
-
 \section{Trigger schemes in run 2 and run 3}
 \label{ref:lhcb-upgrade-overview:trigger}
+
+As can be seen in \cref{fig:trigger-comp},
+the two main differences between run 2 and run 3 trigger scheme are:
+The limited detector readout rate of 1~MHz is increased to 40~MHz\footnote{
+    In the figure the frequency is labelled as ``30~MHz inelastic event rate''
+    because it is the only type of collision that is visible to the detector.
+    The readout rate is still 40~MHz, fully synchronous to the LHC frequency.
+};
+the storage write throughput is increased from 0.6~GB/s to 10~GB/s.
+
+\begin{figure}[!htb]
+    \centering
+    \begin{subfigure}[t]{0.36\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{./figs-lhcb-upgrade-overview/trigger/trigger_scheme_run2.pdf}
+        \caption{LHCb run 2 trigger scheme.}
+    \end{subfigure}
+    \hspace{20pt}
+    %%%%
+    \begin{subfigure}[t]{0.36\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{./figs-lhcb-upgrade-overview/trigger/trigger_scheme_run3.pdf}
+        \caption{LHCb run 3 trigger scheme.}
+    \end{subfigure}
+
+    \caption{
+        Comparison between run 2 and run 3 trigger schemes.
+    }
+    \label{fig:trigger-comp}
+\end{figure}
 
 
 \section{Tracking system}
