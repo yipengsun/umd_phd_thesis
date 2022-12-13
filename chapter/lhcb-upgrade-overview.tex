@@ -189,8 +189,8 @@ In other words,
 the old way of rejecting trivial backgrounds with minimal bias cuts on few
 variables in an inclusive trigger is non-sustainable for LHCb run 3,
 as a significant fraction of events is \emph{signal}.
-Instead, it is preferable to categorize different types of signals with as much
-information from an event as possible, as early as possible
+Instead, it is preferable to categorize different types of signals then apply
+cuts with as much information from an event as possible, as early as possible
 \cite{Albrecht_2014}.
 
 Utilizing a software-only trigger provides maximum flexibility.
@@ -198,7 +198,7 @@ It also makes higher-level physics variables,
 such as the invariant mass of a reconstructed vertex,
 accessible to the trigger,
 such that cuts can be applied directly on these variables,
-reducing the need of cutting on proxy variables thus the need of modelling
+reducing the need of cutting on proxy variables thus the need of modeling
 acceptance effects offline \cite{Albrecht_2014}.
 
 As a side note, the run 3 HLT1 trigger is entirely GPU-based, implemented in
@@ -245,7 +245,7 @@ shows that with about 200 high-end commercially available GPUs, the
 which is far below the 500 limit.
 It also shows that the current HLT1 implementation scales linearly with
 the performance of the GPU.
-As more power GPU emerges, more powerful HLT1 algorithms may be implemented
+As more performant GPU emerges, more powerful HLT1 algorithms may be implemented
 with less number of GPUs.
 
 \begin{figure}[!htb]
@@ -262,6 +262,74 @@ with less number of GPUs.
 
 \section{Tracking system}
 \label{ref:lhcb-upgrade-overview:tracking}
+
+All subdetectors of the tracking system undergo significant upgrade to improve
+resolution and radiation hardness, aside from the required upgrade to their
+readout system.
+
+\begin{figure}[!htb]
+    \centering
+    \begin{subfigure}[t]{0.72\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{./figs-lhcb-upgrade-overview/tracking/velo_upgrade.pdf}
+        \caption{Upgraded VELO.}
+        \label{fig:velo-upgrade}
+    \end{subfigure}
+
+    %%%%
+    \begin{subfigure}[t]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{./figs-lhcb-upgrade-overview/tracking/ut_upgrade.pdf}
+        \caption{The UT, which replaces TT.}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[t]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{./figs-lhcb-upgrade-overview/tracking/scifi_upgrade.pdf}
+        \caption{The SciFi tracker, which replaces T-stations.}
+    \end{subfigure}
+
+    \caption{
+        Upgraded tracking system of the LHCb detector.
+    }
+    \label{fig:cpu-vs-gpu-hlt1}
+\end{figure}
+
+The upgraded VELO detector is now a 26-layer pixel\footnote{
+    As opposed to silicon strip, which consists of thin long metal strips
+    implant on silicon wafer,
+    pixel are typically of finer square shape.
+} tracker with a pixel size of $50 \times 50$~$\upmu$m,
+placed even closer to the beam at 5.1~mm,
+and has less detector materials, from 4.6\% to 1.7\% radiation lengths, before
+particles hit the first tracking layers which is crucial to improve the
+resolution on the impact parameters (IP) \cite{Hennessy_2017}.
+A single layer of the upgraded VELO detector is shown in
+\cref{fig:velo-upgrade}.
+The improvement in IP resolution based on simulation is shown in
+\cref{fig:velo-ip-improvement}.
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.4\textwidth]{./figs-lhcb-upgrade-overview/tracking/velo_ip_improvement.pdf}
+    \caption{
+        The upgraded VELO provides better IP resolution, based on simulation.
+        The IP resolution for current (\textbf{black}) and upgraded
+        (\textcolor{red}{\textbf{red}})
+        VELO are both evaluated at a
+        pile-up of 7.6 and a center of mass energy of 14~TeV, a typical run 3
+        condition.
+    }
+    \label{fig:velo-ip-improvement}
+\end{figure}
+
+The Tracker Turicensis (TT) is replaced with (UT), shown in ,
+better resolution, closer to beam pipe, and discussed in more details in the
+next chapter
+
+The Scintillator Fiber tracker (SciFi), displayed in ,
+replaces the T-stations.
+better resolution, faster readout speed, etc.
 
 % Get a figure for old IT/OT combo vs. the new SciFi
 
