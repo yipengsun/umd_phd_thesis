@@ -156,9 +156,34 @@ the threshold is already a significant portion of the $B$ meson mass
 ($\sim 5.3$~GeV).
 Any further increase in luminosity requires an increase of the threshold,
 which removes a significant portion of the signal events
-that contains $B$ mesons,
+that contain $B$ mesons,
 resulting in an almost constant signal yield \cite{CERN-LHCC-2011-001}.
 
+It begs the question then: Why don't we just make the detector readout at
+40~MHz, while keeping the L0 triggers at current (or even lower) thresholds?
+The third point, 10~GB/s write throughput,
+comes into play.
+This number is limited by the LAN connection speed from the LHCb online system
+(responsible for data acquisition) to CERN's storage center (Tier0) in Meryin.
+According to \cite{CERN-LHCC-2014-016},
+there are 20 pairs of fibers, each is capable of transporting at 1~GB/s,
+which, in theory, can provide a bandwidth of up to 20~GB/s.
+Still, in the same reference, a maximum write throughput of 10~GB/s is
+considered, perhaps due to concerns on robustness.
+%%%%
+At 13~TeV with a pile-up of 5.2 (similar to run 3 condition), with
+moderate \pt and vertex requirements
+(similar to inclusive HLT1 triggers in run 2),
+assuming an event size of 100~kB\footnote{
+    The original text uses kb (kilo-bit), which does not add up to 80~GB/s for
+    a 800~kHz rate.
+    I suspect the size is in kB (kilo-byte), as supported in
+    \cite{Allen_GPU_2020}.
+    The 800~kHz number is reported in \cite{LHCb-PUB-2014-027}.
+},
+the write throughput for beauty hadrons is 27~GB/s, for charm it is 80~GB/s,
+for light long-lived particles (such as $K^0_S$ and $\Lambda^0$) 26~GB/s
+\cite{Albrecht_2014}.
 
 
 \section{Tracking system}
