@@ -114,7 +114,7 @@ these will be discussed in \cref{ref:lhcb-upgrade-overview:tracking} and
 \label{ref:lhcb-upgrade-overview:trigger}
 
 As can be seen in \cref{fig:trigger-comp},
-the three main differences between run 2 and run 3 trigger scheme are:
+the main differences between run 2 and run 3 trigger scheme are:
 The limited detector readout rate of 1~MHz is increased to 40~MHz\footnote{
     In the figure the frequency is labelled as ``30~MHz inelastic event rate''
     because it is the only type of collision that is visible to the LHCb
@@ -122,8 +122,6 @@ The limited detector readout rate of 1~MHz is increased to 40~MHz\footnote{
     The readout rate is still 40~MHz, fully synchronous to the LHC frequency.
 };
 the storage write throughput is increased from 0.6~GB/s to 10~GB/s;
-the HLT software triggers is capable of performing full event reconstruction at
-the first stage, instead of partial reconstruction;
 The implications of these differences are discussed in more details in the
 following text.
 
@@ -168,8 +166,8 @@ This number is limited by the LAN connection speed from the LHCb on-site online
 system (responsible for data acquisition) to CERN's storage center (Tier0) in
 Meryin.
 According to \cite{CERN-LHCC-2014-016},
-there are 20 pairs of fibers, each is capable of transporting at 1~GB/s,
-which, in theory, can provide a bandwidth of up to 20~GB/s.
+there are more than 20 pairs of fibers, each capable of transporting at 1~GB/s,
+which, in theory, can provide a bandwidth of greater than 20~GB/s.
 Still, in the same reference, a maximum write throughput of 10~GB/s is
 considered, perhaps due to concerns on robustness.
 %%%%
@@ -189,11 +187,77 @@ for light long-lived particles (such as $K^0_S$ and $\Lambda^0$) 26~GB/s
 far exceeding the bandwidth capacity.
 In other words,
 the old way of rejecting trivial backgrounds with minimal bias cuts on few
-variables in an inclusive trigger is non-sustainable for LHCb run 3.
-It is preferable to categorized different types of signals with as much
+variables in an inclusive trigger is non-sustainable for LHCb run 3,
+as a significant fraction of events is \emph{signal}.
+Instead, it is preferable to categorize different types of signals with as much
 information from an event as possible, as early as possible
 \cite{Albrecht_2014}.
 
+Utilizing a software-only trigger provides maximum flexibility.
+It also makes higher-level physics variables,
+such as the invariant mass of a reconstructed vertex,
+accessible to the trigger,
+such that cuts can be applied directly on these variables,
+reducing the need of cutting on proxy variables thus the need of modelling
+acceptance effects offline \cite{Albrecht_2014}.
+
+As a side note, the run 3 HLT1 trigger is entirely GPU-based, implemented in
+CUDA \cite{Allen_GPU_2020}.
+The main advantage of a GPU-based solution is to save bandwidth:
+There are about 250 event builders in the counting room to receive readout data
+from the detector and assemble them into data packets suitable for software
+triggers.
+Had the HLT1 is purely implemented with conventional CPU programs,
+the full detector readout (30--40~Tb/s) need to sent to the HLT1 builders.
+Instead, a GPU-based HLT1 trigger exploits the fact that each event builder
+can be equipped with 2 GPU cards.
+If the trigger can be implemented with less than 500 GPUs,
+only events passing HLT1 cuts, which has a throughput of 1--2~Tb/s,
+need to be sent out,
+a factor of 30 reduction in bandwidth \cite{Allen_GPU_2020}.
+The data transfer paths of a CPU- and GPU-based HLT1 are shown in
+\cref{fig:cpu-vs-gpu-hlt1}.
+
+\begin{figure}[!htb]
+    \centering
+    \begin{subfigure}[t]{0.36\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{./figs-lhcb-upgrade-overview/trigger/data_path_cpu.pdf}
+        \caption{CPU-based HLT1.}
+    \end{subfigure}
+    \hspace{20pt}
+    %%%%
+    \begin{subfigure}[t]{0.36\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{./figs-lhcb-upgrade-overview/trigger/data_path_gpu.pdf}
+        \caption{GPU-based HLT1.}
+    \end{subfigure}
+
+    \caption{
+        Comparison between data paths for a CPU- and GPU-based HLT1 trigger.
+    }
+    \label{fig:cpu-vs-gpu-hlt1}
+\end{figure}
+
+A recent benchmark, displayed in \cref{fig:allen-gpu-throughput},
+shows that with about 200 high-end commercially available GPUs, the
+30~MHz throughput of the LHCb readout can be sustained,
+which is far below the 500 limit.
+It also shows that the current HLT1 implementation scales linearly with
+the performance of the GPU.
+As more power GPU emerges, more powerful HLT1 algorithms may be implemented
+with less number of GPUs.
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.5\textwidth]{./figs-lhcb-upgrade-overview/trigger/allen_perf_vs_tflop.pdf}
+    \caption{
+        GPU-based HLT1 throughputs on many GPUs with respect to their reported
+        peak 32-bit TFLOPS (Tera Float Point Operation Per Second) performance.
+        Taken from \cite{LHCB-FIGURE-2020-014}.
+    }
+    \label{fig:allen-gpu-throughput}
+\end{figure}
 
 
 \section{Tracking system}
