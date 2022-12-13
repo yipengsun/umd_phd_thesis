@@ -281,12 +281,14 @@ readout system.
         \centering
         \includegraphics[width=\textwidth]{./figs-lhcb-upgrade-overview/tracking/ut_upgrade.pdf}
         \caption{The UT, which replaces TT.}
+        \label{fig:ut-upgrade}
     \end{subfigure}
     \hfill
     \begin{subfigure}[t]{0.48\textwidth}
         \centering
         \includegraphics[width=\textwidth]{./figs-lhcb-upgrade-overview/tracking/scifi_upgrade.pdf}
         \caption{The SciFi tracker, which replaces T-stations.}
+        \label{fig:scifi-upgrade}
     \end{subfigure}
 
     \caption{
@@ -323,9 +325,29 @@ The improvement in IP resolution based on simulation is shown in
     \label{fig:velo-ip-improvement}
 \end{figure}
 
-The Tracker Turicensis (TT) is replaced with (UT), shown in ,
-better resolution, closer to beam pipe, and discussed in more details in the
-next chapter
+The Tracker Turicensis (TT) is replaced by the Upstream Tracker (UT).
+Still based on silicon-strip technology, UT has a smaller pitch near the beam
+pipe:
+180~$\upmu$m in the peripheral and 95~$\upmu$m around the beam pipe,
+and sits closer to the beam.
+UT has identical geometry to that of TT:
+4 planes of sensors arranged in a $x$-$u$-$v$-$x$ configuration,
+as shown in \cref{fig:ut-upgrade}.
+Compared to TT, UT provides sufficient radiation hardness,
+reduces occupancy in the critical region near the beam, and improves
+\pt resolution, as displayed in \cref{fig:ut-pt-improvement}.
+More details regarding UT will be provided in \cref{ref:ut}.
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.4\textwidth]{./figs-lhcb-upgrade-overview/tracking/ut_pt_improvement.pdf}
+    \caption{
+        Based on simulation,
+        compared to TT,
+        UT provides better \pt resolution, especially at lower \pt.
+    }
+    \label{fig:ut-pt-improvement}
+\end{figure}
 
 The Scintillator Fiber tracker (SciFi), displayed in ,
 replaces the T-stations.
