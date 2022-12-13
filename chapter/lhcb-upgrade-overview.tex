@@ -41,7 +41,8 @@ there will be too many ``signal-like'' events to write offline on storage
     \centering
     \includegraphics[width=0.5\textwidth]{./figs-lhcb-upgrade-overview/trigger_efficiency.pdf}
     \caption{
-        L0 trigger yields normalized to that of run 1.
+        L0 trigger yields normalized to that at
+        $2 \times 10^{32}$~cm$^{-2}$s$^{-1}$.
         The hadronic triggers are already saturated at run 2 luminosity.
         Taken from \cite{CERN-LHCC-2011-001}.
     }
@@ -120,9 +121,9 @@ The limited detector readout rate of 1~MHz is increased to 40~MHz\footnote{
     detector.
     The readout rate is still 40~MHz, fully synchronous to the LHC frequency.
 };
-the HLT software triggers perform full event reconstruction at the first stage,
-instead of partial reconstruction;
 the storage write throughput is increased from 0.6~GB/s to 10~GB/s;
+the HLT software triggers is capable of performing full event reconstruction at
+the first stage, instead of partial reconstruction;
 The implications of these differences are discussed in more details in the
 following text.
 
@@ -161,29 +162,38 @@ resulting in an almost constant signal yield \cite{CERN-LHCC-2011-001}.
 
 It begs the question then: Why don't we just make the detector readout at
 40~MHz, while keeping the L0 triggers at current (or even lower) thresholds?
-The third point, 10~GB/s write throughput,
+The second point, 10~GB/s write throughput,
 comes into play.
-This number is limited by the LAN connection speed from the LHCb online system
-(responsible for data acquisition) to CERN's storage center (Tier0) in Meryin.
+This number is limited by the LAN connection speed from the LHCb on-site online
+system (responsible for data acquisition) to CERN's storage center (Tier0) in
+Meryin.
 According to \cite{CERN-LHCC-2014-016},
 there are 20 pairs of fibers, each is capable of transporting at 1~GB/s,
 which, in theory, can provide a bandwidth of up to 20~GB/s.
 Still, in the same reference, a maximum write throughput of 10~GB/s is
 considered, perhaps due to concerns on robustness.
 %%%%
-At 13~TeV with a pile-up of 5.2 (similar to run 3 condition), with
-moderate \pt and vertex requirements
-(similar to inclusive HLT1 triggers in run 2),
+
+At 13~TeV with a pile-up of 5.2 (similar to run 3 condition),
+with a run 2-like inclusive trigger,
 assuming an event size of 100~kB\footnote{
     The original text uses kb (kilo-bit), which does not add up to 80~GB/s for
     a 800~kHz rate.
-    I suspect the size is in kB (kilo-byte), as supported in
-    \cite{Allen_GPU_2020}.
+    The size should be in kB (kilo-byte), as supported in
+    \cite{CERN-LHCC-2014-016,Allen_GPU_2020}.
     The 800~kHz number is reported in \cite{LHCb-PUB-2014-027}.
 },
 the write throughput for beauty hadrons is 27~GB/s, for charm it is 80~GB/s,
 for light long-lived particles (such as $K^0_S$ and $\Lambda^0$) 26~GB/s
+\cite{Albrecht_2014},
+far exceeding the bandwidth capacity.
+In other words,
+the old way of rejecting trivial backgrounds with minimal bias cuts on few
+variables in an inclusive trigger is non-sustainable for LHCb run 3.
+It is preferable to categorized different types of signals with as much
+information from an event as possible, as early as possible
 \cite{Albrecht_2014}.
+
 
 
 \section{Tracking system}
