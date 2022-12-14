@@ -208,9 +208,10 @@ There are about 250 event builders in the counting room to receive readout data
 from the detector and assemble them into data packets suitable for software
 triggers.
 Had the HLT1 is purely implemented with conventional CPU programs,
-the full detector readout (30--40~Tb/s) need to sent to the HLT1 builders.
+the full detector readout (30--40~Tb/s) are required to be sent out to the HLT1
+builders.
 Instead, a GPU-based HLT1 trigger exploits the fact that each event builder
-can be equipped with 2 GPU cards.
+can be equipped with 2 GPUs.
 If the trigger can be implemented with less than 500 GPUs,
 only events passing HLT1 cuts, which has a throughput of 1--2~Tb/s,
 need to be sent out,
@@ -362,7 +363,7 @@ Each layer of SciFi is composed of 6 layers of 2 set of
 2.4~m long plastic scintillating fibers with 250~$\upmu$m diameter arranged
 vertically, separated by a mirror in the middle.
 One layer of SciFi is 1.35~mm thick and has a surface area of $6 \times
-5$~m$^2$
+5$~m$^2$.
 The fibers are readout with Silicon PhotoMultipliers (SiPM), located at the top
 and bottom of the detector,
 with a pixel size of $57 \times 62$~$\upmu$m$^2$
@@ -386,6 +387,6 @@ of the Cherenkov ring size
 \cite{D_Ambrosio_2017,Okamura:2837863}.
 
 The photon detection system for both RICH detectors are upgraded from
-Hybrid Photon Detectors (HPD) to Multi-anode PhotoMultiplier Tubes (MaPMTs)
+Hybrid Photon Detectors (HPDs) to Multi-anode PhotoMultiplier Tubes (MaPMTs)
 to provide single-photon counting ability at 40~MHz
 \cite{Okamura:2837863}.
