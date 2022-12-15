@@ -329,8 +329,9 @@ The improvement in IP resolution based on simulation is shown in
 The Tracker Turicensis (TT) is replaced by the Upstream Tracker (UT).
 Located immediately before the Magnet,
 UT will be used for reconstructing long-lived particles decaying after VELO.
-It also improves the momentum resolution of long tracks and trigger timing
-\cite{Piucci_2017}.
+It improves the momentum resolution of long tracks and trigger timing,
+as well as reducing fake tracks
+\cite{Piucci_2017,Wang:2015mem}.
 Still based on silicon-strip technology, UT has a smaller pitch near the beam
 pipe:
 180~$\upmu$m in the peripheral and 95~$\upmu$m around the beam pipe,
@@ -346,11 +347,27 @@ More details regarding UT will be provided in \cref{ref:ut}.
 
 \begin{figure}[!htb]
     \centering
-    \includegraphics[width=0.4\textwidth]{./figs-lhcb-upgrade-overview/tracking/ut_pt_improvement.pdf}
+    \begin{subfigure}[t]{0.48\textwidth}
+        \centering
+        \includegraphics[width=0.82\textwidth]{./figs-lhcb-upgrade-overview/tracking/ut_ghost_improvement.pdf}
+        \caption{
+             Requiring hits on at least 3 out of 4 UT planes for tracks within
+             the UT fiducial volume reduces fake tracks significantly.
+        }
+    \end{subfigure}
+    \hspace{10pt}
+    \begin{subfigure}[t]{0.48\textwidth}
+        \centering
+        \includegraphics[width=0.82\textwidth]{./figs-lhcb-upgrade-overview/tracking/ut_pt_improvement.pdf}
+        \caption{
+            Compared to TT,
+            UT provides better \pt resolution, especially at lower \pt.
+        }
+    \end{subfigure}
     \caption{
-        Based on simulation,
-        compared to TT,
-        UT provides better \pt resolution, especially at lower \pt.
+        UT provides better \pt resolution to the long tracks and reduces fake
+        (ghost) tracks.
+        Figures taken from \cite{Wang:2015mem}.
     }
     \label{fig:ut-pt-improvement}
 \end{figure}
