@@ -12,16 +12,20 @@ down the hit search window in SciFi, allowing for a faster track reconstruction
 which leads to faster trigger decisions.
 
 The University of Maryland group is responsible for the design, testing, and
-commissioning of the readout and power regulating electronics;
+commissioning of the peripheral and power regulating electronics;
 An overview of the UT, discussed in \cref{ref:ut:overview},
-will summarize the specifications and utilities of these electronics,
+summarizes the specifications and utilities of these electronics,
 together with the sensors.
 The author is tasked to test and develop quality assurance procedure for
-the electronics that is responsible for
-data acquisition and control of the UT detector.
-In doing so, the author gained understanding on these functionalities of the UT.
-The first functionality, data acquisition, is discussed in \cref{ref:ut:daq};
-the second control functionality is described in \cref{ref:ut:ctrl}.
+the Data Control Board (DCB),
+part of the peripheral electronics,
+which is responsible to concentrate sensor readout and to control the UT
+detector;
+more details on DCB is described in \cref{ref:ut:dcb}.
+In doing so, the author gained understanding on the data acquisition and control
+system of the UT.
+These systems are described in \cref{ref:ut:daq} and \cref{ref:ut:ctrl},
+respectively.
 
 
 \section{Overview of the UT detector}
@@ -32,6 +36,9 @@ As shown in \cref{fig:ut-layers},
 the first and last layers are vertical,
 whereas the second and third are rotated by a stereo angle of $\pm 5^\circ$
 to form a $x$-$u$-$v$-$x$ configuration.
+The vertical planes provide highest hit resolution in the bending plane
+($x$-$y$);
+the rotated planes provide a measurement in the non-bending direction ($z$).
 
 \begin{figure}[!htb]
     \centering
@@ -43,20 +50,36 @@ to form a $x$-$u$-$v$-$x$ configuration.
     \label{fig:ut-layers}
 \end{figure}
 
+Each detection layer is made of a number of staves,
+a vertical strip of sensors and their readout electronics;
+the staves are discussed in \cref{ref:ut:overview:stave}.
+The sensor readouts are collected by the electronics hosted inside Peripheral
+Electronics (PEPI) crates at the top and bottom of the detection layer,
+and are described in \cref{ref:ut:overview:pepi}.
+To reduce radiation damage, the low voltage regulators (LVRs),
+which supply power to the detector electronics,
+are placed further away from the beam at the service bay;
+a brief description of the LVR is given in \cref{ref:ut:overview:lvr}.
+
+
 \subsection{Stave}
+\label{ref:ut:overview:stave}
 
 
 \subsection{PEPI}
+\label{ref:ut:overview:pepi}
 
 
 \subsection{LVR}
+\label{ref:ut:overview:lvr}
+
+
+\section{The Data Control Board (DCB)}
+\label{ref:ut:dcb}
 
 
 \section{Data acquisition in UT}
 \label{ref:ut:daq}
-
-\subsection{More on DCB}
-
 
 \subsection{TELL40 the event builder}
 
