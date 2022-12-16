@@ -76,8 +76,9 @@ An overview of the UT exterior is provided in \cref{fig:ut-exterior}.
 \label{ref:ut:overview:stave}
 
 Illustrated in \cref{fig:ut-layers} as a vertical strip,
-a stave is a long strip of flexible cable with sensors and hybrid readout
-wire-bonded on both sides.
+supported by a carbon fiber core,
+a stave consists of 4 flexible cables (2 on each side) with sensors and hybrid
+readout wire-bonded.
 Shown in \cref{fig:stave}, the sensors are mounted with an overlap to ensure
 coverage.
 
@@ -111,13 +112,53 @@ There are four types of sensors with different specifications.
 The sensors close to the beam pipe (yellow and pink in \cref{fig:ut-layers})
 have a finer pitch of 93.5~$\upmu$m and are made with \emph{n-in-p} process for
 more radiation hardness,
-mainly due to concerns on occupancy and radiation damage;
-more specifically, the four sensors immediately surrounding the pipe has
+mainly due to concerns on occupancy and radiation damage.
+In addition, the eight half-height sensors (pink) have their strip length halved
+to further improve resolution near the beam pipe
+with the four sensors immediately surrounding the pipe having
 circular cutouts, instead of rectangular gaps as in TT, to ensure maximum
 coverage in the very forward direction.
 The outer sensors (green) have a coarser pitch of 187.5~$\upmu$m fabricated with
 \emph{p-in-n} technology to reduce cost
 \cite{Carli:2783293}.
+
+To minimize the transmission path of the analogue sensor output, readout
+SALT ASICs\footnote{
+    SALT is developed by the UT collaboration.
+    ``ASIC'' stands for Application-Specific Integrated Circuit.
+} are glued to a ceramic stiffener along with a sensor and electronic hybrid
+circuit to form a single UT module.
+The sensor strips are wire-bonded to the input pins of the SALT\footnote{
+    SALT ASICs are represented by small white rectangles in
+    \cref{fig:ut-layers}.
+}
+\cite{Wang:2015mem}.
+A sample UT module is shown in \cref{fig:ut-module}.
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.9\textwidth]{./figs-ut-upgrade/detector/ut_sensor_module.pdf}
+    \caption{
+        (Left) Module built from type A sensor with a hybrid circuit carrying
+        4 SALT ASICs.
+        (Right) Two SALT ASICs, glued on a hybrid, with their inputs wire-bonded
+        to type A sensor.
+        Taken from \cite{Carli:2783293}.
+    }
+    \label{fig:ut-module}
+\end{figure}
+
+Fabricated with TSMC 130~nm CMOS process, SALT is capable of extract, shape,
+and digitize analogue signals from the sensor at 40~MHz from 128 channels
+simultaneously.
+It requires an external 40~MHz clock signal,
+which it locks on via a phase-lock loop (PLL),
+to work.
+It is also capable of generating pseudo-random test patterns on its own without
+any excitation on the sensor, which comes handy in testing the data transmitting
+quality for the DCB.
+As an ASIC, SALT has limited configurability by writing registers via the I2C
+protocol \cite{s22010107}.
 
 
 \subsection{PEPI}
