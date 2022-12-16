@@ -89,6 +89,7 @@ overlap to ensure coverage.
         \includegraphics[height=20em]{./figs-ut-upgrade/detector/ut_stave.pdf}
         \caption{
             Schematic of a UT stave.
+            Each side of a stave contains two Kapton flex cables.
         }
     \end{subfigure}
     \hspace{10pt}
@@ -98,7 +99,7 @@ overlap to ensure coverage.
         \caption{
             A signal and power layer of the Kapton flex cable.
             The low voltage coppers are shown in green;
-            the data and high voltage lines are in red and blue.
+            the data and high voltage lines are in red.
         }
     \end{subfigure}
 
@@ -164,16 +165,65 @@ protocol \cite{s22010107}.
 \subsection{PEPI}
 \label{ref:ut:overview:pepi}
 
-Peripheral electronics are responsible for dispatching power to SALTs and
-aggregating readout from SALTs to the counting room.
-Due to space constraint, power, readout data, and control command dispatch are
-all implemented in a board named Backplane which can host up to 12 DCBs.
-Each DCB then serialize its data inputs before sending them to the counting
+Peripheral electronics (PEPI) are responsible for dispatching power to SALTs,
+aggregating readout from SALTs to the counting room,
+and propagating control commands to the front-end electronics\footnote{
+    Front end electronics refer to SALTs and DCBs, which sit close
+    to the beam.
+}.
+A diagram for data readout and control signal propagation in the UT is displayed
+in
+\cref{fig:ut-readout-diagram}.
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.85\textwidth]{./figs-ut-upgrade/detector/ut_data_control_flow.pdf}
+    \caption{
+        UT data and control signal flow diagram.
+    }
+    \label{fig:ut-readout-diagram}
+\end{figure}
+
+Due to space constraint, power, readout data, and control command
+are all \emph{dispatched} by a board named Backplane (BP).
+Each BP is connected to up to 12 Staves via the Pigtail flex cable,
+an engineering marvel on its own\footnote{
+    More details regarding the Pigtail can be found in
+    \cite{Andrews:2018vla}.
+    It is worth noting that during the detector installation,
+    very precise bending of the Pigtails are needed to ensure good connectivity.
+},
+which dispatches power, data, and control signals between the BP and SALTs on
+the stave in an \emph{extremely} limited space.
+A BP can also host up to 12 DCBs.
+Each DCB then serialize its input data before sending them to the counting
 room.
 DCB is also responsible for receiving and translating control commands from the
 counting room to both itself and SALT ASICs.
 In other words, the whole configurable part of the UT detector is exposed as DCB
 registers to the counting room.
+
+PEPI are hosted in PEPI crates, with each containing a single Backplane and up
+to 12 DCBs,
+as can be seen in \cref{fig:pepi-crate}.
+The crate is also responsible for cooling and providing a common ground
+reference for all SALTs and DCBs.
+
+\begin{figure}[!htb]
+    \centering
+    \caption{
+        A PEPI crate, which hosts a single BP and up to 12 DCBs.
+    }
+    \label{fig:pepi-crate}
+\end{figure}
+
+\begin{figure}[!htb]
+    \centering
+    \caption{
+        A production Backplane and its copper routing implement.
+    }
+    \label{fig:backplane}
+\end{figure}
 
 
 \subsection{LVR}
