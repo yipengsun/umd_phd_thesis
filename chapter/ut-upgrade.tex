@@ -351,6 +351,7 @@ which makes the resistance of the cable non-ignorable.
 
     \caption{
         A LVR.
+        Taken from \cite{LVR_manual}.
     }
     \label{fig:lvr}
 \end{figure}
@@ -382,6 +383,14 @@ A single channel can output up to 2.5~A of current.
 When more current is needed, two channels can be configured into a master-slave
 pair in which case the sense lines from the master channel dictate the output
 of the pair.
+
+Remote channel control and monitoring via the SPI protocol is also implemented
+by the FPGA;
+such functionality can be accessed via the Telemetry Control Mezzanine (TCM)
+connector.
+A separately designed TCM board integrates the LVR into the LHCb control system.
+
+More information regarding LVRs can be found at \cite{LVR_manual}.
 
 
 \section{The Data Control Board (DCB)}
