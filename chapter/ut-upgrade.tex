@@ -76,11 +76,11 @@ An overview of the UT exterior is provided in \cref{fig:ut-exterior}.
 \label{ref:ut:overview:stave}
 
 Illustrated in \cref{fig:ut-layers} as a vertical strip,
-supported by a carbon fiber core,
+supported by a carbon fiber core with CO$_2$ cooling pipes,
 a stave consists of 4 flexible cables (2 on each side) with sensors and hybrid
 readout wire-bonded.
-Shown in \cref{fig:stave}, the sensors are mounted with an overlap to ensure
-coverage.
+Shown in \cref{fig:stave}, the front and back sensors are mounted with an
+overlap to ensure coverage.
 
 \begin{figure}[!htb]
     \centering
@@ -114,7 +114,7 @@ have a finer pitch of 93.5~$\upmu$m and are made with \emph{n-in-p} process for
 more radiation hardness,
 mainly due to concerns on occupancy and radiation damage.
 In addition, the eight half-height sensors (pink) have their strip length halved
-to further improve resolution near the beam pipe
+to further improve resolution near the beam pipe,
 with the four sensors immediately surrounding the pipe having
 circular cutouts, instead of rectangular gaps as in TT, to ensure maximum
 coverage in the very forward direction.
@@ -141,8 +141,8 @@ A sample UT module is shown in \cref{fig:ut-module}.
     \caption{
         (Left) Module built from type A sensor with a hybrid circuit carrying
         4 SALT ASICs.
-        (Right) Two SALT ASICs, glued on a hybrid, with their inputs wire-bonded
-        to type A sensor.
+        (Right) A SALT ASIC, glued on a hybrid, with its inputs wire-bonded
+        to a type A sensor.
         Taken from \cite{Carli:2783293}.
     }
     \label{fig:ut-module}
@@ -164,6 +164,17 @@ protocol \cite{s22010107}.
 \subsection{PEPI}
 \label{ref:ut:overview:pepi}
 
+Peripheral electronics are responsible for dispatching power to SALTs and
+aggregating readout from SALTs to the counting room.
+Due to space constraint, power, readout data, and control command dispatch are
+all implemented in a board named Backplane which can host up to 12 DCBs.
+Each DCB then serialize its data inputs before sending them to the counting
+room.
+DCB is also responsible for receiving and translating control commands from the
+counting room to both itself and SALT ASICs.
+In other words, the whole configurable part of the UT detector is exposed as DCB
+registers to the counting room.
+
 
 \subsection{LVR}
 \label{ref:ut:overview:lvr}
@@ -175,6 +186,7 @@ protocol \cite{s22010107}.
 
 \section{Data acquisition in UT}
 \label{ref:ut:daq}
+
 
 \subsection{TELL40 the event builder}
 
