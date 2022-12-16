@@ -70,22 +70,23 @@ An overview of the UT exterior is provided in \cref{fig:ut-exterior}.
         \includegraphics[width=0.88\textwidth]{./figs-ut-upgrade/detector/ut_exterior.pdf}
     };
     \begin{scope}[x=(main.south east),y=(main.north west)]
-        \node[text=cyan] (A) at (0.7,0.92) {\textbf{PEPI}};
+        \node[text=black] (A) at (0.7,0.92) {\textbf{PEPI}};
         \node (B) at (0.5,0.73) {};
-        \draw[->, thick, draw=cyan, to path={-| (\tikztotarget)}] (A) edge (B);
+        \draw[->, thick, draw=black, to path={-| (\tikztotarget)}] (A) edge (B);
 
-        \node[text=cyan] (C) at (0.3,0.14) {\textbf{Detector box}};
-        \node (D) at (0.5,0.52) {};
-        \draw[->, thick, draw=cyan, to path={-| (\tikztotarget)}] (C) edge (D);
+        \node[text=black] (C) at (0.3,0.14) {\textbf{Detector box}};
+        \node (D) at (0.52,0.52) {};
+        \draw[->, thick, draw=black, to path={-| (\tikztotarget)}] (C) edge (D);
 
-        \node[text=cyan] (E) at (0.7,0.8) {\textbf{Service bay}};
+        \node[text=black] (E) at (0.7,0.8) {\textbf{Service bay}};
         \node (F) at (0.82,0.74) {};
-        \draw[->, thick, draw=cyan, to path={-| (\tikztotarget)}] (E) edge (F);
+        \draw[->, thick, draw=black, to path={-| (\tikztotarget)}] (E) edge (F);
     \end{scope}
 \end{tikzpicture}
 
     \caption{
         UT exterior in the LHCb cavern.
+        Taken from \cite{Andrews:2018vla}.
     }
     \label{fig:ut-exterior}
 \end{figure}
@@ -214,8 +215,8 @@ an engineering marvel on its own\footnote{
 which dispatches power, data, and control signals between the BP and SALTs on
 the stave in an \emph{extremely} limited space.
 A BP can also host up to 12 DCBs.
-Each DCB then serialize its input data before sending them to the counting
-room.
+Each DCB then serialize its input data and convert the digitized electronic
+signal to an optic one which is sent to the counting room via fibers.
 DCB is also responsible for receiving and translating control commands from the
 counting room to both itself and SALT ASICs.
 In other words, the whole configurable part of the UT detector is exposed as DCB
@@ -232,9 +233,27 @@ reference for all SALTs and DCBs.
     \includegraphics[width=0.7\textwidth]{./figs-ut-upgrade/detector/pepi_crates.pdf}
     \caption{
         A schematic drawing of 3 PEPI crates with DCBs and Pigtails plugged in.
+        Taken from \cite{Andrews:2018vla}.
     }
     \label{fig:pepi-crate}
 \end{figure}
+
+Backplanes are nothing but a (huge) net of microscopic cables delivering power
+and facilitating data exchange to specific connector pins, and contain no active
+component (i.e. integrated circuit).
+While conceptually simple, Backplanes are extremely hard to route because the
+trace density is extremely high.
+Fabricated with 28 layers of PCBs\footnote{
+    As a reference, a typical motherboard for a desktop PC has 6 layers of PCBs.
+}, BPs are at the limit of manufacturability.
+To ensure that the traces are routed correctly,
+the connectivity map (referred as a ``netlist'') is exported to a
+machine-parsable language\footnote{
+    One such option exports the netlist to a language that is compatible with
+    Common Lisp.
+} and checked against a set of pre-defined rules, for example DCBs and
+SALTs have differing voltage requirements,
+by a Python script.
 
 \begin{figure}[!htb]
     \centering
