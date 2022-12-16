@@ -2,3 +2,4 @@ build
 cache
 yipengsun-umd_phd_thesis.pdf
 .lvimrc
+*.xml
