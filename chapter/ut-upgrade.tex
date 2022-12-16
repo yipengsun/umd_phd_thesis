@@ -279,6 +279,30 @@ by a Python script.
     \label{fig:backplane}
 \end{figure}
 
+Data Control Board (DCB), shown in,
+consists of a master GBTx ASIC
+for production of a stable, low jitter\footnote{
+    Deviation from the presumed clock frequency.
+} clock from the clock signal provided by the readout system in the counting
+room via a bi-direction optical link,
+and distribution of clock signal to 6 data GBTxs and all connected SALTs,
+hereby referred as ``downstream ASICs''\footnote{
+    This name is invented by me.
+    ``Downstream'' refers to the fact that these ASICs take the clock
+    distributed by the master as their reference clock.
+};
+6 data GBTxs operate in simplex transmitter mode to
+serialize, prepare in a way suitable for optical transmission,
+and convert the SALT readouts to optical signal via the GigaBit Laser Drive
+(GBLD) ASIC which then transmits the readout via optical links;
+A GBT-SCA ASIC, connected to master GBTx and downstream ASICs,
+is responsible for relaying slow control commands (e.g. I2C) and telemetry
+(e.g. thermistor readout on SALT via its built-in ADC) between downstream ASICs
+and the control system of the detector.
+
+As the author spent quite some time to test (and to make sense) of the
+DCBs, more information regarding DCBs will be provided in \cref{ref:ut:dcb}.
+
 
 \subsection{LVR}
 \label{ref:ut:overview:lvr}
