@@ -71,7 +71,7 @@ An overview of the UT exterior is provided in \cref{fig:ut-exterior}.
     };
     \begin{scope}[x=(main.south east),y=(main.north west)]
         \node[text=black] (A) at (0.7,0.92) {\textbf{PEPI}};
-        \node (B) at (0.5,0.73) {};
+        \node (B) at (0.5,0.71) {};
         \draw[->, thick, draw=black, to path={-| (\tikztotarget)}] (A) edge (B);
 
         \node[text=black] (C) at (0.3,0.14) {\textbf{Detector box}};
@@ -106,7 +106,7 @@ overlap to ensure coverage.
     \centering
     \begin{subfigure}[t]{0.48\textwidth}
         \centering
-        \includegraphics[height=20em]{./figs-ut-upgrade/detector/ut_stave.pdf}
+        \includegraphics[height=20em]{./figs-ut-upgrade/stave/ut_stave.pdf}
         \caption{
             Schematic of a UT stave.
             Each side of a stave contains two Kapton flex cables.
@@ -115,7 +115,7 @@ overlap to ensure coverage.
     \hspace{10pt}
     \begin{subfigure}[t]{0.48\textwidth}
         \centering
-        \includegraphics[width=20em,angle=90]{./figs-ut-upgrade/detector/ut_stave_flex_cable.pdf}
+        \includegraphics[width=20em,angle=90]{./figs-ut-upgrade/stave/ut_stave_flex_cable.pdf}
         \caption{
             A signal and power layer of the Kapton flex cable.
             The low voltage coppers are shown in green;
@@ -158,7 +158,7 @@ A sample UT module is shown in \cref{fig:ut-module}.
 
 \begin{figure}[!htb]
     \centering
-    \includegraphics[width=0.9\textwidth]{./figs-ut-upgrade/detector/ut_sensor_module.pdf}
+    \includegraphics[width=0.9\textwidth]{./figs-ut-upgrade/stave/ut_sensor_module.pdf}
     \caption{
         (Left) Module built from type A sensor with a hybrid circuit carrying
         4 SALT ASICs.
@@ -259,7 +259,7 @@ by a Python script.
     \centering
     \begin{subfigure}[t]{0.48\textwidth}
         \centering
-        \includegraphics[height=20em]{./figs-ut-upgrade/detector/backplane_compressed.jpg}
+        \includegraphics[height=20em]{./figs-ut-upgrade/backplane/backplane_compressed.jpg}
         \caption{
             A production Backplane.
         }
@@ -267,7 +267,7 @@ by a Python script.
     \hspace{10pt}
     \begin{subfigure}[t]{0.48\textwidth}
         \centering
-        \includegraphics[height=20em]{./figs-ut-upgrade/detector/backplane_trace.pdf}
+        \includegraphics[height=20em]{./figs-ut-upgrade/backplane/backplane_trace.pdf}
         \caption{
             Traces of the backplane are of ultra high density.
         }
@@ -279,7 +279,7 @@ by a Python script.
     \label{fig:backplane}
 \end{figure}
 
-Data Control Board (DCB), shown in,
+Data Control Board (DCB), shown in \cref{fig:dcb-prod},
 consists of a master GBTx ASIC
 for production of a stable, low jitter\footnote{
     Deviation from the presumed clock frequency.
@@ -299,6 +299,24 @@ A GBT-SCA ASIC, connected to master GBTx and downstream ASICs,
 is responsible for relaying slow control commands (e.g. I2C) and telemetry
 (e.g. thermistor readout on SALT via its built-in ADC) between downstream ASICs
 and the control system of the detector.
+One DCB admits 1 electro-optical transceiver and up to 3 transmitter modules
+named Versatile link which GBLD is a part of the module responsible for
+optical data transmission;
+each of them is installed in a separate optical mezzanine before mounted to a
+DCB.
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.8\textwidth]{./figs-ut-upgrade/dcb/dcb_prod.png}
+    \caption{
+        A production DCB with cooling backplate assembly.
+        The master GBTx and GBT-SCA are marked.
+        6 data GBTxs are numbered from 1 to 6.
+        The BP connector is marked as \texttt{J3}.
+        4 optical mezzanine connectors are marked as \texttt{J6, J7, J16, J17}.
+    }
+    \label{fig:dcb-prod}
+\end{figure}
 
 As the author spent quite some time to test (and to make sense) of the
 DCBs, more information regarding DCBs will be provided in \cref{ref:ut:dcb}.
