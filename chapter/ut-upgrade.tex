@@ -64,7 +64,26 @@ An overview of the UT exterior is provided in \cref{fig:ut-exterior}.
 
 \begin{figure}[!htb]
     \centering
-    \includegraphics[width=0.88\textwidth]{./figs-ut-upgrade/detector/ut_exterior.pdf}
+
+\begin{tikzpicture}
+    \node [anchor=south west] (main) {
+        \includegraphics[width=0.88\textwidth]{./figs-ut-upgrade/detector/ut_exterior.pdf}
+    };
+    \begin{scope}[x=(main.south east),y=(main.north west)]
+        \node[text=cyan] (A) at (0.7,0.92) {\textbf{PEPI}};
+        \node (B) at (0.5,0.73) {};
+        \draw[->, thick, draw=cyan, to path={-| (\tikztotarget)}] (A) edge (B);
+
+        \node[text=cyan] (C) at (0.3,0.14) {\textbf{Detector box}};
+        \node (D) at (0.5,0.52) {};
+        \draw[->, thick, draw=cyan, to path={-| (\tikztotarget)}] (C) edge (D);
+
+        \node[text=cyan] (E) at (0.7,0.8) {\textbf{Service bay}};
+        \node (F) at (0.82,0.74) {};
+        \draw[->, thick, draw=cyan, to path={-| (\tikztotarget)}] (E) edge (F);
+    \end{scope}
+\end{tikzpicture}
+
     \caption{
         UT exterior in the LHCb cavern.
     }
@@ -240,14 +259,10 @@ reference for all SALTs and DCBs.
 \subsection{TELL40 the event builder}
 
 
-\subsection{Data transmission path}
+\subsection{Timing and Fast Control (TFC)}
 
 
 \section{Control system of UT}
 \label{ref:ut:ctrl}
 
 
-\subsection{Timing and Fast Control (TFC)}
-
-
-\subsection{Slow control for detector initialization and monitoring}
