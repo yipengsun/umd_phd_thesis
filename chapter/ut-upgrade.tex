@@ -325,6 +325,64 @@ DCBs, more information regarding DCBs will be provided in \cref{ref:ut:dcb}.
 \subsection{LVR}
 \label{ref:ut:overview:lvr}
 
+Installed inside service bays, the Low Voltage Regulator (LVR),
+shown in \cref{fig:lvr},
+delivers power
+to the SALTs and DCBs with a $\sim 10$~m long cable
+which makes the resistance of the cable non-ignorable.
+
+\begin{figure}[!htb]
+    \centering
+    \begin{subfigure}[t]{0.48\textwidth}
+        \centering
+        \includegraphics[width=0.87\textwidth]{./figs-ut-upgrade/lvr/lvr_top_view.pdf}
+        \caption{
+            LVR top view (CCM/TCM side).
+        }
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[t]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{./figs-ut-upgrade/lvr/lvr_bot_view.pdf}
+        \caption{
+            LVR bottom view (FPGA side).
+        }
+    \end{subfigure}
+
+    \caption{
+        A LVR.
+    }
+    \label{fig:lvr}
+\end{figure}
+
+To ensure correct voltages are delivered at the ASIC side,
+LVR implements a remote sensing capability such that the remote voltage is
+constantly monitored and kept at the specified voltages\footnote{
+    Consider the specified voltage is at 1.25~V, the LVR output voltage is
+    at about 1.4~V.
+    The $V_\text{sense}$ vs. $V_\text{LVR}$ lookup table can be found at
+    \cite{LVR_output_voltage_lookup}.
+}, which require one
+pair of sense lines carrying little current in addition to the pair of current
+carrying lines (4 lines for a single output channel).
+This capability is implemented by a Microsemi FPGA.
+When the sense line breaks, the unsensed output voltage at LVR side is always
+at the specified value so ASICs will be undervolt, which is safe.
+However, when the sense line is shorted, LVR will keep ramping up the voltage
+up to 5.5~V which will fry the ASICs for sure.
+Thus particular care is taken during the cabling phase to ensure no such short
+happens.
+
+One LVR has up to 8 output channels; each is configured by a Channel
+Configuration Mezzanine (CCM) with which the specified voltage is defined by a
+potentiometer.
+There are three voltage specifications: SALT requires 1.25~V; DCB GBTx requires
+1.5~V; the Versatile modules require 2.5~V.
+A single channel can output up to 2.5~A of current.
+When more current is needed, two channels can be configured into a master-slave
+pair in which case the sense lines from the master channel dictate the output
+of the pair.
+
 
 \section{The Data Control Board (DCB)}
 \label{ref:ut:dcb}
