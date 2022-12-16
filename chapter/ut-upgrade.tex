@@ -67,20 +67,20 @@ An overview of the UT exterior is provided in \cref{fig:ut-exterior}.
 
 \begin{tikzpicture}
     \node [anchor=south west] (main) {
-        \includegraphics[width=0.88\textwidth]{./figs-ut-upgrade/detector/ut_exterior.pdf}
+        \includegraphics[width=0.88\textwidth]{./figs-ut-upgrade/detector/ut_exterior.png}
     };
     \begin{scope}[x=(main.south east),y=(main.north west)]
-        \node[text=black] (A) at (0.7,0.92) {\textbf{PEPI}};
+        \node[text=white] (A) at (0.7,0.92) {\textbf{PEPI}};
         \node (B) at (0.5,0.71) {};
-        \draw[->, thick, draw=black, to path={-| (\tikztotarget)}] (A) edge (B);
+        \draw[->, thick, draw=white, to path={-| (\tikztotarget)}] (A) edge (B);
 
-        \node[text=black] (C) at (0.3,0.14) {\textbf{Detector box}};
+        \node[text=white] (C) at (0.3,0.14) {\textbf{Detector box}};
         \node (D) at (0.52,0.52) {};
-        \draw[->, thick, draw=black, to path={-| (\tikztotarget)}] (C) edge (D);
+        \draw[->, thick, draw=white, to path={-| (\tikztotarget)}] (C) edge (D);
 
-        \node[text=black] (E) at (0.7,0.8) {\textbf{Service bay}};
+        \node[text=white] (E) at (0.7,0.8) {\textbf{Service bay}};
         \node (F) at (0.82,0.74) {};
-        \draw[->, thick, draw=black, to path={-| (\tikztotarget)}] (E) edge (F);
+        \draw[->, thick, draw=white, to path={-| (\tikztotarget)}] (E) edge (F);
     \end{scope}
 \end{tikzpicture}
 
