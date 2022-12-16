@@ -24,7 +24,7 @@ detector;
 more details on DCB is described in \cref{ref:ut:dcb}.
 In doing so, the author gained understanding on the data acquisition and control
 system of the UT;
-a review of these systems are provided in \cref{ref:ut:daq} and
+a review of these systems are summarized in \cref{ref:ut:daq} and
 \cref{ref:ut:ctrl}, respectively.
 
 
@@ -60,10 +60,64 @@ To reduce radiation damage, the low voltage regulators (LVRs),
 which supply power to the detector electronics,
 are placed further away from the beam at the service bay;
 a brief description of the LVR is given in \cref{ref:ut:overview:lvr}.
+An overview of the UT exterior is provided in \cref{fig:ut-exterior}.
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.85\textwidth]{./figs-ut-upgrade/detector/ut_exterior.pdf}
+    \caption{
+        UT exterior in the LHCb cavern.
+    }
+    \label{fig:ut-exterior}
+\end{figure}
 
 
 \subsection{Stave}
 \label{ref:ut:overview:stave}
+
+Illustrated in \cref{fig:ut-layers} as a vertical strip,
+a stave is a long strip of flexible cable with sensors and hybrid readout
+wire-bonded on both sides.
+Shown in \cref{fig:stave}, the sensors are mounted with an overlap to ensure
+coverage.
+
+\begin{figure}[!htb]
+    \centering
+    \begin{subfigure}[t]{0.48\textwidth}
+        \centering
+        \includegraphics[height=20em]{./figs-ut-upgrade/detector/ut_stave.pdf}
+        \caption{
+            Schematic of a UT stave.
+        }
+    \end{subfigure}
+    \hspace{10pt}
+    \begin{subfigure}[t]{0.48\textwidth}
+        \centering
+        \includegraphics[width=20em,angle=90]{./figs-ut-upgrade/detector/ut_stave_flex_cable.pdf}
+        \caption{
+            A signal and power layer of the Kapton flex cable.
+            The low voltage coppers are shown in green;
+            the data and high voltage lines are in red and blue.
+        }
+    \end{subfigure}
+
+    \caption{
+        UT stave.
+    }
+    \label{fig:stave}
+\end{figure}
+
+There are four types of sensors with different specifications.
+The sensors close to the beam pipe (yellow and pink in \cref{fig:ut-layers})
+have a finer pitch of 93.5~$\upmu$m and are made with \emph{n-in-p} process for
+more radiation hardness,
+mainly due to concerns on occupancy and radiation damage;
+more specifically, the four sensors immediately surrounding the pipe has
+circular cutouts, instead of rectangular gaps as in TT, to ensure maximum
+coverage in the very forward direction.
+The outer sensors (green) have a coarser pitch of 187.5~$\upmu$m fabricated with
+\emph{p-in-n} technology to reduce cost
+\cite{Carli:2783293}.
 
 
 \subsection{PEPI}
