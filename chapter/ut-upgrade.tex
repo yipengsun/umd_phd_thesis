@@ -313,8 +313,8 @@ and consists of:
         suitable for optical transmission.
         The processed signal is sent to a Versatile link module mounted on
         a optical mezzanine for electro-optical conversion and transmission.
-        One data GBTx can serialize up to 12 320~Mbps e-links into a single
-        4.8~Gbps data stream.
+        One data GBTx can serialize up to 12 320~Mb/s e-links into a single
+        4.8~Gb/s data stream.
 
         Data GBTxs also relay its clock signal to the SALTs it connects to.
 
@@ -324,7 +324,7 @@ and consists of:
 
         It is used to establish a bi-directional connection to the readout
         system with error-correction functionality that is robust against single
-        bit flips,
+        event upsets (SEU),
         suitable for relaying fast and slow control commands, as well as
         telemetry.
 
@@ -433,7 +433,8 @@ DCB is part of an implementation of the reference LHCb front-end  electronic
 module.
 Shown in \cref{fig:lhcb-ref-fe},
 a complete LHCb front-end electronic device contains digitization of sensor
-readout, serration of digitized readout, and distribution of control commands.
+readout, serialization of digitized readout, and distribution of control
+commands.
 The DCB,
 schematically shown in \cref{fig:dcb-schematic},
 implements the last two functionalites (for UT the sensor readout is implemented
@@ -468,7 +469,7 @@ by the SALT ASIC).
 The physical layout of the DCB has been summarized in \cref{dcb-layout}.
 The rest of the section provides more information
 on the GBT chipset which is the foundation of DCB (\cref{dcb-gbt,dcb-elink}),
-the configurability of DCB (\cref{dcb-jumper,dcb-i2c}),
+the configurability of DCB (\cref{dcb-i2c}),
 the operation of DCB (\cref{dcb-init,dcb-sca}),
 and the testing and quality assurance of DCB (\cref{dcb-test-data,dcb-qa}).
 
@@ -501,21 +502,69 @@ The following ASICs from the GBT project are used in DCB:
     \item \textbf{GBT-SCA}:
         GigaBit Transceiver-Slow Control Adapter provides an interface between
         various industrial-standard slow control protocols,
-        namely SPI, I2C, JTAG, and GPIO, to the GBT data frame
+        namely SPI, I2C, JTAG, and GPIO, to the GBT link protocol
         \cite{sca_manual}.
-
-        For a single GBT data frame operating in the
-        Forward Error Correction (FEC) mode,
-        a range of address is reserved for the slow control commands which can
-        be decoded/encoded by the SCA.
 \end{itemize}
+
+
+\subsection{The GBT link}
+
+The GBT link has two transmission mode relevant for DCB: FEC and widebus mode.
+The former provides error correction capability with the trade-off of reduced
+data transfer speed at 3.36~Gb/s,
+making this mode suitable for carrying out critical timing and control data.
+The latter works at 4.48~Gb/s without error correction at link level,
+and is used for readout data transmission.
+In either mode, a single data frame is always 120 bit long.
+
+\paragraph{Transceiver}
+The master GBTx is configured to work in the transceiver mode, working in
+FEC mode.
+Each frame in this mode contains the following sub-fields:
+
+\begin{itemize}
+    \item \textbf{Header}:
+        8 bits.
+        For delimitation (identification) of frame boundaries
+        (frame synchronization).
+
+    \item \textbf{Internal Control (IC)}:
+        2 bits.
+        Reserved for remote provisioning
+        (i.e. change selected configuration registers and read telemetry
+        information) of the master GBTx.
+
+    \item \textbf{External Control (EC)}:
+        2 bits.
+        Reserved for transferring external slow control commands,
+        such as I2C commands, to the GBT-SCA.
+        Both IC and EC has a fixed speed of 80~Mb/s.
+
+    \item \textbf{Data}:
+        80 bits.
+        Contain 5 e-link groups, each 16 bits long (2 Byte).
+        At 320~Mb/s data rate, each e-link group has 2 e-links.
+
+    \item \textbf{Forward Error Correction (FEC)}:
+        32 bits.
+        The error correction algorithm uses a 2-time interleaved Reed-Salomon
+        $RS(15, 11)$ code with 4-bit symbols.
+        In practice the data is robust against up to 16 consecutive bit
+        corruptions.
+
+        All sub-fields above are protected by the FEC field.
+\end{itemize}
+
+\paragraph{Transmitter}
+Each data GBTx transmitter operates in the widebus mode.
+A widebus frame is identical to a FEC frame except that it has no FEC field and
+extends the data field to 112 bit so that the total number of e-link groups is
+increased to 7.
+As a trade-off, there is no error correction capability at link level.
+
 
 \subsection{E-links}
 \label{dcb-elink}
-
-
-\subsection{Jumper configuration of DCB}
-\label{dcb-jumper}
 
 
 \subsection{I2C interfaces}
