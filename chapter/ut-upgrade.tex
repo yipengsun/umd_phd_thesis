@@ -285,6 +285,7 @@ As its name suggests, Data Control Board (DCB) is responsible for aggregating
 SALT readouts and propagating slow control commands.
 Shown in \cref{fig:dcb-prod}, a DCB is made of 16 layers of PCBs,
 and consists of:
+\label{dcb-layout}
 
 \begin{itemize}
     \item \textbf{1 master GBTx}:
@@ -428,31 +429,113 @@ More information regarding LVRs can be found at \cite{LVR_manual}.
 \section{The Data Control Board (DCB)}
 \label{ref:ut:dcb}
 
-DCB is part of an implementation of the reference LHCb front-end module.
+DCB is part of an implementation of the reference LHCb front-end  electronic
+module.
+Shown in \cref{fig:lhcb-ref-fe},
+a complete LHCb front-end electronic device contains digitization of sensor
+readout, serration of digitized readout, and distribution of control commands.
+The DCB,
+schematically shown in \cref{fig:dcb-schematic},
+implements the last two functionalites (for UT the sensor readout is implemented
+by the SALT ASIC).
+
+\begin{figure}[!htb]
+    \centering
+    \begin{subfigure}[t]{0.46\textwidth}
+        \centering
+        \includegraphics[height=12em]{./figs-ut-upgrade/dcb/lhcb_ref_fe.pdf}
+        \caption{
+            The LHCb reference design for front-end electronics.
+            Taken from \cite{Wyllie:2011sya}.
+        }
+        \label{fig:lhcb-ref-fe}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[t]{0.46\textwidth}
+        \centering
+        \includegraphics[height=12em]{./figs-ut-upgrade/dcb/dcb_schematic.pdf}
+        \caption{
+            Schematic DCB layout.
+        }
+        \label{fig:dcb-schematic}
+    \end{subfigure}
+
+    \caption{
+        Comparison between the reference LHCb front-end electronic and DCB.
+    }
+\end{figure}
+
+The physical layout of the DCB has been summarized in \cref{dcb-layout}.
+The rest of the section provides more information
+on the GBT chipset which is the foundation of DCB (\cref{dcb-gbt,dcb-elink}),
+the configurability of DCB (\cref{dcb-jumper,dcb-i2c}),
+the operation of DCB (\cref{dcb-init,dcb-sca}),
+and the testing and quality assurance of DCB (\cref{dcb-test-data,dcb-qa}).
 
 
 \subsection{The GBT chipset}
+\label{dcb-gbt}
 
+The GigaBit Transceiver (GBT) architecture is developed by CERN to provide a
+high-bandwidth optical data transmission solution capable of operating in a
+highly radiative environment, such as in LHC \cite{P_Moreira_2010}.
+The following ASICs from the GBT project are used in DCB:
+
+\begin{itemize}
+    \item \textbf{GBTx}:
+        GBTx is a radiation tolerant ASIC for implementing high-speed
+        uni- or bi-directional optical links in high energy experiments
+        \cite{gbtx_manual}.
+
+    \item \textbf{GBLD}:
+        GigaBit Laser Driver:
+        A configurable VCSEL\footnote{
+            Vertical-cavity surface-emitting laser.
+            It has many modern applications such as in computer mice and optic
+            fiber communication.
+            The technical details is unknown to the author but is irrelevant
+            for the topic.
+        } driver
+        \cite{gbld_manual}.
+
+    \item \textbf{GBT-SCA}:
+        GigaBit Transceiver-Slow Control Adapter provides an interface between
+        various industrial-standard slow control protocols,
+        namely SPI, I2C, JTAG, and GPIO, to the GBT data frame
+        \cite{sca_manual}.
+
+        For a single GBT data frame operating in the
+        Forward Error Correction (FEC) mode,
+        a range of address is reserved for the slow control commands which can
+        be decoded/encoded by the SCA.
+\end{itemize}
 
 \subsection{E-links}
+\label{dcb-elink}
 
 
 \subsection{Jumper configuration of DCB}
+\label{dcb-jumper}
 
 
 \subsection{I2C interfaces}
+\label{dcb-i2c}
 
 
 \subsection{Initialization sequence after a power cycle}
+\label{dcb-init}
 
 
 \subsection{GBT-SCA ADC readout}
+\label{dcb-sca}
 
 
 \subsection{Test on data transmission quality}
+\label{dcb-test-data}
 
 
 \subsection{Quality assurance of DCB at CERN}
+\label{dcb-qa}
 
 
 \section{Data acquisition in UT}
