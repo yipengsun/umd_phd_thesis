@@ -295,7 +295,9 @@ and consists of:
         } clock derived from the clock signal provided by the readout system
         with the help of the on-package quartz crystal oscillator,
         and distributes the clock signal to 6 data GBTxs.
-        It also transmits Timing and Fast Control (TFC) signals to the SALT.
+        The Timing and Fast Control data are distributed to up to 6 SALTs it
+        connects to.
+(Timing and Fast Control, TFC)
 
     \item \textbf{1 GBT-SCA}:
         Connected to master GBTx via an e-link,
@@ -308,15 +310,15 @@ and consists of:
         via its built-in ADC.
 
     \item \textbf{6 data GBTxs}:
-        Operate in simplex transmitter mode,
+        Operate in simplex transmitter mode with an external clock from the
+        master,
         the data GBTxs serialize and scramble the SALT readouts in a way
         suitable for optical transmission.
         The processed signal is sent to a Versatile link module mounted on
         a optical mezzanine for electro-optical conversion and transmission.
         One data GBTx can serialize up to 12 320~Mb/s e-links into a single
         4.8~Gb/s data stream.
-
-        Data GBTxs also relay its clock signal to the SALTs it connects to.
+        One single data GBTx relays its clock to up to 6 SALTs.
 
     \item \textbf{1 Versatile link transceiver (VTRx)}:
         An optical transceiver with a GigaBit Laser Driver (GBLD)
@@ -562,9 +564,19 @@ extends the data field to 112 bit so that the total number of e-link groups is
 increased to 7.
 As a trade-off, there is no error correction capability at link level.
 
+As can be seen from the structure of the GBT frame, there is an overhead
+due to header and IC/EC fields.
+This is why the data transmission speed is at 4.48~Gb/s instead of 4.8~Gb/s.
+
 
 \subsection{E-links}
 \label{dcb-elink}
+
+As described in the previous section,
+operating in widebus mode,
+a data GBTx can provide up to $2 \times 7 = 14$ e-links,
+duplex local electric serial links
+\cite{gbtx_manual}.
 
 
 \subsection{I2C interfaces}
