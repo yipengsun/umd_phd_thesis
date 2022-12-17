@@ -215,8 +215,8 @@ an engineering marvel on its own\footnote{
 which dispatches power, data, and control signals between the BP and SALTs on
 the stave in an \emph{extremely} limited space.
 A BP can also host up to 12 DCBs.
-Each DCB then serialize its input data and convert the digitized electronic
-signal to an optic one which is sent to the counting room via fibers.
+Each DCB serializes its input data and convert the digitized electric sensor
+readout to an optical one which is then sent to the counting room via fibers.
 DCB is also responsible for receiving and translating control commands from the
 counting room to both itself and SALT ASICs.
 In other words, the whole configurable part of the UT detector is exposed as DCB
@@ -254,6 +254,8 @@ machine-parsable language\footnote{
 } and checked against a set of pre-defined rules, for example DCBs and
 SALTs have differing voltage requirements,
 by a Python script.
+The quality assurance process of the Backplanes is highly non-trivial, and will
+be provided on a separate document by another author.
 
 \begin{figure}[!htb]
     \centering
@@ -286,10 +288,10 @@ and consists of:
 
 \begin{itemize}
     \item \textbf{1 master GBTx}:
-        Operated in transceiver mode,
+        Operate in transceiver mode,
         it generates a stable, low jitter\footnote{
             Deviation from the presumed clock frequency.
-        } clock derived from the clock signal provided by the readout system,
+        } clock derived from the clock signal provided by the readout system
         with the help of the on-package quartz crystal oscillator,
         and distributes the clock signal to 6 data GBTxs.
         It also transmits Timing and Fast Control (TFC) signals to the SALT.
@@ -325,10 +327,13 @@ and consists of:
         suitable for relaying fast and slow control commands, as well as
         telemetry.
 
+        All Versatile modules are mounted on an optical mezzanine which is
+        plugged on DCB.
+
     \item \textbf{Up to 3 Versatile link transmitter (VTTx)}:
-        It contains two GBLDs to establish an uni-directional connection
-        to the readout system,
-        suitable for transmitting serialized SALT readout.
+        It contains two GBLDs to establish two uni-directional connections,
+        suitable for transmitting serialized SALT readout,
+        to the readout system for two data GBTxs.
 \end{itemize}
 
 \begin{figure}[!htb]
@@ -340,6 +345,7 @@ and consists of:
         6 data GBTxs are numbered from 1 to 6.
         The BP connector is marked as \texttt{J3}.
         4 optical mezzanine connectors are marked as \texttt{J6, J7, J16, J17}.
+        No optical mezzanine is connected.
     }
     \label{fig:dcb-prod}
 \end{figure}
@@ -463,3 +469,7 @@ DCB is part of an implementation of the reference LHCb front-end module.
 \label{ref:ut:ctrl}
 
 
+\subsection{The \dim control protocol}
+
+
+\subsection{\nanoDAQ: A reverse-engineered \dim client to aid testing of UT electronics}
