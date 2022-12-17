@@ -279,31 +279,57 @@ by a Python script.
     \label{fig:backplane}
 \end{figure}
 
-Data Control Board (DCB), shown in \cref{fig:dcb-prod},
-consists of a master GBTx ASIC
-for production of a stable, low jitter\footnote{
-    Deviation from the presumed clock frequency.
-} clock from the clock signal provided by the readout system in the counting
-room via a bi-direction optical link,
-and distribution of clock signal to 6 data GBTxs and all connected SALTs,
-hereby referred as ``downstream ASICs''\footnote{
-    This name is invented by me.
-    ``Downstream'' refers to the fact that these ASICs take the clock
-    distributed by the master as their reference clock.
-};
-6 data GBTxs operate in simplex transmitter mode to
-serialize, prepare in a way suitable for optical transmission,
-and convert the SALT readouts to optical signal via the GigaBit Laser Drive
-(GBLD) ASIC which then transmits the readout via optical links;
-A GBT-SCA ASIC, connected to master GBTx and downstream ASICs,
-is responsible for relaying slow control commands (e.g. I2C) and telemetry
-(e.g. thermistor readout on SALT via its built-in ADC) between downstream ASICs
-and the control system of the detector.
-One DCB admits 1 electro-optical transceiver and up to 3 transmitter modules
-named Versatile link which GBLD is a part of the module responsible for
-optical data transmission;
-each of them is installed in a separate optical mezzanine before mounted to a
-DCB.
+As its name suggests, Data Control Board (DCB) is responsible for aggregating
+SALT readouts and propagating slow control commands.
+Shown in \cref{fig:dcb-prod}, a DCB is made of 16 layers of PCBs,
+and consists of:
+
+\begin{itemize}
+    \item \textbf{1 master GBTx}:
+        Operated in transceiver mode,
+        it generates a stable, low jitter\footnote{
+            Deviation from the presumed clock frequency.
+        } clock derived from the clock signal provided by the readout system,
+        with the help of the on-package quartz crystal oscillator,
+        and distributes the clock signal to 6 data GBTxs.
+        It also transmits Timing and Fast Control (TFC) signals to the SALT.
+
+    \item \textbf{1 GBT-SCA}:
+        Connected to master GBTx via an e-link,
+        the GBT-SCA ASIC connects to the I2C interfaces
+        of 6 data GBTx as well as the SALTs.
+        It is responsible for relaying slow control commands to these ASICs.
+        Also, it is used to read telemetry data,
+        namely thermistor readout on SALT, DCB, and optical mezzanines,
+        as well as voltages at DCB,
+        via its built-in ADC.
+
+    \item \textbf{6 data GBTxs}:
+        Operate in simplex transmitter mode,
+        the data GBTxs serialize and scramble the SALT readouts in a way
+        suitable for optical transmission.
+        The processed signal is sent to a Versatile link module mounted on
+        a optical mezzanine for electro-optical conversion and transmission.
+        One data GBTx can serialize up to 12 320~Mbps e-links into a single
+        4.8~Gbps data stream.
+
+        Data GBTxs also relay its clock signal to the SALTs it connects to.
+
+    \item \textbf{1 Versatile link transceiver (VTRx)}:
+        An optical transceiver with a GigaBit Laser Driver (GBLD)
+        as the electro-optical converter.
+
+        It is used to establish a bi-directional connection to the readout
+        system with error-correction functionality that is robust against single
+        bit flips,
+        suitable for relaying fast and slow control commands, as well as
+        telemetry.
+
+    \item \textbf{Up to 3 Versatile link transmitter (VTTx)}:
+        It contains two GBLDs to establish an uni-directional connection
+        to the readout system,
+        suitable for transmitting serialized SALT readout.
+\end{itemize}
 
 \begin{figure}[!htb]
     \centering
@@ -395,6 +421,32 @@ More information regarding LVRs can be found at \cite{LVR_manual}.
 
 \section{The Data Control Board (DCB)}
 \label{ref:ut:dcb}
+
+DCB is part of an implementation of the reference LHCb front-end module.
+
+
+\subsection{The GBT chipset}
+
+
+\subsection{E-links}
+
+
+\subsection{Jumper configuration of DCB}
+
+
+\subsection{I2C interfaces}
+
+
+\subsection{Initialization sequence after a power cycle}
+
+
+\subsection{GBT-SCA ADC readout}
+
+
+\subsection{Test on data transmission quality}
+
+
+\subsection{Quality assurance of DCB at CERN}
 
 
 \section{Data acquisition in UT}
