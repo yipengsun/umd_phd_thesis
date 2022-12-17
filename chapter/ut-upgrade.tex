@@ -290,17 +290,18 @@ and consists of:
 \begin{itemize}
     \item \textbf{1 master GBTx}:
         Operate in transceiver mode,
-        it generates a stable, low jitter\footnote{
-            Deviation from the presumed clock frequency.
-        } clock derived from the clock signal provided by the readout system
-        with the help of the on-package quartz crystal oscillator,
+        it generates a stable by phase-aligning its on-package quartz oscillator
+        clock with the clock signal provided by the readout system,
         and distributes the clock signal to 6 data GBTxs.
-        The Timing and Fast Control data are distributed to up to 6 SALTs it
-        connects to.
-(Timing and Fast Control, TFC)
+        The Timing and Fast Control (TFC) data are distributed to up to 6 SALTs
+        it connects to.
 
     \item \textbf{1 GBT-SCA}:
-        Connected to master GBTx via an e-link,
+        Connected to master GBTx via an e-port\footnote{
+            The electric port for high-frequency communication with other
+            GBT-compatible chips,
+            also serves as the building block for e-links.
+        },
         the GBT-SCA ASIC connects to the I2C interfaces
         of 6 data GBTx as well as the SALTs.
         It is responsible for relaying slow control commands to these ASICs.
@@ -471,8 +472,7 @@ by the SALT ASIC).
 The physical layout of the DCB has been summarized in \cref{dcb-layout}.
 The rest of the section provides more information
 on the GBT chipset which is the foundation of DCB (\cref{dcb-gbt,dcb-elink}),
-the configurability of DCB (\cref{dcb-i2c}),
-the operation of DCB (\cref{dcb-init,dcb-sca}),
+the operation of DCB (\cref{dcb-init}),
 and the testing and quality assurance of DCB (\cref{dcb-test-data,dcb-qa}).
 
 
@@ -504,8 +504,9 @@ The following ASICs from the GBT project are used in DCB:
     \item \textbf{GBT-SCA}:
         GigaBit Transceiver-Slow Control Adapter provides an interface between
         various industrial-standard slow control protocols,
-        namely SPI, I2C, JTAG, and GPIO, to the GBT link protocol
-        \cite{sca_manual}.
+        namely SPI, I2C, JTAG, and GPIO, to the GBT link protocol.
+        It also has a built-in multi-channel ADC that can be configured and
+        read via the GBT link \cite{sca_manual}.
 \end{itemize}
 
 
@@ -575,20 +576,87 @@ This is why the data transmission speed is at 4.48~Gb/s instead of 4.8~Gb/s.
 As described in the previous section,
 operating in widebus mode,
 a data GBTx can provide up to $2 \times 7 = 14$ e-links,
-duplex local electric serial links
+duplex local electric serial links implemented with low-voltage differential
+pairs transmitting downlink data, uplink data, and clock
 \cite{gbtx_manual}.
 
+A SALT requires 3--5 e-links \cite{s22010107},
+so a single data GBTx can aggregate readout data from up to 4 SALTs.
+The allowed SALT-e-link combinations are listed in \cref{tab:salt-elink}.
 
-\subsection{I2C interfaces}
-\label{dcb-i2c}
+\begin{table}[!htb]
+    \centering
+    \begin{tabular}{ c | c }
+        \toprule
+        \textbf{Num. of SALTs} & \textbf{e-links per SALT} \\
+        \midrule
+        4  &  3  \\
+        2  &  3  \\
+        2  &  4  \\
+        2  &  5  \\
+        \bottomrule
+    \end{tabular}
+
+    \caption{Possible SALT-e-link combinations.}
+    \label{tab:salt-elink}
+\end{table}
 
 
 \subsection{Initialization sequence after a power cycle}
 \label{dcb-init}
 
+A GBTx ASIC comes \emph{unconfigured}:
+it will not communicate to the readout and control system without a
+configuration and the optical interface will not be functional.
+It is also not possible to bring the I2C interface for all master GBTxs
+to the counting room electrically because the distance is too long for I2C to
+work.
+Therefore, the master GBTxes have their configuration fused during the QA
+process.
 
-\subsection{GBT-SCA ADC readout}
-\label{dcb-sca}
+With a fused master GBTx, the front-end electronics
+(in this case consider a single DCBs and the SALTs it connects to) has the
+following initialization sequence:
+
+\begin{enumerate}
+    \item Power supplied to the DCB and SALTs.
+    \item The master GBTx (shorted as MC) pauses for 300~$\upmu$s before
+        sampling its fuses. This pause is to wait for the power to stabilize.
+    \item MC samples its fused registers to configure itself.
+    \item MC generates a reference clock at the LHC frequency with
+        its internal Voltage-Controlled Quartz Crystal Oscillator (VCXO)
+        by its internal phase-lock loop.
+    \item MC starts receiving GBT data frames with its deserializer and a Clock
+        and Data Recovery circuit (CDR) tracks the headers of the incoming
+        frames and phase-align the MC reference clock with the frames.
+
+        After this step, the MC's internal clock and the clock in the counting
+        room are considered to be synchronized
+        (they differ by a constant phase).
+        The CDR also provides a high-frequency (320~MHz) clock to the
+        serializer.
+    \item
+        After 800 consecutive clock cycles of constant phases between its
+        phase-lock loop and the clock provided by the CDR,
+        the serializer consider its clock stable and start finalizing the rest
+        of the transmitter block.
+
+        MC initialization done.
+
+    \item A reset signal is issued from the control system to all data GBTxes
+        and SALTs via the GPIO interface from the GBT-SCA.
+
+        At this point data GBTxes have a stable clock.
+
+    \item Program data GBTxes via the I2C interface of the GBT-SCA in a staged
+        manner to avoid large jump in current.
+
+        At this point SALTs also have a stable clock.
+
+    \item Program SALTs via I2C of GBT-SCA.
+
+        Initialization done.
+\end{enumerate}
 
 
 \subsection{Test on data transmission quality}
