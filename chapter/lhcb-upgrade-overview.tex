@@ -192,8 +192,13 @@ as a significant fraction of events is \emph{signal}.
 Instead, it is preferable to categorize different types of signals then apply
 cuts with as much information from an event as possible, as early as possible
 \cite{Albrecht_2014}.
+In this case, a L0 hardware trigger either unnecessarily bias the signal
+or, in the case of a low threshold, rejects almost no event thus useless.
+Therefore, the full events are exposed directly to software HLT1 triggers which
+reconstruct and select tracks with higher efficiency.
 
-Utilizing a software-only trigger provides maximum flexibility.
+In general,
+utilizing a software-only trigger provides maximum flexibility.
 It also makes higher-level physics variables,
 such as the invariant mass of a reconstructed vertex,
 accessible to the trigger,
