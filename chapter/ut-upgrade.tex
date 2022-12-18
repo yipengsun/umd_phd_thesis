@@ -973,3 +973,92 @@ To form a complete package, MiniDAQ provides the following software:
 
 \subsection{\nanoDAQ: A reverse-engineered \dim client for testing UT electronics}
 \label{online-nanodaq}
+
+As stated before, the author was tasked to test DCBs.
+The user interface of the MiniDAQ system is based on a WinCC OA project,
+which is rather unwieldy for \emph{repeated} testing.
+To perform a PRBS test, with the official MiniDAQ software, 6 data GBTxes need
+to be configured separately, as shown in \cref{fig:wincc-oa-gbt}.
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.7\textwidth]{./figs-ut-upgrade/online/gbt_client_slave_gbt_i2c_test.png}
+    \caption{
+        With the WinCC OA UI, configuring 6 GBTxes requires the author
+        to change the ``Address'' field from 1 to 6 manually.
+    }
+    \label{fig:wincc-oa-gbt}
+\end{figure}
+
+As a stave with SALTs arrived at Maryland,
+a full readout test becomes possible.
+This is further complicated by the fact that a manual adjust of e-link phases is
+needed to be able to read SALT data in a stable manner on every power up.
+The procedure is the following: First configure the SALT to output a
+fixed pattern\footnote{
+    For some reason, the pattern \lstinline{C4} was chosen.
+}, then stare at the memory monitoring panel,
+displayed in \cref{fig:wincc-oa-memmon},
+to spot the unstable e-links, and adjust phases for each e-link until they are
+stable.
+It is particularly funny that the panel has bug: To start reading the memory
+which are filled with GBT frames from the GBTxes,
+the option ``Write on Ris Edge'' needs to be toggled to on.
+To inspect these readouts, it needs to be toggled off.
+There is a chance that the switch auto-toggles in which case the only known
+workaround to the author is clicking on the switch repeatedly until it stops.
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.7\textwidth]{./figs-ut-upgrade/online/memory_monitoring_panel.png}
+    \caption{
+        A WinCC memory monitoring panel.
+    }
+    \label{fig:wincc-oa-memmon}
+\end{figure}
+
+To add \emph{salt} to the injury,
+the MiniDAQ is mounted on a rack and its sole input is a keyboard with a
+trackpad akin to a headless laptop, with no room for a dedicated mouse.
+At one point the author voiced his desire to have a more scriptable interface
+for the \dim server,
+to which CERN developers replied:
+Just program in WinCC OA.
+It is a noble idea,
+but there are problems regarding programming with WinCC OA:
+The development environment is called \lstinline{gedi}, which can auto-complete
+some of the keywords but cannot check some of the more basic errors such as an
+undefined variable.
+It is also possible to write code with one's favorite editor but the author
+gave up for reason he cannot remember anymore.
+
+The author decided to write a command line \dim client with Python,
+by first dumping all registered \dim services with \pydim
+\cite{pydim}
+and search the required functionalities such as I2C, GPIO, and memory
+monitoring.
+For example, some of the I2C services have the following signatures:
+
+\begin{lstlisting}
+    Service 22436 : Type of service = 1 name = Gbt/UMDlab/SrvcI2CWrite, format = I:1
+    Service 26017 : Type of service = 1 name = Gbt/UMDlab/SrvcI2CRead, format = I:1;C
+    Service 24492 : Type of service = 2 name = Gbt/UMDlab/CmndI2COperation, format = C:128;C
+\end{lstlisting}
+
+It becomes possible to identify these services in the JCOP source code,
+and understand the required arguments.
+Hence the \nanoDAQ project \cite{nanoDAQ} is born.
+The name suggests that it only implements a small fraction of the capabilities
+provided by MiniDAQ, namely I2C, GPIO, and memory monitoring readout.
+Now the e-link phase adjusting is implemented with a script, with absolutely no
+mouse clicks and few key stokes, as shown in
+\cref{fig:nanodaq-phaseadj}:
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.7\textwidth]{./figs-ut-upgrade/online/elk_phase_adj.png}
+    \caption{
+        E-link phase adjust with \nanoDAQ.
+    }
+    \label{fig:nanodaq-phaseadj}
+\end{figure}
