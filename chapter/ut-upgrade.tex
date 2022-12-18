@@ -940,6 +940,36 @@ write are transmitted with a number of Chars.
 \subsection{MiniDAQ}
 \label{online-minidaq}
 
+The MiniDAQ system,
+a miniature LHCb online system,
+is provided by the LHCb collaboration as a development
+platform for all front-end electronics \cite{GranadoCardoso:2702137}.
+The MiniDAQ hardware is an off-the-shelf server equipped with a PCIe40 card.
+The PCIe40 card, shown in \cref{fig:pcie40}, is loaded with a firmware capable
+of performing triple duty of SODIN, SOL40, and TELL40.
+To form a complete package, MiniDAQ provides the following software:
+
+\begin{itemize}
+    \item A linux distribution, typically CentOS 7.
+    \item A linux kernel module to interface the PCIe40 FPGA to the operating
+        system.
+    \item A \dim server named \lstinline{gbtserv}. A \dim name server is also
+        provided.
+    \item A WinCC OA project acting as a control system more geared toward
+        development.
+        The \dim client is incorporated into WinCC OA by the JCOP framework,
+        developed in-house at CERN.
+\end{itemize}
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.75\textwidth]{./figs-ut-upgrade/online/pcie40.pdf}
+    \caption{
+        A prototype PCIe40 card.
+    }
+    \label{fig:pcie40}
+\end{figure}
+
 
 \subsection{\nanoDAQ: A reverse-engineered \dim client for testing UT electronics}
 \label{online-nanodaq}
