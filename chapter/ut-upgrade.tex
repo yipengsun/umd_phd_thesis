@@ -119,7 +119,7 @@ overlap to ensure coverage.
         \caption{
             A signal and power layer of the Kapton flex cable.
             The low voltage coppers are shown in green;
-            the data and high voltage lines are in red.
+            the data lines are in red.
         }
     \end{subfigure}
 
@@ -611,6 +611,13 @@ The allowed SALT-e-link combinations are listed in \cref{tab:salt-elink}.
     \label{tab:salt-elink}
 \end{table}
 
+It is also worth pointing out that an e-link is uniquely identified by 3 numbers:
+the DCB index, the data GBTx index on the DCB, and the e-ports of the GBTx.
+In other words, e-links are \emph{geographically addressed} without the need
+of additional location information in the GBT frame:
+A particular range of bits from GBT frames produced by a known DCB is sufficient
+for identifying the geographical location of the SALT it connects to.
+
 
 \subsection{Initialization sequence after a power cycle}
 \label{dcb-init}
@@ -728,7 +735,9 @@ The author was tasked to perform a quality assurance procedure again on all of
 them to ensure there is no damage due to shipping.
 The author stitched a testing panel,
 displayed in \cref{fig:dcb-cern-test-panel},
-to perform the following tests with a single click\footnote{
+to perform the following tests,
+similar to tests performed at Maryland,
+with a single click\footnote{
     This made the author's life slightly easier.
     It also allowed the author to partially offload the task to volunteers.
     Thank you Roberto Piandani and Marian Stahl!
@@ -741,7 +750,7 @@ to perform the following tests with a single click\footnote{
     \item Perform a PRBS test with a DCB-generated PRBS for 2 minutes.
     \item If there is any error, the VTTx transmission bias current is
         increased from 5~mA to 6~mA, and the PRBS test is repeated.
-    \item The thermistors connected to the GBT-SCA are readout and checked
+    \item The thermistors connected to the GBT-SCA ADC are readout and checked
         to make sure they fall within a reasonable range.
 \end{enumerate}
 
@@ -779,11 +788,28 @@ and other CERN experts.
 \section{The LHCb online system}
 \label{ref:ut:online}
 
+As shown in \cref{fig:lhcb-online},
+the LHCb online system is made up with 3 subsystems
+\cite{Colombo_2018}:
 
-\subsection{The \dim control protocol}
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.8\textwidth]{./figs-ut-upgrade/online/lhcb_online_sys_overview.pdf}
+    \caption{
+        An overview of the LHCb online system.
+    }
+    \label{fig:lhcb-online}
+\end{figure}
+
+\begin{itemize}
+    \item
+\end{itemize}
 
 
 \subsection{Timing and Fast Control (TFC)}
+
+
+\subsection{The \dim control protocol}
 
 
 \subsection{PCIe40}
@@ -792,4 +818,4 @@ and other CERN experts.
 \subsection{MiniDAQ}
 
 
-\subsection{\nanoDAQ: A reverse-engineered \dim client to aid testing of UT electronics}
+\subsection{\nanoDAQ: A reverse-engineered \dim client for testing UT electronics}
