@@ -213,8 +213,8 @@ There are about 250 event builders in the counting room to receive readout data
 from the detector and assemble them into data packets suitable for software
 triggers.
 Had the HLT1 is purely implemented with conventional CPU programs,
-the full detector readout (30--40~Tb/s) are required to be sent out to the HLT1
-builders.
+the full detector readout (30--40~Tb/s, taken overhead into account) are
+required to be sent out to the HLT farms.
 Instead, a GPU-based HLT1 trigger exploits the fact that each event builder
 can be equipped with 2 GPUs.
 If the trigger can be implemented with less than 500 GPUs,

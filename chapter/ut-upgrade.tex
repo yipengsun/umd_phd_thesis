@@ -611,7 +611,7 @@ The allowed SALT-e-link combinations are listed in \cref{tab:salt-elink}.
     \label{tab:salt-elink}
 \end{table}
 
-It is also worth pointing out that an e-link is uniquely identified by 3 numbers:
+It is worth pointing out that an e-link is uniquely identified by 3 numbers:
 the DCB index, the data GBTx index on the DCB, and the e-ports of the GBTx.
 In other words, e-links are \emph{geographically addressed} without the need
 of additional location information in the GBT frame:
@@ -788,8 +788,14 @@ and other CERN experts.
 \section{The LHCb online system}
 \label{ref:ut:online}
 
+The LHCb online system is responsible for ensuring a consistent clock
+distribution across the whole detector, collecting readout data from front-end
+electronics (FE) and filtering events with software-based HLT algorithms,
+and provisioning initialization, control, and monitoring of the detector.
+%%%%
 As shown in \cref{fig:lhcb-online},
-the LHCb online system is made up with 3 subsystems
+aside from execution of HLT algorithms,
+the LHCb online system consists of three important components:
 \cite{Colombo_2018}:
 
 \begin{figure}[!htb]
@@ -802,20 +808,57 @@ the LHCb online system is made up with 3 subsystems
 \end{figure}
 
 \begin{itemize}
-    \item
+    \item \textbf{SODIN}:
+        A central readout manager that receives clock from the LHC and
+        distributes it to every single detector components
+        (from FE to back-end readers).
+        It also issue Timing and Fast Control (TFC) commands to the front-end to
+        regulate data flow.
+
+    \item \textbf{SOL40}:
+        Fan out TFC commands to the reader and FE,
+        while providing an interface between the FE and the control system of
+        the experiment.
+
+    \item \textbf{TELL40}:
+        Readout from FE. Hosted inside event builders.
 \end{itemize}
+
+The functionalities required by the three components is implemented with a
+single hardware:
+the PCIe40 board,
+which is a PCI Express Gen 3.0 x16 add-in card based on Intel Arria 10 FPGA and
+high-density optical I/O with up to 48 duplex GBT link ports.
+By flashing a different firmware,
+a PCIe40 can satisfy the requirements by each component.
+In its TELL40 flavor, PCIe40 is capable of copying the received readout data
+into the main system memory at over 100~Gb/s.
+It is also possible load a firmware combining all three components with reduced
+read bandwidth, in which case the PCIe40 forms the foundation of the
+MiniDAQ system used by the collaborating institutions to develop FE
+\cite{GranadoCardoso:2702137}.
+
+The remaining section first provide an overview of the fast
+(\cref{online-tfc}) and slow (\cref{online-dim}) control ``protocols'',
+before jumping into an introduction on the MiniDAQ system
+(\cref{online-minidaq}).
+Finally, a program developed in-house is discussed in \cref{online-nanodaq},
+showing its utilities in testing FE at Maryland.
 
 
 \subsection{Timing and Fast Control (TFC)}
+\label{online-tfc}
+
+
 
 
 \subsection{The \dim control protocol}
-
-
-\subsection{PCIe40}
+\label{online-dim}
 
 
 \subsection{MiniDAQ}
+\label{online-minidaq}
 
 
 \subsection{\nanoDAQ: A reverse-engineered \dim client for testing UT electronics}
+\label{online-nanodaq}
