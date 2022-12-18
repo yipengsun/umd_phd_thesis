@@ -474,6 +474,8 @@ The rest of the section provides more information
 on the GBT chipset which is the foundation of DCB (\cref{dcb-gbt,dcb-elink}),
 the operation of DCB (\cref{dcb-init}),
 and the testing and quality assurance of DCB (\cref{dcb-test-data,dcb-qa}).
+More details about configuring DCB can be found in a document
+(not publicly available, yet) prepared by the Maryland group.
 
 
 \subsection{The GBT chipset}
@@ -486,8 +488,9 @@ The following ASICs from the GBT project are used in DCB:
 
 \begin{itemize}
     \item \textbf{GBTx}:
-        GBTx is a radiation tolerant ASIC for implementing high-speed
-        uni- or bi-directional optical links in high energy experiments
+        GBTx is a radiation tolerant serializing/deserializing ASIC for
+        implementing high-speed uni- or bi-directional optical links in high
+        energy experiments
         \cite{gbtx_manual}.
 
     \item \textbf{GBLD}:
@@ -615,7 +618,7 @@ Therefore, the master GBTxes have their configuration fused during the QA
 process.
 
 With a fused master GBTx, the front-end electronics
-(in this case consider a single DCBs and the SALTs it connects to) has the
+(in this case consider a single DCB and the SALTs it connects to) have the
 following initialization sequence:
 
 \begin{enumerate}
@@ -623,7 +626,7 @@ following initialization sequence:
     \item The master GBTx (shorted as MC) pauses for 300~$\upmu$s before
         sampling its fuses. This pause is to wait for the power to stabilize.
     \item MC samples its fused registers to configure itself.
-    \item MC generates a reference clock at the LHC frequency with
+    \item MC generates a reference clock at the LHC frequency (40~MHz) with
         its internal Voltage-Controlled Quartz Crystal Oscillator (VCXO)
         by its internal phase-lock loop.
     \item MC starts receiving GBT data frames with its deserializer and a Clock
@@ -661,6 +664,39 @@ following initialization sequence:
 
 \subsection{Test on data transmission quality}
 \label{dcb-test-data}
+
+Two types of checks are performed:
+An eye diagram is produced from configuring the DCB to output a pseudo-random
+bit sequence\footnote{
+    A PRBS is a periodic sequence such that if current value of $a$ is provided,
+    the immediate next value can be computed with $f(a)$ for some known function
+    $f$.
+} (PRBS) by triggering on the rising and falling edges
+of the waveform (unit time interval) overnight and overlay the triggered pieces
+together.
+It is a visualization of the p.d.f. of the signal per cycle.
+Note that the Keysight oscilloscope has to be configured to calculate the
+data rate \emph{semi-automatically} instead of \emph{automatically}.
+The eye diagram is displayed in \cref{fig:dcb-eye}.
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.85\textwidth]{./figs-ut-upgrade/dcb/dcb_eye_diagram.png}
+    \caption{
+        An eye diagram for DCB, produced overnight.
+        Wide-open and has no noise in the eye, an indication of good signal
+        quality.
+    }
+    \label{fig:dcb-eye}
+\end{figure}
+
+Due to the nature of PRBS, once a single bit is received from the sequence,
+the next bits can be predicted and checked against indefinitely.
+A high-statistic check of PRBS is performed for 5 consecutive days without
+a single bit error, corresponding to an error-free data transmission of
+$\mathcal{O}(10^{15})$ bits in a low radiation environment\footnote{
+    It was performed in our lab in the 3rd floor.
+}.
 
 
 \subsection{Quality assurance of DCB at CERN}
