@@ -582,7 +582,9 @@ This is why the data transmission speed is at 4.48~Gb/s instead of 4.8~Gb/s.
 
 As described in the previous section,
 operating in widebus mode,
-a data GBTx can provide up to $2 \times 7 = 14$ e-links ,
+a data GBTx can provide up to $2 \times 7 = 14$ e-links\footnote{
+    A GBTx contains many e-ports which are used to facilitate e-links.
+},
 duplex local electric serial links implemented with low-voltage differential
 pairs transmitting data at 320~Mb/s
 \cite{gbtx_manual},
@@ -617,6 +619,19 @@ In other words, e-links are \emph{geographically addressed} without the need
 of additional location information in the GBT frame:
 A particular range of bits from GBT frames produced by a known DCB is sufficient
 for identifying the geographical location of the SALT it connects to.
+
+During data transmission via an e-link, the SALT and GBTx operate with the same
+clock frequency with a phase difference,
+which implies that as SALT start transmitting data,
+the GBTx is \emph{not guaranteed} to have stable edge in clock;
+this is further complicated by the fact that the copper trace lengths introduce
+another phase difference.
+In any case, it is possible that when the SALT data arrives at the GBTx,
+the GBTx is in a rising or a falling edge of the clock, in which case
+the data cannot be reliably sampled.
+To solve this problem, each e-link on GBTx is equipped with phase adjusting
+capability so that the sampling happens in the middle of the eye with a stable
+clock.
 
 
 \subsection{Initialization sequence after a power cycle}
@@ -1030,12 +1045,12 @@ The development environment is called \lstinline{gedi}, which can auto-complete
 some of the keywords but cannot check some of the more basic errors such as an
 undefined variable.
 It is also possible to write code with one's favorite editor but the author
-gave up for reason he cannot remember anymore.
+gave up for reasons he cannot remember anymore.
 
 The author decided to write a command line \dim client with Python,
 by first dumping all registered \dim services with \pydim
 \cite{pydim}
-and search the required functionalities such as I2C, GPIO, and memory
+then searching for the required functionalities such as I2C, GPIO, and memory
 monitoring.
 For example, some of the I2C services have the following signatures:
 
@@ -1045,7 +1060,7 @@ For example, some of the I2C services have the following signatures:
     Service 24492 : Type of service = 2 name = Gbt/UMDlab/CmndI2COperation, format = C:128;C
 \end{lstlisting}
 
-It becomes possible to identify these services in the JCOP source code,
+It became possible to identify these services in the JCOP source code,
 and understand the required arguments.
 Hence the \nanoDAQ project \cite{nanoDAQ} is born.
 The name suggests that it only implements a small fraction of the capabilities
@@ -1062,3 +1077,6 @@ mouse clicks and few key stokes, as shown in
     }
     \label{fig:nanodaq-phaseadj}
 \end{figure}
+
+Looking back, the author gained most of the online system knowledge due to the
+pain inflicted by DCB and SALT testing.
