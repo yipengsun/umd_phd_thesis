@@ -810,18 +810,29 @@ the LHCb online system consists of three important components:
 \begin{itemize}
     \item \textbf{SODIN}:
         A central readout manager that receives clock from the LHC and
-        distributes it to every single detector components
-        (from FE to back-end readers).
-        It also issue Timing and Fast Control (TFC) commands to the front-end to
-        regulate data flow.
+        distributes it to SOL40.
+        It also issues Timing and Fast Control (TFC) commands\footnote{
+            In general, TFC commands have the following capability:
+            Provide a bunch-crossing ID at 40~MHz to FE which is used to ensure
+            synchronicity across FE in the detector;
+            allow FE to operate in special modes such as producing a calibration
+            pulse or transmitting data non-zero-suppressed;
+            instruct FE to reset their operation logic while retaining their
+            configuration;
+            among others.
+            More information regarding TFC can be found at
+            \cite{Alessio:1424363} but is not the focus of this text.
+        } to the front-end to regulate data flow.
 
     \item \textbf{SOL40}:
-        Fan out TFC commands to the reader and FE,
-        while providing an interface between the FE and the control system of
+        Fan out TFC commands to TELL40 and FE,
+        and fan in throttle from TELL40 to SODIN.
+        It also provides an interface between the FE and the control system of
         the experiment.
 
     \item \textbf{TELL40}:
         Readout from FE. Hosted inside event builders.
+        Accept TFC commands for synchronization.
 \end{itemize}
 
 The functionalities required by the three components is implemented with a
@@ -833,27 +844,97 @@ By flashing a different firmware,
 a PCIe40 can satisfy the requirements by each component.
 In its TELL40 flavor, PCIe40 is capable of copying the received readout data
 into the main system memory at over 100~Gb/s.
-It is also possible load a firmware combining all three components with reduced
-read bandwidth, in which case the PCIe40 forms the foundation of the
+It is also possible to load a firmware combining all three components with
+reduced read bandwidth, in which case the PCIe40 forms the foundation of the
 MiniDAQ system used by the collaborating institutions to develop FE
 \cite{GranadoCardoso:2702137}.
 
-The remaining section first provide an overview of the fast
-(\cref{online-tfc}) and slow (\cref{online-dim}) control ``protocols'',
-before jumping into an introduction on the MiniDAQ system
+The remaining section first provides an overview of
+the slow control protocol (\cref{online-dim}),
+followed by an introduction on the MiniDAQ system
 (\cref{online-minidaq}).
 Finally, a program developed in-house is discussed in \cref{online-nanodaq},
 showing its utilities in testing FE at Maryland.
 
 
-\subsection{Timing and Fast Control (TFC)}
-\label{online-tfc}
-
-
-
-
 \subsection{The \dim control protocol}
 \label{online-dim}
+
+The Distributed Information Management (\dim) system provides
+a network\footnote{
+    With TCP/IP protocol.
+} based inter-process communication protocol \cite{Gaspar:559279},
+implemented in C to ensure portability across operating systems,
+which the slow control system is based upon.
+The \dim protocol requires a central name server (like a phone directory)
+which all \dim server (like people) implementing controlling of devices will
+register on.
+When the controller, a \dim \emph{client}, need to configure a device with a
+certain name,
+it first inquire the name server (look up a name in the phone
+directory) before connecting to the specific \dim server and effecting changes
+(call the people listed in the directory and do things).
+
+To be more specific,
+first consider a single SOL40 connected to some FE:
+A part of the FPGA on the PCIe40 card implements a GBT transceiver.
+Further, the ability to write to and read from that transceiver is exposed
+to the operating system\footnote{
+    Typically linux, more specifically CentOS 7.
+} on SOL40.
+A \dim server is also running on the SOL40 to translate different types of GBT
+write/read commands,
+such as GBT-I2C and GBT-GPIO,
+to \dim \emph{services}.
+
+Each SOL40 then registers its \dim services to a central name server.
+A human controller sitting in the control room at point 8 will have a computer
+running a \dim client with many clickable buttons corresponding to GBT write
+commands to different FE.
+The controller can click a button in which case the \dim client will perform
+a lookup on the central name server and make changes to the FE via the
+\dim server running in the looked-up SOL40.
+The procedure is illustrated in \cref{fig:dim-lhcb}
+
+\begin{figure}[!htb]
+    \centering
+    \hspace{0.2em}
+    \resizebox{0.75\columnwidth}{!}{
+        \input{figs-ut-upgrade/online/dim-schematic.tikz}
+    }
+    \hspace{0.2em}
+    \caption{
+        A diagram illustrating \dim control flow.
+    }
+    \label{fig:dim-lhcb}
+\end{figure}
+
+Each \dim service declares its communication interface as a string to the \dim
+sever.
+The \dim protocol communication interface is defined as the following:
+
+\begin{lstlisting}
+    <input type>:<number of inputs>;<return type>:<number of returns>
+\end{lstlisting}
+where:
+
+\begin{itemize}
+    \item The following types are allowed:
+        Char (\lstinline{C}): 1 byte;
+        Int (\lstinline{I}): 4 bytes;
+        Long (\lstinline{L}): 4 bytes;
+        Short (\lstinline{S}): 2 bytes;
+        Double (\lstinline{D}): 8 bytes;
+        Float (\lstinline{F}): 4 bytes;
+        Long Long (\lstinline{X}): 8 bytes.
+    \item The return value is optional so that interface of the form
+        \lstinline{I:2} is legal.
+    \item The return value (only) can have variable lengths in which case
+        the \lstinline{number of returns} is omitted.
+\end{itemize}
+
+In LHCb it is often the case that ASIC register addresses and the values to
+write are transmitted with a number of Chars.
 
 
 \subsection{MiniDAQ}

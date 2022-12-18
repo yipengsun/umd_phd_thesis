@@ -1,0 +1,35 @@
+\begin{tikzpicture}[
+        dim/.style = {
+            draw, thick,
+            circle,
+            text = black,
+            font = \bfseries,
+            minimum size = 0.7,
+            text width = 2em,
+            align = center,
+        }
+    ]
+    \node[dim,fill=blue!40!white] (1) at (-3, -2) {\tiny SOL40};
+    \node[dim,fill=blue!40!white] (2) at (-3,  2) {\tiny SOL40};
+
+    \node[dim,fill=blue!30!green] (3) at ( 0,  0) {\tiny name server};
+    \node[dim,fill=blue!20!red]   (4) at ( 3, -2) {\tiny client};
+
+    \path[-stealth,dashed] (2.south east)
+        edge[bend right=35] node[midway,above,rotate=-35] {\tiny register}
+        (3.west);
+    \path[-stealth,dashed] (1.north east)
+        edge[bend right=-35] node[midway,above,rotate=35] {\tiny register}
+        (3.west);
+
+    \path[-stealth,dashed] (4.north west)
+        edge[bend left=35] node[midway,below,rotate=-43] {\tiny request service}
+        (3.east);
+    \path[-stealth,dashed] (3.east)
+        edge[bend left=35] node[midway,above,rotate=-43] {\tiny service info}
+        (4.north west);
+
+    \path[>=stealth,<->] (4.west)
+        edge node[midway,below] {\tiny command \& data}
+        (1.east);
+\end{tikzpicture}
