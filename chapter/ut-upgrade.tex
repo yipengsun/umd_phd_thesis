@@ -23,7 +23,7 @@ which is responsible to concentrate sensor readout and to control the UT
 detector;
 more details on DCB is described in \cref{ref:ut:dcb}.
 In doing so, the author gained understanding on the data acquisition and control
-system of the UT;
+system of the LHCb experiment;
 a review of these systems are summarized in \cref{ref:ut:daq} and
 \cref{ref:ut:ctrl}, respectively.
 
@@ -471,7 +471,8 @@ by the SALT ASIC).
 
 The physical layout of the DCB has been summarized in \cref{dcb-layout}.
 The rest of the section provides more information
-on the GBT chipset which is the foundation of DCB (\cref{dcb-gbt,dcb-elink}),
+on the GBT chipset which is the foundation of DCB
+(\cref{dcb-gbt,dcb-gbt-link,dcb-elink}),
 the operation of DCB (\cref{dcb-init}),
 and the testing and quality assurance of DCB (\cref{dcb-test-data,dcb-qa}).
 More details about configuring DCB can be found in a document
@@ -514,6 +515,7 @@ The following ASICs from the GBT project are used in DCB:
 
 
 \subsection{The GBT link}
+\label{dcb-gbt-link}
 
 The GBT link has two transmission mode relevant for DCB: FEC and widebus mode.
 The former provides error correction capability with the trade-off of reduced
@@ -526,7 +528,7 @@ In either mode, a single data frame is always 120 bit long.
 \paragraph{Transceiver}
 The master GBTx is configured to work in the transceiver mode, working in
 FEC mode.
-Each frame in this mode contains the following sub-fields:
+Each frame in this mode contains the following fields:
 
 \begin{itemize}
     \item \textbf{Header}:
@@ -558,7 +560,7 @@ Each frame in this mode contains the following sub-fields:
         In practice the data is robust against up to 16 consecutive bit
         corruptions.
 
-        All sub-fields above are protected by the FEC field.
+        All fields above are protected by the FEC field.
 \end{itemize}
 
 \paragraph{Transmitter}
@@ -578,10 +580,13 @@ This is why the data transmission speed is at 4.48~Gb/s instead of 4.8~Gb/s.
 
 As described in the previous section,
 operating in widebus mode,
-a data GBTx can provide up to $2 \times 7 = 14$ e-links,
+a data GBTx can provide up to $2 \times 7 = 14$ e-links ,
 duplex local electric serial links implemented with low-voltage differential
-pairs transmitting downlink data, uplink data, and clock
-\cite{gbtx_manual}.
+pairs transmitting data at 320~Mb/s
+\cite{gbtx_manual},
+with the transmission speed chosen by the design of the SALT.
+In DCB, however, only up to 12 e-links per data GBTx are accessible to the
+SALTs.
 
 A SALT requires 3--5 e-links \cite{s22010107},
 so a single data GBTx can aggregate readout data from up to 4 SALTs.
@@ -591,7 +596,7 @@ The allowed SALT-e-link combinations are listed in \cref{tab:salt-elink}.
     \centering
     \begin{tabular}{ c | c }
         \toprule
-        \textbf{Num. of SALTs} & \textbf{e-links per SALT} \\
+        \textbf{Number of SALTs} & \textbf{e-links per SALT} \\
         \midrule
         4  &  3  \\
         2  &  3  \\
@@ -609,9 +614,9 @@ The allowed SALT-e-link combinations are listed in \cref{tab:salt-elink}.
 \label{dcb-init}
 
 A GBTx ASIC comes \emph{unconfigured}:
-it will not communicate to the readout and control system without a
+It will not communicate to the readout and control system without a
 configuration and the optical interface will not be functional.
-It is also not possible to bring the I2C interface for all master GBTxs
+It is also not possible to bring the I2C interfaces for all master GBTxs
 to the counting room electrically because the distance is too long for I2C to
 work.
 Therefore, the master GBTxes have their configuration fused during the QA
@@ -625,36 +630,49 @@ following initialization sequence:
     \item Power supplied to the DCB and SALTs.
     \item The master GBTx (shorted as MC) pauses for 300~$\upmu$s before
         sampling its fuses. This pause is to wait for the power to stabilize.
+
+        It is observed that with a slower power supply,
+        such as the Rigol power supply in our lab,
+        the DCB turn-on can become unstable.
+        In such case it is advised to manually hold the master GBTx in reset
+        until the power is stable.
+
     \item MC samples its fused registers to configure itself.
+
     \item MC generates a reference clock at the LHC frequency (40~MHz) with
         its internal Voltage-Controlled Quartz Crystal Oscillator (VCXO)
         by its internal phase-lock loop.
+
     \item MC starts receiving GBT data frames with its deserializer and a Clock
         and Data Recovery circuit (CDR) tracks the headers of the incoming
-        frames and phase-align the MC reference clock with the frames.
+        frames and phase-aligns the MC reference clock with the frame-sending
+        frequency.
 
-        After this step, the MC's internal clock and the clock in the counting
-        room are considered to be synchronized
+        After the deserializer declares a lock,
+        the MC's internal clock and the clock in the counting room are
+        considered to be synchronized
         (they differ by a constant phase).
         The CDR also provides a high-frequency (320~MHz) clock to the
         serializer.
     \item
         After 800 consecutive clock cycles of constant phases between its
         phase-lock loop and the clock provided by the CDR,
-        the serializer consider its clock stable and start finalizing the rest
+        the serializer considers its clock stable and start finalizing the rest
         of the transmitter block.
 
-        MC initialization done.
+        MC initialization done and a bi-directional link in FEC mode to the
+        counting room is established.
 
     \item A reset signal is issued from the control system to all data GBTxes
         and SALTs via the GPIO interface from the GBT-SCA.
 
-        At this point data GBTxes have a stable clock.
+        At this point data GBTxes have a stable clock directly from MC.
 
     \item Program data GBTxes via the I2C interface of the GBT-SCA in a staged
-        manner to avoid large jump in current.
+        manner to avoid large jumps in current.
 
-        At this point SALTs also have a stable clock.
+        At this point SALTs also have a stable clock from a data GBTx which
+        relays its clock.
 
     \item Program SALTs via I2C of GBT-SCA.
 
@@ -672,8 +690,8 @@ bit sequence\footnote{
     the immediate next value can be computed with $f(a)$ for some known function
     $f$.
 } (PRBS) by triggering on the rising and falling edges
-of the waveform (unit time interval) overnight and overlay the triggered pieces
-together.
+of the waveform (unit time interval) overnight and overlaying the triggered
+pieces together.
 It is a visualization of the p.d.f. of the signal per cycle.
 Note that the Keysight oscilloscope has to be configured to calculate the
 data rate \emph{semi-automatically} instead of \emph{automatically}.
