@@ -393,16 +393,18 @@ which makes the resistance of the cable non-ignorable.
 \end{figure}
 
 To ensure correct voltages are delivered at the ASIC side,
-LVR implements a remote sensing capability such that the remote voltage is
-constantly monitored and kept at the specified voltages\footnote{
+LVR implements a remote sensing capability by a Microsemi FPGA such that the
+remote voltage is constantly monitored and kept at the specified
+voltages\footnote{
     Consider the specified voltage is at 1.25~V, the LVR output voltage is
     at about 1.4~V.
     The $V_\text{sense}$ vs. $V_\text{LVR}$ lookup table can be found at
     \cite{LVR_output_voltage_lookup}.
-}, which require one
-pair of sense lines carrying little current in addition to the pair of current
+}, which require one pair of sense lines carrying little current in addition to
+the pair of current
 carrying lines (4 lines for a single output channel).
-This capability is implemented by a Microsemi FPGA.
+It can be intuited as if LVR can probe with a multimeter at the power input of
+the front-end electronic and adjust its output voltages accordingly.
 When the sense line breaks, the unsensed output voltage at LVR side is always
 at the specified value so ASICs will be undervolt, which is safe.
 However, when the sense line is shorted, LVR will keep ramping up the voltage
@@ -727,7 +729,7 @@ them to ensure there is no damage due to shipping.
 The author stitched a testing panel,
 displayed in \cref{fig:dcb-cern-test-panel},
 to perform the following tests with a single click\footnote{
-    This makes the author's life slightly easier.
+    This made the author's life slightly easier.
     The author also utilized volunteers to partially offload the task.
     Thank you Roberto Piandani and Marian Stahl!
 } on 2 DCBs at a time:
