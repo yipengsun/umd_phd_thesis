@@ -440,7 +440,7 @@ readout, serialization of digitized readout, and distribution of control
 commands.
 The DCB,
 schematically shown in \cref{fig:dcb-schematic},
-implements the last two functionalites (for UT the sensor readout is implemented
+implements the last two functionalities (for UT the sensor readout is implemented
 by the SALT ASIC).
 
 \begin{figure}[!htb]
@@ -702,8 +702,61 @@ $\mathcal{O}(10^{15})$ bits in a low radiation environment\footnote{
 \subsection{Quality assurance of DCB at CERN}
 \label{dcb-qa}
 
+There are $\sim 250$ DCBs shipped to CERN;
+all of them has been tested at Maryland.
+The author was tasked to perform a quality assurance procedure again on all of
+them to ensure there is no damage due to shipping.
+The author stitched a testing panel,
+displayed in \cref{fig:dcb-cern-test-panel},
+to perform the following tests with a single click\footnote{
+    This makes the author's life slightly easier.
+    The author also utilized volunteers to partially offload the task.
+    Thank you Roberto Piandani and Marian Stahl!
+} on 2 DCBs at a time:
 
-\section{Data acquisition in UT}
+\begin{enumerate}
+    \item Read the status of master GBTx to ensure the bi-directional
+        connections are established.
+
+    \item Perform a PRBS test with a DCB-generated PRBS for 2 minutes.
+    \item If there is any error, the VTTx transmission bias current is
+        increased from 5~mA to 6~mA, and the PRBS test is repeated.
+    \item The thermistors connected to the GBT-SCA are readout and checked
+        to make sure they fall within a reasonable range.
+\end{enumerate}
+
+\begin{figure}[!htb]
+    \centering
+    \begin{subfigure}[t]{0.4\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{./figs-ut-upgrade/dcb/dcb_cern_panel_1.png}
+        \caption{
+            A running panel.
+        }
+    \end{subfigure}
+    \hspace{24pt}
+    \begin{subfigure}[t]{0.4\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{./figs-ut-upgrade/dcb/dcb_cern_panel_2.png}
+        \caption{
+            ...sometimes the master GBTx refuses to talk.
+        }
+    \end{subfigure}
+
+    \caption{
+        DCB CERN testing panel.
+    }
+    \label{fig:dcb-cern-test-panel}
+\end{figure}
+
+The panel is written in a pseudo C\# language used by the WinCC OA
+SCADA (supervisory control and data acquisition) system,
+the control system chosen by CERN.
+The underlying functionalities are borrowed from code written by Mark Tobin
+and other CERN experts.
+
+
+\section{Data acquisition in LHCb}
 \label{ref:ut:daq}
 
 
@@ -713,7 +766,7 @@ $\mathcal{O}(10^{15})$ bits in a low radiation environment\footnote{
 \subsection{Timing and Fast Control (TFC)}
 
 
-\section{Control system of UT}
+\section{Control system of the LHCb detector}
 \label{ref:ut:ctrl}
 
 
