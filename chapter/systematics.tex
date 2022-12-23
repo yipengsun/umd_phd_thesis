@@ -190,8 +190,14 @@ The removal is carried out with the following procedure:
         and 5 $D^{**}$ form factor parameters.
         Denote the covariance matrix as $M$
 
-    \item Block decompose $M$ into
-        $\Sigma_{11}, \Sigma_{22}, \Sigma_{12}, \Sigma_{22}$
+    \item Block decompose $M$ into:
+        \begin{equation}
+            M =
+            \begin{bmatrix}
+                \Sigma_{11} &  \Sigma_{12} \\
+                \Sigma_{21} &  \Sigma_{22} \\
+            \end{bmatrix}
+        \end{equation}
         such that $\Sigma_{11}$,
         5 dimensional,
         corresponds to the raw correlations between
