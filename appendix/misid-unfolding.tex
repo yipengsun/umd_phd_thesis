@@ -93,8 +93,49 @@ The Bayesian (iterative\footnote{
     step but does not explicitly produce a posterior p.d.f based on
     likelihood and prior p.d.f.s (both are specified by the user).
 }) unfolding method provided by \RooUnfold
-(\cite{doi:10.1142/S0217751X20501456})
+\cite{doi:10.1142/S0217751X20501456}
 is used to obtain the true yields $\tilde{n}_t$.
+The main idea is sketched below:
+
+\begin{enumerate}[label=\protect\circled{\arabic*}]
+    \item Consider the true yield for \pion of a tagged species $\hat{t}'$ only.
+
+    \item Given that all true \pion to a tagged species $\hat{t}''$ efficiencies
+        \misEff[\pion]{\hat{t}''}
+        are known,
+        assuming initially the true yield $\tilde{n}_\pion$ equals
+        to the tagged yield $\tilde{n}_\hat{\pion}$,
+        for a particular tagged species $\hat{t}'$, its efficiencies to a
+        \emph{true} \pion can be written as:
+
+        \begin{equation}
+            \misEff[\hat{t}']{\pion}_0 = \frac{
+                 \tilde{n}_{\hat{\pion}} \cdot \misEff[\pion]{\hat{t'}}
+            }{
+                \sum_t \tilde{n}_{\hat{t}} \cdot \misEff[t]{\hat{t'}}
+            }
+            \label{eqn:unfolding-basic}
+        \end{equation}
+        where the subscript 0 indicates that this is an initial estimate
+        of the efficiency.
+
+    \item An initial estimate of the yield of true \pion can be computed:
+
+        \begin{equation}
+            N^\pion_0 = \sum_{\hat{t'}}
+                \tilde{n}_{\hat{t}'}
+                \cdot \misEff[\hat{t}']{\pion}
+        \end{equation}
+        where $\tilde{n}_{\hat{t}'}$ is the \emph{tagged yield} as reported by
+        the measurement.
+
+    \item Compute a $\chi^2$ between $N^\pion_0$ and the initial estimated
+        true yield taken to be equal to $\tilde{n}_\hat{\pion}$.
+        If the $\chi^2$ is large-ish,
+        go back to \circled{2} with the $N^\pion_0$ as the estimated true yield,
+        instead of $\tilde{n}_\hat{\pion}$.
+\end{enumerate}
+
 At this stage, there is no guarantee that
 $\sum_t \tilde{n}_t = \sum_{\hat{t}'} \tilde{n}_{\hat{t}'}$.
 Naive matrix inversion cannot be used because it is sensitive to statistical
@@ -122,7 +163,8 @@ With the unfolded true yields, we can compute:
         conserved by unfolding.
 \end{itemize}
 
-Put them together:
+Put them together (noting the similarities between this equation and
+\cref{eqn:unfolding-basic}!):
 
 \begin{equation}
     \misEff[\hat{t}']{t^{\phantom{}}} =
