@@ -50,6 +50,8 @@
                 tabls
                 biblatex
                 appendix
+                tikz-feynman
+                beamer
                 # Implicit dependencies
                 mciteplus
                 cite
