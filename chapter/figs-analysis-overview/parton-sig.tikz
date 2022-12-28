@@ -2,9 +2,13 @@
     \vertex (a1) {\(b\)};
     \vertex[right=7em of a1] (a2);
     \vertex[right=7em of a2] (a4) {\(c\)};
+    \vertex[right=3em of a1] (z1);
+    \vertex[right=8em of a1] (z2);
 
     \vertex[below=3em of a1] (b1) {\(\overline q\)};
     \vertex[below=3em of a4] (b2) {\(\overline q\)};
+    \vertex[right=2em of b1] (y1);
+    \vertex[right=9em of b1] (y2);
 
     \vertex at ($(a2)!0.5!(a2)!0.5cm!90:(a2)$) (d);
 
@@ -26,6 +30,8 @@
         (c1) -- [boson, edge label=\(W^-\)] (e2),
         (e2) -- [fermion] (e3),
         (e2) -- [anti fermion] (e4),
+        (z1) -- [gluon] (y1),
+        (z2) -- [gluon] (y2),
     };
 
     \draw [decoration={brace}, decorate] (b1.south west) -- (a1.north west)
