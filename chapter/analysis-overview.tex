@@ -128,16 +128,26 @@ More information about RFA can be found in \cref{appx:rfa}.
 %     \label{fig:rfa-variables}
 % \end{figure}
 
-As an update to the LHCb \RDX run 1 analysis, this analysis shares a similar
+This analysis has the same main idea as in the LHCb \RDX run 1 analysis:
+fit the parameters characterizing various background decays with separate
+control samples, then import these parameters either as constraints or fully
+fixed into the signal fit;
+this is because while the signal(-enriched) samples contain many backgrounds,
+they are only a small fraction relative to the signal and normalization
+combined,
+thus no good description of the backgrounds can be extracted from the signal fit
+alone.
+
+As an update to the previous analysis, this analysis shares a similar
 workflow with that of run 1.
 The workflow of this analysis is:
 First, \Dstarp\mun and \Dz\mun final states are selected with the procedure
 described in \cref{ref:sel}.
-Then, emulation of certain detector responses to MC are carried out offline:
-This analysis requires a large number of MC events to control statistical
-uncertainty, making \emph{simulating} every detector response impractical.
-Both the reason (with more details) and the emulation procedure are discussed in
-\cref{ref:mc-emulation}.
+Then, emulation of certain detector responses to MC are carried out offline
+with the procedure described in
+\cref{ref:mc-emulation},
+as this analysis requires a large number of MC events with only partial detector
+simulation to be computationally viable.
 After, various mis-modellings in MC simulation,
 mainly in form factor modelling and detector responses, are updated and
 corrected with the procedures detailed in \cref{ref:mc-cor}.
@@ -145,11 +155,39 @@ Finally, \RDX are extracted from a simultaneous fit, with fit procedure and
 results listed in \cref{ref:fit}
 and selected systematic uncertainties discussed in
 \cref{ref:sys-uncert}.
-% Many technologies developed for run 1 are carried over to this analysis.
-% The main additional difficulties this analysis has to face are the emulation
-% on MC (already listed above) and a wide variety of software usage, including
-% different versions of the same software.
-% The latter is summarized as a side in \cref{ref:reprod-analysis}.
+%%%%
+In passing the author points out the major differences between this analysis
+and the pathfinder run 1 \RDX analysis:
+\begin{itemize}
+    \item Due to a larger integrated luminosity
+        (5.4~fb$^{-1}$ in run 2 versus 3.0~fb$^{-1}$ in run 1),
+        a larger $B$ production cross section due to higher collision energy
+        (13~TeV center of mass energy in run 2 versus 7~TeV in run 1),
+        and a dedicated trigger resulting in a higher selection efficiency,
+        the run 2 analysis can work with a much larger dataset:
+        For 2016 alone the selected \Dz\mun signal sample contains 2,178,793
+        events, whereas for run 1 combined 1,734,133 events, a factor of $\sim
+        1.26$ gain.
+
+        As briefly mentioned in the previous paragraph,
+        a large amount of MC is needed,
+        which makes it impractical to simulation most of the detector.
+        Instead, only the tracking system is simulated and additional detector
+        responses such as hardware triggers are \emph{emulated} offline.
+
+    \item In order to update (reweight) MC form factor models offline,
+        the run 1 analysis implemented two ad-hoc approaches for form factor
+        reweighting:
+        one is based on \texttt{XslFF} reweighting class from BaBar,
+        the other is completely in-house.
+        A large amount of time is spent on validation of the form factor
+        reweighting implementations.
+
+        Recently, a new software package, named \Hammer, allows easier form
+        factor reweighting and comes pre-validated by the \Hammer authors.
+        This analysis leverages on \Hammer for an easier to implement and more
+        reliable form factor reweighting procedure.
+\end{itemize}
 
 Additional information is organized as follows:
 An overview of theory of semileptonic \B decay is provided in
