@@ -1,15 +1,40 @@
 \chapter{Analysis overview}
 \label{ref:overview}
 
-This analysis aims at an extraction of \RD and \RDst from
-LHCb 2016 data\footnote{
+This analysis aims at an extraction of \RD and \RDst,
+with the definition reproduced from the introduction:
+\begin{equation}
+    \RDX \equiv \frac{\BFDTau}{\BFDMu}
+\end{equation}
+from LHCb 2016 data\footnote{
     It is planned to use full LHCb run 2 data (2016--2018) at a later date.
-}, reconstructed in $\Dstarp\mun$ and $\Dz\mun$ final states
-(often referred in this text as \Dstar channel and \Dz channel in later
-chapters).
+}, reconstructed in (with visible final state particles marked in red):
+%%%%
+\begin{itemize}
+    \item $\Bzb \rightarrow \Dstarp (\rightarrow \Dz (\rightarrow \textcolor{red}{\Km \pip})\textcolor{red}{\pip}) \taum (\rightarrow \textcolor{red}{\mun} \neumb \neut) \neutb)$
+        for \RDst signal decay
+    \item $\Bzb \rightarrow \Dstarp (\rightarrow \Dz (\rightarrow \textcolor{red}{\Km \pip})\textcolor{red}{\pip}) \textcolor{red}{\mun} \neumb$
+        for \RDst normalization decay
+    \item $\Bm \rightarrow \Dz (\rightarrow \textcolor{red}{\Km \pip}) \taum (\rightarrow \textcolor{red}{\mun} \neumb \neut) \neutb)$
+        for \RD signal decay
+    \item $\Bm \rightarrow \Dz (\rightarrow \textcolor{red}{\Km \pip}) \textcolor{red}{\mun} \neumb$
+        for \RD normalization decay
+\end{itemize}
+such that $\Dstarp\mun$ and $\Dz\mun$ are the final reconstructed states
+which are often referred in this text as \Dstar channel and \Dz channel in later
+chapters.
 These states are chosen so that the final state particles
-(e.g. $K^-, \pi^+, \mu^-$) are all charged, because the LHCb detector is not
-well-suited for neutral particle reconstruction.
+(e.g. $K^-, \pi^+, \mu^-$) are all charged,
+as indicated in the decay descriptors and parton level diagrams
+(\cref{fig:decay-diagrams}),
+because the LHCb detector is not well-suited for neutral particle
+reconstruction.
+
+\begin{figure}[!htb]
+    \caption{Parton level diagrams for the chosen decay modes.}
+    \label{fig:decay-diagrams}
+\end{figure}
+
 A complication of these states is that they are \emph{inhomogeneous},
 that is, not all \Dz\mun final state events are actually in \Dz\mun final
 states:
