@@ -4,22 +4,20 @@
 % General changes
 The run 2 of LHC reached its conclusion at the end of 2018,
 when it entered the second long shutdown (LS2) period.
-During this period,
-the upgrade on the LHC has enabled the accelerator to operate at
-an unprecedented center of mass energy $\sqrt{s} = 13.6$~TeV with an
-instantaneous luminosity of $2 \times 10^{33}$~cm$^{-2}$~s$^{-1}$
-(for LHCb, a five-fold increase compared to run 2's number.
-CMS and ATLAS operate at a luminosity 10 times as large)
-\cite{CERN_news:2022,Piucci_2017}.
-As of now\footnote{
-    As a reminder, ``now'' refers to November 2022.
-}, some of the LHCb subdetectors, for example the Upstream Tracker, are still
-being upgraded.
-
-% Motivate the LHCb upgrade
-The upgraded LHC, however, poses unique problems for the LHCb experiment:
-%%%%
-With current hardware triggers\footnote{
+Due to luminosity levelling, since 2012,
+the LHCb has been collecting data at about 2~fb$^{-1}$ integrated luminosity per
+year when the experiment is in a steady state,
+with an instantaneous luminosity of about $4 \times 10^{32}$cm$^{-2}$~s$^{-1}$,
+far below which the LHC is capable of providing\footnote{
+    As a reference, the CMS experiment reached a maximum instantaneous
+    luminosity of $1.5 \times 10^{34}$cm$^{-2}$~s$^{-1}$ in 2016.
+    % from https://arxiv.org/pdf/2104.01927.pdf
+}.
+More precise measurements require more data which the current LHCb detector is
+unable to provide,
+due to the fact that the detector has a limited readout rate of 1~MHz:
+even if the instantaneous luminosity is increased,
+with current hardware triggers\footnote{
     As discussed in \cref{ref:detector:trigger},
     the hardware triggers require the event to be above a certain $\pt / E_T$
     threshold.
@@ -28,14 +26,8 @@ to maintain a constant readout rate of 1~MHz,
 the thresholds for \pt and $E_T$ have to increase,
 which largely cancels the benefit of running at higher luminosity.
 As shown in \cref{fig:l0-trigger-eff},
-the \pt-based hadronic trigger yields are saturating even at run 2 luminosity
+the hadronic trigger yields are saturating even at run 2 luminosity
 ($4 \times 10^{32}$~cm$^{-2}$~s$^{-1}$).
-%%%%
-In addition, at $2 \times 10^{33}$~cm$^{-2}$~s$^{-1}$ a significant portion of
-bunch crossings contains $b$ and $c$ signals.
-With the current inclusive trigger scheme,
-there will be too many ``signal-like'' events to write offline on storage
-\cite{Albrecht_2014}.
 
 \begin{figure}[!htb]
     \centering
@@ -49,13 +41,19 @@ there will be too many ``signal-like'' events to write offline on storage
     \label{fig:l0-trigger-eff}
 \end{figure}
 
-To solve these problems, the detector readout rate is upgraded to 40~MHz,
+To remove the readout bottleneck,
+the detector readout rate is upgraded to 40~MHz,
 the LHC bunch crossing rate,
 without any hardware trigger.
 By exposing all low-level variables to purely software-based high-level
 triggers with more exclusive selection criteria,
-events can be \emph{categorized} into exclusive signal decay modes more
-efficiently with reasonable write throughputs.
+events can be categorized into exclusive signal decay modes more
+efficiently with reasonable write throughputs \cite{Albrecht_2014}.
+After the upgrade, the detector will operate at an instantaneous luminosity
+of $2 \times 10^{33}$~cm$^{-2}$s$^{-1}$,
+a factor of 5 gain compared to that of run 2,
+without any hardware trigger,
+making LHCb the first (hardware) trigger-less detector.
 
 Aside from the upgrade of the readout system and trigger scheme,
 the tracking system is upgraded to provide better resolution and more
