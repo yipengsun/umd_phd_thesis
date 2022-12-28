@@ -12,7 +12,10 @@ from LHCb 2016 data\footnote{
 %%%%
 \begin{itemize}
     \item $\Bzb \rightarrow \Dstarp (\rightarrow \Dz (\rightarrow \textcolor{red}{\Km \pip})\textcolor{red}{\pip}) \taum (\rightarrow \textcolor{red}{\mun} \neumb \neut) \neutb)$
-        for \RDst signal decay
+        for \RDst signal decay\footnote{
+            A parton level diagram for the signal decays is drawn in
+            \cref{fig:decay-diagrams} as a reference.
+        }
     \item $\Bzb \rightarrow \Dstarp (\rightarrow \Dz (\rightarrow \textcolor{red}{\Km \pip})\textcolor{red}{\pip}) \textcolor{red}{\mun} \neumb$
         for \RDst normalization decay
     \item $\Bm \rightarrow \Dz (\rightarrow \textcolor{red}{\Km \pip}) \taum (\rightarrow \textcolor{red}{\mun} \neumb \neut) \neutb)$
@@ -25,13 +28,20 @@ which are often referred in this text as \Dstar channel and \Dz channel in later
 chapters.
 These states are chosen so that the final state particles
 (e.g. $K^-, \pi^+, \mu^-$) are all charged,
-as indicated in the decay descriptors and parton level diagrams
-(\cref{fig:decay-diagrams}),
 because the LHCb detector is not well-suited for neutral particle
 reconstruction.
 
 \begin{figure}[!htb]
-    \caption{Parton level diagrams for the chosen decay modes.}
+    \centering
+    \resizebox{0.8\textwidth}{!}{
+        \input{figs-analysis-overview/parton-sig.tikz}
+    }
+
+    \caption{
+        Parton level diagrams for $B \rightarrow D^{(*)} \taum\neutb$ signal
+        decays,
+        where $\overline q$ can be either a $\overline u$ or a $\overline d$.
+    }
     \label{fig:decay-diagrams}
 \end{figure}
 

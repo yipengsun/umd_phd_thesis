@@ -1,0 +1,35 @@
+\begin{tikzpicture} \begin{feynman}
+    \vertex (a1) {\(b\)};
+    \vertex[right=7em of a1] (a2);
+    \vertex[right=7em of a2] (a4) {\(c\)};
+
+    \vertex[below=3em of a1] (b1) {\(\overline q\)};
+    \vertex[below=3em of a4] (b2) {\(\overline q\)};
+
+    \vertex at ($(a2)!0.5!(a2)!0.5cm!90:(a2)$) (d);
+
+    \vertex[right=7em of a4] (e1) {\(\nu_\tau\)};
+    \vertex[above right=3em of e1] (e2);
+    \vertex[below right=of e2] (e3) {\(\mu^-\)};
+    \vertex[above right=of e2] (e4) {\(\overline\nu_\mu\)};
+
+    \vertex[above=3em of a4] (c2);
+    \vertex at ($(c2)!0.5!(e1)$) (c1);
+    \vertex[above right=3em of c2] (c3) {\(\nu_\tau\)};
+
+    \diagram* {
+        (a1) -- [fermion] (a2) -- [fermion] (a4),
+        (b2) -- [fermion] (b1),
+        (c3) -- [fermion] (c2) -- [fermion, edge label=\(\tau^-\)] (c1),
+        (a2) -- [blue, boson, edge label=\(W^{-}\)] (c2),
+        (c1) -- [fermion] (e1),
+        (c1) -- [boson, edge label=\(W^-\)] (e2),
+        (e2) -- [fermion] (e3),
+        (e2) -- [anti fermion] (e4),
+    };
+
+    \draw [decoration={brace}, decorate] (b1.south west) -- (a1.north west)
+        node [pos=0.5, left] {\(B\)};
+    \draw [decoration={brace}, decorate] (a4.north east) -- (b2.south east)
+        node [pos=0.5, right] {\(D^{(\ast)}\)};
+\end{feynman} \end{tikzpicture}
