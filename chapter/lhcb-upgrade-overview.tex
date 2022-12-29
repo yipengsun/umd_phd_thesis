@@ -252,8 +252,7 @@ from 40~Tb/s to 1--2~Tb/s.
 % https://indico.fnal.gov/event/46746/contributions/210789/attachments/141129/177617/HLT1_CPAD_032021.pdf
 As the HLT1 workflow implies, the GPU-based solution also saves bandwidth:
 Had the HLT1 is purely implemented with conventional CPUs,
-the full detector readout are
-required to be sent out to the HLT farms.
+the full detector readout are required to be sent out to the HLT farms.
 Instead, a GPU-based HLT1 trigger allows triggering at event builder level,
 providing a factor of 30 reduction in output bandwidth \cite{Allen_GPU_2020},
 as indicated by the data transfer paths of a CPU- and GPU-based HLT1,
@@ -283,7 +282,7 @@ shown in \cref{fig:cpu-vs-gpu-hlt1}.
 A recent benchmark, displayed in \cref{fig:allen-gpu-throughput},
 shows that with about 200 high-end commercially available GPUs, the
 30~MHz throughput of the LHCb readout can be sustained,
-which is far below the 500 limit.
+which is far below the 500 (2 card per event builder for 250 builders) limit.
 It also shows that the current HLT1 implementation scales linearly with
 the performance of the GPU.
 As more performant GPU emerges, more powerful HLT1 algorithms may be implemented
@@ -376,7 +375,11 @@ pipe:
 180~$\upmu$m in the peripheral and 95~$\upmu$m around the beam pipe,
 and sits closer to the beam.
 UT has identical geometry to that of TT:
-4 planes of sensors arranged in a $x$-$u$-$v$-$x$ configuration,
+4 planes of sensors arranged in a straight/stereo configuration\footnote{
+    Technically termed as a $x$-$u$-$v$-$x$ configuration, with
+    $u/v$ layers titled by $\pm 5^\circ$ from the vertical axis.
+    A more detailed description can be found in \cref{ref:ut:overview}.
+},
 as shown in \cref{fig:ut-upgrade}.
 Compared to TT, UT provides sufficient radiation hardness,
 reduces occupancy in the critical region near the beam, and improves
@@ -411,29 +414,32 @@ More details regarding UT will be provided in \cref{ref:ut}.
     \label{fig:ut-pt-improvement}
 \end{figure}
 
-The Scintillating Fiber tracker (SciFi), replacing T-stations,
-constructed from $3 \times 4$ detector layers,
-are placed after the Magnet to provide track and momentum
-reconstruction for the downstream tracks.
-Each layer of SciFi is composed of 6 layers of 2 set of
-2.4~m long plastic scintillating fibers with 250~$\upmu$m diameter arranged
-vertically, separated by a mirror in the middle.
-One layer of SciFi is 1.35~mm thick and has a surface area of $6 \times
-5$~m$^2$.
+The Scintillating Fiber tracker (SciFi),
+replacing T1--T3 stations (both IT and OT),
+consists of 3 detectors with 4 layers each arranged in a straight/stereo
+configuration,
+is placed after the Magnet to provide track and momentum reconstruction for the
+downstream tracks.
+Each layer of SciFi,
+1.35~mm thick and has a surface area of $6 \times 5$~m$^2$,
+is composed of minimally 10 fiber modules
+which is built from two groups of 6-layer 2.4~m long plastic scintillating
+fibers with 250~$\upmu$m diameter arranged vertically,
+separated by a mirror in the middle.
 The fibers are readout with Silicon PhotoMultipliers (SiPM), located at the top
 and bottom of the detector,
 with a pixel size of $57 \times 62$~$\upmu$m$^2$
 \cite{Piucci_2017,Massafferri_2020}.
+The operating principle of SciFi is illustrated in \cref{fig:scifi-op}.
 The spatial resolution of the SciFi is better than 100~$\upmu$m
 \cite{Massafferri_2020}.
-A diagram illustrating the general operating principle of SciFi is displayed
-in \cref{fig:scifi-op}.
 
 \begin{figure}[!htb]
     \centering
     \includegraphics[width=0.5\textwidth]{./figs-lhcb-upgrade-overview/tracking/scifi_op_principle.pdf}
     \caption{
-        Operation principle of SciFi.
+        Operation principle of SciFi,
+        illustrated with a single fiber module viewed from top/bottom.
         Taken from \cite{Berninghoff:2810671}.
     }
     \label{fig:scifi-op}
