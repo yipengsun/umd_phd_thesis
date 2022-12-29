@@ -984,7 +984,7 @@ To form a complete package, MiniDAQ provides the following software:
     \item A linux distribution, typically CentOS 7.
     \item A linux kernel module to interface the PCIe40 FPGA to the operating
         system.
-    \item A \dim server named \lstinline{gbtserv}. A \dim name server is also
+    \item A \dim server named \smalltt{gbtserv}. A \dim name server is also
         provided.
     \item A WinCC OA project acting as a control system more geared toward
         development.
@@ -994,9 +994,9 @@ To form a complete package, MiniDAQ provides the following software:
 
 The WinCC OA project on the MiniDAQ provides functionalities such as programming
 the data GBTxes with GBT-I2C protocol,
-shown in \label{fig:wincc-oa-gbt},
+shown in \cref{fig:wincc-oa-gbt},
 and monitoring the readout from them,
-shown in \label{fig:wincc-oa-memmon};
+shown in \cref{fig:wincc-oa-memmon};
 these functionalities are crucial in the early states of the DCB development and
 validation,
 but becomes increasingly cumbersome as the focus shifts on quality assurance
@@ -1009,8 +1009,6 @@ of a large number of production DCBs.
         The WinCC OA MiniDAQ projection interface to program a single data GBTx.
         It supports both programming individual registers (as shown in this
         figure) or programming all registers with a text file.
-        With this UI, however, configuring 6 GBTxes requires the author
-        to change the ``Address'' field from 1 to 6 manually 6 times.
     }
     \label{fig:wincc-oa-gbt}
 \end{figure}
@@ -1028,52 +1026,56 @@ of a large number of production DCBs.
 \subsection{\nanoDAQ: A reverse-engineered \dim client for testing UT electronics}
 \label{online-nanodaq}
 
-As stated before, the author was tasked to test DCBs.
-The user interface of the MiniDAQ system is based on a WinCC OA project,
-which is rather unwieldy for \emph{repeated} testing.
-To perform a PRBS test, with the official MiniDAQ software, 6 data GBTxes need
-to be configured separately, as shown in \cref{fig:wincc-oa-gbt}.
+As stated in the previous section, repeated testing with the official MiniDAQ
+project is hard.
+Here the author supplies two concrete examples:
 
+\begin{itemize}
+    \item A DCB contains 6 data GBTxes.
+        With the official control panel, shown in \cref{fig:wincc-oa-gbt},
+        programming 6 data GBTxes to do PRBS tests requires the author change
+        the ``Address'' field from 1 to 6 manually 6 times.
 
-As a stave with SALTs arrived at Maryland,
-a full readout test becomes possible.
-This is further complicated by the fact that a manual adjust of e-link phases is
-needed to be able to read SALT data in a stable manner on every power up.
-The procedure is the following: First configure the SALT to output a
-fixed pattern\footnote{
-    For some reason, the pattern \lstinline{C4} was chosen.
-}, then stare at the memory monitoring panel,
-displayed in \cref{fig:wincc-oa-memmon},
-to spot the unstable e-links, and adjust phases for each e-link until they are
-stable.
-It is particularly funny that the panel has bug: To start reading the memory
-which are filled with GBT frames from the GBTxes,
-the option ``Write on Ris Edge'' needs to be toggled to on.
-To inspect these readouts, it needs to be toggled off.
-There is a chance that the switch auto-toggles in which case the only known
-workaround to the author is clicking on the switch repeatedly until it stops.
+    \item As a stave with SALTs arrived at Maryland,
+        a full readout test for every DCB becomes possible.
+        As discussed in \cref{dcb-gbt-link},
+        each e-link phase needs to be adjusted to ensure stable readout,
+        which is performed on every turn on.
 
+        The procedure is the following: First configure the SALT to output a
+        fixed pattern\footnote{
+            For some reason, the pattern \lstinline{C4} was chosen.
+        }, then stare at the memory monitoring panel,
+        displayed in \cref{fig:wincc-oa-memmon},
+        to spot the unstable e-links, and adjust phases for each e-link until
+        they are stable.
 
-To add \emph{salt} to the injury,
-the MiniDAQ is mounted on a rack and its sole input is a keyboard with a
-trackpad akin to a headless laptop, with no room for a dedicated mouse.
-At one point the author voiced his desire to have a more scriptable interface
-for the \dim server,
-to which CERN developers replied:
-Just program in WinCC OA.
-It is a noble idea,
-but there are problems regarding programming with WinCC OA:
-The development environment is called \lstinline{gedi}, which can auto-complete
-some of the keywords but cannot check some of the more basic errors such as an
-undefined variable.
-It is also possible to write code with one's favorite editor but the author
-gave up for reasons he cannot remember anymore.
+        The procedure was further complicated by a bug in the panel
+        shown in \cref{fig:wincc-oa-memmon}:
+        To start reading the memory which are filled with GBT frames from the
+        GBTxes, the option ``Write on Ris Edge'' needs to be toggled to on. To
+        inspect these readouts, it needs to be toggled off. There is a chance
+        that the switch auto-toggles in which case the only known workaround to
+        the author is clicking on the switch repeatedly until it stops.
+\end{itemize}
 
-The author decided to write a command line \dim client with Python,
-by first dumping all registered \dim services with \pydim
-\cite{pydim}
-then searching for the required functionalities such as I2C, GPIO, and memory
-monitoring.
+It is evident that a batch-processing program to perform these procedures with
+few clicks or a single command is highly desirable.
+Unfortunately programming with WinCC OA is hard:
+the development environment, called \lstinline{gedi}, can auto-complete
+some of the keywords but cannot check basic errors such as an undefined
+variable.
+This resulted in frequent typos in the source code that are hard to spot and
+debug.
+
+In the end,
+noting that the MiniDAQ comes with a \dim server that is responsible for
+performing all GBT-related tasks,
+the author decided to write a command line \dim client with Python.
+First, all registered \dim services are dumped with \pydim
+\cite{pydim}.
+Then, the required functionalities such as I2C, GPIO, and memory
+monitoring are searched for based on names.
 For example, some of the I2C services have the following signatures:
 
 \begin{lstlisting}
@@ -1082,11 +1084,51 @@ For example, some of the I2C services have the following signatures:
     Service 24492 : Type of service = 2 name = Gbt/UMDlab/CmndI2COperation, format = C:128;C
 \end{lstlisting}
 
-It became possible to identify these services in the JCOP source code,
+It became possible to identify these services in the JCOP and \smalltt{gbtserv}
+source code,
 and understand the required arguments.
 Hence the \nanoDAQ project \cite{nanoDAQ} is born.
 The name suggests that it only implements a small fraction of the capabilities
 provided by MiniDAQ, namely I2C, GPIO, and memory monitoring readout.
+
+With \nanoDAQ, a DCB can be configured \emph{programmatically}, for example with
+the following \smalltt{bash} script:
+
+\begin{lstlisting}[language=Bash]
+    #!/usr/bin/env bash
+
+    GBTXS=( 3 4 5 )
+    declare -A I2C_BUS=(
+        [3]=2
+        [4]=1
+        [5]=0
+    )
+
+    for gbtx in ${GBTXS[@]}; do
+        echo "Validating GBTx $gbtx..."
+        for asic in 3 2 1; do
+            ./phaseadj.py -g $GBT -s $gbtx \
+                -b ${I2C_BUS[$gbtx]} -a $asic \
+                -c ${MINIDAQ_CHS[$gbtx]} \
+                -e $(echo ${ELK_CHS[$asic]}) \
+                --adjust-elink-phase y \
+                --adjust-tfc-phase n \
+                --non-verbose
+        done
+
+        # Print out the final result for each GBTx
+        ./phaseadj.py -g $GBT -s $gbtx \
+            -b ${I2C_BUS[$gbtx]} -a 0 \
+            -c ${MINIDAQ_CHS[$gbtx]} \
+            -e $(echo ${ELK_CHS[0]}) \
+            --adjust-elink-phase y \
+            --adjust-tfc-phase n
+
+        read -n 1 -s -r -p "Is GBTx $gbtx OK? Press any key to continue..."
+        echo ""
+    done
+\end{lstlisting}
+
 Now the e-link phase adjusting is implemented with a script, with absolutely no
 mouse clicks and few key stokes, as shown in
 \cref{fig:nanodaq-phaseadj}:
