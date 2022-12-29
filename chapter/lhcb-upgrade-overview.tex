@@ -217,37 +217,47 @@ As a side note, the run 3 HLT1 trigger is entirely GPU-based\footnote{
     GPU: Graphics Processing Unit, as opposed to CPU: Central Processing Unit.
 }, fully implemented
 in CUDA \cite{Allen_GPU_2020},
-as track reconstruction is ideally suited for parallel execution,
+as track reconstruction in an event is ideally suited for parallel
+execution\footnote{
+    Because a single event contains $\mathcal{O}(100)$ or more tracks,
+    and each track are reconstructed with the same algorithms.
+},
 to which GPU is more advantageous than CPU:
 while a CPU typically has highly frequencies, meaning it can execute more
 ``commands'' (instructions) in a given amount of time,
-GPU, on the other hand, while having lower frequency, can execute the same
-command on multiple input data\footnote{
+a GPU, on the other hand, while having lower frequency, can execute the same
+command on multiple input data elements\footnote{
     Modern CPU can also do this (Single Instruction, Multiple Data, SIMD),
     but the level of parallelism is not comparable to that of GPU:
     a modern CPU may allow simultaneous precessing of 8 data elements for a
     single SIMD core;
     for a 8-core CPU, it is capable of processing 64 data elements in parallel.
-    Whereas a single GPU can handle as many as 5120 data elements
-    (e.g. NVIDIA Tesla V100)!
+    Whereas a single GPU (e.g. NVIDIA Tesla V100) can handle as many as 5120
+    data elements!
     % https://www.cs.cmu.edu/afs/cs/academic/class/15418-s12/www/lectures/02_multicore.pdf
 } in parallel.
 
-In addition, the GPU-based solution is to save bandwidth:
-There are about 250 event builders in the counting room to receive readout data
-from the detector and assemble them into data packets suitable for software
-triggers.
-Had the HLT1 is purely implemented with conventional CPU programs,
-the full detector readout (30--40~Tb/s, taken overhead into account) are
+A sketch of the HLT1 workflow is the following:
+For a single bunch crossing,
+readout from all subdetectors are received separately by about 250 event
+builders in the counting room,
+each equipped with 2 GPUs, which assemble the readout fragments into a single
+event with a size of $\sim\!100$~kB;
+multiple events are aggregated into a Multiple Event Packet (MEP) before feeding
+into a single GPU for execution of the full HLT1 trigger algorithms.
+Only events passing HLT1 requirements are copied back from the GPU and sent out
+for further processing by HLT2 algorithms, reducing the data throughput
+from 40~Tb/s to 1--2~Tb/s.
+% more about bandwidth comparison between LHCb and CMS/ATLAS:
+% https://indico.fnal.gov/event/46746/contributions/210789/attachments/141129/177617/HLT1_CPAD_032021.pdf
+As the HLT1 workflow implies, the GPU-based solution also saves bandwidth:
+Had the HLT1 is purely implemented with conventional CPUs,
+the full detector readout are
 required to be sent out to the HLT farms.
-Instead, a GPU-based HLT1 trigger exploits the fact that each event builder
-can be equipped with 2 GPUs.
-If the trigger can be implemented with less than 500 GPUs,
-only events passing HLT1 cuts, which has a throughput of 1--2~Tb/s,
-need to be sent out,
-a factor of 30 reduction in bandwidth \cite{Allen_GPU_2020}.
-The data transfer paths of a CPU- and GPU-based HLT1 are shown in
-\cref{fig:cpu-vs-gpu-hlt1}.
+Instead, a GPU-based HLT1 trigger allows triggering at event builder level,
+providing a factor of 30 reduction in output bandwidth \cite{Allen_GPU_2020},
+as indicated by the data transfer paths of a CPU- and GPU-based HLT1,
+shown in \cref{fig:cpu-vs-gpu-hlt1}.
 
 \begin{figure}[!htb]
     \centering
