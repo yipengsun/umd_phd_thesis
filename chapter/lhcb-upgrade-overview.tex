@@ -223,9 +223,16 @@ while a CPU typically has highly frequencies, meaning it can execute more
 ``commands'' (instructions) in a given amount of time,
 GPU, on the other hand, while having lower frequency, can execute the same
 command on multiple input data\footnote{
-    Modern CPU can also do this (Single Instruction Multiple Data, SIMD),
-    but the level of parallelism is not comparable to that of GPU.
-}
+    Modern CPU can also do this (Single Instruction, Multiple Data, SIMD),
+    but the level of parallelism is not comparable to that of GPU:
+    a modern CPU may allow simultaneous precessing of 8 data elements for a
+    single SIMD core;
+    for a 8-core CPU, it is capable of processing 64 data elements in parallel.
+    Whereas a single GPU can handle as many as 5120 data elements
+    (e.g. NVIDIA Tesla V100)!
+    % https://www.cs.cmu.edu/afs/cs/academic/class/15418-s12/www/lectures/02_multicore.pdf
+} in parallel.
+
 In addition, the GPU-based solution is to save bandwidth:
 There are about 250 event builders in the counting room to receive readout data
 from the detector and assemble them into data packets suitable for software
