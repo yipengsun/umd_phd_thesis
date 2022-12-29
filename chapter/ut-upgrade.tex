@@ -630,13 +630,13 @@ A particular range of bits from GBT frames produced by a known DCB is sufficient
 for identifying the geographical location of the SALT it connects to.
 
 During data transmission via an e-link, the SALT and GBTx operate with the same
-clock frequency with a phase difference,
+clock frequency but with a constant phase difference,
 which implies that as SALT start transmitting data,
-the GBTx is \emph{not guaranteed} to have stable edge in clock;
+the GBTx is \emph{not guaranteed} to have a stable clock;
 this is further complicated by the fact that the copper trace lengths introduce
 another phase difference.
 In any case, it is possible that when the SALT data arrives at the GBTx,
-the GBTx is in a rising or a falling edge of the clock, in which case
+the GBTx is in a rising or a falling edge of the clock signal, in either case
 the data cannot be reliably sampled.
 To solve this problem, each e-link on GBTx is equipped with phase adjusting
 capability so that the sampling happens in the middle of the eye with a stable
@@ -911,15 +911,6 @@ write/read commands,
 such as GBT-I2C and GBT-GPIO,
 to \dim \emph{services}.
 
-Each SOL40 then registers its \dim services to a central name server.
-A human controller sitting in the control room at point 8 will have a computer
-running a \dim client with many clickable buttons corresponding to GBT write
-commands to different FE.
-The controller can click a button in which case the \dim client will perform
-a lookup on the central name server and make changes to the FE via the
-\dim server running in the looked-up SOL40.
-The procedure is illustrated in \cref{fig:dim-lhcb}
-
 \begin{figure}[!htb]
     \centering
     \hspace{0.2em}
@@ -933,9 +924,16 @@ The procedure is illustrated in \cref{fig:dim-lhcb}
     \label{fig:dim-lhcb}
 \end{figure}
 
+Each SOL40 then registers its \dim services to a central name server.
+A human controller sitting in the control room at point 8 will have a computer
+running a \dim client with many clickable buttons corresponding to GBT write
+commands to different FE.
+The controller can click a button in which case the \dim client will perform
+a lookup on the central name server and make changes to the FE via the
+\dim server running in the looked-up SOL40.
+The procedure is illustrated in \cref{fig:dim-lhcb}.
 Each \dim service declares its communication interface as a string to the \dim
-sever.
-The \dim protocol communication interface is defined as the following:
+sever, with the interface described as the following:
 
 \begin{lstlisting}
     <input type>:<number of inputs>;<return type>:<number of returns>
@@ -973,6 +971,15 @@ The PCIe40 card, shown in \cref{fig:pcie40}, is loaded with a firmware capable
 of performing triple duty of SODIN, SOL40, and TELL40.
 To form a complete package, MiniDAQ provides the following software:
 
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.75\textwidth]{./figs-ut-upgrade/online/pcie40.pdf}
+    \caption{
+        A prototype PCIe40 card.
+    }
+    \label{fig:pcie40}
+\end{figure}
+
 \begin{itemize}
     \item A linux distribution, typically CentOS 7.
     \item A linux kernel module to interface the PCIe40 FPGA to the operating
@@ -985,13 +992,36 @@ To form a complete package, MiniDAQ provides the following software:
         developed in-house at CERN.
 \end{itemize}
 
+The WinCC OA project on the MiniDAQ provides functionalities such as programming
+the data GBTxes with GBT-I2C protocol,
+shown in \label{fig:wincc-oa-gbt},
+and monitoring the readout from them,
+shown in \label{fig:wincc-oa-memmon};
+these functionalities are crucial in the early states of the DCB development and
+validation,
+but becomes increasingly cumbersome as the focus shifts on quality assurance
+of a large number of production DCBs.
+
 \begin{figure}[!htb]
     \centering
-    \includegraphics[width=0.75\textwidth]{./figs-ut-upgrade/online/pcie40.pdf}
+    \includegraphics[width=0.7\textwidth]{./figs-ut-upgrade/online/gbt_client_slave_gbt_i2c_test.png}
     \caption{
-        A prototype PCIe40 card.
+        The WinCC OA MiniDAQ projection interface to program a single data GBTx.
+        It supports both programming individual registers (as shown in this
+        figure) or programming all registers with a text file.
+        With this UI, however, configuring 6 GBTxes requires the author
+        to change the ``Address'' field from 1 to 6 manually 6 times.
     }
-    \label{fig:pcie40}
+    \label{fig:wincc-oa-gbt}
+\end{figure}
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.7\textwidth]{./figs-ut-upgrade/online/memory_monitoring_panel.png}
+    \caption{
+        A WinCC memory monitoring panel.
+    }
+    \label{fig:wincc-oa-memmon}
 \end{figure}
 
 
@@ -1004,15 +1034,6 @@ which is rather unwieldy for \emph{repeated} testing.
 To perform a PRBS test, with the official MiniDAQ software, 6 data GBTxes need
 to be configured separately, as shown in \cref{fig:wincc-oa-gbt}.
 
-\begin{figure}[!htb]
-    \centering
-    \includegraphics[width=0.7\textwidth]{./figs-ut-upgrade/online/gbt_client_slave_gbt_i2c_test.png}
-    \caption{
-        With the WinCC OA UI, configuring 6 GBTxes requires the author
-        to change the ``Address'' field from 1 to 6 manually.
-    }
-    \label{fig:wincc-oa-gbt}
-\end{figure}
 
 As a stave with SALTs arrived at Maryland,
 a full readout test becomes possible.
@@ -1032,14 +1053,6 @@ To inspect these readouts, it needs to be toggled off.
 There is a chance that the switch auto-toggles in which case the only known
 workaround to the author is clicking on the switch repeatedly until it stops.
 
-\begin{figure}[!htb]
-    \centering
-    \includegraphics[width=0.7\textwidth]{./figs-ut-upgrade/online/memory_monitoring_panel.png}
-    \caption{
-        A WinCC memory monitoring panel.
-    }
-    \label{fig:wincc-oa-memmon}
-\end{figure}
 
 To add \emph{salt} to the injury,
 the MiniDAQ is mounted on a rack and its sole input is a keyboard with a
