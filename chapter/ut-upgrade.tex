@@ -996,8 +996,8 @@ The WinCC OA project on the MiniDAQ provides functionalities such as programming
 the data GBTxes with GBT-I2C protocol,
 shown in \cref{fig:wincc-oa-gbt},
 and monitoring the readout from them,
-shown in \cref{fig:wincc-oa-memmon};
-these functionalities are crucial in the early states of the DCB development and
+shown in \cref{fig:wincc-oa-memmon}.
+These functionalities are crucial in the early states of the DCB development and
 validation,
 but becomes increasingly cumbersome as the focus shifts on quality assurance
 of a large number of production DCBs.
@@ -1044,7 +1044,7 @@ Here the author supplies two concrete examples:
 
         The procedure is the following: First configure the SALT to output a
         fixed pattern\footnote{
-            For some reason, the pattern \lstinline{C4} was chosen.
+            For some reason, the pattern \smalltt{C4} was chosen.
         }, then stare at the memory monitoring panel,
         displayed in \cref{fig:wincc-oa-memmon},
         to spot the unstable e-links, and adjust phases for each e-link until
@@ -1092,50 +1092,52 @@ The name suggests that it only implements a small fraction of the capabilities
 provided by MiniDAQ, namely I2C, GPIO, and memory monitoring readout.
 
 With \nanoDAQ, a DCB can be configured \emph{programmatically}, for example with
-the following \smalltt{bash} script:
+the following \smalltt{bash} script, a DCB is configured by just running a
+single command:
 
 \begin{lstlisting}[language=Bash]
     #!/usr/bin/env bash
+    GBTLINKS=( 3 4 5 )
 
-    GBTXS=( 3 4 5 )
-    declare -A I2C_BUS=(
-        [3]=2
-        [4]=1
-        [5]=0
-    )
-
-    for gbtx in ${GBTXS[@]}; do
-        echo "Validating GBTx $gbtx..."
-        for asic in 3 2 1; do
-            ./phaseadj.py -g $GBT -s $gbtx \
-                -b ${I2C_BUS[$gbtx]} -a $asic \
-                -c ${MINIDAQ_CHS[$gbtx]} \
-                -e $(echo ${ELK_CHS[$asic]}) \
-                --adjust-elink-phase y \
-                --adjust-tfc-phase n \
-                --non-verbose
-        done
-
-        # Print out the final result for each GBTx
-        ./phaseadj.py -g $GBT -s $gbtx \
-            -b ${I2C_BUS[$gbtx]} -a 0 \
-            -c ${MINIDAQ_CHS[$gbtx]} \
-            -e $(echo ${ELK_CHS[0]}) \
-            --adjust-elink-phase y \
-            --adjust-tfc-phase n
-
-        read -n 1 -s -r -p "Is GBTx $gbtx OK? Press any key to continue..."
-        echo ""
+    for i in ${GBTLINKS[@]}; do
+        echo "Programming all data GBTxs for $i..."
+        # here a configuration file is loaded
+        ./dcbutil.py init ./gbtx_config/slave-Tx-wrong_termination.txt -g $i
     done
 \end{lstlisting}
 
-Now the e-link phase adjusting is implemented with a script, with absolutely no
-mouse clicks and few key stokes, as shown in
-\cref{fig:nanodaq-phaseadj}:
+\nanoDAQ also comes with an e-link phase-adjust script, which performs the
+following tasks in sequence,
+with a demo screenshot provided in \cref{fig:nanodaq-phaseadj}:
+
+\begin{enumerate}
+    \item Configure all SALTs connected.
+
+    \item Perform an initial scan of the e-link readout,
+        and ask the user to input the e-link indices to adjust.
+
+    \item Loop over all possible DCB e-link phases, and save the readout for
+        each of them.
+        The stability of the readout for a given phase is determined by checking
+        if all readout Bytes are a phase shift of the fixed pattern
+        \smalltt{C4}.
+        If not, and if only a small percentage of the Bytes are wrong, the phase
+        is marked in \textcolor{orange}{\bfseries yellow};
+        phases with a large percentage of error are marked with a
+        \textcolor{red}{\bfseries red ``X''}.
+
+    \item A stable phase,
+        marked in \textcolor{olive}{\bfseries green},
+        is determined for each e-link by picking
+        the central phase of consecutive stable phase.
+
+    \item Adjust both the DCB e-link phases and the SALT output phase
+        to ensure the output pattern is \smalltt{C4}.
+\end{enumerate}
 
 \begin{figure}[!htb]
     \centering
-    \includegraphics[width=0.7\textwidth]{./figs-ut-upgrade/online/elk_phase_adj.png}
+    \includegraphics[width=0.75\textwidth]{./figs-ut-upgrade/online/elk_phase_adj.png}
     \caption{
         E-link phase adjust with \nanoDAQ.
     }
