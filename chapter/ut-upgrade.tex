@@ -1091,9 +1091,8 @@ Hence the \nanoDAQ project \cite{nanoDAQ} is born.
 The name suggests that it only implements a small fraction of the capabilities
 provided by MiniDAQ, namely I2C, GPIO, and memory monitoring readout.
 
-With \nanoDAQ, a DCB can be configured \emph{programmatically}, for example with
-the following \smalltt{bash} script, a DCB is configured by just running a
-single command:
+With \nanoDAQ, a DCB can be configured \emph{programmatically}, for example by
+running the following \smalltt{bash} script:
 
 \begin{lstlisting}[language=Bash]
     #!/usr/bin/env bash
@@ -1106,7 +1105,7 @@ single command:
     done
 \end{lstlisting}
 
-\nanoDAQ also comes with an e-link phase-adjust script, which performs the
+\nanoDAQ also comes with an e-link phase adjusting script, which performs the
 following tasks in sequence,
 with a demo screenshot provided in \cref{fig:nanodaq-phaseadj}:
 
@@ -1119,17 +1118,26 @@ with a demo screenshot provided in \cref{fig:nanodaq-phaseadj}:
     \item Loop over all possible DCB e-link phases, and save the readout for
         each of them.
         The stability of the readout for a given phase is determined by checking
-        if all readout Bytes are a phase shift of the fixed pattern
-        \smalltt{C4}.
-        If not, and if only a small percentage of the Bytes are wrong, the phase
-        is marked in \textcolor{orange}{\bfseries yellow};
-        phases with a large percentage of error are marked with a
-        \textcolor{red}{\bfseries red ``X''}.
+        if all readout Bytes can be shift to the fixed pattern
+        \smalltt{C4} with a common phase\footnote{
+            Consider the pattern \smalltt{0x13}, which can be written in binary
+            form as \smalltt{0b00010011}.
+            Compare this to the binary form of \smalltt{0xC4} which is
+            \smalltt{0b11000100},
+            noting that the input stream is a series of Bytes of the form
+            \smalltt{0b000100[11,000100]11...},
+            it can be concluded that \smalltt{0x13} can reproduce \smalltt{0xC4}
+            by shifting the pattern start 6 Bytes to the right.
+        }.
+        If not, but if the most common pattern in the readout data is a phase
+        shift,
+        the phase is marked in \textcolor{orange}{\bfseries yellow};
+        otherwise it is marked with a \textcolor{red}{\bfseries red ``X''}.
 
     \item A stable phase,
         marked in \textcolor{olive}{\bfseries green},
         is determined for each e-link by picking
-        the central phase of consecutive stable phase.
+        the central phase of consecutive stable phases.
 
     \item Adjust both the DCB e-link phases and the SALT output phase
         to ensure the output pattern is \smalltt{C4}.
