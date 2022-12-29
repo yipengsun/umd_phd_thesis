@@ -213,9 +213,20 @@ such that cuts can be applied directly on these variables,
 reducing the need of cutting on proxy variables thus the need of modeling
 acceptance effects offline \cite{Albrecht_2014}.
 
-As a side note, the run 3 HLT1 trigger is entirely GPU-based, implemented in
-CUDA \cite{Allen_GPU_2020}.
-The main advantage of a GPU-based solution is to save bandwidth:
+As a side note, the run 3 HLT1 trigger is entirely GPU-based\footnote{
+    GPU: Graphics Processing Unit, as opposed to CPU: Central Processing Unit.
+}, fully implemented
+in CUDA \cite{Allen_GPU_2020},
+as track reconstruction is ideally suited for parallel execution,
+to which GPU is more advantageous than CPU:
+while a CPU typically has highly frequencies, meaning it can execute more
+``commands'' (instructions) in a given amount of time,
+GPU, on the other hand, while having lower frequency, can execute the same
+command on multiple input data\footnote{
+    Modern CPU can also do this (Single Instruction Multiple Data, SIMD),
+    but the level of parallelism is not comparable to that of GPU.
+}
+In addition, the GPU-based solution is to save bandwidth:
 There are about 250 event builders in the counting room to receive readout data
 from the detector and assemble them into data packets suitable for software
 triggers.
