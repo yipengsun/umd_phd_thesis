@@ -1,5 +1,63 @@
+% Potentially useful sources:
+%   https://physics.stackexchange.com/questions/707380/is-lepton-flavour-universality-an-accidental-symmetry-of-the-standatd-model
+%   https://physics.stackexchange.com/questions/672626/what-is-an-accidental-symmetry
+%   https://physics.stackexchange.com/questions/55350/two-ways-to-form-su2-singlets
+%   https://physics.stackexchange.com/questions/607444/chiral-symmetry
+%   https://physics.stackexchange.com/questions/429180/how-does-bhabha-scattering-imply-the-existence-of-quark-lepton-substructure
+%   https://physics.stackexchange.com/questions/96362/what-does-a-rm-su2-isospin-doublet-really-mean
+%   https://physics.stackexchange.com/questions/385159/quark-gluon-color-relationship-in-pure-qcd
+
+% Schwartz
+%   p. 585 (hypercharge)
+
+
 \chapter{Theory of semileptonic $B$ decays}
 \label{ref:theory}
+
+Through a close collaboration between experimentalists and theorists,
+particle physicists were able to come up with a \emph{quantum field theory}
+to describe \emph{interactions} of \emph{elementary particles}
+(all slanted terms will be defined more precisely later).
+Schematically, such a theory can be constructed as following:
+
+\begin{enumerate}
+    \item Assume special relativity holds so that the Lagrangian density
+        $\mathcal{L}$
+        must be a Lorentz scalar (Lorentz invariant) and the
+        energy-momentum follows a relativistic relation:
+
+        \begin{equation}
+            E^2 = m^2 + \vec{p} \cdot \vec{p}
+            \label{eqn:e-p-dispersion}
+        \end{equation}
+
+    \item Assume the time evolution of a quantum state is governed by the
+        Schrödinger's equation:
+
+        \begin{equation}
+            i \frac{\partial}{\partial t} | \rangle = H | \rangle
+            \label{eqn:schodinger}
+        \end{equation}
+        where $| \rangle$ is an arbitrary quantum state.
+
+    \item It can be shown that the relativistic energy-momentum relation
+        \cref{eqn:e-p-dispersion} leads to the Klein-Gordon equation:
+
+        \begin{equation}
+            (\partial_\mu \partial^\mu + m) \phi = 0
+        \end{equation}
+        which solves the squared version of \cref{eqn:schodinger},
+        and its solutions contain operators to create and destroy \emph{scalar}
+        particles on states $| \rangle$.
+
+        It is then possible to construct a Lagrangian density $\mathcal{L}_0$:
+        \begin{equation}
+            \mathcal{L}_0 = \frac{1}{2} \partial_\mu \partial^\mu \phi -
+                \frac{1}{2} m \phi^2
+        \end{equation}
+        where the subscript 0 indicates that the Lagrangian density is for a
+        spin-0 scalar particle.
+\end{enumerate}
 
 
 \section{Lepton universality in the SM}
