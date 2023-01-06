@@ -31,33 +31,87 @@ Schematically, such a theory can be constructed as following:
             \label{eqn:e-p-dispersion}
         \end{equation}
 
-    \item Assume the time evolution of a quantum state is governed by the
-        Schrödinger's equation:
+    \item Assume the time evolution of any quantum state $| \rangle$ is governed
+        by the Schrödinger's equation:
 
         \begin{equation}
             i \frac{\partial}{\partial t} | \rangle = H | \rangle
             \label{eqn:schodinger}
         \end{equation}
-        where $| \rangle$ is an arbitrary quantum state.
 
-    \item It can be shown that the relativistic energy-momentum relation
-        \cref{eqn:e-p-dispersion} leads to the Klein-Gordon equation:
+    \item The relativistic energy-momentum relation \cref{eqn:e-p-dispersion}
+        implies the Klein-Gordon equation:
 
         \begin{equation}
-            (\partial_\mu \partial^\mu + m) \phi = 0
+            (\partial_\mu \partial^\mu + m^2) \phi = 0
+            \label{eqn:k-g}
         \end{equation}
         which solves the squared version of \cref{eqn:schodinger},
         and its solutions contain operators to create and destroy \emph{scalar}
-        particles on states $| \rangle$.
+        particles on $| \rangle$.
 
-        It is then possible to construct a Lagrangian density $\mathcal{L}_0$:
+        It is then possible to construct a Lagrangian density\footnote{
+            Starting from here, to be more concise, ``Lagrangian'' is used
+            in place of ``Lagrangian density''.
+            Same for ``Hamiltonian'' in place of ``Hamiltonian density''.
+        } $\mathcal{L}_0$
+        that leads to \cref{eqn:k-g} by the Euler-Lagrange equation:
         \begin{equation}
             \mathcal{L}_0 = \frac{1}{2} \partial_\mu \partial^\mu \phi -
                 \frac{1}{2} m \phi^2
         \end{equation}
         where the subscript 0 indicates that the Lagrangian density is for a
         spin-0 scalar particle.
+
+    \item The Dirac equation solves the relativistic version of
+        \cref{eqn:schodinger},
+        noting that $\gamma^\mu$ are $4 \times 4$ matrices constructed from
+        $2 \times 2$ Pauli matrices\footnote{
+            Clifford algebra.
+        },
+        representable with Chiral spinors,
+        this suggests that there are both left-handed and right-handed particles,
+        each with a spin of $\frac{1}{2}$.
+
+        The corresponding Lagrangian density $\mathcal{L}_{1/2}$ is:
+
+    \item A free quantum theory Lagrangian can be constructed from ,
+        it is possible to use complex scalars in .
+        A free Hamiltonian density can be constructed by from the free
+        Lagrangian density via the Legendre transformation
+
+    \item The free theory has the wrong phenomenology because it doesn't permit
+        interactions between different types of particles which is required by
+        experimental results.
+        Suppose additional interaction terms are added,
+        the transition amplitude can be found by going into the interaction
+        picture, where the states evolve by the interaction Hamiltonian
+        and the operator fields by the free Hamiltonian.
+        It is possible to express the time evolution of a state with a Dyson
+        series which contains a time-ordering operator.
+        Each term can be expanded into a set of normal-ordered integrals with
+        the Wick's theorem.
+        The normal ordering makes the bra-ket computable because it contains
+        propagators which are scalar-valued functions.
+
+    \item Interactions can be put into the free Lagrangian by requiring the
+        Lagrangian remains invariant under a local gauge transformation:
+
+        Note that the naive mass terms need to be dropped because they violate
+        $U(1)$ gauge symmetry.
+
+        The ``mass'' of each particle, which can be a gauge boson or a fermion,
+        is put back by the Higgs mechanism,
+        which is introduced by a gauge fixing due to a non-0 vacuum expectation
+        value of the Higgs field (a scalar doublet).
 \end{enumerate}
+
+The focus is on the eletroweak part which will be briefly discussed to show LFU,
+before moving on to a description of form factor which is crucial to compute
+transition amplitude.
+then the expressions for \RDX are given.
+Finally, a brief discussion on the form factors characterizing the $1P$ state
+$D$ meson transition is provided.
 
 
 \section{Lepton universality in the SM}
