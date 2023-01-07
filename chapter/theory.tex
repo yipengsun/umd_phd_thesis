@@ -14,12 +14,64 @@
 \chapter{Theory of semileptonic $B$ decays}
 \label{ref:theory}
 
+\section{Lepton flavor universality in the SM}
+\label{ref:theory:lfu}
+
 Through a close collaboration between experimentalists and theorists,
 particle physicists were able to come up with a \emph{quantum field theory}
-to describe \emph{interactions} of \emph{elementary particles}
-(all slanted terms will be defined more precisely later).
-Outlined in \cite{Robinson_2011},
-such a theory can be constructed as following:
+to describe \emph{interactions} of \emph{elementary particles},
+known as the standard model of particle physics (SM).
+In this section a construction of the SM is outlined following
+\cite{Robinson_2011}
+and its implications on lepton flavor universality are discussed.
+
+To construct the SM,
+in general one starts with a free Lagrangian density\footnote{
+    Will be referred as just ``Lagrangian'' in the following text for brevity,
+    same for ``Hamiltonian''.
+},
+then demands the Lagrangian is invariant under local gauge transformation of
+certain Lie groups to arrive at an Lagrangian with interactions,
+adding appropriate terms when necessary.
+Then it is (sometimes) possible to compute the transition amplitude from an
+initial state to a final state in a perturbative manner\footnote{
+    To be more precise, the calculation can be carried out in the following
+    manner:
+    \begin{enumerate}[noitemsep,nosep]
+        \item Obtain a Hamiltonian $\mathcal{H}$ from the Lagrangian
+            $\mathcal{L}$ with the Legendre transformation.
+        \item Identify the free part and the interaction part of the Hamiltonian,
+            denote as $\mathcal{H}_F, \mathcal{H}_I$, respectively.
+        \item Assume the time evolution of a state $\ket{i}$ is governed by the
+            Schrödinger equation $i \partial_t \ket{i} = H_I \ket{i}$
+            in the interaction picture.
+        \item Express the scattering process as $\bra{f} S \ket{i}$,
+            the scattering operator $S$ can be identified as
+            $S = \exp({i \int_{-\infty}^\infty \mathcal{H}_I d^4 x})$.
+        \item The $S$ operator can be expand in a Taylor-like series:
+
+            $S = \sum_n \frac{(-i)^n}{n!} T\left\{
+                \int_{-\infty}^{\infty} \cdots \int_{-\infty}^{\infty}
+                \mathcal{H}_{I}^1 \cdots \mathcal{H}_{I}^n d^4 x_1 \cdots d^4 x_n
+            \right\}$,
+            where $T$ stands for time-ordering.
+        \item Each term in the series can be expressed by the Wick's theorem
+            as a series of normal-ordered terms with contractions.
+            The contractions can be identified as the Feynman propagators with
+            the canonical commutation relations.
+        \item The first non-vanish order terms are identified as tree-level
+            Feynman diagrams and can be computed.
+    \end{enumerate}
+    Higher-order terms may involve infinities and require renormalization,
+    with is not the focus of this text.
+}.
+
+by going into the
+interaction picture\footnote{
+    In the interaction picture the time evolution for operators are governed by
+    the free Hamiltonian, whereas the states by the Interaction Hamiltonian.
+}, identify the interaction Hamiltonian, and use the $S$-matrix formalism to
+expand the $S$-matrix into a series of
 
 \begin{enumerate}
     \item Assume special relativity holds so that the Lagrangian density
@@ -156,8 +208,6 @@ Finally, a brief discussion on the form factors characterizing the $1P$ state
 $D$ meson transition is provided.
 
 
-\section{Lepton universality in the SM}
-\label{ref:theory:lfu}
 
 
 \section{Form factors in $B \rightarrow D^{(*)}\ell\neulb$ decays}
