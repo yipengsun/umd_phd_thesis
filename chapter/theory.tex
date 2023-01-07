@@ -18,7 +18,8 @@ Through a close collaboration between experimentalists and theorists,
 particle physicists were able to come up with a \emph{quantum field theory}
 to describe \emph{interactions} of \emph{elementary particles}
 (all slanted terms will be defined more precisely later).
-Schematically, such a theory can be constructed as following:
+Outlined in \cite{Robinson_2011},
+such a theory can be constructed as following:
 
 \begin{enumerate}
     \item Assume special relativity holds so that the Lagrangian density
@@ -31,37 +32,78 @@ Schematically, such a theory can be constructed as following:
             \label{eqn:e-p-dispersion}
         \end{equation}
 
-    \item Assume the time evolution of any quantum state $| \rangle$ is governed
-        by the Schrödinger's equation:
+        Additionally,
+        interpret the Schrödinger's equation as a description to the time
+        evolution of a spin-0 scalar field $\phi$:
 
         \begin{equation}
-            i \frac{\partial}{\partial t} | \rangle = H | \rangle
+            i \partial t \phi = H \phi
             \label{eqn:schodinger}
         \end{equation}
 
-    \item The relativistic energy-momentum relation \cref{eqn:e-p-dispersion}
-        implies the Klein-Gordon equation:
+    \item Replacing $E^2$ and $\vec{p} \cdot \vec{p}$
+        with the corresponding operators in
+        \cref{eqn:e-p-dispersion}
+        then inserting into the squared version of
+        \cref{eqn:schodinger},
+        we have the Klein-Gordon equation\footnote{
+            The metric $\eta_{\mu\nu}$ follows particle physicists' convention
+            $(+ - - -)$.
+        }:
 
         \begin{equation}
             (\partial_\mu \partial^\mu + m^2) \phi = 0
             \label{eqn:k-g}
         \end{equation}
-        which solves the squared version of \cref{eqn:schodinger},
-        and its solutions contain operators to create and destroy \emph{scalar}
-        particles on $| \rangle$.
+
+        For a spin $1/2$ particle,
+        we can also construct a linear equation for a $n$-component spinor
+        $\psi$, the Dirac equation:
+
+        \begin{equation}
+            (i \gamma^\mu \partial_\mu - m I) \psi = 0
+            \label{eqn:dirac}
+        \end{equation}
+        where $\gamma^\mu$ operates on the spinor space, and $I$ refers to the
+        identity operator in the same spinor space which will be omitted in
+        later text for brevity.
+
+        Requiring the squared version of the operator
+        $(i \gamma^\mu \partial_\mu - m)$ to recover \cref{eqn:k-g} when
+        operating\footnote{
+            Note that $i \gamma^\mu \partial_\mu \psi = m \psi$,
+            so there will be no cross term.
+        } on $\psi$:
+        \begin{equation}
+            (i \gamma^\mu \partial_\mu - m)
+            (i \gamma^\nu \partial_\nu - m) \psi =
+            (\gamma^\mu\gamma^\nu \partial_\nu \partial_\mu + m^2) \psi = 0
+        \end{equation}
+        we find a relation between $\gamma^\mu, \gamma^\nu$:
+        \begin{equation}
+            \left\{ \gamma^\mu, \gamma^\nu \right\} = 2 \eta^{\mu\nu}
+        \end{equation}
+        which are $4 \times 4$ matrices constructable from $2 \times 2$ Pauli
+        matrices.
+
 
         It is then possible to construct a Lagrangian density\footnote{
             Starting from here, to be more concise, ``Lagrangian'' is used
             in place of ``Lagrangian density''.
             Same for ``Hamiltonian'' in place of ``Hamiltonian density''.
-        } $\mathcal{L}_0$
-        that leads to \cref{eqn:k-g} by the Euler-Lagrange equation:
+        } $\mathcal{L}_\text{free}$
+        that leads to the correct dynamical equations
+        (i.e. Klein-Gordon and Dirac)
+        by the Euler-Lagrange equation\footnote{
+            That is:
+            $\frac{\partial \mathcal{L}}{\partial \phi} - \partial_\mu (\frac{\partial \mathcal{L}}{\partial (\partial_\mu \phi)}) = 0$.
+        }:
+
         \begin{equation}
-            \mathcal{L}_0 = \frac{1}{2} \partial_\mu \partial^\mu \phi -
+            \mathcal{L}_\text{free} =
+                \frac{1}{2} \partial_\mu \phi \partial^\mu \phi -
                 \frac{1}{2} m \phi^2
         \end{equation}
-        where the subscript 0 indicates that the Lagrangian density is for a
-        spin-0 scalar particle.
 
     \item The Dirac equation solves the relativistic version of
         \cref{eqn:schodinger},
