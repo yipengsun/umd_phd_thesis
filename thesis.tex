@@ -132,6 +132,13 @@
 \usepackage{mathtools}
 \usepackage{bm}
 
+% bra-ket
+% FIXME: The LHCb style defines an inferior version of these commands. Comment
+% them out!!!
+\DeclarePairedDelimiter\bra{\langle}{\rvert}
+\DeclarePairedDelimiter\ket{\lvert}{\rangle}
+\DeclarePairedDelimiterX\braket[2]{\langle}{\rangle}{#1\,\delimsize\vert\,\mathopen{}#2}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%
 % citations, links, etc %
