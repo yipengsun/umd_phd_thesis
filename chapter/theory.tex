@@ -31,7 +31,7 @@ in general one starts from a free Lagrangian density,
 then demands the Lagrangian is invariant under local gauge transformations of
 certain Lie algebras to arrive at a Lagrangian with interactions,
 adding appropriate terms when necessary.
-Then it is (sometimes) possible to compute the transition amplitude from an
+Then it is (sometimes) possible to compute the scattering amplitude from an
 initial state to a final state in a perturbative manner\footnote{
     To be more precise, the scattering amplitude $\braket{f}{i}$
     between an initial state $\ket{i}$
@@ -44,22 +44,28 @@ initial state to a final state in a perturbative manner\footnote{
             $\ket{\Omega}$ by the LSZ reduction formula:
             $\braket{f}{i} \propto \bra{\Omega} T \phi(y_1) \dots \phi(y_r) \phi(x_1) \dots \phi(x_n) \ket{\Omega}$,
             where $\phi(x)$, an operator in the Heisenberg picture,
-            creates a particle at spacetime point $x$,
+            creates a particle at spacetime point $x$ in the interactive
+            vacuum $\ket{\Omega}$,
             and $T$ stands for time-ordering.
 
-        \item Identify the free part and the interaction part of the Hamiltonian,
-            denote as $H_0, H_\text{int}$,
-            respectively.
-            The time evolution between a Heisenberg and a interactive operator
-            is given by
-            $U(t, t_0) = T e^{-i \int_{t_0}^t H_I(t') d t'}$,
-            where $H_I(t) = e^{iH_0(t-t_0)} H_\text{int} e^{-iH_0(t-t_0)}$.
+        \item Denote the free and the interaction part of the Hamiltonian
+            as $H_0, H_\text{int}$, accordingly.
+
+        \item At a given time $t$, a Heisenberg operator and a interactive
+            operator are related by
+            $\phi(t_0, \vec{x}) = U^\dagger (t, t_0) \Phi_I(t, \vec{x}) U(t, t_0)$,
+            where $U(t, t_0) = T e^{-i \int_{t_0}^t H_I(t') d t'}$, and
+            $H_I(t) = e^{iH_0(t-t_0)} H_\text{int} e^{-iH_0(t-t_0)}$.
 
         \item The interactive vacuum $\ket{\Omega}$ and the free vacuum
-            $\ket{0}$ are related by $U$,
-            which ultimately leads to:
-            $\braket{f}{i} \propto \bra{\Omega} T \prod_i \Phi_I(x_i) e^{-i \int_{-\infty}^{\infty} H_I(t) dt} \ket{\Omega}$,
-            where $\Phi_I$ is the $\phi$ operator in the interaction picture.
+            $\ket{0}$ are related by
+            $\ket{\Omega} \propto \lim_{\tau \rightarrow \infty(1 - i\epsilon)} U(t_0, -\tau)\ket{0}$.
+
+        \item The scattering amplitude can now be written as
+            $\braket{f}{i} \propto \bra{0} T \prod_i \Phi_I(x_i) e^{-i \int_{-\infty}^{\infty} H_I(t) dt} \ket{0}$,
+            where $\Phi_I$ is the $\phi$ operator in the interaction picture
+            and has a \emph{free} mode expansion that can create and destroy
+            particles in the \emph{free} vacuum $\ket{0}$.
 
         \item At this point,
             the exponential involving $H_I$ are expanded in a Taylor series:
@@ -74,10 +80,10 @@ initial state to a final state in a perturbative manner\footnote{
             corresponding field operators which are specified by the commutation
             relations between the operators.
 
-        \item The first order terms are identified as tree-level Feynman
-            diagrams and can be computed.
-            Higher order terms involve infinities and require renormalization.
+        \item The first (non-vanishing) order terms are identified as tree-level
+            Feynman diagrams.
     \end{enumerate}
+    Higher order terms may involve infinities and require renormalization.
 }.
 
 For example, consider the construction of the Quantum Eletrodynamics (QED)
