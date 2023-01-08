@@ -10,6 +10,11 @@
 %
 % Very useful:
 %   https://physics.stackexchange.com/questions/266963/what-are-the-differences-if-any-between-the-dysons-series-definition-and-the
+%   https://pages.cs.wisc.edu/~guild/symmetrycompsproject.pdf
+%   https://physics.stackexchange.com/questions/578059/why-the-little-group-of-a-massless-spin-1-particle-is-iso2-rather-than-so2
+%
+% Useful papers not cited:
+%   On gauge symmetry: https://arxiv.org/pdf/1901.10420.pdf
 
 
 \chapter{Theory of semileptonic $B$ decays}
@@ -23,22 +28,45 @@ particle physicists were able to come up with a \emph{quantum field theory}
 to describe \emph{interactions} of \emph{elementary particles},
 known as the standard model of particle physics (SM).
 In this section a construction of the SM is outlined following
-\cite{Robinson_2011}
-and its implications on lepton flavor universality are discussed.
+\cite{Robinson_2011,Schwichtenberg_2018}
+and its implications on lepton flavor universality are discussed\footnote{
+    ``I am an experimentalist!'' says the author waving his hands.
+}.
 
 It is experimentally established that the speed of light in vacuum is constant
 in any reference frame.
-Then, all transformations preserving the speed of light can be identified:
-rotations, Lorentz boosts, and translations.
-Among them the rotation and boost transformations form group called
+Then, all transformations preserving the speed of light\footnote{
+    Each of such transformations, denote as $A$, must leave the Minkowski metric
+    $\eta$ intact: $A^T \eta A = \eta$.
+} can be identified:
+rotations, Lorentz boosts, parity ($\vec{x} \rightarrow -\vec{x}$),
+time reversal ($t \rightarrow -t$), and translations.
+All but the translation transformations form a group called
 ``Lorentz group''.
 Focusing on the restricted Lorentz group $SO^+(1, 3)$,
 which preserves direction of space and time\footnote{
-    Loosely speaking, Lorentz group contains 4 ``classes'': ${I, T, P, TP}$.
+    Loosely speaking, Lorentz group contains 4 ``classes'': $\{I, T, P, TP\}$.
     $SO^+(1,3)$ is the one that contains the identity element.
-    The other 3 can be obtained by apply parity ($P$), time reversal ($T$),
+    The other 3 can be obtained by applying parity ($P$), time reversal ($T$),
     or both ($TP$) to $SO^+(1,3)$.
 },
+and accepting that it is advantageous to extend $SO^+(1,3)$ to work with vectors
+with complex components,
+it is shown that the extended group, $SO^+(1,3)_\mathbb{C}$,
+contains two copies of $SU(2)_\mathbb{C}$.
+
+One may ask the following question, then:
+``What kinds of object does the group $SO^+(1,3)_\mathbb{C}$ act on?''
+To answer this question, the group elements can be represented by $n \times n$
+matrices
+(with the understanding that any group element $\Lambda$ can be generated from 3
+rotation generators $\vec{J}$ and 3 boost generators $\vec{K}$
+with the exponential map:
+$\Lambda = e^{i \vec{\theta} \cdot \vec{J} + i \vec{\phi} \cdot \vec{K}}$),
+and the objects the group acts on by vectors of $n$ complex numbers.
+Then the properties of a particular ``representation'' can be studied with
+the familiar tool of linear algebra.
+It turns out
 
 in general one starts from a free Lagrangian density,
 then demands the Lagrangian is invariant under local gauge transformations of
