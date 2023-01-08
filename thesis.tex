@@ -87,16 +87,6 @@
 
 
 %%%%%%%%%%
-% layout %
-%%%%%%%%%%
-\usepackage{lscape}
-%\usepackage{multirow}
-
-% footnote always at the bottom of the page
-\usepackage[bottom,hang,flushmargin,splitrule]{footmisc}
-
-
-%%%%%%%%%%
 % tables %
 %%%%%%%%%%
 
@@ -178,10 +168,12 @@
 % \renewcommand{\cite}[1]{Ref.~\oldcite{#1}}
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%
-% geometry and spacing %
-%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%
+% layout and spacing %
+%%%%%%%%%%%%%%%%%%%%%%
 \usepackage{setspace}
+\usepackage{lscape}
+%\usepackage{multirow}
 
 % margins
 \setlength{\textwidth}{6.4in}
@@ -197,6 +189,9 @@
 \AfterEndEnvironment{equation}{\end{singlespace}\noindent\ignorespaces}
 \BeforeBeginEnvironment{align}{\begin{singlespace}}
 \AfterEndEnvironment{align}{\end{singlespace}\noindent\ignorespaces}
+
+% footnote always at the bottom of the page
+\usepackage[bottom,hang,flushmargin,splitrule]{footmisc}
 
 
 %%%%%%%%%%%%%%
