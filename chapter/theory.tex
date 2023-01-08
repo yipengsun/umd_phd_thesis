@@ -12,6 +12,7 @@
 %   https://physics.stackexchange.com/questions/266963/what-are-the-differences-if-any-between-the-dysons-series-definition-and-the
 %   https://pages.cs.wisc.edu/~guild/symmetrycompsproject.pdf
 %   https://physics.stackexchange.com/questions/578059/why-the-little-group-of-a-massless-spin-1-particle-is-iso2-rather-than-so2
+%   https://math.stackexchange.com/questions/1334965/direct-sum-vs-direct-product-vs-tensor-product
 %
 % Useful papers not cited:
 %   On gauge symmetry: https://arxiv.org/pdf/1901.10420.pdf
@@ -54,6 +55,7 @@ and accepting that it is advantageous to extend $SO^+(1,3)$ to work with vectors
 with complex components,
 it is shown that the extended group, $SO^+(1,3)_\mathbb{C}$,
 contains two copies of $SU(2)_\mathbb{C}$.
+% SO+(1,3) = SU(2) x SU(2), direct product
 
 One may ask the following question, then:
 ``What kinds of object does the group $SO^+(1,3)_\mathbb{C}$ act on?''
@@ -62,11 +64,33 @@ matrices
 (with the understanding that any group element $\Lambda$ can be generated from 3
 rotation generators $\vec{J}$ and 3 boost generators $\vec{K}$
 with the exponential map:
-$\Lambda = e^{i \vec{\theta} \cdot \vec{J} + i \vec{\phi} \cdot \vec{K}}$),
+$\Lambda = e^{i \vec{\theta} \cdot \vec{J} + i \vec{\phi} \cdot \vec{K}}$,
+and the commutation relations between any two generators can be worked out in
+any representation),
 and the objects the group acts on by vectors of $n$ complex numbers.
 Then the properties of a particular ``representation'' can be studied with
 the familiar tool of linear algebra.
-It turns out
+As a side note,
+$SU(2)_\mathbb{C}$ can be represented by $2j + 1$ dimensional matrices,
+where $j$ is a half-integer;
+the $j = \frac{1}{2}$ case has 3 Pauli matrices as the group generators.
+Since $SO^+(1,3)_\mathbb{C}$ contains two copies of $SU(2)_\mathbb{C}$,
+its representations can be labelled as $(j, j')$.
+It turns out the answer to the question at the beginning of the paragraph is:
+each \emph{irreducible representation}\footnote{
+    Roughly speaking, there is no transformation that can simultaneously
+    block-diagonalize all matrices representing the group elements.
+}
+corresponds to a specific type of \emph{elementary particle}.
+The $(0, 0)$ representation corresponds to spin-0 scalar particles;
+the $(\frac{1}{2}, 0)$ and $(0, \frac{1}{2})$ representations both corresponds to
+spin-$\frac{1}{2}$ particles,
+with the former left-handed and the latter right-handed;
+the $(\frac{1}{2}, \frac{1}{2}) = (\frac{1}{2}, 0) \otimes (0, \frac{1}{2})$
+representation corresponds to spin-1 particles.
+There are many more irreducible representations,
+but in SM only the spin 0, $\frac{1}{2}$, and 1 particles are present.
+
 
 in general one starts from a free Lagrangian density,
 then demands the Lagrangian is invariant under local gauge transformations of
