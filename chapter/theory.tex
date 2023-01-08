@@ -6,6 +6,7 @@
 %   https://physics.stackexchange.com/questions/429180/how-does-bhabha-scattering-imply-the-existence-of-quark-lepton-substructure
 %   https://physics.stackexchange.com/questions/96362/what-does-a-rm-su2-isospin-doublet-really-mean
 %   https://physics.stackexchange.com/questions/385159/quark-gluon-color-relationship-in-pure-qcd
+%   https://physics.stackexchange.com/questions/327008/how-do-the-infinite-dimensional-representations-of-the-poincar%C3%A9-group-work
 
 % Schwartz
 %   p. 585 (hypercharge)
@@ -26,186 +27,74 @@ In this section a construction of the SM is outlined following
 and its implications on lepton flavor universality are discussed.
 
 To construct the SM,
-in general one starts with a free Lagrangian density\footnote{
-    Will be referred as just ``Lagrangian'' in the following text for brevity,
-    same for ``Hamiltonian''.
-},
-then demands the Lagrangian is invariant under local gauge transformation of
-certain Lie groups to arrive at an Lagrangian with interactions,
+in general one starts from a free Lagrangian density,
+then demands the Lagrangian is invariant under local gauge transformations of
+certain Lie algebras to arrive at a Lagrangian with interactions,
 adding appropriate terms when necessary.
 Then it is (sometimes) possible to compute the transition amplitude from an
 initial state to a final state in a perturbative manner\footnote{
-    To be more precise, the calculation can be carried out in the following
-    manner:
+    To be more precise, the scattering amplitude $\braket{f}{i}$
+    between an initial state $\ket{i}$
+    and a final state $\ket{f}$
+    can be calculated in the following
+    manner \cite{Weigand}:
     \begin{enumerate}[noitemsep,nosep]
-        \item Obtain a Hamiltonian $\mathcal{H}$ from the Lagrangian
-            $\mathcal{L}$ with the Legendre transformation.
-        \item Identify the free part and the interaction part of the Hamiltonian,
-            denote as $\mathcal{H}_F, \mathcal{H}_I$, respectively.
-        \item Assume the time evolution of a state $\ket{i}$ is governed by the
-            Schrödinger equation $i \partial_t \ket{i} = H_I \ket{i}$
-            in the interaction picture.
-        \item Express the scattering process as $\bra{f} S \ket{i}$,
-            the scattering operator $S$ can be identified as
-            $S = \exp({i \int_{-\infty}^\infty \mathcal{H}_I d^4 x})$.
-        \item The $S$ operator can be expand in a Taylor-like series:
+        \item The amplitude $\braket{f(y_1, \dots, y_r)}{i(x_1, \dots, x_n)}$
+            is related to the interactive vacuum
+            $\ket{\Omega}$ by the LSZ reduction formula:
+            $\braket{f}{i} \propto \bra{\Omega} T \phi(y_1) \dots \phi(y_r) \phi(x_1) \dots \phi(x_n) \ket{\Omega}$,
+            where $\phi(x)$, an operator in the Heisenberg picture,
+            creates a particle at spacetime point $x$,
+            and $T$ stands for time-ordering.
 
-            $S = \sum_n \frac{(-i)^n}{n!} T\left\{
+        \item Identify the free part and the interaction part of the Hamiltonian,
+            denote as $H_0, H_\text{int}$,
+            respectively.
+            The time evolution between a Heisenberg and a interactive operator
+            is given by
+            $U(t, t_0) = T e^{-i \int_{t_0}^t H_I(t') d t'}$,
+            where $H_I(t) = e^{iH_0(t-t_0)} H_\text{int} e^{-iH_0(t-t_0)}$.
+
+        \item The interactive vacuum $\ket{\Omega}$ and the free vacuum
+            $\ket{0}$ are related by $U$,
+            which ultimately leads to:
+            $\braket{f}{i} \propto \bra{\Omega} T \prod_i \Phi_I(x_i) e^{-i \int_{-\infty}^{\infty} H_I(t) dt} \ket{\Omega}$,
+            where $\Phi_I$ is the $\phi$ operator in the interaction picture.
+
+        \item At this point,
+            the exponential involving $H_I$ are expanded in a Taylor series:
+            $e^{-i \int_{-\infty}^{\infty} H_I(t) dt} = \sum_n \frac{(-i)^n}{n!} T\left\{
                 \int_{-\infty}^{\infty} \cdots \int_{-\infty}^{\infty}
-                \mathcal{H}_{I}^1 \cdots \mathcal{H}_{I}^n d^4 x_1 \cdots d^4 x_n
-            \right\}$,
-            where $T$ stands for time-ordering.
-        \item Each term in the series can be expressed by the Wick's theorem
-            as a series of normal-ordered terms with contractions.
-            The contractions can be identified as the Feynman propagators with
-            the canonical commutation relations.
-        \item The first non-vanish order terms are identified as tree-level
-            Feynman diagrams and can be computed.
+                H_{I}^1 \cdots H_{I}^n d t_1 \cdots d t_n
+            \right\}$.
+            Each term in the series are turned into a series of
+            normal-ordered operators with contractions via the Wick's theorem.
+
+        \item The contractions are Feynman propagators with the
+            corresponding field operators which are specified by the commutation
+            relations between the operators.
+
+        \item The first order terms are identified as tree-level Feynman
+            diagrams and can be computed.
+            Higher order terms involve infinities and require renormalization.
     \end{enumerate}
-    Higher-order terms may involve infinities and require renormalization,
-    with is not the focus of this text.
 }.
 
-by going into the
-interaction picture\footnote{
-    In the interaction picture the time evolution for operators are governed by
-    the free Hamiltonian, whereas the states by the Interaction Hamiltonian.
-}, identify the interaction Hamiltonian, and use the $S$-matrix formalism to
-expand the $S$-matrix into a series of
-
-\begin{enumerate}
-    \item Assume special relativity holds so that the Lagrangian density
-        $\mathcal{L}$
-        must be a Lorentz scalar (Lorentz invariant) and the
-        energy-momentum follows a relativistic relation:
-
-        \begin{equation}
-            E^2 = m^2 + \vec{p} \cdot \vec{p}
-            \label{eqn:e-p-dispersion}
-        \end{equation}
-
-        Additionally,
-        interpret the Schrödinger's equation as a description to the time
-        evolution of a spin-0 scalar field $\phi$:
-
-        \begin{equation}
-            i \partial t \phi = H \phi
-            \label{eqn:schodinger}
-        \end{equation}
-
-    \item Replacing $E^2$ and $\vec{p} \cdot \vec{p}$
-        with the corresponding operators in
-        \cref{eqn:e-p-dispersion}
-        then inserting into the squared version of
-        \cref{eqn:schodinger},
-        we have the Klein-Gordon equation\footnote{
-            The metric $\eta_{\mu\nu}$ follows particle physicists' convention
-            $(+ - - -)$.
-        }:
-
-        \begin{equation}
-            (\partial_\mu \partial^\mu + m^2) \phi = 0
-            \label{eqn:k-g}
-        \end{equation}
-
-        For a spin $1/2$ particle,
-        we can also construct a linear equation for a $n$-component spinor
-        $\psi$, the Dirac equation:
-
-        \begin{equation}
-            (i \gamma^\mu \partial_\mu - m I) \psi = 0
-            \label{eqn:dirac}
-        \end{equation}
-        where $\gamma^\mu$ operates on the spinor space, and $I$ refers to the
-        identity operator in the same spinor space which will be omitted in
-        later text for brevity.
-
-        Requiring the squared version of the operator
-        $(i \gamma^\mu \partial_\mu - m)$ to recover \cref{eqn:k-g} when
-        operating\footnote{
-            Note that $i \gamma^\mu \partial_\mu \psi = m \psi$,
-            so there will be no cross term.
-        } on $\psi$:
-        \begin{equation}
-            (i \gamma^\mu \partial_\mu - m)
-            (i \gamma^\nu \partial_\nu - m) \psi =
-            (\gamma^\mu\gamma^\nu \partial_\nu \partial_\mu + m^2) \psi = 0
-        \end{equation}
-        we find a relation between $\gamma^\mu, \gamma^\nu$:
-        \begin{equation}
-            \left\{ \gamma^\mu, \gamma^\nu \right\} = 2 \eta^{\mu\nu}
-        \end{equation}
-        which are $4 \times 4$ matrices constructable from $2 \times 2$ Pauli
-        matrices.
-
-
-        It is then possible to construct a Lagrangian density\footnote{
-            Starting from here, to be more concise, ``Lagrangian'' is used
-            in place of ``Lagrangian density''.
-            Same for ``Hamiltonian'' in place of ``Hamiltonian density''.
-        } $\mathcal{L}_\text{free}$
-        that leads to the correct dynamical equations
-        (i.e. Klein-Gordon and Dirac)
-        by the Euler-Lagrange equation\footnote{
-            That is:
-            $\frac{\partial \mathcal{L}}{\partial \phi} - \partial_\mu (\frac{\partial \mathcal{L}}{\partial (\partial_\mu \phi)}) = 0$.
-        }:
-
-        \begin{equation}
-            \mathcal{L}_\text{free} =
-                \frac{1}{2} \partial_\mu \phi \partial^\mu \phi -
-                \frac{1}{2} m \phi^2
-        \end{equation}
-
-    \item The Dirac equation solves the relativistic version of
-        \cref{eqn:schodinger},
-        noting that $\gamma^\mu$ are $4 \times 4$ matrices constructed from
-        $2 \times 2$ Pauli matrices\footnote{
-            Clifford algebra.
-        },
-        representable with Chiral spinors,
-        this suggests that there are both left-handed and right-handed particles,
-        each with a spin of $\frac{1}{2}$.
-
-        The corresponding Lagrangian density $\mathcal{L}_{1/2}$ is:
-
-    \item A free quantum theory Lagrangian can be constructed from ,
-        it is possible to use complex scalars in .
-        A free Hamiltonian density can be constructed by from the free
-        Lagrangian density via the Legendre transformation
-
-    \item The free theory has the wrong phenomenology because it doesn't permit
-        interactions between different types of particles which is required by
-        experimental results.
-        Suppose additional interaction terms are added,
-        the transition amplitude can be found by going into the interaction
-        picture, where the states evolve by the interaction Hamiltonian
-        and the operator fields by the free Hamiltonian.
-        It is possible to express the time evolution of a state with a Dyson
-        series which contains a time-ordering operator.
-        Each term can be expanded into a set of normal-ordered integrals with
-        the Wick's theorem.
-        The normal ordering makes the bra-ket computable because it contains
-        propagators which are scalar-valued functions.
-
-    \item Interactions can be put into the free Lagrangian by requiring the
-        Lagrangian remains invariant under a local gauge transformation:
-
-        Note that the naive mass terms need to be dropped because they violate
-        $U(1)$ gauge symmetry.
-
-        The ``mass'' of each particle, which can be a gauge boson or a fermion,
-        is put back by the Higgs mechanism,
-        which is introduced by a gauge fixing due to a non-0 vacuum expectation
-        value of the Higgs field (a scalar doublet).
-\end{enumerate}
-
-The focus is on the eletroweak part which will be briefly discussed to show LFU,
-before moving on to a description of form factor which is crucial to compute
-transition amplitude.
-then the expressions for \RDX are given.
-Finally, a brief discussion on the form factors characterizing the $1P$ state
-$D$ meson transition is provided.
+For example, consider the construction of the Quantum Eletrodynamics (QED)
+first:
+the Dirac equation, a relativistic wave equation for spin $1/2$ particles\footnote{
+    This is because $\gamma^\mu$ are $4 \times 4$ matrices constructable from
+    $2 \times 2$ Pauli matrices.
+    Using the Weyl representation, the 4-component spinor field $\psi$ can
+    be viewed as a 2-component left-handed spin $1/2$ particle and a 2-component
+    right-handed spin $1/2$ particle.
+}, implies\footnote{
+    Note that $\psi^\dagger \psi$ is not a Lorentz scalar because:
+    Lorentz transformations $S$ for spinors are generated by
+    the $\gamma^\mu$ by the following relation:
+    $S^{\mu\nu} = \frac{i}{4}[\gamma^\mu, \gamma^\nu]$,
+    and $S = \exp(\frac{i}{2}\omega)$
+} the following Lagrangian:
 
 
 
