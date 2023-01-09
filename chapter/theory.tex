@@ -14,6 +14,7 @@
 %   https://pages.cs.wisc.edu/~guild/symmetrycompsproject.pdf
 %   https://physics.stackexchange.com/questions/578059/why-the-little-group-of-a-massless-spin 1-particle-is-iso2-rather-than-so2
 %   https://math.stackexchange.com/questions/1334965/direct-sum-vs-direct-product-vs-tensor-product
+%   https://physics.stackexchange.com/questions/619178/standard-model-notation-on-doublets
 %
 % Useful papers not cited:
 %   On gauge symmetry: https://arxiv.org/pdf/1901.10420.pdf
@@ -23,7 +24,7 @@
 \chapter{Theory of semileptonic $B$ decays}
 \label{ref:theory}
 
-\section{Construction of the SM}
+\section{Construction of the electroweak theory in the SM}
 
 Through a close collaboration between experimentalists and theorists,
 particle physicists were able to come up with a \emph{quantum field theory}
@@ -34,8 +35,14 @@ A construction of the SM is outlined\footnote{
 } first with the help of
 \cite{Robinson_2011,Schwichtenberg_2018},
 followed by brief discussions on quantum eletrodynamics (QED),
-the electroweak theory, the lepton flavor universality in the SM,
-and the full SM.
+the electroweak theory, and the lepton flavor universality in the SM.
+The full SM,
+which includes the strong interaction on top of the electroweak interactions,
+can be constructed in the same way but will not be discussed because the strong
+interaction is not the focus of this thesis.
+
+
+\subsection{Outline of the construction}
 
 It is experimentally established that the speed of light in vacuum is constant
 in any reference frame.
@@ -224,11 +231,11 @@ particles of mass $m$:
 The Lagrangian is invariant under a global transformation
 $\psi \rightarrow e^{i\alpha} \psi$ where $\alpha \in \mathbb{R}$.
 Promoting $\alpha$ from a number to a function $\alpha(x^\mu)$
-makes the transformation $e^{i\alpha(x^\mu)}$ local.
+makes the transformation $\psi \rightarrow e^{i\alpha(x^\mu)} \psi$ local.
 All such transformations form a $U(1)$ group.
 However, it is checked that $\mathcal{L}_\text{Dirac}$ is not invariant
 under such local transformations due to the derivative term $\partial_\mu$.
-To restore the symmetry,
+To enforce such invariance,
 A vector field operator $A_\mu$,
 which satisfies the gauge transformation
 $A_\mu \rightarrow A_\mu + \frac{1}{g} \partial_\mu \alpha(x^\mu)$,
@@ -262,9 +269,6 @@ Putting all pieces together, one obtains the Lagrangian for QED:
 
 \subsection{Lepton flavor universality in the SM}
 \label{ref:theory:lfu}
-
-
-\subsection{The full SM}
 
 
 \section{Form factors in $B \rightarrow D^{(*)}\ell\neulb$ decays}
