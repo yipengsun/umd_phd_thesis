@@ -215,6 +215,36 @@ particles of mass $m$:
     \mathcal{L}_\text{Dirac} = \bar{\Psi} (i\gamma^\mu\partial_\mu - m) \Psi
 \end{equation}
 
+The Lagrangian is invariant under a global gauge transformation
+$\Psi \rightarrow e^{i\alpha} \Psi$ where $\alpha \in \mathbb{R}$.
+A \emph{local} gauge transformation can be implemented by
+promoting $\alpha$ from a number to a function $\alpha(x^\mu)$,
+in which case the Lagrangian is no longer invariant due to the derivative
+$\partial_\mu$.
+A vector field operator $A_\mu$ can be introduced to restore the symmetry,
+which satisfies the gauge transformation
+$A_\mu \rightarrow A_\mu + \frac{1}{g} \partial_\mu \alpha(x^\mu)$,
+by replacing the standard derivative $\partial_\mu$ with the following:
+
+\begin{equation}
+    \fsl{D}_\mu \equiv \partial_\mu - i g A_\mu
+\end{equation}
+
+At this point, the Lagrangian reads
+$\mathcal{L} = \mathcal{L}_\text{Dirac} + g A_\mu\bar{\Psi}\gamma^\mu\Psi$.
+However, it is ``unstable'' as the equation of motion of $A_\mu$
+suggests the interaction term $g A_\mu\bar{\Psi}\gamma^\mu\Psi = 0$,
+because $0 = \partial_{A_\mu} \mathcal{L} = g \bar{\Psi}\gamma^\mu\Psi$.
+Additional kinetic terms for spin-1 particles are needed to stabilize the
+Lagrangian,
+which is found by doing a similar exercise as in the spin-$\frac{1}{2}$ case.
+Such terms read $\frac{1}{4}F_{\mu\nu}F^{\mu\nu}$,
+where $F^{\mu\nu} = \partial^\mu A^\nu - \partial^\nu A^\mu$.
+Putting all together, one obtains the Lagrangian for QED:
+
+\begin{equation}
+    \mathcal{L} = \bar{\Psi} (i\gamma^\mu\fsl{D}_\mu - m) \Psi - \frac{1}{4}F_{\mu\nu}F^{\mu\nu}
+\end{equation}
 
 \section{Lepton flavor universality in the SM}
 \label{ref:theory:lfu}
