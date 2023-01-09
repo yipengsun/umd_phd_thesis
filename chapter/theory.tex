@@ -4,7 +4,7 @@
 %   https://physics.stackexchange.com/questions/55350/two-ways-to-form-su2-singlets
 %   https://physics.stackexchange.com/questions/607444/chiral-symmetry
 %   https://physics.stackexchange.com/questions/429180/how-does-bhabha-scattering-imply-the-existence-of-quark-lepton-substructure
-%   https://physics.stackexchange.com/questions/96362/what-does-a-rm-su2-isospin-doublet-really-mean
+%   https://physics.stackexchange.com/questions/96362/what-does-a-rm-su2-isospin doublet-really-mean
 %   https://physics.stackexchange.com/questions/385159/quark-gluon-color-relationship-in-pure-qcd
 %   https://physics.stackexchange.com/questions/327008/how-do-the-infinite-dimensional-representations-of-the-poincar%C3%A9-group-work
 %   Rep. of Lorentz group: http://sharif.edu/~sadooghi/QFT-I-96-97-2/LorentzPoincareMaciejko.pdf
@@ -12,7 +12,7 @@
 % Very useful:
 %   https://physics.stackexchange.com/questions/266963/what-are-the-differences-if-any-between-the-dysons-series-definition-and-the
 %   https://pages.cs.wisc.edu/~guild/symmetrycompsproject.pdf
-%   https://physics.stackexchange.com/questions/578059/why-the-little-group-of-a-massless-spin-1-particle-is-iso2-rather-than-so2
+%   https://physics.stackexchange.com/questions/578059/why-the-little-group-of-a-massless-spin 1-particle-is-iso2-rather-than-so2
 %   https://math.stackexchange.com/questions/1334965/direct-sum-vs-direct-product-vs-tensor-product
 %
 % Useful papers not cited:
@@ -34,7 +34,8 @@ A construction of the SM is outlined\footnote{
 } first with the help of
 \cite{Robinson_2011,Schwichtenberg_2018},
 followed by brief discussions on quantum eletrodynamics (QED),
-    the electroweak theory, and the full SM.
+the electroweak theory, the lepton flavor universality in the SM,
+and the full SM.
 
 It is experimentally established that the speed of light in vacuum is constant
 in any reference frame.
@@ -85,33 +86,36 @@ each \emph{irreducible representation}\footnote{
     block-diagonalize all matrices representing the group elements.
 }
 corresponds to a specific type of \emph{elementary particle}.
-The $(0, 0)$ representation corresponds to spin-0 scalar particles;
+The $(0, 0)$ representation corresponds to spin 0 scalar particles;
 the $(\frac{1}{2}, 0)$ and $(0, \frac{1}{2})$ representations both corresponds to
-spin-$\frac{1}{2}$ particles,
+spin $\frac{1}{2}$ particles,
 with the former left-handed and the latter right-handed;
-the $(\frac{1}{2}, \frac{1}{2}) = (\frac{1}{2}, 0) \otimes (0, \frac{1}{2})$
-representation corresponds to spin-1 particles.
+the $(\frac{1}{2}, \frac{1}{2})$
+representation corresponds to spin 1 particles.
 There are many more irreducible representations,
 but in the SM only the spin 0, $\frac{1}{2}$, and 1 particles are present.
 
 Now the SM can be constructed as follows:
-First, consider elementary particles with spin $0$ and $\frac{1}{2}$,
-which are represented by linear operators in a space:
-a Lorentz-invariant Lagrangian density\footnote{
+First, consider elementary particles with spin 0, $\frac{1}{2}$, and 1,
+which are represented by linear operators in a space.
+A Lorentz-invariant Lagrangian density\footnote{
     Will be referred as ``Lagrangian'' in later text for brevity.
 } can be built from
 linear, quadratic, and the lowest possible derivative terms of these
 operators.
 A Lagrangian built in this manner contains no interaction (i.e. a free
 Lagrangian).
-Then, require the Lagrangian to be invariant under certain local transformations
+Then, require the Lagrangian to be invariant\footnote{
+    Admittedly it is not clear to the author why it has to be the case.
+} under certain local transformations
 such as that from $U(1), SU(2)$, and $SU(3)$.
 These requirements can be satisfied by adding/removing certain terms to the
 Lagrangian;
 these terms make interactions between elementary particles happen.
 At this point, there is nothing quantum about the theory.
 The theory is ``quantized'' by forcing canonical commutation/anti-commutation
-relation for spin-0 and spin-$\frac{1}{2}$ particles, respectively\footnote{
+relation for integer spin and half-integer spin particles,
+respectively\footnote{
     Note that at this point, the terms
     \emph{elementary particles, interactive, and quantum field theory}
     are defined.
@@ -167,33 +171,35 @@ manner\footnote{
             corresponding field operators which are specified by the commutation
             relations between the operators.
 
-        \item The first (non-vanishing) order terms are identified as tree-level
-            Feynman diagrams.
+        \item The first (non-trivial non-vanishing) order terms are identified
+            as tree-level Feynman diagrams.
     \end{enumerate}
     Higher order terms may involve infinities and require renormalization.
 }.
 
 
 \subsection{Quantum eletrodynamics (QED)}
+\label{qed}
 
 Following the recipe provided above, first identify all\footnote{
     This refers to linear, quadratic, and lowest possible derivative terms.
 } possible Lorentz scalar
-terms in a free Lagrangian for spin-$\frac{1}{2}$ particles:
+terms in a free Lagrangian for spin $\frac{1}{2}$ particles:
 the second order terms
-$S_1 = (\psi_L)^\dagger \phi_R, S_2 = (\phi_R)^\dagger(\psi_L)$;
+$S_1 = (\chi_L)^\dagger \xi_R, S_2 = (\xi_R)^\dagger\chi_L$;
 the first order partial derivative terms
-$S_3 = (\psi_L)^\dagger \partial_\mu \bar{\sigma}^\mu (\psi_L),
-S_4 = (\phi_R)^\dagger \partial_\mu {\sigma}^\mu (\phi_R)$.
+$S_3 = (\chi_L)^\dagger \partial_\mu \bar{\sigma}^\mu \chi_L,
+S_4 = (\xi_R)^\dagger \partial_\mu {\sigma}^\mu \xi_R$.
+Each $\chi_L, \xi_R$ is a 2-component Weyl spinor.
 This shows that both left- and right-handed particles are needed for Lorentz
 invariance,
 which motivates a 4-component Dirac spinor
-$\Psi = \bigl(\begin{smallmatrix} \psi_L \\ \phi_R \end{smallmatrix}\bigr)$.
+$\psi = \bigl(\begin{smallmatrix} \chi_L \\ \xi_R \end{smallmatrix}\bigr)$.
 %%%%
-To combine $\Psi$ into the form of $S_1, S_2$,
+To combine $\psi$ into the form of $S_1, S_2$,
 the matrix
 $\gamma_0 = \bigl(\begin{smallmatrix} 0 & I_{2 \times 2} \\ I_{2 \times 2} & 0 \end{smallmatrix}\bigr)$
-can be used such that $\Psi^\dagger \gamma_0 \Psi$ is a Lorentz scalar.
+can be used such that $\psi^\dagger \gamma_0 \psi$ is a Lorentz scalar.
 %%%%
 On the other hand,
 the forms of $S_3, S_4$ suggest the use of the matrices of the form
@@ -203,51 +209,62 @@ where $\gamma^\mu = \bigl(\begin{smallmatrix} 0 & {\sigma}_\mu \\ \bar{\sigma}_\
 noting that $\gamma^0$ can be defined in the same way since
 $\sigma^0 = \bar{\sigma}^0 = I_{2 \times 2}$.
 Therefore, a Lagrangian
-$\mathcal{L} = a \Psi^\dagger \gamma_0 \Psi + b \Psi^\dagger \gamma_0 \gamma^\mu \partial_\mu \Psi$
+$\mathcal{L} = a \psi^\dagger \gamma_0 \psi + b \psi^\dagger \gamma_0 \gamma^\mu \partial_\mu \psi$
 can be written, where $a, b \in \mathbb{C}$.
-Defining a shortcut $\bar{\Psi} \equiv \Psi^\dagger \gamma_0$,
+Defining a shortcut $\bar{\psi} \equiv \psi^\dagger \gamma_0$,
 and requiring that the Lagrangian yields the familiar Dirac equation
-$(i \gamma_\mu \partial^\mu - m)\Psi = 0$ to set $a = -m$ and $ b = i$,
-one arrives at the Dirac Lagrangian which describes free spin-$\frac{1}{2}$
+$(i \gamma_\mu \partial^\mu - m)\psi = 0$ to set $a = -m$ and $ b = i$,
+one arrives at the Dirac Lagrangian which describes free spin $\frac{1}{2}$
 particles of mass $m$:
 
 \begin{equation}
-    \mathcal{L}_\text{Dirac} = \bar{\Psi} (i\gamma^\mu\partial_\mu - m) \Psi
+    \mathcal{L}_\text{Dirac} = \bar{\psi} (i\gamma^\mu\partial_\mu - m) \psi
 \end{equation}
 
-The Lagrangian is invariant under a global gauge transformation
-$\Psi \rightarrow e^{i\alpha} \Psi$ where $\alpha \in \mathbb{R}$.
-A \emph{local} gauge transformation can be implemented by
-promoting $\alpha$ from a number to a function $\alpha(x^\mu)$,
-in which case the Lagrangian is no longer invariant due to the derivative
-$\partial_\mu$.
-A vector field operator $A_\mu$ can be introduced to restore the symmetry,
+The Lagrangian is invariant under a global transformation
+$\psi \rightarrow e^{i\alpha} \psi$ where $\alpha \in \mathbb{R}$.
+Promoting $\alpha$ from a number to a function $\alpha(x^\mu)$
+makes the transformation $e^{i\alpha(x^\mu)}$ local.
+All such transformations form a $U(1)$ group.
+However, it is checked that $\mathcal{L}_\text{Dirac}$ is not invariant
+under such local transformations due to the derivative term $\partial_\mu$.
+To restore the symmetry,
+A vector field operator $A_\mu$,
 which satisfies the gauge transformation
 $A_\mu \rightarrow A_\mu + \frac{1}{g} \partial_\mu \alpha(x^\mu)$,
-by replacing the standard derivative $\partial_\mu$ with the following:
+is introduced by replacing the standard derivative $\partial_\mu$ with the
+following:
 
 \begin{equation}
     \fsl{D}_\mu \equiv \partial_\mu - i g A_\mu
 \end{equation}
-
-At this point, the Lagrangian reads
-$\mathcal{L} = \mathcal{L}_\text{Dirac} + g A_\mu\bar{\Psi}\gamma^\mu\Psi$.
-However, it is ``unstable'' as the equation of motion of $A_\mu$
-suggests the interaction term $g A_\mu\bar{\Psi}\gamma^\mu\Psi = 0$,
-because $0 = \partial_{A_\mu} \mathcal{L} = g \bar{\Psi}\gamma^\mu\Psi$.
-Additional kinetic terms for spin-1 particles are needed to stabilize the
+at this point, the Lagrangian reads
+$\mathcal{L} = \mathcal{L}_\text{Dirac} + g A_\mu\bar{\psi}\gamma^\mu\psi$.
+However, it is ``unstable''\footnote{
+    This is not a standard terminology.
+} as the equation of motion of $A_\mu$
+suggests the interaction term $g A_\mu\bar{\psi}\gamma^\mu\psi = 0$,
+because $0 = \partial_{A_\mu} \mathcal{L} = g \bar{\psi}\gamma^\mu\psi$.
+Additional kinetic terms for spin 1 particles are needed to ``stabilize'' the
 Lagrangian,
-which is found by doing a similar exercise as in the spin-$\frac{1}{2}$ case.
+which is found by doing a similar exercise as in the spin $\frac{1}{2}$ case.
 Such terms read $\frac{1}{4}F_{\mu\nu}F^{\mu\nu}$,
 where $F^{\mu\nu} = \partial^\mu A^\nu - \partial^\nu A^\mu$.
-Putting all together, one obtains the Lagrangian for QED:
+Putting all pieces together, one obtains the Lagrangian for QED:
 
 \begin{equation}
-    \mathcal{L} = \bar{\Psi} (i\gamma^\mu\fsl{D}_\mu - m) \Psi - \frac{1}{4}F_{\mu\nu}F^{\mu\nu}
+    \mathcal{L}_\text{QED} = \bar{\psi} (i\gamma^\mu\fsl{D}_\mu - m) \psi - \frac{1}{4}F_{\mu\nu}F^{\mu\nu}
 \end{equation}
 
-\section{Lepton flavor universality in the SM}
+
+\subsection{The electroweak theory}
+
+
+\subsection{Lepton flavor universality in the SM}
 \label{ref:theory:lfu}
+
+
+\subsection{The full SM}
 
 
 \section{Form factors in $B \rightarrow D^{(*)}\ell\neulb$ decays}
