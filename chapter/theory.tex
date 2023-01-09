@@ -7,6 +7,7 @@
 %   https://physics.stackexchange.com/questions/96362/what-does-a-rm-su2-isospin-doublet-really-mean
 %   https://physics.stackexchange.com/questions/385159/quark-gluon-color-relationship-in-pure-qcd
 %   https://physics.stackexchange.com/questions/327008/how-do-the-infinite-dimensional-representations-of-the-poincar%C3%A9-group-work
+%   Rep. of Lorentz group: http://sharif.edu/~sadooghi/QFT-I-96-97-2/LorentzPoincareMaciejko.pdf
 %
 % Very useful:
 %   https://physics.stackexchange.com/questions/266963/what-are-the-differences-if-any-between-the-dysons-series-definition-and-the
@@ -16,6 +17,7 @@
 %
 % Useful papers not cited:
 %   On gauge symmetry: https://arxiv.org/pdf/1901.10420.pdf
+%   2-component spinor notation: https://arxiv.org/pdf/0812.1594.pdf
 
 
 \chapter{Theory of semileptonic $B$ decays}
@@ -95,15 +97,17 @@ but in the SM only the spin 0, $\frac{1}{2}$, and 1 particles are present.
 Now the SM can be constructed as follows:
 First, consider elementary particles with spin $0$ and $\frac{1}{2}$,
 which are represented by linear operators in a space:
-a Lorentz-invariant Lagrangian density can be built from
+a Lorentz-invariant Lagrangian density\footnote{
+    Will be referred as ``Lagrangian'' in later text for brevity.
+} can be built from
 linear, quadratic, and the lowest possible derivative terms of these
 operators.
 A Lagrangian built in this manner contains no interaction (i.e. a free
 Lagrangian).
 Then, require the Lagrangian to be invariant under certain local transformations
 such as that from $U(1), SU(2)$, and $SU(3)$.
-These requirements can only be satisfied by adding/removing certain terms to
-the Lagrangian;
+These requirements can be satisfied by adding/removing certain terms to the
+Lagrangian;
 these terms make interactions between elementary particles happen.
 At this point, there is nothing quantum about the theory.
 The theory is ``quantized'' by forcing canonical commutation/anti-commutation
@@ -127,8 +131,8 @@ manner\footnote{
             $\ket{\Omega}$ by the LSZ reduction formula:
             $\braket{f}{i} \propto \bra{\Omega} T \phi(y_1) \dots \phi(y_r) \phi(x_1) \dots \phi(x_n) \ket{\Omega}$,
             where $\phi(x)$, an operator in the Heisenberg picture,
-            creates a particle at spacetime point $x$ in the interactive
-            vacuum $\ket{\Omega}$,
+            creates and destroy particles at spacetime point $x$ in the
+            interactive vacuum $\ket{\Omega}$,
             and $T$ stands for time-ordering.
 
         \item Denote the free and the interaction part of the Hamiltonian
@@ -172,9 +176,14 @@ manner\footnote{
 
 \subsection{Quantum eletrodynamics (QED)}
 
-Following the recipe provided provided above, first consider all possible terms
+Following the recipe provided above, first consider all possible terms
 in a free Lagrangian for a spin-$\frac{1}{2}$ particle,
-referred as a spinor in later text.
+referred as a (4-component) spinor $\Psi$ in later text.
+Noting that parity is conserve in eletrodynamics shown by experiments,
+the spinor must contain both left- and right-handed particles:
+$\Psi = (\psi_L, \phi_R)^T$,
+where $\psi_L, \phi_R$ are 2-component spinor with handedness marked by the
+subscript.
 
 
 \section{Lepton flavor universality in the SM}
