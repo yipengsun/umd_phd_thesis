@@ -37,10 +37,6 @@ A construction of the SM is outlined\footnote{
 \cite{Robinson_2011,Schwichtenberg_2018},
 followed by brief discussions on quantum eletrodynamics (QED),
 the electroweak theory, and the lepton flavor universality in the SM.
-The full SM,
-which includes the strong interaction on top of the electroweak interactions,
-can be constructed in the same way but will not be discussed because the strong
-interaction is not the focus of this thesis.
 
 
 \subsection{Outline of the construction}
@@ -386,6 +382,11 @@ fermion mass terms such as the electron mass term
 $\frac{\lambda_e v}{\sqrt{2}}({\psi^\dagger_{L,e} \psi_{R,e} + \psi^\dagger_{R,e}\psi_{L,e}})$
 are generated.
 
+The full SM,
+which includes the strong interactions on top of the electroweak interactions,
+can be constructed in the same way outlined above with an additional $SU(3)$
+gauge group.
+
 
 \subsection{Lepton flavor universality in the SM}
 \label{ref:theory:lfu}
@@ -394,31 +395,52 @@ With the electroweak theory developed in \cref{ew-th},
 and accepting the experimental observation that leptons do not interact strongly
 (i.e. they are $SU(3)$ singlets),
 it is now possible to discuss lepton flavor universality:
-the SM permits addition of arbitrary generations of spin $\frac{1}{2}$ color
-singlets (leptons), and each generation couples to all but the Higgs field $h$
-with the same strengths through the same covariant derivative term.
+the SM permits addition of arbitrary generations of spin $\frac{1}{2}$
+$SU(2)$ lepton doublets and singlets,
+and each generation couples to all electroweak gauge fields,
+namely $\W^\pm_\mu, Z_\mu$, and $A_\mu$,
+with the same strengths through the same covariant derivative term
+$\fsl{D}_\mu$.
 The LFU is manifested by the very construction of the SM.
-They do, however, couple to the Higgs differently in the Yukawa sector which
+They do, however, couple to the Higgs $h$ differently in the Yukawa sector which
 are realized by their different masses.
 
 The three flavor generations of leptons are purely determined by experiments,
 as the SM places no constraint on number of flavor generations.
 
 
-\section{Semileptonic $B$ decays in the SM}
+\section{Modelling of semileptonic $B \rightarrow D$ decays}
 
-The SM provides predictions on the differential decay rates of the
-semileptonic $B$ decays such as $B \rightarrow D^{(*)}\ell\neulb$.
-This analysis has an extensive use of MC simulations
-which require inputs of such decay rates in order to model the corresponding
-decay processes.
-It is therefore very important to compute the decay rates accurately.
+The modelling of semileptonic $B \rightarrow D$ decays,
+where $D$ stands for a generic charm meson,
+plays an central role in this analysis as it is used in MC simulations to
+generate sensible distributions of fit variables, more evident in the \qSq
+distribution.
+In this section a brief review of the modelling of these decays is provided.
+
+first find the operator
+
+write the matrix elmenet
+
+commend on the leptonic part
+
+comment on the hadronic part and form factors,
+in general which are non vanishing
 
 
 \section{Form factors in $B \rightarrow D^{(*)}\ell\neulb$ decays}
 \label{ref:theory:ff-d0-dst}
 
+the d and dst ffs are both modelling w/ BGL which are good for reasons.
 
+
+This analysis extensive use of MC simulations with many semileptonic
+$B \rightarrow D$ decays.
+which require inputs of such decay rates in order to model the corresponding
+decay processes.
+Different decay rates are reflected on the fit variables,
+especially on \qSq.
+Therefore, It is very important to model the decay rates accurately.
 
 
 \section{Computation of \RD and \RDst}
