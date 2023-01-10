@@ -48,14 +48,21 @@ reconstruction.
 A complication of these states is that they are \emph{inhomogeneous},
 that is, not all \Dz\mun final state events are actual decays with just \Dz\mun
 in their final states:
-$\Bzb \rightarrow \Dstarp\ellm\neulb$ decays feed down into the \Dz\mun states,
+some $\Bzb \rightarrow \Dstarp\ellm\neulb$ decays feed down into the \Dz\mun
+states,
 because \Dstarp decays strongly to a \Dz and a slow \pip,
 with the latter often missed in the reconstruction;
-for example, a slow \pip with a softer momentum may fail to register a
-well-defined track in the detector, thus no \Dstarp is constructed for this
-event.
+for example, a slow \pip with a momentum\footnote{
+    The mean momentum of a slow \pip is around 8~GeV.
+    Generally a lower momentum implies a lower track finding efficiency.
+} of 10~GeV will fail to register a
+well-defined track in the detector about 35\% of time,
+% Source:
+%   https://indico.cern.ch/event/719661/contributions/3115144/attachments/1707415/2751519/WGprod_TurVal_Renata.pdf
+%   p. 7, Long method
+thus no \Dstarp is constructed for this event.
 In addition, $\Bm \rightarrow \Dstarz\ellm\neulb$ decays,
-which has a branching fraction of about 2.5 times larger compared to
+which have a branching fraction of about 2.5 times larger compared to
 $\Bm \rightarrow \Dz\ellm\neulb$ decays,
 contribute exclusively to \Dz\mun states, because the neutral slow
 \piz, a product of \Dstarz decay, is entirely missed.
@@ -70,7 +77,7 @@ precision\footnote{
 Both \Dstarp\mun and \Dz\mun final states contain contributions from signal,
 normalization, and many background decay modes.
 Each decay mode has differing kinematics
-which are often modelled from Monte-Carlo simulation (MC),
+which are often modeled from Monte-Carlo simulation (MC),
 sometimes from data control samples.
 These differences are used in the fit to determine the yields of all
 relevant decay modes.
@@ -128,7 +135,7 @@ More information about RFA can be found in \cref{appx:rfa}.
 %     \label{fig:rfa-variables}
 % \end{figure}
 
-This analysis has the same main idea as in the LHCb \RDX run 1 analysis:
+This analysis reuses the fit strategy in the LHCb \RDX run 1 analysis:
 fit the parameters characterizing various background decays with separate
 control samples, then import these parameters either as constraints or fully
 fixed into the signal fit;
@@ -156,18 +163,19 @@ results listed in \cref{ref:fit}
 and selected systematic uncertainties discussed in
 \cref{ref:sys-uncert}.
 %%%%
-In passing the author points out the major differences between this analysis
-and the pathfinder run 1 \RDX analysis:
+The major differences between this analysis and the pathfinder run 1 \RDX
+analysis are:
 \begin{itemize}
     \item Due to a larger integrated luminosity
-        (5.4~fb$^{-1}$ in run 2 versus 3.0~fb$^{-1}$ in run 1),
+        (5.4~fb$^{-1}$ in run 2 versus 3.1~fb$^{-1}$ in run 1),
         a larger $B$ production cross section due to higher collision energy
         (13~TeV center of mass energy in run 2 versus 7~TeV in run 1),
         and a dedicated trigger resulting in a higher selection efficiency,
         the run 2 analysis can work with a much larger dataset:
-        for 2016 alone the selected \Dz\mun signal sample contains 2,178,793
-        events, whereas for run 1 combined 1,734,133 events, a factor of
-        $\sim\!1.26$ gain.
+        for 2016 alone (1.6~fb$^{-1}$),
+        the selected \Dz\mun signal sample contains 2,178,793 events,
+        whereas for run 1 combined (3.1~fb$^{-1}$) 1,734,133 events,
+        a factor of $\sim\!1.26$ gain.
 
         As briefly mentioned before,
         a large amount of MC is needed to control the total statistical
