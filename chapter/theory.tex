@@ -298,7 +298,7 @@ account,
 the covariant derivative can be written as:
 
 \begin{equation}
-    \partial_\mu - i[g_2 W_\mu^a T^a_{SU(2)} + g_1 B_\mu Y_{U(1)}]
+    \fsl{D}_\mu = \partial_\mu - i[g_2 W_\mu^a T^a_{SU(2)} + g_1 B_\mu Y_{U(1)}]
 \end{equation}
 where $T^a_{SU(2)} = \frac{1}{2} \sigma^a$ are the generators of $SU(2)$,
 and
@@ -317,11 +317,12 @@ bosons in the weak interaction\footnote{
     If $W^1, W^2, W^3$ are all massless, the weak interaction would behave like
     electromagnetism, which it does not.
 }, nor a massive electron.
+
 To introduce \emph{gauge invariant} mass-like terms,
-a complex scalar field is introduce with a potential
+a complex scalar field is introduced with a potential
 $V(\phi^\dagger, \phi) = \frac{1}{4}\lambda (\phi^\dagger \phi - \frac{1}{2}v^2)$,
-which leads to a non-zero minimum (vacuum expectation value, VEV) of $v$,
-degenerate on a complex circle.
+which leads to a non-zero minimum (vacuum expectation value, VEV) of $v$
+for $\phi^\dagger, \phi$ degenerate on a complex circle.
 Write the complex scalar doublet as
 $\Phi = \bigl(\begin{smallmatrix} \phi^\dagger \\ \phi^{\hphantom{\dagger}} \end{smallmatrix}\bigr)$,
 then pick a particular vacuum and expand around it such that
@@ -342,7 +343,10 @@ one:
     Z_\mu &= \cos\theta_w W^3_\mu - \sin\theta_w B_\mu \\
     A_\mu &= \sin\theta_w W^3_\mu + \cos\theta_w B_\mu
 \end{align}
-where $\theta_w = \tan^{-1}\left(\frac{g_1}{g_2}\right)$.
+where $\theta_w = \tan^{-1}\left(\frac{g_1}{g_2}\right)$,
+and $m_{W^\pm} = \frac{g_2 v}{2}$, $m_Z = \frac{m_{W^+}}{\cos\theta_w}$,
+$m_A = 0$.
+The procedure above is referred as the Higgs mechanism.
 
 
 \subsection{Lepton flavor universality in the SM}
