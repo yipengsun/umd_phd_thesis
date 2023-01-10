@@ -277,15 +277,15 @@ one can add two copies of spin $\frac{1}{2}$ particles,
 labelled as $\psi_e, \psi_{\neu_e}$,
 to the Lagrangian\footnote{
     The Lagrangian reads
-    $\mathcal{L} = \bar{\Psi}_e (i \gamma^\mu \fsl{D}_\mu I_{2 \times 2} - M)\Psi_e -
+    $\mathcal{L} = \bar{\Psi} (i \gamma^\mu \fsl{D}_\mu I_{2 \times 2} - M)\Psi -
     \frac{1}{4} F_{\mu\nu}F^{\mu\nu}$,
     where $M = \bigl(\begin{smallmatrix} m_e & 0 \\ 0 & m_{\neu_e} \end{smallmatrix}\bigr)$.
     Note that the identity matrix is often omitted.
 } and write both in a doublet
 of the form
-$\Psi_e = \bigl(\begin{smallmatrix} \psi_e \\ \psi_{\neu_e} \end{smallmatrix}\bigr)$,
+$\Psi = \bigl(\begin{smallmatrix} \psi_e \\ \psi_{\neu_e} \end{smallmatrix}\bigr)$,
 such that one particle can be rotated into the other via a $SU(2)$ rotation
-$e^{-i \alpha_i \sigma^i}$.
+$e^{i \alpha_i \frac{\sigma^i}{2}}$.
 
 It is then natural to postulate a theory of $SU(2) \times U(1)$ local gauge
 symmetry.
@@ -293,7 +293,7 @@ Following a similar route as in QED to ensure gauge invariance,
 3 spin-1 particles $W^1, W^2, W^3$ are added to the theory in addition
 in addition to $B$ which is the only generator of $U(1)$,
 because the $SU(2)$ group has 3 generators.
-After taking the fact that the 3 generators of $SU(2)$ do not compute into
+After taking the fact that the 3 generators of $SU(2)$ do not commute into
 account,
 the covariant derivative can be written as:
 
@@ -303,8 +303,20 @@ the covariant derivative can be written as:
 where $T^a_{SU(2)} = \frac{1}{2} \sigma^a$ are the generators of $SU(2)$,
 and
 $Y_{U(1)} = C \bigl(\begin{smallmatrix} 1 & 0 \\ 0 & 1 \end{smallmatrix}\bigr)$.
-
-naive mass term cannot be added otherwise the $SU(2)$ gauge symmetry is spoiled.
+However, naive mass terms $\bar{\Psi} M \Psi$ are forbidden because they
+spoil $SU(2)$ gauge symmetry\footnote{
+    A $SU(2)$ transformation $e^{i \alpha_i \frac{\sigma^i}{2}}$ transforms such
+    terms into
+    $\bar{\Psi} e^{-i \alpha_i \frac{\sigma^i}{2}} M e^{i \alpha_i \frac{\sigma^i}{2}} \Psi$
+    where $e^{-i \alpha_i \frac{\sigma^i}{2}} M e^{i \alpha_i \frac{\sigma^i}{2}} \neq I_{2 \times 2}$
+    because $[\sigma^i, M] \neq 0$ in general.
+}.
+So the theory constructed above requires \emph{all} particles to be massless,
+which is inconsistent with the experimental results which require the
+force carrying bosons of $SU(2)$ to be massive\footnote{
+    If $W^1, W^2, W^3$ are all massless, the weak interactions would behave like
+    electromagnetism, which they don't.
+}.
 
 fixed by Higgs mechanism
 
