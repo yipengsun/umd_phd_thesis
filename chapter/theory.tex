@@ -271,12 +271,33 @@ Putting all pieces together, one obtains the Lagrangian for QED:
 
 As demonstrated in \cref{qed}, local gauge invariance principle provides a
 method of introducing interactions to free theories.
-In the previous section, the gauge group is $U(1)$.
+Motivated by the experimental observation that in beta decay, electrons and
+electron neutrinos are produced in pairs,
+one can add two copies of spin $\frac{1}{2}$ particles,
+labelled as $\psi_e, \psi_{\neu_e}$,
+to the Lagrangian\footnote{
+    The Lagrangian reads
+    $\mathcal{L} = \bar{\Psi}_e (i \gamma^\mu \fsl{D}_\mu I_{2 \times 2} - M)\Psi_e -
+    \frac{1}{4} F_{\mu\nu}F^{\mu\nu}$,
+    where $M = \bigl(\begin{smallmatrix} m_e & 0 \\ 0 & m_{\neu_e} \end{smallmatrix}\bigr)$.
+    Note that the identity matrix is often omitted.
+} and write both in a doublet
+of the form
+$\Psi_e = \bigl(\begin{smallmatrix} \psi_e \\ \psi_{\neu_e} \end{smallmatrix}\bigr)$,
+such that one particle can be rotated into the other via a $SU(2)$ rotation
+$e^{-i \alpha_i \sigma^i}$.
 
-$SU(2)$
+It is then natural to postulate a theory of $SU(2) \times U(1)$ local gauge
+symmetry.
+Following a similar route as in QED to ensure gauge invariance,
+3 spin-1 particles $W_1, W_2, W_3$ are added because the $SU(2)$
+group has 3 generators, in addition to $B$ which is the only generator of $U(1)$.
+After taking the fact that the 3 generators of $SU(2)$ do not compute into
+account,
+the covariant derivative can be written as:
 
-motivated by the weak interaction between electron and electron neutrino,
-doublet
+\begin{equation}
+\end{equation}
 
 naive mass term cannot be added otherwise the $SU(2)$ gauge symmetry is spoiled.
 
