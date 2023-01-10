@@ -290,8 +290,8 @@ $e^{i \alpha_i \frac{\sigma^i}{2}}$.
 It is then natural to postulate a theory of $SU(2) \times U(1)$ local gauge
 symmetry.
 Following a similar route as in QED to ensure gauge invariance,
-3 spin-1 particles $W^1, W^2, W^3$ are added to the theory in addition
-in addition to $B$ which is the only generator of $U(1)$,
+3 spin-1 particles $W^1, W^2, W^3$ are added to the theory in addition to $B$
+which is the only generator of $U(1)$,
 because the $SU(2)$ group has 3 generators.
 After taking the fact that the 3 generators of $SU(2)$ do not commute into
 account,
@@ -312,17 +312,37 @@ spoil $SU(2)$ gauge symmetry\footnote{
     because $[\sigma^i, M] \neq 0$ in general.
 }.
 So the theory constructed above requires \emph{all} particles to be massless,
-which is inconsistent with the experimental results which require the
-force carrying bosons of $SU(2)$ to be massive\footnote{
-    If $W^1, W^2, W^3$ are all massless, the weak interactions would behave like
-    electromagnetism, which they don't.
-}.
+which is inconsistent with the experimental results of massive force carrying
+bosons in the weak interaction\footnote{
+    If $W^1, W^2, W^3$ are all massless, the weak interaction would behave like
+    electromagnetism, which it does not.
+}, nor a massive electron.
+To introduce \emph{gauge invariant} mass-like terms,
+a complex scalar field is introduce with a potential
+$V(\phi^\dagger, \phi) = \frac{1}{4}\lambda (\phi^\dagger \phi - \frac{1}{2}v^2)$,
+which leads to a non-zero minimum (vacuum expectation value, VEV) of $v$,
+degenerate on a complex circle.
+Write the complex scalar doublet as
+$\Phi = \bigl(\begin{smallmatrix} \phi^\dagger \\ \phi^{\hphantom{\dagger}} \end{smallmatrix}\bigr)$,
+then pick a particular vacuum and expand around it such that
+$\Phi = \frac{1}{\sqrt{2}} \bigl(\begin{smallmatrix} v + h \\ 0 \end{smallmatrix}\bigr)$
+where $h(x^\mu)$ is a real scalar field.
+Doing so breaks the degeneracy (symmetry) of the vacuum and is called a
+spontaneous symmetry breaking.
+The couplings between $\Phi$ and the spin 1 gauge fields are embedded in the
+covariant derivative terms,
+and a non-0 VEV leads to terms of the form $\frac{1}{2}\kappa Z_\mu Z^\mu$ which
+can be interpreted as mass terms.
+After a field redefinition, one finds three massive spin 1 fields and a massless
+one:
 
-fixed by Higgs mechanism
-
-also need to discriminate between left-handed leptons and right-handed leptons,
-as the weak interaction is experimentally shown to only couple to the
-former (left-handed).
+\begin{align}
+    W^+_\mu &= \frac{1}{\sqrt{2}}(W^1_\mu - i W^2_\mu) \\
+    W^-_\mu &= \frac{1}{\sqrt{2}}(W^1_\mu + i W^2_\mu) \\
+    Z_\mu &= \cos\theta_w W^3_\mu - \sin\theta_w B_\mu \\
+    A_\mu &= \sin\theta_w W^3_\mu + \cos\theta_w B_\mu
+\end{align}
+where $\theta_w = \tan^{-1}\left(\frac{g_1}{g_2}\right)$.
 
 
 \subsection{Lepton flavor universality in the SM}
