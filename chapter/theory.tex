@@ -295,8 +295,8 @@ three spin 1 particles $W^1, W^2, W^3$ are added to the theory in addition to
 $B$ which is the only generator of $U(1)$,
 because the $SU(2)$ group has three generators.
 After taking the fact that the three generators of $SU(2)$ do not commute into
-account,
-the covariant derivative can be written:
+account, a Lagrangian with correct kinetic terms can be constructed, in which
+the covariant derivative is defined as:
 
 \begin{equation}
     \fsl{D}_\mu = \partial_\mu - i[g_2 W_\mu^a T^a_{SU(2)} + g_1 B_\mu Y_{U(1)}]
@@ -321,9 +321,10 @@ bosons in the weak interaction\footnote{
 
 To introduce \emph{gauge invariant} mass-like terms,
 a complex scalar field is introduced with a potential
-$V(\phi^\dagger, \phi) = \frac{1}{4}\lambda (\phi^\dagger \phi - \frac{1}{2}v^2)$,
-which leads to a non-zero minimum (vacuum expectation value, VEV) of $v$
-for $\phi^\dagger, \phi$ degenerate on a complex circle.
+$V(\phi^\dagger, \phi) =  -\rho^2 \phi^\dagger \phi + \lambda (\phi^\dagger \phi)^2$,
+which leads to a non-zero minimum (vacuum expectation value, VEV) of
+$v = \sqrt{\frac{\rho^2}{2 \lambda}}$
+for $\phi$ degenerate on a complex circle.
 Write the complex scalar as a $SU(2)$ doublet
 $\Phi = \bigl(\begin{smallmatrix} \phi^\dagger \\ \phi^{\hphantom{\dagger}} \end{smallmatrix}\bigr)$,
 then pick a particular vacuum and expand around it such that
@@ -332,7 +333,7 @@ where $h(x^\mu)$ is a real scalar field.
 Doing so breaks the degeneracy (symmetry) of the vacuum and is called a
 spontaneous symmetry breaking.
 The couplings between $\Phi$ and the spin 1 gauge fields are embedded in the
-covariant derivative terms,
+kinetic term $\fsl{D}_\mu \bar\Phi \fsl{D}^\mu \Phi$,
 and a non-zero VEV leads to terms of the form $\frac{1}{2}\kappa Z_\mu Z^\mu$ which
 can be interpreted as mass terms.
 After a field redefinition, one finds three massive spin 1 fields and a massless
@@ -355,15 +356,15 @@ parity,
 that is, only the left-handed particles interact weakly.
 Formally speaking, only the left-handed particles form $SU(2)$ doublets
 which transform as
-$\Psi_L \rightarrow \Psi_L e^{i \alpha_i \frac{\sigma^i}{2}}$;
+$\Psi_L \rightarrow e^{i \alpha_i \frac{\sigma^i}{2}} \Psi_L$;
 the right-handed particles are $SU(2)$ singlets which do not transform
 $\psi_R \rightarrow \psi_R$.
 As a side note, previously it is argued that $SU(2)$ gauge symmetry forbids
 terms like $\bar{\Psi} M \Psi$ because $M \neq m I_{2 \times 2}$ in
 general,
 (e.g. electron and electron neutrinos have \emph{very} different masses).
-Parity violation provides a different view point on why these are forbidden:
-the naive mass terms contain \emph{only} combinations of left-handed particles
+Parity violation provides a different view point on the same issue:
+naive mass terms contain \emph{only} combinations of left-handed particles
 and right-handed particles, such as $\bar{\Psi}_L \psi_R$,
 due to requirement on Lorentz invariance.
 Inspecting the $SU(2)$ transformation property of such terms reveals that
@@ -391,9 +392,10 @@ are generated.
 \subsection{Lepton flavor universality in the SM}
 \label{ref:theory:lfu}
 
-With the electroweak theory developed in \cref{ew-th}, and accepting the
-experimental observation that leptons do not interact strongly
+With the electroweak theory developed in \cref{ew-th},
+and accepting the experimental observation that leptons do not interact strongly
 (i.e. they are $SU(3)$ singlets),
+it is now possible to discuss lepton flavor universality in the SM.
 
 
 \section{Form factors in $B \rightarrow D^{(*)}\ell\neulb$ decays}
