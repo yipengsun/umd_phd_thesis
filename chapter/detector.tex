@@ -385,28 +385,30 @@ rate and storage limitations.
 The readout rate is first reduced from 40~MHz,
 the LHC bunch crossing frequency,
 to 1~MHz by hardware triggers,
-referred as Level-0 (L0) triggers.
+referred to as Level-0 (L0) triggers.
 The L0 triggers reconstruct transverse energy $E_T$ and momentum $p_T$ in real
 time and select events with large $E_T$ or $p_T$,
 a signature of $B$ meson decays due to their large masses.
-In addition, number of $pp$ interactions and number of tracks are estimated and
-events with large pile-up or multiplicity are rejected
-as these events require a disproportionally large fraction of readout bandwidth
-and are typically of poorer tracking quality.
+In addition,
+the number of $pp$ interactions in the event and the number of tracks are
+estimated and events with large pile-up or multiplicity are rejected.
+The reconstruction of these high-multiplicity events would require a
+disproportionally large fraction of readout bandwidth and typically results in
+poorer tracking quality.
 %%%%
 The selected events are further reconstructed by software high-level
 triggers (HLT1 and HLT2) and only events with high-\pt tracks and/or large
-impact parameters are further filtered with pre-defined cuts before retained on
-disk for offline analysis.
-The HLT triggers reduce the output rate to about 2~kHz
-\cite{The_LHCb_Collaboration_2008}.
+impact parameters are further filtered with pre-defined cuts before being
+retained on disk for offline analysis.
+The HLT triggers reduce the output rate to about 12.5~kHz
+\cite{Dordei:2017rtt}.
 
 One of the main objective of the ongoing detector upgrade is to increase the
 bandwidth of the detector readout thus removing the need of hardware triggers,
 and all the limitations that come with them.
-This section is dedicated to discussion of hardware triggers (L0) as they
-will no longer be a part of LHCb run 3 program but is of crucial importance to
-this analysis.
+This section is dedicated to discussion of the hardware triggers (L0) which,
+while no longer are a part of the LHCb run 3 program,
+are of crucial importance to this analysis.
 The high-level triggers will be discussed and compared between run 2 and run 3
 with more details in \cref{ref:lhcb-upgrade-overview:trigger}.
 
@@ -428,7 +430,7 @@ a final trigger decision, as shown in \cref{fig:l0-schematic}:
         \cite{d_Argent_2017}.
 
     \item Calorimeter trigger system:
-        The Calorimeter trigger system identifies the cluster
+        it identifies the cluster
         ($2 \times 2$ cells of scintillators) with the largest
         $E_T$ and provides a PID decision (hadron, electron, or photon) of the
         cluster based on the calorimeter system only.
@@ -439,18 +441,26 @@ a final trigger decision, as shown in \cref{fig:l0-schematic}:
 
         In addition, the total number of SPD cells with a hit is counted to
         estimated number of tracks (charged particles) in the event.
-        Typically events are required to have less than 450 SPD hits.
+        Typically events are required to have fewer than 450 SPD hits.
 
     \item Muon trigger system:
         The muon stations can provide an independent measurement of the track
         \pt with a resolution of about 25\% on average
         \cite{LHCb-DP-2019-001}.
-        The L0 muon triggers require either the largest muon \pt exceeds
-        1.8~GeV or the product of two largest muon \pt exceeds 2.25~GeV$^2$
+        The L0 muon triggers require that either the largest muon \pt exceeds
+        1.8~GeV or the product of the two largest muon \pt exceeds 2.25~GeV$^2$
         (both are 2016 thresholds).
-        As will be discussed in \cref{ref:sel:data:rs},
-        this analysis relies on low-\pt muon thus no L0 muon trigger can be
-        used \emph{standalone}.
+
+        As we will discuss in \cref{ref:sel:data:rs},
+        this analysis \emph{relies} on uniform muon selection efficiency across
+        \pt spectrum
+        as low-\pt muons are a signature of the signal decays,
+        whereas high-\pt muons typically come from normalization decays.
+        Hence, the muon trigger cannot be used because it not only actively
+        rejects signal, but also makes the selection efficiencies between signal
+        and normalization different,
+        which void the premise that measuring \RDX is preferred because
+        experimental efficiencies are partially cancelled in the ratios.
 \end{itemize}
 
 \begin{figure}[!htb]
