@@ -290,12 +290,12 @@ $e^{i \alpha_i \frac{\sigma^i}{2}}$.
 It is then natural to postulate a theory of $SU(2) \times U(1)$ local gauge
 symmetry.
 Following a similar route as in QED to ensure gauge invariance,
-3 spin 1 particles $W^1, W^2, W^3$ are added to the theory in addition to $B$
-which is the only generator of $U(1)$,
-because the $SU(2)$ group has 3 generators.
-After taking the fact that the 3 generators of $SU(2)$ do not commute into
+three spin 1 particles $W^1, W^2, W^3$ are added to the theory in addition to
+$B$ which is the only generator of $U(1)$,
+because the $SU(2)$ group has three generators.
+After taking the fact that the three generators of $SU(2)$ do not commute into
 account,
-the covariant derivative can be written as:
+the covariant derivative can be written:
 
 \begin{equation}
     \fsl{D}_\mu = \partial_\mu - i[g_2 W_\mu^a T^a_{SU(2)} + g_1 B_\mu Y_{U(1)}]
@@ -309,7 +309,7 @@ spoil $SU(2)$ gauge symmetry\footnote{
     terms into
     $\bar{\Psi} e^{-i \alpha_i \frac{\sigma^i}{2}} M e^{i \alpha_i \frac{\sigma^i}{2}} \Psi$
     where $e^{-i \alpha_i \frac{\sigma^i}{2}} M e^{i \alpha_i \frac{\sigma^i}{2}} \neq M$
-    because $[\sigma^i, M] \neq 0$ in general.
+    because $[\sigma^i, M] \neq 0$ in general as $M \neq m I_{2 \times 2}$.
 }.
 So the theory constructed above requires \emph{all} particles to be massless,
 which is inconsistent with the experimental results of massive force carrying
@@ -332,7 +332,7 @@ Doing so breaks the degeneracy (symmetry) of the vacuum and is called a
 spontaneous symmetry breaking.
 The couplings between $\Phi$ and the spin 1 gauge fields are embedded in the
 covariant derivative terms,
-and a non-0 VEV leads to terms of the form $\frac{1}{2}\kappa Z_\mu Z^\mu$ which
+and a non-zero VEV leads to terms of the form $\frac{1}{2}\kappa Z_\mu Z^\mu$ which
 can be interpreted as mass terms.
 After a field redefinition, one finds three massive spin 1 fields and a massless
 one:
@@ -349,9 +349,43 @@ $m_A = 0$.
 The procedure above is referred as the Higgs mechanism.
 
 Still, the spin $\frac{1}{2}$ particles are massless.
-Furthermore, the weak interaction is experimental shown to maximally violate
-parity, that is, the left-handed and right-handed particles are treated
-differently.
+Furthermore, the weak interaction is experimentally shown to maximally violate
+parity,
+that is, only the left-handed particles interact weakly.
+Formally speaking, only the left-handed particles form $SU(2)$ doublets
+which transform as
+$\Psi_L \rightarrow \Psi_L e^{i \alpha_i \frac{\sigma^i}{2}}$;
+the right-handed particles are $SU(2)$ singlets which do not transform
+$\psi_R \rightarrow \psi_R$.
+As a side note, previously it is argued that $SU(2)$ gauge symmetry forbids
+terms like $\bar{\Psi} M \Psi$ because $M \neq m I_{2 \times 2}$ in
+general,
+(e.g. electron and electron neutrinos have \emph{very} different masses).
+Parity violation provides a different view point on why these are forbidden:
+the naive mass terms contain \emph{only} combinations of left-handed particles
+and right-handed particles, such as $\bar{\Psi}_L \psi_R$,
+due to requirement on Lorentz invariance.
+Inspecting the $SU(2)$ transformation property of such terms reveals that
+they are not $SU(2)$ invariant thus forbidden:
+$\bar{\Psi}_L \psi_R \rightarrow \bar{\Psi}_L e^{-i \alpha_i \frac{\sigma^i}{2}} \psi_R \neq \bar{\Psi}_L \psi_R$.
+
+To introduce mass to spin $\frac{1}{2}$ particles, Yukawa terms
+$\lambda_2 \bar{\Psi}_L \Phi \psi_R$,
+which can be readily checked\footnote{
+    $U(1)$:
+    $\bar{\Psi}_L \Phi \psi_R \rightarrow
+    (\bar{\Psi}_L e^{-i \alpha}) \Phi (e^{i \alpha} \psi_R)
+    = \bar{\Psi}_L \Phi \psi_R$;
+    $SU(2)$:
+    $\bar{\Psi}_L \Phi \psi_R \rightarrow
+    (\bar{\Psi}_L e^{-i \alpha_i \frac{\sigma^i}{2}}) (e^{i \alpha_i \frac{\sigma^i}{2}} \Phi) \psi_R
+    = \bar{\Psi}_L \Phi \psi_R$.
+} to be Lorentz, $U(1)$, and $SU(2)$ invariant, are added to the Lagrangian.
+Through the familiar Higgs mechanism, which has a non-zero VEV for $\Phi$,
+terms of the form
+$\frac{\lambda_2 v}{\sqrt{2}}({\psi^\dagger_{L,e} \psi_{R,e} + \psi^\dagger_{R,e}\psi_{L,e}})$
+are interpreted as the mass terms.
+
 
 \subsection{Lepton flavor universality in the SM}
 \label{ref:theory:lfu}
