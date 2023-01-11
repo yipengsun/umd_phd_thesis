@@ -42,7 +42,8 @@ the hadronic trigger yields are saturating even at run 2 luminosity
 \end{figure}
 
 To remove the readout bottleneck,
-the detector readout rate is upgraded to 40~MHz,
+the LHCb detector readout was upgraded during 2019--2023 to achieve a readout
+rate of 40~MHz,
 the LHC bunch crossing rate,
 without any hardware trigger.
 By exposing all low-level variables to purely software-based high-level
@@ -53,7 +54,7 @@ After the upgrade, the detector will operate at an instantaneous luminosity
 of $2 \times 10^{33}$~cm$^{-2}$s$^{-1}$,
 a factor of 5 gain compared to that of run 2,
 without any hardware trigger,
-making LHCb the first (hardware) trigger-less detector.
+making LHCb the first (hardware) trigger-less detector in a proton collider.
 
 Aside from the upgrade of the readout system and trigger scheme,
 the tracking system is upgraded to provide better resolution and more
@@ -112,7 +113,7 @@ these will be discussed in \cref{ref:lhcb-upgrade-overview:tracking} and
 \label{ref:lhcb-upgrade-overview:trigger}
 
 As can be seen in \cref{fig:trigger-comp},
-the main differences between run 2 and run 3 trigger scheme are:
+the main differences between the run 2 and run 3 trigger schemes are:
 the limited detector readout rate of 1~MHz is increased to 40~MHz\footnote{
     While the bunch crossing rate is 40~MHz,
     not every bunch is filled with particles.
@@ -147,9 +148,9 @@ following text.
     \label{fig:trigger-comp}
 \end{figure}
 
-The need for a higher readout rate at 40~MHz is due hadronic L0 trigger
-saturation:
-the hadronic L0 trigger requires the maximum energy $E_T$ deposited in the
+The need for a higher readout rate at 40~MHz is due to the saturation of the
+hadronic L0 trigger:
+this trigger requires the maximum energy $E_T$ deposited in the
 calorimeters to be at least 3.7~GeV (for 2016) to reduce the triggering rate
 at an acceptable level;
 the threshold is already a significant portion of the $B$ meson mass
@@ -159,8 +160,8 @@ which removes a significant portion of the signal events
 that contain $B$ mesons,
 resulting in an almost constant signal yield \cite{CERN-LHCC-2011-001}.
 
-With a 40~MHz readout rate,
-at 13~TeV with a pile-up of 5.2 (similar to run 3 condition),
+With a 40~MHz readout rate at 13~TeV and a pile-up of 5.2
+(corresponding to the run 3 conditions),
 the run 2 inclusive trigger strategy\footnote{
     To be clear, the run 2 trigger strategy contains both inclusive triggers,
     such as an inclusive $B$ trigger selecting a significantly displaced high
@@ -182,25 +183,26 @@ for light long-lived particles (such as $K^0_S$ and $\Lambda^0$) 26~GB/s
 \cite{Albrecht_2014}.
 
 However,
-the write throughput is set to 10~GB/s,
-due to limited LAN connection speed from the LHCb on-site online
-system (responsible for data acquisition) to CERN's storage center (Tier0) in
-Meryin\footnote{
+the write throughput is limited to 10~GB/s
+due to constraints from the LAN connection speed between the LHCb on-site online
+system (responsible for data acquisition) and the CERN's storage center (Tier0)
+in Meryin\footnote{
     A small city near Geneva.
 }, Switzerland.
-According to \cite{CERN-LHCC-2014-016},
-there are more than 20 pairs of fibers, each capable of transporting at 1~GB/s,
-which, in theory, can provide a bandwidth of greater than 20~GB/s.
+According to Ref. \cite{CERN-LHCC-2014-016},
+there are more than 20 pairs of fibers,
+each capable of transmitting data at 1~GB/s,
+which, in theory, can provide a bandwidth greater than 20~GB/s.
 Still, in the same reference, a maximum write throughput of 10~GB/s is
 considered, perhaps due to concerns on robustness.
 %%%%
 In any case, the 80~GB/s write throughput for a run 2-like inclusive trigger
 strategy far exceeds the bandwidth capacity,
-mainly due to the fact that with run 3 condition, a significant portion of
+mainly due to the fact that with run 3 conditions, a significant portion of
 collisions contains genuine $B$ mesons.
 Instead, it is preferable to employ a trigger strategy that categorize different
-types of signals then apply cuts with as much information from an event as
-possible, as early as possible
+types of signals and then apply selection cuts with as much information from an
+event as possible, as early as possible
 \cite{Albrecht_2014}.
 Therefore, the full events are exposed directly to software HLT1 triggers which
 reconstruct and select tracks with higher efficiency.
@@ -373,10 +375,11 @@ UT will be used for reconstructing long-lived particles decaying after VELO.
 It improves the momentum resolution of long tracks and trigger timing,
 as well as reducing fake tracks
 \cite{Piucci_2017,Wang:2015mem}.
-Still based on silicon-strip technology, UT has a smaller pitch near the beam
-pipe:
-180~$\upmu$m in the peripheral and 95~$\upmu$m around the beam pipe,
-and sits closer to the beam.
+Still based on silicon-strip technology,
+the sensors in UT has a pitch of 180~\mum in the peripheral,
+and a smaller pitch of 95~\mum compared to that of TT (183~\mum) around the beam
+pipe.
+The sensors also sit closer to the beam.
 UT has identical geometry to that of TT:
 4 planes of sensors arranged in a straight/stereo configuration\footnote{
     Technically termed as a $x$-$u$-$v$-$x$ configuration, with
@@ -418,7 +421,7 @@ More details regarding UT will be provided in \cref{ref:ut}.
 \end{figure}
 
 The Scintillating Fiber tracker (SciFi),
-replacing T1--T3 stations (both IT and OT),
+replacing the T1--T3 stations (both IT and OT),
 consists of 3 detectors with 4 layers each arranged in a straight/stereo
 configuration,
 is placed after the Magnet to provide track and momentum reconstruction for the
