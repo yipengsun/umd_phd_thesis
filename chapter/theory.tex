@@ -16,12 +16,14 @@
 %   https://math.stackexchange.com/questions/1334965/direct-sum-vs-direct-product-vs-tensor-product
 %   https://physics.stackexchange.com/questions/619178/standard-model-notation-on-doublets
 %   https://physics.stackexchange.com/questions/190416/what-role-does-spontaneous-symmetry-breaking-play-in-the-higgs-mechanism
+%   https://physics.stackexchange.com/questions/316094/helicity-of-antiparticles
 %
 % Useful papers not cited:
 %   On gauge symmetry: https://arxiv.org/pdf/1901.10420.pdf
 %   2-component spinor notation: https://arxiv.org/pdf/0812.1594.pdf
 %   V-A current: https://warwick.ac.uk/fac/sci/physics/staff/academic/boyd/stuff/neutrinolectures/weak.pdf
 %   Review on V-A theory and chirality: https://www.hep.phy.cam.ac.uk/~thomson/lectures/partIIIparticles/Handout9_2009.pdf
+%   Weak current: https://www.sciencedirect.com/science/article/pii/0550321389903064
 
 
 \chapter{Theory of semileptonic $B$ decays}
@@ -412,9 +414,9 @@ The three flavor generations of leptons are purely determined by experiments,
 as the SM places no constraint on number of flavor generations.
 
 
-\section{Semileptonic $B \rightarrow D l^- \neuLb$ decays in the SM}
+\section{Semileptonic $B \rightarrow D l^- \neulb$ decays in the SM}
 
-Semileptonic $B \rightarrow D l^- \neuLb$ decays,
+Semileptonic $B \rightarrow D l^- \neulb$ decays,
 where $D$ stands for a generic charm meson and $l$ a generic lepton,
 play an central role in this analysis as signal, normalization,
 and most of the background decays fall under this category.
@@ -423,11 +425,11 @@ determine generation of the Monte-Carlo simulation samples that provide
 estimations of the fit variables for each of such decays.
 This section describes the formalism of such a modelling.
 
-The parton level process involved in the $B \rightarrow D l \neuLb$ decays is
-$b \rightarrow c l \neuLb$,
+The parton level process involved in the $B \rightarrow D l \neulb$ decays is
+$b \rightarrow c l \neulb$,
 which is mediated by the weak charged current in the SM.
 % NOTE: cite Schwartz QFT textbook maybe
-At tree level, such amplitude is given by \cite{Tanaka_1995}:
+Its matrix element is given by \cite{Tanaka_1995}:
 \begin{equation}
     \mathcal{M}^{\lambda_l}_{\lambda_D}(q^2, \theta_l) =
     \frac{G_F}{\sqrt{2}} \frac{m^2_W}{m^2_W - q^2}
@@ -435,9 +437,27 @@ At tree level, such amplitude is given by \cite{Tanaka_1995}:
     L^{\lambda_l}_{\lambda_W}(q^2, \theta_l)
     H^{\lambda_D}_{\lambda_W}(q^2)
 \end{equation}
+in which the leptonic and hadronic currents factorize because lepton
+are color singlets and do not interact strongly.
+The currents are defined as:
+
+\begin{align}
+    L^{\lambda_l}_{\lambda_W}(q^2, \theta_l)
+    & =
+    \epsilon_\mu(\lambda_W)
+    \bra{l(p_l, \lambda_l) \neulb(p_\neulb)} \bar{l} \gamma^\mu P_L \neul
+    \ket{0} \\
+    H^{\lambda_D}_{\lambda_W}(q^2)
+    & =
+    \epsilon_\mu(\lambda_W)
+    \bra{D(p_D, \lambda_D) \neulb(p_\neulb)} \bar{c} \gamma^\mu P_L b
+    \ket{\bar{B}(p_B)}
+\end{align}
+where $p_i, \lambda_i$ refer to the four-momenta and helicities of the particle
+$i$;
+$\theta_l$ refers to helicity angle in the $l$ rest frame.
 
 
-write the matrix elmenet
 
 commend on the leptonic part
 
