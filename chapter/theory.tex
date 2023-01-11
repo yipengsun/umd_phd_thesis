@@ -20,6 +20,8 @@
 % Useful papers not cited:
 %   On gauge symmetry: https://arxiv.org/pdf/1901.10420.pdf
 %   2-component spinor notation: https://arxiv.org/pdf/0812.1594.pdf
+%   V-A current: https://warwick.ac.uk/fac/sci/physics/staff/academic/boyd/stuff/neutrinolectures/weak.pdf
+%   Review on V-A theory and chirality: https://www.hep.phy.cam.ac.uk/~thomson/lectures/partIIIparticles/Handout9_2009.pdf
 
 
 \chapter{Theory of semileptonic $B$ decays}
@@ -410,17 +412,30 @@ The three flavor generations of leptons are purely determined by experiments,
 as the SM places no constraint on number of flavor generations.
 
 
-\section{Modelling of semileptonic $B \rightarrow D$ decays}
+\section{Semileptonic $B \rightarrow D l^- \neuLb$ decays in the SM}
 
-The modelling of semileptonic $B \rightarrow D$ decays,
-where $D$ stands for a generic charm meson,
-plays an central role in this analysis as simulation of these decays
-requires an accurate model to generate sensible distributions of fit variables,
-most evident in the \qSq distribution.
-In this section a brief review of the modelling of these decays is provided.
+Semileptonic $B \rightarrow D l^- \neuLb$ decays,
+where $D$ stands for a generic charm meson and $l$ a generic lepton,
+play an central role in this analysis as signal, normalization,
+and most of the background decays fall under this category.
+A model of these decays enables the calculation of the matrix elements which
+determine generation of the Monte-Carlo simulation samples that provide
+estimations of the fit variables for each of such decays.
+This section describes the formalism of such a modelling.
 
-First, operators that can facilitate $b \rightarrow c \ell \neulb$ are
-identified:
+The parton level process involved in the $B \rightarrow D l \neuLb$ decays is
+$b \rightarrow c l \neuLb$,
+which is mediated by the weak charged current in the SM.
+% NOTE: cite Schwartz QFT textbook maybe
+At tree level, such amplitude is given by \cite{Tanaka_1995}:
+\begin{equation}
+    \mathcal{M}^{\lambda_l}_{\lambda_D}(q^2, \theta_l) =
+    \frac{G_F}{\sqrt{2}} \frac{m^2_W}{m^2_W - q^2}
+    \sum_{\lambda_W} \eta_{\lambda_W}
+    L^{\lambda_l}_{\lambda_W}(q^2, \theta_l)
+    H^{\lambda_D}_{\lambda_W}(q^2)
+\end{equation}
+
 
 write the matrix elmenet
 
@@ -430,17 +445,15 @@ comment on the hadronic part and form factors,
 in general which are non vanishing
 
 
-\section{Form factors in $B \rightarrow D^{(*)}\ell\neulb$ decays}
+\subsection{Form factors in $B \rightarrow D^{(*)}\ell\neulb$ decays}
 \label{ref:theory:ff-d0-dst}
 
 the d and dst ffs are both modelling w/ BGL which are good for reasons.
 
 
-
-
-\section{Computation of \RD and \RDst}
+\subsection{Computation of \RD and \RDst}
 \label{ref:theory:rdx}
 
 
-\section{Form factors in $B \rightarrow D^{**}\ell\neulb$ decays}
+\subsection{Form factors in $B \rightarrow D^{**}\ell\neulb$ decays}
 \label{ref:theory:ff-dstst}
