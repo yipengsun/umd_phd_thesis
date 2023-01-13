@@ -420,13 +420,14 @@ as the SM places no constraint on number of flavor generations.
 \section{Semileptonic $B \rightarrow D \ellm\neulb$ decays in the SM}
 
 Semileptonic $B \rightarrow D \ellm\neulb$ decays,
-where $D$ stands for a generic charm meson and $l$ a generic lepton,
+where $B$ stands for a \Bzb or \Bm,
+$D$ stands for a generic charm meson, and \ellm a \mun or \taum,
 play an central role in this analysis as the signal, normalization,
 and most of the background decays fall under this category.
 A model of these decays enables the calculation of the matrix elements which
 facilitate generation of the Monte-Carlo simulation samples that provide
-estimations of the fit variables for each of such decays.
-This section describes the formalism of such a modelling.
+estimations to the fit variables for each of such decays.
+This section describes the formalism of such a modeling.
 
 The parton level process involved in the $B \rightarrow D \ellm\neulb$ decays is
 $b \rightarrow c \ellm\neulb$,
@@ -446,11 +447,13 @@ in which the total amplitude is obtained from summing over the helicity states
 of the off-shell virtual $W$,
 polarized in the $B$ rest frame as:
 \begin{align}
-    & \epsilon_\mu(\pm) = \frac{1}{2}(0, \pm1, -i, 0)
+    & \epsilon_\mu(\pm) = \frac{1}{\sqrt{2}}(0, \pm1, -i, 0)
     & \epsilon_\mu(0) &= \frac{1}{\sqrt{q^2}}(|\vec{p}^*_D|, 0, 0, -q^0)
     & \epsilon_\mu(s) &= \frac{q^\mu}{\sqrt{q^2}}
 \end{align}
-with the metric factor $\eta_{\lambda_W}$ given by:
+where $q^0$ is the energy of the virtual $W$ boson in the $B$ rest frame,
+and $q^2$ is the invariant mass of the $W$.
+The metric factor $\eta_{\lambda_W}$ given by:
 \begin{equation}
     \eta_{\pm,0,s} = \{1, 1, \frac{q^2 - m_W^2}{m_W^2}\} \approx \{1, 1, -1\}
 \end{equation}
@@ -475,21 +478,22 @@ The currents are defined as:
 where $p_i, \lambda_i$ refer to the four-momenta and helicities of the particle
 $i$;
 $\theta_l$ refers to the angle between the lepton and the $W$ flight direction
-in the $l\neulb$ rest frame,
+in the $\ellm\neulb$ rest frame,
 as shown in \cref{fig:b-d-decay-schematic}.
 
 \begin{figure}[!htb]
     \centering
     \includegraphics[width=0.65\textwidth]{./figs-theory/b_d_angular_vars.pdf}
-    \label{fig:b-d-decay-schematic}
     \caption{
         Angular variables of the $\Bzb \rightarrow D^{*+} \ellm\neulb$ decays.
         For $\Bm \rightarrow \Dz\ellm\neulb$ decays,
         only the $\theta_l$ variable exists.
     }
+    \label{fig:b-d-decay-schematic}
 \end{figure}
 
-commend on the leptonic part
+The leptonic current is straightforward to evaluate,
+as
 
 comment on the hadronic part and form factors,
 in general which are non vanishing
@@ -498,7 +502,7 @@ in general which are non vanishing
 \subsection{Form factors in $B \rightarrow D^{(*)}\ellm\neulb$ decays}
 \label{ref:theory:ff-d0-dst}
 
-the d and dst ffs are both modelling w/ BGL which are good for reasons.
+the d and dst ffs are both modeling w/ BGL which are good for reasons.
 
 
 \subsection{Computation of \RD and \RDst}
