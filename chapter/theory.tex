@@ -452,8 +452,8 @@ polarized in the $B$ rest frame as:
     & \epsilon_\mu(s) &= \frac{q^\mu}{\sqrt{q^2}}
 \end{align}
 where $q^0$ is the energy of the virtual $W$ boson in the $B$ rest frame,
-and $q^2$ is the invariant mass of the $W$.
-The metric factor $\eta_{\lambda_W}$ given by:
+and $q^2 = (q_0, -\vec{p}^*_D)^2$ is the invariant mass of the $W$.
+The metric factor $\eta_{\lambda_W}$ is given by:
 \begin{equation}
     \eta_{\pm,0,s} = \{1, 1, \frac{q^2 - m_W^2}{m_W^2}\} \approx \{1, 1, -1\}
 \end{equation}
@@ -502,9 +502,23 @@ and $\theta_l$ as defined in \cref{fig:b-d-decay-schematic}.
 The results are listed in eqs. (2.8) and (2.9) in
 \cite{HAGIWARA1989569}.
 
-comment on the hadronic part and form factors,
-in general which are non vanishing
-
+The calculation of the hadronic currents, however,
+involves non-perturbative quantum chromodynamics (QCD) effects as both the
+initial and final states are mesons which are quark-anti-quark pairs bounded by
+the strong interactions of QCD.
+Hence, these currents are not computable in an analytical way and are expressed
+in terms of form factors (FFs),
+which are a function of \qSq, instead.
+These FFs are estimated with quark models,
+heavy quark effective theory, or lattice QCD;
+the latter two are sometimes used in conjunction.
+% NOTE: Check the slides for CLN vs. BGL
+%   https://indico.cern.ch/event/656737/contributions/2676125/attachments/1525023/2384258/Siegen.pdf
+The estimations of FFs
+(and the differential decay rate, which will be provided shortly after)
+are often performed at a particular $q^2$ value, such as when the $D$ meson is
+produced at rest in the $B$ rest frame, and are extrapolated to the full $q^2$
+range with experimental inputs.
 
 \subsection{Form factors in $B \rightarrow D^{(*)}\ellm\neulb$ decays}
 \label{ref:theory:ff-d0-dst}
