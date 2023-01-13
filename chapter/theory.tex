@@ -501,17 +501,20 @@ $(\lambda_W, \lambda_l)$ is a function of the lepton mass,
 the invariant mass squared $q^2$ of the virtual $W$,
 and $\theta_l$ as defined in \cref{fig:b-d-decay-schematic}.
 The results are listed in eqs. (2.8) and (2.9) in
-\cite{HAGIWARA1989569}, and are copied verbatim for convenience:
+\cite{HAGIWARA1989569}, and are copied with minor changes on notation:
 
 \begin{align}
     & L^-_\pm(q^2, \theta_l) = -2 \sqrt{q^2} v d_\pm
     & L^-_0(q^2, \theta_l) &= -2 \sqrt{q^2} v d_0
-    & L^-_s(q^2, \theta_l) &= 0 \\
+    & L^-_s(q^2, \theta_l) &= 0
+    \label{eqn:b-d-l-current-1} \\
     & L^+_\pm(q^2, \theta_l) = \mp \sqrt{2} m_l v d_0
     & L^+_0(q^2, \theta_l) &= \sqrt{2} m_l v(d_+ - d_-)
     & L^+_s(q^2, \theta_l) &= -2 m_l v
-    \label{eqn:b-d-l-current}
+    \label{eqn:b-d-l-current-2}
 \end{align}
+where $v = \sqrt{1 - \frac{m^2_l}{q^2}}$,
+$d_\pm = \frac{1 + \cos\theta_l}{\sqrt{2}}$, and $d_0 = \sin\theta_l$.
 
 \paragraph{Hadronic current} The calculation of the hadronic currents, however,
 involves non-perturbative quantum chromodynamics (QCD) effects as both the
@@ -526,11 +529,12 @@ the latter two are sometimes used in conjunction.
 % NOTE: Check the slides for CLN vs. BGL
 %   https://indico.cern.ch/event/656737/contributions/2676125/attachments/1525023/2384258/Siegen.pdf
 The estimations of FFs
-(and the differential decay rate, which will be provided shortly after)
+and the differential decay rate (which will be provided shortly after)
 are often performed at a particular $q^2$ value, such as when the $D$ meson is
-produced at rest in the $B$ rest frame
-(referred to as ``zero recoil'' due to the fact that the $D$ meson is
-\emph{not recoiling} in the $B$ rest frame),
+produced at rest in the $B$ rest frame\footnote{
+    Referred to as ``zero recoil'' due to the fact that the $D$ meson is
+    \emph{not recoiling} in the $B$ rest frame.
+},
 and are extrapolated to the full $q^2$ range with experimental inputs.
 
 While not analytically calculable,
@@ -542,7 +546,26 @@ the only non-zero hadronic amplitude are $H^0_0, H^0_s$.
 For $D^*$ meson which is a spin 1 vector,
 the amplitudes $H^+_+$ and $H^-_-$ are allowed in addition.
 
-Still, due to conservation of helicity between the
+\paragraph{Differential decay rate}
+The differential decay rate is found by first inserting
+\cref{eqn:b-d-l-current-1,eqn:b-d-l-current-2}
+into \cref{eqn:b-d-master-formula} then integrating over the phase space and
+the lepton helicities:
+
+\begin{align}
+    \frac{d\Gamma}{d q^2 d\cos\theta_l} =&
+    \frac{G^2_F |V_{cb}|^2 | \vec{p}^*_D|^2 q^2}{256 \pi^3 m^2_B}
+    \left(1 - \frac{m^2_l}{q^2}\right)^2 \times
+    \nonumber \\
+    &\bigg[
+        (1 - \cos\theta_l)^2 |H_+|^2 + (1 + \cos\theta_l)^2 |H_-|^2 +
+        2 \sin^2\theta_l |H_0|^2 +
+    \nonumber \\
+    & \frac{m^2_l}{q^2} \left(
+        (\sin^2\theta_l(|H_+|^2 + |H_-|^2) + 2|H_s + H_0 \cos\theta_l|^2)
+    \right)
+    \bigg]
+\end{align}
 
 
 \subsection{Form factors in $B \rightarrow D^{(*)}\ellm\neulb$ decays}
