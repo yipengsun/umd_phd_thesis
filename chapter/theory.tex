@@ -665,19 +665,26 @@ and are listed in \cref{tab:ff-cln-b-d}.
 
 \begin{table}[!htb]
     \centering
-    \begin{tabular}{c|c|c}
-        \toprule
-        \textbf{FF parameter} & \textbf{\Hammer name} & \textbf{Value} \\
-        \midrule
-        $V_1(0)$ & \smalltt{G1} & 1.035 \\
-        $\rho^2$ & \smalltt{RhoSq} & 1.131 \\
-        $\Delta$ & \smalltt{Delta} & 0.38 \\
-        \bottomrule
-    \end{tabular}
     \caption{
         $B \rightarrow \Dz \ellm\neulb$ CLN FF parameterization.
     }
     \label{tab:ff-cln-b-d}
+    \begin{tabular}{c|c|c}
+        \toprule
+        \textbf{FF parameter} & \textbf{Value} & \textbf{\Hammer name} \\
+        \midrule
+        $V_1(0)$\parnote{
+            This is related to \smalltt{G1} by a constant factor:
+            $V_1(0) = \frac{1 + r_c}{2 \sqrt{r_c}} \cdot \text{\smalltt{G1}}$,
+            where $r_c = \frac{m_D}{m_B}$.
+        }        & 1.035 & \smalltt{G1}     \\
+        $\rho^2$ & 1.131 & \smalltt{RhoSq}  \\
+        $\Delta$ & 0.38  & \smalltt{Delta}  \\
+        \bottomrule
+    \end{tabular}
+    \begin{flushleft}
+        \parnotes
+    \end{flushleft}
 \end{table}
 
 The use of CLN is criticized by the theory community because the
