@@ -596,8 +596,8 @@ More details will be given for \Dz parameterizations.
 For \Dstar only the parameterization schemes and parameter values will be given.
 
 \paragraph{CLN}
-For $B \rightarrow \Dz$ decays the axial vector part of the hadronic current is
-vanishing due to conservation of angular momentum and parity
+For $B \rightarrow \Dz\ellm\neulb$ decays the axial vector part of the hadronic
+current is vanishing due to conservation of angular momentum and parity
 \cite{Bernlochner_2022}.
 Each hadronic current is therefore characterized by \emph{two} form factors:
 \begin{align}
@@ -608,6 +608,7 @@ Each hadronic current is therefore characterized by \emph{two} form factors:
     \sqrt{m_B m_D} \left[
         h_+(w)(v_B + v_D)^\mu + h_-(w)(v_B - v_D)^\mu
     \right]
+    \label{eqn:b-d-cln-param}
 \end{align}
 where $v_i = \frac{p_i}{m_i}$,
 $w(\qSq) \equiv v_B \cdot v_D = \frac{m^2_B + m^2_D - \qSq}{2 m_B m_D}$.
@@ -632,8 +633,9 @@ freedom,
 $V_1(z)$ is expressed in powers of $z$, known as ``$z$-expansion'', in the
 following form:
 \begin{equation}
-    V_1(z) = V_1(1) \cdot \left[
-        1 - 8 \rho^2_D z + (51 \rho^2_D - 10) z - (252 \rho^2_D - 84) z^3
+    V_1(w) = V_1(1) \cdot \left[
+        1 - 8 \rho^2_D z(w) + (51 \rho^2_D - 10) z(w)^2 -
+        (252 \rho^2_D - 84) z(w)^3
     \right]
 \end{equation}
 where $V_1(0), \rho^2_D$ are FF parameters,
@@ -649,9 +651,9 @@ proportional to the lepton mass.
 Therefore this hadronic amplitude is insensitive to input data and is
 constrained based on HQET:
 \begin{equation}
-    S_1(z) = \left\{
+    S_1(w) = \left\{
         1 + \Delta(-0.019 + 0.041(w - 1) - 0.015(w - 1)^2)
-    \right\} V_1(z)
+    \right\} V_1(w)
 \end{equation}
 The rest of the parameters,
 namely $\rho^2, \Delta$,
@@ -688,11 +690,23 @@ account \cite{LHCb-ANA-2020-056}.
 
 \paragraph{BGL} Similar to CLN, the BGL parameterization \cite{Boyd_1995}
 is based on dispersion relations, analyticity, and crossing symmetry but
-without the HQET constraints.
-The lack of HQET constraints provides additional flexibility at the cost
-of additional number of parameters,
-which is more ideal to a data-driven approach of the determination of the FFs.
+with reduced constraints,
+providing more flexibility at the cost of additional
+number of parameters.
+The BGL parameterization is more ideal to a data-driven approach of the
+determination of the FFs.
 
+The BGL adopts the following parameterization for
+$B \rightarrow \Dz\ellm\neulb$ decays:
+\begin{equation}
+    \bra{D} \bar{c} \gamma^\mu b \ket{B} =
+    f_+ (p_B + p_D)^\mu + (f_0 - f_+) \frac{q^\mu}{q^2} (m^2_B - m^2_D)
+\end{equation}
+which is different than \cref{eqn:b-d-cln-param}.
+Both $f_+, f_0$ are expressed as:
+\begin{equation}
+    f_{+,0}(z) =
+\end{equation}
 
 \subsection{Form factors in $B \rightarrow \Dstarp\ellm\neulb$ decays}
 
