@@ -613,24 +613,31 @@ Each hadronic current is therefore characterized by \emph{two} form factors:
 \end{align}
 where $v_i = \frac{p_i}{m_i}$,
 $w(\qSq) \equiv v_B \cdot v_D = \frac{m^2_B + m^2_D - \qSq}{2 m_B m_D}$.
-
+%%%%
 In CLN parameterization \cite{Caprini_1998},
 the FFs $h_+, h_-$ are re-expressed as $V_1(w), S_1(w)$:
 \begin{align}
     V_1(w) &= h_+(w) - \frac{m_B - m_D}{m_B + m_D} h_-(w) \\
-    S_1(w) &= h_+(w) - \frac{m_B + m_D}{m_B - m_D}\frac{w-1}{w+1} h_-(w)
+    S_1(w) &= h_+(w) - \frac{m_B + m_D}{m_B - m_D} \cdot \frac{w-1}{w+1} h_-(w)
 \end{align}
 and an expression for $V_1(w)$ is obtained by first analytically continue $w$
-outside the physical
+outside the physical region in the complex plane, then a conformal mapping
+\begin{equation}
+    w \rightarrow z: z =
+    \frac{\sqrt{w+1} - \sqrt{2}a}{\sqrt{w+1} + \sqrt{2}a}
+\end{equation}
+is performed such that the physical region is mapped inside the unit circle of
+the complex $z$-plane.
+With dispersion techniques based on first principles and additional
+consideration from heavy quark symmetries to further reduce degrees of freedoms,
+$V_1(z)$ is expressed in powers of $z$, known as ``$z$-expansion'', as:
+\begin{equation}
+    V_1(z) = V_1(1) \cdot \left[
+        1 - 8 \rho^2_D z + (51 \rho^2_D - 10) z - (252 \rho^2_D - 84) z^3
+    \right]
+\end{equation}
+where $V_1(1), \rho^2_D$ are FF parameters.
 
-The CLN parameterization  utilizes a dispersion relation
-based on first principles,
-namely the analyticity of the two-point function of the local current and
-the positivity of the corresponding spectral functions \cite{Caprini_1998},
-which provides model-independent constraints to the FFs and
-rewrite hadronic current matrix elements as a series expansion of $z$,
-where $z$ is obtained via a conformal mapping $q \rightarrow z$ after
-analytically continue $q$ outside the physical region to the full complex plane.
 
 
 \paragraph{BGL}
