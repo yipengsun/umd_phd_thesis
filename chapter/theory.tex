@@ -521,12 +521,24 @@ $d_\pm = \frac{1 + \cos\theta_l}{\sqrt{2}}$, and $d_0 = \sin\theta_l$.
 involves non-perturbative quantum chromodynamics (QCD) effects as both the
 initial and final states are mesons which are quark-anti-quark pairs bounded by
 the strong interactions of QCD.
-Hence, these currents are not computable in an analytical way and are expressed
-in terms of form factors (FFs),
+Hence, these currents are not computable in an analytical way and each of them
+is re-expressed in terms of form factors (FFs),
 which are a function of \qSq, instead.
-These FFs are estimated with quark models,
-heavy quark effective theory, or lattice QCD;
-the latter two are sometimes used in conjunction.
+These FFs are parameterized and estimated with relatively large theoretical
+uncertainties with four types of methods:
+use of functional properties of the matrix elements\footnote{
+    Such as analyticity, unitarity, and dispersion relations.
+},
+heavy quark effective theory (HQET),
+various quark models\footnote{
+    For example QCD sum rule (QCDSR) and light cone sum rule (LCSR).
+},
+and lattice QCD
+\cite{Bernlochner_2022}.
+As mentioned in the introduction,
+for \RDX ratio measurements,
+the hadronic uncertainties are mostly factored out and the main importance
+of the FFs lies in the precision of the lepton universality ratio predictions.
 % NOTE: Check the slides for CLN vs. BGL
 %   https://indico.cern.ch/event/656737/contributions/2676125/attachments/1525023/2384258/Siegen.pdf
 The estimations of FFs
@@ -536,7 +548,8 @@ produced at rest in the $B$ rest frame\footnote{
     Referred to as ``zero recoil'' due to the fact that the $D$ meson is
     \emph{not recoiling} in the $B$ rest frame.
 },
-and are extrapolated to the full $q^2$ range with experimental inputs.
+and are extrapolated to the full $q^2$ range by performing fits to experimental
+inputs.
 
 While not analytically calculable,
 the hadronic currents are constrained by the conservation of angular momentum,
@@ -550,7 +563,7 @@ the amplitudes $H^+_+$ and $H^-_-$ are allowed in addition.
 The differential decay rate is found by first inserting
 \cref{eqn:b-d-l-current-1,eqn:b-d-l-current-2}
 into \cref{eqn:b-d-master-formula} then integrating over the phase space and
-the lepton helicities:
+summing over the lepton helicities:
 
 \begin{align}
     \frac{d\Gamma}{d q^2 d\cos\theta_l} =&
@@ -573,7 +586,7 @@ In the next sections the form factor parameterizations relevant to this analysis
 for \Dz, \Dstar, and \Dstst mesons are discussed.
 
 
-\subsection{Form factors in $B \rightarrow D^{(*)}\ellm\neulb$ decays}
+\subsection{Form factors in $B \rightarrow \Dz\ellm\neulb$ decays}
 \label{ref:theory:ff-d0-dst}
 
 As discussed before,
@@ -581,9 +594,43 @@ a form factor parameterization of the hadronic currents is needed in order to
 evaluate the differential decay rate.
 In this analysis both \Dz and \Dstar MCs are generated with the CLN
 parameterization and later reweighted offline to BGL.
-Both will be discussed below.
+More details will be given for \Dz parameterizations.
+For \Dstar only the parameterization schemes and parameter values will be given.
 
 \paragraph{CLN}
+For $B \rightarrow \Dz$ decays the axial vector part of the hadronic current is
+vanishing due to conservation of angular momentum and parity
+\cite{Bernlochner_2022}.
+Each hadronic current is therefore characterized by \emph{two} form factors:
+\begin{align}
+    \bra{D} \bar{c} \gamma^\mu(1 - \gamma^5) b \ket{B} &=
+    \bra{D} \bar{c} \gamma^\mu b \ket{B}
+    \nonumber \\
+    &=
+    \sqrt{m_B m_D} \left[
+        h_+(w)(v_B + v_D)^\mu + h_-(w)(v_B - v_D)^\mu
+    \right]
+\end{align}
+where $v_i = \frac{p_i}{m_i}$,
+$w(\qSq) \equiv v_B \cdot v_D = \frac{m^2_B + m^2_D - \qSq}{2 m_B m_D}$.
+
+In CLN parameterization \cite{Caprini_1998},
+the FFs $h_+, h_-$ are re-expressed as $V_1(w), S_1(w)$:
+\begin{align}
+    V_1(w) &= h_+(w) - \frac{m_B - m_D}{m_B + m_D} h_-(w) \\
+    S_1(w) &= h_+(w) - \frac{m_B + m_D}{m_B - m_D}\frac{w-1}{w+1} h_-(w)
+\end{align}
+and an expression for $V_1(w)$ is obtained by first analytically continue $w$
+outside the physical
+
+The CLN parameterization  utilizes a dispersion relation
+based on first principles,
+namely the analyticity of the two-point function of the local current and
+the positivity of the corresponding spectral functions \cite{Caprini_1998},
+which provides model-independent constraints to the FFs and
+rewrite hadronic current matrix elements as a series expansion of $z$,
+where $z$ is obtained via a conformal mapping $q \rightarrow z$ after
+analytically continue $q$ outside the physical region to the full complex plane.
 
 
 \paragraph{BGL}
