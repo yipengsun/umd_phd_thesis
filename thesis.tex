@@ -185,9 +185,10 @@
 
 % Always single-space equations
 \usepackage{etoolbox}
-\BeforeBeginEnvironment{equation}{\begin{singlespace}}
+% FIXME: The negative vertical gaps are put in by hand!
+\BeforeBeginEnvironment{equation}{\begin{singlespace}\vspace{-\baselineskip}}
 \AfterEndEnvironment{equation}{\end{singlespace}\noindent\ignorespaces}
-\BeforeBeginEnvironment{align}{\begin{singlespace}}
+\BeforeBeginEnvironment{align}{\begin{singlespace}\vspace{-1.5\baselineskip}}
 \AfterEndEnvironment{align}{\end{singlespace}\noindent\ignorespaces}
 
 % footnote always at the bottom of the page
