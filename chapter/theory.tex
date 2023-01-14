@@ -340,7 +340,6 @@ and a non-zero VEV leads to terms of the form $\frac{1}{2}\kappa Z_\mu Z^\mu$ wh
 can be interpreted as mass terms.
 After a field redefinition, one finds three massive spin 1 fields and a massless
 one:
-
 \begin{align}
     W^+_\mu &= \frac{1}{\sqrt{2}}(W^1_\mu - i W^2_\mu) \\
     W^-_\mu &= \frac{1}{\sqrt{2}}(W^1_\mu + i W^2_\mu) \\
@@ -463,7 +462,6 @@ As shown in \cref{eqn:b-d-master-formula},
 the leptonic and hadronic currents factorize because leptons
 are color singlets which do not interact strongly.
 The currents are defined as:
-
 \begin{align}
     L^{\lambda_l}_{\lambda_W}(q^2, \theta_l)
     & =
@@ -503,7 +501,6 @@ the invariant mass squared $q^2$ of the virtual $W$,
 and $\theta_l$ as defined in \cref{fig:b-d-decay-schematic}.
 The results are listed in eqs. (2.8) and (2.9) in
 \cite{HAGIWARA1989569}, and are copied over with minor changes on notations:
-
 \begin{align}
     & L^-_\pm(q^2, \theta_l) = -2 \sqrt{q^2} v d_\pm
     & L^-_0(q^2, \theta_l) &= -2 \sqrt{q^2} v d_0
@@ -564,7 +561,6 @@ The differential decay rate is found by first inserting
 \cref{eqn:b-d-l-current-1,eqn:b-d-l-current-2}
 into \cref{eqn:b-d-master-formula} then integrating over the phase space and
 summing over the lepton helicities:
-
 \begin{align}
     \frac{d\Gamma}{d q^2 d\cos\theta_l} =&
     \frac{G^2_F |V_{cb}|^2 | \vec{p}^*_D|^2 q^2}{256 \pi^3 m^2_B}
@@ -593,7 +589,9 @@ As discussed before,
 a form factor parameterization of the hadronic currents is needed in order to
 evaluate the differential decay rate.
 In this analysis both \Dz and \Dstar MCs are generated with the CLN
-parameterization and later reweighted offline to BGL.
+parameterization and later reweighted offline to BGL
+(more details regarding the reweighting process will be provided in
+\cref{ref:mc-cor:ff}).
 More details will be given for \Dz parameterizations.
 For \Dstar only the parameterization schemes and parameter values will be given.
 
@@ -624,21 +622,69 @@ and an expression for $V_1(w)$ is obtained by first analytically continue $w$
 outside the physical region in the complex plane, then a conformal mapping
 \begin{equation}
     w \rightarrow z: z =
-    \frac{\sqrt{w+1} - \sqrt{2}a}{\sqrt{w+1} + \sqrt{2}a}
+    \frac{\sqrt{w+1} - \sqrt{2}}{\sqrt{w+1} + \sqrt{2}}
 \end{equation}
 is performed such that the physical region is mapped inside the unit circle of
 the complex $z$-plane.
 With dispersion techniques based on first principles and additional
-consideration from heavy quark symmetries to further reduce degrees of freedoms,
-$V_1(z)$ is expressed in powers of $z$, known as ``$z$-expansion'', as:
+consideration from heavy quark symmetries to further reduce number of degrees of
+freedom,
+$V_1(z)$ is expressed in powers of $z$, known as ``$z$-expansion'', in the
+following form:
 \begin{equation}
     V_1(z) = V_1(1) \cdot \left[
         1 - 8 \rho^2_D z + (51 \rho^2_D - 10) z - (252 \rho^2_D - 84) z^3
     \right]
 \end{equation}
-where $V_1(1), \rho^2_D$ are FF parameters.
+where $V_1(0), \rho^2_D$ are FF parameters,
+noting that $V_1(0)$ corresponds to the hadronic current at zero recoil.
+The factor $V_1(0)$,
+calculable with HQET or lattice QCD,
+represents an overall normalization which is \emph{not cancelled} when
+performing CLN to BGL reweighting but \emph{is cancelled} in subsequent fit to
+\RD ratio.
+
+The corresponding leptonic current to $S_1$ is helicity suppressed which is
+proportional to the lepton mass.
+Therefore this hadronic amplitude is insensitive to input data and is
+constrained based on HQET:
+\begin{equation}
+    S_1(z) = \left\{
+        1 + \Delta(-0.019 + 0.041(w - 1) - 0.015(w - 1)^2)
+    \right\} V_1(z)
+\end{equation}
+The rest of the parameters,
+namely $\rho^2, \Delta$,
+are obtain from a fit to data by saturating the dispersive bounds at $1\sigma$
+uncertainty \cite{Bernlochner_2022}.
+All parameters listed above are copied from the corresponding MC generation
+code,
+and are listed in \cref{tab:ff-cln-b-d}.
+
+\begin{table}[!htb]
+    \centering
+    \begin{tabular}{c|c|c}
+        \toprule
+        \textbf{FF parameter} & \textbf{\Hammer name} & \textbf{Value} \\
+        \midrule
+        $V_1(0)$ & \smalltt{G1} & 1.035 \\
+        $\rho^2$ & \smalltt{RhoSq} & 1.131 \\
+        $\Delta$ & \smalltt{Delta} & 0.38 \\
+        \bottomrule
+    \end{tabular}
+    \caption{
+        $B \rightarrow \Dz \ellm\neulb$ CLN FF parameterization.
+    }
+    \label{tab:ff-cln-b-d}
+\end{table}
 
 
+\paragraph{BGL}
+
+
+\subsection{Form factors in $B \rightarrow \Dstarp\ellm\neulb$ decays}
+
+\paragraph{CLN}
 
 \paragraph{BGL}
 
