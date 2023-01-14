@@ -171,7 +171,7 @@
 %%%%%%%%%%%%%%%%%%%%%%
 % layout and spacing %
 %%%%%%%%%%%%%%%%%%%%%%
-\usepackage{setspace}
+\usepackage[nodisplayskipstretch]{setspace}
 \usepackage{lscape}
 %\usepackage{multirow}
 
@@ -186,9 +186,11 @@
 % Always single-space equations
 \usepackage{etoolbox}
 % FIXME: The negative vertical gaps are put in by hand!
+%        This is because I sometimes left an empty line before 'equation'
+%        environment which is WRONG
 \BeforeBeginEnvironment{equation}{\begin{singlespace}\vspace{-\baselineskip}}
 \AfterEndEnvironment{equation}{\end{singlespace}\noindent\ignorespaces}
-\BeforeBeginEnvironment{align}{\begin{singlespace}\vspace{-1.5\baselineskip}}
+\BeforeBeginEnvironment{align}{\begin{singlespace}\vspace{-\baselineskip}}
 \AfterEndEnvironment{align}{\end{singlespace}\noindent\ignorespaces}
 
 % footnote always at the bottom of the page
