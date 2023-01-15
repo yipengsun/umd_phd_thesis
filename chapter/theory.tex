@@ -583,7 +583,7 @@ for \Dz, \Dstar, and \Dstst mesons are discussed.
 
 
 \subsection{Form factors in $B \rightarrow \Dz\ellm\neulb$ decays}
-\label{ref:theory:ff-d0-dst}
+\label{ref:theory:ff-d0}
 
 As discussed before,
 a form factor parameterization of the hadronic currents is needed in order to
@@ -673,18 +673,11 @@ and are listed in \cref{tab:ff-cln-b-d}.
         \toprule
         \textbf{FF parameter} & \textbf{Value} & \textbf{\Hammer name} \\
         \midrule
-        $V_1(0)$\parnote{
-            This is related to \smalltt{G1} by a constant factor:
-            $V_1(0) = \frac{1 + r_c}{2 \sqrt{r_c}} \cdot \text{\smalltt{G1}}$,
-            where $r_c = \frac{m_D}{m_B}$.
-        }        & 1.035 & \smalltt{G1}     \\
+        $V_1(0)$ & 1.035 & \smalltt{G1}     \\
         $\rho^2$ & 1.131 & \smalltt{RhoSq}  \\
         $\Delta$ & 0.38  & \smalltt{Delta}  \\
         \bottomrule
     \end{tabular}
-    \begin{flushleft}
-        \parnotes
-    \end{flushleft}
 \end{table}
 
 The use of CLN is criticized by the theory community because the
@@ -710,10 +703,15 @@ $B \rightarrow \Dz\ellm\neulb$ decays:
     f_+ (p_B + p_D)^\mu + (f_0 - f_+) \frac{q^\mu}{q^2} (m^2_B - m^2_D)
 \end{equation}
 which is different than \cref{eqn:b-d-cln-param}.
-Both $f_+, f_0$ are expressed as:
+Both $f_+, f_0$ are expressed as a series of $z$:
 \begin{equation}
-    f_{+,0}(z) =
+    f_{+,0}(z(w)) = \frac{1}{P_{+,0}(z(w))\phi_{+,0}(z(w))}
+    \sum^\infty_{n = 0} a_{+,0} z(w)^n
 \end{equation}
+where $P_{+,0}(w)$ are known as \emph{Blaschke factors} with their expressions
+listed in eq. (2.12) in \cite{Bigi_2016},
+and $\phi_{+,0}$, \emph{outer functions}, are defined in eqs. (2.13) and (2.14)
+of the same reference.
 
 \subsection{Form factors in $B \rightarrow \Dstarp\ellm\neulb$ decays}
 
