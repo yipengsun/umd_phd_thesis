@@ -39,9 +39,8 @@ Therefore, it is important to use the state-of-art form factor models.
 Naively this is hard, because the form model model is defined at MC generator
 level, any change in form factor may require a regeneration of all MC samples.
 In reality, however, for a given phase space point\footnote{
-    % FIXME: Implement the reference!
     The phase space is parameterized by \qSq and possibly angular variables,
-    as defined in \cref{ref:theory:ff-d0-dst,ref:theory:ff-dstst}.
+    as defined in \cref{eqn:ff-ps}.
 }  \PSpt, the probability density that an event is generated \emph{at}
 \PSpt is proportional to the differential decay rate evaluated at
 \PSpt.
@@ -67,15 +66,13 @@ expansion of form factors around a central point in the form factor parameter
 space.
 The details of the form factor reweighting are given below.
 
+
 \subsection{$B \rightarrow \Dz$ decays}
 
-The \Dz MC samples are generated with an up-to-date CLN form factor model
-\cite{Caprini_1998}.
-Still, it is reweighted to a BGL model whose parameters are taken
-from Table 4 in \cite{Bigi_2016} at $N = 2$, as these
-parameters are obtained from a fit to lattice and experimental data.
-The $N = 2$ is chosen because it is the only case where the correlation matrix
-is reported.
+The \Dz MC samples are generated with an up-to-date CLN form factor
+parameterization and reweighted to a BGL one for self-consistentency and
+increased flexibility.
+Both are described in \cref{ref:theory:ff-d0}.
 \Cref{fig:ff-d0} shows the change of true \qSq distributions due to form factor
 reweighting for \Dz samples.
 The changes are minimal because both models are up-to-date.

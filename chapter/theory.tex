@@ -574,6 +574,7 @@ summing over the lepton helicities:
         (\sin^2\theta_l(|H_+|^2 + |H_-|^2) + 2|H_s + H_0 \cos\theta_l|^2)
     \right)
     \bigg]
+    \label{eqn:ff-ps}
 \end{align}
 where the \qSq dependence and the helicities of the $D$ meson in the hadronic
 currents $H_{\{\pm,0,s\}}$ are omitted.
@@ -706,12 +707,47 @@ which is different than \cref{eqn:b-d-cln-param}.
 Both $f_+, f_0$ are expressed as a series of $z$:
 \begin{equation}
     f_{+,0}(z(w)) = \frac{1}{P_{+,0}(z(w))\phi_{+,0}(z(w))}
-    \sum^\infty_{n = 0} a_{+,0} z(w)^n
+    \sum^\infty_{n = 0} a_{+,0}^n z(w)^n
 \end{equation}
 where $P_{+,0}(w)$ are known as \emph{Blaschke factors} with their expressions
 listed in eq. (2.12) in \cite{Bigi_2016},
 and $\phi_{+,0}$, \emph{outer functions}, are defined in eqs. (2.13) and (2.14)
 of the same reference.
+The $a_{+,0}$ parameters are taken from Table 4 in \cite{Bigi_2016} at $N = 2$,
+which are obtained from a fit to a combination of
+an unquenched lattice calculation and \emph{non-zero recoil} and experimental
+data.
+The $N = 2$ fit result is chosen because it is the only case that is consistent
+with unitary bounds and has a non-trivial correlation matrix as reported in
+Table 5 of \cite{Bigi_2016}.
+The correspondence between the parameter notations used in this paper,
+in Ref.~\cite{Bigi_2016}, and in \Hammer is displayed in
+\cref{tab:ff-bgl-b-d}.
+
+\begin{table}[!htb]
+    \centering
+    \caption{
+        $B \rightarrow \Dz \ellm\neulb$ BGL FF parameterization
+        notation correspondence.
+    }
+    \label{tab:ff-bgl-b-d}
+    \begin{tabular}{c|c|c}
+        \toprule
+        \textbf{FF parameter} & \textbf{Ref.~\cite{Bigi_2016}} & \textbf{\Hammer name} \\
+        \midrule
+        $a_+^n$     & $a_n$     & \smalltt{ap}, a vector     \\
+        $a_0^n$     & $b_n$\parnote{
+            The $b_0$ coefficient is fixed by the other coefficients:
+            $b_0 = 4.99 a_0 + 0.32 a_1 + 0.021 a_2 - 0.065 b_q - 0.004 b_2$
+            due to the constraint that $f_+ = f_0$ at $\qSq = 0$.
+        }
+                                & \smalltt{a0}, a vector     \\
+        \bottomrule
+    \end{tabular}
+    \begin{flushleft}
+        \parnotes
+    \end{flushleft}
+\end{table}
 
 \subsection{Form factors in $B \rightarrow \Dstarp\ellm\neulb$ decays}
 
