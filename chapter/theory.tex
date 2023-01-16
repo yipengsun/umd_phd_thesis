@@ -855,6 +855,49 @@ $\{g,f,\mathcal{F}_1,\mathcal{F}_2\}$:
 \end{align}
 where $r = \frac{m_\Dstar}{m_B}$.
 These FFs are proportional to $H_- - H_+, H_+ + H_-, H_0, H_s$ accordingly.
+With $z$-expansion, the FFs are expanded into the form:
+\begin{align}
+    g(w) =& \frac{1}{P_{1^-}(z(w))\phi_g(z(w))}
+        \sum^N_{n = 0} a_n z(w)^n \\
+    f(w) =& \frac{1}{P_{1^+}(z(w))\phi_f(z(w))}
+        \sum^N_{n = 0} b_n z(w)^n \\
+    \mathcal{F}_1(w) =& \frac{1}{P_{1^+}(z(w))\phi_{\mathcal{F}_1}(z(w))}
+        \sum^N_{n = 0} c_n z(w)^n \\
+    \mathcal{F}_2(w) =& \frac{1}{P_{0^-}(z(w))\phi_{\mathcal{F}_2}(z(w))}
+        \sum^N_{n = 0} d_n z(w)^n
+\end{align}
+where $P_i(z(w))$ are given in eq. (61) in \cite{Bazavov_2021}, and
+$\phi_i(z(w))$ in eqs. (67--70) in the same reference.
+The coefficients $\{a_n, b_n, c_n, d_n\}$ are given by a fit to unquenched
+lattice calculation at non-zero recoil and data;
+their values are listed in the right-most column of Table XII in the
+\textbf{v1} version of \cite{Bazavov_2021}.
+The parameter naming correspondence is displayed in
+\cref{tab:ff-bgl-b-dst}.
+
+\begin{table}[!htb]
+    \centering
+    \caption{
+        $B \rightarrow \Dstar \ellm\neulb$ BGL FF parameterization
+        notation correspondence.
+    }
+    \label{tab:ff-bgl-b-dst}
+    \begin{tabular}{c|c|c}
+        \toprule
+        \textbf{FF parameter} & \textbf{Ref.~\cite{Bazavov_2021}} & \textbf{\Hammer name} \\
+        \midrule
+        $a_n$     & $a_n$     & \smalltt{avec}, a vector     \\
+        $b_n$     & $b_n$     & \smalltt{bvec}, a vector     \\
+        $c_n$     & $c_n$     & \smalltt{cvec}, a vector\parnote{
+            The $c_n$ coefficients starts from $c_1$ instead of $c_0$.
+        }                                                    \\
+        $d_n$     & $d_n$     & \smalltt{dvec}, a vector     \\
+        \bottomrule
+    \end{tabular}
+    \begin{flushleft}
+        \parnotes
+    \end{flushleft}
+\end{table}
 
 \paragraph{\qSq spectra}
 
