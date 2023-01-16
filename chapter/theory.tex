@@ -689,7 +689,8 @@ Additionally, the fit of FF normalization factors at zero recoil is not
 self-consistent as the change in the slope of the form factors is not taken into
 account \cite{LHCb-ANA-2020-056}.
 
-\paragraph{BGL} Similar to CLN, the BGL parameterization \cite{Boyd_1995}
+\paragraph{BGL} Similar to CLN, the BGL parameterization
+\cite{Boyd_1995,Boyd:1997kz}
 is based on dispersion relations, analyticity, and crossing symmetry but
 with reduced constraints,
 providing more flexibility at the cost of additional
@@ -756,9 +757,7 @@ in Ref.~\cite{Bigi_2016}, and in \Hammer is displayed in
 The discussions regarding CLN and BGL in \cref{ref:theory:ff-d0} also applies
 here.
 The CLN and BGL parameterizations of $B \rightarrow \Dstar\ellm\neulb$ will be
-given first,
-followed by a discussion on the \qSq spectra of the
-$B \rightarrow D^{(*)} \ellm\neulb$ decays.
+given first.
 A brief comment on calculation of \RDX will be provided at the end of the
 section.
 
@@ -904,9 +903,20 @@ The parameter naming correspondence is displayed in
     \end{flushleft}
 \end{table}
 
-\paragraph{\qSq spectra}
-
 \paragraph{\RDX calculation}
+With FFs, the hadroic currents can be modeled based on a combination of
+theoretical calculations and experimental data.
+Plug these into the differential decay rate, a fully resolved
+$\frac{d\Gamma}{d q^2}$ is obtained,
+which can be used to compute \RDX:
+
+\begin{equation}
+    \RDX = \frac{
+        \int_{m^2_\tau}^{(m_B - m_{D^{(*)}})^2} d q^2 \frac{d\Gamma}{d q^2}
+    }{
+        \int_{m^2_\mu}^{(m_B - m_{D^{(*)}})^2} d q^2 \frac{d\Gamma}{d q^2}
+    }
+\end{equation}
 
 
 \subsection{Form factors in $B \rightarrow D^{**}\ellm\neulb$ decays}
