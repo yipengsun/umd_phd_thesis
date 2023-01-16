@@ -583,7 +583,7 @@ In the next sections the form factor parameterizations relevant to this analysis
 for \Dz, \Dstar, and \Dstst mesons are discussed.
 
 
-\subsection{Form factors in $B \rightarrow \Dz\ellm\neulb$ decays}
+\subsection{Form factors in $B \rightarrow D\ellm\neulb$ decays}
 \label{ref:theory:ff-d0}
 
 As discussed before,
@@ -597,7 +597,7 @@ More details will be given for \Dz parameterizations.
 For \Dstar only the parameterization schemes and parameter values will be given.
 
 \paragraph{CLN}
-For $B \rightarrow \Dz\ellm\neulb$ decays the axial vector part of the hadronic
+For $B \rightarrow D\ellm\neulb$ decays the axial vector part of the hadronic
 current is vanishing due to conservation of angular momentum and parity
 \cite{Bernlochner_2022}.
 Each hadronic current is therefore characterized by \emph{two} FFs:
@@ -667,7 +667,7 @@ and are listed in \cref{tab:ff-cln-b-d}.
 \begin{table}[!htb]
     \centering
     \caption{
-        $B \rightarrow \Dz \ellm\neulb$ CLN FF parameterization.
+        $B \rightarrow D \ellm\neulb$ CLN FF parameterization.
     }
     \label{tab:ff-cln-b-d}
     \begin{tabular}{c|c|c}
@@ -698,7 +698,7 @@ The BGL parameterization is more ideal to a data-driven approach of the
 determination of the FFs.
 
 The BGL adopts the following parameterization for
-$B \rightarrow \Dz\ellm\neulb$ decays:
+$B \rightarrow D\ellm\neulb$ decays:
 \begin{equation}
     \bra{D} \bar{c} \gamma^\mu b \ket{B} =
     f_+ (p_B + p_D)^\mu + (f_0 - f_+) \frac{q^\mu}{q^2} (m^2_B - m^2_D)
@@ -727,7 +727,7 @@ in Ref.~\cite{Bigi_2016}, and in \Hammer is displayed in
 \begin{table}[!htb]
     \centering
     \caption{
-        $B \rightarrow \Dz \ellm\neulb$ BGL FF parameterization
+        $B \rightarrow D \ellm\neulb$ BGL FF parameterization
         notation correspondence.
     }
     \label{tab:ff-bgl-b-d}
@@ -750,12 +750,12 @@ in Ref.~\cite{Bigi_2016}, and in \Hammer is displayed in
 \end{table}
 
 
-\subsection{Form factors in $B \rightarrow \Dstarp\ellm\neulb$ decays}
+\subsection{Form factors in $B \rightarrow \Dstar\ellm\neulb$ decays}
 \label{ref:theory:ff-dst}
 
 The discussions regarding CLN and BGL in \cref{ref:theory:ff-d0} also applies
 here.
-The CLN and BGL parameterizations of $B \rightarrow \Dstarp\ellm\neulb$ will be
+The CLN and BGL parameterizations of $B \rightarrow \Dstar\ellm\neulb$ will be
 given first,
 followed by a discussion on the \qSq spectra of the
 $B \rightarrow D^{(*)} \ellm\neulb$ decays.
@@ -763,7 +763,7 @@ A brief comment on calculation of \RDX will be provided at the end of the
 section.
 
 \paragraph{CLN}
-For $B \rightarrow \Dstarp\ellm\neulb$ decays,
+For $B \rightarrow \Dstar\ellm\neulb$ decays,
 the hadronic currents are parameterized by \emph{four} FFs $V, A_{0,1,2}$:
 \begin{align}
     \bra{\Dstar} \bar{c} \gamma^\mu b \ket{B}
@@ -780,6 +780,46 @@ the hadronic currents are parameterized by \emph{four} FFs $V, A_{0,1,2}$:
     =\hphantom{ } &
         2 m_\Dstar q^\mu (A_0 - A_3) \frac{\epsilon^* \cdot \vec{p_B}}{q^2}
 \end{align}
+in which $2 m_\Dstar A_3 = A_1(m_B + m_\Dstar) - A_2(m_B - m_\Dstar)$.
+In the CLN parameterization,
+these FFs are re-expressed as:
+\begin{align}
+    & A_1(w) = \frac{w+1}{2} r_\Dstar h_{A_1}(w)
+    & A_0(w) = \frac{R_0(w)}{r_\Dstar} h_{A_1}(w) \\
+    & A_2(w) = \frac{R_2(w)}{r_\Dstar} h_{A_1}(w)
+    & V(w) = \frac{R_1(w)}{r_\Dstar} h_{A_1}(w)
+\end{align}
+where $r_\Dstar = 2 \frac{\sqrt{m_B m_\Dstar}}{m_B + m_\Dstar}$.
+With dispersive bounds, these are expressed as:
+\begin{align}
+    h_{A_1}(w) &= h_{A_1}(1) \left[
+        1 - 8 \rho^2 z(w) + (53 \rho^2 - 15) z(w)^2 - (231 \rho^2 - 91) z(w)^3
+    \right] \\
+    R_1(w) &= R_1(1) - 0.12(w-1) + 0.05(w-1)^2 \\
+    R_2(w) &= R_2(1) + 0.11(w-1) - 0.06(w-1)^2 \\
+    R_0(w) &= R_0(1) - 0.11(w-1) + 0.01(w-1)^2
+\end{align}
+The parameters used in $B \rightarrow \Dstar\ellm\neulb$ MC generation are
+listed in \cref{tab:ff-cln-b-dst}.
+
+\begin{table}[!htb]
+    \centering
+    \caption{
+        $B \rightarrow \Dstar \ellm\neulb$ CLN FF parameterization.
+    }
+    \label{tab:ff-cln-b-dst}
+    \begin{tabular}{c|c|c}
+        \toprule
+        \textbf{FF parameter} & \textbf{Value} & \textbf{\Hammer name} \\
+        \midrule
+        $h_{A_1}(0)$ & 0.908 & \smalltt{F1}     \\
+        $\rho^2$     & 1.122 & \smalltt{RhoSq}  \\
+        $R_1(1)$     & 1.270 & \smalltt{R1}  \\
+        $R_2(1)$     & 0.852 & \smalltt{R2}  \\
+        $R_0(1)$     & 1.15  & \smalltt{R0}  \\
+        \bottomrule
+    \end{tabular}
+\end{table}
 
 \paragraph{BGL}
 
