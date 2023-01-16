@@ -600,7 +600,7 @@ For \Dstar only the parameterization schemes and parameter values will be given.
 For $B \rightarrow \Dz\ellm\neulb$ decays the axial vector part of the hadronic
 current is vanishing due to conservation of angular momentum and parity
 \cite{Bernlochner_2022}.
-Each hadronic current is therefore characterized by \emph{two} form factors:
+Each hadronic current is therefore characterized by \emph{two} FFs:
 \begin{align}
     \bra{D} \bar{c} \gamma^\mu(1 - \gamma^5) b \ket{B} &=
     \bra{D} \bar{c} \gamma^\mu b \ket{B}
@@ -658,7 +658,7 @@ constrained based on HQET:
 \end{equation}
 The rest of the parameters,
 namely $\rho^2, \Delta$,
-are obtain from a fit to data by saturating the dispersive bounds at $1\sigma$
+are obtained from a fit to data by saturating the dispersive bounds at $1\sigma$
 uncertainty \cite{Bernlochner_2022}.
 The values for the parameters listed above are copied from the corresponding MC
 generation code,
@@ -749,11 +749,43 @@ in Ref.~\cite{Bigi_2016}, and in \Hammer is displayed in
     \end{flushleft}
 \end{table}
 
+
 \subsection{Form factors in $B \rightarrow \Dstarp\ellm\neulb$ decays}
+\label{ref:theory:ff-dst}
+
+The discussions regarding CLN and BGL in \cref{ref:theory:ff-d0} also applies
+here.
+The CLN and BGL parameterizations of $B \rightarrow \Dstarp\ellm\neulb$ will be
+given first,
+followed by a discussion on the \qSq spectra of the
+$B \rightarrow D^{(*)} \ellm\neulb$ decays.
+A brief comment on calculation of \RDX will be provided at the end of the
+section.
 
 \paragraph{CLN}
+For $B \rightarrow \Dstarp\ellm\neulb$ decays,
+the hadronic currents are parameterized by \emph{four} FFs $V, A_{0,1,2}$:
+\begin{align}
+    \bra{\Dstar} \bar{c} \gamma^\mu b \ket{B}
+    =\hphantom{ } &
+        2i V (m_B + m_\Dstar) \varepsilon^{\mu\nu\alpha\beta}
+        \epsilon^*_\nu (p_\Dstar)_\alpha (p_B)_\beta \\
+    \bra{\Dstar} \bar{c} \gamma^\mu \gamma^5 b \ket{B}
+    =\hphantom{ } &
+        A_1 (m_B + m_\Dstar) \epsilon^{*\mu} -
+        \nonumber \\
+    =\hphantom{ } &
+        A_2 \frac{\epsilon^* \cdot \vec{p_B} (p_B + p_\Dstar)^\mu}{m_B + m_\Dstar} +
+        \nonumber \\
+    =\hphantom{ } &
+        2 m_\Dstar q^\mu (A_0 - A_3) \frac{\epsilon^* \cdot \vec{p_B}}{q^2}
+\end{align}
 
 \paragraph{BGL}
+
+\paragraph{\qSq spectra}
+
+\paragraph{\RDX calculation}
 
 
 \subsection{Form factors in $B \rightarrow D^{**}\ellm\neulb$ decays}
