@@ -890,8 +890,13 @@ The parameter naming correspondence is displayed in
         $b_n$     & $b_n$     & \smalltt{bvec}, a vector     \\
         $c_n$     & $c_n$     & \smalltt{cvec}, a vector\parnote{
             The $c_n$ coefficients starts from $c_1$ instead of $c_0$.
-        }                                                    \\
-        $d_n$     & $d_n$     & \smalltt{dvec}, a vector     \\
+        } \\
+        $d_n$     & $d_n$     & \smalltt{dvec}, a vector\parnote{
+            The $c_3$ and $d_2$ coefficients are unused in the reweighting
+            based on a claim that they are not implemented in \Hammer.
+            Latest version of \Hammer may have added support to these
+            parameters.
+        } \\
         \bottomrule
     \end{tabular}
     \begin{flushleft}
