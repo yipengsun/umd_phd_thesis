@@ -785,9 +785,11 @@ In the CLN parameterization,
 these FFs are re-expressed as:
 \begin{align}
     & A_1(w) = \frac{w+1}{2} r_\Dstar h_{A_1}(w)
-    & A_0(w) = \frac{R_0(w)}{r_\Dstar} h_{A_1}(w) \\
+    & A_0(w) = \frac{R_0(w)}{r_\Dstar} h_{A_1}(w)
+    \label{eqn:b-dst-ff-param-1} \\
     & A_2(w) = \frac{R_2(w)}{r_\Dstar} h_{A_1}(w)
     & V(w) = \frac{R_1(w)}{r_\Dstar} h_{A_1}(w)
+    \label{eqn:b-dst-ff-param-2}
 \end{align}
 where $r_\Dstar = 2 \frac{\sqrt{m_B m_\Dstar}}{m_B + m_\Dstar}$.
 With dispersive bounds, these are expressed as:
@@ -822,7 +824,37 @@ listed in \cref{tab:ff-cln-b-dst}.
 \end{table}
 
 \paragraph{BGL}
-The BGL parameterization for
+The BGL parameterization scheme for $B \rightarrow \Dstar\ellm\neulb$ decays is
+\cite{Bazavov_2021}:
+\begin{align}
+    \bra{\Dstar} \bar{c} \gamma^\mu b \ket{B}
+    =\hphantom{ } &
+        i\sqrt{m_B m_\Dstar} h_V \varepsilon^{\mu\nu\alpha\beta}
+        \epsilon^*_\nu (v_\Dstar)_\alpha (v_B)_\beta \\
+    \bra{\Dstar} \bar{c} \gamma^\mu \gamma^5 b \ket{B}
+    =\hphantom{ } &
+        \sqrt{m_B m_\Dstar} \Big[
+            h_{A_1}(w+1) \epsilon^{*\mu} -
+    \nonumber \\
+    &\hphantom{\sqrt{m_B m_\Dstar} \Big[}
+            h_{A_2} (\epsilon^* \cdot \vec{v_B}) (v_B)^\mu -
+            h_{A_3} (\epsilon^* \cdot \vec{v_B}) (v_\Dstar)^\mu
+        \Big]
+\end{align}
+with the FFs $\{h_V,h_{A_1,A_2,A_3}\}$ re-expressed as
+$\{g,f,\mathcal{F}_1,\mathcal{F}_2\}$:
+\begin{align}
+    g(w) =& \frac{h_V(w)}{m_B \sqrt{r}} \\
+    f(w) =& m_B \sqrt{r}(1 + w) h_{A_1}(w) \\
+    \mathcal{F}_1 =& m^2_B \sqrt{r}(1+w)\left[
+        (w - r) h_{A_1}(w) - (w - 1)(r h_{A_2}(w) + h_{A_3}(w))
+    \right] \\
+    \mathcal{F}_2 =& \frac{1}{\sqrt{r}} \left[
+        (1+w)h_{A_1}(w) + (rw - 1) h_{A_2}(w) + (r-w)h_{A_3}(w)
+    \right]
+\end{align}
+where $r = \frac{m_\Dstar}{m_B}$.
+These FFs are proportional to $H_- - H_+, H_+ + H_-, H_0, H_s$ accordingly.
 
 \paragraph{\qSq spectra}
 
