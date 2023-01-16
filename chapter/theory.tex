@@ -932,3 +932,50 @@ due to its inability to improve its description with data-driven fits to
 experimental data.
 
 \paragraph{BLR}
+The BLR parameterization \cite{Bernlochner_2018} provides an
+model-independent FF description for four lightest ($1P$) excited \Dstst mesons
+($D^*_0$, $D_1$, $D'_1$, $D^*_2$),
+grouped into two heavy quark isospin doublets:
+$D^{1/2+} (D^*_0, D'_1)$ and $D^{3/2+}: (D_1, D^*_2)$.
+This parameterization considers all possible
+$b \rightarrow c\ellm\neulb$ four-Fermi interactions and includes
+$\mathcal{O}(\Lambda_\text{QCD} / m_{c,b})$ and $\mathcal{O}(\alpha_s)$
+corrections
+which results in FFs that can be improved by data-driven fits.
+The parameterizations are listed separately in
+\cref{tab:ff-blr-1-2,tab:ff-blr-3-2} for the two isospin doublets.
+
+\begin{table}[!htb]
+    \centering
+    \caption{
+        FF parameterization for $D^{1/2+}$ doublet $(D^*_0, D'_1)$.
+    }
+    \label{tab:ff-blr-1-2}
+    \begin{tabular}{c|c|c}
+        \toprule
+        \textbf{FF parameter} & \textbf{Ref.~\cite{Bernlochner_2018}} & \textbf{\Hammer name} \\
+        \midrule
+        $\zeta(1)$       & 0.7     & \smalltt{zt1}     \\
+        $\zeta'$         & 0.2     & \smalltt{ztp}     \\
+        $\hat{\zeta}_1$  & 0.6     & \smalltt{zeta1}   \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\begin{table}[!htb]
+    \centering
+    \caption{
+        FF parameterization for $D^{3/2+}$ doublet $(D_1, D^*_2)$.
+    }
+    \label{tab:ff-blr-3-2}
+    \begin{tabular}{c|c|c}
+        \toprule
+        \textbf{FF parameter} & \textbf{Ref.~\cite{Bernlochner_2018}} & \textbf{\Hammer name} \\
+        \midrule
+        $\tau(1)$       & 0.7     & \smalltt{t1}     \\
+        $\tau'$         & -1.6    & \smalltt{tp}     \\
+        $\hat{\tau}_1$  & -0.5    & \smalltt{tau1}   \\
+        $\hat{\tau}_2$  & 2.9     & \smalltt{tau2}   \\
+        \bottomrule
+    \end{tabular}
+\end{table}
