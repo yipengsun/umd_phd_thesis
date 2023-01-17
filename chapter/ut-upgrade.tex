@@ -45,8 +45,9 @@ a silicon-strip sensor consists of long, thin metal strips on top of a
 silicon base, as a charged particle hits a strip on the sensor,
 only a \emph{one-dimensional} position is measured.
 Therefore, the first $x$ plane can only measure the $x$ position.
-A rotated sensor provides positional measurement with another strip that is not
-co-linear with the first one, forming a ``X'' pattern with the first strips and
+A rotated sensor provides additional positional measurement with another strip
+that is not co-linear with the first one,
+forming a ``X'' pattern with the first strips and
 the $x$-$y$ two-dimensional position is determined as the intersection between
 the two.
 Such a process is illustrated in \cref{fig:strip-sensor-measurement}.
@@ -67,26 +68,26 @@ Such a process is illustrated in \cref{fig:strip-sensor-measurement}.
         \input{figs-ut-upgrade/detector/ut-sensor-illustration.tikz}
     }
     \caption{
-        Illustration of measuring track hit position with two silicon-strip
+        Illustration of measuring track hit positions with two silicon-strip
         sensors.
-        The second sensor is required to rotate by an angle.
+        The second sensor is required to be rotate by an angle.
         The intersection between the red and blue strip is the measured position
-        of the track.
+        of a track.
     }
     \label{fig:strip-sensor-measurement}
 \end{figure}
 
 Each detection layer is made of a number of staves,
-a vertical strip of sensors and their readout electronics;
+a vertical structure of sensors and their readout electronics;
 the staves are discussed in \cref{ref:ut:overview:stave}.
 The sensor readouts are collected by the electronics hosted inside Peripheral
 Electronics (PEPI) crates at the top and bottom of the detection layer,
 and are described in \cref{ref:ut:overview:pepi}.
-To reduce radiation damage, the low voltage regulators (LVRs),
+Due to space constraints, the low voltage regulators (LVRs),
 which supply power to the detector electronics,
-are placed further away from the beam at the service bay;
+are placed farther away from the beam at the service bay;
 a brief description of the LVR is given in \cref{ref:ut:overview:lvr}.
-An overview of the UT exterior is provided in \cref{fig:ut-exterior}.
+An overview of overall UT configuration is shown in \cref{fig:ut-exterior}.
 
 \begin{figure}[!htb]
     \centering
@@ -111,7 +112,7 @@ An overview of the UT exterior is provided in \cref{fig:ut-exterior}.
 \end{tikzpicture}
 
     \caption{
-        UT exterior in the LHCb cavern.
+        Overall UT configuration in the LHCb cavern.
         Taken from \cite{Andrews:2018vla}.
     }
     \label{fig:ut-exterior}
