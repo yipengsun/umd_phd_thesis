@@ -1,0 +1,17 @@
+\begin{tikzpicture}
+    \begin{scope}[rotate=25]
+        % sensor in u plane
+        \draw[gray] (1,1) -- (1,-1) -- (-1,-1) -- (-1,1) -- (1,1);
+        % the hitting strip
+        \draw[blue,thick] (-1,0.5) -- (1,0.5);
+
+        \node[text=gray] at (0.91,0.91) {\tiny $u$};
+    \end{scope}
+
+    % sensor in x plane
+    \draw[black] (1,1) -- (1,-1) -- (-1,-1) -- (-1,1) -- (1,1);
+    % the hitting strip
+    \draw[red,thick] (-1,0.6) -- (1,0.6);
+
+    \node[text=black] at (0.91,0.91) {\tiny $x$};
+\end{tikzpicture}
