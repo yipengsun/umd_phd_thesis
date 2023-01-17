@@ -70,7 +70,7 @@ Such a process is illustrated in \cref{fig:strip-sensor-measurement}.
     \caption{
         Illustration of measuring track hit positions with two silicon-strip
         sensors.
-        The second sensor is required to be rotate by an angle.
+        The second sensor is rotated by an angle.
         The intersection between the red and blue strip is the measured position
         of a track.
     }
@@ -122,12 +122,11 @@ An overview of overall UT configuration is shown in \cref{fig:ut-exterior}.
 \subsection{Stave}
 \label{ref:ut:overview:stave}
 
-Illustrated in \cref{fig:ut-layers} as a vertical strip,
-supported by a carbon fiber core with CO$_2$ cooling pipes,
-a stave consists of 4 flexible cables (2 on each side) with sensors and hybrid
-readout wire-bonded on each flex.
-Shown in \cref{fig:stave}, the front and back sensors are mounted with an
-overlap to ensure coverage.
+Staves consist of four flexible cables (flexes), two on each side,
+with sensors and hybrid readout boards wire-bonded on each flex.
+These flexes are laid out on a carbon fiber core with CO$_2$ cooling pipes.
+The front and back sensors are mounted in a staggered manner to ensure coverage.
+The components mentioned above are illustrated in \cref{fig:stave}.
 
 \begin{figure}[!htb]
     \centering
@@ -167,8 +166,8 @@ overlap to ensure coverage.
 
 There are four types of sensors with different specifications.
 The sensors close to the beam pipe (yellow and pink in \cref{fig:ut-layers})
-have a finer pitch of 93.5~$\upmu$m and are made with \emph{n-in-p} process for
-more radiation hardness,
+have a finer silicon-strip pitch of 93.5~$\upmu$m and are made with
+\emph{n-in-p} process for more radiation hardness,
 mainly due to concerns on occupancy and radiation damage.
 In addition, the eight half-height sensors (pink) have their strip length halved
 to further improve resolution near the beam pipe,
@@ -205,17 +204,19 @@ A sample UT module is shown in \cref{fig:ut-module}.
     \label{fig:ut-module}
 \end{figure}
 
-Fabricated with TSMC 130~nm CMOS process, SALT is capable of extract, shape,
-and digitize analogue signals from the sensor at 40~MHz from 128 channels
+Fabricated with TSMC 130~nm CMOS process, the SALT ASIC extracts, shapes,
+and digitizes analogue signals from the sensor at 40~MHz from 128 channels
 simultaneously.
-It requires an external 40~MHz clock signal,
-which it locks on via a phase-lock loop (PLL),
-to work.
-It is also capable of generating pseudo-random test patterns on its own without
-any excitation on the sensor, which comes handy in testing the data transmitting
-quality for the DCB.
-As an ASIC, SALT has limited configurability by writing registers via the I2C
-protocol \cite{s22010107}.
+The data is sent out at 320~Mb/s,
+which is achieved by increasing the master 40~MHz clock frequency four times
+(to 160~MHz) and using double data rate (DDR) transmission.
+The master clock is provided by the DCB,
+and the frequency increase by a phase-lock loop (PLL).
+The SALT chip is capable of generating pseudo-random test patterns on its own
+without any excitation on the sensor,
+which is employed to test the data transmitting quality.
+The chip configuration is set by writing registers via the I2C protocol
+\cite{s22010107}.
 
 
 \subsection{PEPI}
