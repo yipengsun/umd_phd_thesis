@@ -13,7 +13,8 @@ algorithms to meet the timing constraints under the run 3 condition
 with high multiplicities and high pile-ups ($ > 5$ on average).
 
 The LHCb group at the University of Maryland is responsible for the design,
-testing, and commissioning of the peripheral and power regulating electronics;
+testing, and commissioning of the UT peripheral and power regulating
+electronics.
 An overview of the UT, discussed in \cref{ref:ut:overview},
 summarizes the specifications and capabilities of these electronics,
 together with those of the silicon sensors.
@@ -33,12 +34,22 @@ is included in \cref{ref:ut:online}.
 
 The UT consists of 4 planar detection layers with full LHCb acceptance coverage.
 As shown in \cref{fig:ut-layers},
-the first and last layers are vertical,
-whereas the second and third are rotated by a stereo angle of $\pm 5^\circ$
+the first and last layers are straight,
+whereas the second and third are rotated\footnote{
+    The rotation axis is the $z$-axis in \cref{fig:ut-layers}.
+} by a stereo angle of $\pm 5^\circ$
 to form a $x$-$u$-$v$-$x$ configuration.
-The vertical planes provide highest hit resolution in the bending plane
-($x$-$y$);
-the rotated planes provide a measurement in the non-bending direction ($z$).
+Such geometry allows for a precise determination of the position of a particle
+in the $x-y$ plane:
+a silicon-strip sensor consists of long, thin metal strips on top of a
+silicon base, as a charged particle hits a strip on the sensor,
+only a \emph{one-dimensional} position is measured.
+Therefore, the first $x$ plane can only measure the $x$ position.
+A rotated sensor provides positional measurement with another strip that is not
+co-linear with the first one, forming a ``X'' pattern with the first strips and
+the $x$-$y$ two-dimensional position is determined as the intersection between
+the two.
+Such process is illustrated in \cref{fig:strip-sensor-measurement}.
 
 \begin{figure}[!htb]
     \centering
@@ -48,6 +59,19 @@ the rotated planes provide a measurement in the non-bending direction ($z$).
         arranged in a $x$-$u$-$v$-$x$ configuration.
     }
     \label{fig:ut-layers}
+\end{figure}
+
+\begin{figure}[ht]
+    \centering
+    \resizebox{0.6\columnwidth}{!}{
+        \input{figs-ut-upgrade/detector/ut-sensor-illustration.tikz}
+    }
+    \caption{
+        Illustration of measuring track hit position with two silicon-strip
+        sensors.
+        The second sensor is required to rotate by an angle.
+    }
+    \label{fig:strip-sensor-measurement}
 \end{figure}
 
 Each detection layer is made of a number of staves,
