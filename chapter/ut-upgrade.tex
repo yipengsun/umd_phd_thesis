@@ -193,13 +193,24 @@ A sample UT module is shown in \cref{fig:ut-module}.
 
 \begin{figure}[!htb]
     \centering
-    \includegraphics[width=0.9\textwidth]{./figs-ut-upgrade/stave/ut_sensor_module.pdf}
+    \begin{subfigure}[t]{0.48\textwidth}
+        \centering
+        \includegraphics[height=12.5em]{./figs-ut-upgrade/stave/stave_sensors.jpg}
+        \caption{
+            Full view of a sensor module mounted on a flex.
+        }
+    \end{subfigure}
+    \hfill{}
+    \begin{subfigure}[t]{0.48\textwidth}
+        \centering
+        \includegraphics[height=12.5em]{./figs-ut-upgrade/stave/stave_hybrid_closeup.jpg}
+        \caption{
+            Close-up view on three SALT ASICs glued on a hybrid,
+            with their inputs wire-bonded to a sensor.
+        }
+    \end{subfigure}
     \caption{
-        (Left) Module built from type A sensor with a hybrid circuit carrying
-        4 SALT ASICs.
-        (Right) A SALT ASIC, glued on a hybrid, with its inputs wire-bonded
-        to a type A sensor.
-        Taken from \cite{Carli:2783293}.
+        Production sensor modules and SALT ASICs.
     }
     \label{fig:ut-module}
 \end{figure}
