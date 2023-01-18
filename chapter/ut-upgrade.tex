@@ -233,8 +233,9 @@ The chip configuration is set by writing registers via the I2C protocol
 \subsection{PEPI}
 \label{ref:ut:overview:pepi}
 
-Peripheral electronics (PEPI) are responsible for dispatching power to SALTs,
-aggregating readout from SALTs to the counting room,
+The Peripheral electronics (PEPI) are responsible for dispatching power to
+the SALT chips,
+aggregating the sensor data readout and sending them to the counting room,
 and propagating control commands to the front-end electronics\footnote{
     Front end electronics refer to SALTs and DCBs, which sit close to the beam.
 }.
@@ -251,10 +252,11 @@ in
     \label{fig:ut-readout-diagram}
 \end{figure}
 
-Due to space constraint, power, readout data, and control command
-are all \emph{dispatched} by a board named Backplane (BP).
-Each BP is connected to up to 12 Staves via the Pigtail flex cable,
-an engineering marvel on its own\footnote{
+Up to 12 pigtails are connected to each backplane (BP),
+which then routes the data to the DCBs with the goal of balancing the load
+carried by each board (staves closer to the beam pipe have higher occupancy than
+those farther away).
+The pigtails are an engineering marvel on its own\footnote{
     More details regarding the Pigtail can be found in
     \cite{Andrews:2018vla}.
     It is worth noting that during the detector installation,
@@ -263,18 +265,19 @@ an engineering marvel on its own\footnote{
 which dispatches power, data, and control signals between the BP and SALTs on
 the stave in an \emph{extremely} limited space.
 A BP can also host up to 12 DCBs.
-Each DCB serializes its input data and convert the digitized electric sensor
-readout to an optical one which is then sent to the counting room via fibers.
-DCB is also responsible for receiving and translating control commands from the
-counting room to both itself and SALT ASICs.
+Each DCB serializes its input data and converts the digitized electric sensor
+readout to an optical one which is then sent to the counting room via optical
+fibers.
+The DCB is also responsible for receiving and translating control commands from
+the counting room to the SALT ASICs.
 In other words, the whole configurable part of the UT detector is exposed as DCB
 registers to the counting room.
 
-PEPI are hosted in PEPI crates, with each containing a single Backplane and up
-to 12 DCBs,
+The PEPI are hosted in PEPI crates, with each containing a single Backplane and
+up to 12 DCBs,
 as can be seen in \cref{fig:pepi-crate}.
-The crate is also responsible for cooling and providing a common ground
-reference for all SALTs and DCBs.
+The crate is also responsible for providing a common ground reference for all
+SALTs and DCBs.
 
 \begin{figure}[!htb]
     \centering
@@ -286,12 +289,12 @@ reference for all SALTs and DCBs.
     \label{fig:pepi-crate}
 \end{figure}
 
-Backplanes are nothing but a (huge) net of microscopic cables delivering power
+Backplanes are basically a large net of microscopic cables delivering power
 and facilitating data exchange to specific connector pins, and contain no active
-component (i.e. integrated circuit).
-While conceptually simple, Backplanes are extremely hard to route because the
+components (i.e. integrated circuits).
+While conceptually simple, Backplanes were very difficult to design because the
 trace density is extremely high.
-Fabricated with 28 layers of PCBs\footnote{
+Fabricated with 28-layer PCBs\footnote{
     As a reference, a typical motherboard for a desktop PC has 6 layers of PCBs.
 }, BPs are at the limit of manufacturability.
 To ensure that the traces are routed correctly,
@@ -299,8 +302,9 @@ the connectivity map (referred as a ``netlist'') is exported to a
 machine-parsable language\footnote{
     One such option exports the netlist to a language that is compatible with
     Common Lisp.
-} and checked against a set of pre-defined rules, for example DCBs and
-SALTs have differing voltage requirements,
+} and checked against a set of pre-defined rules,
+for example one such rule ensures that the lines providing power to DCBs
+and SALTs have the correct voltage levels
 by a Python script.
 The quality assurance process of the Backplanes is highly non-trivial, and will
 be provided on a separate document by another author.
