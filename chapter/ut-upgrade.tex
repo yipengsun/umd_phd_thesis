@@ -693,12 +693,12 @@ signal in the middle of an eye.
 \subsection{Initialization sequence after a power cycle}
 \label{dcb-init}
 
-A GBTx ASIC comes \emph{unconfigured}:
+A GBTx ASIC starts up \emph{unconfigured}:
 It will not communicate to the readout and control system without a
 configuration and the optical interface will not be functional.
-It is also not possible to bring the I2C interfaces for all master GBTxs
-to the counting room electrically because the distance is too long for I2C to
-work.
+It is also not possible to bring the I2C interfaces via copper lines for all
+DCB master GBTxs to the counting room because the distance is too long for I2C
+to work.
 Therefore, the master GBTxes have their configuration fused during the QA
 process.
 
@@ -708,11 +708,11 @@ following initialization sequence:
 
 \begin{enumerate}
     \item Power supplied to the DCB and SALTs.
-    \item The master GBTx (shorted as MC) pauses for 300~$\upmu$s before
+    \item The master GBTx (for short MC) pauses for 300~$\upmu$s before
         sampling its fuses. This pause is to wait for the power to stabilize.
 
         It is observed that with a slower power supply,
-        such as the Rigol power supply in our lab,
+        such as the Rigol power supply in our laboratory,
         the DCB turn-on can become unstable.
         In such case it is advised to manually hold the master GBTx in reset
         until the power is stable.
@@ -740,30 +740,31 @@ following initialization sequence:
         the serializer considers its clock stable and start finalizing the rest
         of the transmitter block.
 
-        MC initialization done and a bi-directional link in FEC mode to the
+        MC initialization is done and a bi-directional link in FEC mode to the
         counting room is established.
 
     \item A reset signal is issued from the control system to all data GBTxes
         and SALTs via the GPIO interface from the GBT-SCA.
 
-        At this point data GBTxes have a stable clock directly from MC.
+        At this point, the data GBTxes have a stable clock directly from the MC.
 
-    \item Program data GBTxes via the I2C interface of the GBT-SCA in a staged
-        manner to avoid large jumps in current.
+    \item The data GBTxes are programmed via the I2C interface of the GBT-SCA in
+        a staged manner to avoid large jumps in current.
 
         At this point SALTs also have a stable clock from a data GBTx which
         relays its clock.
 
-    \item Program SALTs via I2C of GBT-SCA.
+    \item The SALT chips are programmed via I2C of GBT-SCA.
 
-        Initialization done.
+        Initialization is complete.
 \end{enumerate}
 
 
-\subsection{Test on data transmission quality}
+\subsection{Test of data transmission quality}
 \label{dcb-test-data}
 
-Two types of checks are performed:
+Two types of checks were performed to validate the robustness of the DCB design:
+an eye diagram and long-term bit error test.
 An eye diagram is produced from configuring the DCB to output a pseudo-random
 bit sequence\footnote{
     A PRBS is a periodic sequence such that if current value of $a$ is provided,
@@ -772,7 +773,8 @@ bit sequence\footnote{
 } (PRBS) by triggering on the rising and falling edges
 of the waveform (unit time interval) overnight and overlaying the triggered
 pieces together.
-It is a visualization of the p.d.f. of the signal per cycle.
+It is a visualization of the p.d.f. of the signal per cycle,
+with an open ``eye'' indicating that the transmission is stable with low jitter.
 Note that the Keysight oscilloscope has to be configured to calculate the
 data rate \emph{semi-automatically} instead of \emph{automatically}.
 The eye diagram is displayed in \cref{fig:dcb-eye}.
@@ -790,23 +792,24 @@ The eye diagram is displayed in \cref{fig:dcb-eye}.
 
 Due to the nature of PRBS, once a single bit is received from the sequence,
 the next bits can be predicted and checked against indefinitely.
-A high-statistic check of PRBS is performed for 5 consecutive days without
+A high-statistic check of PRBS was performed for 5 consecutive days without
 a single bit error, corresponding to an error-free data transmission of
 $\mathcal{O}(10^{15})$ bits in a low radiation environment\footnote{
-    It was performed in our lab in the 3rd floor of PSC.
+    It was performed in our laboratory on the 3rd floor of the Physical
+    Sciences Complex at the University of Maryland.
 }.
 
 
 \subsection{Quality assurance of DCB at CERN}
 \label{dcb-qa}
 
-There are $\sim 250$ DCBs shipped to CERN;
-all of them has been tested at Maryland.
-The author was tasked to perform a quality assurance procedure again on all of
-them to ensure there is no damage due to shipping.
-The author stitched a testing panel,
+A total of 270 DCBs were produced and tested at Maryland.
+Of those, 260 were shipped to CERN and 248 were installed in the UT.
+After the shipment, the author performed a quality assurance procedure again on
+all of them to ensure there was no damage during transportation.
+A testing panel,
 displayed in \cref{fig:dcb-cern-test-panel},
-to perform the following tests,
+was developed to perform the following tests,
 similar to tests performed at Maryland,
 with a single click\footnote{
     This made the author's life slightly easier.
@@ -819,7 +822,13 @@ with a single click\footnote{
         connections are established.
 
     \item Perform a PRBS test with a DCB-generated PRBS for 2 minutes.
-    \item If there is any error, the VTTx transmission bias current is
+    \item
+        It was observed at Maryland that some of the DCBs produced random bit
+        errors with the default optical transmission current of 5~mA.
+        Increasing that to 6~mA solved the problem empirically.
+
+        During a PRBS test,
+        if there is any error, the VTTx transmission bias current is
         increased from 5~mA to 6~mA, and the PRBS test is repeated.
     \item The thermistors connected to the GBT-SCA ADC are readout and checked
         to make sure they fall within a reasonable range.
