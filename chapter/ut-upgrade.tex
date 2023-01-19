@@ -336,7 +336,8 @@ be provided on a separate document by another author.
 As its name suggests, Data Control Board (DCB) is responsible for aggregating
 SALT readouts and propagating slow control commands.
 These functionality of the DCB rely on the GigaBit Transceiver (GBT)
-chipset, a set of ASICs developed by CERN to provide a high-speed optical data
+chipset architecture,
+a set of ASICs developed by CERN to provide a high-speed optical data
 transmission solution in a highly radiative environment such as in the LHC
 \cite{P_Moreira_2010}.
 The chipset includes the following ASICs:
@@ -376,37 +377,37 @@ Shown in \cref{fig:dcb-prod}, a DCB is a 16-layer PCB that consists of:
         it generates a stable by phase-aligning its on-package quartz oscillator
         clock with the clock signal provided by the readout system,
         and distributes the clock signal to 6 data GBTxs.
-        The Timing and Fast Control (TFC) data are distributed to up to 6 SALTs
-        it connects to.
+        The Timing and Fast Control (TFC) commands are distributed to up to 6
+        SALTs.
 
     \item \textbf{1 GBT-SCA}:
-        Connected to master GBTx via an e-port\footnote{
+        Connected to the master GBTx via an e-port\footnote{
             The electric port for high-frequency communication with other
             GBT-compatible chips,
             also serves as the building block for e-links.
         },
-        the GBT-SCA ASIC connects to the I2C interfaces
-        of 6 data GBTx as well as the SALTs.
-        It is responsible for relaying slow control commands to these ASICs.
+        the GBT-SCA ASIC provides the I2C interfaces
+        of the 6 data GBTx as well as the SALTs which are
+        responsible for relaying slow control commands to these ASICs.
         Also, it is used to read telemetry data,
         namely thermistor readout on SALT, DCB, and optical mezzanines,
         as well as voltages at DCB,
-        via its built-in ADC.
+        via its built-in ADCs.
 
     \item \textbf{6 data GBTxs}:
-        Operate in simplex transmitter mode with an external clock from the
-        master,
+        Operating in simplex transmitter mode with an external clock from the
+        master GBTx,
         the data GBTxs serialize and scramble the SALT readouts in a way
         suitable for optical transmission.
         The processed signal is sent to a Versatile link module mounted on
         a optical mezzanine for electro-optical conversion and transmission.
-        One data GBTx can serialize up to 12 320~Mb/s e-links into a single
+        One data GBTx can serialize up to twelve 320~Mb/s e-links into a single
         4.8~Gb/s data stream.
         One single data GBTx relays its clock to up to 6 SALTs.
 
     \item \textbf{1 Versatile link transceiver (VTRx)}:
-        An optical transceiver with a GigaBit Laser Driver (GBLD)
-        as the electro-optical converter.
+        The VTRx contains an optical receiver and an optical transmitter with a
+        GigaBit Laser Driver (GBLD) as the electro-optical converter.
 
         It is used to establish a bi-directional connection to the readout
         system with error-correction functionality that is robust against single
@@ -419,8 +420,8 @@ Shown in \cref{fig:dcb-prod}, a DCB is a 16-layer PCB that consists of:
 
     \item \textbf{Up to 3 Versatile link transmitter (VTTx)}:
         It contains two GBLDs to establish two uni-directional connections,
-        suitable for transmitting serialized SALT readout,
-        to the readout system for two data GBTxs.
+        suitable for transmitting the serialized SALT readout of two data GBTxs
+        to the central LHCb readout system.
 \end{itemize}
 
 \begin{figure}[!htb]
@@ -437,8 +438,9 @@ Shown in \cref{fig:dcb-prod}, a DCB is a 16-layer PCB that consists of:
     \label{fig:dcb-prod}
 \end{figure}
 
-As the author spent quite some time to test (and to make sense) of the
-DCBs, more information regarding DCBs will be provided in \cref{ref:ut:dcb}.
+More information regarding DCBs,
+to which the author made significant contributions,
+will be provided in \cref{ref:ut:dcb}.
 
 
 \subsection{LVR}
