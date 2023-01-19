@@ -295,7 +295,7 @@ components (i.e. integrated circuits).
 While conceptually simple, Backplanes were very difficult to design because the
 trace density is extremely high.
 Fabricated with 28-layer PCBs\footnote{
-    As a reference, a typical motherboard for a desktop PC has 6 layers of PCBs.
+    As a reference, a typical motherboard for a desktop PC has 6-layer PCBs.
 }, BPs are at the limit of manufacturability.
 To ensure that the traces are routed correctly,
 the connectivity map (referred as a ``netlist'') is exported to a
@@ -306,7 +306,7 @@ machine-parsable language\footnote{
 for example one such rule ensures that the lines providing power to DCBs
 and SALTs have the correct voltage levels
 by a Python script.
-The quality assurance process of the Backplanes is highly non-trivial, and will
+The quality assurance process of the BP is highly non-trivial, and will
 be provided on a separate document by another author.
 
 \begin{figure}[!htb]
@@ -335,8 +335,39 @@ be provided on a separate document by another author.
 
 As its name suggests, Data Control Board (DCB) is responsible for aggregating
 SALT readouts and propagating slow control commands.
-Shown in \cref{fig:dcb-prod}, a DCB is made of 16 layers of PCBs,
-and consists of:
+These functionality of the DCB rely on the GigaBit Transceiver (GBT)
+chipset, a set of ASICs developed by CERN to provide a high-speed optical data
+transmission solution in a highly radiative environment such as in the LHC
+\cite{P_Moreira_2010}.
+The chipset includes the following ASICs:
+
+\begin{itemize}
+    \item \textbf{GBTx}:
+        GBTx is a radiation tolerant serializing/deserializing ASIC for
+        implementing high-speed uni- or bi-directional optical links in high
+        energy experiments
+        \cite{gbtx_manual}.
+
+    \item \textbf{GBLD}:
+        GigaBit Laser Driver:
+        A configurable VCSEL\footnote{
+            Vertical-cavity surface-emitting laser.
+            It has many modern applications such as in computer mice and optic
+            fiber communication.
+            The technical details is unknown to the author but is irrelevant
+            for the topic.
+        } driver
+        \cite{gbld_manual}.
+
+    \item \textbf{GBT-SCA}:
+        GigaBit Transceiver-Slow Control Adapter provides an interface between
+        various industrial-standard slow control protocols,
+        namely SPI, I2C, JTAG, and GPIO, to the GBT link protocol.
+        It also has a built-in multi-channel ADC that can be configured and
+        read via the GBT link \cite{sca_manual}.
+\end{itemize}
+
+Shown in \cref{fig:dcb-prod}, a DCB is a 16-layer PCB that consists of:
 \label{dcb-layout}
 
 \begin{itemize}
@@ -526,46 +557,11 @@ by the SALT ASIC).
 The physical layout of the DCB has been summarized in \cref{dcb-layout}.
 The rest of the section provides more information
 on the GBT architecture which is the foundation of DCB
-(\cref{dcb-gbt,dcb-gbt-link,dcb-elink}),
+(\cref{dcb-gbt-link,dcb-elink}),
 the operation of DCB (\cref{dcb-init}),
 and the testing and quality assurance of DCB (\cref{dcb-test-data,dcb-qa}).
 More details about configuring DCB can be found in a document
 (not publicly available yet) prepared by the Maryland group.
-
-
-\subsection{The GBT chipset}
-\label{dcb-gbt}
-
-The GigaBit Transceiver (GBT) architecture is developed by CERN to provide a
-high-speed optical data transmission solution capable of operating in a
-highly radiative environment, such as in LHC \cite{P_Moreira_2010}.
-The following ASICs from the GBT project are used in DCB:
-
-\begin{itemize}
-    \item \textbf{GBTx}:
-        GBTx is a radiation tolerant serializing/deserializing ASIC for
-        implementing high-speed uni- or bi-directional optical links in high
-        energy experiments
-        \cite{gbtx_manual}.
-
-    \item \textbf{GBLD}:
-        GigaBit Laser Driver:
-        A configurable VCSEL\footnote{
-            Vertical-cavity surface-emitting laser.
-            It has many modern applications such as in computer mice and optic
-            fiber communication.
-            The technical details is unknown to the author but is irrelevant
-            for the topic.
-        } driver
-        \cite{gbld_manual}.
-
-    \item \textbf{GBT-SCA}:
-        GigaBit Transceiver-Slow Control Adapter provides an interface between
-        various industrial-standard slow control protocols,
-        namely SPI, I2C, JTAG, and GPIO, to the GBT link protocol.
-        It also has a built-in multi-channel ADC that can be configured and
-        read via the GBT link \cite{sca_manual}.
-\end{itemize}
 
 
 \subsection{The GBT link}
