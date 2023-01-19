@@ -869,8 +869,9 @@ and other CERN experts.
 \label{ref:ut:online}
 
 The LHCb online system is responsible for ensuring a consistent clock
-distribution across the whole detector, collecting readout data from front-end
-electronics (FE) and filtering events with software-based HLT algorithms,
+distribution across the whole LHCb detector,
+collecting readout data from front-end electronics (FE),
+filtering events with software-based HLT algorithms,
 and provisioning initialization, control, and monitoring of the detector.
 %%%%
 As shown in \cref{fig:lhcb-online},
@@ -915,8 +916,8 @@ the LHCb online system consists of three important components:
         Accept TFC commands for synchronization.
 \end{itemize}
 
-The functionalities required by the three components is implemented with a
-single hardware:
+The functionalities required by the three components are implemented with a
+single type of hardware:
 the PCIe40 board,
 which is a PCI Express Gen 3.0 x16 add-in card based on Intel Arria 10 FPGA and
 high-density optical I/O with up to 48 duplex GBT link ports.
@@ -929,7 +930,7 @@ reduced read bandwidth, in which case the PCIe40 forms the foundation of the
 MiniDAQ system used by the collaborating institutions to develop FE
 \cite{GranadoCardoso:2702137}.
 
-The remaining section first provides an overview of
+The remaining of this section first provides an overview of
 the slow control protocol (\cref{online-dim}),
 followed by an introduction on the MiniDAQ system
 (\cref{online-minidaq}).
@@ -940,20 +941,25 @@ showing its utilities in testing FE at Maryland.
 \subsection{The \dim control protocol}
 \label{online-dim}
 
-The Distributed Information Management (\dim) system provides
-a network\footnote{
+The communication between all components,
+for example controlling a particular SOL40 responsible for several DCBs via
+the control system in the counting room,
+of the slow control system relies on
+the Distributed Information Management (\dim) system,
+which provides a network\footnote{
     With TCP/IP protocol.
 } based inter-process communication protocol \cite{Gaspar:559279},
-implemented in C to ensure portability across operating systems,
-which the slow control system is based upon.
-The \dim protocol requires a central name server (like a phone directory)
-which all \dim server (like people) implementing controlling of devices will
-register on.
-When the controller, a \dim \emph{client}, need to configure a device with a
+implemented in C to ensure portability across operating systems.
+To implement a centralized control system for the LHCb experiment hardware
+connected to many different controllers (servers),
+the \dim system requires a central name server (like a phone directory)
+which all \dim servers (like people offering certain services)
+providing device-control functionalities will register on.
+When the controller, a \dim \emph{client}, needs to configure a device with a
 certain name,
-it first inquire the name server (look up a name in the phone
+it first inquires the name server (look up a name in the phone
 directory) before connecting to the specific \dim server and effecting changes
-(call the people listed in the directory and do things).
+(call the people listed in the directory and conduct business).
 
 To be more specific,
 first consider a single SOL40 connected to some FE:
@@ -988,11 +994,12 @@ The controller can click a button in which case the \dim client will perform
 a lookup on the central name server and make changes to the FE via the
 \dim server running in the looked-up SOL40.
 The procedure is illustrated in \cref{fig:dim-lhcb}.
-Each \dim service declares its communication interface as a string to the \dim
-sever, with the interface described as the following:
+Each \dim service either accepts inputs or provides outputs,
+but \emph{not both}.
+The format of the input/output is described by a single specification:
 
 \begin{lstlisting}
-    <input type>:<number of inputs>;<return type>:<number of returns>
+    <type of 1st arg>:<num of elem in arg>;<type of 2nd arg>:<num of elem in arg>; ...
 \end{lstlisting}
 where:
 
@@ -1005,14 +1012,24 @@ where:
         Double (\lstinline{D}): 8 bytes;
         Float (\lstinline{F}): 4 bytes;
         Long Long (\lstinline{X}): 8 bytes.
-    \item The return value is optional so that interface of the form
-        \lstinline{I:2} is legal.
-    \item The return value (only) can have variable lengths in which case
-        the \lstinline{number of returns} is omitted.
+    \item Services with only a single argument is allowed:
+        \lstinline{I:2} is legal which stands for an argument of  two 4-byte
+        integers.
+    \item The last argument may have a variable length in which case
+        the \lstinline{num of elem in arg} is omitted.
+        For example, \smalltt{I:1;C} allows a variable number of 1-byte chars
+        as its second argument.
 \end{itemize}
 
-In LHCb it is often the case that ASIC register addresses and the values to
-write are transmitted with a number of Chars.
+As an example,
+consider the interface for I2C operations (\smalltt{CmndI2COperation}):
+\begin{lstlisting}
+    name = CmndI2COperation, format = C:128;C
+\end{lstlisting}
+with the specification above,
+it is understood that the I2C operation takes two arguments:
+a 128-byte chars defining the device and register addresses,
+and a variable number of chars specifying the actual content to write via I2C.
 
 
 \subsection{MiniDAQ}
@@ -1132,7 +1149,7 @@ First, all registered \dim services are dumped with \pydim
 \cite{pydim}.
 Then, the required functionalities such as I2C, GPIO, and memory
 monitoring are searched for based on names.
-For example, some of the I2C services have the following signatures:
+For example, the I2C services have the following signatures:
 
 \begin{lstlisting}
     Service 22436 : Type of service = 1 name = Gbt/UMDlab/SrvcI2CWrite, format = I:1
