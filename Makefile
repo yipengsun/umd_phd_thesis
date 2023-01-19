@@ -1,10 +1,11 @@
 GENPATH	:=	./build
 
-.PHONY: rdx-run2-ana.pdf clean
 
-rdx-run2-ana.pdf:
+yipengsun-umd_phd_thesis.pdf:
 	@latexmk
 	@cp build/thesis.pdf yipengsun-umd_phd_thesis.pdf
 
+
+.PHONY: clean
 clean:
 	@rm -rf ./build/thesis.*
