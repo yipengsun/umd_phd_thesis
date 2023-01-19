@@ -1072,7 +1072,7 @@ and monitoring the readout from them,
 shown in \cref{fig:wincc-oa-memmon}.
 These functionalities are crucial in the early states of the DCB development and
 validation,
-but becomes increasingly cumbersome as the focus shifts on quality assurance
+but become increasingly cumbersome as the focus shifts on quality assurance
 of a large number of production DCBs.
 
 \begin{figure}[!htb]
@@ -1106,7 +1106,7 @@ Here the author supplies two concrete examples:
 \begin{itemize}
     \item A DCB contains 6 data GBTxes.
         With the official control panel, shown in \cref{fig:wincc-oa-gbt},
-        programming 6 data GBTxes to do PRBS tests requires the author change
+        programming 6 data GBTxes to do PRBS tests requires the change of
         the ``Address'' field from 1 to 6 manually 6 times.
 
     \item As a stave with SALTs arrived at Maryland,
@@ -1144,7 +1144,7 @@ debug.
 In the end,
 noting that the MiniDAQ comes with a \dim server that is responsible for
 performing all GBT-related tasks,
-the author decided to write a command line \dim client with Python.
+a command line \dim client was developed with the Python programming language.
 First, all registered \dim services are dumped with \pydim
 \cite{pydim}.
 Then, the required functionalities such as I2C, GPIO, and memory
@@ -1240,5 +1240,8 @@ with a demo screenshot provided in \cref{fig:nanodaq-phaseadj}:
     \label{fig:nanodaq-phaseadj}
 \end{figure}
 
-Looking back, the author gained most of the online system knowledge due to the
-pain inflicted by DCB and SALT testing.
+The use of \nanoDAQ greatly increased the efficiency of the DCB QA procedure
+at Maryland\footnote{
+    Looking back, the author gained most of the online system knowledge due to
+    the pain inflicted by DCB and SALT testing.
+}.
