@@ -524,10 +524,10 @@ More information regarding LVRs can be found at \cite{LVR_manual}.
 \section{The Data Control Board (DCB)}
 \label{ref:ut:dcb}
 
-DCB is part of an implementation of the reference LHCb front-end  electronic
+The DCB is part of an implementation of the reference LHCb front-end electronic
 module.
 Shown in \cref{fig:lhcb-ref-fe},
-a complete LHCb front-end electronic device contains digitization of sensor
+a complete LHCb front-end electronic device includes the digitization of sensor
 readout, serialization of digitized readout, and distribution of control
 commands.
 The DCB,
@@ -563,19 +563,20 @@ by the SALT ASIC).
 
 The physical layout of the DCB has been summarized in \cref{dcb-layout}.
 The rest of the section provides more information
-on the GBT architecture which is the foundation of DCB
+on the GBT architecture which is the foundation of the DCB
 (\cref{dcb-gbt-link,dcb-elink}),
-the operation of DCB (\cref{dcb-init}),
+the DCB operation (\cref{dcb-init}),
 and the testing and quality assurance of DCB (\cref{dcb-test-data,dcb-qa}).
-More details about configuring DCB can be found in a document
+More details about configuring the DCB can be found in a document
 (not publicly available yet) prepared by the Maryland group.
 
 
 \subsection{The GBT link}
 \label{dcb-gbt-link}
 
-The GBT link has two transmission mode relevant for DCB: FEC and widebus mode.
-The former provides error correction capability with the trade-off of reduced
+The GBT link has two transmission modes relevant for DCB:
+FEC and widebus mode.
+The former provides error correction capability with the trade-off of a reduced
 data transfer speed at 3.36~Gb/s,
 making this mode suitable for carrying out critical timing and control data.
 The latter works at 4.48~Gb/s without error correction at link level,
@@ -583,8 +584,8 @@ and is used for readout data transmission.
 In either mode, a single data frame is always 120 bit long.
 
 \paragraph{Transceiver}
-The master GBTx is configured to work in the transceiver mode, working in
-FEC mode.
+The master GBTx on the DCB is configured to work in the FEC mode for
+bi-directional communication with the LHCb control system.
 Each frame in this mode contains the following fields:
 
 \begin{itemize}
@@ -617,13 +618,15 @@ Each frame in this mode contains the following fields:
         In practice the data is robust against up to 16 consecutive bit
         corruptions.
 
-        All fields above are protected by the FEC field.
+        All fields above are protected by the FEC field, except for the FEC
+        field itself.
 \end{itemize}
 
 \paragraph{Transmitter}
-Each data GBTx transmitter operates in the widebus mode.
+At the DCB,
+each data GBTx transmitter operates in the widebus mode.
 A widebus frame is identical to a FEC frame except that it has no FEC field and
-extends the data field to 112 bit so that the total number of e-link groups is
+extends the data field to 112 bits so that the total number of e-link groups is
 increased to 7.
 As a trade-off, there is no error correction capability at link level.
 
@@ -640,16 +643,17 @@ operating in widebus mode,
 a data GBTx can provide up to $2 \times 7 = 14$ e-links\footnote{
     A GBTx contains many e-ports which are used to facilitate e-links.
 },
-duplex local electric serial links implemented with low-voltage differential
+local electric serial links implemented with low-voltage differential
 pairs transmitting data at 320~Mb/s
 \cite{gbtx_manual},
 with the transmission speed chosen by the design of the SALT.
-In DCB, however, only up to 12 e-links per data GBTx are accessible to the
+In the DCB, however, only up to 12 e-links per data GBTx are accessible to the
 SALTs.
 
-A SALT requires 3--5 e-links \cite{s22010107},
+A SALT chip requires 3--5 e-links \cite{s22010107},
 so a single data GBTx can aggregate readout data from up to 4 SALTs.
-The allowed SALT-e-link combinations are listed in \cref{tab:salt-elink}.
+The allowed SALT-e-link combinations per data GBTx are listed in
+\cref{tab:salt-elink}.
 
 \begin{table}[!htb]
     \centering
@@ -664,29 +668,26 @@ The allowed SALT-e-link combinations are listed in \cref{tab:salt-elink}.
         \bottomrule
     \end{tabular}
 
-    \caption{Possible SALT-e-link combinations.}
+    \caption{Possible SALT-e-link combinations per data GBTx in the DCB.}
     \label{tab:salt-elink}
 \end{table}
 
 It is worth pointing out that an e-link is uniquely identified by 3 numbers:
-the DCB index, the data GBTx index on the DCB, and the e-ports of the GBTx.
+the DCB index, the data GBTx index on the DCB, and the e-port number of the
+GBTx.
 In other words, e-links are \emph{geographically addressed} without the need
 of additional location information in the GBT frame:
 A particular range of bits from GBT frames produced by a known DCB is sufficient
 for identifying the geographical location of the SALT it connects to.
 
-During data transmission via an e-link, the SALT and GBTx operate with the same
-clock frequency but with a constant phase difference,
-which implies that as SALT start transmitting data,
-the GBTx is \emph{not guaranteed} to have a stable clock;
-this is further complicated by the fact that the copper trace lengths introduce
-another phase difference.
-In any case, it is possible that when the SALT data arrives at the GBTx,
-the GBTx is in a rising or a falling edge of the clock signal, in either case
-the data cannot be reliably sampled.
-To solve this problem, each e-link on GBTx is equipped with phase adjusting
-capability so that the sampling happens in the middle of the eye with a stable
-clock.
+During data transmission via an e-link,
+the copper trace length between the DCB and the SALT introduces a constant
+phase difference between the two ASICs.
+Such a phase may render the data sampling unreliable
+as the GBTx may sample on an transitional state of the data signal.
+To solve this problem, each e-link on the GBTx is equipped with a
+phase-adjusting capability so that the sampling happens with a stable data
+signal in the middle of an eye.
 
 
 \subsection{Initialization sequence after a power cycle}
