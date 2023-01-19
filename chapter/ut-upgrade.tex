@@ -1150,17 +1150,23 @@ First, all registered \dim services are dumped with \pydim
 Then, the required functionalities such as I2C, GPIO, and memory
 monitoring are searched for based on names.
 For example, the I2C services have the following signatures:
-
 \begin{lstlisting}
     Service 22436 : Type of service = 1 name = Gbt/UMDlab/SrvcI2CWrite, format = I:1
     Service 26017 : Type of service = 1 name = Gbt/UMDlab/SrvcI2CRead, format = I:1;C
     Service 24492 : Type of service = 2 name = Gbt/UMDlab/CmndI2COperation, format = C:128;C
 \end{lstlisting}
+where
+the \smalltt{SrvcI2CWrite} returns the write status (\smalltt{I:1})
+of a \emph{previous} I2C write operation,
+the \smalltt{SrvcI2CRead} returns the I2C read status (\smalltt{I:1}) and values
+(\smalltt{C}) of a \emph{previous} I2C read operation,
+and the \smalltt{CmndI2COperation} accepts a I2C operation (e.g. read or write)
+\emph{without returning anything}.
 
 It became possible to identify these services in the JCOP and \smalltt{gbtserv}
 source code,
-and understand the required arguments.
-Hence the \nanoDAQ project \cite{nanoDAQ} is born.
+and understood the details of the required arguments.
+Hence the \nanoDAQ project \cite{nanoDAQ} was born.
 The name suggests that it only implements a small fraction of the capabilities
 provided by MiniDAQ, namely I2C, GPIO, and memory monitoring readout.
 
