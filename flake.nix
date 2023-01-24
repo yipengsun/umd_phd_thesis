@@ -52,6 +52,7 @@
                 appendix
                 tikz-feynman
                 beamer
+                pdflscape
                 # Implicit dependencies
                 mciteplus
                 cite
