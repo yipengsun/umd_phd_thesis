@@ -1,22 +1,30 @@
 \chapter{Signal extraction fit}
 \label{ref:fit}
 
-As discussed in \cref{ref:overview},
-the general fit strategy in this analysis is:
-first determine control fit parameters related to background processes,
-such as $D^{**}$ form factors,
-via a simultaneous fit to the three control skims
-(1OS, 2OS, DD; these skims are discussed in \cref{ref:sel:skims}),
-then apply the fitted control parameters and their uncertainties as a
-constraint to the signal (ISO) fit
-when fitting the remaining parameters, including \RD and \RDst.
-Without the help of control skims, the control parameters cannot be determined
-from the ISO skim alone precisely,
-as these backgrounds are a small fraction of the ISO skim.
+To extract \RD and \RDst, the parameters of interest,
+a simultaneous \emph{signal fit}
+to both \Dz and \Dstar channels with the ISO skim\footnote{
+    As a reminder, ``skim'' means \emph{subsample}.
+    The selection criteria for all four skims (ISO, 1OS, 2OS, DD) is defined at
+    \cref{ref:sel:skims}.
+} is performed.
+As briefly discussed in \cref{ref:overview},
+the parameters responsible for controlling the shapes of the \Dstst and
+$DDX$ backgrounds,
+such as the \Dstst form factors and $DDX$ Dalitz-inspired shape variations,
+are \emph{insensitive} to the signal fit as they constitute only a small
+fraction of the ISO data skim.
+Therefore these parameters are obtained with a \emph{control fit},
+a simultaneous fit to the 1OS, 2OS, and DD control skims with six fit channels
+(a \Dz and a \Dstar channel for each control skim),
+and imported back to the signal fit at the fitted values with either
+fitted errors as constraints (for \Dstst shape parameters) or fully fixed
+(for $DDX$ shape parameters).
 
-Both the control and signal fit are binned extended maximum likelihood template
-fit, with a fitter based on the \HistFactory fitter
-used in the previous run 1 analysis described in
+Both the signal and the control fit are binned extended maximum likelihood
+template fits,
+with a fitter based on the \HistFactory fitter
+used in the pathfinder run 1 \RDX analysis described in
 \cite{LHCb-ANA-2020-056}\footnote{
     With code refactored and dependencies updated to enhance readability and
     configurability,
