@@ -38,7 +38,9 @@ Events outside the binning ranges of the fit variables are cut out to avoid
 potential impact of under/overflow bins on the fitter.
 To account for external constraints on fit parameters or uncertainties on
 modeling of certain backgrounds,
-additional shape variations are introduced on selected templates.
+additional shape variations are introduced on most templates
+(i.e. all but the \Dstar combinatorial template have some shape variations which
+will be discussed later).
 
 \begin{table}[!htb]
     \centering
@@ -61,9 +63,9 @@ additional shape variations are introduced on selected templates.
 
 % Pointer to later subsections
 The remainder of this chapter is organized as following:
-four efficiency ratios to relate the signal yields to the normalization yields
-in both fit channels are introduced in \cref{ref:fit:eff}.
-A description on template generation,
+% four efficiency ratios to relate the signal yields to the normalization yields
+% in both fit channels are introduced in \cref{ref:fit:eff}.
+a description on template generation,
 followed by a discussion on all components of fit templates,
 is described in \cref{ref:fit:tmpl}.
 The fit template shape variations are explained in
@@ -75,7 +77,7 @@ Finally, the blinded fitted results are provided in
 \cref{ref:fit:results}.
 
 
-\input{section/fit-efficiency-ratios.tex}
+% \input{section/fit-efficiency-ratios.tex}
 \input{section/fit-fit-templates.tex}
 \input{section/fit-fit-variations.tex}
 \input{section/fit-fit-procedure.tex}

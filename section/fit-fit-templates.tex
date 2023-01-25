@@ -547,17 +547,16 @@ removal. The fit is shown in \cref{fig:b-comb-d0}.
 \label{tmpl:sig-norm}
 
 \paragraph{$B \rightarrow D^{0,*+}\mun\neumb$}
-These are normalization templates.
+These are the normalization templates.
 The yields of these two modes, denoted as $N_{D\mu}$ and $N_{\Dstar\mu}$,
-are set to be the free-floating overall normalization of the respective
-fit channels.
+are set to be the free-floating overall normalization for all MC templates of
+the respective fit channels.
 As a side, the \Dz\muon template has notably softer \qSq spectrum compared to
 that of \Dstar\muon, due to reduced helicity states available in the
 $B \rightarrow D \ell \neulb$ transitions
 (discussed in \cref{ref:theory:ff-d0}),
 as shown in \cref{fig:d0-norm-vs-dst-norm}.
-The \Dstarp templates (both muonic and tauonic) contribute to both fit channels
-due to feed down.
+The \Dstarp template contribute to both fit channels due to feed down.
 
 \begin{figure}[!htb]
     \caption{
@@ -567,8 +566,30 @@ due to feed down.
     \label{fig:d0-norm-vs-dst-norm}
 \end{figure}
 
+\paragraph{$\Bm \rightarrow \Dz\taum\neutb$}
+The signal template in the \Dz channel.
+Its yield is related to $N_{D\mu}$ with the following relation:
+\begin{equation}
+    N_{D\tau} = N_{D\mu} \times \RD \times \tilde{\eta}_{\Dz}
+\end{equation}
+where $\RD \equiv \mathcal{R}(\Dz)$ is the free-floating parameter of interest,
+and $\tilde{\eta}_{\Dz}$, defined as
+\begin{equation}
+    \tilde{\eta}_{\Dz} = \frac{
+        \mathcal{B}(\taum \rightarrow \mun\neumb\neut)
+        \epsilon{(\Bm \rightarrow \Dz \taum (\rightarrow \mun\neumb\neut) \neutb)}
+    }{
+        \epsilon({\Bm \rightarrow \Dz \mun \neumb})
+    }
+\end{equation}
+is the efficiency ratios between the signal and the normalization mode.
+The efficiencies $\epsilon({\Bm \rightarrow \Dz \ellm \neulb})$ are
+obtained with the corresponding MC samples.
+
 \paragraph{$B \rightarrow D^{0,*+}\taum\neutb$}
-The signal templates, with \RD and \RDstp controlling the fraction
+The signal templates.
+The yield for
+with \RD and \RDstp controlling the fraction
 of yields compared to respective normalization yields.
 The signal distributions are characterized by high \mmSq and softer
 \el (due to \muon coming from a \tauon decay),
