@@ -496,10 +496,9 @@ as shown in \cref{fig:d0-norm-vs-dst-norm}.
 The \Dstarp\muon template contribute to both fit channels due to feed down,
 and its yield in the \Dz channel is normalized as:
 \begin{equation}
-    % N_{\Dstar\muon}^\text{\Dz channel} =
-    N_{D\mu} \times \left(
+    N_{D\mu} \times \left\{
         \epsilon_{\Dstar}^\text{isolation} \times \text{normfd}
-    \right)
+    \right\}
 \end{equation}
 where $\epsilon_{\Dstar}^\text{isolation}$ is the relative isolation efficiency
 between \Dstarp and \Dstarz samples
@@ -508,6 +507,11 @@ between \Dstarp and \Dstarz samples
         \epsilon^\text{isolation}(\Bzb \rightarrow \Dstarp\mun\neumb)
     }{
         \epsilon^\text{isolation}(\Bm \rightarrow \Dstarz\mun\neumb)
+    } \times
+    \frac{
+        \mathcal{B}(\Bzb \rightarrow \Dstarp\mun\neumb)
+    }{
+        \mathcal{B}(\Bm \rightarrow \Dstarz\mun\neumb)
     }
 \end{equation}
 obtained with MC samples;
@@ -584,16 +588,16 @@ channel is also shown in \cref{fig:d0-norm-vs-dst-norm}.
 The signal template in the \Dz channel.
 Its yield is related to $N_{D\mu}$ with the following relation:
 \begin{equation}
-    N_{D\mu} \times \left(
-        \RD \times \tilde{\eta}_{\Dz}
-    \right)
+    N_{D\mu} \times \left\{
+        \RD \times \eta_{\Dz}
+    \right\}
 \end{equation}
 where $\RD \equiv \mathcal{R}(\Dz)$ is the free-floating parameter of interest,
 and $\tilde{\eta}_{\Dz}$, defined as
 \begin{equation}
     \tilde{\eta}_{\Dz} = \frac{
         \mathcal{B}(\taum \rightarrow \mun\neumb\neut)
-        \epsilon{(\Bm \rightarrow \Dz \taum (\rightarrow \mun\neumb\neut) \neutb)}
+        \epsilon{(\Bm \rightarrow \Dz \taum [\rightarrow \mun\neumb\neut] \neutb)}
     }{
         \epsilon({\Bm \rightarrow \Dz \mun \neumb})
     }
@@ -606,7 +610,26 @@ obtained with the corresponding MC samples.
 \paragraph{$B \rightarrow \Dstarp\taum\neutb$}
 The signal template in the \Dstar channel but contributes to both channels
 due to feed down.
-The yield for
+The \Dz channel yield is given by
+\begin{equation}
+    N_{\Dz\muon} \times \left\{
+        \eta_{\Dstarz} \times \tilde{\eta}_{\Dstarp} \times \RDst \times
+        \text{normfd} \times
+    \right\}
+\end{equation}
+where $\RDst \equiv \mathcal{R}(\Dstarp)$,
+and $\tilde{\eta}_{\Dstarp}$, defined as
+\begin{equation}
+    \tilde{\eta}_{\Dstarp} = \frac{
+        \mathcal{B}(\taum \rightarrow \mun\neumb\neut)
+        \epsilon{(\Bzb \rightarrow \Dstarp \taum (\rightarrow \mun\neumb\neut) \neutb)}
+    }{
+        \epsilon({\Bzb \rightarrow \Dstarp \mun \neumb})
+    }
+\end{equation}
+is the efficiency ratio between this signal mode and its corresponding
+normalization mode.
+
 with \RD and \RDstp controlling the fraction
 of yields compared to respective normalization yields.
 The signal distributions are characterized by high \mmSq and softer
