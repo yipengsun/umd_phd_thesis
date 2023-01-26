@@ -10,7 +10,7 @@ channels.
 For a brief overview of the templates,
 \cref{tab:fit-templates-d0,tab:fit-templates-dst} may be used.
 The normalization factors for the signal fit are summarized in
-\cref{tab:fit-norm-fact-d0,tab:fit-norm-fact-dst} for the \Dz and \Dstar channel,
+\cref{tab:fit-norm-fact-d0,tab:fit-norm-fact-dst} for the \Dz and \Dstar channel
 accordingly and will be documented in the next subsections.
 These normalization factors are color-coded as:
 \begin{itemize}
@@ -484,8 +484,8 @@ removal. The fit is shown in \cref{fig:b-comb-d0}.
 \label{tmpl:norm}
 
 \paragraph{$B \rightarrow D^{0,*+}\mun\neumb$}
-These are the normalization templates.
-The yields of these two modes, denoted as $N_{\D\mu}$ and $N_{\Dstar\mu}$,
+The yields of these two decays,
+denoted as \fitNDmu and \fitNmu,
 are set to be the free-floating overall normalization for all MC templates of
 the respective fit channel.
 As a side note,
@@ -495,17 +495,17 @@ $B \rightarrow D \ell \neulb$ transitions
 (discussed in \cref{ref:theory:ff-d0}),
 as shown in \cref{fig:d0-norm-vs-dst-norm}.
 
-The \Dstarp\muon template contributes to both fit channels due to feed down,
-and its yield in the \Dz channel is normalized as:
+The \Dstarp\muon decay also contributes to the \Dz channel due to feed down,
+with its yield normalized by:
 \begin{equation}
-    N_{D\mu} \times \left\{
-        \epsilon_{\Dstar}^\text{isolation} \times \text{normfd}
+    \fitNDmu \times \left\{
+        \fitDstISO \times \fitnormfd
     \right\}
 \end{equation}
-where $\epsilon_{\Dstar}^\text{isolation}$ is the relative yield ratio
-between the \Dstarp\muon and \Dstarz\muon samples
+where \fitDstISO is the relative yield ratio between the \Dstarp\muon and
+\Dstarz\muon samples:
 \begin{equation}
-    \epsilon_{\Dstar}^\text{isolation} =
+    \fitDstISO =
     \left.\frac{
         \epsilon^\text{sel}(\Bzb \rightarrow \Dstarp\mun\neumb)
     }{
@@ -521,18 +521,13 @@ where the first ratio, a selection efficiency ratio,
 with its initial value obtained with MC samples satisfying the \Dz channel
 selection criteria,
 is not unity due to different isolation efficiencies for charged
-\Dstarp and neutral \Dstarz events;
-the second ratio is the branching fraction ratio from external measurements.
-``normfd'' is the yield ratio\footnote{
-    This factor is conceptually identical to that of
-    $\epsilon_{\Dstar}^\text{isolation}$.
-    The naming convention chosen here is for backward compatibility with the
-    run 1 pathfinder analysis and easier cross-referencing with the fitter
-    source code.
-}
-between the \Dstarz\muon and \Dz\muon samples
+\Dstarp and neutral \Dstarz decays;
+the second ratio is the branching fraction ratio attained from external
+measurements.
+The other parameter \fitnormfd is the yield ratio between the \Dstarz\muon and
+\Dz\muon samples:
 \begin{equation}
-    \text{normfd} =
+    \fitnormfd =
     \left.\frac{
         \epsilon^\text{sel}(\Bm \rightarrow \Dstarz\mun\neumb)
     }{
@@ -550,7 +545,7 @@ between the \Dstarz\muon and \Dz\muon samples
 This mode contributes to the \Dz channel exclusively due to feed down.
 Its yield is constrained by
 \begin{equation}
-    N_{D\mu} \times \text{normfd}
+    N_{D\mu} \times \fitnormfd
 \end{equation}
 A comparison between this template and the normalization template in the \Dz
 channel is also shown in \cref{fig:d0-norm-vs-dst-norm}.
