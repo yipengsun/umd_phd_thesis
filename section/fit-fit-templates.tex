@@ -487,26 +487,29 @@ removal. The fit is shown in \cref{fig:b-comb-d0}.
 These are the normalization templates.
 The yields of these two modes, denoted as $N_{\D\mu}$ and $N_{\Dstar\mu}$,
 are set to be the free-floating overall normalization for all MC templates of
-the respective fit channels.
-As a side, the \Dz\muon template has notably softer \qSq spectrum compared to
-that of \Dstarp\muon, due to reduced helicity states available in the
+the respective fit channel.
+As a side note,
+the \Dz\muon template has notably softer \qSq spectrum compared to
+that of \Dstarp\muon due to reduced helicity states available in the
 $B \rightarrow D \ell \neulb$ transitions
 (discussed in \cref{ref:theory:ff-d0}),
 as shown in \cref{fig:d0-norm-vs-dst-norm}.
-The \Dstarp\muon template contribute to both fit channels due to feed down,
+
+The \Dstarp\muon template contributes to both fit channels due to feed down,
 and its yield in the \Dz channel is normalized as:
 \begin{equation}
     N_{D\mu} \times \left\{
         \epsilon_{\Dstar}^\text{isolation} \times \text{normfd}
     \right\}
 \end{equation}
-where $\epsilon_{\Dstar}^\text{isolation}$ is the relative isolation efficiency
-between \Dstarp and \Dstarz samples
+where $\epsilon_{\Dstar}^\text{isolation}$ is the relative yield ratio
+between the \Dstarp\muon and \Dstarz\muon samples
 \begin{equation}
-    \epsilon_{\Dstar}^\text{isolation} = \frac{
-        \epsilon^\text{isolation}(\Bzb \rightarrow \Dstarp\mun\neumb)
+    \epsilon_{\Dstar}^\text{isolation} =
+    \frac{
+        \epsilon^\text{sel}(\Bzb \rightarrow \Dstarp\mun\neumb)
     }{
-        \epsilon^\text{isolation}(\Bm \rightarrow \Dstarz\mun\neumb)
+        \epsilon^\text{sel}(\Bm \rightarrow \Dstarz\mun\neumb)
     } \times
     \frac{
         \mathcal{B}(\Bzb \rightarrow \Dstarp\mun\neumb)
@@ -514,12 +517,22 @@ between \Dstarp and \Dstarz samples
         \mathcal{B}(\Bm \rightarrow \Dstarz\mun\neumb)
     }
 \end{equation}
-obtained with MC samples;
-``normfd'' is the branching fraction ratio between the \Dstarz\muon and \Dz\muon
-samples \emph{with isolation efficiency taken into account}:
+where the first ratio, a selection efficiency ratio,
+obtained with MC samples satisfying the \Dz channel selection criteria,
+is not unity due to different isolation efficiencies for charged
+\Dstarp and neutral \Dstarz events;
+the second ratio is the branching fraction ratio from external measurements.
+``normfd'' is the yield ratio
+between the \Dstarz\muon and \Dz\muon samples,
+while absorbing the selection efficiency ratio between the two
+(the initial value assumes that ratio to be unity).
 \begin{equation}
     \text{normfd} =
-    \epsilon^\text{isolation}(\Bm \rightarrow \Dstarz\mun\neumb) \times
+    \left.\frac{
+        \epsilon^\text{sel}(\Bm \rightarrow \Dstarz\mun\neumb)
+    }{
+        \epsilon^\text{sel}(\Bm \rightarrow \Dz\mun\neumb)
+    }\right|_\text{initially set to 1}^\text{floating in the fit} \times
     \frac{
         \mathcal{B}(\Bm \rightarrow \Dstarz\mun\neumb)
     }{
@@ -530,7 +543,10 @@ samples \emph{with isolation efficiency taken into account}:
 %%%%
 \paragraph{$B \rightarrow D^{*0}\mun\neumb$}
 This mode contributes to the \Dz channel exclusively due to feed down.
-Its yield is constrained by $N_{D\mu} \times \text{normfd}$.
+Its yield is constrained by
+\begin{equation}
+    N_{D\mu} \times \text{normfd}
+\end{equation}
 A comparison between this template and the normalization template in the \Dz
 channel is also shown in \cref{fig:d0-norm-vs-dst-norm}.
 
@@ -602,9 +618,10 @@ and $\tilde{\eta}_{\Dz}$, defined as
         \epsilon({\Bm \rightarrow \Dz \mun \neumb})
     }
 \end{equation}
-is the efficiency ratios between the signal and the normalization mode.
-The efficiencies $\epsilon({\Bm \rightarrow \Dz \ellm \neulb})$ are
-obtained with the corresponding MC samples.
+is the efficiency ratios between the signal and the normalization
+mode.
+The efficiencies $\epsilon({\Bm \rightarrow \Dz \ellm \neulb})$ are obtained
+with the corresponding MC samples satisfying \Dz selection criteria.
 
 %
 \paragraph{$B \rightarrow \Dstarp\taum\neutb$}
@@ -628,7 +645,7 @@ and $\tilde{\eta}_{\Dstarp}$, defined as
     }
 \end{equation}
 is the efficiency ratio between this signal mode and its corresponding
-normalization mode.
+normalization mode satis.
 
 with \RD and \RDstp controlling the fraction
 of yields compared to respective normalization yields.
