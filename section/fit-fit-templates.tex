@@ -482,15 +482,49 @@ removal. The fit is shown in \cref{fig:b-comb-d0}.
 
 \paragraph{$B \rightarrow D^{0,*+}\mun\neumb$}
 These are the normalization templates.
-The yields of these two modes, denoted as $N_{D\mu}$ and $N_{\Dstar\mu}$,
+The yields of these two modes, denoted as $N_{\D\mu}$ and $N_{\Dstar\mu}$,
 are set to be the free-floating overall normalization for all MC templates of
 the respective fit channels.
 As a side, the \Dz\muon template has notably softer \qSq spectrum compared to
-that of \Dstar\muon, due to reduced helicity states available in the
+that of \Dstarp\muon, due to reduced helicity states available in the
 $B \rightarrow D \ell \neulb$ transitions
 (discussed in \cref{ref:theory:ff-d0}),
 as shown in \cref{fig:d0-norm-vs-dst-norm}.
-The \Dstarp template contribute to both fit channels due to feed down.
+The \Dstarp\muon template contribute to both fit channels due to feed down,
+and its yield in the \Dz channel is normalized as:
+\begin{equation}
+    % N_{\Dstar\muon}^\text{\Dz channel} =
+    N_{D\mu} \times \left(
+        \epsilon_{\Dstar}^\text{isolation} \times \text{normfd}
+    \right)
+\end{equation}
+where $\epsilon_{\Dstar}^\text{isolation}$ is the relative isolation efficiency
+between \Dstarp and \Dstarz samples
+\begin{equation}
+    \epsilon_{\Dstar}^\text{isolation} = \frac{
+        \epsilon^\text{isolation}(\Bzb \rightarrow \Dstarp\mun\neumb)
+    }{
+        \epsilon^\text{isolation}(\Bm \rightarrow \Dstarz\mun\neumb)
+    }
+\end{equation}
+obtained with MC samples;
+``normfd'' is the branching fraction ratio between the \Dstarz\muon and \Dz\muon
+samples \emph{with isolation efficiency taken into account}:
+\begin{equation}
+    \text{normfd} =
+    \epsilon^\text{isolation}(\Bm \rightarrow \Dstarz\mun\neumb) \times
+    \frac{
+        \mathcal{B}(\Bm \rightarrow \Dstarz\mun\neumb)
+    }{
+        \mathcal{B}(\Bm \rightarrow \Dz\mun\neumb)
+    }
+\end{equation}
+
+
+\paragraph{$B \rightarrow D^{*0}\mun\neumb$}
+This mode contributes to the \Dz channel exclusively due to feed down.
+Its yield is constrained by $N_{D\mu} \times \text{normfd}$.
+
 
 \begin{figure}[!htb]
     \caption{
@@ -504,7 +538,9 @@ The \Dstarp template contribute to both fit channels due to feed down.
 The signal template in the \Dz channel.
 Its yield is related to $N_{D\mu}$ with the following relation:
 \begin{equation}
-    N_{D\tau} = N_{D\mu} \times \RD \times \tilde{\eta}_{\Dz}
+    N_{D\tau} = N_{D\mu} \times \left(
+        \RD \times \tilde{\eta}_{\Dz}
+    \right)
 \end{equation}
 where $\RD \equiv \mathcal{R}(\Dz)$ is the free-floating parameter of interest,
 and $\tilde{\eta}_{\Dz}$, defined as
