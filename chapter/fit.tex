@@ -25,19 +25,19 @@ the fit procedure is broken into 3 steps:
 
 \begin{enumerate}
     \item \textbf{Pre-control}:
-        Performed on control samples (1OS, 2OS, DD).
-        In this step, all but the \Kstar variations are turned off.
+        Performed on control skims (1OS, 2OS, DD).
+        In this step, all but the \Kstar shape variations are turned off.
     \item \textbf{Control}:
-        Performed on control samples (1OS, 2OS, DD).
-        All but the signal and normalization variations are turned on.
+        Also performed on control skims (1OS, 2OS, DD).
+        All but the signal and normalization shape variations are turned on.
         The fitted parameters from previous steps are loaded along with their
         errors as a starting point for the control fit.
     \item \textbf{Signal}:
         Performed on signal sample (ISO).
-        The variations for $D^{**}, D_H^{**}$, and misID DiF are loaded as
-        constraints to the signal fit;
-        the $DDX$ variations are set to constant with fitted value from previous
-        step,
+        The variations in the control fit for $D^{**}, D_H^{**}$, and misID DiF
+        are loaded as constraints to the signal fit;
+        the $DDX$ variations are fixed to the fitted value from the previous
+        step.
 \end{enumerate}
 The terms such as ``\Kstar variations'' and ``misID DiF'' will be defined later.
 
