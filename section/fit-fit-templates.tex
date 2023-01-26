@@ -506,11 +506,11 @@ where $\epsilon_{\Dstar}^\text{isolation}$ is the relative yield ratio
 between the \Dstarp\muon and \Dstarz\muon samples
 \begin{equation}
     \epsilon_{\Dstar}^\text{isolation} =
-    \frac{
+    \left.\frac{
         \epsilon^\text{sel}(\Bzb \rightarrow \Dstarp\mun\neumb)
     }{
         \epsilon^\text{sel}(\Bm \rightarrow \Dstarz\mun\neumb)
-    } \times
+    }\right|_\text{initial value from MC}^\text{floating in the fit}\times
     \frac{
         \mathcal{B}(\Bzb \rightarrow \Dstarp\mun\neumb)
     }{
@@ -518,14 +518,19 @@ between the \Dstarp\muon and \Dstarz\muon samples
     }
 \end{equation}
 where the first ratio, a selection efficiency ratio,
-obtained with MC samples satisfying the \Dz channel selection criteria,
+with its initial value obtained with MC samples satisfying the \Dz channel
+selection criteria,
 is not unity due to different isolation efficiencies for charged
 \Dstarp and neutral \Dstarz events;
 the second ratio is the branching fraction ratio from external measurements.
-``normfd'' is the yield ratio
-between the \Dstarz\muon and \Dz\muon samples,
-while absorbing the selection efficiency ratio between the two
-(the initial value assumes that ratio to be unity).
+``normfd'' is the yield ratio\footnote{
+    This factor is conceptually identical to that of
+    $\epsilon_{\Dstar}^\text{isolation}$.
+    The naming convention chosen here is for backward compatibility with the
+    run 1 pathfinder analysis and easier cross-referencing with the fitter
+    source code.
+}
+between the \Dstarz\muon and \Dz\muon samples
 \begin{equation}
     \text{normfd} =
     \left.\frac{
