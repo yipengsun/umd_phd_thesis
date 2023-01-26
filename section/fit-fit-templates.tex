@@ -1,12 +1,42 @@
 \section{Fit templates}
 \label{ref:fit:tmpl}
 
-This selection describes generation of fit templates, followed by comments on
-the characteristics of the templates and configuration of fit parameters
-associated with the templates.
+This selection describes generation of fit templates,
+followed by comments on the characteristics of the templates and the
+normalization factors controlling the yields of the templates.
 There are a total of 37 templates in \Dz channel and 24 in \Dstar channel,
-with some templates contributing to both, as listed in
-\cref{tab:fit-templates-d0,tab:fit-templates-dst}.
+with some templates generated with the same decays that contribute to both
+channels.
+For a brief overview of the templates,
+\cref{tab:fit-templates-d0,tab:fit-templates-dst} may be used.
+The normalization factors for the signal fit are summarized in
+\cref{tab:fit-norm-fact-d0,tab:fit-norm-fact-dst} for the \Dz and \Dstar channel,
+accordingly.
+These normalization factors are color-coded as:
+\begin{itemize}
+    \item \textbf{\textcolor{black}{black}}:
+        an unconstrained factor,
+        implemented with a \HistFactory\ \smalltt{NormFactor}.
+    \item \textbf{\textcolor{red}{red}}:
+        a fixed factor,
+        also implemented with the \smalltt{NormFactor}.
+    \item \textbf{\textcolor{blue}{blue}}:
+        a factor with a Gaussian constraint
+        where the nominal value is $\mu$ and the standard deviation $\sigma$.
+        The fitter reports the \emph{variation} of the factor with an $\alpha$
+        parameter such that when the underlying parameter is at the nominal
+        value $\mu$, the associated $\alpha = 0$;
+        when the underlying parameter is at $\mu \pm \sigma$, the $\alpha = \pm 1$.
+        Implemented with a \HistFactory\ \smalltt{OverallSys}.
+    \item \textbf{\textcolor{purple}{purple}}:
+        a fixed \smalltt{OverallSys} factor.
+        Typically such a factor is \emph{constrained} in the control fit and
+        loaded as a \emph{fixed} factor in the signal fit.
+\end{itemize}
+
+
+\input{fit-tab-template-overview.tex}
+
 
 The data-driven templates,
 namely \muon misID and combinatorial background templates,
@@ -42,8 +72,6 @@ with weight-capping strategy specified:
         \label{eqn:mc-wts}
 \end{equation}
 
-
-\input{fit-tab-norm-factors.tex}
 
 
 \subsection{Muon misID backgrounds}
@@ -723,3 +751,6 @@ Similar to $1P$ $D^{**}$ tauonic modes,
 the $DDX$ tauonic modes are constrained near the relative branching fractions
 (\tauon vs. \muon) with a 30\% Gaussian variation,
 without any degree of freedom on relative yields between \Bm and \Bzb.
+
+
+\input{fit-tab-norm-factors.tex}
