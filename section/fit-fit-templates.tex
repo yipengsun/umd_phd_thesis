@@ -28,7 +28,7 @@ These normalization factors are color-coded as:
         value $\mu$, the associated $\alpha = 0$;
         when the underlying parameter is at $\mu \pm \sigma$, the $\alpha = \pm 1$.
         Implemented with a \HistFactory\ \smalltt{OverallSys}.
-    \item \textbf{\textcolor{purple}{purple}}:
+    \item \textbf{\textcolor{magenta}{magenta}}:
         a fixed \smalltt{OverallSys} factor.
         Typically such a factor is \emph{constrained} in the control fit and
         loaded as a \emph{fixed} factor in the signal fit.
@@ -477,8 +477,8 @@ removal. The fit is shown in \cref{fig:b-comb-d0}.
 \end{figure}
 
 
-\subsection{Signal and normalization}
-\label{tmpl:sig-norm}
+\subsection{Normalization}
+\label{tmpl:norm}
 
 \paragraph{$B \rightarrow D^{0,*+}\mun\neumb$}
 These are the normalization templates.
@@ -529,25 +529,15 @@ Its yield is constrained by $N_{D\mu} \times \text{normfd}$.
 \begin{figure}[!htb]
     \begin{subfigure}{\textwidth}
         \centering
-        \includegraphics[width=0.3\textwidth]{figs-fit-fit-templates/histo-comp/D0_iso_D0Mu__vs__D0_iso_DstMu__m2miss.pdf}
-        \includegraphics[width=0.3\textwidth]{figs-fit-fit-templates/histo-comp/D0_iso_D0Mu__vs__D0_iso_DstMu__el.pdf}
-        \includegraphics[width=0.3\textwidth]{figs-fit-fit-templates/histo-comp/D0_iso_D0Mu__vs__D0_iso_DstMu__q2.pdf}
+        \includegraphics[width=0.3\textwidth]{figs-fit-fit-templates/histo-comp/D0_iso_D0Mu__vs__D0_iso_DstMu__vs__Dst_iso_DstMu__m2miss.pdf}
+        \includegraphics[width=0.3\textwidth]{figs-fit-fit-templates/histo-comp/D0_iso_D0Mu__vs__D0_iso_DstMu__vs__Dst_iso_DstMu__el.pdf}
+        \includegraphics[width=0.3\textwidth]{figs-fit-fit-templates/histo-comp/D0_iso_D0Mu__vs__D0_iso_DstMu__vs__Dst_iso_DstMu__q2.pdf}
         \caption{
-            $\textcolor{blue}{\Bm \rightarrow \Dz\mun\neumb}$ in \Dz channel vs
+            $\textcolor{blue}{\Bm \rightarrow \Dz\mun\neumb}$ vs
+            $\textcolor{red}{\Bzb \rightarrow \Dstarp\mun\neumb}$ feed down,
+            both in \Dz channel.
             $\textcolor{magenta}{\Bzb \rightarrow \Dstarp\mun\neumb}$
-            in \Dz channel.
-        }
-    \end{subfigure}
-
-    \begin{subfigure}{\textwidth}
-        \centering
-        \includegraphics[width=0.3\textwidth]{figs-fit-fit-templates/histo-comp/D0_iso_D0Mu__vs__Dst_iso_DstMu__m2miss.pdf}
-        \includegraphics[width=0.3\textwidth]{figs-fit-fit-templates/histo-comp/D0_iso_D0Mu__vs__Dst_iso_DstMu__el.pdf}
-        \includegraphics[width=0.3\textwidth]{figs-fit-fit-templates/histo-comp/D0_iso_D0Mu__vs__Dst_iso_DstMu__q2.pdf}
-        \caption{
-            $\textcolor{blue}{\Bm \rightarrow \Dz\mun\neumb}$ in \Dz channel vs
-            $\textcolor{magenta}{\Bzb \rightarrow \Dstarp\mun\neumb}$
-            in \Dstar channel.
+            in \Dstar channel is included as a reference.
         }
     \end{subfigure}
 
@@ -558,18 +548,33 @@ Its yield is constrained by $N_{D\mu} \times \text{normfd}$.
         \includegraphics[width=0.3\textwidth]{figs-fit-fit-templates/histo-comp/D0_iso_D0Mu__vs__D0_iso_Dst0Mu__q2.pdf}
         \caption{
             $\textcolor{blue}{\Bm \rightarrow \Dz\mun\neumb}$ vs
-            $\textcolor{red}{\Bm \rightarrow \Dstarz\mun\neumb}$,
+            $\textcolor{red}{\Bm \rightarrow \Dstarz\mun\neumb}$ feed down,
             both in \Dz channel.
         }
     \end{subfigure}
 
+    % \begin{subfigure}{\textwidth}
+    %     \centering
+    %     \includegraphics[width=0.3\textwidth]{figs-fit-fit-templates/histo-comp/D0_iso_D0Mu__vs__Dst_iso_DstMu__m2miss.pdf}
+    %     \includegraphics[width=0.3\textwidth]{figs-fit-fit-templates/histo-comp/D0_iso_D0Mu__vs__Dst_iso_DstMu__el.pdf}
+    %     \includegraphics[width=0.3\textwidth]{figs-fit-fit-templates/histo-comp/D0_iso_D0Mu__vs__Dst_iso_DstMu__q2.pdf}
+    %     \caption{
+    %         $\textcolor{blue}{\Bm \rightarrow \Dz\mun\neumb}$ in \Dz channel vs
+    %         $\textcolor{magenta}{\Bzb \rightarrow \Dstarp\mun\neumb}$
+    %         in \Dstar channel.
+    %     }
+    % \end{subfigure}
+
     \caption{
-        Comparison between normalization templates.
+        Comparisons between normalization templates.
     }
     \label{fig:d0-norm-vs-dst-norm}
 \end{figure}
 
-%%%%
+
+\subsection{Signal}
+\label{tmpl:sig}
+
 \paragraph{$\Bm \rightarrow \Dz\taum\neutb$}
 The signal template in the \Dz channel.
 Its yield is related to $N_{D\mu}$ with the following relation:
