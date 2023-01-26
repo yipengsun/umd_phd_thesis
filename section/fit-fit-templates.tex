@@ -5,13 +5,13 @@ This selection describes generation of fit templates,
 followed by comments on the characteristics of the templates and the
 normalization factors controlling the yields of the templates.
 There are a total of 37 templates in \Dz channel and 24 in \Dstar channel,
-with some templates generated with the same decays that contribute to both
+with some templates generated with the decays that contribute to both
 channels.
 For a brief overview of the templates,
 \cref{tab:fit-templates-d0,tab:fit-templates-dst} may be used.
 The normalization factors for the signal fit are summarized in
 \cref{tab:fit-norm-fact-d0,tab:fit-norm-fact-dst} for the \Dz and \Dstar channel,
-accordingly.
+accordingly and will be documented in the next subsections.
 These normalization factors are color-coded as:
 \begin{itemize}
     \item \textbf{\textcolor{black}{black}}:
@@ -41,10 +41,14 @@ These normalization factors are color-coded as:
 The data-driven templates,
 namely \muon misID and combinatorial background templates,
 are discussed first in \cref{ref:fit:tmpl:misid,ref:fit:tmpl:comb}.
+They are used to estimate both the shapes and the yields of the misID and
+combinatorial backgrounds.
 
 The rest are all MC templates which can be categorized into signal,
 normalization, feed downs from \Dstst/heavy \Dstst/$D^{**}_s$, and contributions
 from $DDX$ decay modes.
+Only the shapes of these templates are taken as the shapes of the fit variables
+of these decays.
 All categories share the same selection requirement as discussed in
 \cref{ref:sel:mc}.
 Additional global weights to account for emulation of trigger and PID
@@ -52,7 +56,7 @@ Additional global weights to account for emulation of trigger and PID
 form factor reweighting (\cref{ref:mc-cor:ff}, whenever applicable),
 and corrections to detector responses (\cref{ref:mc-cor:init,ref:mc-cor:final})
 are also applied according to \cref{eqn:mc-wts},
-with weight-capping strategy specified:
+with weight-capping strategy specified as:
 
 \begin{equation}
     w_\text{tot} = \underbrace{\left(
@@ -71,7 +75,6 @@ with weight-capping strategy specified:
         }_\text{capped at 10}
         \label{eqn:mc-wts}
 \end{equation}
-
 
 
 \subsection{Muon misID backgrounds}
@@ -524,6 +527,8 @@ samples \emph{with isolation efficiency taken into account}:
 \paragraph{$B \rightarrow D^{*0}\mun\neumb$}
 This mode contributes to the \Dz channel exclusively due to feed down.
 Its yield is constrained by $N_{D\mu} \times \text{normfd}$.
+A comparison between this template and the normalization template in the \Dz
+channel is also shown in \cref{fig:d0-norm-vs-dst-norm}.
 
 %%%%
 \begin{figure}[!htb]
@@ -579,7 +584,7 @@ Its yield is constrained by $N_{D\mu} \times \text{normfd}$.
 The signal template in the \Dz channel.
 Its yield is related to $N_{D\mu}$ with the following relation:
 \begin{equation}
-    N_{D\tau} = N_{D\mu} \times \left(
+    N_{D\mu} \times \left(
         \RD \times \tilde{\eta}_{\Dz}
     \right)
 \end{equation}
@@ -597,8 +602,10 @@ is the efficiency ratios between the signal and the normalization mode.
 The efficiencies $\epsilon({\Bm \rightarrow \Dz \ellm \neulb})$ are
 obtained with the corresponding MC samples.
 
-\paragraph{$B \rightarrow D^{0,*+}\taum\neutb$}
-The signal templates.
+%
+\paragraph{$B \rightarrow \Dstarp\taum\neutb$}
+The signal template in the \Dstar channel but contributes to both channels
+due to feed down.
 The yield for
 with \RD and \RDstp controlling the fraction
 of yields compared to respective normalization yields.
