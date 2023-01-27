@@ -484,7 +484,7 @@ removal. The fit is shown in \cref{fig:b-comb-d0}.
 \label{tmpl:norm}
 
 \paragraph{$B \rightarrow D^{0,*+}\mun\neumb$}
-The yields of these two decays,
+The yields of these two decay modes,
 denoted as \fitNDmu and \fitNmu,
 are set to be the free-floating overall normalization for all MC templates of
 the respective fit channel.
@@ -495,7 +495,7 @@ $B \rightarrow D \ell \neulb$ transitions
 (discussed in \cref{ref:theory:ff-d0}),
 as shown in \cref{fig:d0-norm-vs-dst-norm}.
 
-The \Dstarp\muon decay also contributes to the \Dz channel due to feed down,
+The \Dstarp\muon mode also contributes to the \Dz channel due to feed down,
 with its yield normalized by:
 \begin{equation}
     \fitNDmu \times \left\{
@@ -507,9 +507,9 @@ where \fitDstISO is the relative yield ratio between the \Dstarp\muon and
 \begin{equation}
     \fitDstISO =
     \left.\frac{
-        \epsilon^\text{sel}(\Bzb \rightarrow \Dstarp\mun\neumb)
+        \epsilon(\Bzb \rightarrow \Dstarp\mun\neumb)
     }{
-        \epsilon^\text{sel}(\Bm \rightarrow \Dstarz\mun\neumb)
+        \epsilon(\Bm \rightarrow \Dstarz\mun\neumb)
     }\right|_\text{initial value from MC}^\text{floating in the fit}\times
     \frac{
         \mathcal{B}(\Bzb \rightarrow \Dstarp\mun\neumb)
@@ -529,9 +529,9 @@ The other parameter \fitnormfd is the yield ratio between the \Dstarz\muon and
 \begin{equation}
     \fitnormfd =
     \left.\frac{
-        \epsilon^\text{sel}(\Bm \rightarrow \Dstarz\mun\neumb)
+        \epsilon(\Bm \rightarrow \Dstarz\mun\neumb)
     }{
-        \epsilon^\text{sel}(\Bm \rightarrow \Dz\mun\neumb)
+        \epsilon(\Bm \rightarrow \Dz\mun\neumb)
     }\right|_\text{initially set to 1}^\text{floating in the fit} \times
     \frac{
         \mathcal{B}(\Bm \rightarrow \Dstarz\mun\neumb)
@@ -582,18 +582,6 @@ channel is also shown in \cref{fig:d0-norm-vs-dst-norm}.
         }
     \end{subfigure}
 
-    % \begin{subfigure}{\textwidth}
-    %     \centering
-    %     \includegraphics[width=0.3\textwidth]{figs-fit-fit-templates/histo-comp/D0_iso_D0Mu__vs__Dst_iso_DstMu__m2miss.pdf}
-    %     \includegraphics[width=0.3\textwidth]{figs-fit-fit-templates/histo-comp/D0_iso_D0Mu__vs__Dst_iso_DstMu__el.pdf}
-    %     \includegraphics[width=0.3\textwidth]{figs-fit-fit-templates/histo-comp/D0_iso_D0Mu__vs__Dst_iso_DstMu__q2.pdf}
-    %     \caption{
-    %         $\textcolor{blue}{\Bm \rightarrow \Dz\mun\neumb}$ in \Dz channel vs
-    %         $\textcolor{magenta}{\Bzb \rightarrow \Dstarp\mun\neumb}$
-    %         in \Dstar channel.
-    %     }
-    % \end{subfigure}
-
     \caption{
         Comparisons between normalization templates.
     }
@@ -605,37 +593,56 @@ channel is also shown in \cref{fig:d0-norm-vs-dst-norm}.
 \label{tmpl:sig}
 
 \paragraph{$\Bm \rightarrow \Dz\taum\neutb$}
-The signal template in the \Dz channel.
-Its yield is related to $N_{D\mu}$ with the following relation:
+Its yield is related to $N_{D\mu}$ by the following expression:
 \begin{equation}
     N_{D\mu} \times \left\{
-        \RD \times \eta_{\Dz}
+        \RD \times \underbrace{
+            \BRTauToMu \times
+            \frac{
+                \epsilon{(\Bm \rightarrow \Dz \taum [\rightarrow \mun\neumb\neut] \neutb)}
+            }{
+                \epsilon({\Bm \rightarrow \Dz \mun \neumb})
+            }
+        }_{\equiv \fitRDEff}
     \right\}
 \end{equation}
-where $\RD \equiv \mathcal{R}(\Dz)$ is the free-floating parameter of interest,
-and $\tilde{\eta}_{\Dz}$, defined as
-\begin{equation}
-    \tilde{\eta}_{\Dz} = \frac{
-        \mathcal{B}(\taum \rightarrow \mun\neumb\neut)
-        \epsilon{(\Bm \rightarrow \Dz \taum [\rightarrow \mun\neumb\neut] \neutb)}
-    }{
-        \epsilon({\Bm \rightarrow \Dz \mun \neumb})
-    }
-\end{equation}
-is the efficiency ratios between the signal and the normalization
-mode.
-The efficiencies $\epsilon({\Bm \rightarrow \Dz \ellm \neulb})$ are obtained
-with the corresponding MC samples satisfying \Dz selection criteria.
+where $\RD \equiv \RDz$ is the free-floating parameter of interest,
+and \fitRDEff is the (\tauon leptonic exclusive) efficiency ratio between the
+signal and the normalization mode in the \Dz channel,
+with the efficiencies obtained with the corresponding MC samples satisfying
+the \Dz\muon selection criteria.
 
 %
 \paragraph{$B \rightarrow \Dstarp\taum\neutb$}
-The signal template in the \Dstar channel but contributes to both channels
+This signal mode contributes to both channels due to feed down.
+In the \Dstar channel, its normalization is given by:
+\begin{equation}
+    \fitNmu \times \left\{
+        \RDst \times \underbrace{
+            \BRTauToMu \times \frac{
+                \epsilon{(\Bzb \rightarrow \Dstarp \taum [\rightarrow \mun\neumb\neut] \neutb)}_{\Dstar}
+            }{
+                \epsilon{(\Bzb \rightarrow \Dstarp \mun\neumb)}_{\Dstar}
+            }
+        }_{\equiv \fitRDstEff}
+    \right\}
+\end{equation}
+where $\RDst \equiv \RDstp$ is the other parameter of interest,
+and \fitRDstEff is the efficiency ratio between the signal and the normalization
+in the \Dstar channel,
+with the tilde emphasizing that the efficiencies are evaluated with the
+\Dstarp\muon selection cuts.
+
 due to feed down.
-The \Dz channel yield is given by
+The \Dz channel yield can be formally written as
 \begin{equation}
     N_{\Dz\muon} \times \left\{
-        \eta_{\Dstarz} \times \tilde{\eta}_{\Dstarp} \times \RDst \times
-        \text{normfd} \times
+        \RDstp \times \BRTauToMu \times
+        \frac{
+            \epsilon(\Bzb \rightarrow \Dstarp \taum [\rightarrow \mun\neumb\neut] \neutb)_{\Dz}
+        }{
+            \epsilon(\Bzb \rightarrow \Dstarp \mun\neumb)_{\Dz}
+        }
     \right\}
 \end{equation}
 where $\RDst \equiv \mathcal{R}(\Dstarp)$,
