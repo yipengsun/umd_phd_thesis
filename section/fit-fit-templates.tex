@@ -886,19 +886,28 @@ $(p_B - p_{D^{(*)}})^2$, instead of $(p_B - p_{D^{**}})^2$
     \label{fig:dstst-mu}
 \end{figure}
 
+%
 \paragraph{Tauonic}
-As in run 1, the tauonic $D^{**}$ decays are treated as fixed fractions
-to their muonic counterparts individually, with each $\mathcal{R}(D^{**})$
-fraction given by \cite{Bernlochner_2018} within their ``Approximation C'',
-for an weighted average of 0.085.
-However, the run 1 \RDst analysis (\cite{LHCb-ANA-2014-052}) used
-0.12, instead 0.085,
-though the values agree within errors specified in that analysis.
-Suffice to say, $R(D^{**})$ ratios are not measured to precision.
-Therefore, a Gaussian constraint with a width of 30\% is added,
-allowing the yields to float around the nominal values.
-The Gaussian constraint is shared among all $1P$ $D^{**}$ species within
-each fit channel (e.g. \Dz channel) but is distinct across channels.
+As in run 1, the yields of  tauonic $D^{**}$ decays are constrained as a
+fraction to their muonic counterparts individually.
+In both channels, the yield is given by
+\begin{equation}
+    \Omega \times \fitRDststRaw \times \fitRDiRatio \times \left[
+        \underbrace{\text{\fitRDDstst for \Dz chan, \fitRDstst for \Dst chan}}_\text{
+            a Gaussian constraint with a $\sigma = 0.33$
+        }
+    \right]
+\end{equation}
+where $\Omega$ refers to \cref{eqn:dstst-yield-d0} for \Dz channel,
+and \cref{eqn:dstst-yield-dst} for \Dstar channel.
+The \fitRDststRaw is based on the average between $\mathcal{R}(\Dstst_i)$,
+taken to be $\mathcal{R}(\Dstst)_\text{avg} = 0.12$ which is the valued used in
+the run 1 analysis,
+while also absorbing selection efficiencies.
+Each
+$\fitRDiRatio \equiv \frac{\mathcal{R}(\Dstst_i)}{\mathcal{R}(\Dstst)_\text{avg}}$
+is also taken from the previous analysis.
+The tauonic \Dstst templates are displayed in \cref{fig:dstst-tau}.
 
 \begin{figure}[!htb]
     %\begin{subfigure}{\textwidth}
