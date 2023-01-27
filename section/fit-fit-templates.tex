@@ -657,7 +657,7 @@ Its \Dz channel feed down yield can be formally written as
 which can then be rewritten as
 \begin{equation}
     N_{\Dz\muon} \times \left\{
-        \RDst \times \fitRdDstScale \times \fitRDstEff \times \fitDstISO \times \fitnormfd
+        \RDst \times \fitRdDstEffFactor \times \fitRDstEff \times \fitDstISO \times \fitnormfd
     \right\}
 \end{equation}
 noting that $\eta_{\Dstarp}$ is the efficiency ratio evaluated at the \Dz
@@ -668,13 +668,15 @@ second parameter inside the bracket above which is a ratio.
 Only contributing in the \Dz channel, its yield is given by:
 \begin{equation}
     N_{\Dz\muon} \times \left\{
-        \RDst \times \fitRuDstScale \times \fitRDstEff \times \fitnormfd
+        \RDst \times \fitRuDstEffFactor \times \fitRDstEff \times \fitnormfd
     \right\}
 \end{equation}
 where $\eta_{\Dstarz}$ is defined similarly to $\eta_{\Dstarp}$.
 
-The three efficiency ratios $\fitRDstEff, \eta_{\Dstarp}, \eta_{\Dstarz}$
-are fixed in the fit so that \emph{no} correction to these ratios is derived.
+The four efficiency ratios
+$\fitRDEff, \fitRDstEff, \eta_{\Dstarp}, \eta_{\Dstarz}$
+are all fixed in the fit so that \emph{no} correction to these ratios is
+derived due to concerns about the sensitivity to these parameters.
 Comparisons between the signal templates are shown in
 \cref{fig:d0-sig-vs-dst-sig}.
 
