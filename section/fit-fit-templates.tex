@@ -733,16 +733,17 @@ meson\footnote{
 \begin{itemize}
     \item \textbf{\Dz channel}:
         All four states contribute.
-        Additionally, the $D_1$ state is reported to have the cascade decays
-        $D_1 \rightarrow D_0^* (\rightarrow \Dz \pi) \pi$;
+        Additionally, the $D_1$ states are reported to have the cascade decays
+        $D_1 \rightarrow D_0^* (\rightarrow \Dz \pi) \pi$ observed;
         events with such decay modes are put into the
-        $D_1 \rightarrow (\Dz \pi\pi)$ templates.
+        $D_1 \rightarrow (\Dz \pi\pi)$ templates,
+        abbreviated as $D_1 \pi\pi$.
         The $D_0^*$ is assumed to contribute exclusively to this channel due
         to conservation of angular momentum.
 
         Therefore, for the \Dz channel,
         there are $(4+1) \times 2$ muonic templates where the factor 2 comes
-        from the isospin doublet (e.g. $D_0^{*0}$ and $D_0^{*+}$),
+        from the isospin doublet (e.g. $D_0^{*0}$ and $D_0^{*+}$)
         and $(4+1) \times 2$ tauonic ones for a total of 20 \Dstst templates.
 
     \item \textbf{\Dstar channel}:
@@ -750,26 +751,26 @@ meson\footnote{
         Also, no cascade decay of the form
         $D^{**} \rightarrow D^{**} (\rightarrow \Dstar \pi) \pi$ is considered.
         For this channel,
-        there are $3 \times 2$ muonic templates,
+        there are $3 \times 2$ muonic templates
         and $3 \times 2$ tauonic ones for a total of 12 \Dstst templates.
 \end{itemize}
 
 %%%%
 \paragraph{Muonic}
-The $D^{**}$ decays often contain unreconstructed \piz or $\gamma$ which leads
-to a broad \mmSq distribution peaking at smaller values $\approx m^2_\pion$,
-as shown in \cref{fig:dstst-mu-vs-d0-sig}.
-The \el spectrum is comparable, but typically softer, than that in normalization,
-due to $D^{**}$ states having higher masses compared to \Dz and \Dstar.
-These decays are suppressed at zero recoil, as discussed in
-\cref{ref:theory:ff-dstst},
-but translates weakly in the reconstructed \qSq spectrum, due to rest frame
-approximation (\cref{appx:rfa}) and definition of \qSq being
-$(p_B - p_D)^2$, instead of $(p_B - p_{D^{**}})^2$.
+The normalization factor of a \Dstst ``species'' $S$ in the \Dz channel is given by
+\begin{equation}
+    \fitNDmu \times \left\{
+         \times \fitNDststDz \times \fitBFDDS
+    \right\}
+\end{equation}
+where the allowed species are $D_0^*, D'_1, D_1, D_1\pi\pi, D_2^*$, and
+\begin{itemize}
+    \item $\fitNDststDz \equiv \frac{10^{-3}}{\mathcal{B}(\Bm \rightarrow \Dz\mun\neumb)}$
+        is a convenience factor so that the floating \fitBFDDS can be
+        interpreted as the branching fraction of $S$ multiplied by its selection
+        efficiency.
+\end{itemize}
 
-% FIXME: D** light fit model not understood well.
-An overall normalization is shared among all $D^{**}$ modes for \Dstar fit
-channel;
 Currently, the expected relative yields between each $D^{**}$ are
 taken from the run 1 analysis (\cite{LHCb-ANA-2020-056}),
 which are computed based on PDG branching fractions.
@@ -779,6 +780,18 @@ Note that the shared normalization factor
 $f^\text{nominal}_{D^{**}} \equiv 10^{-3} / \mathcal{B}(B \rightarrow D^{0,*}\mun\neumb)$
 is include so that the floating parameters may be read as a branching fractions
 times an efficiency directly.
+
+The $D^{**}$ muonic decays often contain unreconstructed \piz or $\gamma$ which
+leads to a broad \mmSq distribution peaking at smaller values
+$\approx m^2_\pion$,
+as shown in \cref{fig:dstst-mu}.
+The \el spectrum is comparable, but typically softer, than that in normalization,
+due to $D^{**}$ states having higher masses compared to \Dz and \Dstar.
+These decays are suppressed at zero recoil,
+but translates weakly in the reconstructed \qSq spectrum,
+due to rest frame approximation (\cref{appx:rfa}) and definition of \qSq being
+$(p_B - p_{D^{(*)}})^2$, instead of $(p_B - p_{D^{**}})^2$
+\cite{LHCb-ANA-2020-056}.
 
 \begin{figure}[!htb]
     %\begin{subfigure}{\textwidth}
@@ -790,7 +803,7 @@ times an efficiency directly.
     %\end{subfigure}
 
     \caption{Comparison between $D^{**}\mu$ and \Dz\taum signal templates.}
-    \label{fig:dstst-mu-vs-d0-sig}
+    \label{fig:dstst-mu}
 \end{figure}
 
 \paragraph{Tauonic}
@@ -806,6 +819,19 @@ Therefore, a Gaussian constraint with a width of 30\% is added,
 allowing the yields to float around the nominal values.
 The Gaussian constraint is shared among all $1P$ $D^{**}$ species within
 each fit channel (e.g. \Dz channel) but is distinct across channels.
+
+\begin{figure}[!htb]
+    %\begin{subfigure}{\textwidth}
+    %    \caption{
+    %        $\Bm \rightarrow \Dz\taum\neutb$ vs.
+    %        $\Bzb \rightarrow \Dstarp\taum\neutb$.
+    %    }
+    %    \label{fig:d0-sig-vs-dst-sig}
+    %\end{subfigure}
+
+    \caption{Comparison between $D^{**}\mu$ and \Dz\taum signal templates.}
+    \label{fig:dstst-tau}
+\end{figure}
 
 
 \subsection{Feed down through $B \rightarrow D_H^{**}(\rightarrow D^{(*)}\pi\pi)\mun\neumb$ modes}
