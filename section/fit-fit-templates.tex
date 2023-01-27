@@ -720,10 +720,11 @@ Comparisons between the signal templates are shown in
 \subsection{Feed down through $B \rightarrow D^{**}\ellm\neulb$ modes}
 \label{tmpl:dstst}
 
-The fit includes the following feed-down templates from 4 $1P$ $D^{**}$ states
-$D_0^*(2300)$, $D'_1(2430)$, $D_1(2420)$, $D_2^*(2460)$,
+The fit includes the following feed-down templates from four $1P$ $D^{**}$
+states $D_0^*(2300)$, $D'_1(2430)$, $D_1(2420)$, $D_2^*(2460)$,
 including both isospin pairs for each \Dstst,
-with the subscript indicating the total angular spin $J$ of the meson\footnote{
+with the subscript indicating the total angular momentum $J$ of the
+meson\footnote{
     Note that for $S = 1$ and $L = 1$, the allowed values for $J$ are
     $2, 1, 0$.
     That is, $1 \oplus 1 = 2 \otimes 1 \otimes 0$.
@@ -731,17 +732,29 @@ with the subscript indicating the total angular spin $J$ of the meson\footnote{
 
 \begin{itemize}
     \item \textbf{\Dz channel}:
+        All four states contribute.
+        Additionally, the $D_1$ state is reported to have the cascade decays
+        $D_1 \rightarrow D_0^* (\rightarrow \Dz \pi) \pi$;
+        events with such decay modes are put into the
+        $D_1 \rightarrow (\Dz \pi\pi)$ templates.
+        The $D_0^*$ is assumed to contribute exclusively to this channel due
+        to conservation of angular momentum.
 
+        Therefore, for the \Dz channel,
+        there are $(4+1) \times 2$ muonic templates where the factor 2 comes
+        from the isospin doublet (e.g. $D_0^{*0}$ and $D_0^{*+}$),
+        and $(4+1) \times 2$ tauonic ones for a total of 20 \Dstst templates.
+
+    \item \textbf{\Dstar channel}:
+        Only the $J = 1,2$ states contribute.
+        Also, no cascade decay of the form
+        $D^{**} \rightarrow D^{**} (\rightarrow \Dstar \pi) \pi$ is considered.
+        For this channel,
+        there are $3 \times 2$ muonic templates,
+        and $3 \times 2$ tauonic ones for a total of 12 \Dstst templates.
 \end{itemize}
 
-are included in the fit,
-with $10+10$ ($\mu+\tau$) templates in \Dz channel
-and $6+6$ in \Dstar.
-These $D^{**}$ decay into a \Dz either directly or in a
-cascade via a \Dstar or a lighter $D^{**}$,
-possibly producing two \emph{charged} \pion
-(hence the \Dz\pion\pion templates).
-
+%%%%
 \paragraph{Muonic}
 The $D^{**}$ decays often contain unreconstructed \piz or $\gamma$ which leads
 to a broad \mmSq distribution peaking at smaller values $\approx m^2_\pion$,
