@@ -490,9 +490,7 @@ are set to be the free-floating overall normalization for all MC templates of
 the respective fit channel.
 As a side note,
 the \Dz\muon template has notably softer \qSq spectrum compared to
-that of \Dstarp\muon due to reduced helicity states available in the
-$B \rightarrow D \ell \neulb$ transitions
-(discussed in \cref{ref:theory:ff-d0}),
+that of \Dstarp\muon,
 as shown in \cref{fig:d0-norm-vs-dst-norm}.
 
 The \Dstarp\muon mode also contributes to the \Dz channel due to feed down,
@@ -941,24 +939,50 @@ In both channels, the yield is given by
 where $\Omega$ refers to \cref{eqn:dstst-yield-d0} for \Dz channel,
 and \cref{eqn:dstst-yield-dst} for \Dstar channel.
 The \fitRDststRaw is based on the average between $\mathcal{R}(\Dstst_i)$,
-taken to be $\mathcal{R}(\Dstst)_\text{avg} = 0.12$ which is the valued used in
+taken to be $\mathcal{R}(\Dstst)_\text{avg} = 0.12$ which is the value used in
 the run 1 analysis,
 while also absorbing selection efficiencies.
 Each
 $\fitRDiRatio \equiv \frac{\mathcal{R}(\Dstst_i)}{\mathcal{R}(\Dstst)_\text{avg}}$
 is also taken from the previous analysis.
-The tauonic \Dstst templates are displayed in \cref{fig:dstst-tau}.
+Displayed in \ref{fig:dstst-tau},
+the tauonic \Dstst templates have harder \mmSq and \qSq spectra compared to the
+signal templates.
 
 \begin{figure}[!htb]
-    %\begin{subfigure}{\textwidth}
-    %    \caption{
-    %        $\Bm \rightarrow \Dz\taum\neutb$ vs.
-    %        $\Bzb \rightarrow \Dstarp\taum\neutb$.
-    %    }
-    %    \label{fig:d0-sig-vs-dst-sig}
-    %\end{subfigure}
+    \begin{subfigure}{\textwidth}
+        \centering
+        \includegraphics[width=0.3\textwidth]{figs-fit-fit-templates/histo-comp/D0_iso_D0Tau__vs__D0_iso_D1ststTau__vs__D0_iso_D1ststTauD0PiPi__vs__D0_iso_D0ststTau__m2miss.pdf}
+        \includegraphics[width=0.3\textwidth]{figs-fit-fit-templates/histo-comp/D0_iso_D0Tau__vs__D0_iso_D1ststTau__vs__D0_iso_D1ststTauD0PiPi__vs__D0_iso_D0ststTau__el.pdf}
+        \includegraphics[width=0.3\textwidth]{figs-fit-fit-templates/histo-comp/D0_iso_D0Tau__vs__D0_iso_D1ststTau__vs__D0_iso_D1ststTauD0PiPi__vs__D0_iso_D0ststTau__q2.pdf}
+        \caption{
+            $\textcolor{red}{\Bzb \rightarrow \D_1^+\taum\neutb}$
+            vs
+            $\textcolor{orange}{\Bzb \rightarrow \D_1^+ (\rightarrow \Dz\pi\pi) \taum\neutb}$
+            vs
+            $\textcolor{gray}{\Bzb \rightarrow \D_0^{*+}\taum\neutb}$.
+            All in \Dz channel.
+            The $\textcolor{blue}{\Bm \rightarrow \Dz\taum\neutb}$ is plotted
+            as a reference.
+        }
+    \end{subfigure}
 
-    \caption{Comparison between $D^{**}\mu$ and \Dz\taum signal templates.}
+    \begin{subfigure}{\textwidth}
+        \centering
+        \includegraphics[width=0.3\textwidth]{figs-fit-fit-templates/histo-comp/Dst_iso_DstTau__vs__Dst_iso_D1ststTau__vs__Dst_iso_D1pststTau__m2miss.pdf}
+        \includegraphics[width=0.3\textwidth]{figs-fit-fit-templates/histo-comp/Dst_iso_DstTau__vs__Dst_iso_D1ststTau__vs__Dst_iso_D1pststTau__el.pdf}
+        \includegraphics[width=0.3\textwidth]{figs-fit-fit-templates/histo-comp/Dst_iso_DstTau__vs__Dst_iso_D1ststTau__vs__Dst_iso_D1pststTau__q2.pdf}
+        \caption{
+            $\textcolor{red}{\Bzb \rightarrow \D_1^+\taum\neutb}$
+            vs
+            $\textcolor{orange}{\Bzb \rightarrow \D_1^{'+} \taum\neutb}$
+            vs reference
+            $\textcolor{magenta}{\Bzb \rightarrow \Dstarp\taum\neutb}$.
+            All in \Dstar channel.
+        }
+    \end{subfigure}
+
+    \caption{Comparison between tauonic \Dstst templates.}
     \label{fig:dstst-tau}
 \end{figure}
 
@@ -969,8 +993,9 @@ The heavy $D_H^{**}$ decay into either a \Dz or a \Dstar, with two additional
 \pion and one of them possibly uncharged.
 The fit variables are distributed similar to that in the lighter
 $D^{**}$ states.
-A comparison between the $D_H^{**}$ templates and \Dz\taum signal can be
-seen at \ref{fig:dstst-heavy-vs-d0-sig}
+Displayed in \ref{fig:dstst-heavy-vs-d0-sig},
+% the tauonic \Dstst templates have harder \mmSq and \qSq spectra compared to the
+% signal templates.
 
 \begin{figure}[!htb]
     %\begin{subfigure}{\textwidth}
