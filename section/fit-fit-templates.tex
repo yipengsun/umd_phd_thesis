@@ -779,7 +779,8 @@ where the allowed species are $D_0^*, D'_1, D_1, D_1\pi\pi, D_2^*$
         selection efficiency.
         \fitBFDDi is initially set around 1.
     \item ``$\text{expected fraction $\Dstst_i/\Dstst$}$'' is different
-        for \Bzb and \Bm modes:
+        for \Bm and \Bzb modes:
+
     \begin{itemize}
         \item \textbf{\Bm modes}:
             contains a single parameter \fitfDDi defined as
@@ -799,6 +800,7 @@ where the allowed species are $D_0^*, D'_1, D_1, D_1\pi\pi, D_2^*$
             $\mathcal{B}(\Dstarp \rightarrow \Dz X) \approx 67\%$.
             Currently, these values are taken from the run 1 pathfinder analysis
             \cite{LHCb-ANA-2020-056}.
+
         \item \textbf{\Bzb modes}:
             contains two parameters $\fitfDDi \times \epsilon_{\Dstst_i}$,
             where the second parameter is an efficiency ratio, defined as
@@ -813,6 +815,49 @@ where the allowed species are $D_0^*, D'_1, D_1, D_1\pi\pi, D_2^*$
     \end{itemize}
 \end{itemize}
 
+In the \Dstar channel, the normalization of $\Dstst_i$ is:
+\begin{equation}
+    \fitNmu \times \left\{
+        \underbrace{\fitBFDi \times \fitBFDstpi}_\text{two Gaussian constraints}
+        \times \fitNDststz \times
+        \text{expected fraction $\Dstst_i/\Dstst$}
+    \right\}
+\end{equation}
+where the allowed species are $D'_1, D_1, D_2^*$.
+The Gaussian systematic uncertainties on the branching fraction multiplied by
+(selection) isolation efficiency is split into two parameter:
+the correlated \fitBFDstpi and the uncorrelated \fitBFDi.
+The shared convenience factor \fitNDststz is defined similar to \fitNDststDz,
+with the branching fraction replaced by
+$\mathcal{B}(\Bzb \rightarrow \Dstarz \mun\neumb)$.
+Again, the ``expected fraction $\Dstst_i/\Dstst$'' is different between \Bm
+and \Bzb modes:
+\begin{itemize}
+    \item \textbf{\Bm modes}:
+        consists of two parameters:
+        \begin{equation}
+            \underbrace{
+                \mathcal{B}(\Bm \rightarrow \Dstst_i) \times
+                \frac{\epsilon(\Bm \rightarrow \Dstst\mu)_\text{avg}}{
+                    \epsilon(\Bzb \rightarrow \Dstst\mu)_\text{avg}
+                }
+            }_{\equiv \fitfDi}
+            \times \fitisolationsys
+        \end{equation}
+        where \fitisolationsys is an additional systematic uncertainty on
+        isolation efficiency because these modes are expected to have larger
+        yields.
+
+    \item \textbf{\Bzb modes}:
+        consists of two parameters:
+        \begin{equation}
+            \underbrace{\mathcal{B}(\Bzb \rightarrow \Dstst_i)}_{\equiv \fitfDi}
+            \times \frac{1}{2}
+        \end{equation}
+        where the second parameter comes from isospin relation
+        $\mathcal{B}(\Dstst \rightarrow \Dstarp\pim) /
+        \mathcal{B}(\Dstst \rightarrow \Dstarz\piz) = 1/2$.
+\end{itemize}
 
 The $D^{**}$ muonic decays often contain unreconstructed \piz or $\gamma$ which
 leads to a broad \mmSq distribution peaking at smaller values
