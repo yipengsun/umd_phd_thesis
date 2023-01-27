@@ -633,39 +633,39 @@ in the \Dstar channel,
 with the tilde emphasizing that the efficiencies are evaluated with the
 \Dstarp\muon selection cuts.
 
-due to feed down.
-The \Dz channel yield can be formally written as
+Its \Dz channel feed down yield can be formally written as
+\begin{align}
+    \fitNDmu \times & \Bigg\{
+        \overbrace{
+            \frac{
+                \mathcal{B}(\Bzb \rightarrow \Dstarp \mun\neumb)
+            }{
+                \mathcal{B}(\Bm \rightarrow \Dz \mun\neumb)
+            } \times \frac{
+                \epsilon(\Bzb \rightarrow \Dstarp \mun\neumb)
+            }{
+                \epsilon(\Bm \rightarrow \Dz \mun\neumb)
+        }}^{\equiv \fitDstISO \times \fitnormfd} \times
+    \nonumber \\
+        & \hphantom{\Bigg\{} \underbrace{\BRTauToMu \times \frac{
+            \epsilon(\Bzb \rightarrow \Dstarp \taum [\rightarrow \mun\neumb\neut] \neutb)
+        }{
+            \epsilon(\Bzb \rightarrow \Dstarp \mun\neumb)
+        }}_{\equiv \eta_{\Dstarp}\text{, which is not \fitRDstEff!}}
+        \times \RDst \Bigg\}
+\end{align}
+which can then be rewritten as
 \begin{equation}
     N_{\Dz\muon} \times \left\{
-        \RDstp \times \BRTauToMu \times
-        \frac{
-            \epsilon(\Bzb \rightarrow \Dstarp \taum [\rightarrow \mun\neumb\neut] \neutb)_{\Dz}
-        }{
-            \epsilon(\Bzb \rightarrow \Dstarp \mun\neumb)_{\Dz}
-        }
+        \RDst \times \fitRdDstScale \times \fitRDstEff \times \fitDstISO \times \fitnormfd
     \right\}
 \end{equation}
-where $\RDst \equiv \mathcal{R}(\Dstarp)$,
-and $\tilde{\eta}_{\Dstarp}$, defined as
-\begin{equation}
-    \tilde{\eta}_{\Dstarp} = \frac{
-        \mathcal{B}(\taum \rightarrow \mun\neumb\neut)
-        \epsilon{(\Bzb \rightarrow \Dstarp \taum (\rightarrow \mun\neumb\neut) \neutb)}
-    }{
-        \epsilon({\Bzb \rightarrow \Dstarp \mun \neumb})
-    }
-\end{equation}
-is the efficiency ratio between this signal mode and its corresponding
-normalization mode satis.
+noting that $\eta_{\Dstarp}$ is the efficiency ratio evaluated at the \Dz
+channel (also notice the lack of a tilde!) and the \BRTauToMu\ cancels in the
+second parameter inside the bracket above which is a ratio.
 
-with \RD and \RDstp controlling the fraction
-of yields compared to respective normalization yields.
-The signal distributions are characterized by high \mmSq and softer
-\el (due to \muon coming from a \tauon decay),
+
 as shown in \cref{fig:d0-sig-vs-d0-norm,fig:dst-sig-vs-dst-norm}.
-Also, the \Dz\tauon has a softer \qSq distribution, due to the same reason
-mentioned in the normalization comparison, which is displayed in
-\cref{fig:d0-sig-vs-dst-sig,fig:d0-sig-vs-dst0-sig}.
 
 \begin{figure}[!htb]
     \begin{subfigure}{\textwidth}
