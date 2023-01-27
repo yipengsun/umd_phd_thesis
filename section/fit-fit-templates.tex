@@ -874,15 +874,55 @@ $(p_B - p_{D^{(*)}})^2$, instead of $(p_B - p_{D^{**}})^2$
 \cite{LHCb-ANA-2020-056}.
 
 \begin{figure}[!htb]
-    %\begin{subfigure}{\textwidth}
-    %    \caption{
-    %        $\Bm \rightarrow \Dz\taum\neutb$ vs.
-    %        $\Bzb \rightarrow \Dstarp\taum\neutb$.
-    %    }
-    %    \label{fig:d0-sig-vs-dst-sig}
-    %\end{subfigure}
+    \begin{subfigure}{\textwidth}
+        \centering
+        \includegraphics[width=0.3\textwidth]{figs-fit-fit-templates/histo-comp/D0_iso_D0Tau__vs__D0_iso_D1ststMu__vs__D0_iso_D1ststMuD0PiPi__vs__D0_iso_D0ststMu__m2miss.pdf}
+        \includegraphics[width=0.3\textwidth]{figs-fit-fit-templates/histo-comp/D0_iso_D0Tau__vs__D0_iso_D1ststMu__vs__D0_iso_D1ststMuD0PiPi__vs__D0_iso_D0ststMu__el.pdf}
+        \includegraphics[width=0.3\textwidth]{figs-fit-fit-templates/histo-comp/D0_iso_D0Tau__vs__D0_iso_D1ststMu__vs__D0_iso_D1ststMuD0PiPi__vs__D0_iso_D0ststMu__q2.pdf}
+        \caption{
+            $\textcolor{red}{\Bzb \rightarrow \D_1^+\mun\neumb}$
+            vs
+            $\textcolor{orange}{\Bzb \rightarrow \D_1^+ (\rightarrow \Dz\pi\pi) \mun\neumb}$
+            vs
+            $\textcolor{gray}{\Bzb \rightarrow \D_0^{*+}\mun\neumb}$.
+            All in \Dz channel.
+            The $\textcolor{blue}{\Bm \rightarrow \Dz\taum\neutb}$ is plotted
+            as a reference.
+        }
+    \end{subfigure}
 
-    \caption{Comparison between $D^{**}\mu$ and \Dz\taum signal templates.}
+    % \begin{subfigure}{\textwidth}
+    %     \centering
+    %     \includegraphics[width=0.3\textwidth]{figs-fit-fit-templates/histo-comp/D0_iso_D0Tau__vs__D0_iso_D1stst0Mu__vs__D0_iso_D1stst0MuD0PiPi__vs__D0_iso_D0stst0Mu__m2miss.pdf}
+    %     \includegraphics[width=0.3\textwidth]{figs-fit-fit-templates/histo-comp/D0_iso_D0Tau__vs__D0_iso_D1stst0Mu__vs__D0_iso_D1stst0MuD0PiPi__vs__D0_iso_D0stst0Mu__el.pdf}
+    %     \includegraphics[width=0.3\textwidth]{figs-fit-fit-templates/histo-comp/D0_iso_D0Tau__vs__D0_iso_D1stst0Mu__vs__D0_iso_D1stst0MuD0PiPi__vs__D0_iso_D0stst0Mu__q2.pdf}
+    %     \caption{
+    %         $\textcolor{red}{\Bm \rightarrow \D_1^0\mun\neumb}$
+    %         vs
+    %         $\textcolor{orange}{\Bm \rightarrow \D_1^0 (\rightarrow \Dz\pi\pi) \mun\neumb}$
+    %         vs
+    %         $\textcolor{gray}{\Bm \rightarrow \D_0^{*0}\mun\neumb}$
+    %         vs reference
+    %         $\textcolor{blue}{\Bm \rightarrow \Dz\taum\neutb}$.
+    %     }
+    % \end{subfigure}
+
+    \begin{subfigure}{\textwidth}
+        \centering
+        \includegraphics[width=0.3\textwidth]{figs-fit-fit-templates/histo-comp/Dst_iso_DstTau__vs__Dst_iso_D1ststMu__vs__Dst_iso_D1pststMu__m2miss.pdf}
+        \includegraphics[width=0.3\textwidth]{figs-fit-fit-templates/histo-comp/Dst_iso_DstTau__vs__Dst_iso_D1ststMu__vs__Dst_iso_D1pststMu__el.pdf}
+        \includegraphics[width=0.3\textwidth]{figs-fit-fit-templates/histo-comp/Dst_iso_DstTau__vs__Dst_iso_D1ststMu__vs__Dst_iso_D1pststMu__q2.pdf}
+        \caption{
+            $\textcolor{red}{\Bzb \rightarrow \D_1^+\mun\neumb}$
+            vs
+            $\textcolor{orange}{\Bzb \rightarrow \D_1^{'+} \mun\neumb}$
+            vs reference
+            $\textcolor{magenta}{\Bzb \rightarrow \Dstarp\taum\neutb}$.
+            All in \Dstar channel.
+        }
+    \end{subfigure}
+
+    \caption{Comparison between muonic \Dstst templates.}
     \label{fig:dstst-mu}
 \end{figure}
 
@@ -893,7 +933,7 @@ fraction to their muonic counterparts individually.
 In both channels, the yield is given by
 \begin{equation}
     \Omega \times \fitRDststRaw \times \fitRDiRatio \times \left[
-        \underbrace{\text{\fitRDDstst for \Dz chan, \fitRDstst for \Dst chan}}_\text{
+        \underbrace{\text{\fitRDDstst for \Dz chan, \fitRDstst for \Dstar chan}}_\text{
             a Gaussian constraint with a $\sigma = 0.33$
         }
     \right]
