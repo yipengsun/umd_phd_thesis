@@ -760,14 +760,16 @@ meson\footnote{
 
 %%%%
 \paragraph{Muonic}
-The normalization factor of a \Dstst ``species'' $i$ in the \Dz channel is given by
+The normalization factor of a \Dstst ``species'' $i$ in the \Dz channel is given
+by
 \begin{equation}
     \fitNDmu \times \left\{
         \fitisoDi \times \fitNDststDz \times \fitBFDDi \times
         \text{expected fraction $\Dstst_i/\Dstst$}
     \right\}
 \end{equation}
-where the allowed species are $D_0^*, D'_1, D_1, D_1\pi\pi, D_2^*$, and
+where the allowed species are $D_0^*, D'_1, D_1, D_1\pi\pi, D_2^*$
+(both isospins), and
 \begin{itemize}
     \item \fitisoDi is a Gaussian isospin constraint initially set to 1
         with a $\sigma = 0.5$.
@@ -776,18 +778,41 @@ where the allowed species are $D_0^*, D'_1, D_1, D_1\pi\pi, D_2^*$, and
         interpreted as the branching fraction of $\Dstst_i$ multiplied by its
         selection efficiency.
         \fitBFDDi is initially set around 1.
-    \item ``$\text{expected fraction $\Dstst_i/\Dstst$}$''
+    \item ``$\text{expected fraction $\Dstst_i/\Dstst$}$'' is different
+        for \Bzb and \Bm modes:
+    \begin{itemize}
+        \item \textbf{\Bm modes}:
+            contains a single parameter \fitfDDi defined as
+            \begin{equation}
+                \fitfDDi = \mathcal{B}(\Bm \rightarrow \Dstst_i) \times
+                \frac{
+                    \epsilon(\Bm \rightarrow \Dstst\mu)_\text{avg}
+                }{
+                    \epsilon(\Bm \rightarrow \Dz\mu)_\text{avg}
+                }
+            \end{equation}
+            where the branching fraction is computed by accounting for the
+            relevant $B \rightarrow \Dstst \rightarrow D$ and
+            $B \rightarrow \Dstst \rightarrow \Dstar \rightarrow D$ decay chains,
+            assuming
+            $\mathcal{B}(\Dstarz \rightarrow \Dz X) \approx 100\%$ and
+            $\mathcal{B}(\Dstarp \rightarrow \Dz X) \approx 67\%$.
+            Currently, these values are taken from the run 1 pathfinder analysis
+            \cite{LHCb-ANA-2020-056}.
+        \item \textbf{\Bzb modes}:
+            contains two parameters $\fitfDDi \times \epsilon_{\Dstst_i}$,
+            where the second parameter is an efficiency ratio, defined as
+            \begin{equation}
+                \epsilon_{\Dstst_i} =
+                \frac{
+                    \epsilon(\Bzb \rightarrow \Dstst_i\mu)
+                }{
+                    \epsilon(\Bm \rightarrow \Dstst\mu)_\text{avg}
+                }
+            \end{equation}
+    \end{itemize}
 \end{itemize}
 
-Currently, the expected relative yields between each $D^{**}$ are
-taken from the run 1 analysis (\cite{LHCb-ANA-2020-056}),
-which are computed based on PDG branching fractions.
-These branching fractions are multiplied by average isolation efficiencies
-for each \B meson type which are found in MC.
-Note that the shared normalization factor
-$f^\text{nominal}_{D^{**}} \equiv 10^{-3} / \mathcal{B}(B \rightarrow D^{0,*}\mun\neumb)$
-is include so that the floating parameters may be read as a branching fractions
-times an efficiency directly.
 
 The $D^{**}$ muonic decays often contain unreconstructed \piz or $\gamma$ which
 leads to a broad \mmSq distribution peaking at smaller values
