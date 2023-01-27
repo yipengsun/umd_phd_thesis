@@ -990,7 +990,27 @@ signal templates.
 \subsection{Feed down through $B \rightarrow D_H^{**}(\rightarrow D^{(*)}\pi\pi)\mun\neumb$ modes}
 
 The heavy $D_H^{**}$ decay into either a \Dz or a \Dstar, with two additional
-\pion and one of them possibly uncharged.
+\pion, one of them possibly uncharged.
+The \Dstarp events contribute to both channels while the \Dstarz only to the \Dz
+channel.
+These decay modes are not well measured, and a cocktail MC is used so that
+the relative fractions between the $D_H^{**}$ are fixed at simulation level.
+The yield of $D_H^{**} \rightarrow D_i$, essentially unconstrained, is defined
+similarly for both channels:
+\begin{equation}
+    N_\text{ch ref} \times \left\{
+        n_\text{scale} \times f_{D_i}
+        \underbrace{(\times f_\text{guess})}_\text{
+            only present in \Dz channel. A fixed parameter.
+        }
+    \right\}
+\end{equation}
+where $D_i$ can be a \Dz, a \Dstarz, or a \Dstarp.
+Depend on the context,
+$N_\text{ch ref} = \fitNDmu \text{ or } \fitNmu$ and
+$n_\text{scale} = \fitNDststDz \text{ or } \fitNDststz$.
+The parameter $f_\text{guess}$, exclusive to the \Dz channel, is a guess.
+
 The fit variables are distributed similar to that in the lighter
 $D^{**}$ states.
 Displayed in \ref{fig:dstst-heavy-vs-d0-sig},
