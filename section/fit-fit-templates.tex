@@ -22,11 +22,11 @@ These normalization factors are color-coded as:
         also implemented with the \smalltt{NormFactor}.
     \item \textbf{\textcolor{blue}{blue}}:
         a factor with a Gaussian constraint
-        where the nominal value is $\mu$ and the standard deviation $\sigma$.
+        where the nominal value is 1 and the standard deviation $\sigma$.
         The fitter reports the \emph{variation} of the factor with an $\alpha$
-        parameter such that when the underlying parameter is at the nominal
-        value $\mu$, the associated $\alpha = 0$;
-        when the underlying parameter is at $\mu \pm \sigma$, the $\alpha = \pm 1$.
+        parameter such that when the underlying parameter is at 1,
+        the associated $\alpha = 0$;
+        when the underlying parameter is at $1 \pm \sigma$, the $\alpha = \pm 1$.
         Implemented with a \HistFactory\ \smalltt{OverallSys}.
     \item \textbf{\textcolor{magenta}{magenta}}:
         a fixed \smalltt{OverallSys} factor.
@@ -757,18 +757,23 @@ meson\footnote{
 
 %%%%
 \paragraph{Muonic}
-The normalization factor of a \Dstst ``species'' $S$ in the \Dz channel is given by
+The normalization factor of a \Dstst ``species'' $i$ in the \Dz channel is given by
 \begin{equation}
     \fitNDmu \times \left\{
-         \times \fitNDststDz \times \fitBFDDS
+        \fitisoDi \times \fitNDststDz \times \fitBFDDi \times
+        \text{expected fraction $\Dstst_i/\Dstst$}
     \right\}
 \end{equation}
 where the allowed species are $D_0^*, D'_1, D_1, D_1\pi\pi, D_2^*$, and
 \begin{itemize}
+    \item \fitisoDi is a Gaussian isospin constraint initially set to 1
+        with a $\sigma = 0.5$.
     \item $\fitNDststDz \equiv \frac{10^{-3}}{\mathcal{B}(\Bm \rightarrow \Dz\mun\neumb)}$
-        is a convenience factor so that the floating \fitBFDDS can be
-        interpreted as the branching fraction of $S$ multiplied by its selection
-        efficiency.
+        is a shared convenience factor so that the floating \fitBFDDi can be
+        interpreted as the branching fraction of $\Dstst_i$ multiplied by its
+        selection efficiency.
+        \fitBFDDi is initially set around 1.
+    \item ``$\text{expected fraction $\Dstst_i/\Dstst$}$''
 \end{itemize}
 
 Currently, the expected relative yields between each $D^{**}$ are
