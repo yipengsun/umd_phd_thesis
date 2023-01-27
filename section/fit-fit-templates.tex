@@ -763,10 +763,11 @@ meson\footnote{
 The normalization factor of a \Dstst ``species'' $i$ in the \Dz channel is given
 by
 \begin{equation}
-    \fitNDmu \times \left\{
+    \Omega_{\Dstst}^0 \equiv \fitNDmu \times \left\{
         \fitisoDi \times \fitNDststDz \times \fitBFDDi \times
         \text{expected fraction $\Dstst_i/\Dstst$}
     \right\}
+    \label{eqn:dstst-yield-d0}
 \end{equation}
 where the allowed species are $D_0^*, D'_1, D_1, D_1\pi\pi, D_2^*$
 (both isospins), and
@@ -817,15 +818,16 @@ where the allowed species are $D_0^*, D'_1, D_1, D_1\pi\pi, D_2^*$
 
 In the \Dstar channel, the normalization of $\Dstst_i$ is:
 \begin{equation}
-    \fitNmu \times \left\{
+    \Omega_{\Dstst}^* \equiv \fitNmu \times \left\{
         \underbrace{\fitBFDi \times \fitBFDstpi}_\text{two Gaussian constraints}
         \times \fitNDststz \times
         \text{expected fraction $\Dstst_i/\Dstst$}
     \right\}
+    \label{eqn:dstst-yield-dst}
 \end{equation}
 where the allowed species are $D'_1, D_1, D_2^*$.
 The Gaussian systematic uncertainties on the branching fraction multiplied by
-(selection) isolation efficiency is split into two parameter:
+(selection) isolation efficiency is split into two parameters:
 the correlated \fitBFDstpi and the uncorrelated \fitBFDi.
 The shared convenience factor \fitNDststz is defined similar to \fitNDststDz,
 with the branching fraction replaced by
