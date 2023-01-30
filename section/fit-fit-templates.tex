@@ -1054,17 +1054,31 @@ The $D_H^{**}\mu$ templates are plotted in
 \subsection{Feed down through $\Bsb \rightarrow \DststS\mun\neumb$ modes}
 
 The contributions from the semileptonic \Bsb decays are accounted for via
-the $\Bsb \rightarrow D_{s1}^{'+}\mu$ and
-$\Bsb \rightarrow D_{s2}^{*+}\mu$ templates.
-Both of the \DststS mesons decay to a \Dstarp\Kz pair which contributes to
-both fit channels.
-The yields in the \Dz channel are constrained separately:
+the $\Bsb \rightarrow D_{s1}^{'+} (\rightarrow (\Dstarp\Kz|\Dstarz\Kp))\mun$ and
+$\Bsb \rightarrow D_{s2}^{*+} (\rightarrow (\Dstarp\Kz|\Dstarz\Kp|\Dz\Kp))\mu$
+decays.
+The \Dstarp\Kz\mun modes contribute to both channels whereas the
+rest to the \Dz channel only.
+With two templates for each fit channel,
+the \Dz channel templates are cocktails.
+The yields in the \Dz channel are constrained separately for each
+$\DststS_i$ species:
 \begin{equation}
     \fitNDmu \times \left\{
-        \fitNDststDz \times \mathcal{B}_{\DststS} \times \fitfsfd \times
-        N_{\DststS}
+        \fitfsfd \times \fitNDststDz \times \mathcal{B}_{{\DststS}_i} \times
+        N_{{\DststS}_i}
     \right\}
 \end{equation}
+where $\fitfsfd = 2.6$ (the latest measured value is 2.4 at 13~TeV) accounts for
+the production ratio between \Bzb and \Bsb mesons,
+$\mathcal{B}_{\DststS_i}$ is a Gaussian constraint with a 40\% uncertainty,
+and $N_{\DststS_i}$ is the expected yield based on measured branching fractions
+and selection efficiencies from MC.
+
+The \Dstar channel yields for both templates are constrained within 24\%
+of the expected yield of $D_{s1}^{'+}\mun$,
+with an additional factor $\fitftwofonep = 0.3$ to account for the relative
+yields for the $D_{s2}^{*+}$ template.
 
 A comparison between the $D_s^{**}$ templates and \Dz\taum signal can be
 seen at \cref{fig:d_s-vs-d0-sig}.
