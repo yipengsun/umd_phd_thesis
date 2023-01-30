@@ -928,7 +928,7 @@ $(p_B - p_{D^{(*)}})^2$, instead of $(p_B - p_{D^{**}})^2$
 \paragraph{Tauonic}
 As in run 1, the yields of  tauonic $D^{**}$ decays are constrained as a
 fraction to their muonic counterparts individually.
-In both channels, the yield is given by
+In both channels, the yield with a loose 33\% constraint is given by
 \begin{equation}
     \Omega \times \fitRDststRaw \times \fitRDiRatio \times \left[
         \underbrace{\text{\fitRDDstst for \Dz chan, \fitRDstst for \Dstar chan}}_\text{
@@ -1051,14 +1051,21 @@ The $D_H^{**}\mu$ templates are plotted in
 \end{figure}
 
 
-\subsection{Feed down through $\Bsb \rightarrow D_s^{**}\mun\neumb$ modes}
+\subsection{Feed down through $\Bsb \rightarrow \DststS\mun\neumb$ modes}
 
-The $D_s^{**}$\footnote{
-    More specifically, the $D_{s1}^{'+}$ and $D_{s2}^{*+}$ are included in
-    this analysis.
-}, daughter of \Bsb, decays into either a $\Kp\Dz$ or $\Kz\Dstarp$.
-The former feeds into \Dz channel, whereas the latter feeds into both.
-These modes are constrained based on available measurements.
+The contributions from the semileptonic \Bsb decays are accounted for via
+the $\Bsb \rightarrow D_{s1}^{'+}\mu$ and
+$\Bsb \rightarrow D_{s2}^{*+}\mu$ templates.
+Both of the \DststS mesons decay to a \Dstarp\Kz pair which contributes to
+both fit channels.
+The yields in the \Dz channel are constrained separately:
+\begin{equation}
+    \fitNDmu \times \left\{
+        \fitNDststDz \times \mathcal{B}_{\DststS} \times \fitfsfd \times
+        N_{\DststS}
+    \right\}
+\end{equation}
+
 A comparison between the $D_s^{**}$ templates and \Dz\taum signal can be
 seen at \cref{fig:d_s-vs-d0-sig}.
 
