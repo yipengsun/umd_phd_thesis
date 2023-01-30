@@ -1075,8 +1075,8 @@ $\mathcal{B}_{{\DststS}_i}$ is a Gaussian constraint with a 40\% uncertainty,
 and $N_{{\DststS}_i}$ is the expected yield based on measured branching fractions
 and selection efficiencies from MC.
 
-The \Dstar channel yields for both templates are constrained within 24\%
-of the expected yield of $D_{s1}^{'+}\mun$,
+The \Dstar channel yields for both templates are constrained with a Gaussian of
+a width of 24\% of the expected yield of $D_{s1}^{'+}\mun$,
 with an additional factor $\fitftwofonep = 0.3$ to account for the relative
 yields for the $D_{s2}^{*+}$ template.
 
@@ -1149,6 +1149,8 @@ Both muonic and tauonic $DDX$ fit templates have kinematic variables that
 distribute similarly to that of the signal templates,
 as can be seen in \cref{fig:ddx-templates}.
 This is because a large portion of the decay chain is not reconstructed.
+All $DDX$ fit templates are cocktails with their relative branching fractions
+fixed at simulation time.
 
 \begin{figure}[!htb]
     %\begin{subfigure}{\textwidth}
@@ -1163,15 +1165,40 @@ This is because a large portion of the decay chain is not reconstructed.
     \label{fig:ddx-templates}
 \end{figure}
 
-%%%%
-The relative fractions for the muonic modes are fixed from known branching
-fractions at MC generation level.
-There is an additional degree of freedom on relative yields between \Bm and \Bzb
-with a Gaussian constrain.
-Similar to $1P$ $D^{**}$ tauonic modes,
-the $DDX$ tauonic modes are constrained near the relative branching fractions
-(\tauon vs. \muon) with a 30\% Gaussian variation,
-without any degree of freedom on relative yields between \Bm and \Bzb.
+\paragraph{Muonic}
+The yield of muonic $DDX$ templates are weakly constrained and are of the same
+form for both fit channels:
+\begin{equation}
+    N_\text{ch ref} \times \left\{
+        \fitDDXuvsd \times f_{DDX,q} \times \fitfDDX
+    \right\}
+\end{equation}
+where $f_{DDX,q}$ is the expected fraction of $DDX$ yield for a $B$ meson type;
+for example, for \Bzb meson,
+$f_{DDX,q} = \fitfdDDX =
+\frac{\mathcal{B}(\Bzb \rightarrow DDX) \times \epsilon(\Bzb \rightarrow DDX)}{
+\mathcal{B}(\Bzb \rightarrow DDX) \times \epsilon(\Bzb \rightarrow DDX) +
+\mathcal{B}(\Bm \rightarrow DDX) \times \epsilon(\Bm \rightarrow DDX)
+}$
+where the branching fractions are deduced from MC specifications.
+\fitDDXuvsd is a fixed correction to the expected fraction and is obtained from
+the control fit.
+\fitfDDX is a free-floating parameter.
+
+\paragraph{Tauonic}
+The tauonic $DDX$ yields are again of the same form for both channels:
+\begin{equation}
+    N_\text{ch ref} \times \left\{
+        \fitDDXuvsd \times f_{DDX,q,\tau} \times \fitfDDX \times
+        \underbrace{
+            f_{DDX,\tau} \times \rho_\text{isolation,\tauon}
+        }_\text{add. parameters}
+    \right\}
+\end{equation}
+where $f_{DDX,\tau}$ is the expected fraction of yields for \tauon:
+$f_{DDX,\tau} = \frac{\text{expected \tauon yield}}{\text{expected \muon yield}}$,
+and $\rho_\text{isolation,\tauon}$ is a Gaussian constraint to the expected
+fraction with a width of 30\%.
 
 
 \input{fit-tab-norm-factors.tex}
