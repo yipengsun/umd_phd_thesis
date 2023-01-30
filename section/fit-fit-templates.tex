@@ -1123,26 +1123,32 @@ Comparisons between the $D_s^{**}\mun$ templates can be seen at
 \label{ref:fit:tmpl:ddx}
 
 The double-charm backgrounds include contributions from
-$B \rightarrow D^{(*)}(\rightarrow \mun\neumb)\bar{D}^{(*)} X$ decays, where $X$
-is either a \kaon, a \Kstar, or a higher \Kstar resonance.
-The $DDX$ are poorly understood as these MC are generated with
-a phase space model so generated events are distributed evenly in the available
-phase space, without taking the resonance structure,
+$B \rightarrow D^{(*)} D_s^{(*)} (\rightarrow X' l\neulb)$ and
+$B \rightarrow D^{(*)} (\rightarrow X' l\neumb) \overline{D}^{(*)} X$
+decays,
+where $X$ is either a \kaon, a \Kstar, or a higher \Kstar resonance.
+For example, a muonic $DDX$ event may come from the following decay chain:
+$\Bz \rightarrow \Dstarm \Dm (\rightarrow \Kz\mun\neumb) \Kzb$,
+whereas a tauonic one from
+$\Bz \rightarrow \Dstarp \Dsm (\rightarrow \taum\neutb)$.
+%%%%
+These $DDX$ decays are poorly understood, with the MC samples generated with
+a phase space model for the $B \rightarrow DDX$ decays so generated events are
+distributed evenly in the available phase space, without taking the resonance
+structure,
 which itself is not precisely known for $n \geq 3$-body decays,
 of the Dalitz plane into account.
-Additionally, the $D \rightarrow X \ell\neulb$ decay form factors are
-parameterized with the quark-model of ISGW2,
-which is known to unable describe data sufficiently well\footnote{
+Additionally, the $D^{(*)} \rightarrow X' l\neulb$ decay form factors are
+parameterized with ISGW2, based on a quark model,
+which is known to describe data insufficiently\footnote{
     As commented in \cite{LHCb-ANA-2020-056}:
     ``In the current literature it is found that single-pole-dominance provides
     a much better description of the data than quark-model calculations.''
 }.
-More details regarding the variations will be discussed in
-\cref{ref:fit:var:ddx}.
-Both muonic and tauonic $DDX$ templates are similar to the signal templates,
-as can be seen in \cref{fig:ddx-vs-d0-sig}.
-This is due to the fact that a large portion of energy is taken by the
-unreconstructed $D$ meson.
+Both muonic and tauonic $DDX$ fit templates have kinematic variables that
+distribute similarly to that of the signal templates,
+as can be seen in \cref{fig:ddx-templates}.
+This is because a large portion of the decay chain is not reconstructed.
 
 \begin{figure}[!htb]
     %\begin{subfigure}{\textwidth}
@@ -1153,11 +1159,11 @@ unreconstructed $D$ meson.
     %    \label{fig:d0-sig-vs-dst-sig}
     %\end{subfigure}
 
-    \caption{Comparison between $DDX$ and \Dz\taum signal templates.}
-    \label{fig:ddx-vs-d0-sig}
+    \caption{Comparison between $DDX$ templates.}
+    \label{fig:ddx-templates}
 \end{figure}
 
-
+%%%%
 The relative fractions for the muonic modes are fixed from known branching
 fractions at MC generation level.
 There is an additional degree of freedom on relative yields between \Bm and \Bzb
