@@ -1145,21 +1145,41 @@ which is known to describe data insufficiently\footnote{
     ``In the current literature it is found that single-pole-dominance provides
     a much better description of the data than quark-model calculations.''
 }.
-Both muonic and tauonic $DDX$ fit templates have kinematic variables that
-distribute similarly to that of the signal templates,
+Both muonic and tauonic $DDX$ fit templates have large \mSq,
+similar to that of the signal,
 as can be seen in \cref{fig:ddx-templates}.
 This is because a large portion of the decay chain is not reconstructed.
 All $DDX$ fit templates are cocktails with their relative branching fractions
 fixed at simulation time.
 
 \begin{figure}[!htb]
-    %\begin{subfigure}{\textwidth}
-    %    \caption{
-    %        $\Bm \rightarrow \Dz\taum\neutb$ vs.
-    %        $\Bzb \rightarrow \Dstarp\taum\neutb$.
-    %    }
-    %    \label{fig:d0-sig-vs-dst-sig}
-    %\end{subfigure}
+    \begin{subfigure}{\textwidth}
+        \centering
+        \includegraphics[width=0.3\textwidth]{figs-fit-fit-templates/histo-comp/D0_iso_D0Tau__vs__D0_iso_dDDMu__vs__D0_iso_dDDTau__m2miss.pdf}
+        \includegraphics[width=0.3\textwidth]{figs-fit-fit-templates/histo-comp/D0_iso_D0Tau__vs__D0_iso_dDDMu__vs__D0_iso_dDDTau__el.pdf}
+        \includegraphics[width=0.3\textwidth]{figs-fit-fit-templates/histo-comp/D0_iso_D0Tau__vs__D0_iso_dDDMu__vs__D0_iso_dDDTau__q2.pdf}
+        \caption{
+            $\textcolor{red}{\Bzb \rightarrow D D X (\rightarrow X'\mun\neumb)}$
+            vs
+            $\textcolor{orange}{\Bzb \rightarrow D D X (\rightarrow X'\taum\neutb)}$
+            vs reference
+            $\textcolor{blue}{\Bm \rightarrow \Dz\taum\neutb}$.
+        }
+    \end{subfigure}
+
+    \begin{subfigure}{\textwidth}
+        \centering
+        \includegraphics[width=0.3\textwidth]{figs-fit-fit-templates/histo-comp/Dst_iso_DstTau__vs__Dst_iso_dDDMu__vs__D0_iso_dDDTau__m2miss.pdf}
+        \includegraphics[width=0.3\textwidth]{figs-fit-fit-templates/histo-comp/Dst_iso_DstTau__vs__Dst_iso_dDDMu__vs__D0_iso_dDDTau__el.pdf}
+        \includegraphics[width=0.3\textwidth]{figs-fit-fit-templates/histo-comp/Dst_iso_DstTau__vs__Dst_iso_dDDMu__vs__D0_iso_dDDTau__q2.pdf}
+        \caption{
+            $\textcolor{red}{\Bzb \rightarrow D D X (\rightarrow X'\mun\neumb)}$
+            vs
+            $\textcolor{orange}{\Bzb \rightarrow D D X (\rightarrow X'\taum\neutb)}$
+            vs reference
+            $\textcolor{blue}{\Bzb \rightarrow \Dstarp\taum\neutb}$.
+        }
+    \end{subfigure}
 
     \caption{Comparison between $DDX$ templates.}
     \label{fig:ddx-templates}
