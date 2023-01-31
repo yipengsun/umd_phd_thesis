@@ -119,6 +119,8 @@ allowing it to vary with a pre-set uncertainty around the fixed yield.
     \end{subfigure}
     \caption{
         Comparisons between misID templates.
+        The misID templates are normalized so that only shape comparisons are
+        meaningful.
     }
     \label{fig:misid-vs-sig}
 \end{figure}
@@ -271,8 +273,9 @@ A more detailed description of the unfolding procedure is documented in
         fit variables.
         The dominate contributions to the ``real'' muon samples are from
         \pion-like and ghost-like tracks.
-        The binning are finer compared to \cref{fig:misid-vs-sig}. Actual
-        yields are displayed without any rescaling.
+        The binning are finer compared to \cref{fig:misid-vs-sig}.
+        No isolation cut applied.
+        Actual yields are displayed without any rescaling.
     }
     \label{fig:unfolding-fit-vars}
 \end{figure}
@@ -1160,7 +1163,7 @@ which is known to describe data insufficiently\footnote{
     ``In the current literature it is found that single-pole-dominance provides
     a much better description of the data than quark-model calculations.''
 }.
-Both muonic and tauonic $DDX$ fit templates have large \mSq,
+Both muonic and tauonic $DDX$ fit templates have large \mmSq,
 similar to that of the signal,
 as can be seen in \cref{fig:ddx-templates}.
 This is because a large portion of the decay chain is not reconstructed.
