@@ -35,10 +35,6 @@ These normalization factors are color-coded as:
 \end{itemize}
 
 
-\input{fit-tab-template-overview.tex}
-\input{fit-tab-norm-factors.tex}
-
-
 The data-driven templates,
 namely \muon misID and combinatorial background templates,
 are discussed first in \cref{ref:fit:tmpl:misid,ref:fit:tmpl:comb}.
@@ -58,7 +54,6 @@ form factor reweighting (\cref{ref:mc-cor:ff}, whenever applicable),
 and corrections to detector responses (\cref{ref:mc-cor:init,ref:mc-cor:final})
 are also applied according to \cref{eqn:mc-wts},
 with weight-capping strategy specified as:
-
 \begin{equation}
     w_\text{tot} = \underbrace{\left(
             w_\text{trigger} \cdot w_\text{PID} \cdot
@@ -78,6 +73,10 @@ with weight-capping strategy specified as:
 \end{equation}
 
 
+\input{fit-tab-template-overview.tex}
+\input{fit-tab-norm-factors.tex}
+
+
 \subsection{Muon misID backgrounds}
 \label{ref:fit:tmpl:misid}
 
@@ -87,8 +86,15 @@ representing contributions from non-\muon tracks passing the \muon
 identification requirements in ``real'' \muon samples,
 are generated from the fake \muon control sample
 (as in \cref{ref:sel:data:fake-mu}) with an unfolding technique.
-First conceived in \cite{LHCb-ANA-2016-059}, the unfolding technique
-consists of the following steps:
+For \emph{all} data-driven fit templates,
+their yields are defined as following:
+
+\begin{equation}
+    \rho_\text{data-driven} \times N_\text{data-driven}
+\end{equation}
+where $N_\text{data-driven}$ is the fixed measured yield from the control sample,
+and $\rho_\text{data-driven}$ is a Gaussian constraint to the fixed yield
+allowing it to vary with a 10\% uncertainty.
 
 \begin{figure}[!htb]
     \centering
@@ -107,12 +113,13 @@ consists of the following steps:
     \end{subfigure}
 
     \caption{
-        Comparison between misID and the signal templates in their
-        respective channel.
+        Comparisons between misID templates.
     }
     \label{fig:misid-vs-sig}
 \end{figure}
 
+First conceived in \cite{LHCb-ANA-2016-059}, the unfolding technique
+consists of the following steps:
 \begin{enumerate}
     \item Tag the fake \muon sample into $\pi$, $K$, $p$,
         $e$, and ghost\footnote{
