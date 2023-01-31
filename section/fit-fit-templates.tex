@@ -33,7 +33,6 @@ These normalization factors are color-coded as:
         loaded as a \emph{fixed} factor in the signal fit.
 \end{itemize}
 
-
 The data-driven templates,
 namely \muon misID and combinatorial background templates,
 are discussed first in \cref{ref:fit:tmpl:misid,ref:fit:tmpl:comb}.
@@ -79,13 +78,11 @@ with weight-capping strategy specified as:
 \subsection{Muon misID backgrounds}
 \label{ref:fit:tmpl:misid}
 
-The \muon misID templates,
+The \muon misID fit templates,
 shown in \cref{fig:misid-vs-sig},
-representing contributions from non-\muon tracks passing the \muon
-identification requirements in ``real'' \muon samples,
-are generated from the fake \muon control sample
-(as in \cref{ref:sel:data:fake-mu}) with an unfolding technique.
-For \emph{all} data-driven fit templates,
+represent contributions from non-\muon tracks passing the \muon
+identification requirements in ``real'' \muon samples.
+For \emph{all} data-driven fit templates, misID included,
 their yields are defined as following:
 
 \begin{equation}
@@ -96,27 +93,39 @@ and $\rho_\text{data-driven}$ is a Gaussian constraint to the fixed yield
 allowing it to vary with a pre-set uncertainty.
 
 \begin{figure}[!htb]
-    \centering
-    \begin{subfigure}{0.9\textwidth}
+    \begin{subfigure}{\textwidth}
         \centering
+        \includegraphics[width=0.3\textwidth]{figs-fit-fit-templates/histo-comp/D0_iso_D0Tau__vs__D0_iso_misID__m2miss.pdf}
+        \includegraphics[width=0.3\textwidth]{figs-fit-fit-templates/histo-comp/D0_iso_D0Tau__vs__D0_iso_misID__el.pdf}
+        \includegraphics[width=0.3\textwidth]{figs-fit-fit-templates/histo-comp/D0_iso_D0Tau__vs__D0_iso_misID__q2.pdf}
         \caption{
-            \muon misID vs. $\Bm \rightarrow \Dz\taum\neutb$ in \Dz channel.
+            \textcolor{red}{MisID} vs
+            reference
+            $\textcolor{blue}{\Bm \rightarrow \Dz\taum\neutb}$
+            fit template in \Dz channel.
         }
     \end{subfigure}
 
-    \begin{subfigure}{0.9\textwidth}
+    \begin{subfigure}{\textwidth}
         \centering
+        \includegraphics[width=0.3\textwidth]{figs-fit-fit-templates/histo-comp/Dst_iso_DstTau__vs__Dst_iso_misID__m2miss.pdf}
+        \includegraphics[width=0.3\textwidth]{figs-fit-fit-templates/histo-comp/Dst_iso_DstTau__vs__Dst_iso_misID__el.pdf}
+        \includegraphics[width=0.3\textwidth]{figs-fit-fit-templates/histo-comp/Dst_iso_DstTau__vs__Dst_iso_misID__q2.pdf}
         \caption{
-            \muon misID vs. $\Bzb \rightarrow \Dstarp\taum\neutb$ in \Dstar channel.
+            \textcolor{red}{MisID} vs
+            reference
+            $\textcolor{blue}{\Bzb \rightarrow \Dstarp\taum\neutb}$
+            fit template in \Dstar channel.
         }
     \end{subfigure}
-
     \caption{
         Comparisons between misID templates.
     }
     \label{fig:misid-vs-sig}
 \end{figure}
 
+The misID templates are generated from the fake \muon control sample
+(as in \cref{ref:sel:data:fake-mu}) with an unfolding technique.
 First conceived in \cite{LHCb-ANA-2016-059}, the unfolding technique
 consists of the following steps:
 \begin{enumerate}
