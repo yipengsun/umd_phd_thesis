@@ -192,12 +192,9 @@
 
 % Always single-space equations
 \usepackage{etoolbox}
-% FIXME: The negative vertical gaps are put in by hand!
-%        This is because I sometimes left an empty line before 'equation'
-%        environment which is WRONG
-\BeforeBeginEnvironment{equation}{\begin{singlespace}\vspace{-\baselineskip}}
+\BeforeBeginEnvironment{equation}{\begin{singlespace}}
 \AfterEndEnvironment{equation}{\end{singlespace}\noindent\ignorespaces}
-\BeforeBeginEnvironment{align}{\begin{singlespace}\vspace{-\baselineskip}}
+\BeforeBeginEnvironment{align}{\begin{singlespace}}
 \AfterEndEnvironment{align}{\end{singlespace}\noindent\ignorespaces}
 
 % footnote always at the bottom of the page

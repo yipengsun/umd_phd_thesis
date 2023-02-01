@@ -3,7 +3,6 @@
 
 In \HistFactory, fit templates are allowed to have coherent shape variations.
 For a single bin, the yield after variation is defined as:
-
 \begin{equation}
     n_\text{var} = n_\text{nom} + \sum_i f_i(n_+, n_-, n_\text{nom}, \alpha)
 \end{equation}
@@ -79,21 +78,23 @@ Here the \emph{true} invariant mass of the $DD^{(*)}$ pair is chosen as the
 proxy to deform the phase space linearly and quadratically
 as a weight, defined in \cref{eqn:dal-var-lin,eqn:dal-var-quad} evaluated at
 $\alpha = \pm 1$ as usual:
-
-\begin{equation}
-    w_\text{lin}^\pm = 1 \pm 2 \cdot \left(\sqrt{
+\begin{align}
+    w_\text{lin}^\pm &= 1 \pm 2 \cdot
+    \left(
+    \sqrt{
         \frac{m_{DD^{(*)}}^2 - m_\text{min}^2}{m_\text{max}^2 - m_\text{min}^2}
-    } - 1/2 \right)
-    \label{eqn:dal-var-lin}
-\end{equation}
-
-\begin{equation}
-    w_\text{quad}^\pm = (1 \mp 1) \pm 8 \cdot
-    \left(\sqrt{
+    } - 1/2
+    \right)
+    \label{eqn:dal-var-lin} \\
+    %%%%
+    w_\text{quad}^\pm &= (1 \mp 1) \pm 8 \cdot
+    \left(
+    \sqrt{
         \frac{m_{DD^{(*)}}^2 - m_\text{min}^2}{m_\text{max}^2 - m_\text{min}^2}
-    } - 1/2 \right)^2
+    } - 1/2
+    \right)^2
     \label{eqn:dal-var-quad}
-\end{equation}
+\end{align}
 
 Note that the range for both sets of weights are between $[0, 2]$,
 $m_\text{min} = m_{D^{(*)}} + m_D$, and $m_\text{max} = m_B - m_K$.
