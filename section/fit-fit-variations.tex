@@ -161,10 +161,34 @@ The $D_H^{**}$ MC samples are generated with ISGW2 form factor model, which
 is known to be insufficient in describing data:
 Similar to run 1 analysis, the \qSq in the 2OS sample fits poorly with the ISGW2
 model.
-A deformation based on the true \qSq
-in $D_H^{**}$ is introduced to provide more freedom in fit variables,
-allowing for a data-driven approach to determine the shapes of these modes.
-A comparison between nominal and variated $D_H^{**}$ templates can be seen at.
+Deformations based on the true \qSq
+in $D_H^{**}$ with weights of the form
+\begin{equation}
+    w_\pm = 1 \pm 2 \left(
+            \frac{q^2_\text{true} - m^2_\mu}{8 \times 10^6} - 0.5
+        \right)
+\end{equation}
+are introduced to make the \qSq distribution either harder ($+$, up) or
+softer ($-$, down),
+providing more freedom in fit variables
+which allows for a data-driven approach to determine the shapes of these modes.
+A comparison between nominal and variated
+$\Bz \rightarrow D_H^{**}\mu$ templates can be seen at
+\cref{fig:fit-variations:dstst-heavy}.
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.3\textwidth]{./figs-fit-fit-variations/histo-var/D0_iso_DststHMuD0__vs__D0_iso_DststHMuD0_q2m__vs__D0_iso_DststHMuD0_q2p__m2miss.pdf}
+    \includegraphics[width=0.3\textwidth]{./figs-fit-fit-variations/histo-var/D0_iso_DststHMuD0__vs__D0_iso_DststHMuD0_q2m__vs__D0_iso_DststHMuD0_q2p__el.pdf}
+    \includegraphics[width=0.3\textwidth]{./figs-fit-fit-variations/histo-var/D0_iso_DststHMuD0__vs__D0_iso_DststHMuD0_q2m__vs__D0_iso_DststHMuD0_q2p__q2.pdf}
+
+    \caption{
+        Variations of $\Bz \rightarrow D_H^{**}\mu$ based on the true
+        \qSq of the decay processes.
+        Color coding: nominal, \textcolor{red}{up}, and \textcolor{blue}{down}.
+    }
+    \label{fig:fit-variations:dstst-heavy}
+\end{figure}
 
 
 \subsection{Effect of kaon, pion decay-in-flight in muon misID template}
