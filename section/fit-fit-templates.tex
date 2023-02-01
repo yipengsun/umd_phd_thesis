@@ -324,29 +324,40 @@ The selection procedures for all combinatorial backgrounds are listed
 in \cref{ref:sel:data:ws}.
 The generation procedure for these templates is documented below.
 A comparison between combinatorial backgrounds and signal templates is
-shown in \cref{fig:comb-vs-sig}.
+shown in \cref{fig:comb-templates}.
 
 % TODO: Implement comb. bkg. tmpl. comparison
 \begin{figure}[!htb]
-    \centering
-    \begin{subfigure}[t]{0.9\textwidth}
+    \begin{subfigure}[t]{\textwidth}
         \centering
+        \includegraphics[width=0.3\textwidth]{figs-fit-fit-templates/histo-comp/D0_iso_D0Tau__vs__D0_iso_BComb__m2miss.pdf}
+        \includegraphics[width=0.3\textwidth]{figs-fit-fit-templates/histo-comp/D0_iso_D0Tau__vs__D0_iso_BComb__el.pdf}
+        \includegraphics[width=0.3\textwidth]{figs-fit-fit-templates/histo-comp/D0_iso_D0Tau__vs__D0_iso_BComb__q2.pdf}
         \caption{
-            \BComb and \DstComb vs. $\Bm \rightarrow \Dz\taum\neutb$ in \Dz channel.
+            \textcolor{red}{\BComb} vs
+            reference
+            $\textcolor{blue}{\Bm \rightarrow \Dz\taum\neutb}$
+            in \Dz channel.
         }
     \end{subfigure}
 
-    \begin{subfigure}[t]{0.9\textwidth}
+    \begin{subfigure}[t]{\textwidth}
         \centering
+        \includegraphics[width=0.3\textwidth]{figs-fit-fit-templates/histo-comp/Dst_iso_DstTau__vs__Dst_iso_BComb__vs__Dst_iso_DstComb__m2miss.pdf}
+        \includegraphics[width=0.3\textwidth]{figs-fit-fit-templates/histo-comp/Dst_iso_DstTau__vs__Dst_iso_BComb__vs__Dst_iso_DstComb__el.pdf}
+        \includegraphics[width=0.3\textwidth]{figs-fit-fit-templates/histo-comp/Dst_iso_DstTau__vs__Dst_iso_BComb__vs__Dst_iso_DstComb__q2.pdf}
         \caption{
-            \BComb vs. $\Bzb \rightarrow \Dstarp\taum\neutb$ in \Dstar channel.
+            \textcolor{red}{\BComb} vs \textcolor{orange}{\DstComb} vs
+            reference
+            $\textcolor{magenta}{\Bzb \rightarrow \Dstarp\taum\neutb}$
+            in \Dstar channel.
         }
     \end{subfigure}
 
     \caption{
-        Comparison between combinatorial backgrounds and signal template.
+        Comparison between combinatorial background fit templates.
     }
-    \label{fig:comb-vs-sig}
+    \label{fig:comb-templates}
 \end{figure}
 
 \subsubsection{$D^*$ combinatorial}
