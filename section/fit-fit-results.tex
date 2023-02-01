@@ -1,15 +1,80 @@
 \section{Fit results}
 \label{ref:fit:results}
 
-The pre-control fit is listed in \cref{appx:suppl:fit-pre-ctrl}.
-The control fit results are plotted in
+The fitted yields are grouped as follows:
+\Dz\muon, \Dstarp\muon, \Dstarz\muon,
+signal,
+misID,
+combinatorial backgrounds,
+four $1P$ $D^{**}$,
+$D^{**}$ heavy,
+$DD$,
+and $D_s$.
+The combined yields of the groups of the signal fit are reported in
+\cref{tab:fit-yields} for both fit channels,
+with the signal yields blinded (replaced with a random number).
+
+\begin{table}[!ht]
+    \centering
+    \caption{Fitted yields of the signal fit.}
+    \label{tab:fit-yields}
+
+\begin{subtable}[b]{0.5\textwidth}
+    \centering
+
+\begin{tabular}[b]{lr}
+\hline
+ Group               &    Yields \\
+\hline
+ norm. ($D^0\mu$)    &   445,095 \\
+ norm. ($D^{*+}\mu$) &   115,124 \\
+ norm. ($D^{*0}\mu$) & 1,176,363 \\
+ sig. (random)       &        14 \\
+ $D^{**}$            &   167,968 \\
+ $D^{**}$ heavy      &    38,147 \\
+ $D_s$               &     5,285 \\
+ $DD$                &    96,236 \\
+ comb. bkg.          &    20,596 \\
+ misID               &    56,596 \\
+\hline
+\end{tabular}
+
+    \caption{\Dz channel}
+\end{subtable}%
+%%%%
+\begin{subtable}[b]{0.5\textwidth}
+    \centering
+
+\begin{tabular}[b]{lr}
+\hline
+ Group               &   Yields \\
+\hline
+ norm. ($D^{*+}\mu$) &  427,783 \\
+ sig. (random)       &        5 \\
+ $D^{**}$            &   37,181 \\
+ $D^{**}$ heavy      &   12,804 \\
+ $D_s$               &    3,730 \\
+ $DD$                &   33,588 \\
+ comb. bkg.          &   16,906 \\
+ misID               &    8,175 \\
+\hline
+\end{tabular}
+
+    \caption{\Dstar channel}
+\end{subtable}
+
+\end{table}
+
+
+The pre-control fit results are plotted in \cref{appx:suppl:fit-pre-ctrl};
+the control fit results are displayed in
 \cref{fig:ctrl-1os-d0,fig:ctrl-2os-d0,fig:ctrl-dd-d0} for \Dz channel;
-\cref{fig:ctrl-1os-dst,fig:ctrl-2os-dst,fig:ctrl-dd-dst} for \Dstar channel.
-The signal fit results are shown in
-\cref{fig:sig-d0,fig:sig-dst}.
-The fitted yield in the signal fit is reported in TAB.
+\cref{fig:ctrl-1os-dst,fig:ctrl-2os-dst,fig:ctrl-dd-dst} for \Dstar channel;
+the signal fit results in \cref{fig:sig-d0,fig:sig-dst}
+for the \Dz and \Dstar channel, accordingly.
 
 
+% ctrl
 \begin{figure}[!htb]
     \centering
     \includegraphics[width=0.32\textwidth]{./figs-fit-fit-results/ctrl-fit/stacked/fit_result-stacked-D0-1os-mmiss2.pdf}
@@ -130,6 +195,8 @@ The fitted yield in the signal fit is reported in TAB.
     \label{fig:ctrl-dd-dst}
 \end{figure}
 
+
+% sig
 \begin{figure}[!htb]
     \centering
     \includegraphics[width=0.32\textwidth]{./figs-fit-fit-results/sig-fit/stacked/fit_result-stacked-D0-iso-mmiss2.pdf}
