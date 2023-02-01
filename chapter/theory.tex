@@ -72,7 +72,7 @@ it is shown that the extended group, $SO^+(1,3)_\mathbb{C}$,
 contains two copies of $SU(2)_\mathbb{C}$.
 % SO+(1,3) = SU(2) x SU(2), direct product
 
-One may ask the following question, then:
+We may ask the following question, then:
 ``What kinds of object does the group $SO^+(1,3)_\mathbb{C}$ act on?''
 To answer this question, the group elements can be represented\footnote{
     With the understanding that any group element $\Lambda$ can be generated
@@ -209,7 +209,7 @@ Following the recipe provided above, first identify all\footnote{
 terms in a free Lagrangian for spin $\frac{1}{2}$ particles:
 the second order terms
 $S_1 = (\chi_L)^\dagger \xi_R, S_2 = (\xi_R)^\dagger\chi_L$,
-and the first order partial derivative terms
+and the first order partial derivative terms (identified as the kinetic terms)
 $S_3 = (\chi_L)^\dagger \partial_\mu \bar{\sigma}^\mu \chi_L,
 S_4 = (\xi_R)^\dagger \partial_\mu {\sigma}^\mu \xi_R$,
 where each $\chi_L, \xi_R$ is a 2-component Weyl spinor.
@@ -236,16 +236,16 @@ can be written, where $a, b \in \mathbb{C}$.
 Defining a shortcut $\bar{\psi} \equiv \psi^\dagger \gamma_0$,
 and requiring that the Lagrangian yields the familiar Dirac equation
 $(i \gamma_\mu \partial^\mu - m)\psi = 0$ to set $a = -m$ and $ b = i$,
-one arrives at the Dirac Lagrangian which describes free spin $\frac{1}{2}$
+we arrive at the Dirac Lagrangian which describes free spin $\frac{1}{2}$
 particles of mass $m$:
 
 \begin{equation}
     \mathcal{L}_\text{Dirac} = \bar{\psi} (i\gamma^\mu\partial_\mu - m) \psi
 \end{equation}
 
-The Lagrangian is invariant under a global transformation
+The Lagrangian is invariant under a global gauge transformation
 $\psi \rightarrow e^{i\alpha} \psi$ where $\alpha \in \mathbb{R}$,
-but \emph{not} under local $U(1)$ gauge translations where $\alpha$ is replaced
+but \emph{not} a local $U(1)$ one where $\alpha$ is replaced
 with $\alpha(x^\mu)$,
 due to the derivative term $\partial_\mu$.
 To enforce such invariance,
@@ -260,17 +260,17 @@ covariant derivative, defined as:
 \end{equation}
 at this point, the Lagrangian reads
 $\mathcal{L} = \mathcal{L}_\text{Dirac} + g A_\mu\bar{\psi}\gamma^\mu\psi$.
-However, it is ``unstable''\footnote{
-    This is not a standard terminology.
-} as the equation of motion of $A_\mu$
-suggests the interaction term $g A_\mu\bar{\psi}\gamma^\mu\psi = 0$,
+However,
+the equation of motion of $A_\mu$
+suggests the interaction term should vanish: $g A_\mu\bar{\psi}\gamma^\mu\psi = 0$,
 because $0 = \partial_{A_\mu} \mathcal{L} = g \bar{\psi}\gamma^\mu\psi$.
-An additional kinetic term for spin 1 particles is needed to ``stabilize'' the
-Lagrangian,
-which is found by doing a similar exercise as in the spin $\frac{1}{2}$ case.
+To retain the interaction term,
+an additional kinetic term for spin 1 particles is needed,
+which is found by doing an exercise of finding all Lorentz-invariant
+derivative terms, as in the spin $\frac{1}{2}$ case.
 Such term reads $\frac{1}{4}F_{\mu\nu}F^{\mu\nu}$,
 where $F^{\mu\nu} = \partial^\mu A^\nu - \partial^\nu A^\mu$.
-Putting all pieces together, one obtains the Lagrangian for QED:
+Putting all pieces together, we obtain the Lagrangian for QED:
 
 \begin{equation}
     \mathcal{L}_\text{QED} = \bar{\psi} (i\gamma^\mu\fsl{D}_\mu - m) \psi - \frac{1}{4}F_{\mu\nu}F^{\mu\nu}
@@ -284,7 +284,7 @@ As demonstrated in \cref{qed}, the local gauge invariance principle provides a
 method of introducing interactions to free theories.
 Motivated by the experimental observation that in beta decay, electrons and
 electron neutrinos are produced in pairs,
-one can add two copies of spin $\frac{1}{2}$ particles,
+we can add two copies of spin $\frac{1}{2}$ particles,
 labelled as $\psi_e, \psi_{\neu_e}$,
 to the Lagrangian\footnote{
     The Lagrangian reads
@@ -345,7 +345,7 @@ The couplings between $\Phi$ and the spin 1 gauge fields are embedded in the
 kinetic term $\fsl{D}_\mu \bar\Phi \fsl{D}^\mu \Phi$,
 and a non-zero VEV leads to terms of the form $\frac{1}{2}\kappa Z_\mu Z^\mu$ which
 can be interpreted as mass terms.
-After a field redefinition, one finds three massive spin 1 fields and a massless
+After a field redefinition, we find three massive spin 1 fields and a massless
 one:
 \begin{align}
     W^+_\mu &= \frac{1}{\sqrt{2}}(W^1_\mu - i W^2_\mu) \\
