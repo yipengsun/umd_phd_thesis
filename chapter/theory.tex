@@ -35,9 +35,10 @@
 \section{Construction of the electroweak theory in the SM}
 
 Through a close collaboration between experimentalists and theorists,
-particle physicists were able to come up with a \emph{quantum field theory}
+particle physicists developed and validated a \emph{quantum field theory}
 to describe \emph{interactions} of \emph{elementary particles},
-known as the standard model of particle physics (SM).
+known as the standard model of particle physics (SM),
+the most precise theory of the sub-atomic world to date.
 A construction of the SM is outlined\footnote{
     ``I am an experimentalist!'' says the author waving his hands.
 } first with the help of
@@ -55,11 +56,11 @@ Then, all transformations preserving the speed of light\footnote{
     $\eta$ intact: $A^T \eta A = \eta$.
 } can be identified:
 rotations, Lorentz boosts, parity ($\vec{x} \rightarrow -\vec{x}$),
-time reversal ($t \rightarrow -t$), and translations.
-All but the translation transformations form a group called
+time reversal ($t \rightarrow -t$), and spacetime translations.
+All but the translation transformations form a group called the
 ``Lorentz group''.
 Focusing on the restricted Lorentz group $SO^+(1, 3)$,
-which preserves direction of space and time\footnote{
+which preserves the direction of space and time\footnote{
     Loosely speaking, Lorentz group contains 4 ``classes'': $\{I, T, P, TP\}$.
     $SO^+(1,3)$ is the one that contains the identity element.
     The other 3 can be obtained by applying parity ($P$), time reversal ($T$),
@@ -122,6 +123,14 @@ Then, require the Lagrangian to be invariant\footnote{
     and must be preserved to have a consistent theory.
 } under certain local gauge transformations
 such as that from $U(1), SU(2)$, and $SU(3)$.
+%%%%
+For example, a global gauge transformation
+$\psi \rightarrow e^{i\alpha} \psi$ where $\alpha \in \mathbb{R}$
+can be promoted into a local one by
+changing $\alpha$ from a number to a function of the spacetime coordinate
+$\alpha(x^\mu)$.
+All such local gauge transformations form a $U(1)$ group.
+%%%%
 These requirements can be satisfied by adding/removing certain terms to the
 Lagrangian;
 these terms make interactions between elementary particles happen.
@@ -235,12 +244,10 @@ particles of mass $m$:
 \end{equation}
 
 The Lagrangian is invariant under a global transformation
-$\psi \rightarrow e^{i\alpha} \psi$ where $\alpha \in \mathbb{R}$.
-Promoting $\alpha$ from a number to a function $\alpha(x^\mu)$
-makes the transformation $\psi \rightarrow e^{i\alpha(x^\mu)} \psi$ local.
-All such transformations form a $U(1)$ group.
-However, it is checked that $\mathcal{L}_\text{Dirac}$ is not invariant
-under such local transformations due to the derivative term $\partial_\mu$.
+$\psi \rightarrow e^{i\alpha} \psi$ where $\alpha \in \mathbb{R}$,
+but \emph{not} under local $U(1)$ gauge translations where $\alpha$ is replaced
+with $\alpha(x^\mu)$,
+due to the derivative term $\partial_\mu$.
 To enforce such invariance,
 A spin 1 field operator $A_\mu$,
 which satisfies the gauge transformation
@@ -273,7 +280,7 @@ Putting all pieces together, one obtains the Lagrangian for QED:
 \subsection{The electroweak theory}
 \label{ew-th}
 
-As demonstrated in \cref{qed}, local gauge invariance principle provides a
+As demonstrated in \cref{qed}, the local gauge invariance principle provides a
 method of introducing interactions to free theories.
 Motivated by the experimental observation that in beta decay, electrons and
 electron neutrinos are produced in pairs,
