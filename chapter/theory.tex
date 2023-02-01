@@ -437,17 +437,19 @@ as the SM places no constraint on the number of flavor generations.
 \section{Semileptonic $B \rightarrow D \ellm\neulb$ decays in the SM}
 
 Semileptonic $B \rightarrow D \ellm\neulb$ decays,
-where $B$ stands for a \Bzb or \Bm,
-$D$ stands for a generic charm meson, and \ellm a \mun or \taum,
+where $B$ stands for a \Bzb or \Bm meson,
+$D$ for a generic charm meson, and \ellm for a $e^-$, \mun or \taum,
 play an central role in this analysis as the signal, normalization,
 and most of the background decays fall under this category.
-A model of these decays enables the calculation of the matrix elements which
-facilitate generation of the Monte-Carlo simulation samples that provide
-estimations to the fit variables for each of such decays.
+A theoretical model describing these processes enables the calculation of the
+decay matrix elements.
+This, in turn, facilitates generation of the Monte-Carlo simulation samples that
+are critical in several stages of the analysis.
 This section describes the formalism of such a modeling.
 
 The parton level process involved in the $B \rightarrow D \ellm\neulb$ decays is
 $b \rightarrow c \ellm\neulb$,
+as already shown in \cref{fig:decay-diagrams},
 which is mediated by the weak charged current in the SM.
 % NOTE: cite Schwartz QFT textbook maybe
 Its matrix element is given by \cite{Tanaka_1995}:
@@ -508,7 +510,7 @@ as shown in \cref{fig:b-d-decay-schematic}.
     \label{fig:b-d-decay-schematic}
 \end{figure}
 
-\paragraph{Leptonic current}
+\paragraph{Leptonic currents}
 The leptonic currents are straightforward to evaluate,
 as the weak interaction permits a perturbative calculation and the currents can
 be sufficiently approximated by tree-level decays.
@@ -531,7 +533,8 @@ The results are listed in eqs. (2.8) and (2.9) in
 where $v = \sqrt{1 - \frac{m^2_l}{q^2}}$,
 $d_\pm = \frac{1 + \cos\theta_l}{\sqrt{2}}$, and $d_0 = \sin\theta_l$.
 
-\paragraph{Hadronic current} The calculation of the hadronic currents, however,
+\paragraph{Hadronic currents}
+The calculation of the hadronic currents, however,
 involves non-perturbative quantum chromodynamics (QCD) effects as both the
 initial and final states are mesons which are quark-anti-quark pairs bounded by
 the strong interactions of QCD.
@@ -552,7 +555,8 @@ and lattice QCD
 As mentioned in the introduction,
 for \RDX ratio measurements,
 the hadronic uncertainties are mostly factored out and the main importance
-of the FFs lies in the precision of the lepton universality ratio predictions.
+of the FFs lies in the precision of the lepton universality ratio predictions
+and kinematic decay distributions.
 % NOTE: Check the slides for CLN vs. BGL
 %   https://indico.cern.ch/event/656737/contributions/2676125/attachments/1525023/2384258/Siegen.pdf
 The estimations of FFs
@@ -568,10 +572,11 @@ inputs.
 While not analytically calculable,
 the hadronic currents are constrained by the conservation of angular momentum,
 which implies that the $D$ and the virtual $W$ should have the same helicity.
-For a $D^0$ meson, whose only possible helicity state is 0,
+For $B \rightarrow D^0$ decays,
+whose only possible helicity state is 0,
 the only non-zero hadronic amplitudes are $H^0_0, H^0_s$.
-For $D^*$ meson,
-the amplitudes $H^+_+$ and $H^-_-$ are allowed in addition.
+For $B \rightarrow D^*$ decays,
+the amplitudes $H^+_+$ and $H^-_-$ are allowed as well.
 
 \paragraph{Differential decay rate}
 The differential decay rate is found by first inserting
@@ -595,6 +600,22 @@ summing over the lepton helicities:
 \end{align}
 where the \qSq dependence and the helicities of the $D$ meson in the hadronic
 currents $H_{\{\pm,0,s\}}$ are omitted.
+
+\paragraph{\RDX calculation}
+The parameterization of the hadroic currents $H_i$ requires form factors,
+which will be described later.
+Once the $H_i$ are resolved,
+plugging these into the differential decay rate gives
+an explicit expression for $\frac{d\Gamma}{d q^2}$
+which can be used to compute \RDX:
+
+\begin{equation}
+    \RDX = \frac{
+        \int_{m^2_\tau}^{(m_B - m_{D^{(*)}})^2} d q^2 \frac{d\Gamma}{d q^2}
+    }{
+        \int_{m^2_\mu}^{(m_B - m_{D^{(*)}})^2} d q^2 \frac{d\Gamma}{d q^2}
+    }
+\end{equation}
 
 In the next sections the form factor parameterizations relevant to this analysis
 for \Dz, \Dstar, and \Dstst mesons are discussed.
@@ -919,20 +940,6 @@ The parameter naming correspondence is displayed in
     \end{flushleft}
 \end{table}
 
-\paragraph{\RDX calculation}
-With FFs, the hadroic currents can be modeled based on a combination of
-theoretical calculations and experimental data.
-Plug these into the differential decay rate, a fully resolved
-$\frac{d\Gamma}{d q^2}$ is obtained,
-which can be used to compute \RDX:
-
-\begin{equation}
-    \RDX = \frac{
-        \int_{m^2_\tau}^{(m_B - m_{D^{(*)}})^2} d q^2 \frac{d\Gamma}{d q^2}
-    }{
-        \int_{m^2_\mu}^{(m_B - m_{D^{(*)}})^2} d q^2 \frac{d\Gamma}{d q^2}
-    }
-\end{equation}
 
 
 \subsection{Form factors in $B \rightarrow D^{**}\ellm\neulb$ decays}
