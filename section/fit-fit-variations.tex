@@ -245,8 +245,9 @@ fit variables are weighted according to the following rules:
 \end{itemize}
 where the efficiencies are obtained from the unfolding procedure.
 A comparison between unsmeared and smeared fit variables in the misID templates
-is shown in \cref{fig:unfolding-fit-vars-smear}.
-\techlink{appx:tech:apply-misid-dif-weights}
+without applying any skim cut is shown in \cref{fig:unfolding-fit-vars-smear},
+with the comparison of ISO skim fit templates due to DiF smearing in the \Dz
+channel shown in \cref{fig:unfolding-fit-vars-smear-iso}
 
 % Generated in /lhcb-ntuples-gen/studies/plot-RDX_misid_unfold_fit_vars, by
 % running the script gen.sh inside
@@ -269,21 +270,6 @@ is shown in \cref{fig:unfolding-fit-vars-smear}.
     \\
     \begin{subfigure}[b]{0.32\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{figs-fit-fit-templates/data-driven-plots/misid/D0_q2.pdf}
-    \end{subfigure}
-    \hfill
-    \begin{subfigure}[b]{0.32\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{figs-fit-fit-templates/data-driven-plots/misid/D0_q2_smr.pdf}
-    \end{subfigure}
-    \hfill
-    \begin{subfigure}[b]{0.32\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{figs-fit-fit-templates/data-driven-plots/misid/D0_q2_comp.pdf}
-    \end{subfigure}
-    \\
-    \begin{subfigure}[b]{0.32\textwidth}
-        \centering
         \includegraphics[width=\textwidth]{figs-fit-fit-templates/data-driven-plots/misid/D0_el.pdf}
     \end{subfigure}
     \hfill
@@ -296,12 +282,28 @@ is shown in \cref{fig:unfolding-fit-vars-smear}.
         \centering
         \includegraphics[width=\textwidth]{figs-fit-fit-templates/data-driven-plots/misid/D0_el_comp.pdf}
     \end{subfigure}
+    \\
+    \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figs-fit-fit-templates/data-driven-plots/misid/D0_q2.pdf}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figs-fit-fit-templates/data-driven-plots/misid/D0_q2_smr.pdf}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figs-fit-fit-templates/data-driven-plots/misid/D0_q2_comp.pdf}
+    \end{subfigure}
     \caption[Effect of DiF on fit variables]{
         Effect of DiF on fit variables.
+        No skim cut applied.
         The plots displayed here are contributions of 2016 $D^0$ fake \muon
         control samples ($B^- \rightarrow D^0 t^-$) to the fit variables.
 
-        The first column is unsmeared misID fit variables \mmSq, \qSq, \el; the
+        The first column is unsmeared misID fit variables \mmSq, \el, \qSq; the
         second column smeared; the third column comparison between the overall
         shape of unsmeared/smeared fit variables.
         Note that the total number of events is not guaranteed to be conserved,
@@ -309,4 +311,18 @@ is shown in \cref{fig:unfolding-fit-vars-smear}.
         acceptance range.
     }
     \label{fig:unfolding-fit-vars-smear}
+\end{figure}
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.3\textwidth]{./figs-fit-fit-variations/histo-comp/D0_iso_misID__vs__D0_iso_misID_smr__m2miss.pdf}
+    \includegraphics[width=0.3\textwidth]{./figs-fit-fit-variations/histo-comp/D0_iso_misID__vs__D0_iso_misID_smr__el.pdf}
+    \includegraphics[width=0.3\textwidth]{./figs-fit-fit-variations/histo-comp/D0_iso_misID__vs__D0_iso_misID_smr__q2.pdf}
+
+    \caption{
+        A comparison between the \textcolor{red}{smeared} and
+        \textcolor{blue}{unsmeared} ISO skim misID templates in the \Dz channel.
+        The templates are normalized so only the shapes are meaningful.
+    }
+    \label{fig:unfolding-fit-vars-smear-iso}
 \end{figure}
