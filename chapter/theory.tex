@@ -300,13 +300,16 @@ $e^{i \alpha_i \frac{\sigma^i}{2}}$.
 
 It is then natural to postulate a theory of $SU(2) \times U(1)$ local gauge
 symmetry.
-Following a similar route as in QED to ensure gauge invariance,
-three spin 1 particles $W^1, W^2, W^3$ are added to the theory in addition to
-$B$ which is the only generator of $U(1)$,
-because the $SU(2)$ group has three generators.
-After taking the fact that the three generators of $SU(2)$ do not commute into
-account, a Lagrangian with correct kinetic terms can be constructed, in which
-the covariant derivative is defined as:
+%%%%
+Following a similar route in QED,
+noting that $SU(2)$ has 3 non-commutative generators and $U(1)$ has 1 generator,
+three spin 1 particles $W^1, W^2, W^3$ are added to the theory for $SU(2)$ in
+addition to one spin 1 particle $B$ for $U(1)$.
+%%%%
+After taking the fact non-commutative nature of the $SU(2)$ generators into
+account,
+a Lagrangian with correct kinetic terms can be constructed,
+in which the covariant derivative is defined as:
 
 \begin{equation}
     \fsl{D}_\mu = \partial_\mu - i[g_2 W_\mu^a T^a_{SU(2)} + g_1 B_\mu Y_{U(1)}]
@@ -314,14 +317,15 @@ the covariant derivative is defined as:
 where $T^a_{SU(2)} = \frac{1}{2} \sigma^a$ are the generators of $SU(2)$,
 and
 $Y_{U(1)} = C \bigl(\begin{smallmatrix} 1 & 0 \\ 0 & 1 \end{smallmatrix}\bigr)$.
+%%%%
 However, naive mass terms $\bar{\Psi} M \Psi$ are forbidden because they
-spoil $SU(2)$ gauge symmetry\footnote{
-    A $SU(2)$ transformation $e^{i \alpha_i \frac{\sigma^i}{2}}$ transforms such
-    terms into
-    $\bar{\Psi} e^{-i \alpha_i \frac{\sigma^i}{2}} M e^{i \alpha_i \frac{\sigma^i}{2}} \Psi$
-    where $e^{-i \alpha_i \frac{\sigma^i}{2}} M e^{i \alpha_i \frac{\sigma^i}{2}} \neq M$
-    because $[\sigma^i, M] \neq 0$ in general as $M \neq m I_{2 \times 2}$.
-}.
+spoil $SU(2)$ gauge symmetry:
+an $SU(2)$ transformation $e^{i \alpha_i \frac{\sigma^i}{2}}$ transforms
+such terms into
+$\bar{\Psi} e^{-i \alpha_i \frac{\sigma^i}{2}} M e^{i \alpha_i \frac{\sigma^i}{2}} \Psi$
+where $e^{-i \alpha_i \frac{\sigma^i}{2}} M e^{i \alpha_i \frac{\sigma^i}{2}} \neq M$
+because $[\sigma^i, M] \neq 0$ in general as $M \neq m I_{2 \times 2}$.
+%%%%
 So the theory constructed above requires \emph{all} particles to be massless,
 which is inconsistent with the experimental results of massive force carrying
 bosons in the weak interaction\footnote{
@@ -339,13 +343,19 @@ $\Phi = \bigl(\begin{smallmatrix} \phi^\dagger \\ \phi^{\hphantom{\dagger}} \end
 then pick a particular vacuum and expand around it such that
 $\Phi = \frac{1}{\sqrt{2}} \bigl(\begin{smallmatrix} v + h \\ 0 \end{smallmatrix}\bigr)$
 where $h(x^\mu)$ is a real scalar field known as the Higgs field.
-Doing so breaks the degeneracy (symmetry) of the vacuum and is called a
-spontaneous symmetry breaking.
+%%%%
+Doing so breaks the degeneracy (symmetry) of the vacuum,
+an effect called spontaneous symmetry breaking.
+%%%%
 The couplings between $\Phi$ and the spin 1 gauge fields are embedded in the
 kinetic term $\fsl{D}_\mu \bar\Phi \fsl{D}^\mu \Phi$,
-and a non-zero VEV leads to terms of the form $\frac{1}{2}\kappa Z_\mu Z^\mu$ which
-can be interpreted as mass terms.
-After a field redefinition, we find three massive spin 1 fields and a massless
+and a non-zero VEV leads to terms of the form
+$\frac{1}{2}\kappa W_\mu W^{\mu}$
+where $W$ is a linear combination of $W^1, W^2$,
+and $\kappa$ is a coupling constant which can be interpreted as the mass
+of the $W$.
+Indeed,
+after a field redefinition, we find three massive spin 1 fields and a massless
 one:
 \begin{align}
     W^+_\mu &= \frac{1}{\sqrt{2}}(W^1_\mu - i W^2_\mu) \\
@@ -367,7 +377,7 @@ which transform as
 $\Psi_L \rightarrow e^{i \alpha_i \frac{\sigma^i}{2}} \Psi_L$;
 the right-handed particles are $SU(2)$ singlets which do not transform
 $\psi_R \rightarrow \psi_R$.
-As a side note, previously it is argued that $SU(2)$ gauge symmetry forbids
+As a side note, previously we stated that $SU(2)$ gauge symmetry forbids
 terms like $\bar{\Psi} M \Psi$ because $M \neq m I_{2 \times 2}$ in
 general,
 (e.g. electron and electron neutrinos have \emph{very} different masses).
