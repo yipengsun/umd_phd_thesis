@@ -627,12 +627,14 @@ for \Dz, \Dstar, and \Dstst mesons are discussed.
 As discussed before,
 a form factor parameterization of the hadronic currents is needed in order to
 evaluate the differential decay rate.
-In this analysis both \Dz and \Dstar MCs are generated with the CLN
+In this analysis,
+simulates samples for $B \rightarrow \Dz \ellm\neulb$
+and $B \rightarrow \Dstar\ellm\neulb$
+are generated with the CLN
 parameterization and later reweighted offline to BGL
 (more details regarding the reweighting process will be provided in
 \cref{ref:mc-cor:ff}).
-More details will be given for \Dz parameterizations.
-For \Dstar only the parameterization schemes and parameter values will be given.
+The CLN and BGL parameterizations will be discussed next.
 
 \paragraph{CLN}
 For $B \rightarrow \Dz\ellm\neulb$ decays the axial vector part of the hadronic
@@ -652,13 +654,13 @@ Each hadronic current is therefore characterized by \emph{two} FFs:
 where $v_i = \frac{p_i}{m_i}$,
 $w(\qSq) \equiv v_B \cdot v_D = \frac{m^2_B + m^2_D - \qSq}{2 m_B m_D}$.
 %%%%
-In CLN parameterization \cite{Caprini_1998},
+In the CLN parameterization \cite{Caprini_1998},
 the FFs $h_+, h_-$ are re-expressed as $V_1(w), S_1(w)$:
 \begin{align}
     V_1(w) &= h_+(w) - \frac{m_B - m_D}{m_B + m_D} h_-(w) \\
     S_1(w) &= h_+(w) - \frac{m_B + m_D}{m_B - m_D} \cdot \frac{w-1}{w+1} h_-(w)
 \end{align}
-and an expression for $V_1(w)$ is obtained by first analytically continue $w$
+and an expression for $V_1(w)$ is obtained by first analytically continuing $w$
 outside the physical region in the complex plane, then a conformal mapping
 \begin{equation}
     w \rightarrow z: z =
@@ -680,23 +682,29 @@ following form:
 where $V_1(0), \rho^2$ are FF parameters,
 noting that $V_1(0)$ corresponds to the hadronic current at zero recoil.
 The factor $V_1(0)$,
-fitted from external data with HQET or lattice QCD constraints,
+either fitted from external data with HQET or computed with lattice QCD,
 represents an overall normalization which is \emph{not cancelled} when
-performing CLN to BGL reweighting but \emph{is cancelled} in subsequent fit to
+performing CLN to BGL reweighting but \emph{is cancelled} in the subsequent
 \RD ratio.
 
-The corresponding leptonic current to $S_1$ is helicity suppressed which is
-proportional to the lepton mass.
-Therefore this hadronic amplitude is insensitive to input data and is
-constrained based on HQET:
+The leptonic current corresponds to $S_1$ is helicity suppressed and,
+as a result,
+it is proportional to the lepton mass.
+Therefore this hadronic amplitude
+is insensitive to input data
+coming from semileptonic $B \rightarrow \Dz \ell^- \neuLb$ decays
+to light leptons $\ell^- = e^-, \mun$
+and is constrained based on HQET:
 \begin{equation}
     S_1(w) = \left\{
         1 + \Delta(-0.019 + 0.041(w - 1) - 0.015(w - 1)^2)
     \right\} V_1(w)
 \end{equation}
-The rest of the parameters,
-namely $\rho^2, \Delta$,
-are obtained from a fit to data by saturating the dispersive bounds at $1\sigma$
+where $\Delta$ is a parameter from HQET.
+
+The remaining parameter $\rho^2$
+is obtained from a fit to experimentally measured \qSq distributions by
+saturating the dispersive bounds at $1\sigma$
 uncertainty \cite{Bernlochner_2022}.
 The values for the parameters listed above are copied from the corresponding MC
 generation code,
@@ -719,7 +727,7 @@ and are listed in \cref{tab:ff-cln-b-d}.
     \end{tabular}
 \end{table}
 
-The use of CLN is criticized by the theory community because the
+In the CLN parameterization the
 slope and curvature of the Isgure-Wise function,
 the form factor description in the heavy quark limit,
 are too closely cross-constrained by the model.
@@ -731,18 +739,16 @@ account \cite{LHCb-ANA-2020-056}.
 \cite{Boyd_1995,Boyd:1997kz}
 is based on dispersion relations, analyticity, and crossing symmetry but
 with reduced constraints,
-providing more flexibility at the cost of additional
-number of parameters.
-The BGL parameterization is more ideal to a data-driven approach of the
+providing more flexibility at the cost of a large number of parameters.
+The BGL parameterization is more suited to a data-driven approach of the
 determination of the FFs.
 
-The BGL adopts the following parameterization for
+BGL adopts the following parameterization for
 $B \rightarrow \Dz\ellm\neulb$ decays:
 \begin{equation}
     \bra{D} \bar{c} \gamma^\mu b \ket{B} =
     f_+ (p_B + p_D)^\mu + (f_0 - f_+) \frac{q^\mu}{q^2} (m^2_B - m^2_D)
 \end{equation}
-which is different than \cref{eqn:b-d-cln-param}.
 Both $f_+, f_0$ are expressed as a series of $z$:
 \begin{equation}
     f_{+,0}(z(w)) = \frac{1}{P_{+,0}(z(w))\phi_{+,0}(z(w))}
@@ -756,8 +762,9 @@ The $a_{+,0}$ parameters are taken from Table 4 in \cite{Bigi_2016} at $N = 2$,
 which are obtained from a fit to a combination of
 an unquenched lattice calculation at \emph{non-zero recoil} and experimental
 data.
-The $N = 2$ fit result is chosen because it is the only case that is consistent
-with unitary bounds and has a non-trivial correlation matrix as reported in
+The $N = 2$ fit result is chosen because it is the only case that the best
+fitted values lie within the unitary bounds and has a non-trivial correlation
+matrix as reported in
 Table 5 of \cite{Bigi_2016}.
 The correspondence between the parameter notations used in this paper,
 in Ref.~\cite{Bigi_2016}, and in \Hammer is displayed in
@@ -792,15 +799,10 @@ in Ref.~\cite{Bigi_2016}, and in \Hammer is displayed in
 \subsection{Form factors in $B \rightarrow \Dstar\ellm\neulb$ decays}
 \label{ref:theory:ff-dst}
 
-The discussions regarding CLN and BGL in \cref{ref:theory:ff-d0} also applies
-here.
-The CLN and BGL parameterizations of $B \rightarrow \Dstar\ellm\neulb$ will be
-given first,
-followed by a brief comment on calculation of \RDX.
-
 \paragraph{CLN}
 For $B \rightarrow \Dstar\ellm\neulb$ decays,
-the hadronic currents are parameterized by \emph{four} FFs $V, A_{0,1,2}$:
+the hadronic currents are parameterized by \emph{four} FFs,
+$V$ and $A_{0,1,2}$:
 \begin{align}
     \bra{\Dstar} \bar{c} \gamma^\mu b \ket{B}
     =\hphantom{ } &
@@ -941,7 +943,6 @@ The parameter naming correspondence is displayed in
 \end{table}
 
 
-
 \subsection{Form factors in $B \rightarrow D^{**}\ellm\neulb$ decays}
 \label{ref:theory:ff-dstst}
 
@@ -951,12 +952,12 @@ non-relavistic constituent quark model and is treated as fully predictive,
 that is, without any undetermined parameter.
 While historically important in providing a description of the FFs,
 it is no longer considered to provide state-of-art FFs
-due to its inability to improve its description with data-driven fits to
-experimental data.
+due to its inability to describe the experimental data.
 
 \paragraph{BLR}
 The BLR parameterization \cite{Bernlochner_2018} provides an
-model-independent FF description for four lightest ($1P$) excited \Dstst mesons
+model-independent FF description for the four lightest ($1P$) excited \Dstst
+mesons
 ($D^*_0$, $D'_1$, $D_1$, $D^*_2$),
 grouped into two heavy quark isospin doublets
 $D^{1/2+}: (D^*_0, D'_1)$ and $D^{3/2+}: (D_1, D^*_2)$.
