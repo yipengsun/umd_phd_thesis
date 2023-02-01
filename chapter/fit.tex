@@ -11,10 +11,44 @@ to both \Dz and \Dstar channels with the ISO skim\footnote{
 As briefly discussed in \cref{ref:overview},
 the parameters responsible for controlling the shapes of the \Dstst and
 $DDX$ backgrounds,
-such as the \Dstst form factors and $DDX$ Dalitz-inspired shape variations,
+such as the \Dstst form factors,
+$DDX$ Dalitz-inspired shape variations,
+and the $DDX$ relative fraction correction
+(the correction to the relative fraction between the
+$\Bzb \rightarrow DDX$ and $\Bm \rightarrow DDX$ templates),
 are \emph{insensitive} to the signal fit as they constitute only a small
 fraction of the ISO data skim.
-Therefore these parameters are obtained with a \emph{control fit},
+As an example,
+Allowing the $DDX$ relative fraction correction to float in the signal fit
+seemingly improves the fit quality,
+as shown in \cref{fig:fit-float-uvsd},
+but one of \RDX is pushed to 0.
+This suggests that the $DDX$
+(sometimes referred to as $DD$ in the subsequent text) components can completely
+absorb the signal if their parameters are not well-constrained.
+
+\begin{figure}[!htb]
+    \begin{subfigure}[t]{0.5\textwidth}
+        \includegraphics[width=0.85\textwidth]{figs-fit/fit_uvsd/fit_result-stacked-Dst-iso-q2.pdf}
+        \caption{The nominal fit.}
+    \end{subfigure}%
+    \begin{subfigure}[t]{0.5\textwidth}
+        \includegraphics[width=0.85\textwidth]{figs-fit/fit_uvsd/fit_result-stacked-Dst-iso-q2-floating_uvsd.pdf}
+        \caption{The fit with $\rho_{DDX,u/d}$ floating.}
+    \end{subfigure}
+
+    \caption{
+        Allowing the $DDX$ relative fraction $\rho_{DDX,u/d}$ to float in the
+        signal fit to float seemingly improves fit quality,
+        but the signal are now completely absorbed in the $DDX$ components.
+        Only the \Dstar channel fit is shown as it shows the most improvements
+        in terms of pulls.
+    }
+    \label{fig:fit-float-uvsd}
+\end{figure}
+
+Therefore, these background shape parameters are obtained with a
+\emph{control fit},
 a simultaneous fit to the 1OS, 2OS, and DD control skims with six fit channels
 (a \Dz and a \Dstar channel for each control skim),
 and imported back to the signal fit at the fitted values with either
