@@ -68,8 +68,8 @@ Such a process is illustrated in \cref{fig:strip-sensor-measurement}.
         \input{figs-ut-upgrade/detector/ut-sensor-illustration.tikz}
     }
     \caption{
-        Illustration of measuring track hit positions with two silicon-strip
-        sensors.
+        Illustration of the measurement of $x$-$y$ track hit positions with two
+        silicon-strip sensors.
         The second sensor is rotated by an angle.
         The intersection between the red and blue strip is the measured position
         of a track.
@@ -262,7 +262,7 @@ The pigtails are an engineering marvel on its own\footnote{
     It is worth noting that during the detector installation,
     very precise bending of the Pigtails are needed to ensure good connectivity.
 },
-which dispatches power, data, and control signals between the BP and SALTs on
+dispatching power, data, and control signals between the BP and SALTs on
 the stave in an \emph{extremely} limited space.
 A BP can also host up to 12 DCBs.
 Each DCB serializes its input data and converts the digitized electric sensor
@@ -333,36 +333,36 @@ be provided on a separate document by another author.
     \label{fig:backplane}
 \end{figure}
 
-As its name suggests, Data Control Board (DCB) is responsible for aggregating
-SALT readouts and propagating slow control commands.
-These functionality of the DCB rely on the GigaBit Transceiver (GBT)
+As its name suggests, the Data Control Board (DCB) is responsible for
+aggregating SALT readout data and propagating slow control commands.
+The functionality of the DCB rely on the GigaBit Transceiver (GBT)
 chipset architecture,
 a set of ASICs developed by CERN to provide a high-speed optical data
-transmission solution in a highly radiative environment such as in the LHC
+transmission solution in a highly radioactive environment such as in the LHC
 \cite{P_Moreira_2010}.
 The chipset includes the following ASICs:
 
 \begin{itemize}
     \item \textbf{GBTx}:
-        GBTx is a radiation tolerant serializing/deserializing ASIC for
+        it is a radiation tolerant serializing/deserializing ASIC for
         implementing high-speed uni- or bi-directional optical links in high
         energy experiments
         \cite{gbtx_manual}.
 
     \item \textbf{GBLD}:
-        GigaBit Laser Driver:
-        A configurable VCSEL\footnote{
-            Vertical-cavity surface-emitting laser.
+        the GigaBit Laser Driver is a
+        vertical-cavity surface-emitting laser driver
+        \footnote{
             It has many modern applications such as in computer mice and optic
             fiber communication.
             The technical details is unknown to the author but is irrelevant
             for the topic.
-        } driver
+        }.
         \cite{gbld_manual}.
 
     \item \textbf{GBT-SCA}:
-        GigaBit Transceiver-Slow Control Adapter provides an interface between
-        various industrial-standard slow control protocols,
+        the GigaBit Transceiver-Slow Control Adapter provides an interface
+        between various industrial-standard slow control protocols,
         namely SPI, I2C, JTAG, and GPIO, to the GBT link protocol.
         It also has a built-in multi-channel ADC that can be configured and
         read via the GBT link \cite{sca_manual}.
@@ -373,7 +373,7 @@ Shown in \cref{fig:dcb-prod}, a DCB is a 16-layer PCB that consists of:
 
 \begin{itemize}
     \item \textbf{1 master GBTx}:
-        Operate in transceiver mode,
+        Operating in transceiver mode,
         it generates a stable by phase-aligning its on-package quartz oscillator
         clock with the clock signal provided by the readout system,
         and distributes the clock signal to 6 data GBTxs.
@@ -668,7 +668,7 @@ The allowed SALT-e-link combinations per data GBTx are listed in
         \bottomrule
     \end{tabular}
 
-    \caption{Possible SALT-e-link combinations per data GBTx in the DCB.}
+    \caption{Possible SALT-e-link combinations per data GBTx link in the DCB.}
     \label{tab:salt-elink}
 \end{table}
 
@@ -687,7 +687,7 @@ Such a phase may render the data sampling unreliable
 as the GBTx may sample on an transitional state of the data signal.
 To solve this problem, each e-link on the GBTx is equipped with a
 phase-adjusting capability so that the sampling happens with a stable data
-signal in the middle of an eye.
+signal in between clock transitions.
 
 
 \subsection{Initialization sequence after a power cycle}
