@@ -682,7 +682,8 @@ following form:
 where $V_1(0), \rho^2$ are FF parameters,
 noting that $V_1(0)$ corresponds to the hadronic current at zero recoil.
 The factor $V_1(0)$,
-either fitted from external data with HQET or computed with lattice QCD,
+either fitted from external data with HQET constraints or computed with lattice
+QCD,
 represents an overall normalization which is \emph{not cancelled} when
 performing CLN to BGL reweighting but \emph{is cancelled} in the subsequent
 \RD ratio.
@@ -700,7 +701,7 @@ and is constrained based on HQET:
         1 + \Delta(-0.019 + 0.041(w - 1) - 0.015(w - 1)^2)
     \right\} V_1(w)
 \end{equation}
-where $\Delta$ is a parameter from HQET.
+where $\Delta$ is a parameter with its valued derived from HQET constraints.
 
 The remaining parameter $\rho^2$
 is obtained from a fit to experimentally measured \qSq distributions by
@@ -727,15 +728,8 @@ and are listed in \cref{tab:ff-cln-b-d}.
     \end{tabular}
 \end{table}
 
-In the CLN parameterization the
-slope and curvature of the Isgure-Wise function,
-the form factor description in the heavy quark limit,
-are too closely cross-constrained by the model.
-Additionally, the fit of FF normalization factors at zero recoil is not
-self-consistent as the change in the slope of the form factors is not taken into
-account \cite{LHCb-ANA-2020-056}.
-
-\paragraph{BGL} Similar to CLN, the BGL parameterization
+\paragraph{BGL}
+Similar to CLN, the BGL parameterization
 \cite{Boyd_1995,Boyd:1997kz}
 is based on dispersion relations, analyticity, and crossing symmetry but
 with reduced constraints,
@@ -834,10 +828,13 @@ With dispersive bounds, these are expressed as:
 \begin{align}
     h_{A_1}(w) &= h_{A_1}(1) \left[
         1 - 8 \rho^2 z(w) + (53 \rho^2 - 15) z(w)^2 - (231 \rho^2 - 91) z(w)^3
-    \right] \\
-    R_1(w) &= R_1(1) - 0.12(w-1) + 0.05(w-1)^2 \\
-    R_2(w) &= R_2(1) + 0.11(w-1) - 0.06(w-1)^2 \\
+    \right] \label{eqn:cln-dst-bad-correlation} \\
+        R_1(w) &= R_1(1) - 0.12(w-1) + 0.05(w-1)^2
+        \label{eqn:cln-dst-bad-coeff-1} \\
+    R_2(w) &= R_2(1) + 0.11(w-1) - 0.06(w-1)^2
+        \label{eqn:cln-dst-bad-coeff-2} \\
     R_0(w) &= R_0(1) - 0.11(w-1) + 0.01(w-1)^2
+        \label{eqn:cln-dst-bad-coeff-3}
 \end{align}
 The parameters used in $B \rightarrow \Dstar\ellm\neulb$ MC generation are
 listed in \cref{tab:ff-cln-b-dst}.
@@ -860,6 +857,25 @@ listed in \cref{tab:ff-cln-b-dst}.
         \bottomrule
     \end{tabular}
 \end{table}
+
+The use of CLN parameterization has received the following criticism
+\cite{LHCb-ANA-2020-056}:
+
+\begin{itemize}
+    \item The slope and curvature,
+        that is, the coefficients of the $z$ and $z^2$ terms
+        in \cref{eqn:cln-dst-bad-correlation},
+        of the Isgur-Wise functions
+        share the same parameter $\rho$,
+        making the two too closely cross-constrained by the model.
+
+    \item In \cref{eqn:cln-dst-bad-coeff-1,eqn:cln-dst-bad-coeff-2,eqn:cln-dst-bad-coeff-3},
+        the numerical coefficients are $w$-dependent and
+        are estimated at a \emph{fixed} $w = 1$.
+        The change of these coefficients at $w \neq 1$ are not taken into
+        account.
+\end{itemize}
+
 
 \paragraph{BGL}
 The BGL parameterization scheme for $B \rightarrow \Dstar\ellm\neulb$ decays is
