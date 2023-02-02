@@ -858,23 +858,27 @@ listed in \cref{tab:ff-cln-b-dst}.
     \end{tabular}
 \end{table}
 
-The use of CLN parameterization has received the following criticism
-\cite{LHCb-ANA-2020-056}:
-
-\begin{itemize}
-    \item The slope and curvature,
-        that is, the coefficients of the $z$ and $z^2$ terms
-        in \cref{eqn:cln-dst-bad-correlation},
-        of the Isgur-Wise functions
-        share the same parameter $\rho$,
-        making the two too closely cross-constrained by the model.
-
-    \item In \cref{eqn:cln-dst-bad-coeff-1,eqn:cln-dst-bad-coeff-2,eqn:cln-dst-bad-coeff-3},
-        the numerical coefficients are $w$-dependent and
-        are estimated at a \emph{fixed} $w = 1$.
-        The change of these coefficients at $w \neq 1$ are not taken into
-        account.
-\end{itemize}
+In the CLN parameterization,
+%%%%
+the slope and curvature,
+that is, the coefficients of the $z$ and $z^2$ terms
+in \cref{eqn:cln-dst-bad-correlation},
+of the Isgur-Wise functions\footnote{
+    The form factor description in the heavy quark limit.
+}
+share the same parameter $\rho$,
+making the two too closely cross-constrained by the model.
+%%%%
+Additionally,
+the fit of the normalization factors of the form factor ratios at zero recoil
+$R_i(w = 1)$
+does not take the fitted slopes $R'_i(w = 1)$ into account,
+and uses the fixed values,
+such as $-0.12$ in \cref{eqn:cln-dst-bad-coeff-1},
+obtained from approximations to the QCD sum rules instead.
+Such an approach is not self-consistent
+\cite{LHCb-ANA-2020-056}.
+Therefore, it is preferable to use the BGL parameterization.
 
 
 \paragraph{BGL}
