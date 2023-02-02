@@ -68,50 +68,57 @@ which preserves the direction of space and time\footnote{
     or both ($TP$) to $SO^+(1,3)$.
 },
 %%%%
-it has 6 generators $J_i, K_i$ with $i \in [1,2,3]$,
+it has 6 generators $J_i, K_i$ with $i \in \{1,2,3\}$,
 which have the following commutation relations:
 \begin{align}
     [J_i, J_j] & = i \epsilon_{ijk} J_k \\
     [J_i, K_j] & = i \epsilon_{ijk} K_k \\
     [K_i, K_j] & = -i \epsilon_{ijk} J_k
 \end{align}
-such that each Lorentz translation $L$ of boost $\vec{\phi}$ and rotation
+such that each Lorentz transformation $L$ of boost $\vec{\phi}$ and rotation
 $\vec{\theta}$ can be generated with the exponential map:
 $L = e^{i \vec{J} \cdot \vec{\theta} + i \vec{K} \cdot \vec{\phi}}$.
 % SO+(1,3) = SU(2) x SU(2), direct product
 %%%%
 A new set of generators can be defined
 $N^\pm = \frac{1}{2}(J_i \pm i K_i)$ such that each set of $\{N^\pm_i\}$
-are generators of the $SU(2)$ group, and $N^+_i, N^-_i$ commute.
+are generators of the $SU(2)$ group, and $N^+_i, N^-_j$ commute.
 Hence the $SO^+(1, 3)$ contains two copies of $SU(2)$.
 
-We may ask the following question, then:
-``What kinds of object does the group $SO^+(1,3)_\mathbb{C}$ act on?''
-To answer this question, the group elements can be represented\footnote{
-    With the understanding that any group element $\Lambda$ can be generated
-    from 3 rotation generators $\vec{J}$ and 3 boost generators $\vec{K}$
-    with the exponential map:
-    $\Lambda = e^{i \vec{\theta} \cdot \vec{J} + i \vec{\phi} \cdot \vec{K}}$,
-    and the commutation relations between the generators,
-    namely $[J_i, J_j], [K_i, K_j], [J_i, K_j]$,
-    can be worked out in any representation.
-} by $n \times n$ matrices,
-and the objects the group acts on by vectors of $n$ complex numbers.
-Then the properties of a particular ``representation'' can be studied with
-the familiar tool of linear algebra.
-As a side note,
-$SU(2)_\mathbb{C}$ can be represented by $2j + 1$ dimensional matrices,
-where $j$ is a half-integer;
-the $j = \frac{1}{2}$ case has 3 Pauli matrices as the group generators.
-Since $SO^+(1,3)_\mathbb{C}$ contains two copies of $SU(2)_\mathbb{C}$,
-its representations can be labelled as $(j, j')$.
-It turns out the answer to the question at the beginning of the paragraph is:
-each \emph{irreducible representation}\footnote{
+As $L \in SO^+(1, 3)$ is a Lorentz transformation,
+it can \emph{act} on \emph{some objects}.
+If we map each $L$ to a $n \times n$ invertible matrix $M$ of complex numbers,
+the objects $L$ can act on are represented by $n$-dimensional complex vectors.
+A map from $SO^+(1, 3)$ to the (vector) space of $M$ is called a
+``representation'' of $SO^+(1, 3)$;
+there are many representations for a single group.
+As an example, each generator of $SU(2)$ can be mapped to a Pauli matrix,
+forming a 2 dimensional representation of $SU(2)$.
+Denote the $SU(2)$ generators as $\{N_1, N_2, N_3\}$,
+for a $n$-dimensional representation of $SU(2)$,
+let $N_3$ be represented by a diagonal matrix and its largest eigenvalue $j$.
+Due to commutation relation $[N_i, N_j] = i \epsilon_{ijk} N_k$,
+only $N_3$ can be diagonal.
+It can be shown that the spectrum of the $N_3$ eigenvalues is discrete:
+$\{ -j, -j+1, \dots, j-1, j\}$ with $2j + 1$ elements.
+Since $N_3$ a $n$-dimensional invertible matrix, $2j + 1 = n$.
+Hence, such a representation can be labelled with $j = \frac{n - 1}{2}$
+which are half-integers.
+
+Since $SO^+(1, 3)$ contains two copies of $SU(2)$,
+connections between the representations of these two groups can be made
+and the representations of $SO^+(1, 3)$ can be labelled as $(j, j')$.
+%%%%
+That is, Lorentz transformations can act on many different
+\emph{classes} of objects,
+with each class corresponds to a $(j, j')$ representation.
+Some of such representations are \emph{irreducible}\footnote{
     Roughly speaking, there is no transformation that can simultaneously
     block-diagonalize all matrices representing the group elements.
-}
-corresponds to a specific type of \emph{elementary particle}.
-The $(0, 0)$ representation corresponds to spin 0 scalar particles;
+},
+which correspond to specific types of \emph{elementary particle}
+of spin $j + j'$:
+the $(0, 0)$ representation corresponds to spin 0 scalar particles;
 the $(\frac{1}{2}, 0)$ and $(0, \frac{1}{2})$ representations both corresponds to
 spin $\frac{1}{2}$ particles,
 with the former left-handed and the latter right-handed;
