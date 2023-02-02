@@ -1096,10 +1096,19 @@ ${\DststS}_i$ species:
         N_{{\DststS}_i}
     \right\}
 \end{equation}
-where $\fitfsfd = 2.6$ (the latest measured value is 2.4 at 13~TeV) accounts for
-the production ratio between \Bzb and \Bsb mesons,
+where $\fitfsfd = 2.6$ (the latest measured value is 2.4 at 13~TeV, but 2.6 is
+used instead)
+accounts for the production ratio between \Bzb and \Bsb mesons,
 $\mathcal{B}_{{\DststS}_i}$ is a Gaussian constraint with a 40\% uncertainty,
-and $N_{{\DststS}_i}$ is the expected yield based on measured branching fractions
+and
+\begin{align}
+    N_{{\DststS}_i} = \;
+        & \mathcal{B}(B_s \rightarrow {\DststS}_i (\rightarrow K^+ D^{(*)0}))
+        \times \epsilon_\text{\Kp isolation} \; + \\
+        & \mathcal{B}(B_s \rightarrow {\DststS}_i (\rightarrow K^0 \Dstarp))
+        \times r^\text{isospin}_{\Dstar}
+\end{align}
+is the expected yield based on measured branching fractions
 and selection efficiencies from MC.
 
 The \Dstar channel yields for both templates are constrained with a Gaussian of
