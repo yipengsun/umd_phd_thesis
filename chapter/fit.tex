@@ -59,28 +59,35 @@ Therefore, these background shape parameters are obtained with a
 a simultaneous fit to the 1OS, 2OS, and DD control skims with six fit channels
 (a \Dz and a \Dstar channel for each control skim),
 and imported back to the signal fit at the fitted values with either
-fitted errors as constraints (for \Dstst shape parameters) or fully fixed
-(for $DDX$ shape parameters).
+fitted errors as constraints (e.g. for \Dstst shape parameters) or fully fixed
+(e.g. for $DDX$ shape parameters).
 To be more precise,
 the fit procedure is broken into 3 steps:
 
 \begin{enumerate}
     \item \textbf{Pre-control}:
-        Performed on control skims (1OS, 2OS, DD).
-        In this step, all but the \Kstar shape variations are turned off.
+        Performed on the control skims (1OS, 2OS, DD).
+        In this step, all variations but the \Kstar weight in the $DDX$
+        templates are turned off.
     \item \textbf{Control}:
-        Also performed on control skims (1OS, 2OS, DD).
-        All but the signal and normalization shape variations are turned on.
+        Also performed on the control skims (1OS, 2OS, DD).
+        All but the signal and normalization form factor variations are turned
+        on.
         The fitted parameters from previous steps are loaded along with their
         errors as a starting point for the control fit.
     \item \textbf{Signal}:
-        Performed on signal sample (ISO).
-        The variations in the control fit for $D^{**}, D_H^{**}$, and misID DiF
-        are loaded as constraints to the signal fit;
-        the $DDX$ variations are fixed to the fitted value from the previous
-        step.
+        Performed on the signal skim (ISO).
+        The $D^{**}$ form factors,
+        the $D_H^{**}$ data-driven corrections,
+        the \Kstar weight in the $DDX$ templates,
+        and the misID DiF weight
+        are loaded as constraints from the control fit;
+        the $DDX$ data-driven shape corrections and
+        the $DDX$ relative fraction correction
+        are fixed to the control fit values.
 \end{enumerate}
-The terms such as ``\Kstar variations'' and ``misID DiF'' will be defined later.
+The terms such as ``\Kstar weight'' and ``misID DiF weight'' will be defined
+later.
 
 Both the signal and the control fit are binned extended maximum likelihood
 template fits,
