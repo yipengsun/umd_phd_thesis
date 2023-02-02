@@ -8,6 +8,7 @@
 %   https://physics.stackexchange.com/questions/385159/quark-gluon-color-relationship-in-pure-qcd
 %   https://physics.stackexchange.com/questions/327008/how-do-the-infinite-dimensional-representations-of-the-poincar%C3%A9-group-work
 %   Rep. of Lorentz group: http://sharif.edu/~sadooghi/QFT-I-96-97-2/LorentzPoincareMaciejko.pdf
+%   https://scholar.harvard.edu/files/noahmiller/files/representation-theory-quantum.pdf
 %
 % Very useful:
 %   https://physics.stackexchange.com/questions/266963/what-are-the-differences-if-any-between-the-dysons-series-definition-and-the
@@ -52,8 +53,8 @@ the electroweak theory, and the lepton flavor universality in the SM.
 It is experimentally established that the speed of light in vacuum is constant
 in any reference frame.
 Then, all transformations preserving the speed of light\footnote{
-    Each of such transformations, denote as $A$, must leave the Minkowski metric
-    $\eta$ intact: $A^T \eta A = \eta$.
+    Each of such transformations, denote as $L$, must leave the Minkowski metric
+    $\eta$ intact: $L^T \eta L = \eta$.
 } can be identified:
 rotations, Lorentz boosts, parity ($\vec{x} \rightarrow -\vec{x}$),
 time reversal ($t \rightarrow -t$), and spacetime translations.
@@ -66,11 +67,23 @@ which preserves the direction of space and time\footnote{
     The other 3 can be obtained by applying parity ($P$), time reversal ($T$),
     or both ($TP$) to $SO^+(1,3)$.
 },
-and accepting that it is advantageous to extend $SO^+(1,3)$ to work with vectors
-with complex components,
-it is shown that the extended group, $SO^+(1,3)_\mathbb{C}$,
-contains two copies of $SU(2)_\mathbb{C}$.
+%%%%
+it has 6 generators $J_i, K_i$ with $i \in [1,2,3]$,
+which have the following commutation relations:
+\begin{align}
+    [J_i, J_j] & = i \epsilon_{ijk} J_k \\
+    [J_i, K_j] & = i \epsilon_{ijk} K_k \\
+    [K_i, K_j] & = -i \epsilon_{ijk} J_k
+\end{align}
+such that each Lorentz translation $L$ of boost $\vec{\phi}$ and rotation
+$\vec{\theta}$ can be generated with the exponential map:
+$L = e^{i \vec{J} \cdot \vec{\theta} + i \vec{K} \cdot \vec{\phi}}$.
 % SO+(1,3) = SU(2) x SU(2), direct product
+%%%%
+A new set of generators can be defined
+$N^\pm = \frac{1}{2}(J_i \pm i K_i)$ such that each set of $\{N^\pm_i\}$
+are generators of the $SU(2)$ group, and $N^+_i, N^-_i$ commute.
+Hence the $SO^+(1, 3)$ contains two copies of $SU(2)$.
 
 We may ask the following question, then:
 ``What kinds of object does the group $SO^+(1,3)_\mathbb{C}$ act on?''
@@ -849,7 +862,7 @@ listed in \cref{tab:ff-cln-b-dst}.
         \toprule
         \textbf{FF parameter} & \textbf{Value} & \textbf{\Hammer name} \\
         \midrule
-        $h_{A_1}(0)$ & 0.908 & \smalltt{F1}     \\
+        $h_{A_1}(1)$ & 0.908 & \smalltt{F1}     \\
         $\rho^2$     & 1.122 & \smalltt{RhoSq}  \\
         $R_1(1)$     & 1.270 & \smalltt{R1}  \\
         $R_2(1)$     & 0.852 & \smalltt{R2}  \\
