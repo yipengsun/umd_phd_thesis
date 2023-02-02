@@ -61,15 +61,15 @@ time reversal ($t \rightarrow -t$), and spacetime translations.
 All but the translation transformations form a group called the
 ``Lorentz group''.
 Focusing on the restricted Lorentz group $SO^+(1, 3)$,
-which preserves the direction of space and time\footnote{
+the group that preserves the direction of space and time\footnote{
     Loosely speaking, Lorentz group contains 4 ``classes'': $\{I, T, P, TP\}$.
     $SO^+(1,3)$ is the one that contains the identity element.
     The other 3 can be obtained by applying parity ($P$), time reversal ($T$),
     or both ($TP$) to $SO^+(1,3)$.
-},
+}:
 %%%%
 it has 6 generators $J_i, K_i$ with $i \in \{1,2,3\}$,
-which have the following commutation relations:
+which obey the following commutation relations:
 \begin{align}
     [J_i, J_j] & = i \epsilon_{ijk} J_k \\
     [J_i, K_j] & = i \epsilon_{ijk} K_k \\
@@ -83,7 +83,7 @@ $L = e^{i \vec{J} \cdot \vec{\theta} + i \vec{K} \cdot \vec{\phi}}$.
 A new set of generators can be defined
 $N^\pm = \frac{1}{2}(J_i \pm i K_i)$ such that each set of $\{N^\pm_i\}$
 are generators of the $SU(2)$ group, and $N^+_i, N^-_j$ commute.
-Hence the $SO^+(1, 3)$ contains two copies of $SU(2)$.
+Hence $SO^+(1, 3)$ contains two copies of $SU(2)$.
 
 As $L \in SO^+(1, 3)$ is a Lorentz transformation,
 it can \emph{act} on \emph{some objects}.
@@ -92,9 +92,11 @@ the objects $L$ can act on are represented by $n$-dimensional complex vectors.
 A map from $SO^+(1, 3)$ to the (vector) space of $M$ is called a
 ``representation'' of $SO^+(1, 3)$;
 there are many representations for a single group.
-As an example, each generator of $SU(2)$ can be mapped to a Pauli matrix,
+As an example, each generator of $SU(2)$,
+denote as $\{N_1, N_2, N_3\}$,
+can be mapped to a Pauli matrix $N_i \mapsto \sigma_i$,
 forming a 2-dimensional representation of $SU(2)$.
-Denote the $SU(2)$ generators as $\{N_1, N_2, N_3\}$,
+More generally,
 for a $n$-dimensional representation of $SU(2)$,
 let $N_3$ be represented by a diagonal matrix and its largest eigenvalue $j$.
 Due to commutation relation $[N_i, N_j] = i \epsilon_{ijk} N_k$,
