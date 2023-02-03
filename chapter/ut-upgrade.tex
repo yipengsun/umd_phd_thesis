@@ -1032,6 +1032,45 @@ a 128-byte chars defining the device and register addresses,
 and a variable number of chars specifying the actual content to write via I2C.
 
 
+\subsection{The UT online system}
+\label{online-ut}
+
+% The UT online system consists of 3 subsystems: DAQ, DCS, and HV
+%
+% 0. Every component is integrated into the control system by a form of
+% DIM server (for example, GBT server is a DIM server). Is this correct?
+%
+% 1. Are SOL40 used to control every component? For example the Wiener PSUs
+% seems to be controlled by 'OPC servers'. Does it imply that these server
+% implement a DIM server on their own w/o a need for a SOL40?
+%
+% 2. The DCBs and Hybrids are controlled by SOL40 directly, the LVRs are
+% controlled via the TCB which implements a GBT-SPI interface via a GBT-SCA
+% chipset
+% How does the HV (CAEN?) integrate into the control system?
+%
+% 3. ELMB seems to be a monitoring board that has ADCs. What kinds of
+% monitoring/telemetry data does it collect? How does it integrate into the
+% control system?
+% 'Analog or digital sensors and actuators such as: temperature, humidity,
+% radiation sensors, switches, voltage and current monitoring modules, solid
+% state relays' maybe?
+%
+% 4. How many TELL40s and SOL40s are planned to be used currently?
+%
+% 5. In your online system review slides (MTobin_UT_Review_14112022.pdf), it is
+% claimed that many TELL40 and SOL40 are virtual machines.
+% How does it work? I can imagine for SOL40 one can do a PCIE pass-thru so that
+% multiple PCIe40 can be plugged into a single physical machine so that one
+% physical machine can act as multiple SOL40.
+% For TELL40 however, it requires 2 additional GPUs which also need to be passed
+% to the VM. Is it true that one physical machine can also host MULTIPLE TELL40s,
+% which seem to be very resource-hungry?
+%
+% 6. Out of curiosity, what kind of virtualization software does the LHCb use?
+% XVM or KVM, or something else?
+
+
 \subsection{MiniDAQ}
 \label{online-minidaq}
 
