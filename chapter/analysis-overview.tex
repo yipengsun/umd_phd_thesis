@@ -45,6 +45,8 @@ reconstruction.
     \label{fig:decay-diagrams}
 \end{figure}
 
+
+\paragraphtoc{Feed down}
 A complication of these states is that they are \emph{inhomogeneous},
 that is, not all \Dz\mun final state events are actual decays with just \Dz\mun
 in their final states:
@@ -74,8 +76,25 @@ precision\footnote{
     As opposed to extract \RDst from \Dstarp\mun sample alone.
 } for \RDst.
 
+
+\paragraphtoc{Background decay modes}
 Both \Dstarp\mun and \Dz\mun final states contain contributions from signal,
-normalization, and many background decay modes.
+normalization, and many background decay modes, which can be categorized as
+follows:
+\begin{itemize}
+    \item Four $1P$ \Dstst:
+        these are the lightest excited $D$ mesons.
+    \item Heavy \Dstst:
+        these refers to the excited $D$ mesons that are heavier than the four
+        $1P$ \Dstst states.
+        The known excited $D$ mesons, both light and heavy,
+        are displayed in \cref{fig:excited-d-meson}.
+    \item \DststS:
+    \item $DDX$:
+\end{itemize}
+
+
+\paragraphtoc{Fit variables}
 Each decay mode has differing kinematics
 which are often modeled from Monte-Carlo simulation (MC),
 sometimes from data control samples.
@@ -134,16 +153,24 @@ More information about RFA can be found in \cref{appx:rfa}.
 %     \label{fig:rfa-variables}
 % \end{figure}
 
+
+\paragraphtoc{Signal and control samples (skims)}
+%%%%
 This analysis reuses the fit strategy in the LHCb \RDX run 1 analysis:
 fit the parameters characterizing various background decays with separate
-control samples, then import these parameters either as constraints or fully
-fixed into the signal fit;
-this is because while the signal(-enriched) samples contain many backgrounds,
+\emph{control samples},
+then import these parameters either as constraints or fully fixed into the
+signal fit;
+this is because while the \emph{signal(-enriched)} sample contains many
+backgrounds,
 they are only a small fraction relative to the signal and normalization
 combined,
 thus no good description of the backgrounds can be extracted from the signal fit
 alone.
 
+
+\paragraphtoc{Analysis workflow}
+%%%%
 As an update to the previous analysis, this analysis shares a similar
 workflow with that of run 1.
 The workflow of this analysis is:
@@ -161,7 +188,9 @@ Finally, \RDX are extracted from a simultaneous fit, with fit procedure and
 results listed in \cref{ref:fit}
 and selected systematic uncertainties discussed in
 \cref{ref:sys-uncert}.
-%%%%
+
+
+\paragraphtoc{Differences between run 2 and run 1 analyses}
 The major differences between this analysis and the pathfinder run 1 \RDX
 analysis are:
 \begin{itemize}
@@ -196,6 +225,7 @@ analysis are:
         This analysis leverages on \Hammer for an easier to implement and more
         reliable form factor reweighting procedure.
 \end{itemize}
+
 
 Additional information is organized as follows:
 An overview of theory of semileptonic \B decay is provided in
