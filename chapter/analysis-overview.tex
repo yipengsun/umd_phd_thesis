@@ -78,7 +78,7 @@ precision\footnote{
 
 
 \paragraphtoc{Background decay modes}
-In addition to the signal, normalization, and feed down from \Dstarz modes,
+In addition to the signal, normalization, and feed down from \Dstar modes,
 both \Dstarp\mun and \Dz\mun final states contain contributions many
 background modes that are only partially reconstructed,
 which can be categorized as follows:
@@ -103,7 +103,19 @@ which can be categorized as follows:
         with two or more extra pions in the final states:
         $B \rightarrow \Dstst_H (\rightarrow D^{0|*} \pi\pi) \mun\neumb$.
     \item \DststS:
+        the $B_s \rightarrow (D'_{s1}|D_{s2})
+        (\rightarrow D^{(*)}K) \ellm\neulb$
+        decays have one extra kaon in their final states.
     \item $DDX$:
+        the double-charm backgrounds,
+        namely $B \rightarrow D^{(*)} D_q X$ decays
+        where $D_q$ stands for a generic charm meson with $q$ being a
+        $u/d/s$ quark and $X$ represents extra pion(s), a kaon, or an
+        excited $K$ states.
+        The lepton in such decays comes from
+        a leptonic (when $q = s$) or a semileptonic
+        (when $q = u \text{ or } d$) decay of the $D_q$.
+        These decays contain many additional final state particles.
 \end{itemize}
 
 \begin{figure}[!htb]
@@ -115,6 +127,24 @@ which can be categorized as follows:
     }
     \label{fig:excited-d-meson}
 \end{figure}
+
+The ``mis-reconstructions'' of the $D^{(*)}\mu$ pair must also be taken into
+account, namely:
+\begin{itemize}
+    \item Muon misID:
+        sometimes the \muon in the $D^{(*)}\mu$ pair is mis-identified
+        because the particle identification algorithm is not 100\% efficient.
+        When such misidentification happens,
+        the ``\muon'' can be a pion, a kaon, a proton, an electron,
+        or a ghost\footnote{
+            Fake tracks due to random combinations of track segments, a detector
+            effect.
+        }.
+    \item Combinatorial backgrounds:
+        these refers to random combinations of the \Dz \muon (for \Dz channel),
+        \Dstar \muon, or \Dz \pion (the latter two are for \Dstar channel)
+        that are not originating from the decay of the same $B$ meson.
+\end{itemize}
 
 
 \paragraphtoc{Fit variables}
