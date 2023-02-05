@@ -4,10 +4,24 @@
 This analysis currently uses 1665~pb$^{-1}$ of proton-proton collision data
 recorded by LHCb in 2016, at $\sqrt{s} = 13$~TeV.
 It is planned to extend the use of data to 2016--2018 LHCb data.
-The rest of the section describes selection procedures for various data samples.
+The rest of the section describes selection procedures for various data samples,
+which are:
+
+\begin{itemize}
+    \item Right-sign samples (\cref{ref:sel:data:rs}):
+        the nominal data samples to be fitted.
+    \item Wrong-sign samples (\cref{ref:sel:data:ws}):
+        for characterizing various combinatorial backgrounds,
+        constituting random combinations of \DXmu pairs that are \emph{not}
+        originating from the same $B$ decay but passes the selection cuts
+        requiring so.
+    \item Fake muon samples (\cref{ref:sel:data:fake-mu}):
+        for studying the contributions from other charged particles
+        mis-identified as muon in the nominal data sample.
+\end{itemize}
 
 
-\subsection{Right sign samples with a ``real'' muon}
+\subsection{Right-sign samples}
 \label{ref:sel:data:rs}
 
 It is important to first define the terms ``right sign'' and ```real' muon''.
