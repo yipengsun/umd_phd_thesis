@@ -1,13 +1,12 @@
 \section{MC simulation}
 \label{ref:sel:mc}
 
-A large number of MC simulation samples is used to
-model the signal, normalization, and partially reconstructed backgrounds in
-data.
+A large number of simulated events are used to model the signal, normalization,
+and partially reconstructed backgrounds in data.
 To reduce simulation time, tracker-only (TO) MC, which has all but the tracking
 system of the detector turned off (set to passive material), are used.
-Additional small full simulation (FullSim) samples are produced for year 2016 to
-aid emulations of the missing detector responses (mainly for trigger).
+Additional small full simulation (FullSim) samples are produced for the year
+2016 to aid emulations of the missing detector responses (mainly for trigger).
 The emulation procedures are discussed in \cref{ref:mc-emulation}.
 
 MC samples used for both \Dz and \Dstar channels are listed in
@@ -22,6 +21,10 @@ Some samples contribute to both channels due to feed down\footnote{
     which are denoted by \textbf{SimXXX}.
     The differences are technical and can be ignored for this thesis.
 }.
+
+
+\input{selection-tab-mc-samples.tex}
+
 
 Both TO and FullSim MC samples are loosely filtered to keep events in LHCb
 acceptance, with filtering cuts, mostly to save storage space,

@@ -1,0 +1,286 @@
+% vim: set ft=none:
+
+
+% This table is based on the output of:
+%   ./size_mc_samples.py -m detail -i 12573012 11574021 12773410
+\begin{landscape}
+\begin{table}[p]
+    \caption{
+        List of MC sample used in this analysis.
+        Numbers are event on disk, not total simulated numbers.
+    }
+    \label{tab:mc-d0-dst}
+    \centering\scriptsize
+    \begin{longtable}{c|c|c|c|c|r|r|r|r}
+        \toprule
+        {\bf Group} &
+        {\bf MC ID} &
+        {\bf Decay mode} &
+        {\bf Channels}  &
+        {\bf Cocktail}  &
+        {\bf\centering \makecell{2016 Sim09j \\ FullSim}} &
+        {\bf\centering \makecell{2016 Sim09k \\ tracker-only}} &
+        {\bf\centering \makecell{2017 Sim09k \\ tracker-only}} &
+        {\bf\centering \makecell{2018 Sim09k \\ tracker-only}} \\
+        \midrule
+        \endhead
+        norm.        & 12573012
+                     & $\Bm \rightarrow \Dz \mun \neumb$
+                     & \Dz & no
+                     %%%%
+                     & 3,564,053
+                     & 45,564,529
+                     & 47,965,869
+                     & 64,386,408
+                     \\
+                     %%%%
+                     & 11574021
+                     & $\Bzb \rightarrow \Dstarp \mun \neumb$
+                     & both & no
+                     %%%%
+                     & 3,012,029
+                     & 85,470,057
+                     & 81,075,745
+                     & 103,168,826
+                     \\
+                     %%%%
+                     & 12773410
+                     & $\Bm \rightarrow \Dstarz \mun \neumb$
+                     & \Dz & no
+                     %%%%
+                     & 4,003,029
+                     & 129,200,391
+                     & 134,602,735
+                     & 169,664,396
+                     \\
+                     %%%%
+        \midrule
+        sig.         & 12573001
+                     & $\Bm \rightarrow \Dz \taum \neutb$
+                     & \Dz & no
+                     %%%%
+                     & 233,966
+                     & 4,152,856
+                     & 3,405,213
+                     & 4,317,050
+                     \\
+                     %%%%
+                     & 11574011
+                     & $\Bzb \rightarrow \Dstarp \taum \neutb$
+                     & both & no
+                     %%%%
+                     & 593,350
+                     & 17,217,664
+                     & 18,008,069
+                     & 25,341,935
+                     \\
+                     %%%%
+                     & 12773400
+                     & $\Bm \rightarrow \Dstarz \mun \neumb$
+                     & \Dz & no
+                     %%%%
+                     & 528,616
+                     & 9,813,636
+                     & 10,289,156
+                     & 15,091,483
+                     \\
+                     %%%%
+        \midrule
+        $D^{**}$     & 11874430
+                     & $\Bzb \rightarrow \D^{**+} \mun \neumb$
+                     & both & $D_1^+,D_1^{'+}, D_2^{*+}, D_0^{*+}$
+                     %%%%
+                     & 2,865,898
+                     & 46,653,556
+                     & 45,469,066
+                     & 58,082,278
+                     \\
+                     %%%%
+                     & 11874440
+                     & $\Bzb \rightarrow \D^{**+} \taum \neutb$
+                     & both & $D_1^+,D_1^{'+}, D_2^{*+}, D_0^{*+}$
+                     %%%%
+                     & 35,322
+                     & 375,581
+                     & 519,245
+                     & 561,800
+                     \\
+                     %%%%
+                     & 12873450
+                     & $\Bm \rightarrow \D^{**0} \mun \neumb$
+                     & both & $D_1^0,D_1^{'0}, D_2^{*0}, D_0^{*0}$
+                     %%%%
+                     & 2,333,268
+                     & 37,417,148
+                     & 117,729,837
+                     & 48,051,754
+                     \\
+                     %%%%
+                     & 12873460
+                     & $\Bm \rightarrow \D^{**0} \taum \neutb$
+                     & both & $D_1^0,D_1^{'0}, D_2^{*0}, D_0^{*0}$
+                     %%%%
+                     & 112,138
+                     & 618,529
+                     & 598,526
+                     & 744,330
+                     \\
+                     %%%%
+        \midrule
+        $D^{**}_H$   & 12675011
+                     & $\Bm \rightarrow \D^{**0}_H (\rightarrow \Dz\pi\pi) \mun \neumb$
+                     & \Dz & Ref.~\cite{LHCb-ANA-2020-056}
+                     %%%%
+                     & 419,829
+                     & 6,204,217
+                     & 7,215,251
+                     & 8,573,968
+                     \\
+                     %%%%
+                     & 11674401
+                     & $\Bzb \rightarrow \D^{**+}_H (\rightarrow \Dz\pi\pi) \mun \neumb$
+                     & \Dz & Ref.~\cite{LHCb-ANA-2020-056}
+                     %%%%
+                     & 353,015
+                     & 6,997,221
+                     & 6,746,518
+                     & 12,956,078
+                     \\
+                     %%%%
+                     & 12675402
+                     & $\Bm \rightarrow \D^{**0}_H (\rightarrow \Dstarp\pi\pi) \mun \neumb$
+                     & both & Ref.~\cite{LHCb-ANA-2020-056}
+                     %%%%
+                     & 294,872
+                     & 5,560,586
+                     & 4,739,776
+                     & 6,162,695
+                     \\
+                     %%%%
+                     & 11676012
+                     & $\Bzb \rightarrow \D^{**+}_H (\rightarrow \Dstarp\pi\pi) \mun \neumb$
+                     & both & Ref.~\cite{LHCb-ANA-2020-056}
+                     %%%%
+                     & 290,791
+                     & 4,824,507
+                     & 4,834,264
+                     & 8,353,204
+                     \\
+                     %%%%
+                     & 12875440
+                     & $\Bm \rightarrow \D^{**0}_H (\rightarrow \Dstarz\pi\pi) \mun \neumb$
+                     & \Dz & Ref.~\cite{LHCb-ANA-2020-056}
+                     %%%%
+                     & 450,907
+                     & 7,840,307
+                     & 7,983,973
+                     & 10,039,996
+                     \\
+                     %%%%
+        \midrule
+        $D^{**}_s$   & 13874020
+                     & $\Bsb \rightarrow \D^{**+}_s (\rightarrow \Dz\Kp) \mun \neumb$
+                     & \Dz & no
+                     %%%%
+                     & 259,166
+                     & 1,654,215
+                     & 1,732,571
+                     & 2,214,625
+                     \\
+                     %%%%
+                     & 13674000
+                     & $\Bsb \rightarrow \D^{**+} \mun \neumb$
+                     & \Dstar & $D_{s1}^{'+}, D_{s2}^{*+}$
+                     %%%%
+                     & 142,549
+                     & 1,498,067
+                     & 1,531,966
+                     & 2,070,074
+                     \\
+                     %%%%
+        \midrule
+        $DDX$        & 11894600
+                     & $\Bzb \rightarrow \Dz X_c (\rightarrow X' \mump \neumb) X$
+                     & \Dz & Ref.~\cite{LHCb-ANA-2020-056}
+                     %%%%
+                     & 1,062,375
+                     & 36,888,835
+                     & 37,826,396
+                     & 49,768,186
+                     \\
+                     %%%%
+                     & 12893600
+                     & $\Bm \rightarrow \Dz X_c (\rightarrow X' \mump \neumb) X$
+                     & \Dz & Ref.~\cite{LHCb-ANA-2020-056}
+                     %%%%
+                     & 1,196,059
+                     & 21,854,863
+                     & 22,577,692
+                     & 28,900,392
+                     \\
+                     %%%%
+                     & 11894200
+                     & $\Bzb \rightarrow \Dz D_s^- (\rightarrow X' \taum \neutb) X$
+                     & \Dz & Ref.~\cite{LHCb-ANA-2020-056}
+                     %%%%
+                     & 84,533
+                     & 1,231,353
+                     & 1,145,771
+                     & 1,367,357
+                     \\
+                     %%%%
+                     & 12893610
+                     & $\Bm \rightarrow \Dz D_s^- (\rightarrow X' \taum \neutb) X$
+                     & \Dz & Ref.~\cite{LHCb-ANA-2020-056}
+                     %%%%
+                     & 255,725
+                     & 2,818,348
+                     & 2,625,208
+                     & 4,834,213
+                     \\
+                     %%%%
+                     %%%%
+                     & 11894610
+                     & $\Bzb \rightarrow \Dstarpm X_c (\rightarrow X' \mump \neumb) X$
+                     & \Dstar & Ref.~\cite{LHCb-ANA-2020-056}
+                     %%%%
+                     & 1,188,596
+                     & 16,188,308
+                     & 13,480,119
+                     & 16,837,410
+                     \\
+                     %%%%
+                     & 12895400
+                     & $\Bm \rightarrow \Dstarpm X_c (\rightarrow X' \mump \neumb) X$
+                     & \Dstar & Ref.~\cite{LHCb-ANA-2020-056}
+                     %%%%
+                     & 365,215
+                     & 7,000,178
+                     & 7,459,109
+                     & 6,798,676
+                     \\
+                     %%%%
+                     & 11894210
+                     & $\Bzb \rightarrow \Dstarp D_s^- (\rightarrow X' \taum \neutb) X$
+                     & \Dstar & Ref.~\cite{LHCb-ANA-2020-056}
+                     %%%%
+                     & 113,422
+                     & 1,678,170
+                     & 1,283,823
+                     & 1,631,217
+                     \\
+                     %%%%
+                     & 12895000
+                     & $\Bm \rightarrow \Dstarp D_s^- (\rightarrow X' \taum \neutb) X$
+                     & \Dstar & Ref.~\cite{LHCb-ANA-2020-056}
+                     %%%%
+                     & 117,696
+                     & 899,320
+                     & 1,555,844
+                     & 1,282,503
+                     \\
+                     %%%%
+        \bottomrule
+    \end{longtable}
+\end{table}
+\end{landscape}
