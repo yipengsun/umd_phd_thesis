@@ -161,9 +161,9 @@ There are four resulting skims, namely:
 \begin{itemize}
     \item ISO: signal-enriched. The \DXmu pair is well-isolated as there
         is no other track in the event that is likely coming from the same $B$.
-    \item 1OS: starting from this one, all other skims are background-enriched.
-        The 1OS skim contains events with one extra pion that is not isolated
-        from the \DXmu pair
+    \item 1OS: starting from this one, all skims are background-enriched.
+        The 1OS skim contains events with one extra pion that is originating
+        from the same $B$ as the \DXmu pair
         (anti-isolated).
     \item 2OS: contain events with two anti-isolated pions.
     \item DD: contains events with one or more anti-isolated tracks with one
@@ -232,10 +232,10 @@ More information about RFA can be found in \cref{appx:rfa}.
 
 This analysis reuses the fit strategy in the LHCb \RDX run 1 analysis:
 fit the parameters characterizing various background decays with separate
-\emph{control samples},
+\emph{control skims} (1OS, 2OS, and DD),
 then import these parameters either as constraints or fully fixed into the
 signal fit;
-this is because while the \emph{signal(-enriched)} sample contains many
+this is because while the \emph{signal skim} (ISO) contains many
 backgrounds,
 they are only a small fraction relative to the signal and normalization
 combined,
