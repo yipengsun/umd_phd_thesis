@@ -128,11 +128,11 @@ which can be categorized as follows:
     \label{fig:excited-d-meson}
 \end{figure}
 
-The backgrounds due to ``mis-reconstructions'' of the $D^{(*)}\mu$ pair must
+The backgrounds due to ``mis-reconstructions'' of the \DXmu pair must
 also be taken into account, namely:
 \begin{itemize}
     \item Muon misID:
-        sometimes the \muon in the $D^{(*)}\mu$ pair is mis-identified
+        sometimes the \muon in the \DXmu pair is mis-identified
         because the particle identification algorithm is not 100\% efficient.
         When such misidentification happens,
         the ``\muon'' can be a pion, a kaon, a proton, an electron,
@@ -147,7 +147,31 @@ also be taken into account, namely:
 \end{itemize}
 
 
-\paragraphtoc{Fit variables}
+\paragraphtoc{Signal and control skims}
+The \DXmu pairs are selected such that they are likely coming from
+the same $B$ decays.
+However such selection criteria does not take the extra track(s) in the events
+from the background decays into account.
+The selected \DXmu samples are further split into signal-enriched and
+background-enriched sub-samples, named as ``skims'',
+based on the isolation property,
+that is, how likely that other well-reconstructed tracks in the same event
+are originating from the same $B$ as the \DXmu pair.
+There are four resulting skims, namely:
+\begin{itemize}
+    \item ISO: signal-enriched. The \DXmu pair is well-isolated as there
+        is no other track in the event that is likely coming from the same $B$.
+    \item 1OS: starting from this one, all other skims are background-enriched.
+        The 1OS skim contains events with one extra pion that is not isolated
+        from the \DXmu pair
+        (anti-isolated).
+    \item 2OS: contain events with two anti-isolated pions.
+    \item DD: contains events with one or more anti-isolated tracks with one
+        of them being a kaon.
+\end{itemize}
+
+
+\paragraphtoc{Fit overview}
 The signal, normalization, and backgrounds all have differing kinematics
 which are often modeled from Monte-Carlo simulation (MC),
 sometimes from data control samples.
@@ -206,9 +230,6 @@ More information about RFA can be found in \cref{appx:rfa}.
 %     \label{fig:rfa-variables}
 % \end{figure}
 
-
-\paragraphtoc{Signal and control samples (skims)}
-%%%%
 This analysis reuses the fit strategy in the LHCb \RDX run 1 analysis:
 fit the parameters characterizing various background decays with separate
 \emph{control samples},
@@ -222,7 +243,7 @@ thus no good description of the backgrounds can be extracted from the signal fit
 alone.
 
 
-\paragraphtoc{Analysis workflow}
+\paragraphtoc{Workflow}
 %%%%
 As an update to the previous analysis, this analysis shares a similar
 workflow with that of run 1.
