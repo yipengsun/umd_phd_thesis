@@ -24,57 +24,27 @@ which are:
 \subsection{Right-sign samples}
 \label{ref:sel:data:rs}
 
-It is important to first define the terms ``right sign'' and ```real' muon''.
-``Right sign'' means the $D^{(*)} \mu$ pair can form a legitimate $B$ meson.
-That is, only \Dz\mun and \Dstarp\mun (and their charge conjugates) pairs are
-of the ``right sign''.
-As of ``real'' muon, it requires the selected \muon to pass certain particle
-identification (PID) requirements.
+These are the data samples used in the fit where the signal and normalization
+yields are extracted.
+The samples contain right-sign \DXmu pairs,
+the pairs that have the correct charges to form a legitimate $B$ meson.
+That is, only \Dz\mun and \Dstarp\mun (and their charge conjugates).
+The \muon in these samples are required to pass \muon particle identification
+(PID) requirements.
 
 The online selection for \Dz\mun and \Dstarp\mun final states,
 henceforth referred as \Dz channel and \Dstar channel,
 are identical.
-The selection involves an online trigger path,
-that is,
-a composition of hardware (L0) and fast software triggers (HLT1, HLT2),
-and additional pre-defined online cuts.
+The selection involves an online trigger path:
+a composition of hardware (L0) and software triggers (HLT1, HLT2),
+as listed in \cref{tab:triggers}.
 Overall, the online selection requires a \muon candidate to form
-a well-defined vertex,
-displaced from the $pp$ vertex (PV),
-with a high $p_T$ $\Dz (\rightarrow \Km \pip)$ candidate, without any cut on the
-invariant mass on the \Dz\mupm pair, nor on the \muon \pt.
-More details regarding the online selection is given below.
+a well-defined vertex
+with a high $p_T$ $\Dz (\rightarrow \Km \pip)$ candidate,
+requiring both particles to be close to each other and are not directly coming
+from the primary $pp$ decay vertex (PV).
+More details about the trigger path is given below.
 
-The trigger path is listed in \cref{tab:triggers}.
-%%%%
-The L0 triggers are chosen to make sure events are not trigged by
-the \muon candidate \emph{alone} which will introduce a \pt bias\footnote{
-    According to table 1 in \cite{LHCb-DP-2019-001},
-    the minimum \pt threshold across all L0 triggers is 1.35 GeV for 2018
-    L0Muon trigger.
-} on \muon.
-Such bias is very problematic for this analysis as \muon from signal
-$\tauon \rightarrow \muon \neumb \neut$ decays are typically softer and
-have smaller \pt,
-making signal events less likely to be selected in the presence of a \pt bias.
-%%%%
-The inclusive HLT1 triggers select events containing a particle whose decay
-vertex is displaced from the PV,
-in this case a $\Dz \rightarrow \Km \pip$,
-as described in \cite{LHCb-INT-2019-025}, Section 6.7.1.
-%%%%
-The \smalltt{Hlt2XcMuXForTauB2XcMu} is specifically designed for this analysis
-to select \Dz\mupm candidates\footnote{
-    Yes, both signs of \muon are selected.
-    The reason will become obvious in later sections.
-} with a high \pt requirement on \Dz,
-while maintain minimal \pt bias on the \mupm.
-The cuts imposed by the HLT2 line are listed in \cref{tab:cut-hlt2}.
-%%%%
-Additional online cuts,
-listed in \cref{tab:cut-stripping},
-further tighten the kinematic, vertex quality, and particle identification (PID)
-requirements.
 
 \begin{table}[!htb]
     \caption{
@@ -91,20 +61,58 @@ requirements.
         \midrule
         L0 & \Dz L0Hadron TOS || \B L0Global TIS \\
         HLT1 & \makecell{
-            (\kaon Hlt1TrackMVA TOS || \pion Hlt1TrackMVA TOS)\parnote{
-                This is almost equivalent to \Dz Hlt1TrackMVA TOS, with a
+            (\kaon~\smalltt{Hlt1TrackMVA} TOS || \pion~\smalltt{Hlt1TrackMVA} TOS)\parnote{
+                This is almost equivalent to \Dz~\smalltt{Hlt1TrackMVA} TOS, with a
                 $\sim\!0.0027\%$ difference in selected events in
                 reconstructed data sample in \Dz channel.
                 Henceforth these two trigger paths are considered equivalent.
-            } || \\ \Dz Hlt1TwoTrackMVA TOS
+            } || \\ \Dz~\smalltt{Hlt1TwoTrackMVA} TOS
         } \\
-        HLT2 & \B Hlt2XcMuXForTauB2XcMu TOS \\
+        HLT2 & \B~\smalltt{Hlt2XcMuXForTauB2XcMu} TOS \\
         \bottomrule
     \end{tabular}
     \begin{flushleft}
         \parnotes
     \end{flushleft}
 \end{table}
+
+
+%%%%
+The L0 triggers are chosen to make sure events are not trigged by
+the \muon track \emph{alone} which would introduce a \pt bias\footnote{
+    According to table 1 in \cite{LHCb-DP-2019-001},
+    the minimum \pt threshold across all L0 triggers is 1.35 GeV for 2018
+    L0Muon trigger.
+} on the \muon.
+Such a bias is very problematic for this analysis as \muon from signal
+$\tauon \rightarrow \muon \neumb \neut$ decays are typically softer and
+have smaller \pt,
+making signal events less likely to be selected.
+A muon trigger would,
+as discussed at the end of \cref{ref:detector},
+actively reject signal decays as well as making the selection efficiencies for
+the signal and normalization decay modes different.
+%%%%
+The inclusive HLT1 triggers select events containing a particle whose decay
+vertex is displaced from the PV,
+in this case a $\Dz \rightarrow \Km \pip$,
+as described in \cite{LHCb-INT-2019-025}, Section 6.7.1.
+%%%%
+The \smalltt{Hlt2XcMuXForTauB2XcMu} is specifically designed for this analysis
+to select \Dz\mupm candidates\footnote{
+    Yes, both right-sign and wrong-signs of the \Dz\muon pairs are selected.
+} with a high \pt requirement on \Dz,
+while maintain minimal \pt bias on the \mupm.
+%%%%
+The trigger avoid cut on the invariant mass of the \Dz\muon pair
+so that both the right-sign and wrong-sign samples can be selected with the same
+trigger path:
+the right-sign \Dz\muon pairs are more likely to form a \Dstar meson,
+producing a peak around the mass of \Dstar,
+whereas the wrong-sign \Dz\muon pairs are dominated by random combinations thus
+not peaking.
+The cuts imposed by the HLT2 line are listed in \cref{tab:cut-hlt2}.
+
 
 \begin{table}[!htb]
     \caption{Cuts defined in \smalltt{Hlt2XcMuXForTauB2XcMu}.}
@@ -139,6 +147,13 @@ requirements.
         \bottomrule
     \end{tabular}
 \end{table}
+
+
+Additional online cuts,
+listed in \cref{tab:cut-stripping},
+further tighten the kinematic, vertex quality, and particle identification (PID)
+requirements.
+
 
 \begin{table}[!htb]
     \caption{Additional online cuts.}
