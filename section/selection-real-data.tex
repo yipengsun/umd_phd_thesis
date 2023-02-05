@@ -12,9 +12,9 @@ which are:
     \item \nameref{ref:sel:data:rs}:
         the nominal data samples to be fitted.
     \item \nameref{ref:sel:data:ws}:
-        for characterizing various combinatorial backgrounds,
-        constituting random combinations of \DXmu pairs that are \emph{not}
-        originating from the same $B$ decay but passes the selection cuts
+        for characterizing various combinatorial backgrounds
+        which are random combinations of the \DXmu pairs that are \emph{not}
+        originating from the same $B$ decay but pass the selections
         requiring so.
     \item \nameref{ref:sel:data:fake-mu}:
         for studying the contributions from other charged particles
@@ -353,32 +353,27 @@ A brief overview on this method is provided in \cref{ref:sel:tech:ubdt}.
 \subsection{Wrong-sign samples}
 \label{ref:sel:data:ws}
 
-The wrong sign samples are used to model combinatorial backgrounds which are
-most dominate in the $D^{(*)}\mu$ pairs,
-as only one-sided mass cut is applied on them, as opposed to a two-sided
-mass window cut
-(e.g. $m < 5280$ instead of $5280 - \epsilon < m < 5280 + \epsilon$).
-Due to the presence of missing neutrino(s), the $B$ meson 4-momentum is not
-fully reconstructed.
-Therefore,
-the invariant mass of $D^{(*)}\mu$ pairs might be far away from the known $B$
-meson mass and \emph{no suitable} mass window cut can be applied.
-For \Dz channel, the \emph{unphysical}\footnote{
-    Recall that the right-sign sample are reconstructed as the following decay:
+The wrong sign samples are used to model various combinatorial backgrounds.
+For the \Dz channel,
+the \Dz\mup pairs are almost exclusively of combinatorial nature\footnote{
+    The right-sign sample are reconstructed as the following decay:
     $\Bm \rightarrow \Dz (\rightarrow \Km \pip) \mun$,
-    so \Dz\mup pairs are unphysical.
-} \Dz\mup pairs are purely of combinatorial
-nature and is the only dominate combinatorial;
+    so \Dz\mup pairs are unphysical at tree level thus are most likely
+    resulting from random combinations.
+}
+and is the only dominant combinatorial background;
 this is referred as \BComb.
-For \Dstar channel, a \Dstarp may randomly combine with a
-\emph{wrong-sign \mup} (\BComb); alternatively, a \Dz may combine with a
-\emph{wrong-sign slow \pim} to form a \Dstarm (\DstComb).
-The modeling of these backgrounds are discussed in
+For the \Dstar channel,
+a \Dstarp may randomly combine with a \emph{wrong-sign \mup} (\BComb);
+alternatively, a \Dz may combine with a \emph{wrong-sign slow \pim} to form a
+\Dstarm (\DstComb).
+The modeling of these backgrounds will be discussed in
 \cref{ref:fit:tmpl:comb}.
 
-The online selection for wrong sign samples are the same as the right sign,
+The online selection for wrong-sign samples are the same as the right-sign,
 as described in \cref{ref:sel:data:rs}.
-The offline selection is also mostly identical, with differences listed below:
+The offline selection is also mostly identical, with a few differences listed
+below:
 
 \begin{itemize}
     \item \Dz channel, wrong-sign \muon (\BComb):
@@ -387,8 +382,8 @@ The offline selection is also mostly identical, with differences listed below:
     \item \Dstar channel, wrong-sign \muon (\BComb):
         The wrong-sign \Dz\mup candidates are used.
     \item \Dstar channel, wrong-sign \pion (\DstComb):
-        The right-sign \Dz\mun candidates are used.
-        Furthermore, a wrong-sign slow \pim is selected so the \Dz\pim pair
+        The right-sign \Dz\mun candidates are used,
+        but a wrong-sign slow \pim is selected so the \Dz\pim pair
         forms a wrong-sign \Dstarm.
 \end{itemize}
 
@@ -396,11 +391,17 @@ The offline selection is also mostly identical, with differences listed below:
 \subsection{Fake muon samples}
 \label{ref:sel:data:fake-mu}
 
-The fake \muon samples are used to estimate the misidentification of a charged
-particle to a \muon.
-Both right-sign and wrong-sign misID samples share the same selections
-as the respective ``real'' \muon sample,
+The fake \muon samples,
+labeled as ``misID samples'',
+are used to estimate the contribution from events where
+the \muon candidate is in fact a particle of a different species.
+Such mis-identifications happen in both right-sign and wrong-sign nominal
+samples thus the fake muon samples similarly contain two components:
+both right-sign and wrong-sign misID samples share the same selections
+as the respective nominal sample,
 except for \muon PID which is replaced by an explicit \muon veto
 (not \isMuon).
-Also, only 10\% of event passing the fake \muon online selection are stored.
-The contribution due to \muon misID is studied in \cref{ref:fit:tmpl:misid}.
+Also, only 10\% of event passing the fake \muon online selection are stored to
+save storage space.
+The contribution due to \muon misID will be studied in
+\cref{ref:fit:tmpl:misid}.
