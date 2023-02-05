@@ -1,21 +1,22 @@
-\section{Real data}
+\section{Data samples}
 \label{ref:sel:data}
 
 This analysis currently uses 1665~pb$^{-1}$ of proton-proton collision data
-recorded by LHCb in 2016, at $\sqrt{s} = 13$~TeV.
-It is planned to extend the use of data to 2016--2018 LHCb data.
+recorded by LHCb in 2016 at $\sqrt{s} = 13$~TeV.
+It is planned to extend the analysis to employ data taken in the full
+2016--2018 period (run 2).
 The rest of the section describes selection procedures for various data samples,
 which are:
 
 \begin{itemize}
-    \item Right-sign samples (\cref{ref:sel:data:rs}):
+    \item \nameref{ref:sel:data:rs}:
         the nominal data samples to be fitted.
-    \item Wrong-sign samples (\cref{ref:sel:data:ws}):
+    \item \nameref{ref:sel:data:ws}:
         for characterizing various combinatorial backgrounds,
         constituting random combinations of \DXmu pairs that are \emph{not}
         originating from the same $B$ decay but passes the selection cuts
         requiring so.
-    \item Fake muon samples (\cref{ref:sel:data:fake-mu}):
+    \item \nameref{ref:sel:data:fake-mu}:
         for studying the contributions from other charged particles
         mis-identified as muon in the nominal data sample.
 \end{itemize}
@@ -32,7 +33,7 @@ That is, only \Dz\mun and \Dstarp\mun (and their charge conjugates).
 The \muon in these samples are required to pass \muon particle identification
 (PID) requirements.
 
-The online selection for \Dz\mun and \Dstarp\mun final states,
+The online selection for the \Dz\mun and \Dstarp\mun final states,
 henceforth referred as \Dz channel and \Dstar channel,
 are identical.
 The selection involves an online trigger path:
@@ -43,7 +44,7 @@ a well-defined vertex
 with a high $p_T$ $\Dz (\rightarrow \Km \pip)$ candidate,
 requiring both particles to be close to each other and are not directly coming
 from the primary $pp$ decay vertex (PV).
-More details about the trigger path is given below.
+More details about the trigger path are given below.
 
 
 \begin{table}[!htb]
@@ -149,14 +150,34 @@ The cuts imposed by the HLT2 line are listed in \cref{tab:cut-hlt2}.
 \end{table}
 
 
-Additional online cuts,
-listed in \cref{tab:cut-stripping},
-further tighten the kinematic, vertex quality, and particle identification (PID)
-requirements.
+Additional offline selections with stricter vertex quality and PID requirements
+are applied to both \Dz and \Dstar channels.
+%%%%
+Furthermore, only the right-sign $D^{(*)}\mu$ candidates are kept.
+%%%%
+The offline selections that are shared among \Dz and \Dstar channels are listed
+in \cref{tab:cut-stripping,tab:offline-cut-common}.
+The additional \Dz only cuts are listed in \cref{tab:offline-cut-d0},
+the \Dstar in \cref{tab:offline-cut-dst}.
+
+Due to the fact that the \Dz and \Dstar channel have the same online selection,
+some events will appear in both,
+making the two channels correlated.
+%%%%
+This correlation is removed by a \Dstar veto procedure in the \Dz channel,
+and is discussed in \cref{ref:sel:tech:veto}.
+
+Previous analyses (\cite{PhysRevLett.115.111803,LHCb-ANA-2020-056})
+showed that a tighter \muon PID reduces other charged species misidentified
+(misID) as \muon, reducing the systematic uncertainty due to misID effects.
+However, the standard LHCb \muon PID has low efficiency at low \pt.
+Therefore, an offline \muon PID method, termed \UBDT, is developed to reduce
+misID while maintain a flat \pt response.
+A brief overview on this method is provided in \cref{ref:sel:tech:ubdt}.
 
 
 \begin{table}[!htb]
-    \caption{Additional online cuts.}
+    \caption{Base offline selections (stripping) for both \Dz and \Dstar channels.}
     \label{tab:cut-stripping}
     \centering
     \begin{tabular}{c|rll}
@@ -193,51 +214,10 @@ requirements.
         \bottomrule
     \end{tabular}
 \end{table}
-%%%%
 
-
-Additional offline selection with stricter vertex quality and PID requirements,
-mostly aligned with the \emph{online} selection in LHCb run 1,
-are applied to both \Dz and \Dstar channels.
-%%%%
-Furthermore, only the right-sign $D^{(*)}\mu$ candidates are kept.
-%%%%
-The initial motivation was to bring 2016 data on par with run 1 data so
-distributions of the same variables in 2016 and run 1 can be compared in a more
-meaningful way,
-providing check points for the development of this analysis.
-%%%%
-Later, it is checked with a survey of selection efficiencies of different decay
-modes on MC cocktail,
-whose relative yields are adjusted according fitted yields,
-that the run 1 selection is still optimal.
-More detailed study on the offline cut optimization based on maximizing the
-figure of merit ($S / \sqrt{S^2 + B^2}$) might be carried out in the future
-but is not a priority because plenty of candidates are retained with
-the current selection.
-
-The offline cuts that are shared among \Dz and \Dstar channels are listed
-in \cref{tab:offline-cut-common}.
-The additional \Dz only cuts are listed in \cref{tab:offline-cut-d0},
-The \Dstar in \cref{tab:offline-cut-dst}.
-
-Due to the fact that both \Dz and \Dstar channel have the same online selection,
-some candidates will appear in both,
-making the two channels correlated.
-%%%%
-This correlation is removed by a \Dstar veto procedure in the \Dz channel,
-and is discussed in \cref{ref:sel:tech:veto}.
-
-Previous analyses (\cite{PhysRevLett.115.111803,LHCb-ANA-2020-056})
-showed that a tighter \muon PID reduces other charged species misidentified
-(misID) as \muon, reducing the systematic uncertainty due to misID effects.
-However, the standard LHCb \muon PID has low efficiency at low \pt.
-Therefore, an offline \muon PID method, termed \UBDT, is developed to reduce
-misID while maintain a flat \pt response.
-A brief overview on this method is provided in \cref{ref:sel:tech:ubdt}.
 
 \begin{table}[!htb]
-    \caption{Offline cuts shared among \Dz and \Dstar channels.}
+    \caption{Additional offline selections shared among \Dz and \Dstar channels.}
     \label{tab:offline-cut-common}
     \centering
     \begin{tabular}{c|rll}
@@ -296,6 +276,7 @@ A brief overview on this method is provided in \cref{ref:sel:tech:ubdt}.
     \end{flushleft}
 \end{table}
 
+
 \begin{table}[!htb]
     \caption{Offline cuts exclusive to \Dz channel.}
     \label{tab:offline-cut-d0}
@@ -334,6 +315,7 @@ A brief overview on this method is provided in \cref{ref:sel:tech:ubdt}.
     \end{flushleft}
 \end{table}
 
+
 \begin{table}[!htb]
     \caption{Offline cuts exclusive to \Dstar channel.}
     \label{tab:offline-cut-dst}
@@ -368,7 +350,7 @@ A brief overview on this method is provided in \cref{ref:sel:tech:ubdt}.
 \end{table}
 
 
-\subsection{Wrong sign samples with a ``real'' muon}
+\subsection{Wrong-sign samples}
 \label{ref:sel:data:ws}
 
 The wrong sign samples are used to model combinatorial backgrounds which are
