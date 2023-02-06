@@ -317,14 +317,16 @@ that is, TIS efficiencies can be considered as uncorrelated from
 TOS efficiencies.
 
 
-\subsection{Emulation of Hlt1TrackMVA and Hlt1TwoTrackMVA}
+\subsection{Emulation of \texttt{Hlt1TrackMVA} and \texttt{Hlt1TwoTrackMVA}}
 
-The event selection requires that either $K$ or $\pi$ is TOS on Hlt1TrackMVA,
-or \Dz is TOS on Hlt1TwoTrackMVA.
-The single track Hlt1TrackMVA requires a track that has score based on
+The event selection requires that either $K$ or $\pi$ is TOS on
+\smalltt{Hlt1TrackMVA},
+or \Dz is TOS on \smalltt{Hlt1TwoTrackMVA}.
+The single track \smalltt{Hlt1TrackMVA} requires a track that has score based on
 $p_T$ and \ipChiSq to be above some threshold;
-the two track Hlt1TwoTrackMVA feeds the $p_T$ and \ipChiSq of both tracks to
-a MatrixNet MVA, requiring the two-track combination to pass MVA selection.
+the two track \smalltt{Hlt1TwoTrackMVA} feeds the $p_T$ and \ipChiSq of both
+tracks to a \smalltt{MatrixNet} MVA,
+requiring the two-track combination to pass MVA selection.
 
 All required variables are present in TO MC, and are extracted by adding
 a tool\footnote{
@@ -368,8 +370,9 @@ can be seen in \cref{fig:hlt1-trackmva-emu,fig:hlt1-twotrackmva-emu}.
 
     \caption{
         Emualted HLT1 triggers vs. real response in FullSim. For \Bp.
-        The Hlt1TrackMVA agree very well, whereas Hlt1TwoTrackMVA still has a
-        constant, albeit small ($\sim\!2.25$\%), discrepancy.
+        The \smalltt{Hlt1TrackMVA} agree very well,
+        whereas the \smalltt{Hlt1TwoTrackMVA} still has a constant,
+        albeit small ($\sim\!2.25$\%), discrepancy.
     }
     \label{fig:hlt1-trackmva-emu}
 \end{figure}
@@ -404,11 +407,11 @@ can be seen in \cref{fig:hlt1-trackmva-emu,fig:hlt1-twotrackmva-emu}.
 \end{figure}
 
 
-\subsection{Emulation of Hlt2XcMuXForTauB2XcMu}
+\subsection{Emulation of \texttt{Hlt2XcMuXForTauB2XcMu}}
 
-The selected \B is required to TOS on Hlt2XcMuXForTauB2XcMu. All selection
-variables listed in \cref{tab:cut-hlt2} are available in the selection procedure
-so these cuts are applied directly.
+The selected \B is required to TOS on \smalltt{Hlt2XcMuXForTauB2XcMu}.
+All selection variables listed in \cref{tab:cut-hlt2} are available in the
+selection procedure so these cuts are applied directly.
 
 
 \section{Particle identification emulation}
