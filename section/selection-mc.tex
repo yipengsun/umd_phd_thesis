@@ -6,7 +6,7 @@ and partially reconstructed backgrounds in data.
 To reduce simulation time, tracker-only (TO) MC, which has all but the tracking
 system of the detector turned off (set to passive material), are used.
 Additional small full simulation (FullSim) samples are produced for the year
-2016 to aid emulations of the missing detector responses (mainly for trigger).
+2016 to aid emulations of the missing detector responses (mainly trigger).
 The emulation procedures are discussed in \cref{ref:mc-emulation}.
 
 MC samples used for both \Dz and \Dstar channels are listed in
@@ -21,17 +21,20 @@ Some samples contribute to both channels due to feed down\footnote{
     which are denoted by \textbf{SimXXX}.
     The differences are technical and can be ignored for this thesis.
 }.
+% Many samples are \emph{cocktails},
+% that is, samples that contain a mixture of different simulated decay modes.
+% The compositions of the cocktails are either listed explicitly or provided in a
+% reference.
 
 
 \input{selection-tab-mc-samples.tex}
 
 
 Both TO and FullSim MC samples are loosely filtered to keep events in LHCb
-acceptance, with filtering cuts, mostly to save storage space,
-listed in \cref{tab:gen-cut}.
+acceptance, mostly to save storage space,
+with filtering cuts listed in \cref{tab:gen-cut}.
 %%%%
-The online and offline selection are aligned with that of right sign real \muon
-sample,
+The online and offline selection are aligned with that of the right-sign sample,
 with the understanding that trigger and PID responses are emulated offline and
 applied as weights (for L0 trigger and PID) and cuts
 (for HLT1 and HLT2 trigger).
@@ -44,8 +47,10 @@ Additional truth level requirements\footnote{
     the reconstructed \muon is required to have a true ID of a MC true \muon.
 } are placed to ensure the selected decay
 chain is compatible with simulation specification.
-This effectively removes ghost and misidentified tracks, providing a consistent
-modeling and ensuring orthogonality between MC samples.
+This effectively removes ghost
+(combinations of random track segments in the detector tracking system)
+and misidentified tracks,
+providing a consistent modeling and ensuring orthogonality between MC samples.
 
 \begin{table}
     \caption{List of MC filtering cuts at generator level.}
@@ -71,13 +76,14 @@ modeling and ensuring orthogonality between MC samples.
     \end{tabular}
 \end{table}
 
-The heavy $D^{**}$ and $DDX$ MC are cocktails, with the same compositions as
-listed in \cite{LHCb-ANA-2020-056}.
-The heavy $D^{**}$ MC suffer from the problem that the $\piz \piz$ decays
-are not simulated, inconsistent of the isospin limit.
-The missing $\piz \piz$ contribution is modelled by randomly selecting $\frac{1}
-{3}$ of $\pip \pim$ candidates and treating them as \emph{isolated} regardless
-of their isolation BDT scores.
-The isolation BDT, briefly discussed in \cref{ref:sel:tech:iso-bdt},
-is used to estimate the probability of nearby charged tracks,
-unused in selection procedure, to originate from the same $\D^{(*)}\mu$ vertex.
+The highly excited (heavy) $D^{**}$ and $DDX$ MC are cocktails,
+that is, samples containing a mixture of different simulated decay modes,
+with their compositions as listed in \cite{LHCb-ANA-2020-056}.
+%%%%
+The heavy $D^{**}$ MC suffer from the problem that the
+$\Dstst \rightarrow D^{(*)} \piz\piz$ decays
+are not simulated,
+inconsistent with the branching fraction expectations from isospin symmetry.
+The missing $\piz \piz$ contribution is modeled by randomly selecting
+$\frac{1}{3}$ of $\pip \pim$ candidates and not applying the veto on additional
+tracks.
