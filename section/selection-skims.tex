@@ -14,15 +14,9 @@ A multivariate BDT,
 referred as the ``isolation BDT'',
 conceptually identical to the one used in \cite{LHCb-ANA-2020-056},
 is trained on LHCb run 2 simulation
-with training variables listed in \cref{tab:iso-bdt-input},
+with training variables listed in \cref{tab:iso-bdt-input}
 to provide a score-based estimation on if a charged track is originating from
 the \B (\DXmu) vertex or not.
-
-there
-exists additional charged tracks that are compatible with coming from the
-reconstructed \B vertex.
-The isolation BDT, described in \cref{ref:sel:tech:iso-bdt}, provides an
-estimation on how likely a nearby charged track comes from the same \B vertex.
 
 
 \begin{table}[!htb]
@@ -30,17 +24,21 @@ estimation on how likely a nearby charged track comes from the same \B vertex.
     \caption{Training variables for the isolation BDT.}
     \label{tab:iso-bdt-input}
 
+    % FIXME: Confirm these w/ Phoebe
     \begin{tabularx}{0.8\linewidth}{r|X}
         \toprule
         \textbf{Variable} & \textbf{Comment} \\
         \midrule
-        SV \ipChiSq &
-        Increase in the $\chi^2$ of the secondary vertex (SV) fit if the track
-        is included. \\
-        %%%%
         PV \ipChiSq &
-        Increase in the $\chi^2$ of the primary vertex (PV) fit if the track
-        is included. \\
+        Increase in the $\chi^2$ of the primary $pp$ vertex (PV) fit if the
+        track is included.
+        Higher $\chi^2$ implies that the track is less likely to coming from the
+        fitted vertex.
+        \\
+        %%%%
+        SV \ipChiSq &
+        Increase in the $\chi^2$ of the secondary $D^{(*)}$ vertex (SV) fit if
+        the track is included. \\
         %%%%
         track \pt & - \\
         track opening &
@@ -56,6 +54,18 @@ estimation on how likely a nearby charged track comes from the same \B vertex.
         \bottomrule
     \end{tabularx}
 \end{table}
+
+
+The isolation BDT is applied on all charged long tracks in the event,
+providing isolation scores for each of them where higher score implies higher
+probability of coming from the \B vertex,
+referred to as ``anti-isolated''.
+Three tracks with highest isolation scores
+(the ones that are most likely to be anti-isolated)
+are saved in descending order\footnote{
+    So the first one is the most anti-isolated one among all charged tracks
+    in the event.
+}.
 
 
 Below a brief description for the signal sample and the main physics background
@@ -105,6 +115,7 @@ The actual isolation selections are listed in \cref{tab:skim-cut}.
             track.
         }.
 \end{itemize}
+
 
 \begin{table}[!htb]
     \caption{Signal and control sample isolation requirements.}
