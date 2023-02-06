@@ -1,19 +1,23 @@
 \chapter{Emulation of detector responses on MC simulation}
 \label{ref:mc-emulation}
 
-To ensure the statistical uncertainties from MC samples are small compared to
-that of data, it is typical to request MC samples with a size 4 times as large
-as data.
-Due to the sheer size of LHCb run 2 data (a factor of $\sim\!1.26$ for 2016
-alone compared to full run 1), it is not computationally possible to generate
+To ensure that the statistical uncertainties due to the limited size of the  MC
+samples are small compared to that of data,
+it is important to have MC samples with a size at least 4 times as large as
+data.
+Due to the sheer size of LHCb run 2 data
+(a factor of $\sim\!1.26$ for 2016 alone compared to full run 1 despite smaller
+integrated luminosity due to a larger \bbbar cross section and higher triggering
+efficiencies),
+it is not computationally possible to generate
 enough full simulation (FullSim) MC, where every detector response is simulated.
 
-It is estimated in \cite{LHCb-INT-2019-025}
+It is estimated in Ref.~\cite{LHCb-INT-2019-025}
 that about 85\% of the computation time is spent on simulating RICH and the
 calorimeter system.
 Tracker-only (TO) MC sets all but the tracking system of the detector to
 passive material, making the simulation about 8 times faster than FullSim.
-Hence, to reach target statistical uncertainties,
+Hence, to reach the target statistical uncertainties,
 TO MC is (almost) exclusively used for this analysis.
 Therefore, detector responses like trigger and particle identification (PID)
 need to be emulated offline.
@@ -24,58 +28,59 @@ chapter.
 \section{Trigger emulation}
 \subsection{Emulation of L0Hadron TOS}
 
-Recall that the L0 trigger requirements for this analysis are: Either \Dz
-triggers L0 hadron (\Dz L0Hadron TOS\footnote{
-    TOS: Triggered On Signal. Can be used as a noun or a verb.
-    For more information about trigger TIS, TOS, TISTOS, and TOB, refer to
-    \cref{appx:trigger-cat}.
-}) or
-the rest of the event aside from \B (and its decay chain) triggers at least
-one L0 trigger
-(\B L0Global TIS\footnote{
-    TIS: Triggered Independent of Signal.
-    In this case \B is the signal track, and the rest of event is inspected to
-    determine if it triggers at least a L0 trigger.
-}).
+As discussed in \cref{ref:sel:data},
+the L0 trigger requirements for this analysis are:
+either the \Dz candidate fires the L0 hadron trigger line
+(\Dz L0Hadron TOS)
+or the rest of the event aside from the \Dz\muon candidate (and its decay chain)
+triggers at least one L0 trigger (\B L0Global TIS).
+Note that ``TOS'' stands for \emph{Triggered On Signal} where
+\emph{signal} in this case is the \Dz candidate,
+and ``TIS'' means \emph{Trigger Independent of Signal} where \emph{signal}
+refers to the \Dz\muon pair.
+For more information about trigger TIS, TOS, TISTOS, and TOB, refer to
+\cref{appx:trigger-cat}.
 
-The L0 hadron is triggered when the sum of the transverse energy\footnote{
+The L0 hadron line (L0Hadron) is triggered when the sum of the transverse
+energy\footnote{
     Defined as: $E_T \equiv \sqrt{m^2 + p^2} \sin\theta$.
     In massless limit, $E_T = p_T$.
 } $E_T$ deposited
 in a single $2 \times 2$ HCAL cluster is above a set threshold\footnote{
     See Table 1 in \cite{LHCb-DP-2019-001} for year-by-year thresholds of each
     L0 trigger.
-}, as described in \cite{LHCb-DP-2019-001}.
+},
+as described in Ref.~\cite{LHCb-DP-2019-001}.
 For L0Hadron TOS, it is required that for all HCAL clusters associated with the
-signal track (\Dz in this case), with association predicted by the tracking
-system,
+signal track (\Dz in this case),
+with the association predicted by the tracking system,
 the highest $E_T$ is above the triggering threshold.
 
 Tracker-only MC records the tracker-predicted position where a track hits the
 calorimeters.
 Hence, though the triggering variable $E_T$ is not accessible,
-variables related to $E_T$, or, equivalently, trigger decision, are.
+variables related to $E_T$, or, equivalently, to the trigger decision, are.
 It is conceivable that L0Hadron TOS can be emulated by providing
-the relevant variables and the trigger decision to train some regressor,
+the relevant variables and the trigger decision to train a regressor,
 which can in turn be used to predict trigger decisions based on the training
 variables alone, without requiring emulating $E_T$ at all.
-Below the emulation procedure, inspired by \cite{LHCb-INT-2019-025}, is
-described:
+The emulation procedure, inspired by Ref.~\cite{LHCb-INT-2019-025}, is
+described below:
 
 \begin{enumerate}
-    \item The \smalltt{TupleToolL0Calo} tool is configured to save HCAL
-        information.
+    % \item The \smalltt{TupleToolL0Calo} tool is configured to save HCAL
+    %     information.
     \item The training variables, listed in \cref{tab:l0-hadron-emu-vars}, and
         the trigger decision from a FullSim MC of decay
         $\Bz \rightarrow \Dstarp \mu \nu$, a normalization mode,
-        is used to train \xgboost, a BDT-based regressor
+        are used to train \xgboost, a BDT-based regressor
         \cite{Chen:2016:XST:2939672.2939785}.
     \item Once the model is trained, with just the training variables,
         \xgboost predicts the probabilities of events passing L0 hadron trigger.
     \item The probabilities are applied as weights to a separate validation
         sample of the same FullSim MC to check the quality of the emulation.
-        It is shown in \cref{fig:l0hadron-tos-emu} that emulated L0Hadron TOS
-        trigger has excellent agreement with \emph{simulated} trigger in
+        It is shown in \cref{fig:l0hadron-tos-emu} that the emulated L0Hadron
+        TOS trigger has excellent agreement with the \emph{simulated} trigger in
         FullSim.
 \end{enumerate}
 
@@ -83,7 +88,7 @@ described:
     \caption{Variables used to train \xgboost for L0 hadron emulation.}
     \label{tab:l0-hadron-emu-vars}
     \centering
-    \begin{tabular}{cc}
+    \begin{tabular}{c|c}
         \toprule
         \bf Group   & \bf Variables \\
         \midrule
