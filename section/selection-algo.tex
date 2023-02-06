@@ -8,22 +8,24 @@
 % See this note: https://github.com/umd-lhcb/rdx-run2-analysis/blob/master/docs/cuts/Dst_veto_in_D0.md
 Since the selection of a \Dstar\muon pair always requires the existence
 of a \Dz\muon pair,
-there is about 21\% of events in the signal (ISO) skim of the \Dstar channel
-leaks into \Dz channel.
+about 21\% of events in the signal (ISO) skim of the \Dstar channel
+would contribute to the \Dz channel as well.
 % 21 computed as: 630178 (overlap) / 3011082 (num of evt for D0)
 %%%%
-This is likely due to the fact that slow \pion typically has poor tracking
-resolution (small \ipChiSq), making the slow \pion to be more likely
-\emph{unassociated} with the \Dz\mun vertex thus the reconstruction of \Dstar
-would fail.
-
-To veto the overlapping candidates between \Dz and \Dstar channel,
+% This is likely due to the fact that slow \pion typically has poor tracking
+% resolution (small \ipChiSq), making the slow \pion to be more likely
+% \emph{unassociated} with the \Dz\mun vertex thus the reconstruction of \Dstar
+% would fail.
+%
+To veto the overlapping candidates between the \Dz and \Dstar channels,
 a tool, named \smalltt{TupleToolApplyIsolationVetoDst},
-is added to the selection procedure, which processes all tracks
-in the event in the following manner:
+is added to the selection procedure, which loops over each track $t$
+in the event whose $p > 2$~GeV in the following manner:
+% track acceptance from:
+%   https://indico.cern.ch/event/280053/contributions/1626872/attachments/513093/708085/Tracking_Seminar_131029.pdf
+% p. 28
 
 \begin{enumerate}
-    \item Denote the track as $t$.
     \item Refit a vertex from \Dz and $t$.
     \item Compute $\Delta m_\text{veto} \equiv m_{\Dz t} - m_\Dz$.
     \item Test if $\Delta m_\text{veto} \in [140~\text{GeV}, 160~\text{GeV}]$.

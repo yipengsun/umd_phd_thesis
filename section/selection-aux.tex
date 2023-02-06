@@ -14,7 +14,7 @@ The offline selection cuts for $\jpsi\Kp$ are listed in
 The MC sample used to compare with $\jpsi \Kp$ data is selected with the same
 procedure, with PID cuts applied as weights\footnote{
     The weights are obtained from \pidcalib, with a method similar to that in
-    \cref{ref:mc-emulation:pid}).
+    \cref{ref:mc-emulation:pid}.
 
     An extended PID binning range is chosen to cover as much phase space of
     \kaon and \muon as possible.
@@ -61,35 +61,39 @@ The number of MC events after filtering\footnote{
     \end{flushleft}
 \end{table}
 
-A simulated $\Dz \rightarrow \Km \pip$ MC sample,
-also listed in \cref{tab:add-mc-samples},
-is requested to model the momentum smearing in the misID sample due to
-$K, \pi$ decay-in-flight into an authentic \muon,
-which is described in \cref{ref:fit:var:misid-dif}.
+% NOTE: This might not be needed as the samples are to show that the vertex
+% smearing works, and NO actual correction is derived from them.
+%
+%
+% A simulated $\Dz \rightarrow \Km \pip$ MC sample,
+% also listed in \cref{tab:add-mc-samples},
+% is requested to model the momentum smearing in the misID sample due to
+% $K, \pi$ decay-in-flight into an authentic \muon,
+% which is described in \cref{ref:fit:var:misid-dif}.
 
-\begin{table}[!htb]
-    \caption{
-        Additional MC control samples.
-        All samples are full simulations.
-    }
-    \label{tab:add-mc-samples}
-    \centering
-    \parnotereset
-    \begin{tabular}{l|c|c|c}
-        \toprule
-        \makecell{\centering\bf MC ID} & {\bf Decay mode} & {\bf Sim08}\parnote{
-            This is a mixture of Sim08e (\pythia{6}, \pythia{8})
-            and Sim08i (\pythia{8}).
-        } & {\bf Sim09k} \\
-        \midrule
-        22162000\parnote{
-            Currently the 2012 MC are still used for this analysis.
-            It is planned to update to a run 2 MC at a future time.
-        } & $\Dz \rightarrow K \pi$ & 3M & -- \\
-            12143001 & $\Bp \rightarrow \jpsi \Kp$ & -- & 4M \\
-        \bottomrule
-    \end{tabular}
-    \begin{flushleft}
-        \parnotes
-    \end{flushleft}
-\end{table}
+% \begin{table}[!htb]
+%     \caption{
+%         Additional MC control samples.
+%         All samples are full simulations.
+%     }
+%     \label{tab:add-mc-samples}
+%     \centering
+%     \parnotereset
+%     \begin{tabular}{l|c|c|c}
+%         \toprule
+%         \makecell{\centering\bf MC ID} & {\bf Decay mode} & {\bf Sim08}\parnote{
+%             This is a mixture of Sim08e (\pythia{6}, \pythia{8})
+%             and Sim08i (\pythia{8}).
+%         } & {\bf Sim09k} \\
+%         \midrule
+%         22162000\parnote{
+%             Currently the 2012 MC are still used for this analysis.
+%             It is planned to update to a run 2 MC at a future time.
+%         } & $\Dz \rightarrow K \pi$ & 3M & -- \\
+%             12143001 & $\Bp \rightarrow \jpsi \Kp$ & -- & 4M \\
+%         \bottomrule
+%     \end{tabular}
+%     \begin{flushleft}
+%         \parnotes
+%     \end{flushleft}
+% \end{table}
