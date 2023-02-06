@@ -1,17 +1,9 @@
-\section{Additional technologies used in selection}
+\section{Additional algorithms used in selection}
 \label{ref:sel:algo}
-
-All technologies described in this selection are inherited from the run 1 \RDX
-analysis \cite{LHCb-ANA-2020-056},
-the precursor of this analysis,
-with updates to work with LHCb run 2 data.
-Only a brief description for each technology is reproduced here.
-More details regarding these technologies can be looked up from
-\cite{LHCb-ANA-2020-056,LHCb-ANA-2014-052}.
 
 
 \subsection{Veto of overlapping candidates}
-\label{ref:sel:tech:veto}
+\label{ref:sel:algo:veto}
 
 % See this note: https://github.com/umd-lhcb/rdx-run2-analysis/blob/master/docs/cuts/Dst_veto_in_D0.md
 Since the selection of a \Dstar\muon pair always requires the existence
@@ -73,7 +65,7 @@ The veto procedures are applied on all samples of the \Dz channel only.
 
 
 \subsection{Muon PID}
-\label{ref:sel:tech:ubdt}
+\label{ref:sel:algo:ubdt}
 
 To maintain minimum bias on \muon \pt, a multivariate BDT,
 referred as \UBDT, using \texttt{uBDT} method in TMVA class,
