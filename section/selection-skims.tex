@@ -3,8 +3,9 @@
 
 The signal and control skims (sub-samples) are separated by inspecting if there
 are additional charged tracks in the event that are likely originating from the
-same decay vertex (typically a $B$ decay vertex, and will be referred as so in
-later text) as the reconstructed \DXmu pair;
+same decay vertex
+(typically a $B$ decay vertex, and will be referred as so in later text)
+as the reconstructed \DXmu pair;
 if there is no such track,
 the \DXmu pair is considered \emph{isolated} and is placed in the signal skim;
 otherwise it is categorized as one of the control skims.
@@ -56,10 +57,15 @@ the \B (\DXmu) vertex or not.
 \end{table}
 
 
-The isolation BDT is applied on all charged long tracks in the event,
+% for a range of the possible track PT, see Fig. 5 of
+%   https://indico.cern.ch/event/742793/papers/3298716/files/9097-Proceeding_CTD.pdf
+The isolation BDT is applied on \emph{all recorded} charged tracks in the event,
 providing isolation scores for each of them where higher score implies higher
 probability of coming from the \B vertex,
-referred to as ``anti-isolated''.
+referred to as ``anti-isolated''
+(Note: ``isolated'' is a property of the \DXmu pair,
+while ``anti-isolated'' is a property of the other charged tracks in the
+event!).
 Three tracks with highest isolation scores
 (the ones that are most likely to be anti-isolated)
 are saved in descending order\footnote{
@@ -68,56 +74,73 @@ are saved in descending order\footnote{
 }.
 
 
-Below a brief description for the signal sample and the main physics background
-control samples is provided.
-The dominate decay mode for each skim is also listed; these skims still contain
+\paragraph{Skim selection criteria}
+A brief description for the signal skim and the main physics background
+control skims is provided below.
+The dominant decay mode for each skim is also listed; these skims still contain
 a composition of many decay modes.
 The actual isolation selections are listed in \cref{tab:skim-cut}.
 
 \begin{itemize}
-    \item ISO: $B \rightarrow D^{(*)} \lepton \neulb$, with $\lepton \in \{\muon,
-        \tauon\}$.
-        This is referred as signal, or ``isolated'', sample.
-        It requires that no additional charged track is from the \B vertex
+    \item ISO:
+        Enriched in
+        $B \rightarrow D^{(*)} \lepton \neulb$ decays,
+        with $\lepton \in \{\muon, \tauon\}$.
+        This is referred to as the signal, or the ``isolated'', skim.
+        It requires that no additional charged track compatible with coming from
+        the \B vertex
         (in a probabilistic sense, with probability related to the isolation
-        score)
-        and is compatible with a fully reconstructed \B decay
-        (ignoring missing neutrino(s)).
+        scores).
+        Such requirement translates into a cut on the maximum BDT score:
+        $\text{BDT}_1 < 0.15$.
         % TODO: Maybe list yield, and compare to run 1, and include figures?
 
-    \item 1OS: $B \rightarrow D^{**} \lepton \neulb$.
-        This control sample, enriched in excited charm states,
+    \item 1OS:
+        Enriched in $B \rightarrow D^{**} \lepton \neulb$.
+        This control skim, enriched in excited charm states,
         requires one and only one additional anti-isolated charged long track
-        that is compatible with a \pion PID hypothesis and has correct charge
-        for a $D^{**} \rightarrow D^{(*+)}\pim$ decay.
+        that is compatible with a \pion PID hypothesis and has the correct
+        charge for a $D^{**} \rightarrow D^{(*+)}\pim$ decay.
 
-    \item 2OS: $B \rightarrow D^{**}_H \lepton \neulb$,
-        where $H$ stands for ``heavy''.
-        This control sample is enriched in highly excited (heavy) charm states,
+        The BDT score requirements for this skim are:
+        $\isoBDT{1} > 0.15$ and $\isoBDT{2} < 0.15$.
+
+    \item 2OS:
+        Enriched in $B \rightarrow \Dstst_H \lepton \neulb$,
+        where $\Dstst_H$ stands for heavy \Dstst mesons.
+        This control skim is enriched in highly excited (heavy) charm states,
         which is selected by requiring two and only two anti-isolated \pion-like
         long tracks of opposite charge,
         capable of $D^{**}_H \rightarrow D^{(*)} \pip\pim$ decay.
 
-        % Why?
-        This sample also provides an independent selection of
-        $B \rightarrow D^{(*)}D X$ backgrounds, where the \pip\pim fit into the
-        $X$ category and \kaon escapes isolation detection.
+        This skim also provides an independent selection of
+        $B \rightarrow D^{(*)}D X$ backgrounds
+        whose decay products contain many \pion.
 
-    \item DD: $B \rightarrow D^{(*)}D X$,
-        with dominate $D \rightarrow \Kp \mun \neumb X$ sub-decays.
+        The BDT score requirements are:
+        $\isoBDT{1} > 0.15$ and $\isoBDT{2} > 0.15$ and
+        $\isoBDT{3} < 0.15$.
+
+    \item DD:
+        Enriched in $B \rightarrow D^{(*)}D X$,
+        with dominant
+        $D \rightarrow \Kp \mun \neumb X$ sub-decays.
         This is a double-charm ($DD$) control sample,
         which is selected by requiring at least one anti-isolated track,
         a \kaon-like long track\footnote{
             This means the track went through both upstream and downstream
             trackers, and is generally of good tracking quality.
-        } and a hard track in the three most anti-isolated tracks\footnote{
+        } and a high-\pt track in the three most anti-isolated tracks\footnote{
             Note that these three requirements can be satisfied by a single
             track.
         }.
+
+        The BDT score requirement:
+        $\isoBDT{1} > 0.15$
 \end{itemize}
 
 
-\begin{table}[!htb]
+\begin{table}[!hp]
     \caption{Signal and control sample isolation requirements.}
     \label{tab:skim-cut}
     \centering
