@@ -9,27 +9,6 @@ Only a brief description for each technology is reproduced here.
 More details regarding these technologies can be looked up from
 \cite{LHCb-ANA-2020-056,LHCb-ANA-2014-052}.
 
-\subsection{Isolation BDT}
-\label{ref:sel:tech:iso-bdt}
-
-A multivariate BDT, referred as ``isolation BDT'',
-conceptually identical to the one used in \cite{LHCb-ANA-2020-056},
-is trained on LHCb run 2 simulation
-%with training variables listed in \cref{tab:iso-bdt-input},
-to provide a score-based estimation on if a charged track is originating from
-the \B ($D^{(*)}\mu$) vertex or not.
-
-The isolation BDT is applied on all charged tracks in the event,
-providing isolation scores for each of them where
-higher score implies higher probability of coming from the \B vertex, named as
-``anti-isolated''.
-Three tracks with highest isolation scores\footnote{
-    The ones that are most likely to be anti-isolated.
-} are saved in descending order\footnote{
-    So the first one is the most anti-isolated one among all charged tracks
-    in the event.
-}.
-
 
 \subsection{Veto of overlapping candidates}
 \label{ref:sel:tech:veto}

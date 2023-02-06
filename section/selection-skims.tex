@@ -1,16 +1,62 @@
 \section{Signal (ISO) and control background (1OS, 2OS, DD) skims and the isolation BDT}
 \label{ref:sel:skims}
 
-The signal and control skims (sub-samples) are separated by inspecting if the
-\DXmu pair is well-separated from all other well-reconstructed (long) charged
-tracks in the event (isolated);
-if the pair is isolated,
+The signal and control skims (sub-samples) are separated by inspecting if there
+are additional charged tracks in the event that are likely originating from the
+same decay vertex (typically a $B$ decay vertex, and will be referred as so in
+later text) as the reconstructed \DXmu pair;
+if there is no such track,
+the \DXmu pair is considered \emph{isolated} and is placed in the signal skim;
+otherwise it is categorized as one of the control skims.
+
+\paragraph{The isolation BDT}
+A multivariate BDT,
+referred as the ``isolation BDT'',
+conceptually identical to the one used in \cite{LHCb-ANA-2020-056},
+is trained on LHCb run 2 simulation
+with training variables listed in \cref{tab:iso-bdt-input},
+to provide a score-based estimation on if a charged track is originating from
+the \B (\DXmu) vertex or not.
 
 there
 exists additional charged tracks that are compatible with coming from the
 reconstructed \B vertex.
 The isolation BDT, described in \cref{ref:sel:tech:iso-bdt}, provides an
 estimation on how likely a nearby charged track comes from the same \B vertex.
+
+
+\begin{table}[!htb]
+    \centering
+    \caption{Training variables for the isolation BDT.}
+    \label{tab:iso-bdt-input}
+
+    \begin{tabularx}{0.8\linewidth}{r|X}
+        \toprule
+        \textbf{Variable} & \textbf{Comment} \\
+        \midrule
+        SV \ipChiSq &
+        Increase in the $\chi^2$ of the secondary vertex (SV) fit if the track
+        is included. \\
+        %%%%
+        PV \ipChiSq &
+        Increase in the $\chi^2$ of the primary vertex (PV) fit if the track
+        is included. \\
+        %%%%
+        track \pt & - \\
+        track opening &
+        The cosine of the angle between the track and the flight direction
+        of the \DXmu pair.
+        \\ %%%%
+        \midrule
+        \anyChiSq{FD} &
+        The significance of the flight distance fit with this track included. \\
+        %%%%
+        $\Delta\anyChiSq{FD}$ &
+        The difference in \anyChiSq{FD} with and without the track included. \\
+        \bottomrule
+    \end{tabularx}
+\end{table}
+
 
 Below a brief description for the signal sample and the main physics background
 control samples is provided.
