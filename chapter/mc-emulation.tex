@@ -143,30 +143,30 @@ As discussed before, L0Global TIS is determined by \emph{the rest of event}
 after event reconstruction.
 Therefore, a completely different approach is needed for its emulation.
 
-Instead of predicting event-by-event L0Global TIS probability based on the
-properties of the rest of event, it is possible to measure L0Global TIS as
-efficiencies binned in \emph{some reconstructed variables\footnote{
+Instead of predicting the event-by-event L0Global TIS probability based on the
+properties of the rest of event,
+it is possible to measure the L0Global TIS efficiencies binned in
+\emph{certain reconstructed variables\footnote{
     The choice of variables will be discussed later.
-}} externally,
-then apply L0Global TIS efficiencies based on the bin the event falls in.
+}},
+and then apply L0Global TIS efficiencies based on the bin the event falls
+in.
 
 In addition, for hadron colliders,
 the rest of event is \emph{busy} due to hadronization:
-Indeed, for data reconstructed in
+Indeed, for data reconstructed in the
 $\Bm \rightarrow \Dz (\rightarrow \Km \pip) \mun \neumb$ mode which is used in
 this analysis,
 the average number of tracks per event is 170,
 whereas the selected \Dz\mun final state contains only 3 tracks (\Km, \pip, and
 \mun, as \Dz and \Bm are reconstructed from these tracks)!
-Therefore, it can be argued that the rest of event are essentially the same
-between different reconstructions,
-and L0Global TIS efficiencies are portable across different \B decay modes.
-
+Therefore, it can be argued that the rest of event is essentially the same
+for different $B$ decays,
+and L0Global TIS efficiencies are portable.
+%
 Assuming the L0Global TIS efficiencies can be measured in a data
 sample reconstructed in a particular decay mode, the measured efficiencies
-can be applied to TO MC as weights regardless of the decays.
-This has the added benefit of L0Global TIS efficiencies agreeing with data by
-definition, so it does not need additional data/MC correction.
+can be applied to TO MC as weights regardless of the simulated decays.
 
 To summarize, if the following assumptions hold, then the emulation outlined
 above should work:
@@ -187,8 +187,8 @@ is conventionally defined as:
     \frac{N_\text{L0Global TIS \& selected}}{N_\text{selected}}
 \end{equation}
 which is not directly evaluable in real data, as $N_\text{selected}$ refers to
-number of selected events \emph{regardless} of their trigger decisions, which is
-not measurable (in data).
+the number of selected events \emph{regardless} of their trigger decisions.
+% which is not measurable (in data).
 
 However, the conditional efficiency, $\epsilon_\text{L0Global TIS|L0Muon TOS}$,
 is measurable:
@@ -198,39 +198,41 @@ is measurable:
     \frac{N_\text{L0Global TIS \& L0Muon TOS \& selected}}{
           N_\text{L0Muon TOS \& selected}}
 \end{equation}
-as long as L0Muon on signal and all L0 triggers (L0Global) on rest of event are
+as long as L0Muon TOS and all L0 triggers (L0Global) on the rest of event are
 uncorrelated,
 $\epsilon_\text{L0Global TIS|L0Muon TOS}$ is equivalent to
 $\epsilon_\text{L0Global TIS}$.
 Such a method is called \emph{TISTOS method}.
 Unfortunately, there is a correlation between the two triggers due to
-the fact that \bbbar are produced in pairs, making kinematics of the selected
-signal \B meson and the background \Bbar meson, part of rest of event,
-correlated.
+the fact that \bbbar are produced in pairs,
+making the kinematics of the selected signal \B meson and the background \Bbar
+meson,
+part of rest of event, correlated.
 
-Still, it is argued in \cite{LHCb-PUB-2014-039} that L0Global TIS and L0Muon TOS
-are \emph{uncorrelated} in a small region of signal \B phase space.
-Thus, it is possible to measure $\epsilon_\text{L0Global TIS}$ \emph{binned} in
-\B kinematic variables with TISTOS method.
-
-In \cite{LHCb-INT-2019-025} it is checked that binned
+Still, it is argued in Ref.~\cite{LHCb-PUB-2014-039}
+that L0Global TIS and L0Muon TOS are \emph{uncorrelated} in a small region of
+signal \B phase space.
+In Ref.~\cite{LHCb-INT-2019-025} it is checked that binned
 $\epsilon_\text{TISTOS} = \epsilon_\text{TIS}$ in
 $\B \rightarrow \jpsi K$ FullSim MC\footnote{
     TISTOS does not always work. See \cref{appx:suppl:l0global-tis} for a
     counter example.
-}, and evaluated
-$\epsilon_\text{L0Global TIS}$ on data reconstructed in $\jpsi K$, binned
-in $\log(p_z)$ and $\log(p_T)$ of the \B meson.
+},
+and evaluated that
+$\epsilon_\text{L0Global TIS}$ on data reconstructed in $\jpsi K$,
+binned in $\log(p_z)$ and $\log(p_T)$ of the \B meson.
 It is also checked that the efficiencies are portable among
 $\B \rightarrow \jpsi K$, $\B \rightarrow \Dp \muon \neu$, and
 $\B \rightarrow \Dp \tauon \neu$ decays with MC samples.
-%%%%
-In \cref{fig:l0global-tis-portable} it is checked
+Thus, it is possible to measure $\epsilon_\text{L0Global TIS}$ \emph{binned} in
+\B kinematic variables with the TISTOS method.
+
+In \cref{fig:l0global-tis-portable} we check
 that the portability still holds for this analysis in
 $\B \rightarrow \Dstarp \muon \neu$ and $\B \rightarrow \Dstarp \tauon \neu$.
-The efficiencies obtained in \cite{LHCb-INT-2019-025} are applied to all TO MC
-samples in this analysis, with binning variables changed to true momenta, as
-the reconstruction in this analysis contains missing neutrino(s),
+The efficiencies obtained in Ref.~\cite{LHCb-INT-2019-025} are applied to all TO
+MC samples in this analysis as a function of the true momenta,
+as the reconstruction in this analysis contains missing neutrino(s),
 whereas $\jpsi K$ does not.
 
 % Generated in /lhcb-ntuples-gen/studies/trigger_emulation-l0_global_tis_debug:
