@@ -1,7 +1,12 @@
-\section{Signal (ISO) and control background (1OS, 2OS, DD) skims}
+\section{Signal (ISO) and control background (1OS, 2OS, DD) skims and the isolation BDT}
 \label{ref:sel:skims}
 
-The signal and control skims (subsamples) are separated by inspecting if there
+The signal and control skims (sub-samples) are separated by inspecting if the
+\DXmu pair is well-separated from all other well-reconstructed (long) charged
+tracks in the event (isolated);
+if the pair is isolated,
+
+there
 exists additional charged tracks that are compatible with coming from the
 reconstructed \B vertex.
 The isolation BDT, described in \cref{ref:sel:tech:iso-bdt}, provides an
@@ -22,19 +27,7 @@ The actual isolation selections are listed in \cref{tab:skim-cut}.
         score)
         and is compatible with a fully reconstructed \B decay
         (ignoring missing neutrino(s)).
-        % FIXME: Maybe list yield, and compare to run 1, and include figures?
-
-    \item DD: $B \rightarrow D^{(*)}D X$,
-        with dominate $D \rightarrow \Kp \mun \neumb X$ sub-decays.
-        This is a double-charm ($DD$) control sample,
-        which is selected by requiring at least one anti-isolated track,
-        a \kaon-like long track\footnote{
-            This means the track went through both upstream and downstream
-            trackers, and is generally of good tracking quality.
-        } and a hard track in the three most anti-isolated tracks\footnote{
-            Note that these three requirements can be satisfied by a single
-            track.
-        }.
+        % TODO: Maybe list yield, and compare to run 1, and include figures?
 
     \item 1OS: $B \rightarrow D^{**} \lepton \neulb$.
         This control sample, enriched in excited charm states,
@@ -53,6 +46,18 @@ The actual isolation selections are listed in \cref{tab:skim-cut}.
         This sample also provides an independent selection of
         $B \rightarrow D^{(*)}D X$ backgrounds, where the \pip\pim fit into the
         $X$ category and \kaon escapes isolation detection.
+
+    \item DD: $B \rightarrow D^{(*)}D X$,
+        with dominate $D \rightarrow \Kp \mun \neumb X$ sub-decays.
+        This is a double-charm ($DD$) control sample,
+        which is selected by requiring at least one anti-isolated track,
+        a \kaon-like long track\footnote{
+            This means the track went through both upstream and downstream
+            trackers, and is generally of good tracking quality.
+        } and a hard track in the three most anti-isolated tracks\footnote{
+            Note that these three requirements can be satisfied by a single
+            track.
+        }.
 \end{itemize}
 
 \begin{table}[!htb]
