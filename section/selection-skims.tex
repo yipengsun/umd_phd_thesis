@@ -25,7 +25,6 @@ the \B (\DXmu) vertex or not.
     \caption{Training variables for the isolation BDT.}
     \label{tab:iso-bdt-input}
 
-    % FIXME: Confirm these w/ Phoebe
     \begin{tabularx}{0.8\linewidth}{r|X}
         \toprule
         \textbf{Variable} & \textbf{Comment} \\
@@ -48,7 +47,9 @@ the \B (\DXmu) vertex or not.
         \\ %%%%
         \midrule
         \anyChiSq{FD} &
-        The significance of the flight distance fit with this track included. \\
+        The significance of the flight distance fit
+        ($\frac{\text{flight distance}}{\sigma(\text{flight distance})}$)
+        with this track included. \\
         %%%%
         $\Delta\anyChiSq{FD}$ &
         The difference in \anyChiSq{FD} with and without the track included. \\
