@@ -1035,7 +1035,25 @@ and a variable number of chars specifying the actual content to write via I2C.
 \subsection{The UT online system}
 \label{online-ut}
 
+% Useful materials:
+%   ctrl system + SOL40 + GbtServ: https://inspirehep.net/files/582fea6b6c0bd2b9373832e9b1a323ad
+
 % The UT online system consists of 3 subsystems: DAQ, DCS, and HV
+
+FSM for each
+
+DAQ: FEE, TELL40
+DCS: LV, mon
+HV:
+
+Each UT FSM is referenced into the main LHCb ctrl system (TOP)
+
+On: (only DCS) -> Configure
+
+SMI (state man interface, Clara again!) manager registered to the DIM DNS for FSM
+
+DIM and SMI integrated into WinCC
+
 %
 % 0. Every component is integrated into the control system by a form of
 % DIM server (for example, GBT server is a DIM server). Is this correct?
@@ -1043,32 +1061,52 @@ and a variable number of chars specifying the actual content to write via I2C.
 % 1. Are SOL40 used to control every component? For example the Wiener PSUs
 % seems to be controlled by 'OPC servers'. Does it imply that these server
 % implement a DIM server on their own w/o a need for a SOL40?
-%
+
 % 2. The DCBs and Hybrids are controlled by SOL40 directly, the LVRs are
 % controlled via the TCB which implements a GBT-SPI interface via a GBT-SCA
 % chipset
 % How does the HV (CAEN?) integrate into the control system?
 %
+% OPC (OLE process CTRL) server (OPC client for direct ctrl of maraton and CAEN)
+
+% 2 diff OPC server, OLE protocol intergrate directly to WinCC OA
+
+% All FSM (represent the status of the sub-detector) in LHCb use a single DIM node.
+
 % 3. ELMB seems to be a monitoring board that has ADCs. What kinds of
 % monitoring/telemetry data does it collect? How does it integrate into the
 % control system?
 % 'Analog or digital sensors and actuators such as: temperature, humidity,
 % radiation sensors, switches, voltage and current monitoring modules, solid
 % state relays' maybe?
+
+% read analogue input: thermistor and humidity
+
+% (OPC for Canbus)
+
+% ELMB connect to the outmost sensors of the staves (in/out temp of CO2)
+% (Stave -> BP -> Telemetry (innermost, 2 thermistors of hybrid, 1 to ELMB, outermost 1 per hybrid always to ELMB, and 4 sensors on CO2 pipe))
+% (Humidity sensors in the detector box directly routed to ELMB)
+% ELMB always on (DCB are not)
+
 %
 % 4. How many TELL40s and SOL40s are planned to be used currently?
-%
-% 5. In your online system review slides (MTobin_UT_Review_14112022.pdf), it is
-% claimed that many TELL40 and SOL40 are virtual machines.
-% How does it work? I can imagine for SOL40 one can do a PCIE pass-thru so that
-% multiple PCIe40 can be plugged into a single physical machine so that one
-% physical machine can act as multiple SOL40.
-% For TELL40 however, it requires 2 additional GPUs which also need to be passed
-% to the VM. Is it true that one physical machine can also host MULTIPLE TELL40s,
-% which seem to be very resource-hungry?
-%
-% 6. Out of curiosity, what kind of virtualization software does the LHCb use?
-% XVM or KVM, or something else?
+% 7 (3+3 for DCB, 1 for TCB) SOL40s,
+
+% Each TELL40
+% 54 (PCIe40) per side (x2)
+
+% All 8 SOL40 in a single server
+% (configuration file based on the MAC address of FPGA, map to a name)
+
+% each TELL40 has a source ID (configured)
+
+
+% 3 PCIe40 per physical server (+2 GPU per server),
+
+% TFC
+%     SOL40 -> relay TFC to TELL40
+%     SODIN
 
 
 \subsection{MiniDAQ}
