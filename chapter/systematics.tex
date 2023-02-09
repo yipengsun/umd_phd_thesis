@@ -94,23 +94,28 @@ and uncertainties on data/MC corrections
 \section{$B \rightarrow (\Dz|\Dstar|\Dstst)\ellm\neulb$ form factors}
 \label{sys-ff}
 
-The uncertainties due to $D^{(*)}$ form factors can be determined in the
-following manner:
+The uncertainties due to $D^{(*,**)}$ form factors affect the shapes of the fit
+variables,
+as discussed in \cref{ref:mc-cor:ff};
+the FFs are listed in
+\cref{ref:theory:ff-d0,ref:theory:ff-dst,ref:theory:ff-dstst}.
+The uncertainties due to these parameters can be determined in the following
+manner:
 
 \begin{enumerate}
-    \item Perform a fit with nominal setting. Say the fitted value for
-        $\RD = V\;{+\sigma_+}\;{-\sigma_-}$.
-    \item Fix the variations ($\alpha$ parameters) associated with \Dz and
-        \Dstar form factor parameters at best fitted value.
+    \item Perform a fit with the nominal settings and call
+        the fitted value $\RDX = V\;{+\sigma_+}\;{-\sigma_-}$.
+    \item Fix the variations ($\alpha$ parameters) associated the form factor
+        parameters at the fitted value.
         This removes the constrains due to these $\alpha$ parameters in the
         likelihood thus
         eliminates all uncertainties due to these parameters.
-    \item Repeat the fit with the $\alpha$ parameters fixed at the best fitted
+    \item Repeat the fit with the $\alpha$ parameters fixed at the fitted
         value.
-        Say now the fitted value for
-        $\RD = V'\;{+\sigma'_+}\;{-\sigma'_-}$.
-    \item The systematic uncertainty due to \Dz and \Dstar form factors are
-        obtained from subtracting uncertainties of $V, V'$ in quadrature.
+        Denote the fitted value
+        $\RDX = V'\;{+\sigma'_+}\;{-\sigma'_-}$.
+    \item The systematic uncertainty due to the form factors are
+        obtained from subtracting uncertainties of $V$ and $V'$ in quadrature.
         More specifically, due to the asymmetric nature of the error,
         the systematic uncertainty is calculated with
         \cref{eqn:sys-uncert-sub-quad}:
@@ -135,9 +140,8 @@ following manner:
 
 The systematic uncertainty due to \Dz and \Dstar form factors is 0.96 for
 \RD and 0.53 for \RDst;
-uncertainty on \Dstst form factors leads to an uncertainty of 0.21 for \RD and
+uncertainties on \Dstst form factors leads to an uncertainty of 0.21 for \RD and
 0.13 for \RDst.
-
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
