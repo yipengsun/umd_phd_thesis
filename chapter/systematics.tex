@@ -38,7 +38,7 @@ Unless specified, all uncertainties are \emph{absolute} uncertainties.
         (0.63) & (0.74) \\
         %%%%
         $B \rightarrow D^{**}\tau\neutb$ bkg &
-        (0.17) & (0.30) \\
+        0.21 (0.17) & 0.23 (0.30) \\
         %%%%
         $B \rightarrow D^{(*)} D^{**}_s (\rightarrow \tau\neutb) X$ bkg &
         (0.25) & (1.21) \\
@@ -126,7 +126,7 @@ manner:
         \end{equation}
 \end{enumerate}
 
-% raw:
+% nominal:
 %   R(D) : +5.986378/--5.982923
 %   R(D*): +1.940159/--1.939449
 
@@ -149,11 +149,26 @@ uncertainties on \Dstst form factors leads to an uncertainty of 0.21 for \RD and
 \label{sys-tau-dstst}
 
 As discussed in \cref{tmpl:dstst},
-the tauonic yields are not well-constrained by external measurements, and
-are floated with a Gaussian constraint for each fit channel.
+the $B \rightarrow \Dstst \taum\neutb$ tauonic yields are not well-constrained
+by external measurements,
+with their yields allowed to fluctuate with a Gaussian constraint of
+$\sigma = 0.33$
+(so that an increase from the nominal yield $N$ to $1.33N$ would result in a
+1-$\sigma$ penalty in the corresponding log-likelihood function).
 The systematic uncertainty introduced by the Gaussian constrains
-is evaluated based on differences between floating and fixing these parameters
-at best fit values, as described in \cref{sys-ff}.
+is evaluated based on the differences between the fit uncertainties resulting
+from floating and fixing these parameters at their best fit values,
+as described in \cref{sys-ff}.
+The uncertainty is 0.23 in the \Dz channel,
+and 0.21 in the \Dstar channel.
+
+% nominal:
+%   R(D) : +5.986378/--5.982923
+%   R(D*): +1.940159/--1.939449
+
+% tau D**:
+%   R(D) : +5.884805/--6.077341
+%   R(D*): +1.961466/--1.895818
 
 
 \section{$B \rightarrow D^{(*)} D^{**}_s (\rightarrow \tau\neutb) X$ background}
