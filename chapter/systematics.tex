@@ -47,7 +47,7 @@ Unless specified, all uncertainties are \emph{absolute} uncertainties.
         (0.74) & (1.19) \\
         %%%%
         Coulomb correction to $\mathcal{R}(\Dstarp)$ vs. $\mathcal{R}(\Dstarz)$ &
-        (0.17) & (0.3) \\
+        0.27 (0.17) & 0.21 (0.3) \\
         %%%%
         \muon misID decay-in-flight correction &
         (0.06) & (0.16) \\
@@ -138,6 +138,21 @@ manner:
 %   R(D) : +6.012465/--5.949462
 %   R(D*): +1.927819/--1.942534
 
+% When taking the quadrature difference, the systematic can be evaluated w/
+% the following Python code:
+%
+%   from math import sqrt
+%
+%   def sysRD(sigmaPAlt, sigmaMAlt):
+%       sigmaP = 5.986378
+%       sigmaM = 5.982923
+%       return sqrt(abs(sigmaP * sigmaM - sigmaPAlt * sigmaMAlt))
+%
+%   def sysRDst(sigmaPAlt, sigmaMAlt):
+%       sigmaP = 1.940159
+%       sigmaM = 1.939449
+%       return sqrt(abs(sigmaP * sigmaM - sigmaPAlt * sigmaMAlt))
+
 The systematic uncertainty due to \Dz and \Dstar form factors is 0.96 for
 \RD and 0.53 for \RDst;
 uncertainties on \Dstst form factors leads to an uncertainty of 0.21 for \RD and
@@ -162,10 +177,6 @@ as described in \cref{sys-ff}.
 The uncertainty due to tauonic \Dstst backgrounds is 0.23 for \RD,
 and 0.21 for \RDst.
 
-% nominal:
-%   R(D) : +5.986378/--5.982923
-%   R(D*): +1.940159/--1.939449
-
 % tau D**:
 %   R(D) : +5.884805/--6.077341
 %   R(D*): +1.961466/--1.895818
@@ -182,10 +193,6 @@ Using the same method of taking the quadrature difference of floating and fixing
 these parameters at their fitted values,
 the uncertainty due to tauonic $DDX$ backgrounds is 0.59 for \RD,
 and 0.37 for \RDst.
-
-% nominal:
-%   R(D) : +5.986378/--5.982923
-%   R(D*): +1.940159/--1.939449
 
 % tau DDX:
 %   R(D) : +5.844685/--6.069123
@@ -341,12 +348,14 @@ This is a work in progress.
 
 The MC simulation lacks the corrections from Coulomb interactions between
 the lepton and the charged hadrons in
-$\Bzb \rightarrow \Dstarp\ell\neulb$ decays.
+$\Bzb \rightarrow \Dstarp\ellm\neulb$ decays.
 This correction leads to three effects:
 
 \begin{enumerate}
-    \item A deformation of the templates, particularly
-        $\Bzb \rightarrow \Dstarp\tauon\neutb$ decays.
+    \item A deformation of the
+        $B \rightarrow \Dstarp\ellm\neulb$ fit templates,
+        particularly for the tauonic
+        $\Bzb \rightarrow \Dstarp\taum\neutb$ decay.
     \item A shift in the efficiency ratio between $\Dstarp\tau$ and $\Dstarp\mu$
         decays.
     \item Breaking of isospin symmetry between
@@ -357,8 +366,16 @@ The first two effects are checked in \cite{LHCb-ANA-2020-056} to be negligible
 compared to existing additive and multiplicative uncertainties.
 The third effect results in about 1\% relative enhancement in $\mathcal{R}
 (\Dstarp)$ compared to $\mathcal{R}(\Dstarz)$,
-as reported in \cite{Cal__2019}.
-A refit is performed to evaluate the uncertainty to due this change.
+as reported in \cite{Cal__2019},
+which is implemented by setting
+$\tilde{\eta}_{\Dstarp} = \frac{\tilde{\eta}_{\Dstarp}}{1.01}$ and repeat
+the fit,
+leading to an uncertainty of 0.21 for \RD,
+and 0.27 for \RDst.
+
+% Coulomb correction:
+%   R(D) : +5.990866/--5.986161
+%   R(D*): +1.959131/--1.959104
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
