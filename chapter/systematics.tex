@@ -25,10 +25,10 @@ Unless specified, all uncertainties are \emph{absolute} uncertainties.
                        {\bf $\sigma(\RD)   \times 10^2$} \\
         \midrule
         %%%%
-        $B \rightarrow D^{(*)}\ell\neulb$ form factors &
+        $B \rightarrow D^{(*)}\ellm\neulb$ form factors &
         0.53 (0.58) & 0.96 (2.37) \\
         %%%%
-        $B \rightarrow D^{**}\ell\neulb$ form factors &
+        $B \rightarrow D^{**}\ellm\neulb$ form factors &
         0.13 (0.78) & 0.21 (1.01) \\
         %%%%
         Control sample shape parameters\parnote{
@@ -36,7 +36,7 @@ Unless specified, all uncertainties are \emph{absolute} uncertainties.
             This uncertainty is not part of the nominal uncertainties reported
             by the fit.
         } &
-        (0.87) & (4.36) \\
+        0.46 (0.87) & 0.96 (4.36) \\
         %%%%
         $DD$ model dependence\parnoteref{parnote:ctrl-shape-params} &
         (0.63) & (0.74) \\
@@ -211,28 +211,30 @@ and 0.37 for \RDst.
 
 As discussed in \cref{ref:fit},
 in the signal (ISO) fit,
-the shapes of $DDX$ and $D^{**}_H$ templates
-are fixed to the fitted values obtained from the control fit.
-In addition, the $D^{**}$ form factor shape variations are \emph{constrained}
-rather than fixed from the control fit.
-These parameters are collectively referred as
-\emph{control sample shapes parameters},
+the shape parameters for the background templates,
+namely \Dstst, $\Dstst_H$, and $DDX$,
+are loaded from the fitted values of the control fit,
+with the $\Dstst_H$ and $DDX$ parameters held fixed and the \Dstst
+shape parameters,
+which are form factors,
+constrained.
+These parameters are referred as the
+\emph{control sample shapes parameters}.
 
 To propagate the uncertainties from the control sample shape parameters to
 the signal fit,
 a bootstrap procedure is performed which generates alternative parameters based
 on the correlations among these parameters.
-Due to the fact that the systematic uncertainties from $D^{**}$ form factor
-variations are studied separately,
+Since the systematic uncertainties from the \Dstst form factors are
+studied separately,
 to avoid double counting,
-the correlations \emph{purely} among these form factor variations need to be
-removed\footnote{
-    Admittedly the correlations between form factor variations and the rest of
-    the control shape parameters are weak.
-}.
-For example, for $D^{**}$ form factors variations,
-this study permits variations due to
-correlations between them and the $DDX$/$D^{**}_H$ shape parameters \emph{only}.
+a \emph{conditional covariance matrix},
+which removes the covariance \emph{purely due to} \Dstst FFs,
+is used in the bootstrap procedure.
+As an example,
+for the \Dstst form factors,
+the bootstrap permits variations due to
+correlations between them and the $DDX$/$\Dstst_H$ shape parameters \emph{only}.
 %%%%
 The removal is carried out with the following procedure:
 
@@ -259,18 +261,24 @@ The removal is carried out with the following procedure:
         $\Sigma_{22}$, 11 dimensional,
         $DDX$ and $D^{**}_H$ shape parameters.
 
-    \item The covariance purely among $D^{**}$ form factor variations,
+    \item The covariance purely among the \Dstst FFs,
         or formally the \emph{conditional covariance} of $D^{**}$ form factor
-        variations conditioned on best fitted values of $DDX$ and $D^{**}_H$
-        shape variations, denoted as $C$, is obtained with:
+        variations conditioned on the fitted values and uncertainties of
+        the $DDX$ and $D^{**}_H$ shape parameters,
+        denoted as $C$, is obtained with:
 
+        % formula taken from:
+        %   https://stats.stackexchange.com/questions/30588/deriving-the-conditional-distributions-of-a-multivariate-normal-distribution
+        % also, the formula has the correction matrix dimensionality.
+        % for example, let dim(S11) = 5x5 and dim(S22) = 2x2
+        % then dim(S12) = 5x2 and
+        % dim(S12 x S22^-1 x S21) = 5x2 x 2x2 x 2x5 = 5x5
         \begin{equation}
             C = \Sigma_{11} - \Sigma_{12} \Sigma^{-1}_{22} \Sigma_{21}
         \end{equation}
 
-    \item The reduced covariance matrix $R$ is obtained by
-        subtracting elements in $C$ from elements in $M$ corresponding to the
-        same parameters.
+    \item The reduced covariance matrix $R$ is obtained by subtracting $C$ from
+        $\Sigma_{11}$.
 \end{enumerate}
 
 With the reduced covariance matrix $R$, toys of shape parameters satisfying
@@ -279,8 +287,14 @@ sampled from independent Gaussian distributions.
 Each set of the parameters is loaded in the signal fit as the best
 fitted control parameters and the fit is repeated normally,
 with the fitted value of \RDX recorded.
-The uncertainty on the distribution of \RDX fitted this way is taken as the
-systematic uncertainty.
+The root-mean-square of the distribution of \RDX fitted this way is taken as
+the systematic uncertainty,
+which is 0.96 for \RD, and 0.46 for \RDst.
+
+%      |      0    |      1    |
+% -------------------------------
+%    0 |  2.147e-05  -4.198e-05
+%    1 | -4.198e-05    9.23e-05
 
 
 \section{$DD$ model dependence}
