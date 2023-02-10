@@ -31,7 +31,7 @@ Unless specified, all uncertainties are \emph{absolute} uncertainties.
         $B \rightarrow D^{**}\ell\neulb$ form factors &
         0.13 (0.78) & 0.21 (1.01) \\
         %%%%
-        Control sample shape params &
+        Control sample shape parameters &
         (0.87) & (4.36) \\
         %%%%
         $DD$ model dependence &
@@ -50,9 +50,9 @@ Unless specified, all uncertainties are \emph{absolute} uncertainties.
         0.27 (0.17) & 0.21 (0.3) \\
         %%%%
         \muon misID decay-in-flight correction &
-        (0.06) & (0.16) \\
+        0.05 (0.06) & 0.14 (0.16) \\
         %%%%
-        Comb. bkg. shape &
+        Combinatorial background shape &
         (0.03) & (0.18) \\
         %%%%
         Vertex resolution correction &
@@ -311,7 +311,13 @@ As discussed in \cref{ref:fit:var:misid-dif},
 the DiF effect is included as a shape variation to allow the fit to determine
 the strength of the DiF effect.
 The uncertainty due to this variation is evaluated with results
-from floating vs. fixing at best value for the associated $\alpha$ parameter.
+from floating vs. fixing at the fitted value for the associated $\alpha$
+parameter,
+which is 0.14 for \RD and 0.05 for \RDst.
+
+% misID DiF:
+%   R(D) : +5.895820/--6.071454
+%   R(D*): +1.968943/--1.912630
 
 
 \section{Combinatoric background shapes}
@@ -358,7 +364,7 @@ This correction leads to three effects:
         $\Bzb \rightarrow \Dstarp\taum\neutb$ decay.
     \item A shift in the efficiency ratio between $\Dstarp\tau$ and $\Dstarp\mu$
         decays.
-    \item Breaking of isospin symmetry between
+    \item Breaking of the isospin symmetry between
         $\mathcal{R}(\Dstarp)$ and $\mathcal{R}(\Dstarz)$
 \end{enumerate}
 
@@ -368,8 +374,8 @@ The third effect results in about 1\% relative enhancement in $\mathcal{R}
 (\Dstarp)$ compared to $\mathcal{R}(\Dstarz)$,
 as reported in \cite{Cal__2019},
 which is implemented by setting
-$\tilde{\eta}_{\Dstarp} = \frac{\tilde{\eta}_{\Dstarp}}{1.01}$ and repeat
-the fit,
+$\tilde{\eta}_{\Dstarp}^\text{new} = \frac{\tilde{\eta}_{\Dstarp}}{1.01}$
+then repeat the fit,
 leading to an uncertainty of 0.21 for \RD,
 and 0.27 for \RDst.
 
