@@ -33,8 +33,8 @@ Unless specified, all uncertainties are \emph{absolute} uncertainties.
         %%%%
         Control sample shape parameters\parnote{
             \label{parnote:ctrl-shape-params}
-            This uncertainty is not part of the uncertainties reported by the
-            fit.
+            This uncertainty is not part of the nominal uncertainties reported
+            by the fit.
         } &
         (0.87) & (4.36) \\
         %%%%
@@ -109,7 +109,7 @@ manner:
 
 \begin{enumerate}
     \item Perform a fit with the nominal settings and call
-        the fitted value $\RDX = V\;{+\sigma_+}\;{-\sigma_-}$.
+        the fitted value $\RDX = v\;{+\sigma_+}\;{-\sigma_-}$.
     \item Fix the variations ($\alpha$ parameters) associated the form factor
         parameters at the fitted value.
         This removes the constrains due to these $\alpha$ parameters in the
@@ -117,10 +117,11 @@ manner:
         eliminates all uncertainties due to these parameters.
     \item Repeat the fit with the $\alpha$ parameters fixed at the fitted
         value.
-        Denote the fitted value
-        $\RDX = V'\;{+\sigma'_+}\;{-\sigma'_-}$.
+        Denote the new fitted value
+        $\RDX' = v'\;{+\sigma'_+}\;{-\sigma'_-}$.
     \item The systematic uncertainty due to the form factors are
-        obtained from subtracting uncertainties of $V$ and $V'$ in quadrature.
+        obtained from subtracting uncertainties of \RDX and $\RDX'$ in
+        quadrature.
         More specifically, due to the asymmetric nature of the error,
         the systematic uncertainty is calculated with
         \cref{eqn:sys-uncert-sub-quad}:
