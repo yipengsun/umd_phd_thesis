@@ -1,7 +1,7 @@
 \chapter{Analysis overview}
 \label{ref:overview}
 
-This analysis aims at an extraction of \RD and \RDst,
+This analysis aims at the measurement of \RD and \RDst,
 with the definition reproduced from the introduction:
 \begin{equation}
     \RDX \equiv \frac{\BFDTau}{\BFDMu}
@@ -67,17 +67,17 @@ In addition, $\Bm \rightarrow \Dstarz\ellm\neulb$ decays,
 which have a branching fraction of about 2.5 times larger compared to
 $\Bm \rightarrow \Dz\ellm\neulb$ decays,
 contribute exclusively to \Dz\mun states, because the neutral slow
-\piz, a product of \Dstarz decay, is entirely missed.
+\piz, a product of the \Dstarz decay, is entirely missed.
 Therefore, a \emph{simultaneous} fit,
 assuming isospin symmetry,
 to both \Dstarp\mun and \Dz\mun states is needed to
-account for the correlations between \RD and \RDst and improve
+account for the correlations between \RD and \RDst and improve the
 precision\footnote{
-    As opposed to extract \RDst from \Dstarp\mun sample alone.
-} for \RDst.
+    As opposed to extracting \RDst from the \Dstarp\mun sample alone.
+} of \RDst.
 
 
-\paragraphtoc{Background}
+\paragraphtoc{Background contributions}
 In addition to the signal, normalization, and feed down from \Dstar modes,
 both \Dstarp\mun and \Dz\mun final states contain contributions from many
 background decay modes that are only partially reconstructed,
@@ -102,6 +102,17 @@ which can be categorized as follows:
         the \Dstst heavy states cascade decay into a \Dz or a \Dstar,
         with two or more extra pions in the final states:
         $B \rightarrow \Dstst_H (\rightarrow D^{0|*} \pi\pi) \mu\neum$.
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.7\textwidth]{figs-analysis-overview/d_meson_predicted_masses.pdf}
+    \caption{
+        Modified Godfrey-Isgur mass predictions for $D$ mesons.
+        Taken from \cite{D_mesons_2013}.
+    }
+    \label{fig:excited-d-meson}
+\end{figure}
+
     \item \DststS:
         the $B_s \rightarrow (D'_{s1}|D_{s2})
         (\rightarrow D^{(*)}K) l\neul$
@@ -119,22 +130,12 @@ which can be categorized as follows:
         one kaon.
 \end{itemize}
 
-\begin{figure}[!htb]
-    \centering
-    \includegraphics[width=0.7\textwidth]{figs-analysis-overview/d_meson_predicted_masses.pdf}
-    \caption{
-        Modified Godfrey-Isgur mass predictions for $D$ mesons.
-        Taken from \cite{D_mesons_2013}.
-    }
-    \label{fig:excited-d-meson}
-\end{figure}
-
-The backgrounds due to ``mis-reconstructions'' of the \DXmu pair must
+The backgrounds due to \emph{mis-reconstructions} of the \DXmu pair must
 also be taken into account, namely:
 \begin{itemize}
     \item Muon misID:
         sometimes the \muon in the \DXmu pair is mis-identified
-        because the particle identification algorithm is not 100\% efficient.
+        because the particle identification algorithm is not 100\% accurate.
         When such misidentification happens,
         the ``\muon'' can be a pion, a kaon, a proton, an electron,
         or a ghost\footnote{
@@ -142,9 +143,10 @@ also be taken into account, namely:
             effect.
         }.
     \item Combinatorial backgrounds:
-        these refers to random combinations of the \Dz \muon (for \Dz channel),
-        \Dstar \muon, or \Dz \pion (the latter two are for \Dstar channel)
-        that are not originating from the decay of the same $B$ meson.
+        these refer to random combinations of the \Dz \muon
+        (for the \Dz channel),
+        \Dstar \muon, or \Dz \pion (the latter two are for the \Dstar channel)
+        that do not originate from the decay of the same $B$ meson.
 \end{itemize}
 
 
@@ -160,22 +162,28 @@ that is, how likely that other well-reconstructed tracks in the same event
 are originating from the same $B$ as the \DXmu.
 There are four resulting skims, namely:
 \begin{itemize}
-    \item ISO: signal-enriched. The \DXmu pair is well-isolated as there
+    \item ISO:
+        signal-enriched. The \DXmu pair is well-isolated as there
         is no other track in the event that is likely coming from the same $B$.
-    \item 1OS: starting from this one, all skims are background-enriched.
+    \item 1OS:
+        enriched in $B \rightarrow \Dstst \ellm\neulb$.
         The 1OS skim contains events with one extra pion that is originating
         from the same $B$ as the \DXmu pair
         (anti-isolated).
-    \item 2OS: contain events with two anti-isolated pions.
-    \item DD: contains events with one or more anti-isolated tracks with one
+    \item 2OS:
+        enriched in $B \rightarrow \Dstst_H \mun\neumb$.
+        Contain events with two anti-isolated pions.
+    \item DD:
+        enriched in $B \rightarrow D^{(*)} D_q X$.
+        Contain events with one or more anti-isolated tracks with one
         of them being a kaon.
 \end{itemize}
 
 
 \paragraphtoc{Fit overview}
 The signal, normalization, and backgrounds all have differing kinematics
-which are often modeled from Monte-Carlo simulation (MC),
-sometimes from data control samples.
+which are for the most part modeled from Monte-Carlo simulation (MC),
+and sometimes from data control samples.
 These differences are used in the fit to determine the yields of all
 relevant decay modes.
 The differentiating kinematic variables, defined in the \B rest frame,
@@ -231,7 +239,8 @@ More information about RFA can be found in \cref{appx:rfa}.
 %     \label{fig:rfa-variables}
 % \end{figure}
 
-This analysis reuses the fit strategy in the LHCb \RDX run 1 analysis:
+This analysis uses the same general fit strategy in the LHCb \RDX run 1
+analysis:
 fit the parameters characterizing various background decays with separate
 \emph{control skims} (1OS, 2OS, and DD),
 then import these parameters either as constraints or fully fixed into the
@@ -254,18 +263,17 @@ described in \cref{ref:sel}.
 Then, emulation of certain detector responses to MC are carried out offline
 with the procedure described in
 \cref{ref:mc-emulation},
-as this analysis requires a large number of MC events with only partial detector
-simulation to be computationally viable.
-After, various mis-modelings in MC simulation,
-mainly in form factor modeling and detector responses, are updated and
+as this analysis requires a large number of simulated events with only partial
+detector simulation to be computationally viable.
+Afterwards, various mis-modelings in the MC simulation,
+mainly in form factor modeling and detector response, are updated and
 corrected with the procedures detailed in \cref{ref:mc-cor}.
-Finally, \RDX are extracted from a simultaneous fit, with fit procedure and
-results listed in \cref{ref:fit}
-and selected systematic uncertainties discussed in
+Finally, \RDX are extracted from a simultaneous fit described in \cref{ref:fit}.
+The estimation of major systematic uncertainties is discussed in
 \cref{ref:sys-uncert}.
 
 
-\paragraphtoc{Differences between run 2 and run 1 analyses}
+\paragraphtoc{Differences between the run 2 and run 1 analyses}
 The major differences between this analysis and the pathfinder run 1 \RDX
 analysis are:
 \begin{itemize}
@@ -302,9 +310,9 @@ analysis are:
 \end{itemize}
 
 
-Additional information is organized as follows:
-An overview of theory of semileptonic \B decay is provided in
-\cref{ref:theory},
-followed by a brief introduction to the LHCb detector in \cref{ref:detector}.
-The ``conclusion'' of this still ongoing analysis is provided in
-\cref{ref:conclusion}.
+% Additional information is organized as follows:
+% An overview of theory of semileptonic \B decay is provided in
+% \cref{ref:theory},
+% followed by a brief introduction to the LHCb detector in \cref{ref:detector}.
+% The ``conclusion'' of this still ongoing analysis is provided in
+% \cref{ref:conclusion}.
