@@ -6,6 +6,7 @@ The major sysmtematics uncertainties are evaluated as listed in
 The corresponding uncertainties from the run 1 analysis evaluated with
 the \HistFactory fitter is also provided as reference.
 Unless specified, all uncertainties are \emph{absolute} uncertainties.
+All uncertainties are \emph{multiplied by 100} for convenience.
 
 \begin{table}[!htb]
     \caption{
@@ -18,64 +19,66 @@ Unless specified, all uncertainties are \emph{absolute} uncertainties.
     }
     \label{tab:sys-uncert}
     \centering
-    \small
-    \begin{tabular}{r | c | c }
+    \footnotesize
+    \begin{tabular}{r|c|c|c}
         \toprule
-        {\bf Source} & {\bf $\sigma(\RDst) \times 10^2$} &
-                       {\bf $\sigma(\RD)   \times 10^2$} \\
+        {\bf Source} & {\bf $\sigma_{\RDst}$ [$\times 10^{-2}$]} &
+                       {\bf $\sigma_{\RD}$   [$\times 10^{-2}$]} &
+                       {\bf Correlation} \\
         \midrule
         %%%%
         $B \rightarrow D^{(*)}\ellm\neulb$ form factors &
-        0.53 (0.58) & 0.96 (2.37) \\
+        0.53 (0.58) & 0.79 (2.37) & -0.71 (-0.80) \\
         %%%%
         $B \rightarrow D^{**}\ellm\neulb$ form factors &
-        0.13 (0.78) & 0.21 (1.01) \\
+        0.25 (0.78) & 0.62 (1.01) & -0.85 (-0.10) \\
         %%%%
         Control sample shape parameters\parnote{
             \label{parnote:ctrl-shape-params}
             This uncertainty is not part of the nominal uncertainties reported
             by the fit.
         } &
-        0.46 (0.87) & 0.96 (4.36) \\
+        0.46 (0.87) & 0.96 (4.36) & (-0.49) \\
         %%%%
         $DD$ model dependence\parnoteref{parnote:ctrl-shape-params} &
-        (0.63) & (0.74) \\
+        (0.63) & (0.74) & (0.00) \\
         %%%%
-        $B \rightarrow D^{**}\taum\neutb$ bkg &
-        0.21 (0.17) & 0.23 (0.30) \\
+        $B \rightarrow \Dstst\taum\neutb$ bkg &
+        0.21 (0.17) & 0.23 (0.30) & (0.78) \\
         %%%%
-        $B \rightarrow D^{(*)} D^{**}_s (\rightarrow \taum\neutb) X$ bkg &
-        0.37 (0.25) & 0.59 (1.21) \\
+        $B \rightarrow D^{(*)} \Dstst_s (\rightarrow \taum\neutb) X$ bkg &
+        0.37 (0.25) & 0.59 (1.21) & (0.59) \\
         %%%%
         \muon misID unfolding algorithm\parnoteref{parnote:ctrl-shape-params} &
-        (0.74) & (1.19) \\
+        (0.74) & (1.19) & (1.00) \\
         %%%%
         Coulomb correction to $\mathcal{R}(\Dstarp)$ vs. $\mathcal{R}(\Dstarz)$\parnoteref{parnote:ctrl-shape-params} &
-        0.27 (0.17) & 0.21 (0.3) \\
+        0.27 (0.17) & 0.21 (0.3) & (-1.00) \\
         %%%%
         \muon misID decay-in-flight correction &
-        0.05 (0.06) & 0.14 (0.16) \\
+        0.05 (0.06) & 0.14 (0.16) & (0.29) \\
         %%%%
         Combinatorial background shape\parnoteref{parnote:ctrl-shape-params} &
-        (0.03) & (0.18) \\
+        (0.03) & (0.18) & (0.00) \\
         %%%%
         Vertex resolution correction\parnoteref{parnote:ctrl-shape-params} &
-        (0.03) & (0.21) \\
+        (0.03) & (0.21) & (-0.25) \\
         %%%%
         Data/MC corrections (add.)\parnoteref{parnote:ctrl-shape-params} &
-        (0.40) & (0.75) \\
+        (0.40) & (0.75) & (0.00) \\
         %%%%
         \midrule
         Data/MC corrections (mul.) &
         \makecell{$? \times \RDst$ \\ ($1.16 \times \RDst$)} &
-        \makecell{$? \times \RDst$ \\ ($0.91 \times \RDst$)} \\ % FIXME: Really? Both R(D*)?
+        \makecell{$? \times \RD$ \\ ($0.91 \times \RDst$)} &
+        (0.00) \\
         %%%%
         $\mathcal{B}(\taum \rightarrow \mun\neumb\neut)$ (ext. mea.) &
-        0.23 & 0.23 \\
+        0.23 (0.23) & 0.23 (0.23) & 1.00 (1.00) \\
         \midrule
         %%%%
         Sys. + stats. &
-        ? & ? \\
+        ? & ? & ? \\
         \bottomrule
     \end{tabular}
     \parnotes
@@ -132,37 +135,14 @@ manner:
         \end{equation}
 \end{enumerate}
 
-% nominal:
-%   R(D) : +5.986378/--5.982923
-%   R(D*): +1.940159/--1.939449
+% Use the compute_systematics.py to compute systematics from the fit log files
+% directly! e.g.:
+%   compute_systematics.py 23_02_12_08_41-fit_step3-2016_all-reweighted/step3.log -s 23_02_12_18_33-fit_sys-ff-D0_Dst/step3.log
 
-% D0 & D*
-%   R(D) : +5.887633/--5.925942
-%   R(D*): +1.864698/--1.869821
-
-% D**
-%   R(D) : +6.012465/--5.949462
-%   R(D*): +1.927819/--1.942534
-
-% When taking the quadrature difference, the systematic can be evaluated w/
-% the following Python code:
-%
-%   from math import sqrt
-%
-%   def sysRD(sigmaPAlt, sigmaMAlt):
-%       sigmaP = 5.986378
-%       sigmaM = 5.982923
-%       return sqrt(abs(sigmaP * sigmaM - sigmaPAlt * sigmaMAlt))
-%
-%   def sysRDst(sigmaPAlt, sigmaMAlt):
-%       sigmaP = 1.940159
-%       sigmaM = 1.939449
-%       return sqrt(abs(sigmaP * sigmaM - sigmaPAlt * sigmaMAlt))
-
-The systematic uncertainty due to \Dz and \Dstar form factors is 0.96 for
+The systematic uncertainty due to \Dz and \Dstar form factors is 0.79 for
 \RD and 0.53 for \RDst;
-uncertainties on \Dstst form factors leads to an uncertainty of 0.21 for \RD and
-0.13 for \RDst.
+uncertainties on \Dstst form factors leads to an uncertainty of 0.62 for \RD and
+0.25 for \RDst.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -301,27 +281,24 @@ which is 0.96 for \RD, and 0.46 for \RDst.
 \label{sys-model-ddx}
 
 In the nominal fit, two variations on $m_{DD^{*}}$,
-a key proxy variable to 3-body decay phase space,
+a key proxy variable to the 3-body decay phase space,
 are introduced on $DDX$ templates to allow for a data-driven approach to
 determine the shape of these templates, as described in
 \cref{ref:fit:var:ddx}.
 
 To estimate the dependence on the choice of proxy variable to the phase space,
 alternative proxy variables, namely $m_{DK}$ and $p_D$ in the \B rest frame,
-are deformed linearly and quadratically and the nominal $DDX$ templates are
-replaced with these alternative variations and a refit performed.
-A profile likelihood study then determine the uncertainty of \RD and \RDst
-based on a likelihood profile study\footnote{
-    For more details, see APPX % TODO: List details for profile likelihood study
-} of both the nominal and the alternative variations.
+are deformed linearly and quadratically,
+the nominal $DDX$ templates are replaced with these alternative variations,
+and a refit is performed.
+The quadratic differences between the fitted uncertainties with the nominal and
+alternative $DD$ model are taken as the systematic uncertainty.
 
-The variations of $m_{DK}$ take the same form as
+The variations of $m_{DK}$ take the same form of
 \cref{eqn:dal-var-lin,eqn:dal-var-quad}, with $m_{DD^{(*)}}$ replaced by
 $m_{DK}$.
 The mass limits are also replaced:
 $m_\text{min} = m_{D^{(*)}} + m_K$, $m_\text{max} = m_B - m_D^{(*)}$.
-Similarly, for variations of $p_D$, the min and max are computed based on the
-phase space limit of a 3 body decay.
 
 
 \section{\muon misID decay-in-flight correction}
@@ -340,25 +317,34 @@ which is 0.14 for \RD and 0.05 for \RDst.
 %   R(D*): +1.968943/--1.912630
 
 
-\section{Combinatoric background shapes}
+\section{Combinatorial background shapes}
 \label{sys-model-comb}
 
-The nominal \BComb templates include a linear correction depend on $m_B$,
-which is discussed in \cref{ref:fit:tmpl:comb}.
-However, the actual correction is of a form $e^{-\lambda m_B}$
-(where $\lambda$ is fitted from data;
-the exponential fits are displayed side-by-side with the linear fits in
-\cref{fig:b-comb-d0,fig:b-comb-dst}.)
-and the linear correction is only the leading order approximation of the
-exponential.
+The nominal \BComb templates include a linear correction that depends on $m_B$,
+which is needed because this background is derived from the wrong-sign control
+sample and the raw yields between the wrong-sign and the right-sign samples
+in the $B$ mass upper side band do not match,
+as discussed in \cref{ref:fit:tmpl:comb}.
+
+However, as also discussed in the same section,
+the \BComb is empirically modeled as an exponential of the form
+$A e^{-\lambda m_b}$,
+where $A, \lambda$ are fitted from data.
+We assume both the wrong-sign and right-sign combinatorial backgrounds have the
+same functional form,
+therefore, the correction factor is the ratio between two exponential functions,
+which itself is an exponential,
+with the leading mass-dependent order correction linear.
 
 The uncertainty on the linear correction factor is quantified by
 repeating the fit with the nominal \BComb templates substituted with
-the ones generated with the exponential correction.
+the ones generated with the exponential correction,
+as shown in
+\cref{fig:b-comb-d0,fig:b-comb-dst}.
 The quadrature difference between \RDX is taken as the associated systematic
 uncertainty.
 The exponential correction is \emph{not taken as the nominal} because the
-existing data cannot resolve $\lambda$ to high precision.
+existing data cannot resolve $A, \lambda$ to high precision.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -408,15 +394,18 @@ and 0.27 for \RDst.
 \section{Vertex resolution correction}
 \label{sys-cor-vtx}
 
-As mentioned in \cref{ref:mc-cor:vertex},
-the mis-modeling of the $B$ flight vector in MC is corrected by a smearing
-on the azimuthal angle of the flight vector.
-To access the uncertainty due to this smearing, an additional
-variation to either strengthen or suppress the smearing effect is introduced
-\emph{for every single MC template}.
+As discussed in \cref{ref:mc-cor:vertex},
+the mis-modeling of the $B$ flight vector in the MC simulation is corrected by
+smearing on the azimuthal angle of the flight vector.
+To assess the uncertainty due to this smearing,
+an additional variation to either enhance or reduce the smearing effect
+by assigning a larger/smaller weight to events with larger smearing angles,
+which in turn widens or narrows the $B$ vertex and the \mmSq resolution,
+% as shown in \cref{fig:vtx-res},
+is introduced \emph{for every single MC template}.
 
-Due to the fact that the smearing changes the shape of fit variables for all
-MC templates, the variation introduces a non-trivial correlation to every
+Since such a smearing changes the shape of fit variables for all MC templates,
+the variation introduces a non-trivial correlation to every
 shape variation parameter.
 To evaluate the uncertainty \emph{purely due to the variation on smearing},
 all other shape variations are fixed at the best fit values before a refit is
@@ -430,13 +419,22 @@ uncertainty due to the smearing.
 
 Had the data/MC corrections been perfect,
 after an iteration of the fit is performed,
-the low \mmSq region between data and post-fit cocktail
-(defined in \cref{ref:mc-cor:postfit-cocktail}) should be in perfect agreement
-(statistically speaking)
+the low \mmSq region between the data and the post-fit cocktail
+(defined in \cref{ref:mc-cor:postfit-cocktail}) should be statistically
+consistent,
 because this normalization enriched region is insensitive to other effects
 due to modeling of physics backgrounds.
 In reality the data/MC corrections are not perfect,
-and the uncertainty due to this is assessed by repeating
+and the uncertainty due to this is assessed by doing an additional iteration of
 the final reweighting (explained in \cref{ref:mc-cor:final}),
 regenerating the fit templates,
-then repeating the fit.
+and then repeating the fit.
+
+The effect of such a correction is broken into an additive and a multiplicative
+component, which the latter affect the efficiency ratios
+(the 4 $\eta$ parameters discussed in \cref{tmpl:norm,tmpl:sig}).
+
+% Beston-Barlow
+%  for a given bin i -> \sigma_{\text{rel},i}
+%  sigma_{rel,i} = \sum_\text{input histogram $j$} \sigma_{i,j} / N_{i,j}
+%  \sigma_{i,j} -> getBinError()
