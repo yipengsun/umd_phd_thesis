@@ -351,7 +351,26 @@ existing data cannot resolve $A, \lambda$ to high precision.
 \section{\muon misID unfolding algorithm}
 \label{sys-algo-misid}
 
-This is a work in progress.
+Two main sources of uncertainties are identified to affect the \muon misID
+unfolding algorithm, an algorithm to estimate the contributions from charged
+particles mis-identified as \muon (\cref{ref:fit:tmpl:misid}):
+\begin{itemize}
+    \item The limited statistics of the misID data control sample
+    \item The accuracy of the efficiency for a ghost track to pass the \muon
+        selection requirements $\epsilon(g_\text{acc} \rightarrow \hat{mu})$,
+        (ghost mis-identification efficiency)
+        since this is modeled from a MC sample.
+\end{itemize}
+
+To evaluate the uncertainties due the limited statistical power,
+the misID algorithm is intentionally configured to \emph{over-fit} the control
+sample;
+a fit is then repeated with the over-fit misID templates and the quadratic
+difference of the fit uncertainties are taken as the systematic uncertainty.
+Similarly, for the ghost mis-identification efficiency,
+ghost tracks in an alternate MC sample with the wrong underlying decay
+($B_c \rightarrow \jpsi\mun\neumb$ instead of $B \rightarrow D \mum\neumb$) are
+used instead to produce alternative misID templates.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
