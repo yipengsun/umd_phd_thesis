@@ -44,10 +44,10 @@ All uncertainties are \emph{multiplied by 100} for convenience.
         (0.63) & (0.74) & (0.00) \\
         %%%%
         $B \rightarrow \Dstst\taum\neutb$ bkg &
-        0.21 (0.17) & 0.23 (0.30) & (0.78) \\
+        0.18 (0.17) & 0.49 (0.30) & -0.94 (0.78) \\
         %%%%
         $B \rightarrow D^{(*)} \Dstst_s (\rightarrow \taum\neutb) X$ bkg &
-        0.37 (0.25) & 0.59 (1.21) & (0.59) \\
+        0.18 (0.25) & 0.62 (1.21) & -0.79 (0.59) \\
         %%%%
         \muon misID unfolding algorithm\parnoteref{parnote:ctrl-shape-params} &
         (0.74) & (1.19) & 1.00 (1.00) \\
@@ -68,13 +68,19 @@ All uncertainties are \emph{multiplied by 100} for convenience.
         (0.40) & (0.75) & (0.00) \\
         %%%%
         \midrule
-        Data/MC corrections (mul.) &
+        Data/MC corrections (mul.)\parnote{
+            \label{parnote:mul}
+            This is a multiplicative uncertainty.
+        } &
         \makecell{$? \times \RDst$ \\ ($1.16 \times \RDst$)} &
         \makecell{$? \times \RD$ \\ ($0.91 \times \RDst$)} &
         (0.00) \\
         %%%%
-        $\mathcal{B}(\taum \rightarrow \mun\neumb\neut)$ (ext. mea.) &
-        0.23 (0.23) & 0.23 (0.23) & 1.00 (1.00) \\
+        $\mathcal{B}(\taum \rightarrow \mun\neumb\neut)$
+        (ext. mea.)\parnoteref{parnote:mul} &
+        \makecell{$0.23 \times \RDst$ \\ ($0.23 \times \RDst$)} &
+        \makecell{$0.23 \times \RDst$ \\ ($0.23 \times \RDst$)} &
+        1.00 (1.00) \\
         \midrule
         %%%%
         Sys. + stats. &
@@ -160,12 +166,8 @@ The systematic uncertainty introduced by the Gaussian constrains
 is evaluated based on the differences between the fit uncertainties resulting
 from floating and fixing these parameters at their best fit values,
 as described in \cref{sys-ff}.
-The uncertainty due to tauonic \Dstst backgrounds is 0.23 for \RD,
-and 0.21 for \RDst.
-
-% tau D**:
-%   R(D) : +5.884805/--6.077341
-%   R(D*): +1.961466/--1.895818
+The uncertainty due to tauonic \Dstst backgrounds is 0.49 for \RD,
+and 0.18 for \RDst.
 
 
 \section{$B \rightarrow D^{(*)} D^{**}_s (\rightarrow \tau\neutb) X$ background}
@@ -177,12 +179,9 @@ are only loosely constrained with a Gaussian whose $\sigma = 0.3$,
 as discussed in \cref{ref:fit:tmpl:ddx}.
 Using the same method of taking the quadrature difference of floating and fixing
 these parameters at their fitted values,
-the uncertainty due to tauonic $DDX$ backgrounds is 0.59 for \RD,
-and 0.37 for \RDst.
+the uncertainty due to tauonic $DDX$ backgrounds is 0.62 for \RD,
+and 0.18 for \RDst.
 
-% tau DDX:
-%   R(D) : +5.844685/--6.069123
-%   R(D*): +1.933537/--1.874157
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -305,7 +304,7 @@ $m_\text{min} = m_{D^{(*)}} + m_K$, $m_\text{max} = m_B - m_D^{(*)}$.
 \label{sys-model-dif}
 
 As discussed in \cref{ref:fit:var:misid-dif},
-the DiF effect,
+the decay-in-flight (DiF) effect,
 which stands for a \kaon or \pion decays into a \muon inside the calorimeter
 system, producing an authentic \muon PID signature,
 is included as a shape variation to allow the fit to determine
@@ -459,4 +458,4 @@ component, which the latter affect the efficiency ratios
 % Beston-Barlow
 %  for a given bin i -> \sigma_{\text{rel},i}
 %  sigma_{rel,i} = \sum_\text{input histogram $j$} \sigma_{i,j} / N_{i,j}
-%  \sigma_{i,j} -> getBinError()
+%  \sigma_{i,j} -> getBinErrot ()

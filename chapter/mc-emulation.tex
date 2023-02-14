@@ -2,7 +2,7 @@
 \label{ref:mc-emulation}
 
 To ensure that the statistical uncertainties due to the limited size of the  MC
-samples are small compared to that of data,
+samples are small compared to those of data,
 it is important to have MC samples with a size at least 4 times as large as
 data.
 Due to the sheer size of LHCb run 2 data
@@ -329,11 +329,11 @@ TOS efficiencies.
 The event selection requires that either $K$ or $\pi$ is TOS on
 \smalltt{Hlt1TrackMVA},
 or \Dz is TOS on \smalltt{Hlt1TwoTrackMVA}.
-The single track \smalltt{Hlt1TrackMVA} requires a track that has score based on
-$p_T$ and \ipChiSq to be above some threshold;
+The single track \smalltt{Hlt1TrackMVA} requires a track that has a score based
+on $p_T$ and \ipChiSq to be above some threshold;
 the two track \smalltt{Hlt1TwoTrackMVA} feeds the $p_T$ and \ipChiSq of both
 tracks to a \smalltt{MatrixNet} MVA,
-requiring the two-track combination to pass MVA selection.
+requiring the two-track combination to pass the MVA selection.
 
 All required variables are present in TO MC, and are extracted by adding
 a tool\footnote{
@@ -341,19 +341,39 @@ a tool\footnote{
     \url{https://github.com/umd-lhcb/TrackerOnlyEmu/tree/master/davinci/Phys},
     courtesy of the authors of \cite{LHCb-INT-2019-025}.
 } to event reconstruction.
-
-The HLT1 triggers also require events to pass Global Event Cuts (GEC).
+%
+The HLT1 triggers also require events to pass Global Event Cuts (GEC),
+as listed in \cref{tab:gec},
+to remove high-pile-up events.
 There is also an online-offline difference:
-The real HLT1 triggers uses VELO-TT tracks, whereas the emulation can use
-VELO tracks only, therefore, additional cuts and a 4.2\% penalty factor are
-imposed to account for the differences.
+The real HLT1 triggers use VELO-TT tracks which require at least three hits
+in the TT,
+whereas the emulation can only use VELO tracks which have no TT requirement.
+Therefore, additional cuts and a 4.2\% penalty factor are imposed to account for
+the differences.
 The HLT1 trigger cuts and GEC are listed in \cite{LHCb-INT-2019-025}.
 The emulated HLT1 are in good agreement with the real response in FullSim, as
 can be seen in \cref{fig:hlt1-trackmva-emu,fig:hlt1-twotrackmva-emu}.
 
+\begin{table}[!htb]
+    \centering
+    \caption{Global event cuts for HLT1. Taken from \cite{LHCb-INT-2019-025}.}
+    \label{tab:gec}
+    \begin{tabular}{c}
+        \toprule
+        {\bf Global event cuts (GEC)} \\
+        \midrule
+        50 < \texttt{nVeloClusters} < 6000 \\
+        50 < \texttt{nITClusters} < 3000 \\
+        50 < \texttt{nOTClusters} < 15000 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+
 % Generated in /lhcb-ntuples-gen/studies/plot-trigger_emulation, run the script:
 %   trigger_emulation.sh
-\begin{figure}[ht]
+\begin{figure}[!htb]
     \centering
     \includegraphics[width=0.32\textwidth]{
         ./figs-mc-emulation/emulate-hlt1/b_Hlt1TrackMVA_TOS_mmiss2.pdf
