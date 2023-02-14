@@ -3,7 +3,7 @@
 
 To extract \RD and \RDst, the parameters of interest,
 a simultaneous \emph{signal fit}
-to both \Dz and \Dstar channels with the ISO skim\footnote{
+to both the \Dz and \Dstar channels of the ISO skim\footnote{
     As a reminder, ``skim'' means \emph{subsample}.
     The selection criteria for all four skims (ISO, 1OS, 2OS, DD) is defined at
     \cref{ref:sel:skims}.
@@ -12,27 +12,28 @@ As briefly discussed in \cref{ref:overview},
 the parameters responsible for controlling the shapes of the \Dstst and
 $DDX$ backgrounds,
 such as the \Dstst form factors,
-$DDX$ Dalitz-inspired shape variations,
+$DDX$ Dalitz-inspired shape variations
+(will be defined shortly in \cref{ref:fit:var:ddx}),
 and the $DDX$ relative fraction correction
 (the correction to the relative fraction between the
 $\Bzb \rightarrow DDX$ and $\Bm \rightarrow DDX$ templates),
-are \emph{insensitive} to the signal fit as they constitute only a small
-fraction of the ISO data skim.
+are \emph{not well-constrained} by the signal fit as they constitute only a
+small fraction of the ISO data skim.
 As an example,
-Allowing the $DDX$ relative fraction correction to float in the signal fit
+allowing the $DDX$ relative fraction correction to float in the signal fit
 seemingly improves the fit quality,
 as shown in \cref{fig:fit-float-uvsd},
 but one of \RDX is pushed to 0.
 This suggests that the $DDX$
 (sometimes referred to as $DD$ in the subsequent text) components can completely
-absorb the signal if their parameters are not well-constrained.
+absorb the signal if their parameters are not measured in some other way.
 
 \begin{figure}[!htb]
     \begin{subfigure}[t]{0.48\textwidth}
         \includegraphics[width=0.95\textwidth]{figs-fit/fit_uvsd/fit_result-stacked-Dst-iso-q2.pdf}
         \caption{
             The nominal fit.
-            The pull in the last \qSq bin is well over $5 \sigma$.
+            The pull in the last \qSq bin is above $5 \sigma$.
         }
     \end{subfigure}%
     \hfill%
@@ -40,13 +41,14 @@ absorb the signal if their parameters are not well-constrained.
         \includegraphics[width=0.95\textwidth]{figs-fit/fit_uvsd/fit_result-stacked-Dst-iso-q2-floating_uvsd.pdf}
         \caption{
             The fit with $\rho_{DDX,u/d}$ floating.
-            The pull in the last \qSq bin is slightly under $5 \sigma$.
+            Smaller pull for each \qSq bin.
         }
     \end{subfigure}
 
     \caption{
         Allowing the $DDX$ relative fraction $\rho_{DDX,u/d}$ to float in the
-        signal fit seemingly improves fit quality,
+        signal fit seemingly improves fit quality
+        (smaller pull for each \qSq bin),
         but the signal are now completely absorbed in the $DDX$ components.
         Only the \Dstar channel fit is shown as it shows the most improvements
         in terms of pulls.
@@ -67,7 +69,8 @@ the fit procedure is broken into 3 steps:
 \begin{enumerate}
     \item \textbf{Pre-control}:
         Performed on the control skims (1OS, 2OS, DD).
-        In this step, all variations but the \Kstar weight in the $DDX$
+        In this step, all variations but the \Kstar weight
+        (\cref{ref:fit:var:ddx-kst}) in the $DDX$
         templates are turned off.
     \item \textbf{Control}:
         Also performed on the control skims (1OS, 2OS, DD).
@@ -80,18 +83,16 @@ the fit procedure is broken into 3 steps:
         The $D^{**}$ form factors,
         the $D_H^{**}$ data-driven corrections,
         the \Kstar weight in the $DDX$ templates,
-        and the misID DiF weight
+        and the misID DiF weight (\cref{ref:fit:var:misid-dif})
         are loaded as constraints from the control fit;
         the $DDX$ data-driven shape corrections and
         the $DDX$ relative fraction correction
         are fixed to the control fit values.
 \end{enumerate}
-The terms such as ``\Kstar weight'' and ``misID DiF weight'' will be defined
-later.
 
 Both the signal and the control fit are binned extended maximum likelihood
 template fits,
-with a fitter based on the \HistFactory fitter
+with a fitter based on the \texttt{ROOT} \HistFactory fitter
 used in the pathfinder run 1 \RDX analysis described in
 \cite{LHCb-ANA-2020-056}\footnote{
     With code refactored and dependencies updated to enhance readability and
@@ -101,14 +102,14 @@ used in the pathfinder run 1 \RDX analysis described in
 % Fit variables, include binning
 The fit templates are three-dimensional correlation-preserving
 histograms of \mmSq, \el, and \qSq,
-with binning scheme listed in \cref{tab:fit-vars-binning}.
+with the binning scheme listed in \cref{tab:fit-vars-binning}.
 Events outside the binning ranges of the fit variables are cut out to avoid
 potential impact of under/overflow bins on the fitter.
 To account for external constraints on fit parameters or uncertainties on
 modeling of certain backgrounds,
 additional shape variations are introduced on most templates
-(i.e. all but the \Dstar combinatorial template have some shape variations which
-will be discussed later).
+(i.e. all but the \Dstar combinatorial templates have some shape variations
+which will be discussed later).
 
 \begin{table}[!htb]
     \centering
