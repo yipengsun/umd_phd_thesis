@@ -344,16 +344,17 @@ a tool\footnote{
 %
 The HLT1 triggers also require events to pass Global Event Cuts (GEC),
 as listed in \cref{tab:gec},
-to remove high-pile-up events.
+to remove high-pile-up events;
+the GEC are applied in the emulation offline.
 There is also an online-offline difference:
-The real HLT1 triggers use VELO-TT tracks which require at least three hits
+The real HLT1 triggers (online) use VELO-TT tracks which require at least three hits
 in the TT,
-whereas the emulation can only use VELO tracks which have no TT requirement.
+whereas the emulation (offline) can only use VELO tracks which have no TT
+requirement.
 Therefore, additional cuts and a 4.2\% penalty factor are imposed to account for
 the differences.
-The HLT1 trigger cuts and GEC are listed in \cite{LHCb-INT-2019-025}.
-The emulated HLT1 are in good agreement with the real response in FullSim, as
-can be seen in \cref{fig:hlt1-trackmva-emu,fig:hlt1-twotrackmva-emu}.
+The HLT1 trigger cuts are listed Tables 3 and 4 in
+\cite{LHCb-INT-2019-025}.
 
 \begin{table}[!htb]
     \centering
@@ -370,10 +371,16 @@ can be seen in \cref{fig:hlt1-trackmva-emu,fig:hlt1-twotrackmva-emu}.
     \end{tabular}
 \end{table}
 
+As can be seen in \cref{fig:hlt1-trackmva-emu,fig:hlt1-twotrackmva-emu},
+the emulated \smalltt{Hlt1TrackMVA} triggers well-reproduce the FullSim
+efficiencies in all fit variables,
+whereas for \smalltt{Hlt1TwoTrackMVA} there is a roughly constant efficiency
+difference which is deemed non-essential.
+
 
 % Generated in /lhcb-ntuples-gen/studies/plot-trigger_emulation, run the script:
 %   trigger_emulation.sh
-\begin{figure}[!htb]
+\begin{figure}[htb]
     \centering
     \includegraphics[width=0.32\textwidth]{
         ./figs-mc-emulation/emulate-hlt1/b_Hlt1TrackMVA_TOS_mmiss2.pdf
@@ -399,12 +406,12 @@ can be seen in \cref{fig:hlt1-trackmva-emu,fig:hlt1-twotrackmva-emu}.
         Emualted HLT1 triggers vs. real response in FullSim. For \Bp.
         The \smalltt{Hlt1TrackMVA} agree very well,
         whereas the \smalltt{Hlt1TwoTrackMVA} still has a constant,
-        albeit small ($\sim\!2.25$\%), discrepancy.
+        albeit small ($\sim\!2.25$\% in \qSq), discrepancy.
     }
     \label{fig:hlt1-trackmva-emu}
 \end{figure}
 
-\begin{figure}[ht]
+\begin{figure}[htb]
     \centering
     \includegraphics[width=0.32\textwidth]{
         ./figs-mc-emulation/emulate-hlt1/b0_Hlt1TrackMVA_TOS_mmiss2.pdf
@@ -436,24 +443,26 @@ can be seen in \cref{fig:hlt1-trackmva-emu,fig:hlt1-twotrackmva-emu}.
 
 \subsection{Emulation of \texttt{Hlt2XcMuXForTauB2XcMu}}
 
-The selected \B is required to TOS on \smalltt{Hlt2XcMuXForTauB2XcMu}.
-All selection variables listed in \cref{tab:cut-hlt2} are available in the
+The selected \B is required to be TOS for \smalltt{Hlt2XcMuXForTauB2XcMu}.
+All the selection variables listed in \cref{tab:cut-hlt2} are available in the
 selection procedure so these cuts are applied directly.
 
 
 \section{Particle identification emulation}
 \label{ref:mc-emulation:pid}
 
-Tracker-Only MC has RICH and calorimeters, sub-detectors responsible for
-particle identification (PID), set to passive material, thus no PID cut can be
-applied directly on MC.
-Therefore, PID cuts for MC are emulated as efficiencies (binned in some
-variables, typically $p$, $\eta$, and nTracks) and applied as weights.
+Tracker-Only (TO) MC has the RICH and calorimeters,
+the sub-detectors responsible for particle identification (PID),
+set to passive material, thus no PID requirements can be
+applied directly on the TO MC.
+Therefore, the PID requirements for MC are emulated as efficiencies (binned in
+$p$, $\eta$, and nTracks) and applied as weights.
 
-Most of PID efficiencies are obtained with \pidcalib, an official LHCb package
-which provide PID efficiencies evaluated at user-specified cuts on
-officially produced PID samples from real data with a customizable binning.
-the PID samples are highly enriched in charged $K, \pi, p, e, \mu$, and are
+Most of the PID efficiencies are obtained with \pidcalib,
+an official LHCb package which provides PID efficiencies evaluated at
+user-specified cuts on officially produced PID samples from real data with a
+customizable binning.
+The PID samples are highly enriched in charged $K, \pi, p, e, \mu$, and are
 obtained from reconstructed $K_s^0 \rightarrow \pip \pim$,
 $\Lambda_c^0 \rightarrow p^+ \pim$,
 $\Dstarp \rightarrow \Dz (\rightarrow \Km \pip) \pip$,
@@ -461,25 +470,23 @@ $\jpsi \rightarrow \mup \mun$, and
 $\Bp \rightarrow \jpsi (\rightarrow e^+ e^-) \Kp$ data samples.
 These samples are shown to have high purity in \cite{LHCb-DP-2012-003}.
 
-It is worth noting that \pidcalib does not populate under and overflow bins,
-therefore a custom binning scheme, extended from the official scheme, is used
-for \pidcalib efficiencies to
-avoid introducing unnecessarily tight kinematic cuts\footnote{
-    Still, a momentum upper bound cut is applied, which is
-    listed in \cref{tab:offline-cut-common}.
-}.
-Another thing to note is that the $e$ sample lacks \UBDT, so an
-incremental \UBDT efficiency is obtained from true $e$ reconstructed as \muon
-in 2016 $D^*\mu$ MC.
+It is worth noting that the \pidcalib $e$ sample lacks \UBDT,
+so the efficiency of all selection requirements except for the \UBDT are taken
+from \pidcalib,
+with the \UBDT efficiency obtained from the reconstructed events in the
+$\Bzb \rightarrow \Dstarp \mun\neumb$ MC sample
+whose \muon is actually a true $e$.
 
 The skim selection as listed in \cref{tab:skim-cut}
 contains a \ProbNN{$K$} PID cut on a track of unknown particle type.
 To emulate this cut, the PID efficiencies from all particle types, namely
-$K, \pi, p, e, \mu$, and ghost, are needed.
-The ghost type arises from combinations of random hits forming a fake track,
+$K, \pi, p, e, \mu$, and ghost, are needed;
+the \emph{ghost} type refers to fake tracks arising from combinations of random
+hits in the tracking system,
 and is not enriched in \emph{any} data sample.
-Therefore, the PID efficiency is obtained from a 2016 inclusive \jpsi\muon MC
-sample with the reconstructed bachelor \muon truth-matched to ghost\footnote{
+Therefore, the ghost PID efficiency is obtained from the same
+$\Bzb \rightarrow \Dstarp \mun\neumb$ MC sample with the reconstructed \muon
+truth-matched to ghost\footnote{
     That is, the truth-matching failed to find a matching MC true particle.
 }.
 
