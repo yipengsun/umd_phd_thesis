@@ -433,40 +433,42 @@ combined $D^* \mu$ pairs.
 Again, the shape of the \BComb\ is determined from the wrong-sign $\mu$ (WS
 $\mu$) control sample containing $D^{*+} \mu^+$ pairs.
 
-Further, it is assumed that the \BComb\ from WS $\mu$ and \BComb\ from RS
-differs by a factor linear in $m_B$.
-This is justified by assuming \BComb\ are slow-varying exponential decays in
-terms of $m_B$ for both RS and WS $\mu$, thus the ratio between the two is also
-an exponential.
-Since they are slow-varying, Taylor expansion to the first order (i.e. of the
-form $a + b m_B$) agrees well with the ratio in a sufficiently large region.
+As shown in \cref{fig:b-comb-dst},
+the RS and WS \muon yield ratios are not one.
+It is empirically known that such a background can be characterized by a
+slow-varying exponential function of $m_B$,
+thus the yield ratio between the two is also an exponential.
+Such an exponential permits Taylor expansion,
+and the yield ratio can be well-described by the first order term
+$a + b m_B$ (linear in $m_B$) across a sufficiently larger $m_B$
+range.
 
-Unlike $m_\Dstar$ in \DstComb,
+Unlike $m_\Dstar$ in the \DstComb background,
 $m_B$ does not have a clear lower side-band.
 This is because \B is only \emph{partially} reconstructed
 due to missing neutrino(s).
 Therefore, only the upper-sideband, defined as $m_B > 5400$ MeV,
 which contains purely combinatorial and misID, can be used to
-study \BComb.
+study the \BComb background.
 
-A fit is performed in $B$ mass upper-sideband  to obtain
+A fit is performed in the $B$ mass upper-sideband to obtain
 the linear scaling factor $a + b m_B$.
 In the upper-sideband, it is assumed that both WS $\mu$ and RS samples contain
-are pure, that is, containing only combinatorial backgrounds and misID.
+only combinatorial backgrounds and misID.
 The linear scaling factor is assumed to be the same for all skims\footnote{
-    This is mainly because there is not enough number of events in the
-    upper-sideband to perform fits skim-by-skim.
+    Within the limited statistical power of these skims,
+    this is checked to be the case.
 }.
 The fit is performed in the following manner:
 
 \begin{enumerate}
-    \item Remove misID contribution from RS sample.
-    \item Remove misID contribution from WS $\mu$ sample.
-    \item Perform a fit on RS sample in the upper-sideband region to determine
-        contribution from \DstComb, with procedure identical to that in
-        \cref{dst-comb}.
+    \item Remove the misID contribution from the RS sample.
+    \item Remove the misID contribution from the WS $\mu$ sample.
+    \item Perform a fit in the upper-sideband region of the RS sample to
+        determine the contribution from \DstComb,
+        with procedure identical to that in \cref{dst-comb}.
         Then remove the fitted \DstComb.
-    \item Fit and remove \DstComb\ from WS $\mu$ sample.
+    \item Fit and remove \DstComb\ from the WS $\mu$ sample.
     \item Compute the ratio between RS and WS $\mu$, perform a fit to obtain
         the linear scaling factor.
         The fit,
@@ -575,6 +577,8 @@ The other parameter \fitnormfd is the yield ratio between the \Dstarz\muon and
         \mathcal{B}(\Bm \rightarrow \Dz\mun\neumb)
     }
 \end{equation}
+where the first term is the selection efficiency ratio between the \Dz\mun and
+\Dstarz\mun, which is initially assumed to be 1 and floated in the fit.
 
 %%%%
 \paragraph{$B \rightarrow D^{*0}\mun\neumb$}
@@ -701,7 +705,7 @@ channel (also notice the lack of a tilde!) and the \BRTauToMu\ cancels in the
 second parameter inside the bracket above which is a ratio.
 
 \paragraph{$\Bm \rightarrow \Dstarz\taum\neutb$}
-Only contributing in the \Dz channel, its yield is given by:
+Only contributing to the \Dz channel, its yield is given by:
 \begin{equation}
     N_{\Dz\muon} \times \left\{
         \RDst \times \fitRuDstEffFactor \times \fitRDstEff \times \fitnormfd
@@ -711,8 +715,9 @@ where $\eta_{\Dstarz}$ is defined similarly to $\eta_{\Dstarp}$.
 
 The four efficiency ratios
 $\fitRDEff, \fitRDstEff, \eta_{\Dstarp}, \eta_{\Dstarz}$
-are all fixed in the fit so that \emph{no} correction to these ratios is
-derived due to concerns about the sensitivity to these parameters.
+are all fixed in the fit,
+with the (multiplicative) uncertainty induced by these
+parameters evaluated separately (\cref{sys-cor-rwt}).
 Comparisons between the signal templates are shown in
 \cref{fig:d0-sig-vs-dst-sig}.
 
@@ -753,11 +758,11 @@ Comparisons between the signal templates are shown in
 \end{figure}
 
 
-\subsection{Feed down through $B \rightarrow D^{**}\ellm\neulb$ modes}
+\subsection{Feed down of $B \rightarrow D^{**}\ellm\neulb$ modes}
 \label{tmpl:dstst}
 
-The fit includes the following feed-down templates from four $1P$ $D^{**}$
-states $D_0^*(2300)$, $D'_1(2430)$, $D_1(2420)$, $D_2^*(2460)$,
+The fit includes the following feed-down templates from the four $1P$ $D^{**}$
+states: $D_0^*(2300)$, $D'_1(2430)$, $D_1(2420)$, $D_2^*(2460)$,
 including both isospin pairs for each \Dstst,
 with the subscript indicating the total angular momentum $J$ of the
 meson\footnote{
@@ -774,8 +779,6 @@ meson\footnote{
         events with such decay modes are put into the
         $D_1 \rightarrow (\Dz \pi\pi)$ templates,
         abbreviated as $D_1 \pi\pi$.
-        The $D_0^*$ is assumed to contribute exclusively to this channel due
-        to conservation of angular momentum.
 
         Therefore, for the \Dz channel,
         there are $(4+1) \times 2$ muonic templates where the factor 2 comes
@@ -784,12 +787,18 @@ meson\footnote{
 
     \item \textbf{\Dstar channel}:
         Only the $J = 1,2$ states contribute.
+        The $D_0^*$ is assumed to \emph{not} contribute to this channel due
+        to conservation of angular momentum.
         Also, no cascade decay of the form
         $D^{**} \rightarrow D^{**} (\rightarrow \Dstar \pi) \pi$ is considered.
         For this channel,
         there are $3 \times 2$ muonic templates
         and $3 \times 2$ tauonic ones for a total of 12 \Dstst templates.
 \end{itemize}
+
+Both channels contain contributions from a muonic \Dstst component
+($B \rightarrow \Dstst \muon\neum$) and a tauonic one
+($B \rightarrow \Dstst \tauon\neut$).
 
 %%%%
 \paragraph{Muonic}
@@ -806,7 +815,7 @@ where the allowed species are $D_0^*, D'_1, D_1, D_1\pi\pi, D_2^*$
 (both isospins), and
 \begin{itemize}
     \item \fitisoDi is a Gaussian isospin constraint initially set to 1
-        with a $\sigma = 0.5$.
+        with $\sigma = 0.5$.
     \item $\fitNDststDz \equiv \frac{10^{-3}}{\mathcal{B}(\Bm \rightarrow \Dz\mun\neumb)}$
         is a shared convenience factor so that the floating \fitBFDDi can be
         interpreted as the branching fraction of $\Dstst_i$ multiplied by its
@@ -860,7 +869,7 @@ In the \Dstar channel, the normalization of $\Dstst_i$ is:
 \end{equation}
 where the allowed species are $D'_1, D_1, D_2^*$.
 The Gaussian systematic uncertainties on the branching fraction multiplied by
-(selection) isolation efficiency is split into two parameters:
+the (selection) isolation efficiency is split into two parameters:
 the correlated \fitBFDstpi and the uncorrelated \fitBFDi.
 The shared convenience factor \fitNDststz is defined similar to \fitNDststDz,
 with the branching fraction replaced by
@@ -901,7 +910,7 @@ as shown in \cref{fig:dstst-mu}.
 The \el spectrum is comparable, but typically softer, than that in normalization,
 due to $D^{**}$ states having higher masses compared to \Dz and \Dstar.
 These decays are suppressed at zero recoil,
-but translates weakly in the reconstructed \qSq spectrum,
+but this only translates weakly in the reconstructed \qSq spectrum,
 due to rest frame approximation (\cref{appx:rfa}) and definition of \qSq being
 $(p_B - p_{D^{(*)}})^2$, instead of $(p_B - p_{D^{**}})^2$
 \cite{LHCb-ANA-2020-056}.
@@ -962,8 +971,8 @@ $(p_B - p_{D^{(*)}})^2$, instead of $(p_B - p_{D^{**}})^2$
 %
 \paragraph{Tauonic}
 As in run 1, the yields of  tauonic $D^{**}$ decays are constrained as a
-fraction to their muonic counterparts individually.
-In both channels, the yield with a loose 33\% constraint is given by
+fraction of their muonic counterparts individually.
+In both channels, the yield with a loose 33\% constraint is given by:
 \begin{equation}
     \Omega \times \fitRDststRaw \times \fitRDiRatio \times \left[
         \underbrace{\text{\fitRDDstst for \Dz chan, \fitRDstst for \Dstar chan}}_\text{
@@ -1022,7 +1031,7 @@ signal templates.
 \end{figure}
 
 
-\subsection{Feed down through $B \rightarrow D_H^{**}(\rightarrow D^{(*)}\pi\pi)\mun\neumb$ modes}
+\subsection{Feed down of $B \rightarrow D_H^{**}(\rightarrow D^{(*)}\pi\pi)\mun\neumb$ modes}
 
 The heavy $D_H^{**}$ decay into either a \Dz or a \Dstar, with two additional
 \pion, one of them possibly uncharged.
@@ -1046,7 +1055,8 @@ where $D_i$ can be a \Dz, a \Dstarz, or a \Dstarp.
 Depend on the context,
 $N_\text{ch ref} = \fitNDmu \text{ or } \fitNmu$ and
 $n_\text{scale} = \fitNDststDz \text{ or } \fitNDststz$.
-The parameter $f_\text{guess}$, exclusive to the \Dz channel, is a guess.
+The parameter $f_\text{guess}$, exclusive to the \Dz channel, is an unphysical
+scaling factor.
 The $D_H^{**}\mu$ templates are plotted in
 \cref{fig:dstst-heavy}.
 
@@ -1086,12 +1096,12 @@ The $D_H^{**}\mu$ templates are plotted in
 \end{figure}
 
 
-\subsection{Feed down through $\Bsb \rightarrow \DststS\mun\neumb$ modes}
+\subsection{Feed down of $\Bsb \rightarrow \DststS\mun\neumb$ modes}
 
 The contributions from the semileptonic \Bsb decays are accounted for via
 the $\Bsb \rightarrow D_{s1}^{'+} (\rightarrow (\Dstarp\Kz|\Dstarz\Kp))\mun$ and
 $\Bsb \rightarrow D_{s2}^{*+} (\rightarrow (\Dstarp\Kz|\Dstarz\Kp|\Dz\Kp))\mun$
-decays.
+simulated decays.
 The \Dstarp\Kz\mun modes contribute to both channels whereas the
 rest to the \Dz channel only.
 With two templates for each fit channel,
@@ -1104,8 +1114,9 @@ ${\DststS}_i$ species:
         N_{{\DststS}_i}
     \right\}
 \end{equation}
-where $\fitfsfd = 2.6$ (the latest measured value is 2.4 at 13~TeV, but 2.6 is
-used instead)
+where $\fitfsfd = 2.6$
+(the latest measured value is 2.4 at 13~TeV \cite{LHCB-PAPER-2018-050},
+but 2.6 is used instead)
 accounts for the production ratio between \Bzb and \Bsb mesons,
 $\mathcal{B}_{{\DststS}_i}$ is a Gaussian constraint with a 40\% uncertainty,
 and
@@ -1168,8 +1179,8 @@ Comparisons between the $D_s^{**}\mun$ templates can be seen at
 
 The double-charm backgrounds include contributions from
 $B \rightarrow D^{(*)} D_q X$ decays,
-where $D_q$ represents a generic charm meson with $q$ being a $u/d/s$ quark,
-and when $q = s$,
+where $D_q$ represents a generic charm meson with $q$ being a $u/d/s$ quark.
+When $q = s$,
 $X$ is nothing, a \pion, or two \pion;
 when $q = u$ or $q = d$,
 $X$ is a \kaon, a \Kstar, or a higher \Kstar resonance.
@@ -1178,10 +1189,11 @@ $\Bz \rightarrow \Dstarp \Dm (\rightarrow \Kz\mun\neumb) \Kzb$,
 whereas a tauonic one from
 $\Bz \rightarrow \Dstarp \Dsm (\rightarrow \taum\neutb)$.
 %%%%
-These $DDX$ decays are poorly understood, with the MC samples generated with
-a phase space model for the $B \rightarrow DDX$ decays so generated events are
-distributed evenly in the available phase space, without taking the resonance
-structure,
+Many of these $DDX$ decays are poorly understood.
+The MC samples are generated with a phase space model for the
+$B \rightarrow DDX$ decays so that generated events are
+distributed evenly in the available phase space,
+without taking the resonance structure,
 which itself is not precisely known for $n \geq 3$-body decays,
 of the Dalitz plane into account.
 Additionally, the $D^{(*)} \rightarrow X' l\neulb$ decay form factors are
@@ -1190,7 +1202,7 @@ which is known to describe data insufficiently\footnote{
     As commented in \cite{LHCb-ANA-2020-056}:
     ``In the current literature it is found that single-pole-dominance provides
     a much better description of the data than quark-model calculations.''
-}.
+} well.
 Both muonic and tauonic $DDX$ fit templates have large \mmSq,
 similar to that of the signal,
 as can be seen in \cref{fig:ddx-templates}.
@@ -1232,8 +1244,8 @@ fixed at simulation time.
 \end{figure}
 
 \paragraph{Muonic}
-The yield of muonic $DDX$ templates are weakly constrained and are of the same
-form for both fit channels:
+The yields that normalize muonic $DDX$ templates are weakly constrained and are
+of the same form for both fit channels:
 \begin{equation}
     N_\text{ch ref} \times \left\{
         \fitDDXuvsd \times f_{DDX,q} \times \fitfDDX
