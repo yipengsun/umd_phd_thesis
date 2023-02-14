@@ -359,8 +359,8 @@ particles mis-identified as \muon (\cref{ref:fit:tmpl:misid}):
 \begin{itemize}
     \item The limited statistics of the misID data control sample
     \item The accuracy of the efficiency for a ghost track to pass the \muon
-        selection requirements $\epsilon(g_\text{acc} \rightarrow \hat{mu})$,
-        (ghost mis-identification efficiency)
+        selection requirements $\epsilon(g_\text{acc} \rightarrow \hat{\mu})$
+        (ghost mis-identification efficiency),
         since this is modeled from a MC sample.
 \end{itemize}
 
@@ -370,9 +370,11 @@ sample;
 a fit is then repeated with the over-fit misID templates and the quadratic
 difference of the fit uncertainties are taken as the systematic uncertainty.
 Similarly, for the ghost mis-identification efficiency,
-ghost tracks in an alternate MC sample with the wrong underlying decay
-($B_c \rightarrow \jpsi\mun\neumb$ instead of $B \rightarrow D \mum\neumb$) are
-used instead to produce alternative misID templates.
+ghost tracks in an alternate MC sample with different underlying decay modes
+(an inclusive $\jpsi\muon$ sample,
+instead of the $\Bzb \rightarrow \Dstarp \mun\neumb$ sample discussed in
+\cref{ref:mc-emulation:pid})
+are used instead to produce alternative misID templates then repeat the fit.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
