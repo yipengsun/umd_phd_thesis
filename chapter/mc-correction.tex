@@ -822,58 +822,29 @@ during the reweighting process.
 \section{Additional correction on the $B$ vertex resolution}
 \label{ref:mc-cor:vertex}
 
-The \B vertex resolution is partly corrected in final reweighting via the IP
-variables.
+The \B vertex resolution is partly corrected in the final reweighting via the
+impact parameter (IP) variables.
 Although final reweighting brings these variables to good agreement
-between data and MC, after a refit, \mmSq now has worse pulls, as can be seen
-in \cref{fig:worse-pulls-after-final-rwt:no-final-rwt,fig:worse-pulls-after-final-rwt:final-rwt-only}.
+between data and MC, after refitting the data, \mmSq now has worse pulls,
+as can be seen in
+\cref{fig:worse-pulls-after-final-rwt:no-final-rwt,fig:worse-pulls-after-final-rwt:final-rwt-only}.
 This is attributed to an \emph{incomplete correction} on vertex resolution
 during final reweighting,
-as a run 1 study (\cite{LHCb-ANA-2020-056}, Appendix G) shows that:
+as a run 1 study (Ref.~\cite{LHCb-ANA-2020-056}, Appendix G) showed.
 
-\begin{enumerate}
-    \item For run 1, the vertex resolution is different between data
-        and MC
-    \item This effect can be emulated on MC with an IP smearing tool which
-        smears the position of the first hit (location of \B vertex) of every
-        track based on random sampling of a \pt-dependent Gaussian resolution.
-        The smearing worsens the resolution of \B vertex.
-    \item The worsened \B vertex resolution has two consequences:
-        1) The resolution of impact parameter (IP) between the \B vertex and PV
-        becomes poorer.
-        2) The \B meson \emph{flight vector}
-        (an unit vector from PV pointing to the \B vertex) has poorer
-        resolution,
-        which notably changes the distribution of estimated \mmSq,
-        obtained with RFA technique.
-    \item By applying weights from final reweighting, it is shown that
-        the IP resolution is corrected as unsmeared/smeared-and-final-reweighted
-        MC has good agreement.
-    \item However, the \mmSq agreement remains poor.
-        \emph{This is why the disagreements in reweighted \mmSq is
-        attributed to an incomplete correction on vertex resolution}.
-\end{enumerate}
-
-A good proxy variable for \mmSq is the difference in azimuthal angle
-between truth-level and reconstructed \emph{flight vector},
-labelled as $\Delta_\theta$.
-The agreement can be fixed via a two-parameter correction on
-$\Delta_\theta$ based on a fit on \mmSq to smeared MC.
-However, due to correlations between IP and \mmSq, the IP variables are
-out of agreement.
-
-To break the correlation,
-the correction is applied as a smearing on the azimuthal angle of \B
-flight vector, with smearing angle randomly drawn from
-the corrected $\Delta_\theta$ distribution.
-The fit variables are re-calculated with smeared flight vector.
+To fully correct the vertex resolution difference between the data and MC,
+the \B flight direction vector,
+which is the direction from the $pp$ vertex to the \B decay vertex,
+is smeared by an azimuthal angle randomly drawn from an angular
+distribution derived from data-driven corrections.
 %%%%
 Currently, the run 1 vertex resolution smearing is applied.
-This will be updated based on run 2 MC at a later date.
+This will be updated based on run 2 data at a later date.
 Nevertheless, this brings \mmSq back into good agreement, as can be seen in
 \cref{fig:worse-pulls-after-final-rwt:final-rwt-only,fig:worse-pulls-after-final-rwt:both}.
 
-The vertex resolution correction is applied \emph{before} initial reweighting,
+The vertex resolution correction is applied \emph{before} the initial
+reweighting,
 and the fit variables estimated based on smeared flight vector are used
 in the fit nominally.
 It is understood that plots shown in previous sections contain the correction
