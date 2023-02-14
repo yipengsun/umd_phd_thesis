@@ -1,7 +1,8 @@
 \section{Shape variations in the fit}
 \label{ref:fit:var}
 
-In \HistFactory, fit templates are allowed to have coherent shape variations.
+In \HistFactory, the fit templates are allowed to have coherent shape
+variations.
 For a single bin, the yield after variation is defined as:
 \begin{equation}
     n_\text{var} = n_\text{nom} + \sum_i f_i(n_+, n_-, n_\text{nom}, \alpha)
@@ -76,13 +77,13 @@ A sample $\pm 1\sigma$ variation of the $D_1^+\mun$ template is plotted in
 \subsection{Data-driven Dalitz-inspired deformations to $DDX$ model}
 \label{ref:fit:var:ddx}
 
-As described in \cref{ref:fit:tmpl:ddx}, $DDX$ decays are not well modelled.
+As described in \cref{ref:fit:tmpl:ddx}, $DDX$ decays are not well modeled.
 To mitigate the physical shortcomings of the modeling of $DDX$ decays,
 additional variations are introduced to give more freedom to the fit variables,
 allowing for a data-driven approach to determine the shapes of $DDX$ background.
 
 The variations are inspired by Dalitz plots:
-When a single scaler decays into three scalers,
+when a single scalar decays into three scalars,
 the phase space is uniquely determined by two variables.
 Hence the phase space can be deformed via one of the Dalitz variables.
 Here the \emph{true} invariant mass of the $DD^{(*)}$ pair is chosen as the
@@ -156,24 +157,24 @@ in \cref{fig:fit-variations:ddx-kst}
 \end{figure}
 
 
-\subsection{Data-driven phenomenological deformation to $D_H^{**}$ model}
+\subsection{Data-driven phenomenological deformation of $D_H^{**}$ model}
 
-The $D_H^{**}$ MC samples are generated with ISGW2 form factor model, which
-is known to be insufficient in describing data:
-Similar to run 1 analysis, the \qSq in the 2OS sample fits poorly with the ISGW2
-model.
+The $D_H^{**}$ MC samples are generated with the ISGW2 form factor model,
+which is known to be insufficient to describe data:
+similar to the run 1 analysis,
+the \qSq in the 2OS sample fits poorly with the ISGW2 model.
 Deformations based on the true \qSq
 in $D_H^{**}$ with weights of the form
 \begin{equation}
     w_\pm = 1 \pm 2 \left(
             \frac{q^2_\text{true} - m^2_\mu}{8 \times 10^6} - 0.5
-        \right)
+        \right) \text{ (kinematic variables in MeV)}
 \end{equation}
 are introduced to make the \qSq distribution either harder ($+$, up) or
 softer ($-$, down),
 providing more freedom in fit variables
 which allows for a data-driven approach to determine the shapes of these modes.
-A comparison between nominal and variated
+A comparison between the nominal and variated
 $\Bz \rightarrow D_H^{**}\mu$ templates can be seen at
 \cref{fig:fit-variations:dstst-heavy}.
 
@@ -195,7 +196,7 @@ $\Bz \rightarrow D_H^{**}\mu$ templates can be seen at
 \subsection{Effect of kaon, pion decay-in-flight in muon misID template}
 \label{ref:fit:var:misid-dif}
 
-\kaon and \pion have some probability of decay to a \muon between upstream and
+\kaon and \pion have some probability of decaying to a \muon between upstream and
 downstream tracking (decay-in-flight, DiF),
 which leads to a mis-measurement of the track momentum,
 and authentic signals in the muon stations.
@@ -212,12 +213,12 @@ unfolding described in \cref{ref:fit:tmpl:misid}:
 
     \item Find the true and reconstructed momenta of
         $K, \pi$.
-        Use ratios of
+        Use ratios of the
         $\text{smear factor}_i \equiv \frac{\text{reco}_i}{\text{true}_i}$
         as the smearing factor for the $i$-component of the 3-momentum,
         with the assumption that MC models DiF sufficiently correctly.
 
-    \item Put all smearing factors in an array,
+    \item Put all the smearing factors in an array,
         and for the fake \muon track of each misID event,
         randomly select one to smear the reconstructed momentum:
 
