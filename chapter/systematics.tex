@@ -1,12 +1,20 @@
 \chapter{Systematic uncertainties}
 \label{ref:sys-uncert}
 
-The major sysmtematics uncertainties are evaluated as listed in
+The major systematic uncertainties are evaluated as listed in
 \cref{tab:sys-uncert}.
 The corresponding uncertainties from the run 1 analysis evaluated with
-the \HistFactory fitter is also provided as reference.
+the \HistFactory fitter are also provided as reference.
 Unless specified, all uncertainties are \emph{absolute} uncertainties.
 All uncertainties are \emph{multiplied by 100} for convenience.
+To have a sense on the relative size of the systematic uncertainties,
+suppose the central value for $\RD = 0.441$,
+the same value as reported in the run 1 analysis \cite{RD_RDst_run1_2023}.
+One of the leading systematic uncertainties in the \Dz channel is the
+``control sample shape parameters'' (\cref{sys-model-ctrl}),
+which is at $0.96 \times 10^{-2}$,
+corresponding to a relative uncertainty of about 2.2\%.
+
 
 \begin{table}[!htb]
     \caption{
@@ -41,7 +49,7 @@ All uncertainties are \emph{multiplied by 100} for convenience.
         0.46 (0.87) & 0.96 (4.36) & (-0.49) \\
         %%%%
         $DD$ model dependence\parnoteref{parnote:ctrl-shape-params} &
-        (0.63) & (0.74) & (0.00) \\
+        TBD (0.63) & TBD (0.74) & 0.00 (0.00) \\
         %%%%
         $B \rightarrow \Dstst\taum\neutb$ bkg &
         0.18 (0.17) & 0.49 (0.30) & -0.94 (0.78) \\
@@ -50,7 +58,7 @@ All uncertainties are \emph{multiplied by 100} for convenience.
         0.18 (0.25) & 0.62 (1.21) & -0.79 (0.59) \\
         %%%%
         \muon misID unfolding algorithm\parnoteref{parnote:ctrl-shape-params} &
-        (0.74) & (1.19) & 1.00 (1.00) \\
+        TBD (0.74) & TBD (1.19) & 1.00 (1.00) \\
         %%%%
         Coulomb correction to $\mathcal{R}(\Dstarp)$ vs. $\mathcal{R}(\Dstarz)$\parnoteref{parnote:ctrl-shape-params} &
         0.27 (0.17) & 0.21 (0.3) & -1.00 (-1.00) \\
@@ -59,27 +67,27 @@ All uncertainties are \emph{multiplied by 100} for convenience.
         0.14 (0.06) & 0.73 (0.16) & -0.95 (0.29) \\
         %%%%
         Combinatorial background shape\parnoteref{parnote:ctrl-shape-params} &
-        (0.03) & (0.18) & (0.00) \\
+        TBD (0.03) & TBD (0.18) & 0.00 (0.00) \\
         %%%%
         Vertex resolution correction\parnoteref{parnote:ctrl-shape-params} &
-        (0.03) & (0.21) & (-0.25) \\
+        TBD (0.03) & TBD (0.21) & TBD (-0.25) \\
         %%%%
         Data/MC corrections (add.)\parnoteref{parnote:ctrl-shape-params} &
-        (0.40) & (0.75) & (0.00) \\
+        TBD (0.40) & TBD (0.75) & 0.00 (0.00) \\
         %%%%
         \midrule
         Data/MC corrections (mul.)\parnote{
             \label{parnote:mul}
             This is a multiplicative uncertainty.
         } &
-        \makecell{$? \times \RDst$ \\ ($1.16 \times \RDst$)} &
-        \makecell{$? \times \RD$ \\ ($0.91 \times \RD$)} &
+        \makecell{$TBD \times \RDst$ \\ ($1.16 \times \RDst$)} &
+        \makecell{$TBD \times \RD$   \\ ($0.91 \times \RD$)} &
         0.00 (0.00) \\
         %%%%
         $\mathcal{B}(\taum \rightarrow \mun\neumb\neut)$
         (ext. mea.)\parnoteref{parnote:mul} &
         \makecell{$0.23 \times \RDst$ \\ ($0.23 \times \RDst$)} &
-        \makecell{$0.23 \times \RD$ \\ ($0.23 \times \RD$)} &
+        \makecell{$0.23 \times \RD$   \\ ($0.23 \times \RD$)} &
         1.00 (1.00) \\
         \midrule
         %%%%
@@ -90,16 +98,16 @@ All uncertainties are \emph{multiplied by 100} for convenience.
         2.05 & 6.26 & -0.71 \\
         %%%%
         Total systematics &
-        (2.03) & (6.16) & (-0.22) \\
+        TBD (2.03) & TBD (6.16) & TBD (-0.22) \\
         %%%%
         MC statistical &
-        (1.33) & (4.00) & (-0.30) \\
+        TBD (1.33) & TBD (4.00) & TBD (-0.30) \\
         %%%%
         Statistical &
         1.94 (1.88) & 6.08 (6.01) & -0.07 (-0.53) \\
         \midrule
         Total (sys. + stats.) &
-        (3.07) & (9.49) & (-0.35) \\
+        TBD (3.07) & TBD (9.49) & TBD (-0.35) \\
         \bottomrule
     \end{tabular}
     \parnotes
@@ -383,11 +391,20 @@ particles mis-identified as \muon (\cref{ref:fit:tmpl:misid}):
         since this is modeled from a MC sample.
 \end{itemize}
 
+The unfolding procedure utilizes an iterative algorithm that uses the unfolded
+results from a previous step as the input to the next one.
+It stops after a set number of iterations and a $\chi^2$ statistics is reported
+to measure the change between the last iteration \cite{DAGOSTINI1995487}.
+More iterations lead to an \emph{over-fit} to the supplied data,
+so the nominal misID template has the number of iterations set to 5,
+the recommended value.
+
 To evaluate the uncertainties due the limited statistical power,
 the misID algorithm is intentionally configured to \emph{over-fit} the control
-sample;
-a fit is then repeated with the over-fit misID templates and the quadratic
+sample by setting the number of iterations to 20.
+A fit is then repeated with the over-fit misID templates and the quadratic
 difference of the fit uncertainties are taken as the systematic uncertainty.
+
 Similarly, for the ghost mis-identification efficiency,
 ghost tracks in an alternate MC sample with different underlying decay modes
 (an inclusive $\jpsi\muon$ sample,
