@@ -1072,16 +1072,17 @@ record the telemetry readout of the FEs
 continuously and a graphical user interface for the detector control.
 %%%%
 The FEs and LVRs are controlled by the SOL40s,
-which uses the \dim protocol for bi-directional communication to the SCADA
+which use the \dim protocol for bi-directional communication to the SCADA
 system.
 All other components, namely Maraton, ELMB, and CAEN,
 use OPC (OLE process control),
 an industrial-standard, as the communication protocol to the SCADA.
 
 As discussed in \cref{ref:ut:online},
-The SOL40s provide the control of FEs, whereas the TELL40 provide data
+The SOL40s provide the control of FEs, whereas the TELL40s provide data
 readout functionality.
-Both are implemented by the same underlying hardware, the PCIe40,
+Both are implemented by the same underlying hardware,
+the PCIe40 expansion card as shown in \cref{fig:pcie40},
 but with different firmware.
 There are 7 SOL40s in total for UT,
 with 3 for controlling the DCBs on each side of the detector for a total of 6
@@ -1093,6 +1094,15 @@ There are a total of 108 TELL40s with 54 for each detector side.
 Each data readout server is equipped with 3 TELL40s,
 with 2 GPUs for the HLT software triggers
 as discussed in \cref{ref:lhcb-upgrade-overview:trigger}.
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.75\textwidth]{./figs-ut-upgrade/online/pcie40.pdf}
+    \caption{
+        A prototype PCIe40 card.
+    }
+    \label{fig:pcie40}
+\end{figure}
 
 
 % FSM for each
@@ -1150,18 +1160,10 @@ a miniature LHCb online system,
 is provided by the LHCb collaboration as a development
 platform for all front-end electronics \cite{GranadoCardoso:2702137}.
 The MiniDAQ hardware is an off-the-shelf server equipped with a PCIe40 card.
-The PCIe40 card, shown in \cref{fig:pcie40}, is loaded with a firmware capable
+% The PCIe40 card, shown in \cref{fig:pcie40}, is loaded with a firmware capable
+The PCIe40 card is loaded with a firmware capable
 of performing triple duty of SODIN, SOL40, and TELL40.
 To form a complete package, MiniDAQ provides the following software:
-
-\begin{figure}[!htb]
-    \centering
-    \includegraphics[width=0.75\textwidth]{./figs-ut-upgrade/online/pcie40.pdf}
-    \caption{
-        A prototype PCIe40 card.
-    }
-    \label{fig:pcie40}
-\end{figure}
 
 \begin{itemize}
     \item A linux distribution, typically CentOS 7.
