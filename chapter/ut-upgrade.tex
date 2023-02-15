@@ -932,8 +932,9 @@ MiniDAQ system used by the collaborating institutions to develop FE
 
 The remaining of this section first provides an overview of
 the slow control protocol (\cref{online-dim}),
-followed by an introduction on the MiniDAQ system
-(\cref{online-minidaq}).
+followed by an introduction on the UT online system (\cref{online-ut}).
+Afterwards, a brief overview of the MiniDAQ system is provided in
+\cref{online-minidaq}.
 Finally, a program developed in-house is discussed in \cref{online-nanodaq},
 showing its utilities in testing FE at Maryland.
 
@@ -1038,75 +1039,107 @@ and a variable number of chars specifying the actual content to write via I2C.
 % Useful materials:
 %   ctrl system + SOL40 + GbtServ: https://inspirehep.net/files/582fea6b6c0bd2b9373832e9b1a323ad
 
-% The UT online system consists of 3 subsystems: DAQ, DCS, and HV
+The UT online system provides functionalities to control, supervise,
+and collect data readout from the UT detector.
+It consists of 3 subsystems: DAQ, DCS, and HV, as shown in
+\cref{fig:ut-online-system}.
 
-FSM for each
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.7\textwidth]{figs-ut-upgrade/online/ut_online_sys.pdf}
+    \caption{
+        An overview of the LHCb online system.
+    }
+    \label{fig:ut-online-system}
+\end{figure}
 
-DAQ: FEE, TELL40
-DCS: LV, mon
-HV:
+The DAQ subsystem is responsible for the control and monitoring of the UT
+front-end electronics (FEs),
+namely the DCBs and SALT ASICs;
+it is also responsible for reading out data from the FEs.
+The DCS controls the LVRs and Maraton (low-voltage power supply) that power the
+front-end electronics,
+provides an always-on monitoring of the temperature and humidity of the UT via
+the ELMB,
+and operates the UT $\text{CO}_2$ cooling system.
+The HV controls the CAEN which provide reference high-voltage lines to the
+silicon-strip sensors.
 
-Each UT FSM is referenced into the main LHCb ctrl system (TOP)
+All three subsystems are integrated into the WinCC OA SCADA
+(Supervisory Control And Data Acquisition) system,
+the software framework for the LHCb online system that provides a database to
+record the telemetry readout of the FEs
+continuously and a graphical user interface for the detector control.
+%%%%
+The FEs and LVRs are controlled by the SOL40s,
+which uses the \dim protocol for bi-directional communication to the SCADA
+system.
+All other components, namely Maraton, ELMB, and CAEN,
+use OPC (OLE process control),
+an industrial-standard, as the communication protocol to the SCADA.
 
-On: (only DCS) -> Configure
+As discussed in \cref{ref:ut:online},
+The SOL40s provide the control of FEs, whereas the TELL40 provide data
+readout functionality.
+Both are implemented by the same underlying hardware, the PCIe40,
+but with different firmware.
+There are 7 SOL40s in total for UT,
+with 3 for controlling the DCBs on each side of the detector for a total of 6
+SOL40s,
+and 1 for LVRs (via the TCBs).
+All 7 SOL40s (which are PCIe40 expansion cards) are installed in a single
+server.
+There are a total of 108 TELL40s with 54 for each detector side.
+Each data readout server is equipped with 3 TELL40s,
+with 2 GPUs for the HLT software triggers
+as discussed in \cref{ref:lhcb-upgrade-overview:trigger}.
 
-SMI (state man interface, Clara again!) manager registered to the DIM DNS for FSM
 
-DIM and SMI integrated into WinCC
-
+% FSM for each
+%   DAQ: FE, TELL40
+%   DCS: LV, mon
+%   HV
 %
-% 0. Every component is integrated into the control system by a form of
-% DIM server (for example, GBT server is a DIM server). Is this correct?
-%
-% 1. Are SOL40 used to control every component? For example the Wiener PSUs
-% seems to be controlled by 'OPC servers'. Does it imply that these server
-% implement a DIM server on their own w/o a need for a SOL40?
+%   Each UT FSM is referenced into the main LHCb ctrl system (TOP)
+%   On: (only DCS) -> Configure
+%   SMI (state man interface) manager registered to the DIM DNS for FSM
+%   DIM and SMI integrated into WinCC
 
-% 2. The DCBs and Hybrids are controlled by SOL40 directly, the LVRs are
+% TFC
+%   SOL40 -> relay TFC to TELL40
+%   SODIN
+
+% The DCBs and Hybrids are controlled by SOL40 directly, the LVRs are
 % controlled via the TCB which implements a GBT-SPI interface via a GBT-SCA
 % chipset
 % How does the HV (CAEN?) integrate into the control system?
-%
-% OPC (OLE process CTRL) server (OPC client for direct ctrl of maraton and CAEN)
+%   OPC (OLE process CTRL) server (OPC client for direct ctrl of maraton and CAEN)
+%   2 diff OPC server, OLE protocol intergrate directly to WinCC OA
+%   All FSM (represent the status of the sub-detector) in LHCb use a single DIM node.
 
-% 2 diff OPC server, OLE protocol intergrate directly to WinCC OA
-
-% All FSM (represent the status of the sub-detector) in LHCb use a single DIM node.
-
-% 3. ELMB seems to be a monitoring board that has ADCs. What kinds of
+% ELMB seems to be a monitoring board that has ADCs. What kinds of
 % monitoring/telemetry data does it collect? How does it integrate into the
 % control system?
 % 'Analog or digital sensors and actuators such as: temperature, humidity,
 % radiation sensors, switches, voltage and current monitoring modules, solid
 % state relays' maybe?
+%   read analogue input: thermistor and humidity
+%   (OPC for Canbus)
+%   ELMB connect to the outmost sensors of the staves (in/out temp of CO2)
+%   (Stave -> BP -> Telemetry (innermost, 2 thermistors of hybrid, 1 to ELMB,
+%   outermost 1 per hybrid always to ELMB, and 4 sensors on CO2 pipe))
+%   (Humidity sensors in the detector box directly routed to ELMB)
+%   ELMB always on (DCB are not)
 
-% read analogue input: thermistor and humidity
-
-% (OPC for Canbus)
-
-% ELMB connect to the outmost sensors of the staves (in/out temp of CO2)
-% (Stave -> BP -> Telemetry (innermost, 2 thermistors of hybrid, 1 to ELMB, outermost 1 per hybrid always to ELMB, and 4 sensors on CO2 pipe))
-% (Humidity sensors in the detector box directly routed to ELMB)
-% ELMB always on (DCB are not)
-
+% How many TELL40s and SOL40s are planned to be used currently?
+%   7 (3+3 for DCB, 1 for TCB) SOL40s,
+%   All 8 SOL40 in a single server
 %
-% 4. How many TELL40s and SOL40s are planned to be used currently?
-% 7 (3+3 for DCB, 1 for TCB) SOL40s,
-
-% Each TELL40
-% 54 (PCIe40) per side (x2)
-
-% All 8 SOL40 in a single server
-% (configuration file based on the MAC address of FPGA, map to a name)
-
-% each TELL40 has a source ID (configured)
-
-
-% 3 PCIe40 per physical server (+2 GPU per server),
-
-% TFC
-%     SOL40 -> relay TFC to TELL40
-%     SODIN
+%   54 TELL40s (PCIe40) per side (x2)
+%   (configuration file based on the MAC address of FPGA, map to a name)
+%   each TELL40 has a source ID (configured)
+%
+%   3 PCIe40 per physical server (+2 GPU per server),
 
 
 \subsection{MiniDAQ}
