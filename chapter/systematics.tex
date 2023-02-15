@@ -421,8 +421,11 @@ compared to existing additive and multiplicative uncertainties.
 The third effect results in about 1\% relative enhancement in $\mathcal{R}
 (\Dstarp)$ compared to $\mathcal{R}(\Dstarz)$,
 as reported in \cite{Cal__2019},
-which is implemented by setting
-$\tilde{\eta}_{\Dstarp}^\text{new} = \frac{\tilde{\eta}_{\Dstarp}}{1.01}$
+which is implemented by setting:
+\begin{equation}
+    \left.\frac{{\eta}_{\Dstarz}}{\tilde{\eta}_{\Dstarp}}\right|_\text{new} =
+    \frac{{\eta}_{\Dstarz} / \tilde{\eta}_{\Dstarp}}{1.01}
+\end{equation}
 then repeat the fit,
 leading to an uncertainty of 0.21 for \RD,
 and 0.27 for \RDst.
