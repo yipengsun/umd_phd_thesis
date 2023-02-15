@@ -1,13 +1,27 @@
 \chapter{Conclusion}
 \label{ref:conclusion}
 
-% Brief comment on the fit: generally well, but some discrepencies
+The overall fit quality is good with reasonable pulls.
+Still, there is a large discrepancy in the high-\qSq bin for the \Dstar signal
+(ISO) fit that needs to be investigated further.
+The current total uncertainties are: ???.
+Since only the 2016 data is included,
+smaller uncertainties are to be expected once the 2017 and 2018 data is
+included,
+provided that the \qSq bin discrepancy is resolved..
 
-% The current (stat + sys) uncertainties are
-% with the full run 2 data
-% which of them will be smaller w/ more data
-% which are the limiting uncertainties.
-
-% The POC analysis is implemented w/ 2016 data,
-% w/ uncertainties studies. -> smaller w/ more data
-% provided that the pull q2 are solved, w/ the full run 2 dataset
+As a proof-of-concept, this 2016 \RDX analysis demonstrates that both the
+general fit strategy, that is, obtain the background parameters with separate
+control samples then import them into the signal fit, as well as most of the
+methods developed in the run 1 pathfinder analysis,
+such as the isolation BDT, the \UBDT, and the unfolding algorithm,
+can be carried over for run 2.
+The additional challenge of emulating the triggers due to the use of
+tracker-only MC (to have enough MC statistics) is considered to be fully solved
+with the method described in this thesis, with the emulation procedure portable
+to the year 2017 and 2018.
+Also, the form factor reweighting procedure has been updated to use \Hammer,
+the current state-of-art form factor reweighting program,
+which is more robust and easier to maintain.
+It is expected that the 2017 and 2018 data can be processed with the same
+workflow developed in this analysis.
