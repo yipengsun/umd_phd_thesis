@@ -140,8 +140,8 @@ operators.
 A Lagrangian built in this manner contains no interaction (i.e. a free
 Lagrangian).
 Then, require the Lagrangian to be invariant\footnote{
-    Speaking with a limited knowledge: local gauge invariances represent
-    mathematical redundancy in the description of the system,
+    Local gauge invariances represent mathematical redundancy in the description
+    of the system,
     and must be preserved to have a consistent theory.
 } under certain local gauge transformations
 such as that from $U(1), SU(2)$, and $SU(3)$.
@@ -361,7 +361,7 @@ $V(\phi^\dagger, \phi) = \frac{1}{4}\lambda \left(\phi^\dagger \phi - \frac{1}{2
 which leads to a non-zero vacuum expectation value (VEV):
 $\bra{0}\phi\ket{0} = v$ for $\phi$ degenerate on a complex circle.
 Write the complex scalar fields as a $SU(2)$ doublet
-$\Phi = \bigl(\begin{smallmatrix} \phi^\dagger \\ \phi^{\hphantom{\dagger}} \end{smallmatrix}\bigr)$,
+$\Phi = \bigl(\begin{smallmatrix} \phi^+ \\ \phi^0 \end{smallmatrix}\bigr)$,
 then pick a particular vacuum and expand around it such that
 $\Phi = \frac{1}{\sqrt{2}} \bigl(\begin{smallmatrix} v + h \\ 0 \end{smallmatrix}\bigr)$
 where $h(x^\mu)$ is a real scalar field known as the Higgs field.
@@ -441,7 +441,7 @@ Its construction will not be discussed in this thesis.
 With the electroweak theory developed in \cref{ew-th},
 and accepting the experimental observation that leptons do not interact strongly
 (i.e. they are $SU(3)$ singlets),
-it is now possible to discuss lepton flavor universality:
+it is now possible to discuss lepton flavor universality (LFU):
 the SM permits the addition of arbitrary generations of spin $\frac{1}{2}$
 $SU(2)$ lepton doublets and singlets,
 and each generation couples to all electroweak gauge fields,
@@ -449,8 +449,9 @@ namely $\W^\pm_\mu, Z_\mu$, and $A_\mu$,
 with the same strengths through the same covariant derivative term
 $\fsl{D}_\mu$.
 The LFU is manifested by the very construction of the SM.
-They do, however, couple to the Higgs $h$ differently in the Yukawa sector which
-are realized by their different masses.
+The SM does contain Yukawa terms in which the different flavors of leptons
+couple to the Higgs doublet $\Phi$ with the different strengths,
+leading to different masses of the leptons.
 
 The three flavor generations of leptons are purely determined by experiments,
 as the SM places no constraint on the number of flavor generations.
@@ -512,7 +513,7 @@ The currents are defined as:
     H^{\lambda_D}_{\lambda_W}(q^2)
     & =
     \epsilon^*_\mu(\lambda_W)
-    \bra{D(p_D, \lambda_D) \neulb(p_\neulb)} \bar{c} \gamma^\mu (1 - \gamma_5) b
+    \bra{D(p_D, \lambda_D)} \bar{c} \gamma^\mu (1 - \gamma_5) b
     \ket{B(p_B)}
 \end{align}
 where $p_i, \lambda_i$ refer to the four-momenta and helicities of the particle
@@ -561,7 +562,7 @@ involves non-perturbative quantum chromodynamics (QCD) effects as both the
 initial and final states are mesons which are quark-anti-quark pairs bounded by
 the strong interactions of QCD.
 Hence, these currents are not computable in an analytical way and each of them
-is re-expressed in terms of form factors (FFs),
+can be re-expressed in terms of form factors (FFs),
 which are a function of \qSq, instead.
 These FFs are parameterized and estimated with relatively large theoretical
 uncertainties with four types of methods:
@@ -710,7 +711,7 @@ represents an overall normalization which is \emph{not cancelled} when
 performing CLN to BGL reweighting but \emph{is cancelled} in the subsequent
 \RD ratio.
 
-The leptonic current corresponds to $S_1$ is helicity suppressed and,
+The leptonic current corresponding to $S_1$ is helicity suppressed and,
 as a result,
 it is proportional to the lepton mass.
 Therefore this hadronic amplitude
