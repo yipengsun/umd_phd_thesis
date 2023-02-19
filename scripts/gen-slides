@@ -1,0 +1,14 @@
+#!/bin/sh
+
+INPUT=$1
+OUTPUT=$2
+
+ENGINE=lualatex
+
+echo "Processing ${INPUT} with ${ENGINE}..."
+
+# Assume we are already in the right folder
+pandoc --pdf-engine=${ENGINE} \
+    --include-in-header external/lhcb-symbols-def.tex \
+    --include-in-header include/document-variables.tex \
+    "${INPUT}" -t beamer -o "${OUTPUT}" || exit 1

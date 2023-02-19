@@ -73,11 +73,13 @@
                 xkeyval
                 ;
             })
+
+            pandoc
           ]);
 
           shellHook = ''
             export PATH=$(pwd)/scripts:$PATH
-            #export TEXINPUTS=$(pwd)/include:$(pwd)/external//:
+            #export TEXINPUTS=$(pwd)/include:$(pwd)/external//:$(pwd)/themes//:$(pwd)/pkgs//:
           '';
         };
       });

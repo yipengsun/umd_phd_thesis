@@ -1,0 +1,43 @@
+% Author: Yipeng Sun
+% License: CC-BY-4.0
+% Last Change: Thu May 06, 2021 at 10:58 PM +0200
+
+\mode<presentation>
+
+%%%%%%%%%%%%%%%
+% Frame title %
+%%%%%%%%%%%%%%%
+
+% NOTE: A workaround where we don't use headline at all but always have frame
+% title shown for consistency in vertical gaps
+\makeatletter
+\patchcmd{\endbeamer@frameslide}{\ifx\beamer@frametitle\@empty}{\iffalse}{}{\errmessage{failed to patch}}
+\makeatother
+
+% This is not the most elegant but my TeX-fu is limited.
+\makeatletter
+\defbeamertemplate*{frametitle}{UMDPepsi}{
+	\ifx\insertframetitle\@empty
+		\begin{tikzpicture}[relative to page]
+			\useasboundingbox[fill=PepsiRed] (page cs:-1, 1) rectangle
+			(page cs:1, 0.8);
+		\end{tikzpicture}
+	\else
+		\begin{tikzpicture}[relative to page]
+			\useasboundingbox[fill=PepsiRed] (page cs:-1, 1) rectangle
+			(page cs:1, 0.8);
+
+			\node[font=\Large, anchor=west] at (page cs:-0.98, 0.89) {
+				\insertframetitle};
+
+			\node[font=\tiny, anchor=east] at (page cs:0.98, 0.89) {
+				\insertframenumber/\inserttotalframenumber
+			};
+		\end{tikzpicture}
+	\fi
+}
+\makeatother
+
+\setlength{\headsep}{8pt}
+
+\mode<all>
