@@ -82,7 +82,7 @@
 
           shellHook = ''
             export PATH=$(pwd)/scripts:$PATH
-            export TEXINPUTS=$(pwd)/include:$(pwd)/external//:$(pwd)/themes//:$(pwd)/pkgs//:
+            export TEXINPUTS=$(pwd)/include:$(pwd)/external//:$(pwd)/themes//:$(pwd)/packages//:
           '';
         };
       });
