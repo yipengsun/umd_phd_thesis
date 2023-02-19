@@ -295,15 +295,17 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Particles
-\makeatletter
-\ifcase \@ptsize \relax% 10pt
-  \newcommand{\miniscule}{\@setfontsize\miniscule{4}{5}}% \tiny: 5/6
-\or% 11pt
-  \newcommand{\miniscule}{\@setfontsize\miniscule{5}{6}}% \tiny: 6/7
-\or% 12pt
-  \newcommand{\miniscule}{\@setfontsize\miniscule{5}{6}}% \tiny: 6/7
-\fi
-\makeatother
+% FIXME: Commented out for beamer compatibility
+% \makeatletter
+% \ifcase \@ptsize \relax% 10pt
+%   \newcommand{\miniscule}{\@setfontsize\miniscule{4}{5}}% \tiny: 5/6
+% \or% 11pt
+%   \newcommand{\miniscule}{\@setfontsize\miniscule{5}{6}}% \tiny: 6/7
+% \or% 12pt
+%   \newcommand{\miniscule}{\@setfontsize\miniscule{5}{6}}% \tiny: 6/7
+% \fi
+% \makeatother
+\newcommand{\miniscule}{\@setfontsize\miniscule{5}{6}}% \tiny: 6/7
 
 
 \DeclareRobustCommand{\optbar}[1]{\shortstack{{\miniscule (\rule[.5ex]{1.25em}{.18mm})}

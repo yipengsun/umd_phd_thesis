@@ -71,6 +71,9 @@
                 selnolig
                 everysel
                 xkeyval
+                unicode-math
+                lualatex-math
+                luatexbase
                 ;
             })
 
@@ -79,7 +82,7 @@
 
           shellHook = ''
             export PATH=$(pwd)/scripts:$PATH
-            #export TEXINPUTS=$(pwd)/include:$(pwd)/external//:$(pwd)/themes//:$(pwd)/pkgs//:
+            export TEXINPUTS=$(pwd)/include:$(pwd)/external//:$(pwd)/themes//:$(pwd)/pkgs//:
           '';
         };
       });
