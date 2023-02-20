@@ -14,9 +14,149 @@ header-includes: |
 ---
 
 
-## Introduction
+# Introduction
 
-Two parts:
+## Overview
 
-- Preliminary measurement of \RDX
-- Upgrade of the LHCb Upgrade Tracker
+My thesis contains two parts:
+
+#. A preliminary measurement of \RDX
+
+#. Upgrade of the LHCb Upgrade Tracker
+
+
+## Preliminary measurement of \RDX
+
+
+## Upgrade of the LHCb Upgrade Tracker
+
+
+# Analysis overview
+
+## Overview
+
+
+## Feed down
+
+
+## Background contributions
+
+
+## Signal and control skims (sub-samples)
+
+
+## Workflow
+
+
+## Main differences
+
+
+# Event selection
+
+## A summary of the LHCb detector
+
+
+## Selection of the nominal data sample
+
+
+## Additional data control samples
+
+
+## Simulation samples
+
+
+## The isolation BDT
+
+
+## Selection of skims
+
+
+## Additional algorithms
+
+
+# Emulation of detector responses on MC
+
+## L0 triggers
+
+
+## HLT1 triggers
+
+
+## HLT2 triggers
+
+
+## PID
+
+
+# Correction and validation of the MC
+
+## Procedure overview
+
+
+## Form factor: theoretical recap
+
+
+## FF: $B \rightarrow \Dz$
+
+
+## FF: $B \rightarrow \Dstar$
+
+
+## FF: $B \rightarrow \Dstst$
+
+
+## Tracking efficiency correction
+
+
+## $B$ kinematics and multiplicity
+
+
+## Post-fit cocktail
+
+
+## Final reweighting
+
+
+## $B$ vertex resolution correction
+
+
+# Fit
+
+## Fit overview
+
+
+## Constraining yields
+
+
+## Example: yield of $\Bm \rightarrow \Dz \taum\neutb$
+
+
+## Fit templates: norm and sig
+
+
+## Fit templates: \Dstst
+
+
+## Fit templates: $\Dstst_H$
+
+
+## Fit templates: $\DststS$
+
+
+## Fit templates: double-charm ($DDX$)
+
+
+# Systematics
+
+## Overview
+
+
+# Conclusions
+
+## Conclusions
+
+
+# Overview of the LHCb upgrade
+
+
+# Upgrade of the Upstream tracker
