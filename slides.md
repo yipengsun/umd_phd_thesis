@@ -13,22 +13,28 @@ header-includes: |
     \usepackage{slides-misc}
 ---
 
+## Outline
 
-# Introduction
+::: columns
+::: {.column width=50%}
 
-## Overview
+- Preliminary measurement of \RDX
+    - Analysis overview (+theory, event selection)
+    - Trigger emulation for MC
+    - Data/MC correction
+    - Fit
+    - Systematics (WIP)
 
-My thesis contains two parts:
+:::
+::: {.column width=50%}
 
-#. A preliminary measurement of \RDX
+- Upgrade of the LHCb Upstream Tracker (UT)
+    - Motivation
+    - UT upgrade
+    - DCB
 
-#. Upgrade of the LHCb Upgrade Tracker
-
-
-## Preliminary measurement of \RDX
-
-
-## Upgrade of the LHCb Upgrade Tracker
+:::
+:::
 
 
 # Analysis overview
