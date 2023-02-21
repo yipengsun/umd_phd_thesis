@@ -135,12 +135,12 @@ header-includes: |
 ::: {.column width=50%}
 
 - \Dz ($\Km\pip$ pair)
-    - high $p_T$
-    - invariant mass around \Dz ref. mass
-    - displaced from $pp$ vertex
+    - High $p_T$
+    - Invariant mass around \Dz ref. mass
+    - Displaced from $pp$ vertex
 
 - \Dstarp
-    - add. low-\pt (soft/slow) \pion from the \Dz vertex
+    - Add. low-\pt (soft/slow) \pion from the \Dz vertex
 
 - \muon
     - PID: add. \UBDT to further reject misID while keeping eff. flat in $p_T$
@@ -272,7 +272,6 @@ TODO: Include \Dstst decay as an indication
 
 
 \begin{tikzpicture}[relative to page]
-    % Label at bot
     \node[anchor=north west,
           execute at begin node=\setlength{\baselineskip}{7pt},
           draw=PepsiBlueLt,rounded corners,
@@ -280,11 +279,9 @@ TODO: Include \Dstst decay as an indication
           text width=5.5em
         ]
         at (page cs:0.65, 0.4) {
-        {
             \tiny
             \bfseries{MVA distribution for $B \rightarrow \Dstst \mu\neum$ bkg (hatched) vs. signal (solid)}
-        }
-    };
+        };
 
 \end{tikzpicture}
 
@@ -298,7 +295,7 @@ TODO: Include \Dstst decay as an indication
 
 - ISO
     - Signal-enriched.
-      No other charged track likely coming from the same $B$ (isolated)
+      No charged track likely coming from the same $B$ (isolated)
 
 :::
 ::: {.column width=50%}
@@ -320,6 +317,61 @@ TODO: Include \Dstst decay as an indication
 
 
 ## Fit variables
+
+\vspace{-1em}
+- Sig, norm, & bkg modes have differing kinematics
+    - Manifested in \mmSq, \el, \qSq (fit variables)
+    - Fit variables not known exactly in hadron colliders (b.c. $pp$ momenta unknown)
+    - Can be approximated with rest frame approximation (RFA)
+
+::: columns
+::: {.column width=33%}
+![](./section/figs-fit-fit-templates/histo-comp/D0_iso_D0Tau__vs__D0_iso_D0Mu__vs__D0_iso_DstMu__vs__D0_iso_Dst0Mu__m2miss.pdf)
+:::
+::: {.column width=33%}
+![](./section/figs-fit-fit-templates/histo-comp/D0_iso_D0Tau__vs__D0_iso_D0Mu__vs__D0_iso_DstMu__vs__D0_iso_Dst0Mu__el.pdf)
+:::
+::: {.column width=33%}
+![](./section/figs-fit-fit-templates/histo-comp/D0_iso_D0Tau__vs__D0_iso_D0Mu__vs__D0_iso_DstMu__vs__D0_iso_Dst0Mu__q2.pdf)
+:::
+:::
+
+
+\begin{tikzpicture}[relative to page]
+    \node[anchor=north west,
+          draw=PepsiBlueLt,rounded corners,
+          fill=PepsiBlueLt,fill opacity=.22,text opacity=1
+        ]
+        at (page cs:-0.53, 0.09) {\footnotesize \mmSq};
+
+    \node[anchor=north west,
+          draw=PepsiBlueLt,rounded corners,
+          fill=PepsiBlueLt,fill opacity=.22,text opacity=1
+        ]
+        at (page cs:0.17, 0.09) {\footnotesize \el};
+
+    \node[anchor=north west,
+          draw=PepsiBlueLt,rounded corners,
+          fill=PepsiBlueLt,fill opacity=.22,text opacity=1
+        ]
+        at (page cs:0.41, 0.09) {\footnotesize \qSq};
+
+    \node[anchor=north,
+          draw=PepsiBlueLt,rounded corners,
+          fill=PepsiBlueLt,fill opacity=.22,text opacity=1,
+          text width=30em
+        ]
+        at (page cs:00, -0.68) {
+            \footnotesize
+            $\textcolor{blue}{\Bm \rightarrow \Dz\taum\neutb}$
+            vs
+            $\textcolor{red}{\Bm \rightarrow \Dz\mun\neumb}$
+            vs
+            $\textcolor{orange}{\Bzb \rightarrow \Dstarp\mun\neumb}$ feed down
+            vs
+            $\textcolor{gray}{\Bm \rightarrow \Dstarz\mun\neumb}$ feed down
+        };
+\end{tikzpicture}
 
 
 ## Fit strategy
