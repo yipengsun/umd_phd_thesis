@@ -72,6 +72,24 @@ header-includes: |
 
 ## The LHCb detector
 
+::: columns
+::: {.column width=65%}
+
+![](./chapter/figs-detector/lhcb_detector_view.pdf)
+
+:::
+::: {.column width=35%}
+
+![](./chapter/figs-detector/14_rad_acc_scheme_right.pdf)
+
+:::
+:::
+
+- LHCb: a **forward-only** spectrometer covering $1.9 < \eta < 4.9$
+    - $B$ meson produced from gluon fusion $\rightarrow$ $B$ highly boosted
+    - With 4% solid angle coverage, capture ~20% of $\bbbar$ pairs
+- Important for this analysis: tracking & PID
+
 
 ## Signal and normalization
 
@@ -164,6 +182,36 @@ Figures of sig. and norm. decays in drawings
 
 ## Feed down
 
+::: columns
+::: {.column width=60%}
+
+- Not all slow \pion from \Dstarp decays are reco'ed
+    - **Some** \Dstarp\muon feed down into \Dz\muon
+- For $\Bm \rightarrow \Dstarz (\rightarrow \Dz \piz) l^- \neulb$,
+  neutral slow \pion entirely missed
+    - **All** \Dstarz\muon feed down into \Dz\muon
+    - **~2.5x BF** compared to $B \rightarrow \Dz$
+
+- Feed down makes \RD and \RDst correlated
+    - A simultaneous needed
+    - Also improve precision for \RDst
+      due to large \Dstarz\muon feed down sample
+
+- To avoid double-counting,
+  \Dstarp\muon veto applied in \Dz\muon
+
+:::
+::: {.column width=40%}
+
+- $p = 8$ GeV for a typical slow \pion
+- It will fail to reco. for about 35% of the time
+
+\centering
+![](./slides-figures/slow_pi_reco_eff.pdf){ width=100% }
+
+:::
+:::
+
 
 ## Background contributions
 
@@ -202,10 +250,20 @@ Figures of sig. and norm. decays in drawings
 ## FF: $B \rightarrow \Dstst$
 
 
-## Tracking efficiency correction
+## Initial reweighting
 
+::: columns
+::: {.column width=50%}
 
-## $B$ kinematics and multiplicity
+### Tracking efficiency correction
+
+:::
+::: {.column width=50%}
+
+### $B$ kinematics and multiplicity
+
+:::
+:::
 
 
 ## Post-fit cocktail
