@@ -19,7 +19,7 @@ header-includes: |
 ::: {.column width=50%}
 
 - Preliminary measurement of \RDX
-    - Analysis overview (+theory, event selection)
+    - Analysis overview
     - Trigger emulation for MC
     - Data/MC correction
     - Fit
@@ -39,7 +39,79 @@ header-includes: |
 
 # Analysis overview
 
-## Overview
+## Motivation and history of \RDX measurements
+
+::: columns
+::: {.column width=50%}
+
+- The standard model (SM)
+    - A QFT describing **interactions** between **fermions & gauge bosons**
+    - Demand **lepton flavor universality (LFU)**
+    - 3 generations of leptons: $e, \mu, \tau$
+
+- Precision measurement
+    - Despite its huge success, SM doesn't explain everything
+    - Demand new physics (NP) beyond the SM
+    - Measure observables precisely
+    - Deviations from SM predictions $\rightarrow$ hints to NP
+
+:::
+::: {.column width=50%}
+
+- $\RDX \equiv \frac{\BFDTau}{\BFDMu}$
+    - Advantageous over measuring BF:
+      cancellation of th. and ex. uncert.
+    - First anomaly reported in 2012 (BaBar)
+    - LHCb run 1 measurement in 2022
+    - This analysis: LHCb 2016 data
+
+![](./slides-figures/hflav_2022_preliminary.pdf)
+
+:::
+:::
+
+
+## Signal and normalization
+
+::: columns
+::: {.column width=65%}
+
+- $\Bzb \rightarrow \Dstarp (\rightarrow \Dz (\rightarrow \textcolor{red}{\Km \pip})\textcolor{red}{\pip}) \taum (\rightarrow \textcolor{red}{\mun} \neumb \neut) \neutb)$
+- $\Bzb \rightarrow \Dstarp (\rightarrow \Dz (\rightarrow \textcolor{red}{\Km \pip})\textcolor{red}{\pip}) \textcolor{red}{\mun} \neumb$
+- $\Bm \rightarrow \Dz (\rightarrow \textcolor{red}{\Km \pip}) \taum (\rightarrow \textcolor{red}{\mun} \neumb \neut) \neutb)$
+- $\Bm \rightarrow \Dz (\rightarrow \textcolor{red}{\Km \pip}) \textcolor{red}{\mun} \neumb$
+
+:::
+::: {.column width=35%}
+
+\vspace{6pt}
+\RDst, sig
+
+\RDst, norm
+
+\RD, sig
+
+\RD, norm
+
+:::
+:::
+
+\centering
+![](./slides-figures/sig_decay_parton_level.pdf){ width=80% }
+
+::: columns
+::: {.column width=65%}
+- Final states: $D^{(*)}\mu$
+:::
+::: {.column width=35%}
+:::
+:::
+
+
+## Selection of $D^{(*)}\mu$
+
+
+## The LHCb detector
 
 
 ## Feed down
@@ -48,36 +120,13 @@ header-includes: |
 ## Background contributions
 
 
-## Signal and control skims (sub-samples)
-
-
-## Workflow
-
-
-## Main differences
-
-
-# Event selection
-
-## A summary of the LHCb detector
-
-
-## Selection of the nominal data sample
-
-
-## Additional data control samples
-
-
-## Simulation samples
-
-
 ## The isolation BDT
 
 
-## Selection of skims
+## Signal and control skims (sub-samples)
 
 
-## Additional algorithms
+## Fit strategy
 
 
 # Emulation of detector responses on MC
