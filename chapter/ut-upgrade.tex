@@ -1067,9 +1067,11 @@ silicon-strip sensors.
 
 All three subsystems are integrated into the WinCC OA SCADA
 (Supervisory Control And Data Acquisition) system,
-the software framework for the LHCb online system that provides a database to
-record the telemetry readout of the FEs
-continuously and a graphical user interface for the detector control.
+the software framework for the LHCb online system that monitors the
+status\footnote{
+    For example, the thermistor data from the FE and the DCB operation status.
+} of the detector continuously and provides a graphical user interface for the
+detector control.
 %%%%
 The FEs and LVRs are controlled by the SOL40s,
 which use the \dim protocol for bi-directional communication to the SCADA
