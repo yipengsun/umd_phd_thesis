@@ -43,14 +43,15 @@ header-includes: |
 ::: columns
 ::: {.column width=50%}
 
+\vspace{1em}
 - The standard model (SM)
     - A QFT describing **interactions** between **fermions & gauge bosons**
     - Demand **lepton flavor universality (LFU)**
     - 3 generations of leptons: $e, \mu, \tau$
-
-- Precision measurement
     - Despite its huge success, SM doesn't explain everything
     - Demand new physics (NP) beyond the SM
+
+- Precision measurement
     - Measure observables precisely
     - Deviations from SM predictions $\rightarrow$ hints to NP
 
@@ -215,11 +216,110 @@ Figures of sig. and norm. decays in drawings
 
 ## Background contributions
 
+::: columns
+::: {.column width=50%}
+
+- Partially reco'ed bkgs (i.e. final states containing $D^{(*)}\mu$ and more)
+    - 4 $1P$ \Dstst
+        - $B \rightarrow \Dstst (\rightarrow D^{0|*|**} (\rightarrow D^{0|*}\pi) \pi) l\neul$
+    - Highly excited \Dstst (\Dstst heavy, $\Dstst_H$):
+        - $B \rightarrow \Dstst_H (\rightarrow D^{0|*} \pi\pi) \mu\neum$
+    - \DststS
+        - $B_s \rightarrow (D'_{s1}|D_{s2}) (\rightarrow D^{(*)}K) l\neul$
+    - Double-charm backgrounds ($DDX$)
+        - $B \rightarrow D^{(*)} D_q X$
+        - $D_q \rightarrow \tauon\neut$ when $q = s$
+        - $D_q \rightarrow K \mu\neum$ when $q = u \text{ or } d$
+
+- Modeled w/ MC
+
+:::
+::: {.column width=50%}
+
+- Mis-reconstructions
+    - MisID
+        - "\muon" in the $D^{(*)}\mu$ pair is **not** a \muon
+    - Combinatorial bkgs
+        - Random combinations of \Dz\muon, \Dstarp\muon, or \Dz\pion
+          **not** from the same $B$
+
+- Modeled w/ data control samples
+
+\centering
+![](./chapter/figs-analysis-overview/d_meson_predicted_masses.pdf)
+
+:::
+:::
+
 
 ## The isolation BDT
 
+::: columns
+::: {.column width=50%}
+
+TODO: Include \Dstst decay as an indication
+
+:::
+::: {.column width=50%}
+
+![](./slides-figures/isolation_bdt.pdf)
+
+:::
+:::
+
+- Reject **partially reco'ed bkgs** with add. charged tracks
+- Inverting the selection $\rightarrow$ ctrl samples enriched in such bkgs
+
+
+\begin{tikzpicture}[relative to page]
+    % Label at bot
+    \node[anchor=north west,
+          execute at begin node=\setlength{\baselineskip}{7pt},
+          draw=PepsiBlueLt,rounded corners,
+          fill=PepsiBlueLt,fill opacity=.22,text opacity=1,
+          text width=5.5em
+        ]
+        at (page cs:0.65, 0.4) {
+        {
+            \tiny
+            \bfseries{MVA distribution for $B \rightarrow \Dstst \mu\neum$ bkg (hatched) vs. signal (solid)}
+        }
+    };
+
+\end{tikzpicture}
+
 
 ## Signal and control skims (sub-samples)
+
+::: columns
+::: {.column width=50%}
+
+### Signal
+
+- ISO
+    - Signal-enriched.
+      No other charged track likely coming from the same $B$ (isolated)
+
+:::
+::: {.column width=50%}
+
+### Control
+
+- 1OS
+    - Enriched in $B \rightarrow \Dstst l\neul$.
+      One extra \pion (anti-isolated).
+- 2OS
+    - Enriched in $B \rightarrow \Dstst_H \mu\neum$.
+      Two anti-isolated \pion.
+- DD
+    - Enriched in $B \rightarrow D^{(*)} D_q X$.
+      One or more anti-isolated tracks, at least one \kaon
+
+:::
+:::
+
+
+## Fit variables
 
 
 ## Fit strategy
