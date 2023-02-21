@@ -29,7 +29,6 @@ header-includes: |
 ::: {.column width=50%}
 
 - Upgrade of the LHCb Upstream Tracker (UT)
-    - Motivation
     - UT upgrade
     - DCB
 
@@ -65,10 +64,13 @@ header-includes: |
     - LHCb run 1 measurement in 2022
     - This analysis: LHCb 2016 data
 
-![](./slides-figures/hflav_2022_preliminary.pdf)
+![](./chapter/figs-intro/hflav_2022_preliminary.pdf)
 
 :::
 :::
+
+
+## The LHCb detector
 
 
 ## Signal and normalization
@@ -100,18 +102,64 @@ header-includes: |
 ![](./slides-figures/sig_decay_parton_level.pdf){ width=80% }
 
 ::: columns
-::: {.column width=65%}
-- Final states: $D^{(*)}\mu$
+::: {.column width=90%}
+- Final visible states: $D^{(*)}\mu$
 :::
-::: {.column width=35%}
+::: {.column width=10%}
 :::
 :::
 
 
 ## Selection of $D^{(*)}\mu$
 
+::: columns
+::: {.column width=50%}
 
-## The LHCb detector
+- \Dz ($\Km\pip$ pair)
+    - high $p_T$
+    - invariant mass around \Dz ref. mass
+    - displaced from $pp$ vertex
+
+- \Dstarp
+    - add. low-\pt (soft/slow) \pion from the \Dz vertex
+
+- \muon
+    - PID: add. \UBDT to further reject misID while keeping eff. flat in $p_T$
+
+
+
+:::
+::: {.column width=50%}
+
+- \muon in sig. have lower \pt than norm.
+
+TODO:
+Figures of sig. and norm. decays in drawings
+
+:::
+:::
+
+
+## \UBDT
+
+::: columns
+::: {.column width=50%}
+
+\centering
+![](./section/figs-selection-tech/eff_Brunel_PT_up_pidcalib_ubdt_eff.pdf){ width=90% }
+
+:::
+::: {.column width=50%}
+
+\centering
+![](./section/figs-selection-tech/rej_v_eff_unbiased_Brunel_PT.pdf){ width=90% }
+
+:::
+:::
+
+- More efficient at rejecting \pion
+- Efficiency flat in \pt: **sig. & norm have similar selection eff.**
+- Remaining misID effect (non-\muon misID'ed as \muon) modeled w/ a data ctrl sample (later)
 
 
 ## Feed down
@@ -129,21 +177,15 @@ header-includes: |
 ## Fit strategy
 
 
-# Emulation of detector responses on MC
+# Trigger emulation for MC
 
 ## L0 triggers
 
 
-## HLT1 triggers
+## HLT1 & HLT2 triggers
 
 
-## HLT2 triggers
-
-
-## PID
-
-
-# Correction and validation of the MC
+# Data/MC correction
 
 ## Procedure overview
 
@@ -203,15 +245,11 @@ header-includes: |
 
 # Systematics
 
-## Overview
-
-
-# Conclusions
 
 ## Conclusions
 
 
-# Overview of the LHCb upgrade
+# UT upgrade
 
 
-# Upgrade of the Upstream tracker
+# DCB
