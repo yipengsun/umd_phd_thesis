@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{slides-misc}
+\ProvidesPackage{slides-defense}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % User-defined variables/macros %
@@ -19,5 +19,20 @@
 
 % Better typesetted 'I2C'
 \def\itwoc/{I{$\scriptstyle^\text{\textbf{2}}$}C}
+
+
+% Better hyphenation
+\usepackage{ragged2e}
+\let\raggedright=\RaggedRight
+
+% URL
+\urlstyle{tt}  % Use monospace font family
+\hypersetup{colorlinks=false,
+            allbordercolors={0 0 0},
+            pdfborderstyle={/S/U/W 1}}
+
+% Enhancements for figures and tables
+\usepackage{caption}
+\usepackage{booktabs}
 
 \endinput
