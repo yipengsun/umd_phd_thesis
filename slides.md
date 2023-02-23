@@ -9,7 +9,16 @@ fonttheme: serif
 classoption: "aspectratio=169,dvipsnames"
 
 header-includes: |
-    \usepackage{slides-defense}
+    \usepackage{amsmath}
+    \renewcommand{\vec}[1]{\mathbf{#1}}
+
+    \usepackage{xspace}
+    \newcommand{\ifb}{fb$^{-1}$\xspace}
+
+    \usepackage{ragged2e}
+    \let\raggedright=\RaggedRight
+
+    \usepackage{booktabs}
 ---
 
 ## Outline
@@ -88,11 +97,11 @@ header-includes: |
       $\rightarrow$ **lepton flavor universality (LFU)**
     - 3 generations of leptons: $e, \mu, \tau$
     - Hugely successful, but doesn't explain every experimental observation
-    - Demand new physics (NP) beyond the SM
+      $\rightarrow$ new physics (NP) beyond the SM
 
 - Precision measurement
     - Measure observables precisely
-    - Obtain **precise theoretical predictions** of such observables
+    - Obtain **precise theoretical predictions**
     - Deviations from SM predictions $\rightarrow$ hints to NP
 
 :::
@@ -104,14 +113,17 @@ header-includes: |
 :::
 
 
-## Motivation and history of \RDX measurements
+## Measuring \RDX
+
+\setlength{\leftmarginii}{4pt}
+\setlength{\leftmarginii}{8pt}
 
 ::: columns
 ::: {.column width=50%}
 
 - $\RDX \equiv \frac{\BFDTau}{\BFDMu}$
     - Advantageous over measuring BF:
-      cancellation of th. and ex. uncert.
+      cancellation of **th. and ex. uncert.**
     - First anomaly reported in 2012 (BaBar)
     - LHCb run 1 measurement in 2022
 
@@ -120,7 +132,10 @@ header-includes: |
 :::
 ::: {.column width=50%}
 
-- This analysis: LHCb 2016 data
+- This analysis: LHCb run 2 (2016--2018) data
+    - 2016 only for now, but easy to expand
+    - Higher intg. lumi. (run 2: 5.4 \ifb, run 1: 3.1 \ifb)
+    -
 
 
 :::
@@ -519,3 +534,8 @@ TODO: Include \Dstst decay as an indication
 
 
 # DCB
+
+
+# Backup
+
+## The CKM matrix
