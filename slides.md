@@ -9,8 +9,7 @@ fonttheme: serif
 classoption: "aspectratio=169,dvipsnames"
 
 header-includes: |
-    \usepackage{slides-ext}
-    \usepackage{slides-misc}
+    \usepackage{slides-defense}
 ---
 
 ## Outline
@@ -19,7 +18,8 @@ header-includes: |
 ::: {.column width=50%}
 
 - Preliminary measurement of \RDX
-    - Analysis overview
+    - Introduction
+    - Event selection
     - Trigger emulation for MC
     - Data/MC correction
     - Fit
@@ -30,32 +30,83 @@ header-includes: |
 
 - Upgrade of the LHCb Upstream Tracker (UT)
     - UT upgrade
-    - DCB
+    - The LHCb online system
 
 :::
 :::
 
+<!-- - precision measurement also require precise prediction (SL decays) -->
+<!-- - illustration for the B -> Dl () -->
+<!-- - more details about the update of the analysis -->
+<!-- - Detector: put the snow mass figure in, also RICH allow separation of K and pi -->
+<!-- - Sig & norm: copy the RDX def, note sig norm & red, final states -> final particles -->
+<!-- - selection: separate D0 and D* chan -->
+<!-- - be explicit about feed down -->
+<!-- - make the correlated feed down -->
+<!-- - draw a "L" box for the bkg contributions, models as a sticker -->
+<!-- - Modeled w/ MC, w/ shape corrections from ctrl fits -->
+<!-- - fit vars: take advange of these vars to separate sig, norm, and bkgs. -->
+<!-- - include math expr for fit variables -->
+<!-- - trigger emu: run 1 uncert dominated by MC stat -->
 
-# Analysis overview
+<!-- - misID smear: 50% how does this translates in terms of the alpha parameter? -->
 
-## Motivation and history of \RDX measurements
+
+## Introduction
 
 ::: columns
 ::: {.column width=50%}
 
-\vspace{1em}
+- Preliminary measurement of \RDX
+    - **Introduction**
+    \color{gray}
+    - Event selection
+    - Trigger emulation for MC
+    - Data/MC correction
+    - Fit
+    - Systematics (WIP)
+
+:::
+::: {.column width=50%}
+
+- Upgrade of the LHCb Upstream Tracker (UT)
+    - \color{gray}UT upgrade
+    - The LHCb online system
+
+:::
+:::
+
+
+## The standard model and beyond
+
+::: columns
+::: {.column width=65%}
+
 - The standard model (SM)
-    - A QFT describing **interactions** between **fermions & gauge bosons**
-    - Demand **lepton flavor universality (LFU)**
+    - A QFT describing **interactions** between **fermions & bosons**
+    - Allow arbitrary **identical** copies of leptons (except for interactions w/ Higgs)
+      $\rightarrow$ **lepton flavor universality (LFU)**
     - 3 generations of leptons: $e, \mu, \tau$
-    - Despite its huge success, SM doesn't explain everything
+    - Hugely successful, but doesn't explain every experimental observation
     - Demand new physics (NP) beyond the SM
 
 - Precision measurement
     - Measure observables precisely
+    - Obtain **precise theoretical predictions** of such observables
     - Deviations from SM predictions $\rightarrow$ hints to NP
 
 :::
+::: {.column width=35%}
+
+![](./slides-figures/the_sm_particles.png)
+
+:::
+:::
+
+
+## Motivation and history of \RDX measurements
+
+::: columns
 ::: {.column width=50%}
 
 - $\RDX \equiv \frac{\BFDTau}{\BFDMu}$
@@ -63,9 +114,14 @@ header-includes: |
       cancellation of th. and ex. uncert.
     - First anomaly reported in 2012 (BaBar)
     - LHCb run 1 measurement in 2022
-    - This analysis: LHCb 2016 data
 
 ![](./chapter/figs-intro/hflav_2022_preliminary.pdf)
+
+:::
+::: {.column width=50%}
+
+- This analysis: LHCb 2016 data
+
 
 :::
 :::
