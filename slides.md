@@ -19,6 +19,14 @@ header-includes: |
     \let\raggedright=\RaggedRight
 
     \usepackage{booktabs}
+
+    \newcommand{\tightmargin}{
+        \setlength{\leftmargini}{4pt}
+        \settowidth{\leftmarginii}{\usebeamertemplate{itemize item}}
+        \addtolength{\leftmarginii}{\labelsep}
+        \settowidth{\leftmarginiii}{\usebeamertemplate{itemize item}}
+        \addtolength{\leftmarginiii}{\labelsep}
+    }
 ---
 
 ## Outline
@@ -44,8 +52,6 @@ header-includes: |
 :::
 :::
 
-<!-- - precision measurement also require precise prediction (SL decays) -->
-<!-- - illustration for the B -> Dl () -->
 <!-- - more details about the update of the analysis -->
 <!-- - Detector: put the snow mass figure in, also RICH allow separation of K and pi -->
 <!-- - Sig & norm: copy the RDX def, note sig norm & red, final states -> final particles -->
@@ -115,8 +121,7 @@ header-includes: |
 
 ## Measuring \RDX
 
-\setlength{\leftmarginii}{4pt}
-\setlength{\leftmarginii}{8pt}
+\tightmargin
 
 ::: columns
 ::: {.column width=50%}
@@ -124,20 +129,34 @@ header-includes: |
 - $\RDX \equiv \frac{\BFDTau}{\BFDMu}$
     - Advantageous over measuring BF:
       cancellation of **th. and ex. uncert.**
+    - **Precise. predictions (1--2%)**:
+        - $\RD = 0.298 \pm 0.004$
+        - $\RDst = 0.254 \pm 0.005$
     - First anomaly reported in 2012 (BaBar)
     - LHCb run 1 measurement in 2022
-
-![](./chapter/figs-intro/hflav_2022_preliminary.pdf)
 
 :::
 ::: {.column width=50%}
 
 - This analysis: LHCb run 2 (2016--2018) data
     - 2016 only for now, but easy to expand
-    - Higher intg. lumi. (run 2: 5.4 \ifb, run 1: 3.1 \ifb)
-    -
+    - **1.7x intg. lumi.** (3.1 \ifb $\rightarrow$ 5.4 \ifb)
+    - **1.8x prod. xsec.** (7 TeV $\rightarrow$ 13 TeV)
+    - **More efficient triggers**
+    - **1.26x sig-like events for 2016 alone**
+      (1,734,133 $\rightarrow$ 2,178,793)
 
+:::
+:::
 
+::: columns
+::: {.column width=50%}
+\vspace{1em}
+![](./chapter/figs-intro/hflav_2022_preliminary.pdf){ width=90% }
+:::
+::: {.column width=50%}
+\centering
+![](./slides-figures/illustration_b_sl_decay.png){ width=75% }
 :::
 :::
 
