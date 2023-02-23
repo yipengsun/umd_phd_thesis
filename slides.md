@@ -52,8 +52,6 @@ header-includes: |
 :::
 :::
 
-<!-- - more details about the update of the analysis -->
-<!-- - Detector: put the snow mass figure in, also RICH allow separation of K and pi -->
 <!-- - Sig & norm: copy the RDX def, note sig norm & red, final states -> final particles -->
 <!-- - selection: separate D0 and D* chan -->
 <!-- - be explicit about feed down -->
@@ -129,7 +127,7 @@ header-includes: |
 - $\RDX \equiv \frac{\BFDTau}{\BFDMu}$
     - Advantageous over measuring BF:
       cancellation of **th. and ex. uncert.**
-    - **Precise. predictions (1--2%)**:
+    - **Precise predictions (1--2%)**:
         - $\RD = 0.298 \pm 0.004$
         - $\RDst = 0.254 \pm 0.005$
     - First anomaly reported in 2012 (BaBar)
@@ -164,22 +162,58 @@ header-includes: |
 ## The LHCb detector
 
 ::: columns
-::: {.column width=65%}
-
-![](./chapter/figs-detector/lhcb_detector_view.pdf)
-
+::: {.column width=45%}
+\vspace{0.5em}
+![](./chapter/figs-detector/lhcb_detector_view.pdf){ width=115% }
 :::
-::: {.column width=35%}
-
-![](./chapter/figs-detector/14_rad_acc_scheme_right.pdf)
-
+::: {.column width=55%}
+![](./slides-figures/lhcb_tracking_pid_mechanism.pdf)
 :::
 :::
 
-- LHCb: a **forward-only** spectrometer covering $1.9 < \eta < 4.9$
-    - $B$ meson produced from gluon fusion $\rightarrow$ $B$ highly boosted
-    - With 4% solid angle coverage, capture ~20% of $\bbbar$ pairs
-- Important for this analysis: tracking & PID
+::: columns
+::: {.column width=70%}
+
+\tightmargin
+\vspace{1em}
+
+- LHCb: **forward-only spectrometer** covering $1.9 < \eta < 4.9$
+    - $B$ meson produced from **gluon fusion** $\rightarrow$ $B$ highly boosted
+    - 4% solid angle coverage, capture ~20% of $\bbbar$
+- Important for this analysis: **tracking & PID**
+    - RICH allow separation of \kaon, \pion, $p$
+
+:::
+::: {.column width=30%}
+\vspace{-4em}
+![](./chapter/figs-detector/14_rad_acc_scheme_right.pdf){ width=120% }
+:::
+:::
+
+
+## Event selection
+
+::: columns
+::: {.column width=50%}
+
+- Preliminary measurement of \RDX
+    - Introduction
+    - **Event selection**
+    \color{gray}
+    - Trigger emulation for MC
+    - Data/MC correction
+    - Fit
+    - Systematics (WIP)
+
+:::
+::: {.column width=50%}
+
+- Upgrade of the LHCb Upstream Tracker (UT)
+    - \color{gray}UT upgrade
+    - The LHCb online system
+
+:::
+:::
 
 
 ## Signal and normalization
