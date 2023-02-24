@@ -51,9 +51,12 @@ header-includes: |
 :::
 :::
 
-<!-- - trigger emu: run 1 uncert dominated by MC stat -->
-
+<!-- http://flavor.physics.umd.edu/manuelf/talks/21-05-05_manuelf_LFU_JHU_UMD_seminar_nobackup.pdf -->
 <!-- - misID smear: 50% how does this translates in terms of the alpha parameter? -->
+<!-- flat misID -> easier to model -->
+<!-- change isolation BDT D** track color to blue, mark magenta explicitly -->
+
+<!-- MC sim: 1B (65M on disk) for run 1, 7.3B (1679 M on disk) for run 2 -->
 
 
 ## Introduction
@@ -108,7 +111,8 @@ header-includes: |
 :::
 
 
-## Measuring \RDX
+## Testing LFU with \RDX
+
 
 \tightmargin
 
@@ -148,6 +152,9 @@ header-includes: |
 ![](./slides-figures/illustration_b_sl_decay.png){ width=75% }
 :::
 :::
+
+
+## The Large Hadron Collider (LHC)
 
 
 ## The LHCb detector
@@ -628,26 +635,6 @@ header-includes: |
 
 ## Signal and control skims (sub-samples)
 
-<!-- ::: columns -->
-<!-- ::: {.column width=50%} -->
-
-<!-- ### Signal -->
-
-<!-- - ISO -->
-
-<!-- ::: -->
-<!-- ::: {.column width=50%} -->
-
-<!-- ### Control -->
-
-<!-- - 1OS -->
-<!-- - 2OS -->
-<!-- - DD -->
-
-<!-- ::: -->
-<!-- ::: -->
-
-
 \begin{tikzpicture}[relative to page]
     % ISO
     \node (isoNW) at (page cs:-0.96,0.75) {};
@@ -779,6 +766,9 @@ header-includes: |
 \end{tikzpicture}
 
 
+## Rest frame approximation
+
+
 ## Trigger emulation for MC
 
 ::: columns
@@ -809,13 +799,16 @@ header-includes: |
 ::: columns
 ::: {.column width=50%}
 
+\tightmargin
 - Leading sys. uncert. in run 1: **MC stats**
 - Run 2: ~4x more data $\rightarrow$ need even more MC
-- Computationally **impractical to simulate all detector responses**
-- **~85% computation time** spent on RICH and calorimeters
-  $\rightarrow$ **~8x faster** turning them off
-- **Only tracking system turned on** $\rightarrow$ **Tracker-only (TO) MC**
-- The triggers rely on calorimeters $\rightarrow$ **emulate trigger offline**
+    - Computationally **impractical to simulate all detector responses**
+    - **~85% computation time** spent on RICH and calorimeters
+      $\rightarrow$ **~8x faster** turning them off
+    - Requested ~7.3B MC (run 1: ~1B), w/ **1.679M on disk** (run 1: 65M)
+        - Huge problem logistically
+- Use **Tracker-only (TO) MC** $\rightarrow$ **only tracking system turned on**
+    - Triggers rely on calorimeters $\rightarrow$ **emulate trigger offline**
 
 :::
 ::: {.column width=50%}
@@ -965,23 +958,23 @@ header-includes: |
 
 ## Form factor reweighting
 
-<!-- ::: columns -->
-<!-- ::: {.column width=33%} -->
+::: columns
+::: {.column width=33%}
 
-<!-- ### $B \rightarrow \Dstar$ (CLN $\rightarrow$ BGL) -->
+### \footnotesize $B \rightarrow \Dstar$ (CLN $\rightarrow$ BGL)
 
-<!-- ::: -->
-<!-- ::: {.column width=33%} -->
+:::
+::: {.column width=33%}
 
-<!-- ### $B \rightarrow \Dstar$ (CLN $\rightarrow$ BGL) -->
+### \footnotesize $B \rightarrow \Dstar$ (CLN $\rightarrow$ BGL)
 
-<!-- ::: -->
-<!-- ::: {.column width=33%} -->
+:::
+::: {.column width=33%}
 
-<!-- ## $B \rightarrow \Dstst$ (ISGW2 $\rightarrow$ BLR) -->
+### \footnotesize $B \rightarrow \Dstst$ (ISGW2 $\rightarrow$ BLR)
 
-<!-- ::: -->
-<!-- ::: -->
+:::
+:::
 
 
 ## Initial reweighting
@@ -1000,50 +993,53 @@ header-includes: |
 :::
 
 
-## Post-fit cocktail
-
-
 ## Final reweighting
 
 
 
-
-# Fit
-
-## Fit overview
+## Fit
 
 
-## Constraining yields
+## Overall fit strategy
 
 
-## Example: yield of $\Bm \rightarrow \Dz \taum\neutb$
+## MC fit templates
 
 
-## Fit templates: norm and sig
+## Combinatorial backgrounds
 
 
-## Fit templates: \Dstst
+## \muon misID
 
 
-## Fit templates: $\Dstst_H$
+## Fit model
+
+###  yield of $\Bm \rightarrow \Dz \taum\neutb$
 
 
-## Fit templates: $\DststS$
+## Systematics
 
 
-## Fit templates: double-charm ($DDX$)
+## Summary
 
 
-# Systematics
+## UT upgrade
 
+## Motivation of the LHCb upgrade
 
-## Conclusions
+## UT upgrade
 
+## Backplane & LVR
 
-# UT upgrade
+## DCB
 
+## The LHCb online system
 
-# DCB
+## Overview of the online system
+
+## The UT online system
+
+## Testing DCB
 
 
 # Backup
