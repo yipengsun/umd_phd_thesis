@@ -805,7 +805,7 @@ header-includes: |
     - Computationally **impractical to simulate all detector responses**
     - **~85% computation time** spent on RICH and calorimeters
       $\rightarrow$ **~8x faster** turning them off
-    - Requested ~7.3B MC (run 1: ~1B), w/ **1.679M on disk** (run 1: 65M)
+    - Requested ~7.3B MC (run 1: ~1B), w/ **~1,679M on disk** (run 1: ~65M)
         - Huge problem logistically
 - Use **Tracker-only (TO) MC** $\rightarrow$ **only tracking system turned on**
     - Triggers rely on calorimeters $\rightarrow$ **emulate trigger offline**
