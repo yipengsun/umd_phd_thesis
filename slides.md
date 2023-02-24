@@ -51,8 +51,6 @@ header-includes: |
 :::
 :::
 
-<!-- - selection: separate D0 and D* chan -->
-<!-- - be explicit about feed down -->
 <!-- - make the correlated feed down -->
 <!-- - draw a "L" box for the bkg contributions, models as a sticker -->
 <!-- - Modeled w/ MC, w/ shape corrections from ctrl fits -->
@@ -277,10 +275,10 @@ header-includes: |
 - \muon
     - PID: add. \UBDT to further reject misID while keeping eff. flat in $p_T$
 
-### \Dstarp\muon (same as \Dz\muon, plus:)
+### \Dstarp\muon
 
-- \Dstarp
-    - Add. low-\pt (soft/slow) \pion from the \Dz vertex
+- \Dstarp ($\Dz\pi^+_\text{slow}$ pair)
+    - Same as \Dz, plus add. low-\pt $\pi^+_\text{slow}$ forming a vertex w/ \Dz
 
 :::
 ::: {.column width=50%}
@@ -307,7 +305,7 @@ header-includes: |
     \node[above right=0.4em and 1.4em of d3, red, final ptl] (f1) {\tiny $K^-$};
     \node[below right=1.2em and 0.6em of d3, red, final ptl] (f2) {\tiny $\pi^+$};
 
-    \node[below right=1.5em and 0.8em of b1, orange, final ptl] (g1) {\tiny $\pi^-_\text{slow}$};
+    \node[below right=1.5em and 0.8em of b1, orange, final ptl] (g1) {\tiny $\pi^+_\text{slow}$};
 
     \draw[particle, dashed] (a0) -- (b1);
 
@@ -351,7 +349,7 @@ header-includes: |
     \node[above right=0.4em and 1.4em of d3, red, final ptl] (f1) {\tiny $K^-$};
     \node[below right=1.2em and 0.6em of d3, red, final ptl] (f2) {\tiny $\pi^+$};
 
-    \node[below right=1.5em and 0.8em of b1, orange, final ptl] (g1) {\tiny $\pi^-_\text{slow}$};
+    \node[below right=1.5em and 0.8em of b1, orange, final ptl] (g1) {\tiny $\pi^+_\text{slow}$};
 
     \draw[particle, dashed] (a0) -- (b1);
 
@@ -380,7 +378,7 @@ header-includes: |
           text width=3em, align=center
         ]
         at (page cs:0.75, 0.4) {
-            \footnotesize sig.
+            \footnotesize sig
         };
 
     \node[anchor=north west,
@@ -389,17 +387,15 @@ header-includes: |
           text width=3em, align=center
         ]
         at (page cs:0.75, -0.3) {
-            \footnotesize norm.
+            \footnotesize norm
         };
 
     \node[anchor=north,
           draw=PepsiBlueLt,rounded corners,
           fill=PepsiBlueLt,fill opacity=.22,text opacity=1,
-          text width=18em, align=center
         ]
-        at (page cs:0.48, -0.72) {
-            \footnotesize \muon from sig. decays are softer than \muon from norm.
-            $\rightarrow$ sig. \muon have softer \pt
+        at (page cs:0.49, -0.72) {
+            \footnotesize \muon from sig decays are softer than \muon from norm
         };
 \end{tikzpicture}
 
@@ -421,36 +417,36 @@ header-includes: |
 :::
 :::
 
-- More efficient at rejecting \pion
-- Efficiency flat in \pt: **sig. & norm have similar selection eff.**
+- More efficient at rejecting \pion (**main source of misID**)
+- Efficiency flat in \pt: **sig & norm have similar selection eff.**
+  $\rightarrow$ **no bias** in selection
 - Remaining misID effect (non-\muon misID'ed as \muon) modeled w/ a data ctrl sample (later)
 
 
-## Feed down
+## Feed down from \Dstarp\muon and \Dstarz\muon
+
+\small
 
 ::: columns
 ::: {.column width=60%}
 
-- Not all slow \pion from \Dstarp decays are reco'ed
+### \Dstarp\muon: $\Bzb \rightarrow \Dstarp (\rightarrow \Dz\pip) l^- \neulb$
+
+- Not all slow \pip from \Dstarp decays are reco'ed
     - **Some** \Dstarp\muon feed down into \Dz\muon
-- For $\Bm \rightarrow \Dstarz (\rightarrow \Dz \piz) l^- \neulb$,
-  neutral slow \pion entirely missed
+
+::: {.block}
+### \Dstarz\muon: $\Bm \rightarrow \Dstarz (\rightarrow \Dz\piz) l^- \neulb$
+- Neutral slow $\piz$ **entirely missed**
     - **All** \Dstarz\muon feed down into \Dz\muon
     - **~2.5x BF** compared to $B \rightarrow \Dz$
-
-- Feed down makes \RD and \RDst correlated
-    - A simultaneous needed
-    - Also improve precision for \RDst
-      due to large \Dstarz\muon feed down sample
-
-- To avoid double-counting,
-  \Dstarp\muon veto applied in \Dz\muon
+:::
 
 :::
 ::: {.column width=40%}
 
-- $p = 8$ GeV for a typical slow \pion
-- It will fail to reco. for about 35% of the time
+- $p = 8$ GeV for a typical $\pi_\text{slow}$
+- Fail to reco. ~35% of the time
 
 \centering
 ![](./slides-figures/slow_pi_reco_eff.pdf){ width=100% }
@@ -458,13 +454,30 @@ header-includes: |
 :::
 :::
 
+\vspace{0.5em}
+::: columns
+::: {.column width=90%}
+
+- Feed down makes \RD and $\RDst$ **correlated**
+    - **Simultaneous fit** needed
+    - **Improve precision** for \RDst
+      due to large \Dstarz\muon feed down sample
+<!-- - To avoid double-counting, veto \Dstarp\muon in \Dz\muon -->
+
+:::
+::: {.column width=10%}
+
+:::
+:::
+
 
 ## Background contributions
 
+\tightmargin
 ::: columns
 ::: {.column width=50%}
 
-- Partially reco'ed bkgs (i.e. final states containing $D^{(*)}\mu$ and more)
+- **Partially reco'ed bkgs** (final states w/ \DXmu + more)
     - 4 $1P$ \Dstst
         - $B \rightarrow \Dstst (\rightarrow D^{0|*|**} (\rightarrow D^{0|*}\pi) \pi) l\neul$
     - Highly excited \Dstst (\Dstst heavy, $\Dstst_H$):
@@ -476,25 +489,49 @@ header-includes: |
         - $D_q \rightarrow \tauon\neut$ when $q = s$
         - $D_q \rightarrow K \mu\neum$ when $q = u \text{ or } d$
 
-- Modeled w/ MC
 
 :::
 ::: {.column width=50%}
 
-- Mis-reconstructions
+- **Mis-reconstructions**
     - MisID
-        - "\muon" in the $D^{(*)}\mu$ pair is **not** a \muon
+        - "\muon" in the \DXmu pair is **not** a \muon
     - Combinatorial bkgs
         - Random combinations of \Dz\muon, \Dstarp\muon, or \Dz\pion
           **not** from the same $B$
 
-- Modeled w/ data control samples
+\vspace{3em}
 
 \centering
 ![](./chapter/figs-analysis-overview/d_meson_predicted_masses.pdf)
 
 :::
 :::
+
+\begin{tikzpicture}[relative to page]
+    \node[anchor=north,
+          draw=PepsiBlueLt,rounded corners,
+          fill=PepsiBlueLt,fill opacity=.22,text opacity=1,
+        ]
+        at (page cs:-0.5, -0.54) {
+            \footnotesize\bfseries Modeled w/ MC
+        };
+    \node[anchor=north,
+          draw=PepsiBlueLt,rounded corners,
+          fill=PepsiBlueLt,fill opacity=.22,text opacity=1,
+        ]
+        at (page cs:0.5, 0.09) {
+            \footnotesize\bfseries Modeled w/ data control samples
+        };
+
+    \node[inner sep=0pt] (nw) at (page cs:0.02,-0.1) {};
+    \node (se) at (page cs:0.92,-0.95) {};
+
+    \node (pt) at (page cs:-0.2,0.7) {};
+
+    \draw[PepsiBlueLt,ultra thick] (nw) rectangle (se);
+    \draw[PepsiBlueLt,->,>=stealth,ultra thick] (nw) -- (pt);
+\end{tikzpicture}
 
 
 ## The isolation BDT
