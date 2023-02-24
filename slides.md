@@ -51,8 +51,6 @@ header-includes: |
 :::
 :::
 
-<!-- - fit vars: take advange of these vars to separate sig, norm, and bkgs. -->
-<!-- - include math expr for fit variables -->
 <!-- - trigger emu: run 1 uncert dominated by MC stat -->
 
 <!-- - misID smear: 50% how does this translates in terms of the alpha parameter? -->
@@ -722,7 +720,7 @@ header-includes: |
     - $\mmSq \equiv (p_B - p_{D^{(*)}} - p_l)^2$
     - $\el$: lepton energy in $B$ rest frame
     - $q^2 \equiv (p_B - p_{D^{(*)}})^2$
-- Not known exactly in hadron colliders ($pp$ momenta unknown)
+- Not known exactly in hadron colliders ($pp$ and $B$ momenta unknown)
     - Can be approximated with rest frame approximation (RFA)
 
 \vspace{-1em}
@@ -781,32 +779,209 @@ header-includes: |
 \end{tikzpicture}
 
 
-## Fit strategy
+## Trigger emulation for MC
+
+::: columns
+::: {.column width=50%}
+
+- Preliminary measurement of \RDX
+    - Introduction
+    - Event selection
+    - **Trigger emulation for MC**
+    \color{gray}
+    - Data/MC correction
+    - Fit
+    - Systematics (WIP)
+
+:::
+::: {.column width=50%}
+
+- Upgrade of the LHCb Upstream Tracker (UT)
+    - \color{gray}UT upgrade
+    - The LHCb online system
+
+:::
+:::
 
 
-# Trigger emulation for MC
+## Tracker-only MC
 
-## L0 triggers
+::: columns
+::: {.column width=50%}
+
+- Leading sys. uncert. in run 1: **MC stats**
+- Run 2: ~4x more data $\rightarrow$ need even more MC
+- Computationally **impractical to simulate all detector responses**
+- **~85% computation time** spent on RICH and calorimeters
+  $\rightarrow$ **~8x faster** turning them off
+- **Only tracking system turned on** $\rightarrow$ **Tracker-only (TO) MC**
+- The triggers rely on calorimeters $\rightarrow$ **emulate trigger offline**
+
+:::
+::: {.column width=50%}
+![](./slides-figures/run1_rdx_sys_uncerts_flatten.pdf)
+:::
+:::
 
 
-## HLT1 & HLT2 triggers
+## Emulate L0
+
+::: columns
+::: {.column width=50%}
+
+### L0Hadron TOS
+
+\footnotesize
+
+- Trained a BDT (\xgboost) to predict the trigger probabilistically
+
+![](./chapter/figs-mc-emulation/emulate-l0hadron-tos/b0_L0Hadron_TOS_xgb4_valid_d0_pt.pdf)
+
+:::
+::: {.column width=50%}
+
+### L0Global TIS
+
+\footnotesize
+
+- Measured in data ($B \rightarrow \jpsi K$) b.c. L0Global TIS portable across reco modes,
+  applied as a weight
+
+![](./chapter/figs-mc-emulation/emulate-l0global-tis/l0_global_tis_eff_log_pt_dir.pdf)
+:::
+:::
 
 
-# Data/MC correction
+## Emulate HLT
+
+::: columns
+::: {.column width=50%}
+
+### `Hlt1TrackMVA`
+
+\footnotesize
+- Relevant vars exist in MC. Good agreement after correcting for online/offline
+  differences
+
+![](./chapter/figs-mc-emulation/emulate-hlt1/b0_Hlt1TrackMVA_TOS_q2.pdf)
+
+:::
+::: {.column width=50%}
+
+### `Hlt1TwoTrackMVA`
+
+\footnotesize
+- Similar to `Hlt1TrackMVA`. Constant diff. after online/offline corrections (non-material)
+
+![](./chapter/figs-mc-emulation/emulate-hlt1/b0_Hlt1TwoTrackMVA_TOS_q2.pdf)
+
+:::
+:::
+
+
+## Data/MC correction
+
+::: columns
+::: {.column width=50%}
+
+- Preliminary measurement of \RDX
+    - Introduction
+    - Event selection
+    - Trigger emulation for MC
+    - **Data/MC correction**
+    \color{gray}
+    - Fit
+    - Systematics (WIP)
+
+:::
+::: {.column width=50%}
+
+- Upgrade of the LHCb Upstream Tracker (UT)
+    - \color{gray}UT upgrade
+    - The LHCb online system
+
+:::
+:::
 
 ## Procedure overview
 
-
-## Form factor: theoretical recap
-
-
-## FF: $B \rightarrow \Dz$
-
-
-## FF: $B \rightarrow \Dstar$
+#. Update MC FF models
+#. Apply known corrections (**initial reweighting**)
+#. Perform a fit to access data/MC agreement in low-\mmSq region (only affected by detector responses)
+#. Correcting additional kinematic and geometric variables in the low-\mmSq region (**final reweighting**)
 
 
-## FF: $B \rightarrow \Dstst$
+## Form factor (FF): theoretical recap
+
+\tightmargin
+
+::: columns
+::: {.column width=50%}
+
+\footnotesize
+
+- **Matrix element** of $B \rightarrow D l \neul$ processes factorizable:
+    $$
+    \tiny
+    \mathcal{M} \propto f(q^2)
+    \sum_{\lambda_W} \eta_{\lambda_W}
+    L^{\lambda_l}_{\lambda_W}(q^2, \theta_l)
+    H^{\lambda_D}_{\lambda_W}(q^2)
+    $$
+
+- **Leptonic currents** analytically calculable
+- **Hadronic currents** involves non-perturbative QCD
+  $\rightarrow$ can't calculate exactly
+    - Known as form factors
+    - Can be **parameterized & constrained** based on
+      dispersion relations (first principle),
+      heavy quark effective theory (HQET)
+    - Numerical values obtained w/ **lattice QCD computation
+      & fit to data**
+
+:::
+::: {.column width=50%}
+
+\footnotesize
+
+- FF parameterizations
+    - ISGW2
+        - \tiny Fully predictive (no free parameter)
+        - \tiny \textbf{Doesn't describe data well}
+    - BGL
+        - \tiny Based on dispersion relations
+        - \tiny Analytically continue FFs as complex functions $\rightarrow$ expandable
+        - \tiny \textbf{Model independent} until truncate series
+        - \tiny \textbf{Many free parameters} restricted from lattice QCD + data
+    - CLN
+        - \tiny Based on BGL, \textbf{apply HQET to reduce num. of params.}
+        - \tiny Some parameters too closely constrained
+    - BLR
+        - \tiny Apply HQET to \Dstst
+        - \tiny \textbf{Offer parameters fitted from data}
+:::
+:::
+
+
+## Form factor reweighting
+
+<!-- ::: columns -->
+<!-- ::: {.column width=33%} -->
+
+<!-- ### $B \rightarrow \Dstar$ (CLN $\rightarrow$ BGL) -->
+
+<!-- ::: -->
+<!-- ::: {.column width=33%} -->
+
+<!-- ### $B \rightarrow \Dstar$ (CLN $\rightarrow$ BGL) -->
+
+<!-- ::: -->
+<!-- ::: {.column width=33%} -->
+
+<!-- ## $B \rightarrow \Dstst$ (ISGW2 $\rightarrow$ BLR) -->
+
+<!-- ::: -->
+<!-- ::: -->
 
 
 ## Initial reweighting
@@ -831,7 +1006,6 @@ header-includes: |
 ## Final reweighting
 
 
-## $B$ vertex resolution correction
 
 
 # Fit
@@ -878,3 +1052,6 @@ header-includes: |
 
 
 ## \Dstst and $\Dstst_H$ cascade decays
+
+
+## $B$ vertex resolution correction
