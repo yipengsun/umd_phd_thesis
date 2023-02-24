@@ -932,10 +932,10 @@ header-includes: |
 - **Leptonic currents** analytically calculable
 - **Hadronic currents** involves non-perturbative QCD
   $\rightarrow$ can't calculate exactly
-    - Known as form factors
-    - Can be **parameterized & constrained** based on
+    - **Expressed as form factors (FFs)**
+      $\rightarrow$ **parameterized & constrained** based on
       dispersion relations (first principle),
-      heavy quark effective theory (HQET)
+      heavy quark effective theory (HQET), etc
     - Numerical values obtained w/ **lattice QCD computation
       & fit to data**
 
