@@ -51,7 +51,6 @@ header-includes: |
 :::
 :::
 
-<!-- - Modeled w/ MC, w/ shape corrections from ctrl fits -->
 <!-- - fit vars: take advange of these vars to separate sig, norm, and bkgs. -->
 <!-- - include math expr for fit variables -->
 <!-- - trigger emu: run 1 uncert dominated by MC stat -->
@@ -263,7 +262,7 @@ header-includes: |
 ::: columns
 ::: {.column width=50%}
 
-### \Dz\muon
+### \Dz\muon (\Dz channel)
 
 - \Dz ($\Km\pip$ pair)
     - High $p_T$
@@ -273,7 +272,7 @@ header-includes: |
 - \muon
     - PID: add. \UBDT to further reject misID while keeping eff. flat in $p_T$
 
-### \Dstarp\muon
+### \Dstarp\muon (\Dstar channel)
 
 - \Dstarp ($\Dz\pi^+_\text{slow}$ pair)
     - Same as \Dz, plus add. low-\pt $\pi^+_\text{slow}$ forming a vertex w/ \Dz
@@ -601,8 +600,8 @@ header-includes: |
 
 - **Further** divide selected \DXmu samples into sub-samples (**skims**)
 - Reject **partially reco'ed bkgs** with **\textcolor{magenta}{add. charged track(s)}**
-  $\rightarrow$ signal skim
-- Inverting the selection $\rightarrow$ control skims enriched in such bkgs
+  $\rightarrow$ **\textcolor{PepsiRed}{signal skim}**
+- Inverting the selection $\rightarrow$ **\textcolor{PepsiBlueLt}{control skims}** enriched in such bkgs
 
 \begin{tikzpicture}[relative to page]
     \node[anchor=south,
@@ -631,32 +630,87 @@ header-includes: |
 
 ## Signal and control skims (sub-samples)
 
-::: columns
-::: {.column width=50%}
+<!-- ::: columns -->
+<!-- ::: {.column width=50%} -->
 
-### Signal
+<!-- ### Signal -->
 
-- ISO
-    - Signal-enriched.
-      No charged track likely coming from the same $B$ (isolated)
+<!-- - ISO -->
 
-:::
-::: {.column width=50%}
+<!-- ::: -->
+<!-- ::: {.column width=50%} -->
 
-### Control
+<!-- ### Control -->
 
-- 1OS
-    - Enriched in $B \rightarrow \Dstst l\neul$.
-      One extra \pion (anti-isolated).
-- 2OS
-    - Enriched in $B \rightarrow \Dstst_H \mu\neum$.
-      Two anti-isolated \pion.
-- DD
-    - Enriched in $B \rightarrow D^{(*)} D_q X$.
-      One or more anti-isolated tracks, at least one \kaon
+<!-- - 1OS -->
+<!-- - 2OS -->
+<!-- - DD -->
 
-:::
-:::
+<!-- ::: -->
+<!-- ::: -->
+
+
+\begin{tikzpicture}[relative to page]
+    % ISO
+    \node (isoNW) at (page cs:-0.96,0.75) {};
+    \node (isoSE) at (page cs:-0.01,-0.08) {};
+
+    \draw[PepsiRed,ultra thick] (isoNW) rectangle (isoSE);
+    \node[anchor=north west,fill=PepsiRed,text=white] (isoTitle) at (isoNW) {\bfseries ISO};
+    \node[anchor=north west,below right=1pt and -27pt of isoTitle,text width=6em] (isoText) {
+        \footnotesize
+        Signal-enriched.
+        No charged track likely coming from the same $B$ (isolated)
+    };
+    \node[anchor=north east,inner sep=0pt] at (page cs:-0.03,0.73) {
+        \includegraphics[width=0.33\textwidth]{./section/figs-fit-fit-results/sig-fit/stacked/fit_result-stacked-D0-iso-mmiss2.pdf}
+    };
+
+    % 2OS
+    \node (2osNW) at (page cs:-0.96,-0.13) {};
+    \node (2osSE) at (page cs:-0.01,-0.96) {};
+
+    \draw[PepsiBlueLt,ultra thick] (2osNW) rectangle (2osSE);
+    \node[anchor=north west,fill=PepsiBlueLt,text=white] (2osTitle) at (2osNW) {\bfseries 2OS};
+    \node[anchor=north west,below right=1pt and -28pt of 2osTitle,text width=6em] (2osText) {
+        \footnotesize
+        Enriched in $B \rightarrow \Dstst_H \mu\neum$.
+        Two anti-isolated \pion.
+    };
+    \node[anchor=north east,inner sep=0pt] at (page cs:-0.03,-0.15) {
+        \includegraphics[width=0.33\textwidth]{./section/figs-fit-fit-results/ctrl-fit/stacked/fit_result-stacked-D0-2os-mmiss2.pdf}
+    };
+
+    % 1OS
+    \node (1osNW) at (page cs:0.01,0.75) {};
+    \node (1osSE) at (page cs:0.96,-0.08) {};
+
+    \draw[PepsiBlueLt,ultra thick] (1osNW) rectangle (1osSE);
+    \node[anchor=north west,fill=PepsiBlueLt,text=white] (1osTitle) at (1osNW) {\bfseries 1OS};
+    \node[anchor=north west,below right=1pt and -27pt of 1osTitle,text width=6em] (1osText) {
+        \footnotesize
+        Enriched in $B \rightarrow \Dstst l\neul$.
+        One extra \pion (anti-isolated).
+    };
+    \node[anchor=north east,inner sep=0pt] at (page cs:0.94,0.73) {
+        \includegraphics[width=0.33\textwidth]{./section/figs-fit-fit-results/ctrl-fit/stacked/fit_result-stacked-D0-1os-mmiss2.pdf}
+    };
+
+    % DD
+    \node (ddNW) at (page cs:0.01,-0.13) {};
+    \node (ddSE) at (page cs:0.96,-0.96) {};
+
+    \draw[PepsiBlueLt,ultra thick] (ddNW) rectangle (ddSE);
+    \node[anchor=north west,fill=PepsiBlueLt,text=white] (ddTitle) at (ddNW) {\bfseries DD};
+    \node[anchor=north west,below right=1pt and -24pt of ddTitle,text width=6em] (ddText) {
+        \footnotesize
+        Enriched in $B \rightarrow D^{(*)} D_q X$.
+        One or more anti-isolated tracks, at least one \kaon
+    };
+    \node[anchor=north east,inner sep=0pt] at (page cs:0.94,-0.15) {
+        \includegraphics[width=0.33\textwidth]{./section/figs-fit-fit-results/ctrl-fit/stacked/fit_result-stacked-D0-dd-mmiss2.pdf}
+    };
+\end{tikzpicture}
 
 
 ## Fit variables
@@ -811,3 +865,6 @@ header-includes: |
 # Backup
 
 ## The CKM matrix
+
+
+## \Dstst and $\Dstst_H$ cascade decays
