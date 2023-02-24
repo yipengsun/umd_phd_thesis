@@ -51,8 +51,6 @@ header-includes: |
 :::
 :::
 
-<!-- - make the correlated feed down -->
-<!-- - draw a "L" box for the bkg contributions, models as a sticker -->
 <!-- - Modeled w/ MC, w/ shape corrections from ctrl fits -->
 <!-- - fit vars: take advange of these vars to separate sig, norm, and bkgs. -->
 <!-- - include math expr for fit variables -->
@@ -512,16 +510,17 @@ header-includes: |
     \node[anchor=north,
           draw=PepsiBlueLt,rounded corners,
           fill=PepsiBlueLt,fill opacity=.22,text opacity=1,
+          text width=12em, align=center,
         ]
         at (page cs:-0.5, -0.54) {
-            \footnotesize\bfseries Modeled w/ MC
+            \footnotesize\bfseries Modeled w/ MC, w/ shape corrections from ctrl samples
         };
     \node[anchor=north,
           draw=PepsiBlueLt,rounded corners,
           fill=PepsiBlueLt,fill opacity=.22,text opacity=1,
         ]
         at (page cs:0.5, 0.09) {
-            \footnotesize\bfseries Modeled w/ data control samples
+            \footnotesize\bfseries Modeled w/ data ctrl samples
         };
 
     \node[inner sep=0pt] (nw) at (page cs:0.02,-0.1) {};
@@ -536,35 +535,97 @@ header-includes: |
 
 ## The isolation BDT
 
-::: columns
-::: {.column width=50%}
+\vspace{4em}
 
-TODO: Include \Dstst decay as an indication
+::: columns
+::: {.column width=33%}
+
+\resizebox{\textwidth}{!}{
+\begin{tikzpicture}[
+    particle/.style={draw, ->, >=stealth, thick},
+    vertex/.style={draw, circle, minimum size=9pt, fill=white, inner sep=0pt},
+    final ptl/.style={inner sep=1pt},
+]
+    \node (a0) at (0, 0) {};
+
+    \coordinate[right=2.5em of a0] (a1);
+    \coordinate[above=2em of a1] (b1);
+
+    \node[left=2em of b1, gray, final ptl] (d1) {\tiny $\overline\nu_\mu$};
+    \node[above right=1.5em and 1.5em of b1, final ptl, red] (d2) {\tiny $\mu^-$};
+    \coordinate[below right=0.5em and 2.5em of b1] (d3);
+
+    \node[above right=0.4em and 1.4em of d3, red, final ptl] (f1) {\tiny $K^-$};
+    \node[below right=1.2em and 0.6em of d3, red, final ptl] (f2) {\tiny $\pi^+$};
+
+    \node[below right=1.5em and 0.8em of b1, orange, final ptl] (g1) {\tiny $\pi^+_\text{slow}$};
+    \node[above left=1.8em and 2.2em of b1, magenta, final ptl] (g2) {\tiny $\pi^\pm$};
+
+    \draw[particle, dashed] (a0) -- (b1);
+
+    \draw[particle, gray] (b1) -- (d1);
+    \draw[particle, red] (b1) -- (d2);
+    \draw[particle, dashed] (b1) -- (d3);
+
+    \draw[particle, red] (d3) -- (f1);
+    \draw[particle, red] (d3) -- (f2);
+
+    \draw[particle, orange] (b1) -- (g1);
+    \draw[particle, magenta, dashed] (b1) -- (g2);
+
+    \node[vertex] (x0) at (a0) {\tiny $pp$};
+    \node[vertex] (x1) at (b1) {\tiny $B/\Dstst$};
+    \node[vertex] (x2) at (d3) {\tiny \Dz};
+\end{tikzpicture}
+}
 
 :::
-::: {.column width=50%}
+::: {.column width=33%}
 
 ![](./slides-figures/isolation_bdt.pdf)
 
 :::
+::: {.column width=33%}
+
+\footnotesize
+- BDT training variables:
+    - PV \ipChiSq
+    - SV \ipChiSq
+    - track \pt
+    - track opening
+    - track \anyChiSq{FD}
+    - track $\Delta\anyChiSq{FD}$
+
+:::
 :::
 
-- Reject **partially reco'ed bkgs** with add. charged tracks
-- Inverting the selection $\rightarrow$ ctrl samples enriched in such bkgs
-
+- **Further** divide selected \DXmu samples into sub-samples (**skims**)
+- Reject **partially reco'ed bkgs** with **\textcolor{magenta}{add. charged track(s)}**
+  $\rightarrow$ signal skim
+- Inverting the selection $\rightarrow$ control skims enriched in such bkgs
 
 \begin{tikzpicture}[relative to page]
-    \node[anchor=north west,
+    \node[anchor=south,
           execute at begin node=\setlength{\baselineskip}{7pt},
           draw=PepsiBlueLt,rounded corners,
           fill=PepsiBlueLt,fill opacity=.22,text opacity=1,
-          text width=5.5em
+          text width=10em
         ]
-        at (page cs:0.65, 0.4) {
+        at (page cs:0.0, 0.45) {
             \tiny
-            \bfseries{MVA distribution for $B \rightarrow \Dstst \mu\neum$ bkg (hatched) vs. signal (solid)}
+            \bfseries{MVA dist. for $B \rightarrow \Dstst \mu\neum$ bkg (hatched) vs. signal (solid)}
         };
 
+    \node[anchor=south west,
+          execute at begin node=\setlength{\baselineskip}{7pt},
+          draw=PepsiBlueLt,rounded corners,
+          fill=PepsiBlueLt,fill opacity=.22,text opacity=1,
+          text width=10em
+        ]
+        at (page cs:-0.9, 0.45) {
+            \tiny
+            \bfseries{Schematic $B \rightarrow \Dstst \mu\neum$ decay}
+        };
 \end{tikzpicture}
 
 
