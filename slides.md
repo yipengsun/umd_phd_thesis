@@ -51,7 +51,6 @@ header-includes: |
 :::
 :::
 
-<!-- - Sig & norm: copy the RDX def, note sig norm & red, final states -> final particles -->
 <!-- - selection: separate D0 and D* chan -->
 <!-- - be explicit about feed down -->
 <!-- - make the correlated feed down -->
@@ -96,7 +95,7 @@ header-includes: |
 
 - The standard model (SM)
     - A QFT describing **interactions** between **fermions & bosons**
-    - Allow arbitrary **identical** copies of leptons (except for interactions w/ Higgs)
+    - Allow **arbitrary identical copies of leptons** (except for interactions w/ Higgs)
       $\rightarrow$ **lepton flavor universality (LFU)**
     - 3 generations of leptons: $e, \mu, \tau$
     - Hugely successful, but doesn't explain every experimental observation
@@ -174,12 +173,12 @@ header-includes: |
 ::: {.column width=70%}
 
 \tightmargin
-\vspace{1em}
+\vspace{0.5em}
 
 - LHCb: **forward-only spectrometer** covering $1.9 < \eta < 4.9$
     - $B$ meson produced from **gluon fusion** $\rightarrow$ $B$ highly boosted
     - 4% solid angle coverage, capture ~20% of $\bbbar$
-- Important for this analysis: **tracking & PID**
+- Important for this analysis: **tracking & particle identification (PID)**
     - RICH allow separation of \kaon, \pion, $p$
 
 :::
@@ -263,47 +262,58 @@ header-includes: |
 \end{tikzpicture}
 
 
-## Test
+## Selection of \Dz\muon and \Dstarp\muon
 
+::: columns
+::: {.column width=50%}
+
+### \Dz\muon
+
+- \Dz ($\Km\pip$ pair)
+    - High $p_T$
+    - Invariant mass around \Dz ref. mass
+    - Displaced from $pp$ vertex
+
+- \muon
+    - PID: add. \UBDT to further reject misID while keeping eff. flat in $p_T$
+
+### \Dstarp\muon (same as \Dz\muon, plus:)
+
+- \Dstarp
+    - Add. low-\pt (soft/slow) \pion from the \Dz vertex
+
+:::
+::: {.column width=50%}
+
+\resizebox{0.7\textwidth}{!}{
 \begin{tikzpicture}[
-    particle/.style={draw, ->, >=stealth, thick}
+    particle/.style={draw, ->, >=stealth, thick},
+    vertex/.style={draw, circle, minimum size=9pt, fill=white, inner sep=0pt},
+    final ptl/.style={inner sep=1pt},
 ]
     \node (a0) at (0, 0) {};
-    \node[right=2.5em of a0] (a1) {$e^+$};
-    \node[left=2.5em of a0] (a2) {$e^-$};
 
+    \coordinate[right=2.5em of a0] (a1);
     \coordinate[above=2em of a1] (b1);
-    \coordinate[below=2em of a2] (b2);
 
-    \coordinate[below left=0.5em and 2em of b2] (c1);
-    \node[below left=2em and 1em of b2, blue] (c2) {hadronic particles};
-    \coordinate[below left=2em and 1em of b2] (c3);
-
-    \node[left=2em of b1, gray] (d1) {$\overline\nu_\tau$};
+    \node[left=2em of b1, gray, final ptl] (d1) {\tiny $\overline\nu_\tau$};
     \coordinate[above right=1.5em and 1.5em of b1] (d2);
     \coordinate[below right=0.5em and 2.5em of b1] (d3);
 
-    \node[above left=0.5em and 1em of d2, gray] (e1) {$\overline\nu_l$};
-    \node[above right=0.7em and 0.4em of d2, gray] (e2) {$\nu_\tau$};
-    \node[above right=0.1em and 2.3em of d2, red] (e3) {$l^-$};
+    \node[above left=0.5em and 1em of d2, gray, final ptl] (e1) {\tiny $\overline\nu_\mu$};
+    \node[above right=0.7em and 0.4em of d2, gray, final ptl] (e2) {\tiny $\nu_\tau$};
+    \node[above right=0.1em and 2.3em of d2, red, final ptl] (e3) {\tiny $\mu^-$};
 
-    \coordinate[above right=0.2em and 1.2em of d3] (f1);
-    \coordinate[above right=1.2em and 0.3em of d3] (f2);
-    \coordinate[below right=1em and 0.4em of d3] (f3);
+    \node[above right=0.4em and 1.4em of d3, red, final ptl] (f1) {\tiny $K^-$};
+    \node[below right=1.2em and 0.6em of d3, red, final ptl] (f2) {\tiny $\pi^+$};
 
-    \draw [particle] (a1) -- (a0);
-    \draw [particle] (a2) -- (a0);
+    \node[below right=1.5em and 0.8em of b1, orange, final ptl] (g1) {\tiny $\pi^-_\text{slow}$};
 
-    \draw [particle, dashed, red] (a0) -- (b1) node[midway, left, xshift=-5pt] {$B_{sig}$};
-    \draw [particle, dashed, blue] (a0) -- (b2) node[midway, left, xshift=-5pt] {$B_{tag}$};
+    \draw[particle, dashed] (a0) -- (b1);
 
-    \draw [particle, blue] (b2) -- (c1);
-    \draw [particle, blue] (b2) -- (c2);
-    \draw [particle, blue] (b2) -- (c3);
-
-    \draw [particle, gray] (b1) -- (d1);
-    \draw [particle, red, dashed] (b1) -- (d2) node[midway, left] {$\tau^-$};
-    \draw [particle, red, dashed] (b1) -- (d3) node[midway, below] {$D^{(\ast)}$};
+    \draw[particle, gray] (b1) -- (d1);
+    \draw[particle, dashed] (b1) -- (d2);
+    \draw[particle, dashed] (b1) -- (d3);
 
     \draw[particle, gray] (d2) -- (e1);
     \draw[particle, gray] (d2) -- (e2);
@@ -311,35 +321,16 @@ header-includes: |
 
     \draw[particle, red] (d3) -- (f1);
     \draw[particle, red] (d3) -- (f2);
-    \draw[particle, red] (d3) -- (f3);
+
+    \draw[particle, orange] (b1) -- (g1);
+
+    \node[vertex] (x0) at (a0) {\tiny $pp$};
+    \node[vertex] (x1) at (b1) {\tiny $B$};
+    \node[vertex] (x2) at (d3) {\tiny \Dz};
+    \node[vertex, gray, fill=white] (x3) at (d2) {\tiny $\tau$};
 \end{tikzpicture}
+}
 
-
-## Selection of $D^{(*)}\mu$
-
-::: columns
-::: {.column width=50%}
-
-- \Dz ($\Km\pip$ pair)
-    - High $p_T$
-    - Invariant mass around \Dz ref. mass
-    - Displaced from $pp$ vertex
-
-- \Dstarp
-    - Add. low-\pt (soft/slow) \pion from the \Dz vertex
-
-- \muon
-    - PID: add. \UBDT to further reject misID while keeping eff. flat in $p_T$
-
-
-
-:::
-::: {.column width=50%}
-
-- \muon in sig. have lower \pt than norm.
-
-TODO:
-Figures of sig. and norm. decays in drawings
 
 :::
 :::
