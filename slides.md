@@ -9,7 +9,6 @@ fonttheme: serif
 classoption: "aspectratio=169,dvipsnames"
 
 header-includes: |
-    \usepackage{amsmath}
     \renewcommand{\vec}[1]{\mathbf{#1}}
 
     \usepackage{xspace}
@@ -216,7 +215,7 @@ header-includes: |
 :::
 
 
-## Signal and normalization
+## Signal and normalization {.fragile}
 
 ::: columns
 ::: {.column width=65%}
@@ -246,11 +245,74 @@ header-includes: |
 
 ::: columns
 ::: {.column width=90%}
-- Final visible states: $D^{(*)}\mu$
+- Final visible particles (marked in \textcolor{red}{red}): \textcolor{red}{$D^{(*)}\mu$}
 :::
 ::: {.column width=10%}
 :::
 :::
+
+\begin{tikzpicture}[relative to page]
+    \node[anchor=north west,
+          execute at begin node=\setlength{\baselineskip}{7pt},
+          draw=PepsiBlueLt,rounded corners,
+          fill=PepsiBlueLt,fill opacity=.22,text opacity=1,
+        ]
+        at (page cs:-0.86, 0.18) {
+            \small $\RDX \equiv \frac{\BFDTau}{\BFDMu} = \frac{\text{sig}}{\text{norm}}$
+        };
+\end{tikzpicture}
+
+
+## Test
+
+\begin{tikzpicture}[
+    particle/.style={draw, ->, >=stealth, thick}
+]
+    \node (a0) at (0, 0) {};
+    \node[right=2.5em of a0] (a1) {$e^+$};
+    \node[left=2.5em of a0] (a2) {$e^-$};
+
+    \coordinate[above=2em of a1] (b1);
+    \coordinate[below=2em of a2] (b2);
+
+    \coordinate[below left=0.5em and 2em of b2] (c1);
+    \node[below left=2em and 1em of b2, blue] (c2) {hadronic particles};
+    \coordinate[below left=2em and 1em of b2] (c3);
+
+    \node[left=2em of b1, gray] (d1) {$\overline\nu_\tau$};
+    \coordinate[above right=1.5em and 1.5em of b1] (d2);
+    \coordinate[below right=0.5em and 2.5em of b1] (d3);
+
+    \node[above left=0.5em and 1em of d2, gray] (e1) {$\overline\nu_l$};
+    \node[above right=0.7em and 0.4em of d2, gray] (e2) {$\nu_\tau$};
+    \node[above right=0.1em and 2.3em of d2, red] (e3) {$l^-$};
+
+    \coordinate[above right=0.2em and 1.2em of d3] (f1);
+    \coordinate[above right=1.2em and 0.3em of d3] (f2);
+    \coordinate[below right=1em and 0.4em of d3] (f3);
+
+    \draw [particle] (a1) -- (a0);
+    \draw [particle] (a2) -- (a0);
+
+    \draw [particle, dashed, red] (a0) -- (b1) node[midway, left, xshift=-5pt] {$B_{sig}$};
+    \draw [particle, dashed, blue] (a0) -- (b2) node[midway, left, xshift=-5pt] {$B_{tag}$};
+
+    \draw [particle, blue] (b2) -- (c1);
+    \draw [particle, blue] (b2) -- (c2);
+    \draw [particle, blue] (b2) -- (c3);
+
+    \draw [particle, gray] (b1) -- (d1);
+    \draw [particle, red, dashed] (b1) -- (d2) node[midway, left] {$\tau^-$};
+    \draw [particle, red, dashed] (b1) -- (d3) node[midway, below] {$D^{(\ast)}$};
+
+    \draw[particle, gray] (d2) -- (e1);
+    \draw[particle, gray] (d2) -- (e2);
+    \draw[particle, red] (d2) -- (e3);
+
+    \draw[particle, red] (d3) -- (f1);
+    \draw[particle, red] (d3) -- (f2);
+    \draw[particle, red] (d3) -- (f3);
+\end{tikzpicture}
 
 
 ## Selection of $D^{(*)}\mu$
