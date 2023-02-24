@@ -285,7 +285,7 @@ header-includes: |
 :::
 ::: {.column width=50%}
 
-\resizebox{0.7\textwidth}{!}{
+\resizebox{0.8\textwidth}{!}{
 \begin{tikzpicture}[
     particle/.style={draw, ->, >=stealth, thick},
     vertex/.style={draw, circle, minimum size=9pt, fill=white, inner sep=0pt},
@@ -331,9 +331,77 @@ header-includes: |
 \end{tikzpicture}
 }
 
+\vspace{0.5em}
+
+\resizebox{0.8\textwidth}{!}{
+\begin{tikzpicture}[
+    particle/.style={draw, ->, >=stealth, thick},
+    vertex/.style={draw, circle, minimum size=9pt, fill=white, inner sep=0pt},
+    final ptl/.style={inner sep=1pt},
+]
+    \node (a0) at (0, 0) {};
+
+    \coordinate[right=2.5em of a0] (a1);
+    \coordinate[above=2em of a1] (b1);
+
+    \node[left=2em of b1, gray, final ptl] (d1) {\tiny $\overline\nu_\mu$};
+    \node[above right=1.5em and 1.5em of b1, final ptl, red] (d2) {\tiny $\mu^-$};
+    \coordinate[below right=0.5em and 2.5em of b1] (d3);
+
+    \node[above right=0.4em and 1.4em of d3, red, final ptl] (f1) {\tiny $K^-$};
+    \node[below right=1.2em and 0.6em of d3, red, final ptl] (f2) {\tiny $\pi^+$};
+
+    \node[below right=1.5em and 0.8em of b1, orange, final ptl] (g1) {\tiny $\pi^-_\text{slow}$};
+
+    \draw[particle, dashed] (a0) -- (b1);
+
+    \draw[particle, gray] (b1) -- (d1);
+    \draw[particle, red] (b1) -- (d2);
+    \draw[particle, dashed] (b1) -- (d3);
+
+    \draw[particle, red] (d3) -- (f1);
+    \draw[particle, red] (d3) -- (f2);
+
+    \draw[particle, orange] (b1) -- (g1);
+
+    \node[vertex] (x0) at (a0) {\tiny $pp$};
+    \node[vertex] (x1) at (b1) {\tiny $B$};
+    \node[vertex] (x2) at (d3) {\tiny \Dz};
+\end{tikzpicture}
+}
 
 :::
 :::
+
+\begin{tikzpicture}[relative to page]
+    \node[anchor=north west,
+          draw=PepsiBlueLt,rounded corners,
+          fill=PepsiBlueLt,fill opacity=.22,text opacity=1,
+          text width=3em, align=center
+        ]
+        at (page cs:0.75, 0.4) {
+            \footnotesize sig.
+        };
+
+    \node[anchor=north west,
+          draw=PepsiBlueLt,rounded corners,
+          fill=PepsiBlueLt,fill opacity=.22,text opacity=1,
+          text width=3em, align=center
+        ]
+        at (page cs:0.75, -0.3) {
+            \footnotesize norm.
+        };
+
+    \node[anchor=north,
+          draw=PepsiBlueLt,rounded corners,
+          fill=PepsiBlueLt,fill opacity=.22,text opacity=1,
+          text width=18em, align=center
+        ]
+        at (page cs:0.48, -0.72) {
+            \footnotesize \muon from sig. decays are softer than \muon from norm.
+            $\rightarrow$ sig. \muon have softer \pt
+        };
+\end{tikzpicture}
 
 
 ## \UBDT
