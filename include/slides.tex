@@ -1,0 +1,24 @@
+\usepackage{lmodern}
+\usepackage{booktabs}
+\usepackage{mathtools}
+
+% aliases
+\newcommand{\ifb}{fb$^{-1}$\xspace}
+
+% tight margin for items
+\newcommand{\tightmargin}{
+  \setlength{\leftmargini}{4pt}
+  \settowidth{\leftmarginii}{\usebeamertemplate{itemize item}}
+  \addtolength{\leftmarginii}{\labelsep}
+  \settowidth{\leftmarginiii}{\usebeamertemplate{itemize item}}
+  \addtolength{\leftmarginiii}{\labelsep}
+}
+
+% math styling
+\renewcommand{\vec}[1]{\mathbf{#1}}
+
+% automatically bold math when using \bfseries command
+% this is very useful for section headings
+%\makeatletter
+%\g@addto@macro\bfseries{\boldmath}
+%\makeatother

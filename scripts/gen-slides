@@ -11,4 +11,5 @@ echo "Processing ${INPUT} with ${ENGINE}..."
 pandoc --pdf-engine=${ENGINE} \
     --include-in-header external/lhcb-symbols-def.tex \
     --include-in-header include/document-variables.tex \
+    --include-in-header include/slides.tex \
     "${INPUT}" -t beamer -o "${OUTPUT}" || exit 1
