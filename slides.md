@@ -7,26 +7,8 @@ date: Mar 1st, 2023
 theme: "UMDPepsi"
 fonttheme: serif
 classoption: "aspectratio=169,dvipsnames"
-
-header-includes: |
-    \renewcommand{\vec}[1]{\mathbf{#1}}
-
-    \usepackage{xspace}
-    \newcommand{\ifb}{fb$^{-1}$\xspace}
-
-    \usepackage{ragged2e}
-    \let\raggedright=\RaggedRight
-
-    \usepackage{booktabs}
-
-    \newcommand{\tightmargin}{
-        \setlength{\leftmargini}{4pt}
-        \settowidth{\leftmarginii}{\usebeamertemplate{itemize item}}
-        \addtolength{\leftmarginii}{\labelsep}
-        \settowidth{\leftmarginiii}{\usebeamertemplate{itemize item}}
-        \addtolength{\leftmarginiii}{\labelsep}
-    }
 ---
+
 
 ## Outline
 
@@ -57,6 +39,12 @@ header-includes: |
 <!-- change isolation BDT D** track color to blue, mark magenta explicitly -->
 
 <!-- MC sim: 1B (65M on disk) for run 1, 7.3B (1679 M on disk) for run 2 -->
+
+<!-- correction -> corrections -->
+<!-- procedure overview -> FF 2nd, include init reweighting plots  -->
+<!-- fit arrow -> how the various bkgs are determined -->
+<!-- triggers emu -> acknowledge that emu was not perfect -->
+<!-- split FF theory recap into a intro slide and a brief review of FF models -->
 
 
 ## Introduction
@@ -89,15 +77,16 @@ header-includes: |
 ::: columns
 ::: {.column width=65%}
 
-- The standard model (SM)
+- The standard model (SM) is a **hugely successful** theory
     - A QFT describing **interactions** between **fermions & bosons**
     - Allow **arbitrary identical copies of leptons** (except for interactions w/ Higgs)
       $\rightarrow$ **lepton flavor universality (LFU)**
-    - 3 generations of leptons: $e, \mu, \tau$
-    - Hugely successful, but doesn't explain every experimental observation
-      $\rightarrow$ new physics (NP) beyond the SM
+    - **3 generations of leptons**: $e, \mu, \tau$
 
-- Precision measurement
+- The SM doesn't explain every experimental observation
+    - Demand new physics (NP) beyond the SM
+
+- Testing the SM w/ **precision measurement**
     - Measure observables precisely
     - Obtain **precise theoretical predictions**
     - Deviations from SM predictions $\rightarrow$ hints to NP
@@ -958,20 +947,36 @@ header-includes: |
 
 ## Form factor reweighting
 
+- **Change FF parameterization** $\xleftrightarrow{\text{equivalent}}$ **reweighting**
+    - FF parameterization **defines** differential decay rate
+    - Weight $w$ given by:
+      $$
+      \scriptsize
+      w = \left.
+              \frac{d\Gamma_\text{target} / d\PSpt}{d\Gamma_\text{source} / d\PSpt}
+          \right|_\text{eval at phase space point}
+      $$
+
 ::: columns
 ::: {.column width=33%}
 
-### \footnotesize $B \rightarrow \Dstar$ (CLN $\rightarrow$ BGL)
+### \footnotesize $B \rightarrow \Dz$ (CLN $\rightarrow$ BGL)
+
+![](./chapter/figs-mc-correction/reweighting-form-factors/norm/D0Mu.pdf)
 
 :::
 ::: {.column width=33%}
 
 ### \footnotesize $B \rightarrow \Dstar$ (CLN $\rightarrow$ BGL)
+
+![](./chapter/figs-mc-correction/reweighting-form-factors/norm/DstMu.pdf)
 
 :::
 ::: {.column width=33%}
 
 ### \footnotesize $B \rightarrow \Dstst$ (ISGW2 $\rightarrow$ BLR)
+
+![](./chapter/figs-mc-correction/reweighting-form-factors/DststMu/D2ststMu.pdf)
 
 :::
 :::
