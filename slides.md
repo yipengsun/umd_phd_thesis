@@ -906,7 +906,7 @@ classoption: "aspectratio=169,dvipsnames"
     \node[anchor=north west,fill=PepsiBlueLt,text=white,inner sep=3pt] (trkTitle) at (trkNW) {
         \scriptsize\bfseries Tracking efficiency
     };
-    \node[anchor=north,inner sep=0pt] at (page cs:-0.49,-0.2) {
+    \node[anchor=north,inner sep=0pt] at (page cs:-0.49,-0.19) {
         \includegraphics[width=0.42\textwidth]{./chapter/figs-mc-correction/reweighting-tracking/tracking_eff_2016.pdf}
     };
 
