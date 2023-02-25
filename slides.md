@@ -861,7 +861,7 @@ classoption: "aspectratio=169,dvipsnames"
 :::
 
 
-## Data/MC correction
+## Data/MC corrections
 
 ::: columns
 ::: {.column width=50%}
@@ -870,7 +870,7 @@ classoption: "aspectratio=169,dvipsnames"
     - Introduction
     - Event selection
     - Trigger emulation for MC
-    - **Data/MC correction**
+    - **Data/MC corrections**
     \color{gray}
     - Fit
     - Systematics (WIP)
@@ -887,10 +887,51 @@ classoption: "aspectratio=169,dvipsnames"
 
 ## Procedure overview
 
-#. Update MC FF models
+\tightmargin\small
 #. Apply known corrections (**initial reweighting**)
+    - **\textcolor{PepsiBlueLt}{Tracking efficiency}**
+    - **\textcolor{PepsiRed}{$B$ kinematic and multiplicity}**
+#. Update MC FF models
 #. Perform a fit to access data/MC agreement in low-\mmSq region (only affected by detector responses)
-#. Correcting additional kinematic and geometric variables in the low-\mmSq region (**final reweighting**)
+#. Correct additional kinematic and geometric variables in the low-\mmSq region (**final reweighting**)
+\vspace{11em}
+
+
+\begin{tikzpicture}[relative to page]
+    % Tracking
+    \node (trkNW) at (page cs:-0.96,-0.05) {};
+    \node (trkSE) at (page cs:-0.02,-0.95) {};
+
+    \draw[PepsiBlueLt,ultra thick] (trkNW) rectangle (trkSE);
+    \node[anchor=north west,fill=PepsiBlueLt,text=white,inner sep=3pt] (trkTitle) at (trkNW) {
+        \scriptsize\bfseries Tracking efficiency
+    };
+    \node[anchor=north,inner sep=0pt] at (page cs:-0.49,-0.2) {
+        \includegraphics[width=0.42\textwidth]{./chapter/figs-mc-correction/reweighting-tracking/tracking_eff_2016.pdf}
+    };
+
+    % B prod kinematics
+    \node (prodNW) at (page cs:0.02,-0.05) {};
+    \node (prodSE) at (page cs:0.96,-0.95) {};
+
+    \draw[PepsiRed,ultra thick] (prodNW) rectangle (prodSE);
+    \node[anchor=north west,fill=PepsiRed,text=white,inner sep=3pt] (trkTitle) at (prodNW) {
+        \scriptsize\bfseries $B$ kinematics and multiplicity
+    };
+    \node[anchor=north,inner sep=0pt] at (page cs:0.24,-0.53) {
+        \includegraphics[width=0.17\textwidth]{./chapter/figs-mc-correction/reweighting-JpsiK/reweight-JpsiK/b_pt.pdf}
+    };
+    \node[anchor=north,inner sep=0pt] at (page cs:0.74,-0.53) {
+        \includegraphics[width=0.17\textwidth]{./chapter/figs-mc-correction/reweighting-JpsiK/reweight-JpsiK/b_eta.pdf}
+    };
+
+    \node[anchor=north,inner sep=0pt] at (page cs:0.24,-0.155) {
+        \includegraphics[width=0.17\textwidth]{./chapter/figs-mc-correction/reweighting-JpsiK/reweight-JpsiK/ntracks.pdf}
+    };
+    \node[anchor=north,inner sep=0pt] at (page cs:0.74,-0.155) {
+        \includegraphics[width=0.17\textwidth]{./chapter/figs-mc-correction/reweighting-JpsiK/reweight-JpsiK/b_ownpv_ndof.pdf}
+    };
+\end{tikzpicture}
 
 
 ## Form factor (FF): theoretical recap
@@ -949,6 +990,7 @@ classoption: "aspectratio=169,dvipsnames"
 
 - **Change FF parameterization** $\xleftrightarrow{\text{equivalent}}$ **reweighting**
     - FF parameterization **defines** differential decay rate
+      $d\Gamma / d\PSpt$
     - Weight $w$ given by:
       $$
       \scriptsize
@@ -977,22 +1019,6 @@ classoption: "aspectratio=169,dvipsnames"
 ### \footnotesize $B \rightarrow \Dstst$ (ISGW2 $\rightarrow$ BLR)
 
 ![](./chapter/figs-mc-correction/reweighting-form-factors/DststMu/D2ststMu.pdf)
-
-:::
-:::
-
-
-## Initial reweighting
-
-::: columns
-::: {.column width=50%}
-
-### Tracking efficiency correction
-
-:::
-::: {.column width=50%}
-
-### $B$ kinematics and multiplicity
 
 :::
 :::
