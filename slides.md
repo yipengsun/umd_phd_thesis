@@ -1233,9 +1233,10 @@ classoption: "aspectratio=169,dvipsnames"
 ::: {.column width=65%}
 
 \tightmargin
-- Fit: **binned maximum likelihood fit**
+- **Binned maximum likelihood fit**
     - Fit vars: \mmSq, \el, \qSq
-    - Fit templates: histos, correlation-preserving
+    - **Norm, sig, bkgs represented by fit templates**
+        - 3D histos, correlation-preserving
 
 - Fit the control skims (1OS, 2OS, DD) **first**
     - 3 control skims per channel $\rightarrow$ **simultaneous fit to 6 datasets**
@@ -1252,6 +1253,7 @@ classoption: "aspectratio=169,dvipsnames"
 :::
 ::: {.column width=30%}
 
+\vspace{0.5em}
 ![](./chapter/figs-fit/fit_uvsd/fit_result-stacked-Dst-iso-q2.pdf)
 
 ![](./chapter/figs-fit/fit_uvsd/fit_result-stacked-Dst-iso-q2-floating_uvsd.pdf)
@@ -1274,7 +1276,7 @@ classoption: "aspectratio=169,dvipsnames"
           inner sep=2pt,
           text width=8em, align=center
         ]
-        at (page cs:0.66, -0.77) {\tiny \Dstar ISO fit w/ 1 $DDX$ shape param floating};
+        at (page cs:0.66, -0.79) {\tiny \Dstar ISO fit w/ 1 $DDX$ shape param floating};
 \end{tikzpicture}
 
 
