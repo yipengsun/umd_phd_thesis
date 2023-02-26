@@ -973,6 +973,9 @@ classoption: "aspectratio=169,dvipsnames"
         at (page cs:0.78, -0.66) {\tiny $B$ $\eta$};
 \end{tikzpicture}
 
+<!-- A two-track vertex has one degree of freedom. A three-track vertex has three degrees of freedom.  -->
+<!-- This looks like a covariance matrix problem! -->
+
 
 ## Form factor (FF): theoretical recap
 
@@ -1029,9 +1032,9 @@ classoption: "aspectratio=169,dvipsnames"
 ## Form factor reweighting
 
 - **Change FF parameterization** $\xleftrightarrow{\text{equivalent}}$ **reweighting**
-    - FF parameterization **defines** differential decay rate
+    - FF parameterization **determines** differential decay rate
       $d\Gamma / d\PSpt$
-    - Weight $w$ given by:
+    - For each MC event, weight $w$ given by:
       $$
       \scriptsize
       w = \left.
@@ -1041,27 +1044,65 @@ classoption: "aspectratio=169,dvipsnames"
 
 ::: columns
 ::: {.column width=33%}
-
-### \footnotesize $B \rightarrow \Dz$ (CLN $\rightarrow$ BGL)
-
 ![](./chapter/figs-mc-correction/reweighting-form-factors/norm/D0Mu.pdf)
-
 :::
 ::: {.column width=33%}
-
-### \footnotesize $B \rightarrow \Dstar$ (CLN $\rightarrow$ BGL)
-
 ![](./chapter/figs-mc-correction/reweighting-form-factors/norm/DstMu.pdf)
-
 :::
 ::: {.column width=33%}
-
-### \footnotesize $B \rightarrow \Dstst$ (ISGW2 $\rightarrow$ BLR)
-
 ![](./chapter/figs-mc-correction/reweighting-form-factors/DststMu/D2ststMu.pdf)
+:::
+:::
 
-:::
-:::
+\begin{tikzpicture}[relative to page]
+    \node[anchor=north,
+          draw=PepsiBlueLt,rounded corners,
+          fill=PepsiBlueLt,fill opacity=.22,text opacity=1,
+        ]
+        at (page cs:-0.69, -0.46) {
+            \tiny $\Bm \rightarrow \Dz\mun\neumb$
+        };
+
+    \node[anchor=north,
+          draw=PepsiBlueLt,rounded corners,
+          fill=PepsiBlueLt,fill opacity=.22,text opacity=1,
+        ]
+        at (page cs:-0.62, -0.78) {
+            \footnotesize $B \rightarrow \Dz$ (CLN $\rightarrow$ BGL)
+        };
+
+    \node[anchor=north,
+          draw=PepsiBlueLt,rounded corners,
+          fill=PepsiBlueLt,fill opacity=.22,text opacity=1,
+        ]
+        at (page cs:0.02, -0.26) {
+            \tiny $\Bzb \rightarrow \Dstarp\mun\neumb$
+        };
+
+    \node[anchor=north,
+          draw=PepsiBlueLt,rounded corners,
+          fill=PepsiBlueLt,fill opacity=.22,text opacity=1,
+        ]
+        at (page cs:0.02, -0.78) {
+            \footnotesize $B \rightarrow \Dstar$ (CLN $\rightarrow$ BGL)
+        };
+
+    \node[anchor=north,
+          draw=PepsiBlueLt,rounded corners,
+          fill=PepsiBlueLt,fill opacity=.22,text opacity=1,
+        ]
+        at (page cs:0.78, -0.26) {
+            \tiny $\Bzb \rightarrow D^{*+}_2\mun\neumb$
+        };
+
+    \node[anchor=north,
+          draw=PepsiBlueLt,rounded corners,
+          fill=PepsiBlueLt,fill opacity=.22,text opacity=1,
+        ]
+        at (page cs:0.68, -0.78) {
+            \footnotesize $B \rightarrow \Dstst$ (ISGW2 $\rightarrow$ BLR)
+        };
+\end{tikzpicture}
 
 
 ## Final reweighting
@@ -1119,6 +1160,9 @@ classoption: "aspectratio=169,dvipsnames"
 
 
 ## \Dstst and $\Dstst_H$ cascade decays
+
+
+## Weights applied to MC
 
 
 ## $B$ vertex resolution correction
