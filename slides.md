@@ -1112,58 +1112,6 @@ classoption: "aspectratio=169,dvipsnames"
 
 ## Final reweighting
 
-\tightmargin
-::: columns
-::: {.column width=35%}
-
-![](./slides-figures/schematic_final_rwt.pdf)
-
-\small
-- Perform an initial fit to estimate yields
-- Reweight low \mmSq region of sig (ISO) fit
-    - Enriched in **norm**
-- After final reweighting, consider **MC describe data sufficiently well**
-
-:::
-::: {.column width=65%}
-
-\vspace{2em}
-
-\resizebox{\textwidth}{!}{
-
-    \begin{tabular}{c|l|c|l|c|l}
-        \toprule
-         {\bf Variable 1}             & {\bf Binning 1}   & {\bf Variable 2}               & {\bf Binning 2}   & {\bf Variable 3}                     & {\bf Binning 3}   \\
-        \midrule
-         $K$ $\sqrt{IP\, \chi^2} / IP$ & 10, 0 -- 100     & $\pi$ $\sqrt{IP\, \chi^2} / IP$ & 10, 0 -- 100     & \textcolor{Red}{$D^0$ $\sqrt{IP\, \chi^2} / IP$}      & 10, 15 -- 110     \\
-         \textcolor{Blue}{$D^0\mu$ $\log(FD\, \chi^2)$}  & 10, 4 -- 12.5     & $D^0$ $\log(IP\, \chi^2)$      & 10, 2 -- 9       & $\mu$ $\log(IP\, \chi^2)$            & 10, 3.6 -- 11     \\
-         $K$ $p_T$ [GeV]               & 10, 0 -- 11       & $K$ $\log(IP\, \chi^2)$        & 10, 3.6 -- 10.2  & $K$ $\sqrt{IP\, \chi^2} / IP$        & 10, 5 -- 100      \\
-         $\pi$ $p_T$ [GeV]             & 10, 0 -- 12.5     & $\pi$ $\log(IP\, \chi^2)$      & 10, 3.6 -- 10.2  & $\pi$ $\sqrt{IP\, \chi^2} / IP$      & 10, 5 -- 100      \\
-         $\mu$ $p_T$ [GeV]             & 10, 0 -- 12       & $\mu$ $\log(IP\, \chi^2)$      & 10, 3.6 -- 10.8  & $\mu$ $\sqrt{IP\, \chi^2} / IP$      & 10, 0 -- 100      \\
-         $D^0$ $p_T$ [GeV]             & 10, 2 -- 18.5     & $D^0$ $\log(IP\, \chi^2)$      & 10, 2 -- 9       & $D^0$ $\sqrt{IP\, \chi^2} / IP$      & 10, 18 -- 102     \\
-         $D^0$ $p_T$ [GeV]             & 20, 2 -- 18.5     & $D^0$ $\eta$                   & 10, 1.8 -- 5     & --                                   & --                \\
-         $K$ $p_T$ [GeV]               & 20, 0 -- 11       & $K$ $\eta$                     & 10, 1.8 -- 5     & --                                   & --                \\
-         $\pi$ $p_T$ [GeV]             & 20, 0 -- 12.5     & $\pi$ $\eta$                   & 10, 1.8 -- 5     & --                                   & --                \\
-         $\mu$ $p_T$ [GeV]             & 20, 0 -- 12       & $\mu$ $\eta$                   & 10, 1.8 -- 5     & --                                   & --                \\
-         \textcolor{Green}{$D^0$ $\log(1 - DIRA)$}        & 20, -14.2 -- -8.4 & --                             & --               & --                                   & --                \\
-         slow $\pi$ $p_T$ [GeV]\parnote{
-             This is for \Dstar channel only.
-         }                            & 6, 0 -- 1.6       & slow $\pi$ $\eta$              & 10, 1.8 -- 4.8    & --                                   & --                \\
-         slow $\pi$ $p_T$ [GeV]\parnoteref{parnote:final-rwt-dst}
-                                      & 6, 0 -- 1.6       & slow $\pi$ $\log(IP\, \chi^2)$ & 10, -4 -- 7       & slow $\pi$ $\sqrt{IP\, \chi^2} / IP$ & 10, 0 -- 50       \\
-        \bottomrule
-    \end{tabular}
-}
-
-\vspace{0.5em}
-
-![](./chapter/figs-mc-correction/reweighting-final/plot_step0-D0_iso-d0_comp.pdf){ width=32% }
-![](./chapter/figs-mc-correction/reweighting-final/plot_step1-D0_iso-b_log_fd_chi2.pdf){ width=32% }
-![](./chapter/figs-mc-correction/reweighting-final/plot_step10-D0_iso-d0_comp2.pdf){ width=32% }
-
-:::
-:::
-
 \begin{tikzpicture}[relative to page]
     \node[anchor=north,
           execute at begin node=\setlength{\baselineskip}{7pt},
@@ -1198,7 +1146,61 @@ classoption: "aspectratio=169,dvipsnames"
           inner sep=2pt
         ]
         at (page cs:0.745, -0.77) {\scalebox{.55}{S10: $\Dz \log(1-DIRA)$}};
+
+    % picture in the left
+    \node[anchor=north west,inner sep=0pt]
+        at (page cs:-1.0, 0.79) {
+            \includegraphics[width=15em]{./slides-figures/schematic_final_rwt.pdf}
+        };
 \end{tikzpicture}
+
+\vspace{-2.5em}\tightmargin
+::: columns
+::: {.column width=35%}
+
+\vspace{10em}\small
+- Perform an initial fit to estimate yields
+- Reweight low \mmSq region of sig (ISO) fit
+    - Enriched in **norm**
+- After final reweighting, consider **MC describe data sufficiently well**
+
+:::
+::: {.column width=65%}
+
+\vspace{2.1em}
+\resizebox{\textwidth}{!}{
+    \begin{tabular}{c|l|c|l|c|l}
+        \toprule
+         {\bf Variable 1}             & {\bf Binning 1}   & {\bf Variable 2}               & {\bf Binning 2}   & {\bf Variable 3}                     & {\bf Binning 3}   \\
+        \midrule
+         $K$ $\sqrt{IP\, \chi^2} / IP$ & 10, 0 -- 100     & $\pi$ $\sqrt{IP\, \chi^2} / IP$ & 10, 0 -- 100     & \textcolor{Red}{$D^0$ $\sqrt{IP\, \chi^2} / IP$}      & 10, 15 -- 110     \\
+         \textcolor{Blue}{$D^0\mu$ $\log(FD\, \chi^2)$}  & 10, 4 -- 12.5     & $D^0$ $\log(IP\, \chi^2)$      & 10, 2 -- 9       & $\mu$ $\log(IP\, \chi^2)$            & 10, 3.6 -- 11     \\
+         $K$ $p_T$ [GeV]               & 10, 0 -- 11       & $K$ $\log(IP\, \chi^2)$        & 10, 3.6 -- 10.2  & $K$ $\sqrt{IP\, \chi^2} / IP$        & 10, 5 -- 100      \\
+         $\pi$ $p_T$ [GeV]             & 10, 0 -- 12.5     & $\pi$ $\log(IP\, \chi^2)$      & 10, 3.6 -- 10.2  & $\pi$ $\sqrt{IP\, \chi^2} / IP$      & 10, 5 -- 100      \\
+         $\mu$ $p_T$ [GeV]             & 10, 0 -- 12       & $\mu$ $\log(IP\, \chi^2)$      & 10, 3.6 -- 10.8  & $\mu$ $\sqrt{IP\, \chi^2} / IP$      & 10, 0 -- 100      \\
+         $D^0$ $p_T$ [GeV]             & 10, 2 -- 18.5     & $D^0$ $\log(IP\, \chi^2)$      & 10, 2 -- 9       & $D^0$ $\sqrt{IP\, \chi^2} / IP$      & 10, 18 -- 102     \\
+         $D^0$ $p_T$ [GeV]             & 20, 2 -- 18.5     & $D^0$ $\eta$                   & 10, 1.8 -- 5     & --                                   & --                \\
+         $K$ $p_T$ [GeV]               & 20, 0 -- 11       & $K$ $\eta$                     & 10, 1.8 -- 5     & --                                   & --                \\
+         $\pi$ $p_T$ [GeV]             & 20, 0 -- 12.5     & $\pi$ $\eta$                   & 10, 1.8 -- 5     & --                                   & --                \\
+         $\mu$ $p_T$ [GeV]             & 20, 0 -- 12       & $\mu$ $\eta$                   & 10, 1.8 -- 5     & --                                   & --                \\
+         \textcolor{Green}{$D^0$ $\log(1 - DIRA)$}        & 20, -14.2 -- -8.4 & --                             & --               & --                                   & --                \\
+         slow $\pi$ $p_T$ [GeV]\parnote{
+             This is for \Dstar channel only.
+         }                            & 6, 0 -- 1.6       & slow $\pi$ $\eta$              & 10, 1.8 -- 4.8    & --                                   & --                \\
+         slow $\pi$ $p_T$ [GeV]\parnoteref{parnote:final-rwt-dst}
+                                      & 6, 0 -- 1.6       & slow $\pi$ $\log(IP\, \chi^2)$ & 10, -4 -- 7       & slow $\pi$ $\sqrt{IP\, \chi^2} / IP$ & 10, 0 -- 50       \\
+        \bottomrule
+    \end{tabular}
+}
+
+\vspace{0.5em}
+
+![](./chapter/figs-mc-correction/reweighting-final/plot_step0-D0_iso-d0_comp.pdf){ width=32% }
+![](./chapter/figs-mc-correction/reweighting-final/plot_step1-D0_iso-b_log_fd_chi2.pdf){ width=32% }
+![](./chapter/figs-mc-correction/reweighting-final/plot_step10-D0_iso-d0_comp2.pdf){ width=32% }
+
+:::
+:::
 
 
 ## Fit
@@ -1240,9 +1242,10 @@ classoption: "aspectratio=169,dvipsnames"
 - Fit the control skims (1OS, 2OS, DD) **first**
     - 3 control skims per channel $\rightarrow$ **simultaneous fit to 6 datasets**
     - **Derive shape correction params for bkgs**
+        - FF variations & data-driven corrections
 
 - Fit the signal skim (ISO)
-    - **Simultaneous fit to \Dz \Dstar ISO skim, 2 datasets**
+    - **Simultaneous fit to \Dz & \Dstar ISO skim**
     - **Load bkg shape correction params** as constraints or fully fixed
         - **They can't be determined precisely in sig fit**
         - Compared to **\textcolor{Red}{nominal fit}**,
@@ -1252,7 +1255,7 @@ classoption: "aspectratio=169,dvipsnames"
 :::
 ::: {.column width=30%}
 
-\vspace{0.5em}
+\vspace{1.1em}
 ![](./chapter/figs-fit/fit_uvsd/fit_result-stacked-Dst-iso-q2.pdf)
 
 ![](./chapter/figs-fit/fit_uvsd/fit_result-stacked-Dst-iso-q2-floating_uvsd.pdf)
@@ -1266,7 +1269,7 @@ classoption: "aspectratio=169,dvipsnames"
           fill=Red,fill opacity=.22,text opacity=1,
           inner sep=2pt
         ]
-        at (page cs:0.66, 0.74) {\tiny Nominal fit for \Dstar ISO};
+        at (page cs:0.66, 0.72) {\tiny Nominal fit for \Dstar ISO};
 
     \node[anchor=north,
           execute at begin node=\setlength{\baselineskip}{6pt},
