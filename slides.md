@@ -1120,14 +1120,16 @@ classoption: "aspectratio=169,dvipsnames"
 
 ![](./slides-figures/schematic_final_rwt.pdf)
 
+\small
 - Perform an initial fit to estimate yields
 - Reweight low \mmSq region of sig (ISO) fit
     - Enriched in **norm**
+- After final reweighting, consider **MC describe data sufficiently well**
 
 :::
 ::: {.column width=65%}
 
-\vspace{1em}
+\vspace{2em}
 
 \resizebox{\textwidth}{!}{
 
@@ -1189,7 +1191,7 @@ classoption: "aspectratio=169,dvipsnames"
           fill=Blue,fill opacity=.22,text opacity=1,
           inner sep=2pt
         ]
-        at (page cs:0.36, -0.77) {\scalebox{.55}{S2: $\Dz\muon \log(FD_{\chi^2})$}};
+        at (page cs:0.36, -0.77) {\scalebox{.55}{S2: $\Dz\muon \log(FD \chi^2)$}};
 
     \node[anchor=north,
           execute at begin node=\setlength{\baselineskip}{7pt},
