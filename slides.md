@@ -1284,6 +1284,49 @@ classoption: "aspectratio=169,dvipsnames"
 
 ## Templates in the fit
 
+\begin{tikzpicture}[relative to page]
+    % main figure
+    \node[anchor=north west,inner sep=0pt] at (page cs:-1, 0.80) {
+        \includegraphics[width=22em]{./slides-figures/fit_templates_schematic.pdf}};
+
+    % block pulls
+    \node (blockPullNW) at (page cs:-1,-0.152) {};
+    \node (blockPullSE) at (page cs:1,-1) {};
+    \draw[fill=white,white] (blockPullNW) rectangle (blockPullSE);
+
+    % block '5' (the remaining tick label)
+    \node (block5NW) at (page cs: -1,-0.1) {};
+    \node (block5SE) at (page cs: -0.84,-1) {};
+    \draw[fill=white,white] (block5NW) rectangle (block5SE);
+
+    % erase title
+    \node[anchor=north,inner sep=0pt,fill=white,white,text width=8em,align=center] at (page cs:-0.39,0.781) {
+        \scriptsize \Dz, DD, \el
+    };
+
+    \node[anchor=north,inner sep=3pt,rounded corners,
+          draw=gray,fill=gray,fill opacity=.22,text opacity=1] at (page cs:-0.32,0.62) {
+        \footnotesize \Dz, DD, \el
+    };
+
+    \node[anchor=north west] at (page cs: 0.1,0.73) {
+        \scriptsize
+        \begin{tabular}{l|c|c}
+            & \Dz & \Dstar \\
+            \midrule
+            \colorbox{Ds}{\phantom{XXX}} \DststS & 2 subtypes & 2 subtypes \\
+            \colorbox{DD}{\phantom{XXX}} $DDX$ & 4 & 4 \\
+            \colorbox{DststH}{\phantom{XXX}} $\Dstst_H$ & 3 & 1 \\
+            \colorbox{Dstst}{\phantom{XXX}} \Dstst & 20 & 12 \\
+            \colorbox{normSig}{\phantom{XXX}} norm + sig & 6 & 2 \\
+            \colorbox{combBkg}{\phantom{XXX}} comb bkg & 1 & 2 \\
+            \colorbox{misID}{\phantom{XXX}} misID & 1 & 1 \\
+            \midrule
+            \colorbox{white}{\phantom{XXX}} Total & 37 & 24 \\
+        \end{tabular}
+    };
+\end{tikzpicture}
+
 
 ## Fit model
 
