@@ -19,7 +19,7 @@ classoption: "aspectratio=169,dvipsnames"
     - Introduction
     - Event selection
     - Trigger emulation for MC
-    - Data/MC correction
+    - Data/MC corrections
     - Fit
     - Systematics (WIP)
 
@@ -40,7 +40,6 @@ classoption: "aspectratio=169,dvipsnames"
 
 <!-- MC sim: 1B (65M on disk) for run 1, 7.3B (1679 M on disk) for run 2 -->
 
-<!-- correction -> corrections -->
 <!-- fit arrow -> how the various bkgs are determined -->
 <!-- triggers emu -> acknowledge that emu was not perfect -->
 <!-- split FF theory recap into a intro slide and a brief review of FF models -->
@@ -56,7 +55,7 @@ classoption: "aspectratio=169,dvipsnames"
     \color{gray}
     - Event selection
     - Trigger emulation for MC
-    - Data/MC correction
+    - Data/MC corrections
     - Fit
     - Systematics (WIP)
 
@@ -187,7 +186,7 @@ classoption: "aspectratio=169,dvipsnames"
     - **Event selection**
     \color{gray}
     - Trigger emulation for MC
-    - Data/MC correction
+    - Data/MC corrections
     - Fit
     - Systematics (WIP)
 
@@ -767,7 +766,7 @@ classoption: "aspectratio=169,dvipsnames"
     - Event selection
     - **Trigger emulation for MC**
     \color{gray}
-    - Data/MC correction
+    - Data/MC corrections
     - Fit
     - Systematics (WIP)
 
@@ -1211,7 +1210,7 @@ classoption: "aspectratio=169,dvipsnames"
     - Introduction
     - Event selection
     - Trigger emulation for MC
-    - Data/MC correction
+    - Data/MC corrections
     - **Fit**
     \color{gray}
     - Systematics (WIP)
