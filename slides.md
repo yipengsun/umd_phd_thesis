@@ -891,9 +891,11 @@ classoption: "aspectratio=169,dvipsnames"
 #. Apply known corrections (**initial reweighting**)
     - **\textcolor{PepsiBlueLt}{Tracking efficiency}**
     - **\textcolor{PepsiRed}{$B$ kinematic and multiplicity}**
-#. Update MC FF models
-#. Perform a fit to access data/MC agreement in low-\mmSq region (only affected by detector responses)
-#. Correct additional kinematic and geometric variables in the low-\mmSq region (**final reweighting**)
+#. **Update MC FF models** for \Dz, \Dstar, \Dstst
+#. Perform a fit to estimate yields of sig, norm, & bkgs
+#. Correct add. kinematic & geometric vars in low-\mmSq region (**final reweighting**)
+    - Enriched in **norm decays** ($B \rightarrow D^{*}\mu\neum$)
+    - Diff. in that region due to **modelling of detector effects**
 \vspace{11em}
 
 
@@ -931,6 +933,44 @@ classoption: "aspectratio=169,dvipsnames"
     \node[anchor=north,inner sep=0pt] at (page cs:0.74,-0.155) {
         \includegraphics[width=0.17\textwidth]{./chapter/figs-mc-correction/reweighting-JpsiK/reweight-JpsiK/b_ownpv_ndof.pdf}
     };
+
+    % Remarks
+    \node[anchor=north,
+          execute at begin node=\setlength{\baselineskip}{7pt},
+          draw=PepsiBlueLt,rounded corners,
+          fill=PepsiBlueLt,fill opacity=.22,text opacity=1,
+        ]
+        at (page cs:-0.49, -0.49) {
+        \tiny $\epsilon(\text{tracking, data}) / \epsilon(\text{tracking, MC})$
+        };
+
+    \node[anchor=north,
+          execute at begin node=\setlength{\baselineskip}{7pt},
+          draw=PepsiRed,rounded corners,
+          fill=PepsiRed,fill opacity=.22,text opacity=1,
+        ]
+        at (page cs:0.28, -0.29) {\tiny nTracks};
+
+    \node[anchor=north,
+          execute at begin node=\setlength{\baselineskip}{7pt},
+          draw=PepsiRed,rounded corners,
+          fill=PepsiRed,fill opacity=.22,text opacity=1,
+        ]
+        at (page cs:0.78, -0.29) {\tiny PV NDOF};
+
+    \node[anchor=north,
+          execute at begin node=\setlength{\baselineskip}{7pt},
+          draw=PepsiRed,rounded corners,
+          fill=PepsiRed,fill opacity=.22,text opacity=1,
+        ]
+        at (page cs:0.28, -0.66) {\tiny $B$ \pt};
+
+    \node[anchor=north,
+          execute at begin node=\setlength{\baselineskip}{7pt},
+          draw=PepsiRed,rounded corners,
+          fill=PepsiRed,fill opacity=.22,text opacity=1,
+        ]
+        at (page cs:0.78, -0.66) {\tiny $B$ $\eta$};
 \end{tikzpicture}
 
 
