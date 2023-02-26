@@ -41,7 +41,6 @@ classoption: "aspectratio=169,dvipsnames"
 <!-- MC sim: 1B (65M on disk) for run 1, 7.3B (1679 M on disk) for run 2 -->
 
 <!-- correction -> corrections -->
-<!-- procedure overview -> FF 2nd, include init reweighting plots  -->
 <!-- fit arrow -> how the various bkgs are determined -->
 <!-- triggers emu -> acknowledge that emu was not perfect -->
 <!-- split FF theory recap into a intro slide and a brief review of FF models -->
@@ -1202,24 +1201,96 @@ classoption: "aspectratio=169,dvipsnames"
         at (page cs:0.745, -0.77) {\scalebox{.55}{S10: $\Dz \log(1-DIRA)$}};
 \end{tikzpicture}
 
+
 ## Fit
+
+::: columns
+::: {.column width=50%}
+
+- Preliminary measurement of \RDX
+    - Introduction
+    - Event selection
+    - Trigger emulation for MC
+    - Data/MC correction
+    - **Fit**
+    \color{gray}
+    - Systematics (WIP)
+
+:::
+::: {.column width=50%}
+
+- Upgrade of the LHCb Upstream Tracker (UT)
+    - \color{gray}UT upgrade
+    - The LHCb online system
+
+:::
+:::
 
 
 ## Overall fit strategy
 
+::: columns
+::: {.column width=65%}
 
-## MC fit templates
+\tightmargin
+- Fit: **binned maximum likelihood fit**
+    - Fit vars: \mmSq, \el, \qSq
+    - Fit templates: histos, correlation-preserving
+
+- Fit the control skims (1OS, 2OS, DD) **first**
+    - 3 control skims per channel $\rightarrow$ **simultaneous fit to 6 datasets**
+    - **Derive shape correction params for bkgs**
+
+- Fit the signal skim (ISO)
+    - **Simultaneous fit to \Dz \Dstar ISO skim, 2 datasets**
+    - **Load bkg shape correction params** as constraints or fully fixed
+        - **They can't be determined precisely in sig fit**
+        - Compared to **\textcolor{Red}{nominal fit}**,
+          **\textcolor{Green}{fit w/ 1 add. $DDX$ param floating}** has smaller pulls
+          but drives the signal yield to 0
+
+:::
+::: {.column width=30%}
+
+![](./chapter/figs-fit/fit_uvsd/fit_result-stacked-Dst-iso-q2.pdf)
+
+![](./chapter/figs-fit/fit_uvsd/fit_result-stacked-Dst-iso-q2-floating_uvsd.pdf)
+
+:::
+:::
+
+\begin{tikzpicture}[relative to page]
+    \node[anchor=north,
+          draw=Red,rounded corners,
+          fill=Red,fill opacity=.22,text opacity=1,
+          inner sep=2pt
+        ]
+        at (page cs:0.66, 0.74) {\tiny Nominal fit for \Dstar ISO};
+
+    \node[anchor=north,
+          execute at begin node=\setlength{\baselineskip}{6pt},
+          draw=Green,rounded corners,
+          fill=Green,fill opacity=.22,text opacity=1,
+          inner sep=2pt,
+          text width=8em, align=center
+        ]
+        at (page cs:0.66, -0.77) {\tiny \Dstar ISO fit w/ 1 $DDX$ shape param floating};
+\end{tikzpicture}
 
 
-## Combinatorial backgrounds
-
-
-## \muon misID
+## Templates in the fit
 
 
 ## Fit model
 
+
 ###  yield of $\Bm \rightarrow \Dz \taum\neutb$
+
+
+## Shape variations in the fit
+
+
+## Fit result
 
 
 ## Systematics
