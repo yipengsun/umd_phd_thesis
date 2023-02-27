@@ -1303,7 +1303,7 @@ classoption: "aspectratio=169,dvipsnames"
 - Fit control skims (1OS, 2OS, DD) **first**
     - 3 control skims per channel $\rightarrow$ **simultaneous fit to 6 datasets**
     - **Derive shape correction params for bkgs**
-        - FF variations & data-driven corrections
+        - FF variations (5) & data-driven corrections (12)
 
 - Fit signal skim (ISO)
     - **Simultaneous fit to \Dz & \Dstar ISO skim**
@@ -1591,7 +1591,7 @@ $$
           fill=DststH,fill opacity=.5,text opacity=1,
           inner sep=2pt, text width=8em, align=center
         ]
-        at (page cs:-0.23, 0.6) {\tiny $\Dstst_H$ data-driven \qSq vars (2+1)};
+        at (page cs:-0.23, 0.6) {\tiny $\Dstst_H$ data-driven \qSq vars (3)};
 
     \node[anchor=south,
           execute at begin node=\setlength{\baselineskip}{7pt},
@@ -1599,7 +1599,7 @@ $$
           fill=DD,fill opacity=.5,text opacity=1,
           inner sep=2pt, text width=8em, align=center
         ]
-        at (page cs:0.25, 0.6) {\tiny $DDX$ Dalitz-inspired data-driven vars (2)};
+        at (page cs:0.25, 0.6) {\tiny $DDX$ Dalitz-inspired data-driven vars (4)};
 
     \node[anchor=south,
           execute at begin node=\setlength{\baselineskip}{7pt},
@@ -1634,15 +1634,42 @@ $$
           inner sep=2pt,
         ]
         at (page cs:0.93, 0.57) {\tiny \mmSq};
+    \node[anchor=north west,
+          draw=gray,rounded corners,
+          fill=gray,fill opacity=.22,text opacity=1,
+          inner sep=2pt,
+        ]
+        at (page cs:-0.435, -0.11) {\tiny \qSq};
+    \node[anchor=north west,
+          draw=gray,rounded corners,
+          fill=gray,fill opacity=.22,text opacity=1,
+          inner sep=2pt,
+        ]
+        at (page cs:0.21, -0.11) {\tiny \qSq};
 
-    % FF var
-    \node[anchor=north,
+    % Comment on included figs
+    \node[anchor=south east,
           execute at begin node=\setlength{\baselineskip}{7pt},
           draw=Dstst,rounded corners,
-          fill=Dstst,fill opacity=.22,text opacity=1,
+          fill=Dstst,fill opacity=.5,text opacity=1,
           inner sep=2pt, text width=5em, align=center
         ]
-        at (page cs:-0.72, 0.255) {\tiny $B \rightarrow D_1$ FF var for BLR $\tau'$};
+        at (page cs:-0.53, 0.115) {\tiny $B \rightarrow D_1$ FF var for BLR $\tau'$};
+
+    \node[anchor=south east,
+          execute at begin node=\setlength{\baselineskip}{7pt},
+          draw=DststH,rounded corners,
+          fill=DststH,fill opacity=.5,text opacity=1,
+          inner sep=2pt, text width=5em, align=center
+        ]
+        at (page cs:-0.045, 0.115) {\tiny $B \rightarrow \Dstst_H (\rightarrow \Dz)$};
+    \node[anchor=south east,
+          execute at begin node=\setlength{\baselineskip}{7pt},
+          draw=DD,rounded corners,
+          fill=DD,fill opacity=.5,text opacity=1,
+          inner sep=2pt, text width=5em, align=center
+        ]
+        at (page cs:0.445, 0.115) {\tiny $B \rightarrow \Dz D_q X$ lin/quad var};
 
     % Fit
     \node[anchor=north,
