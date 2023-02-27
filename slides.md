@@ -2229,8 +2229,9 @@ TBD (3.07) & TBD (9.49) & TBD (-0.35) \\
 ::: columns
 ::: {.column width=50%}
 
+<!-- 248 DCBs installed in UT -->
 \small
-- Data Control Board (DCB), ~260
+- Data Control Board (DCB), ~250
     - Clock distribution to SALT
     - Control command distribution to SALT
     - Serialization of sensor readout
@@ -2267,7 +2268,7 @@ TBD (3.07) & TBD (9.49) & TBD (-0.35) \\
           fill=PepsiBlueLt,fill opacity=.22,text opacity=1,
         ]
         at (page cs:-0.92, -0.72) {
-            \footnotesize Later: DCB functional validation \& QA
+            \footnotesize Later: DCB functionality validation \& QA
         };
 \end{tikzpicture}
 
@@ -2354,10 +2355,48 @@ TBD (3.07) & TBD (9.49) & TBD (-0.35) \\
 \end{tikzpicture}
 
 
-## The
+## The upgraded trigger scheme
+
+::: columns
+::: {.column width=45%}
+:::
+::: {.column width=55%}
+
+![](./chapter/figs-lhcb-upgrade-overview/trigger/data_path_cpu.pdf){ height=10em }
+![](./chapter/figs-lhcb-upgrade-overview/trigger/data_path_gpu.pdf){ height=10em }
+
+\tightmargin\small
+- Upgraded LHCb removes HW trigger
+- High-level SW triggers: HLT1 & HLT2
+- HLT1 processes w/ TELL40
+    - Each server host **3 TELL40s**
+    - **2 GPUs for HLT1**
+        - Ideally suited for track reco
+        - **Save** inter-communication **bandwidth**
+
+:::
+:::
+
+\begin{tikzpicture}[relative to page]
+    \node[anchor=north west,inner sep=0pt] at (page cs:-0.99,0.5) {
+        \includegraphics[height=13em]{./chapter/figs-lhcb-upgrade-overview/trigger/trigger_scheme_run2.pdf}
+    };
+    \node[anchor=north west,inner sep=0pt] at (page cs:-0.54,0.5) {
+        \includegraphics[height=13em]{./chapter/figs-lhcb-upgrade-overview/trigger/trigger_scheme_run3.pdf}
+    };
+
+    \node[anchor=north west,
+          draw=PepsiBlueLt,rounded corners,
+          fill=PepsiBlueLt,fill opacity=.22,text opacity=1,
+          text width=7em,align=center
+        ]
+        at (page cs:0.56, 0.39) {
+            \footnotesize 30x reduction in bandwidth
+        };
+\end{tikzpicture}
 
 
-## Testing DCB
+## DCB functionality validation & QA
 
 
 # Backup
