@@ -942,7 +942,7 @@ classoption: "aspectratio=169,dvipsnames"
 #. Apply known corrections (**initial reweighting**)
     - **\textcolor{PepsiBlueLt}{Tracking efficiency}**
     - **\textcolor{PepsiRed}{$B$ kinematic and multiplicity}**
-#. **Update MC FF models** for \Dz, \Dstar, \Dstst
+#. **Update MC FF parameterizations** for \Dz, \Dstar, \Dstst
 #. Perform a fit to estimate yields of sig, norm, & bkgs
 #. Correct add. kinematic & geometric vars in low-\mmSq region (**final reweighting**)
     - Enriched in **norm decays** ($B \rightarrow D^{(*)}\mu\neum$)
@@ -1041,11 +1041,14 @@ classoption: "aspectratio=169,dvipsnames"
 
 \small
 - ISGW2
-    - Fully predictive (no free parameter)
+    - Fully predictive
+        - **No free parameter**
     - \textbf{Doesn't describe data well}
 - CLN
-    - Based on BGL, \textbf{apply HQET to reduce num. of params.}
-    - Some parameters too closely constrained
+    - Based on BGL, \textbf{apply HQET to reduce num of params}
+        - \Dz: **3 params**
+        - \Dstar: **5 params**
+    - Some parameters too closely cross-constrained
 
 :::
 ::: {.column width=50%}
@@ -1053,15 +1056,40 @@ classoption: "aspectratio=169,dvipsnames"
 \small
 - BGL
     - Based on dispersion relations
+        - \Dz: **5 params**
+        - \Dstar: **10 params**
     - Analytically continue FFs as complex functions $\rightarrow$ expandable
     - \textbf{Model independent} until truncate series
     - \textbf{Many free parameters} restricted from lattice QCD + data
 - BLR
     - Apply HQET to \Dstst
+        - $D^{1/2+} (D^*_0, D'_1)$: **3 params**, 1 overall norm
+        - $D^{3/2+} (D_1, D^*_2)$: **4 params**, 1 overall norm
     - \textbf{Offer parameters fitted from data}
 
 :::
 :::
+
+\begin{tikzpicture}[relative to page]
+    \node[anchor=north west,
+          execute at begin node=\setlength{\baselineskip}{7pt},
+          draw=PepsiBlueLt,rounded corners,
+          fill=PepsiBlueLt,fill opacity=.22,text opacity=1,
+          text width=15em,align=center
+        ]
+        at (page cs:-0.95, -0.53) {
+            \footnotesize Only ISGW2 \& CLN implemented in MC simulation program \texttt{EvtGen}
+        };
+
+    \node[anchor=north west,
+          execute at begin node=\setlength{\baselineskip}{7pt},
+          draw=PepsiBlueLt,rounded corners,
+          fill=PepsiBlueLt,fill opacity=.22,text opacity=1,
+        ]
+        at (page cs:0.67, -0.38) {
+            \tiny approximately
+        };
+\end{tikzpicture}
 
 
 ## Form factor reweighting
@@ -1104,7 +1132,7 @@ classoption: "aspectratio=169,dvipsnames"
           fill=PepsiBlueLt,fill opacity=.22,text opacity=1,
         ]
         at (page cs:-0.62, -0.78) {
-            \footnotesize $B \rightarrow \Dz$ (CLN $\rightarrow$ BGL)
+            \footnotesize $B \rightarrow \Dz$ (CLN $\rightarrow$ \textcolor{red}{BGL})
         };
 
     \node[anchor=north,
@@ -1121,7 +1149,7 @@ classoption: "aspectratio=169,dvipsnames"
           fill=PepsiBlueLt,fill opacity=.22,text opacity=1,
         ]
         at (page cs:0.02, -0.78) {
-            \footnotesize $B \rightarrow \Dstar$ (CLN $\rightarrow$ BGL)
+            \footnotesize $B \rightarrow \Dstar$ (CLN $\rightarrow$ \textcolor{red}{BGL})
         };
 
     \node[anchor=north,
@@ -1138,7 +1166,7 @@ classoption: "aspectratio=169,dvipsnames"
           fill=PepsiBlueLt,fill opacity=.22,text opacity=1,
         ]
         at (page cs:0.68, -0.78) {
-            \footnotesize $B \rightarrow \Dstst$ (ISGW2 $\rightarrow$ BLR)
+            \footnotesize $B \rightarrow \Dstst$ (ISGW2 $\rightarrow$ \textcolor{red}{BLR})
         };
 \end{tikzpicture}
 
