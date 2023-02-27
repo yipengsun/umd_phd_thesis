@@ -2188,7 +2188,7 @@ TBD (3.07) & TBD (9.49) & TBD (-0.35) \\
 ::: {.column width=50%}
 
 \small
-- Backplane (BP)
+- Backplane (BP), 30
     - Deliver power & data between connectors
     - No active component (i.e IC)
     - **28 layers of PCB, at the limit of manufacturability**
@@ -2197,7 +2197,7 @@ TBD (3.07) & TBD (9.49) & TBD (-0.35) \\
 :::
 ::: {.column width=50%}
 
-- Low Voltage Regulator (LVR)
+- Low Voltage Regulator (LVR), ~240
     - **Supply power to DCB & SALT ASIC** (~10m away)
     - **Remote sensing**: ensure device-side voltage is kept at specified voltage
         - DCB: 1.5 V, DCB opt: 2.5 V, SALT: 1.25 V
@@ -2230,7 +2230,7 @@ TBD (3.07) & TBD (9.49) & TBD (-0.35) \\
 ::: {.column width=50%}
 
 \small
-- Data Control Board (DCB)
+- Data Control Board (DCB), ~260
     - Clock distribution to SALT
     - Control command distribution to SALT
     - Serialization of sensor readout
@@ -2242,10 +2242,10 @@ TBD (3.07) & TBD (9.49) & TBD (-0.35) \\
 
 \small
 - 1 master GBTx (clock & ctrl dist)
-    - 1 VTRx (bi-dir optical comm to ctrl sys)
+    - 1 VTRx (bi-dir opt comm to ctrl sys)
 - 1 GBT SCA (ctrl dist & ADC readout)
 - 6 data GBTx (data serialization)
-    - 3 VTTx (uni-dir optical transmission of data)
+    - 3 VTTx (uni-dir opt transmission of data)
 
 :::
 :::
@@ -2267,7 +2267,7 @@ TBD (3.07) & TBD (9.49) & TBD (-0.35) \\
           fill=PepsiBlueLt,fill opacity=.22,text opacity=1,
         ]
         at (page cs:-0.92, -0.72) {
-            \footnotesize Later: DCB testing \& QA
+            \footnotesize Later: DCB functional validation \& QA
         };
 \end{tikzpicture}
 
@@ -2298,8 +2298,63 @@ TBD (3.07) & TBD (9.49) & TBD (-0.35) \\
 
 ## Overview of the online system
 
+::: columns
+::: {.column width=45%}
 
-## The UT online system
+![](./chapter/figs-ut-upgrade/online/lhcb_online_sys_overview.pdf)
+
+:::
+::: {.column width=55%}
+
+\tightmargin\small
+- The LHCb online system controls detector & filters events w/ software triggers
+    - Clock distribution
+    - Collect data readout from detector
+    - **Filter events w/ software triggers (HLT1 & HLT2)**
+    - **Provide initialization, control & monitoring of detector**
+
+:::
+:::
+
+\vspace{0.5em}
+::: columns
+::: {.column width=60%}
+
+\tightmargin\small
+- SODIN40, SOL40, TELL40 implemented w/ **single hardware: PCIe40**
+    - SODIN40: Clock distribution
+    - SOL40: Slow control & monitoring
+    - TELL40: Data collection
+
+- They differ in **firmware only**
+    - **Load firmware to do triple duty** $\rightarrow$ **MiniDAQ**
+
+
+:::
+::: {.column width=40%}
+
+\tightmargin\small
+- Example: the UT online system
+    - 7 SOL40 (6 for DCBs, 1 for LVRs)
+    - 108 TELL40 (54 on each side)
+
+:::
+:::
+
+\begin{tikzpicture}[relative to page]
+    \node[anchor=north,inner sep=0pt] at (page cs:0.02,-0.27) {
+        \includegraphics[width=8em]{./chapter/figs-ut-upgrade/online/pcie40.pdf}
+    };
+
+    \node[anchor=north,
+          draw=gray,rounded corners,
+          fill=gray,fill opacity=.22,text opacity=1,text=white
+        ]
+        at (page cs:0.02, -0.39) {\small\bfseries PCIe40};
+\end{tikzpicture}
+
+
+## The
 
 
 ## Testing DCB
