@@ -34,13 +34,9 @@ classoption: "aspectratio=169,dvipsnames"
 :::
 
 <!-- http://flavor.physics.umd.edu/manuelf/talks/21-05-05_manuelf_LFU_JHU_UMD_seminar_nobackup.pdf -->
-<!-- - misID smear: 50% how does this translates in terms of the alpha parameter? -->
-<!-- flat misID -> easier to model -->
-<!-- change isolation BDT D** track color to blue, mark magenta explicitly -->
 
 <!-- MC sim: 1B (65M on disk) for run 1, 7.3B (1679 M on disk) for run 2 -->
 
-<!-- fit arrow -> how the various bkgs are determined -->
 <!-- triggers emu -> acknowledge that emu was not perfect -->
 <!-- split FF theory recap into a intro slide and a brief review of FF models -->
 
@@ -408,7 +404,7 @@ classoption: "aspectratio=169,dvipsnames"
 
 - More efficient at rejecting \pion (**main source of misID**)
 - Efficiency flat in \pt: **sig & norm have similar selection eff.**
-  $\rightarrow$ **no bias** in selection
+  $\rightarrow$ **no bias** in selection & easier to model
 - Remaining misID effect (non-\muon misID'ed as \muon) modeled w/ a data ctrl sample (later)
 
 
@@ -550,7 +546,7 @@ classoption: "aspectratio=169,dvipsnames"
     \node[below right=1.2em and 0.6em of d3, red, final ptl] (f2) {\tiny $\pi^+$};
 
     \node[below right=1.5em and 0.8em of b1, orange, final ptl] (g1) {\tiny $\pi^+_\text{slow}$};
-    \node[above left=1.8em and 2.2em of b1, magenta, final ptl] (g2) {\tiny $\pi^\pm$};
+    \node[above left=1.8em and 2.2em of b1, blue, final ptl] (g2) {\tiny $\pi^\pm$};
 
     \draw[particle, dashed] (a0) -- (b1);
 
@@ -562,7 +558,7 @@ classoption: "aspectratio=169,dvipsnames"
     \draw[particle, red] (d3) -- (f2);
 
     \draw[particle, orange] (b1) -- (g1);
-    \draw[particle, magenta, dashed] (b1) -- (g2);
+    \draw[particle, blue, dashed] (b1) -- (g2);
 
     \node[vertex] (x0) at (a0) {\tiny $pp$};
     \node[vertex] (x1) at (b1) {\tiny $B/\Dstst$};
@@ -591,9 +587,9 @@ classoption: "aspectratio=169,dvipsnames"
 :::
 
 - **Further** divide selected \DXmu samples into sub-samples (**skims**)
-- Reject **partially reco'ed bkgs** with **\textcolor{magenta}{add. charged track(s)}**
-  $\rightarrow$ **\textcolor{PepsiRed}{signal skim}**
-- Inverting the selection $\rightarrow$ **\textcolor{PepsiBlueLt}{control skims}** enriched in such bkgs
+- Reject **partially reco'ed bkgs** with **\textcolor{blue}{add. charged track(s)}**
+  $\rightarrow$ **signal skim**
+- Inverting the selection $\rightarrow$ **control skims** enriched in such bkgs
 
 \begin{tikzpicture}[relative to page]
     \node[anchor=south,
@@ -604,7 +600,7 @@ classoption: "aspectratio=169,dvipsnames"
         ]
         at (page cs:0.0, 0.45) {
             \tiny
-            \bfseries{MVA dist. for $B \rightarrow \Dstst \mu\neum$ bkg (hatched) vs. signal (solid)}
+\bfseries{MVA dist. for $B \rightarrow \Dstst \mu\neum$ bkg (hatched) vs. \textcolor{magenta}{signal (solid)}}
         };
 
     \node[anchor=south west,
@@ -627,8 +623,8 @@ classoption: "aspectratio=169,dvipsnames"
     \node (isoNW) at (page cs:-0.96,0.75) {};
     \node (isoSE) at (page cs:-0.01,-0.08) {};
 
-    \draw[PepsiRed,ultra thick] (isoNW) rectangle (isoSE);
-    \node[anchor=north west,fill=PepsiRed,text=white] (isoTitle) at (isoNW) {\bfseries ISO};
+    \draw[normSig,ultra thick] (isoNW) rectangle (isoSE);
+    \node[anchor=north west,fill=normSig,text=white] (isoTitle) at (isoNW) {\bfseries ISO};
     \node[anchor=north west,below right=1pt and -27pt of isoTitle,text width=6em] (isoText) {
         \footnotesize
         Signal-enriched.
@@ -642,8 +638,8 @@ classoption: "aspectratio=169,dvipsnames"
     \node (2osNW) at (page cs:-0.96,-0.13) {};
     \node (2osSE) at (page cs:-0.01,-0.96) {};
 
-    \draw[PepsiBlueLt,ultra thick] (2osNW) rectangle (2osSE);
-    \node[anchor=north west,fill=PepsiBlueLt,text=white] (2osTitle) at (2osNW) {\bfseries 2OS};
+    \draw[DststH,ultra thick] (2osNW) rectangle (2osSE);
+    \node[anchor=north west,fill=DststH,text=black] (2osTitle) at (2osNW) {\bfseries 2OS};
     \node[anchor=north west,below right=1pt and -28pt of 2osTitle,text width=6em] (2osText) {
         \footnotesize
         Enriched in $B \rightarrow \Dstst_H \mu\neum$.
@@ -657,8 +653,8 @@ classoption: "aspectratio=169,dvipsnames"
     \node (1osNW) at (page cs:0.01,0.75) {};
     \node (1osSE) at (page cs:0.96,-0.08) {};
 
-    \draw[PepsiBlueLt,ultra thick] (1osNW) rectangle (1osSE);
-    \node[anchor=north west,fill=PepsiBlueLt,text=white] (1osTitle) at (1osNW) {\bfseries 1OS};
+    \draw[Dstst,ultra thick] (1osNW) rectangle (1osSE);
+    \node[anchor=north west,fill=Dstst,text=white] (1osTitle) at (1osNW) {\bfseries 1OS};
     \node[anchor=north west,below right=1pt and -27pt of 1osTitle,text width=6em] (1osText) {
         \footnotesize
         Enriched in $B \rightarrow \Dstst l\neul$.
@@ -672,8 +668,8 @@ classoption: "aspectratio=169,dvipsnames"
     \node (ddNW) at (page cs:0.01,-0.13) {};
     \node (ddSE) at (page cs:0.96,-0.96) {};
 
-    \draw[PepsiBlueLt,ultra thick] (ddNW) rectangle (ddSE);
-    \node[anchor=north west,fill=PepsiBlueLt,text=white] (ddTitle) at (ddNW) {\bfseries DD};
+    \draw[DD,ultra thick] (ddNW) rectangle (ddSE);
+    \node[anchor=north west,fill=DD,text=black] (ddTitle) at (ddNW) {\bfseries DD};
     \node[anchor=north west,below right=1pt and -24pt of ddTitle,text width=6em] (ddText) {
         \footnotesize
         Enriched in $B \rightarrow D^{(*)} D_q X$.
@@ -2458,6 +2454,9 @@ TBD (3.07) & TBD (9.49) & TBD (-0.35) \\
 
 
 ## Weights applied to MC
+
+
+## MisID background
 
 
 ## \BComb (\DXmu comb)
