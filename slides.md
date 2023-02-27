@@ -130,7 +130,7 @@ classoption: "aspectratio=169,dvipsnames"
   $\rightarrow$ can't calculate exactly
     - **Expressed as form factors (FFs)**,
       **parameterized & constrained** based on
-        - Dispersion relations (first principle),
+        - Dispersion relations (first principle)
         - Heavy Quark Effective Theory (HQET)
     - Numerical values of FF params obtained w/ **lattice QCD computation
       & fit to data**
@@ -277,7 +277,7 @@ classoption: "aspectratio=169,dvipsnames"
           fill=PepsiBlueLt,fill opacity=.22,text opacity=1,
         ]
         at (page cs:-0.86, 0.18) {
-            \small $\RDX \equiv \frac{\BFDTau}{\BFDMu} = \frac{\text{sig}}{\text{norm}}$
+            \small $\RDX \equiv \frac{\BFDTau}{\BFDMu} = \frac{\text{BF(sig)}}{\text{BF(norm)}}$
         };
 \end{tikzpicture}
 
@@ -896,7 +896,7 @@ classoption: "aspectratio=169,dvipsnames"
 
 \small
 - `Hlt1TrackMVA`
-    - Relevant vars exist in TO MC.
+    - Relevant vars exist in TO MC
     - ~1% constant diff after applying online/offline correction
     - Further corrected in **final reweighting**
 
@@ -905,7 +905,7 @@ classoption: "aspectratio=169,dvipsnames"
 
 \small
 - `Hlt1TwoTrackMVA`
-    - Similarly processed as `Hlt1TrackMVA`.
+    - Similarly processed as `Hlt1TrackMVA`
     - ~2.3% constant diff after online/offline correction
 
 :::
