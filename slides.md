@@ -1747,7 +1747,7 @@ $$
  norm. ($D^0\mu$)    &   445,095 \\
  norm. ($D^{*+}\mu$) &   115,124 \\
  norm. ($D^{*0}\mu$) & 1,176,363 \\
- sig. (random)       &        14 \\
+ sig.                & \colorbox{black}{XXX} \\
  $D^{**}$            &   167,968 \\
  $D^{**}$ heavy      &    38,147 \\
  $D_s$               &     5,285 \\
@@ -1766,7 +1766,7 @@ $$
 \bfseries Group               &   \bfseries Yields \\
 \hline
  norm. ($D^{*+}\mu$) &  427,783 \\
- sig. (random)       &        5 \\
+ sig.                & \colorbox{black}{XXX} \\
  $D^{**}$            &   37,181 \\
  $D^{**}$ heavy      &   12,804 \\
  $D_s$               &    3,730 \\
@@ -1795,7 +1795,7 @@ $$
           draw=PepsiBlueLt,rounded corners,
           fill=PepsiBlueLt,fill opacity=.22,text opacity=1,
         ]
-        at (page cs:0.0, 0.74) {\scriptsize Anlysis blinded, signal yields replaced w/ random numbers};
+        at (page cs:-0.45, 0.74) {\scriptsize Analysis blinded};
 \end{tikzpicture}
 
 
@@ -1824,6 +1824,106 @@ $$
 
 
 ## Current status of systematic studies
+
+::: columns
+::: {.column width=50%}
+
+\resizebox{\textwidth}{!}{
+\begin{tabular}{r|c|c|c}
+\toprule
+{\bf Source} & {\bf $\sigma_{\RDst}$ [$\times 10^{-2}$]} &
+               {\bf $\sigma_{\RD}$   [$\times 10^{-2}$]} &
+               {\bf Correlation} \\
+\midrule
+%%%%
+$B \rightarrow D^{(*)}\ellm\neulb$ form factors &
+0.53 (0.58) & 0.79 (2.37) & -0.71 (-0.80) \\
+%%%%
+$B \rightarrow D^{**}\ellm\neulb$ form factors &
+0.25 (0.78) & 0.62 (1.01) & -0.85 (-0.10) \\
+%%%%
+Control sample shape parameters\parnote{
+    \label{parnote:ctrl-shape-params}
+    This uncertainty is not part of the nominal uncertainties reported
+    by the fit.
+} &
+0.46 (0.87) & 0.96 (4.36) & (-0.49) \\
+%%%%
+$DD$ model dependence\parnoteref{parnote:ctrl-shape-params} &
+TBD (0.63) & TBD (0.74) & 0.00 (0.00) \\
+%%%%
+$B \rightarrow \Dstst\taum\neutb$ bkg &
+0.18 (0.17) & 0.49 (0.30) & -0.94 (0.78) \\
+%%%%
+$B \rightarrow D^{(*)} \Dstst_s (\rightarrow \taum\neutb) X$ bkg &
+0.18 (0.25) & 0.62 (1.21) & -0.79 (0.59) \\
+%%%%
+\muon misID unfolding algorithm\parnoteref{parnote:ctrl-shape-params} &
+TBD (0.74) & TBD (1.19) & 1.00 (1.00) \\
+%%%%
+Coulomb correction to $\mathcal{R}(\Dstarp)$ vs. $\mathcal{R}(\Dstarz)$\parnoteref{parnote:ctrl-shape-params} &
+0.27 (0.17) & 0.21 (0.3) & -1.00 (-1.00) \\
+%%%%
+\muon misID decay-in-flight correction &
+0.14 (0.06) & 0.73 (0.16) & -0.95 (0.29) \\
+%%%%
+Combinatorial background shape\parnoteref{parnote:ctrl-shape-params} &
+TBD (0.03) & TBD (0.18) & 0.00 (0.00) \\
+%%%%
+Vertex resolution correction\parnoteref{parnote:ctrl-shape-params} &
+TBD (0.03) & TBD (0.21) & TBD (-0.25) \\
+%%%%
+Data/MC corrections (add.)\parnoteref{parnote:ctrl-shape-params} &
+TBD (0.40) & TBD (0.75) & 0.00 (0.00) \\
+%%%%
+\midrule
+Data/MC corrections (mul.)\parnote{
+    \label{parnote:mul}
+    This is a multiplicative uncertainty.
+} &
+\makecell{$\text{TBD} \times \RDst$ \\ ($1.16 \times \RDst$)} &
+\makecell{$\text{TBD} \times \RD$   \\ ($0.91 \times \RD$)} &
+0.00 (0.00) \\
+%%%%
+$\mathcal{B}(\taum \rightarrow \mun\neumb\neut)$
+(ext. mea.)\parnoteref{parnote:mul} &
+\makecell{$0.23 \times \RDst$ \\ ($0.23 \times \RDst$)} &
+\makecell{$0.23 \times \RD$   \\ ($0.23 \times \RD$)} &
+1.00 (1.00) \\
+\midrule
+%%%%
+Raw uncertainty reported by the fit\parnote{
+    This includes the data statistical uncertainty and the additive
+    systematics without the asterisk (*).
+} &
+2.05 & 6.26 & -0.71 \\
+%%%%
+Total systematics &
+TBD (2.03) & TBD (6.16) & TBD (-0.22) \\
+%%%%
+MC statistical &
+TBD (1.33) & TBD (4.00) & TBD (-0.30) \\
+%%%%
+Statistical &
+1.94 (1.88) & 6.08 (6.01) & -0.07 (-0.53) \\
+\midrule
+Total (sys. + stats.) &
+TBD (3.07) & TBD (9.49) & TBD (-0.35) \\
+\bottomrule
+\end{tabular}
+}
+
+:::
+::: {.column width=50%}
+
+\tightmargin\small
+- General idea: perform alternative fits **w/ selected params fixed** or **different models**
+    - Subtract fitted result in quadrature $\rightarrow$ systematic uncertainty
+- Current status: Have mechanism to eval most sys. uncert.
+    - Problem: Fit not very stable, sometimes fixing params $\rightarrow$ different minimum
+
+:::
+:::
 
 
 ## Outlook
