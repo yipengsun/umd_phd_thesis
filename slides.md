@@ -1601,20 +1601,152 @@ $$
 \end{tikzpicture}
 
 
-## Fit result
+## Fit result: \Dz ISO
+
+::: columns
+::: {.column width=33%}
+![](./section/figs-fit-fit-results/sig-fit/stacked/fit_result-stacked-D0-iso-mmiss2.pdf){ width=90% }
+:::
+::: {.column width=33%}
+![](./section/figs-fit-fit-results/sig-fit/stacked/fit_result-stacked-D0-iso-el.pdf){ width=90% }
+:::
+::: {.column width=33%}
+![](./section/figs-fit-fit-results/sig-fit/stacked/fit_result-stacked-D0-iso-q2.pdf){ width=90% }
+:::
+:::
+
+\vspace{0.4em}::: columns
+::: {.column width=25%}
+![](./section/figs-fit-fit-results/sig-fit/lines_q2_slices/fit_result-lines_q2_idx1-D0-iso-mmiss2.pdf){ width=90% }
+:::
+::: {.column width=25%}
+![](./section/figs-fit-fit-results/sig-fit/lines_q2_slices/fit_result-lines_q2_idx2-D0-iso-mmiss2.pdf){ width=90% }
+:::
+::: {.column width=25%}
+![](./section/figs-fit-fit-results/sig-fit/lines_q2_slices/fit_result-lines_q2_idx3-D0-iso-mmiss2.pdf){ width=90% }
+:::
+::: {.column width=25%}
+![](./section/figs-fit-fit-results/sig-fit/lines_q2_slices/fit_result-lines_q2_idx4-D0-iso-mmiss2.pdf){ width=90% }
+:::
+:::
+
+\vspace{0.3em}::: columns
+::: {.column width=25%}
+![](./section/figs-fit-fit-results/sig-fit/lines_q2_slices/fit_result-lines_q2_idx1-D0-iso-el.pdf){ width=90% }
+:::
+::: {.column width=25%}
+![](./section/figs-fit-fit-results/sig-fit/lines_q2_slices/fit_result-lines_q2_idx2-D0-iso-el.pdf){ width=90% }
+:::
+::: {.column width=25%}
+![](./section/figs-fit-fit-results/sig-fit/lines_q2_slices/fit_result-lines_q2_idx3-D0-iso-el.pdf){ width=90% }
+:::
+::: {.column width=25%}
+![](./section/figs-fit-fit-results/sig-fit/lines_q2_slices/fit_result-lines_q2_idx4-D0-iso-el.pdf){ width=90% }
+:::
+:::
+
+\begin{tikzpicture}[relative to page]
+    \node[anchor=north west,
+          draw=PepsiBlueLt,rounded corners,
+          fill=PepsiBlueLt,fill opacity=.22,text opacity=1,
+          inner sep=2pt
+        ]
+        at (page cs:-0.64, 0.72) {\tiny \mmSq};
+    \node[anchor=north west,
+          draw=PepsiBlueLt,rounded corners,
+          fill=PepsiBlueLt,fill opacity=.22,text opacity=1,
+          inner sep=2pt
+        ]
+        at (page cs:-0.19, 0.72) {\tiny \el};
+    \node[anchor=north east,
+          draw=PepsiBlueLt,rounded corners,
+          fill=PepsiBlueLt,fill opacity=.22,text opacity=1,
+          inner sep=2pt
+        ]
+        at (page cs:0.85, 0.72) {\tiny \qSq};
+\end{tikzpicture}
+
+
+## Fit result: \Dstar ISO
+
+::: columns
+::: {.column width=33%}
+![](./section/figs-fit-fit-results/sig-fit/stacked/fit_result-stacked-Dst-iso-mmiss2.pdf){ width=90% }
+:::
+::: {.column width=33%}
+![](./section/figs-fit-fit-results/sig-fit/stacked/fit_result-stacked-Dst-iso-el.pdf){ width=90% }
+:::
+::: {.column width=33%}
+![](./section/figs-fit-fit-results/sig-fit/stacked/fit_result-stacked-Dst-iso-q2.pdf){ width=90% }
+:::
+:::
+
+\vspace{0.4em}::: columns
+::: {.column width=25%}
+![](./section/figs-fit-fit-results/sig-fit/lines_q2_slices/fit_result-lines_q2_idx1-Dst-iso-mmiss2.pdf){ width=90% }
+:::
+::: {.column width=25%}
+![](./section/figs-fit-fit-results/sig-fit/lines_q2_slices/fit_result-lines_q2_idx2-Dst-iso-mmiss2.pdf){ width=90% }
+:::
+::: {.column width=25%}
+![](./section/figs-fit-fit-results/sig-fit/lines_q2_slices/fit_result-lines_q2_idx3-Dst-iso-mmiss2.pdf){ width=90% }
+:::
+::: {.column width=25%}
+![](./section/figs-fit-fit-results/sig-fit/lines_q2_slices/fit_result-lines_q2_idx4-Dst-iso-mmiss2.pdf){ width=90% }
+:::
+:::
+
+\vspace{0.3em}::: columns
+::: {.column width=25%}
+![](./section/figs-fit-fit-results/sig-fit/lines_q2_slices/fit_result-lines_q2_idx1-Dst-iso-el.pdf){ width=90% }
+:::
+::: {.column width=25%}
+![](./section/figs-fit-fit-results/sig-fit/lines_q2_slices/fit_result-lines_q2_idx2-Dst-iso-el.pdf){ width=90% }
+:::
+::: {.column width=25%}
+![](./section/figs-fit-fit-results/sig-fit/lines_q2_slices/fit_result-lines_q2_idx3-Dst-iso-el.pdf){ width=90% }
+:::
+::: {.column width=25%}
+![](./section/figs-fit-fit-results/sig-fit/lines_q2_slices/fit_result-lines_q2_idx4-Dst-iso-el.pdf){ width=90% }
+:::
+:::
+
+\begin{tikzpicture}[relative to page]
+    \node[anchor=north west,
+          draw=PepsiBlueLt,rounded corners,
+          fill=PepsiBlueLt,fill opacity=.22,text opacity=1,
+          inner sep=2pt
+        ]
+        at (page cs:-0.64, 0.72) {\tiny \mmSq};
+    \node[anchor=north west,
+          draw=PepsiBlueLt,rounded corners,
+          fill=PepsiBlueLt,fill opacity=.22,text opacity=1,
+          inner sep=2pt
+        ]
+        at (page cs:-0.19, 0.72) {\tiny \el};
+    \node[anchor=north east,
+          draw=PepsiBlueLt,rounded corners,
+          fill=PepsiBlueLt,fill opacity=.22,text opacity=1,
+          inner sep=2pt
+        ]
+        at (page cs:0.85, 0.72) {\tiny \qSq};
+\end{tikzpicture}
 
 
 ## Systematics
 
 
-## Summary
+## Current status of systematic studies
+
+
+## Outlook
 
 
 ## UT upgrade
 
 ## Motivation of the LHCb upgrade
 
-## UT upgrade
+## The Upstream Tracker
 
 ## Backplane & LVR
 
@@ -1649,10 +1781,7 @@ $$
 ## \DstComb ($\Dz\pi$ comb)
 
 
-## FF parameters for \Dz
-
-
-## FF parameters for \Dstar
+## FF parameters for \Dz & \Dstar
 
 
 ## FF parameters for \Dstst
