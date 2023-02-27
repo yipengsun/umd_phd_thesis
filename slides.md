@@ -2436,6 +2436,16 @@ TBD (3.07) & TBD (9.49) & TBD (-0.35) \\
 \end{tikzpicture}
 
 
+## Conclusion
+
+- Finished main framework for \RDX run 2 analysis
+    - Use 2016 data for now, portable for 2017 & 18
+    - Investigating fit stability problem
+- Major contribution to LHCb UT upgrade
+    - DCB development & QA
+    - Installation effort at CERN
+
+
 # Backup
 
 ## The CKM matrix
