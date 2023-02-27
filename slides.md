@@ -2398,6 +2398,43 @@ TBD (3.07) & TBD (9.49) & TBD (-0.35) \\
 
 ## DCB functionality validation & QA
 
+::: columns
+::: {.column width=45%}
+
+\tightmargin\small
+- DCB: **error-free** for $\mathcal{O}(10^{15})$ bits
+    - Configure data GBTxs to generate & transmit PRBS
+    - Use MiniDAQ to check error at firmware level
+    - Produce eye-diagram overnight: wide-open "eye" $\rightarrow$ low-jitter
+
+\centering
+![](./chapter/figs-ut-upgrade/dcb/dcb_eye_diagram.png){ width=85% }
+
+:::
+::: {.column width=55%}
+
+\tightmargin\small
+- QA at Maryland: **reverse-engineered** a cli program to init & ctrl DCB in batch
+    - `dcbutil.py write 1c 1 -g 3`
+    - 270 produced & tested at Maryland
+- QA at CERN: write a one-click panel for test
+    - 260 shipped to CERN
+    - QA'ed them all, ensure no damage in shipping
+
+![](./chapter/figs-ut-upgrade/dcb/dcb_cern_panel_1.png){ width=40% }
+![](./chapter/figs-ut-upgrade/dcb/dcb_cern_panel_2.png){ width=40% }
+
+:::
+:::
+
+\begin{tikzpicture}[relative to page]
+    \node[anchor=north west,
+          draw=PepsiBlueLt,rounded corners,
+          fill=PepsiBlueLt,fill opacity=.22,text opacity=1,
+        ]
+    at (page cs:0.7, 0.525) {\tiny\texttt{write I2C reg}};
+\end{tikzpicture}
+
 
 # Backup
 
