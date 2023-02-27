@@ -2225,6 +2225,52 @@ TBD (3.07) & TBD (9.49) & TBD (-0.35) \\
 
 ## DCB
 
+\tightmargin
+::: columns
+::: {.column width=50%}
+
+\small
+- Data Control Board (DCB)
+    - Clock distribution to SALT
+    - Control command distribution to SALT
+    - Serialization of sensor readout
+    - Transmission of serialized data
+    - Telemetry (thermistor readouts)
+
+:::
+::: {.column width=50%}
+
+\small
+- 1 master GBTx (clock & ctrl dist)
+    - 1 VTRx (bi-dir optical comm to ctrl sys)
+- 1 GBT SCA (ctrl dist & ADC readout)
+- 6 data GBTx (data serialization)
+    - 3 VTTx (uni-dir optical transmission of data)
+
+:::
+:::
+
+\vspace{1.5em}
+::: columns
+::: {.column width=50%}
+![](./chapter/figs-ut-upgrade/dcb/dcb_prod.png){ width=90% }
+:::
+::: {.column width=50%}
+![](./chapter/figs-ut-upgrade/dcb/dcb_schematic.pdf){ width=85% }
+:::
+:::
+
+
+\begin{tikzpicture}[relative to page]
+    \node[anchor=north west,
+          draw=PepsiBlueLt,rounded corners,
+          fill=PepsiBlueLt,fill opacity=.22,text opacity=1,
+        ]
+        at (page cs:-0.92, -0.72) {
+            \footnotesize Later: DCB testing \& QA
+        };
+\end{tikzpicture}
+
 
 ## The LHCb online system
 
