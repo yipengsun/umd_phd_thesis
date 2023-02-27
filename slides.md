@@ -33,12 +33,8 @@ classoption: "aspectratio=169,dvipsnames"
 :::
 :::
 
+<!-- Notes -->
 <!-- http://flavor.physics.umd.edu/manuelf/talks/21-05-05_manuelf_LFU_JHU_UMD_seminar_nobackup.pdf -->
-
-<!-- MC sim: 1B (65M on disk) for run 1, 7.3B (1679 M on disk) for run 2 -->
-
-<!-- triggers emu -> acknowledge that emu was not perfect -->
-<!-- split FF theory recap into a intro slide and a brief review of FF models -->
 
 
 ## Introduction
@@ -836,35 +832,49 @@ classoption: "aspectratio=169,dvipsnames"
 
 :::
 ::: {.column width=50%}
+\vspace{2em}
 ![](./slides-figures/run1_rdx_sys_uncerts_flatten.pdf)
 :::
 :::
+
+\begin{tikzpicture}[relative to page]
+    \node[anchor=north,
+          draw=PepsiBlueLt,rounded corners,
+          fill=PepsiBlueLt,fill opacity=.22,text opacity=1,
+        ]
+        at (page cs:0.46, 0.7) {
+            \tiny \RDX run 1 analysis uncertainty table
+        };
+\end{tikzpicture}
 
 
 ## Emulate L0
 
 ::: columns
 ::: {.column width=50%}
-
-### L0Hadron TOS
-
-\footnotesize
-
-- Trained a BDT (\xgboost) to predict the trigger probabilistically
-
 ![](./chapter/figs-mc-emulation/emulate-l0hadron-tos/b0_L0Hadron_TOS_xgb4_valid_d0_pt.pdf)
+:::
+::: {.column width=50%}
+![](./chapter/figs-mc-emulation/emulate-l0global-tis/l0_global_tis_eff_log_pt_dir.pdf)
+:::
+:::
+
+\tightmargin
+::: columns
+::: {.column width=50%}
+
+\small
+- L0Hadron TOS
+    - Trained a BDT (\xgboost) to predict the trigger probabilistically
 
 :::
 ::: {.column width=50%}
 
-### L0Global TIS
+\small
+- L0Global TIS
+    - Measured in data ($B \rightarrow \jpsi K$) b.c. L0Global TIS portable across reco modes,
+      applied as a weight
 
-\footnotesize
-
-- Measured in data ($B \rightarrow \jpsi K$) b.c. L0Global TIS portable across reco modes,
-  applied as a weight
-
-![](./chapter/figs-mc-emulation/emulate-l0global-tis/l0_global_tis_eff_log_pt_dir.pdf)
 :::
 :::
 
@@ -873,24 +883,30 @@ classoption: "aspectratio=169,dvipsnames"
 
 ::: columns
 ::: {.column width=50%}
-
-### `Hlt1TrackMVA`
-
-\footnotesize
-- Relevant vars exist in MC. Good agreement after correcting for online/offline
-  differences
-
 ![](./chapter/figs-mc-emulation/emulate-hlt1/b0_Hlt1TrackMVA_TOS_q2.pdf)
+:::
+::: {.column width=50%}
+![](./chapter/figs-mc-emulation/emulate-hlt1/b0_Hlt1TwoTrackMVA_TOS_q2.pdf)
+:::
+:::
+
+\tightmargin
+::: columns
+::: {.column width=50%}
+
+\small
+- `Hlt1TrackMVA`
+    - Relevant vars exist in TO MC.
+    - ~1% constant diff after applying online/offline correction
+    - Further corrected in **final reweighting**
 
 :::
 ::: {.column width=50%}
 
-### `Hlt1TwoTrackMVA`
-
-\footnotesize
-- Similar to `Hlt1TrackMVA`. Constant diff. after online/offline corrections (non-material)
-
-![](./chapter/figs-mc-emulation/emulate-hlt1/b0_Hlt1TwoTrackMVA_TOS_q2.pdf)
+\small
+- `Hlt1TwoTrackMVA`
+    - Similarly processed as `Hlt1TrackMVA`.
+    - ~2.3% constant diff after online/offline correction
 
 :::
 :::
