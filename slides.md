@@ -1441,12 +1441,11 @@ classoption: "aspectratio=169,dvipsnames"
 
 \tightmargin\small
 - Total # of params: **Ctrl: 117**, **Sig: 63**
-- MC yields
-    - All MC ylds. constrained **relative to yields of normalization decays**
-      $$
-      \scriptsize
-      \text{Yld MC} = \text{Yld norm} \times \text{Rel BF} \times \text{Rel sel eff}
-      $$
+- MC yields **constrained relative to yields of normalization decays**
+  $$
+  \scriptsize
+  \text{Yld MC} = \text{Yld norm} \times \text{Rel BF} \times \text{Rel sel eff}
+  $$
 
     - Example: $\Bm \rightarrow \Dz \taum\neutb$ in \Dz channel
 
@@ -1463,12 +1462,11 @@ $$
 \vspace{-15pt}
 
 \small
-- Data-driven yields
-    - Expected yields derived from data ctrl samples, w/ add. Gaussian constraint
-      $$
-      \scriptsize
-      \text{Yld DDrv} = \text{Gaus constraint} \times \text{Expected yld}
-      $$
+- Data-driven yields **constrained (typically Gaussian)** to expected yields derived from data ctrl samples
+  $$
+  \scriptsize
+  \text{Yld DDrv} = \text{Gaus constraint} \times \text{Expected yld}
+  $$
 
 :::
 :::
@@ -1801,7 +1799,28 @@ $$
 \end{tikzpicture}
 
 
-## Systematics
+## Systematics (WIP)
+
+::: columns
+::: {.column width=50%}
+
+- Preliminary measurement of \RDX
+    - Introduction
+    - Event selection
+    - Trigger emulation for MC
+    - Data/MC corrections
+    - Fit
+    - **Systematics (WIP)**
+
+:::
+::: {.column width=50%}
+
+- Upgrade of the LHCb Upstream Tracker (UT)
+    - \color{gray}UT upgrade
+    - The LHCb online system
+
+:::
+:::
 
 
 ## Current status of systematic studies
