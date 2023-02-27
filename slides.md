@@ -1919,14 +1919,39 @@ TBD (3.07) & TBD (9.49) & TBD (-0.35) \\
 \tightmargin\small
 - General idea: perform alternative fits **w/ selected params fixed** or **different models**
     - Subtract fitted result in quadrature $\rightarrow$ systematic uncertainty
-- Current status: Have mechanism to eval most sys. uncert.
+- Current status: Have mechanism to eval most sys uncert
     - Problem: Fit not very stable, sometimes fixing params $\rightarrow$ different minimum
-
+        - Data stat uncert larger likely because **sys uncert underestimated**
+          (notably "ctrl sample shape params")
 :::
 :::
 
 
 ## Outlook
+
+\tightmargin
+::: columns
+::: {.column width=50%}
+
+\vspace{2em}
+- Procedure to fit LHCb 2016 data developed
+    - Fully portable for 2017 & 2018 (run 2)
+    - Data/MC correction should be performed for each year separately
+    - Weight corrected templates by lumi & fit 2016--2018 data
+- Systematic uncertainty evaluation problematic
+    - Fitter stability problem under investigation
+
+:::
+::: {.column width=50%}
+
+- This analysis might still be statistically limited
+    - Stat uncert is the main uncertainty for run 1 analysis
+    - **Need more data**
+
+![](./slides-figures/rdx_total_uncert_perspective.pdf){ width=85% }
+
+:::
+:::
 
 
 ## UT upgrade
