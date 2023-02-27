@@ -2183,6 +2183,45 @@ TBD (3.07) & TBD (9.49) & TBD (-0.35) \\
 
 ## Backplane & LVR
 
+\tightmargin
+::: columns
+::: {.column width=50%}
+
+\small
+- Backplane (BP)
+    - Deliver power & data between connectors
+    - No active component (i.e IC)
+    - **28 layers of PCB, at the limit of manufacturability**
+        - Typical PC motherboard: 6--8 layers of PCB
+
+:::
+::: {.column width=50%}
+
+- Low Voltage Regulator (LVR)
+    - **Supply power to DCB & SALT ASIC** (~10m away)
+    - **Remote sensing**: ensure device-side voltage is kept at specified voltage
+        - DCB: 1.5 V, DCB opt: 2.5 V, SALT: 1.25 V
+
+:::
+:::
+
+\vspace{8.5em}
+\begin{tikzpicture}[relative to page]
+    \node[anchor=north,inner sep=0pt] at (page cs:-0.74,-0.1) {
+        \includegraphics[height=9em]{./chapter/figs-ut-upgrade/backplane/backplane_trace.pdf}
+    };
+    \node[anchor=north,inner sep=0pt] at (page cs:-0.26,-0.1) {
+        \includegraphics[height=9em]{./chapter/figs-ut-upgrade/backplane/backplane_compressed.jpg}
+    };
+
+    \node[anchor=north,inner sep=0pt] at (page cs:0.26,-0.1) {
+        \includegraphics[height=9em]{./chapter/figs-ut-upgrade/lvr/lvr_top_view.pdf}
+    };
+    \node[anchor=north,inner sep=0pt] at (page cs:0.74,-0.1) {
+        \includegraphics[height=9em]{./chapter/figs-ut-upgrade/lvr/lvr_bot_view.pdf}
+    };
+\end{tikzpicture}
+
 
 ## DCB
 
