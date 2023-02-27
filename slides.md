@@ -165,6 +165,21 @@ classoption: "aspectratio=169,dvipsnames"
 
 ## The Large Hadron Collider (LHC)
 
+::: columns
+::: {.column width=70%}
+![](./slides-figures/the_lhc.png)
+:::
+::: {.column width=30%}
+
+\tightmargin\small
+- The LHC is a circular collider
+    - Circumference: 27 km
+    - Mainly colliding $pp$
+    - Run 2 center of mass energy: $\sqrt{s} = 13$ TeV
+
+:::
+:::
+
 
 ## The LHCb detector
 
