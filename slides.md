@@ -1538,7 +1538,7 @@ $$
           fill=DD,fill opacity=.5,text opacity=1,
           inner sep=2pt, text width=8em, align=center
         ]
-        at (page cs:0.25, 0.6) {\tiny $DDX$ Dalitz-inspired data-driven vars (4)};
+        at (page cs:0.25, 0.6) {\tiny $DDX$ Dalitz-inspired data-driven vars (2)};
 
     \node[anchor=south,
           execute at begin node=\setlength{\baselineskip}{7pt},
@@ -1800,6 +1800,7 @@ $$
 
 
 ## Systematics (WIP)
+\addcontentsline{toc}{chapter}{Systematics (WIP)}
 
 ::: columns
 ::: {.column width=50%}
@@ -1926,6 +1927,24 @@ TBD (3.07) & TBD (9.49) & TBD (-0.35) \\
 :::
 :::
 
+\begin{tikzpicture}[relative to page]
+    \node[anchor=north,
+          draw=PepsiBlueLt,rounded corners,
+          fill=PepsiBlueLt,fill opacity=.22,text opacity=1,
+        ]
+        at (page cs:-0.5, 0.7) {
+            \tiny All sys uncert are absolute, in unit of $10^{-2}$
+        };
+
+    \node[anchor=north,
+          draw=PepsiBlueLt,rounded corners,
+          fill=PepsiBlueLt,fill opacity=.22,text opacity=1,
+        ]
+        at (page cs:-0.5, -0.58) {
+            \tiny Total run 1 rel uncert: \RDst: 10\%, \RD: 20\%
+        };
+\end{tikzpicture}
+
 
 ## Outlook
 
@@ -1935,9 +1954,10 @@ TBD (3.07) & TBD (9.49) & TBD (-0.35) \\
 
 \vspace{2em}
 - Procedure to fit LHCb 2016 data developed
-    - Fully portable for 2017 & 2018 (run 2)
-    - Data/MC correction should be performed for each year separately
-    - Weight corrected templates by lumi & fit 2016--2018 data
+    - **Fully portable to 2017 & 2018 (run 2)**
+    - **Perform data/MC correction separately** for each year
+        - Each year has different trigger thresholds
+    - Weight corrected templates by lumi & fit combined 2016--2018 data
 - Systematic uncertainty evaluation problematic
     - Fitter stability problem under investigation
 
@@ -1946,7 +1966,7 @@ TBD (3.07) & TBD (9.49) & TBD (-0.35) \\
 
 - This analysis might still be statistically limited
     - Stat uncert is the main uncertainty for run 1 analysis
-    - **Need more data**
+    - **Need more data!**
 
 ![](./slides-figures/rdx_total_uncert_perspective.pdf){ width=85% }
 
@@ -1956,19 +1976,82 @@ TBD (3.07) & TBD (9.49) & TBD (-0.35) \\
 
 ## UT upgrade
 
-## Motivation of the LHCb upgrade
+::: columns
+::: {.column width=50%}
+
+- Preliminary measurement of \RDX
+    - Introduction
+    - Event selection
+    - Trigger emulation for MC
+    - Data/MC corrections
+    - Fit
+    - Systematics (WIP)
+
+:::
+::: {.column width=50%}
+
+- Upgrade of the LHCb Upstream Tracker (UT)
+    - **UT upgrade**
+    \color{gray}
+    - The LHCb online system
+
+:::
+:::
+
+
+## LHCb readout bottleneck in run 1 & 2
+
+::: columns
+::: {.column width=50%}
+
+:::
+::: {.column width=50%}
+
+:::
+:::
+
+
+## The LHCb detector in run 3
+
 
 ## The Upstream Tracker
 
+
 ## Backplane & LVR
+
 
 ## DCB
 
+
 ## The LHCb online system
+
+::: columns
+::: {.column width=50%}
+
+- Preliminary measurement of \RDX
+    - Introduction
+    - Event selection
+    - Trigger emulation for MC
+    - Data/MC corrections
+    - Fit
+    - Systematics (WIP)
+
+:::
+::: {.column width=50%}
+
+- Upgrade of the LHCb Upstream Tracker (UT)
+    - UT upgrade
+    - **The LHCb online system**
+
+:::
+:::
+
 
 ## Overview of the online system
 
+
 ## The UT online system
+
 
 ## Testing DCB
 
