@@ -1733,6 +1733,74 @@ $$
 \end{tikzpicture}
 
 
+## Fitted yields
+
+\vspace{0.5em}
+\begin{table}[H]
+\centering
+
+\begin{subtable}[b]{0.5\textwidth}
+    \centering
+
+\begin{tabular}[b]{lr}
+\hline
+\bfseries  Group               &    \bfseries Yields \\
+\hline
+ norm. ($D^0\mu$)    &   445,095 \\
+ norm. ($D^{*+}\mu$) &   115,124 \\
+ norm. ($D^{*0}\mu$) & 1,176,363 \\
+ sig. (random)       &        14 \\
+ $D^{**}$            &   167,968 \\
+ $D^{**}$ heavy      &    38,147 \\
+ $D_s$               &     5,285 \\
+ $DD$                &    96,236 \\
+ comb. bkg.          &    20,596 \\
+ misID               &    56,596 \\
+\hline
+\end{tabular}
+\end{subtable}%
+%%%%
+\begin{subtable}[b]{0.5\textwidth}
+    \centering
+
+\begin{tabular}[b]{lr}
+\hline
+\bfseries Group               &   \bfseries Yields \\
+\hline
+ norm. ($D^{*+}\mu$) &  427,783 \\
+ sig. (random)       &        5 \\
+ $D^{**}$            &   37,181 \\
+ $D^{**}$ heavy      &   12,804 \\
+ $D_s$               &    3,730 \\
+ $DD$                &   33,588 \\
+ comb. bkg.          &   16,906 \\
+ misID               &    8,175 \\
+\hline
+\end{tabular}
+\end{subtable}
+
+\end{table}
+
+\begin{tikzpicture}[relative to page]
+    \node[anchor=north,
+          draw=PepsiBlueLt,rounded corners,
+          fill=PepsiBlueLt,fill opacity=.22,text opacity=1,
+        ]
+        at (page cs:-0.45, -0.74) {\scriptsize \Dz channel};
+    \node[anchor=north,
+          draw=PepsiBlueLt,rounded corners,
+          fill=PepsiBlueLt,fill opacity=.22,text opacity=1,
+        ]
+        at (page cs:0.45, -0.74) {\scriptsize \Dstar channel};
+
+    \node[anchor=north,
+          draw=PepsiBlueLt,rounded corners,
+          fill=PepsiBlueLt,fill opacity=.22,text opacity=1,
+        ]
+        at (page cs:0.0, 0.74) {\scriptsize Anlysis blinded, signal yields replaced w/ random numbers};
+\end{tikzpicture}
+
+
 ## Systematics
 
 
