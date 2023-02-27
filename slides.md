@@ -1785,3 +1785,273 @@ $$
 
 
 ## FF parameters for \Dstst
+
+
+## Fit result: $D^0$ 1OS
+
+\vspace{-0.5em}::: columns
+::: {.column width=33%}
+![](./section/figs-fit-fit-results/ctrl-fit/stacked/fit_result-stacked-D0-1os-mmiss2.pdf){ width=90% }
+:::
+::: {.column width=33%}
+![](./section/figs-fit-fit-results/ctrl-fit/stacked/fit_result-stacked-D0-1os-el.pdf){ width=90% }
+:::
+::: {.column width=33%}
+![](./section/figs-fit-fit-results/ctrl-fit/stacked/fit_result-stacked-D0-1os-q2.pdf){ width=90% }
+:::
+:::
+
+\vspace{0.4em}::: columns
+::: {.column width=25%}
+![](./section/figs-fit-fit-results/ctrl-fit/lines_q2_slices/fit_result-lines_q2_idx1-D0-1os-mmiss2.pdf){ width=90% }
+:::
+::: {.column width=25%}
+![](./section/figs-fit-fit-results/ctrl-fit/lines_q2_slices/fit_result-lines_q2_idx2-D0-1os-mmiss2.pdf){ width=90% }
+:::
+::: {.column width=25%}
+![](./section/figs-fit-fit-results/ctrl-fit/lines_q2_slices/fit_result-lines_q2_idx3-D0-1os-mmiss2.pdf){ width=90% }
+:::
+::: {.column width=25%}
+![](./section/figs-fit-fit-results/ctrl-fit/lines_q2_slices/fit_result-lines_q2_idx4-D0-1os-mmiss2.pdf){ width=90% }
+:::
+:::
+
+\vspace{0.3em}::: columns
+::: {.column width=25%}
+![](./section/figs-fit-fit-results/ctrl-fit/lines_q2_slices/fit_result-lines_q2_idx1-D0-1os-el.pdf){ width=90% }
+:::
+::: {.column width=25%}
+![](./section/figs-fit-fit-results/ctrl-fit/lines_q2_slices/fit_result-lines_q2_idx2-D0-1os-el.pdf){ width=90% }
+:::
+::: {.column width=25%}
+![](./section/figs-fit-fit-results/ctrl-fit/lines_q2_slices/fit_result-lines_q2_idx3-D0-1os-el.pdf){ width=90% }
+:::
+::: {.column width=25%}
+![](./section/figs-fit-fit-results/ctrl-fit/lines_q2_slices/fit_result-lines_q2_idx4-D0-1os-el.pdf){ width=90% }
+:::
+:::
+
+
+## Fit result: $D^0$ 2OS
+
+\vspace{-0.5em}::: columns
+::: {.column width=33%}
+![](./section/figs-fit-fit-results/ctrl-fit/stacked/fit_result-stacked-D0-2os-mmiss2.pdf){ width=90% }
+:::
+::: {.column width=33%}
+![](./section/figs-fit-fit-results/ctrl-fit/stacked/fit_result-stacked-D0-2os-el.pdf){ width=90% }
+:::
+::: {.column width=33%}
+![](./section/figs-fit-fit-results/ctrl-fit/stacked/fit_result-stacked-D0-2os-q2.pdf){ width=90% }
+:::
+:::
+
+\vspace{0.4em}::: columns
+::: {.column width=25%}
+![](./section/figs-fit-fit-results/ctrl-fit/lines_q2_slices/fit_result-lines_q2_idx1-D0-2os-mmiss2.pdf){ width=90% }
+:::
+::: {.column width=25%}
+![](./section/figs-fit-fit-results/ctrl-fit/lines_q2_slices/fit_result-lines_q2_idx2-D0-2os-mmiss2.pdf){ width=90% }
+:::
+::: {.column width=25%}
+![](./section/figs-fit-fit-results/ctrl-fit/lines_q2_slices/fit_result-lines_q2_idx3-D0-2os-mmiss2.pdf){ width=90% }
+:::
+::: {.column width=25%}
+![](./section/figs-fit-fit-results/ctrl-fit/lines_q2_slices/fit_result-lines_q2_idx4-D0-2os-mmiss2.pdf){ width=90% }
+:::
+:::
+
+\vspace{0.3em}::: columns
+::: {.column width=25%}
+![](./section/figs-fit-fit-results/ctrl-fit/lines_q2_slices/fit_result-lines_q2_idx1-D0-2os-el.pdf){ width=90% }
+:::
+::: {.column width=25%}
+![](./section/figs-fit-fit-results/ctrl-fit/lines_q2_slices/fit_result-lines_q2_idx2-D0-2os-el.pdf){ width=90% }
+:::
+::: {.column width=25%}
+![](./section/figs-fit-fit-results/ctrl-fit/lines_q2_slices/fit_result-lines_q2_idx3-D0-2os-el.pdf){ width=90% }
+:::
+::: {.column width=25%}
+![](./section/figs-fit-fit-results/ctrl-fit/lines_q2_slices/fit_result-lines_q2_idx4-D0-2os-el.pdf){ width=90% }
+:::
+:::
+
+
+## Fit result: $D^0$ DD
+
+\vspace{-0.5em}::: columns
+::: {.column width=33%}
+![](./section/figs-fit-fit-results/ctrl-fit/stacked/fit_result-stacked-D0-dd-mmiss2.pdf){ width=90% }
+:::
+::: {.column width=33%}
+![](./section/figs-fit-fit-results/ctrl-fit/stacked/fit_result-stacked-D0-dd-el.pdf){ width=90% }
+:::
+::: {.column width=33%}
+![](./section/figs-fit-fit-results/ctrl-fit/stacked/fit_result-stacked-D0-dd-q2.pdf){ width=90% }
+:::
+:::
+
+\vspace{0.4em}::: columns
+::: {.column width=25%}
+![](./section/figs-fit-fit-results/ctrl-fit/lines_q2_slices/fit_result-lines_q2_idx1-D0-dd-mmiss2.pdf){ width=90% }
+:::
+::: {.column width=25%}
+![](./section/figs-fit-fit-results/ctrl-fit/lines_q2_slices/fit_result-lines_q2_idx2-D0-dd-mmiss2.pdf){ width=90% }
+:::
+::: {.column width=25%}
+![](./section/figs-fit-fit-results/ctrl-fit/lines_q2_slices/fit_result-lines_q2_idx3-D0-dd-mmiss2.pdf){ width=90% }
+:::
+::: {.column width=25%}
+![](./section/figs-fit-fit-results/ctrl-fit/lines_q2_slices/fit_result-lines_q2_idx4-D0-dd-mmiss2.pdf){ width=90% }
+:::
+:::
+
+\vspace{0.3em}::: columns
+::: {.column width=25%}
+![](./section/figs-fit-fit-results/ctrl-fit/lines_q2_slices/fit_result-lines_q2_idx1-D0-dd-el.pdf){ width=90% }
+:::
+::: {.column width=25%}
+![](./section/figs-fit-fit-results/ctrl-fit/lines_q2_slices/fit_result-lines_q2_idx2-D0-dd-el.pdf){ width=90% }
+:::
+::: {.column width=25%}
+![](./section/figs-fit-fit-results/ctrl-fit/lines_q2_slices/fit_result-lines_q2_idx3-D0-dd-el.pdf){ width=90% }
+:::
+::: {.column width=25%}
+![](./section/figs-fit-fit-results/ctrl-fit/lines_q2_slices/fit_result-lines_q2_idx4-D0-dd-el.pdf){ width=90% }
+:::
+:::
+
+
+## Fit result: $D^*$ 1OS
+
+\vspace{-0.5em}::: columns
+::: {.column width=33%}
+![](./section/figs-fit-fit-results/ctrl-fit/stacked/fit_result-stacked-Dst-1os-mmiss2.pdf){ width=90% }
+:::
+::: {.column width=33%}
+![](./section/figs-fit-fit-results/ctrl-fit/stacked/fit_result-stacked-Dst-1os-el.pdf){ width=90% }
+:::
+::: {.column width=33%}
+![](./section/figs-fit-fit-results/ctrl-fit/stacked/fit_result-stacked-Dst-1os-q2.pdf){ width=90% }
+:::
+:::
+
+\vspace{0.4em}::: columns
+::: {.column width=25%}
+![](./section/figs-fit-fit-results/ctrl-fit/lines_q2_slices/fit_result-lines_q2_idx1-Dst-1os-mmiss2.pdf){ width=90% }
+:::
+::: {.column width=25%}
+![](./section/figs-fit-fit-results/ctrl-fit/lines_q2_slices/fit_result-lines_q2_idx2-Dst-1os-mmiss2.pdf){ width=90% }
+:::
+::: {.column width=25%}
+![](./section/figs-fit-fit-results/ctrl-fit/lines_q2_slices/fit_result-lines_q2_idx3-Dst-1os-mmiss2.pdf){ width=90% }
+:::
+::: {.column width=25%}
+![](./section/figs-fit-fit-results/ctrl-fit/lines_q2_slices/fit_result-lines_q2_idx4-Dst-1os-mmiss2.pdf){ width=90% }
+:::
+:::
+
+\vspace{0.3em}::: columns
+::: {.column width=25%}
+![](./section/figs-fit-fit-results/ctrl-fit/lines_q2_slices/fit_result-lines_q2_idx1-Dst-1os-el.pdf){ width=90% }
+:::
+::: {.column width=25%}
+![](./section/figs-fit-fit-results/ctrl-fit/lines_q2_slices/fit_result-lines_q2_idx2-Dst-1os-el.pdf){ width=90% }
+:::
+::: {.column width=25%}
+![](./section/figs-fit-fit-results/ctrl-fit/lines_q2_slices/fit_result-lines_q2_idx3-Dst-1os-el.pdf){ width=90% }
+:::
+::: {.column width=25%}
+![](./section/figs-fit-fit-results/ctrl-fit/lines_q2_slices/fit_result-lines_q2_idx4-Dst-1os-el.pdf){ width=90% }
+:::
+:::
+
+
+## Fit result: $D^*$ 2OS
+
+\vspace{-0.5em}::: columns
+::: {.column width=33%}
+![](./section/figs-fit-fit-results/ctrl-fit/stacked/fit_result-stacked-Dst-2os-mmiss2.pdf){ width=90% }
+:::
+::: {.column width=33%}
+![](./section/figs-fit-fit-results/ctrl-fit/stacked/fit_result-stacked-Dst-2os-el.pdf){ width=90% }
+:::
+::: {.column width=33%}
+![](./section/figs-fit-fit-results/ctrl-fit/stacked/fit_result-stacked-Dst-2os-q2.pdf){ width=90% }
+:::
+:::
+
+\vspace{0.4em}::: columns
+::: {.column width=25%}
+![](./section/figs-fit-fit-results/ctrl-fit/lines_q2_slices/fit_result-lines_q2_idx1-Dst-2os-mmiss2.pdf){ width=90% }
+:::
+::: {.column width=25%}
+![](./section/figs-fit-fit-results/ctrl-fit/lines_q2_slices/fit_result-lines_q2_idx2-Dst-2os-mmiss2.pdf){ width=90% }
+:::
+::: {.column width=25%}
+![](./section/figs-fit-fit-results/ctrl-fit/lines_q2_slices/fit_result-lines_q2_idx3-Dst-2os-mmiss2.pdf){ width=90% }
+:::
+::: {.column width=25%}
+![](./section/figs-fit-fit-results/ctrl-fit/lines_q2_slices/fit_result-lines_q2_idx4-Dst-2os-mmiss2.pdf){ width=90% }
+:::
+:::
+
+\vspace{0.3em}::: columns
+::: {.column width=25%}
+![](./section/figs-fit-fit-results/ctrl-fit/lines_q2_slices/fit_result-lines_q2_idx1-Dst-2os-el.pdf){ width=90% }
+:::
+::: {.column width=25%}
+![](./section/figs-fit-fit-results/ctrl-fit/lines_q2_slices/fit_result-lines_q2_idx2-Dst-2os-el.pdf){ width=90% }
+:::
+::: {.column width=25%}
+![](./section/figs-fit-fit-results/ctrl-fit/lines_q2_slices/fit_result-lines_q2_idx3-Dst-2os-el.pdf){ width=90% }
+:::
+::: {.column width=25%}
+![](./section/figs-fit-fit-results/ctrl-fit/lines_q2_slices/fit_result-lines_q2_idx4-Dst-2os-el.pdf){ width=90% }
+:::
+:::
+
+
+## Fit result: $D^*$ DD
+
+\vspace{-0.5em}::: columns
+::: {.column width=33%}
+![](./section/figs-fit-fit-results/ctrl-fit/stacked/fit_result-stacked-Dst-dd-mmiss2.pdf){ width=90% }
+:::
+::: {.column width=33%}
+![](./section/figs-fit-fit-results/ctrl-fit/stacked/fit_result-stacked-Dst-dd-el.pdf){ width=90% }
+:::
+::: {.column width=33%}
+![](./section/figs-fit-fit-results/ctrl-fit/stacked/fit_result-stacked-Dst-dd-q2.pdf){ width=90% }
+:::
+:::
+
+\vspace{0.4em}::: columns
+::: {.column width=25%}
+![](./section/figs-fit-fit-results/ctrl-fit/lines_q2_slices/fit_result-lines_q2_idx1-Dst-dd-mmiss2.pdf){ width=90% }
+:::
+::: {.column width=25%}
+![](./section/figs-fit-fit-results/ctrl-fit/lines_q2_slices/fit_result-lines_q2_idx2-Dst-dd-mmiss2.pdf){ width=90% }
+:::
+::: {.column width=25%}
+![](./section/figs-fit-fit-results/ctrl-fit/lines_q2_slices/fit_result-lines_q2_idx3-Dst-dd-mmiss2.pdf){ width=90% }
+:::
+::: {.column width=25%}
+![](./section/figs-fit-fit-results/ctrl-fit/lines_q2_slices/fit_result-lines_q2_idx4-Dst-dd-mmiss2.pdf){ width=90% }
+:::
+:::
+
+\vspace{0.3em}::: columns
+::: {.column width=25%}
+![](./section/figs-fit-fit-results/ctrl-fit/lines_q2_slices/fit_result-lines_q2_idx1-Dst-dd-el.pdf){ width=90% }
+:::
+::: {.column width=25%}
+![](./section/figs-fit-fit-results/ctrl-fit/lines_q2_slices/fit_result-lines_q2_idx2-Dst-dd-el.pdf){ width=90% }
+:::
+::: {.column width=25%}
+![](./section/figs-fit-fit-results/ctrl-fit/lines_q2_slices/fit_result-lines_q2_idx3-Dst-dd-el.pdf){ width=90% }
+:::
+::: {.column width=25%}
+![](./section/figs-fit-fit-results/ctrl-fit/lines_q2_slices/fit_result-lines_q2_idx4-Dst-dd-el.pdf){ width=90% }
+:::
+:::
