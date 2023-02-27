@@ -2002,9 +2002,9 @@ TBD (3.07) & TBD (9.49) & TBD (-0.35) \\
 ## LHCb readout bottleneck in run 1 & 2
 
 ::: columns
-::: {.column width=60%}
+::: {.column width=50%}
 
-\tightmargin\small
+\tightmargin\small\vspace{0.5em}
 - LHCb doesn't utilize LHC's peak luminosity
     - CMS: $1.5 \times 10^{34}$ \lumiInsta
     - LHCb: $4 \times 10^{32}$ \lumiInsta, **~1/40 of CMS**
@@ -2016,19 +2016,64 @@ TBD (3.07) & TBD (9.49) & TBD (-0.35) \\
   **keep readout rate constant**
     - **Higher lumi** $\rightarrow$ **harder cuts**
     - **Hadronic triggers saturate, no benefit from increase in lumi**
-- **Solution: readout at 40 MHz so hardware triggers can be removed**
-    - **LHCb run 3 lumi**: $2 \times 10^{33}$ \lumiInsta
+    - **Run 2 int. lumi**: ~2 \ifb/year
 
 :::
-::: {.column width=40%}
+::: {.column width=50%}
 
-![](./slides-figures/trigger_efficiency_marking.pdf)
+\centering
+![](./slides-figures/trigger_efficiency_marking.pdf){ width=70% }
+
+\tightmargin\small
+- **Solution: readout at 40 MHz so hardware triggers can be removed**
+    - **LHCb run 3 lumi**: $2 \times 10^{33}$ \lumiInsta
+    - **First (hardware) triggers-less detector in a hadron collider**
 
 :::
 :::
 
 
 ## The LHCb detector in run 3
+
+::: columns
+::: {.column width=60%}
+
+\begin{onlyenv}<1-2>
+\vspace{2em}
+\includegraphics<1>[width=\textwidth]{./chapter/figs-detector/lhcb_detector_view.pdf}
+\includegraphics<2>[width=\textwidth]{./chapter/figs-lhcb-upgrade-overview/lhcb_detector_view_run3.pdf}
+
+\begin{tikzpicture}[relative to page]
+    \node<1>[anchor=north,
+          draw=PepsiBlueLt,rounded corners,
+          fill=PepsiBlueLt,fill opacity=.22,text opacity=1,
+        ]
+        at (page cs:-0.5, 0.65) {\small run 1--2\vphantom{3}};
+
+    \node<2>[anchor=north,
+          draw=PepsiBlueLt,rounded corners,
+          fill=PepsiBlueLt,fill opacity=.22,text opacity=1,
+        ]
+        at (page cs:-0.5, 0.65) {\small run 3\vphantom{12}};
+\end{tikzpicture}
+\end{onlyenv}
+
+:::
+::: {.column width=40%}
+
+\tightmargin\small
+- **Full detector readout rate upgraded to 40 MHz**
+- **New tracking system: better resolution & more radiation tolerant**
+    - VELO $\rightarrow$ Pixelated VELO
+    - TT $\rightarrow$ **UT**
+        - **Major contrib. from Maryland**
+    - T-stations $\rightarrow$ SciFi
+- Reduce RICH occupancy: maintain good PID w/ higher lumi
+- Remove M1, PS & SPD (used for HW trigger): less material before ECAL
+  $\rightarrow$ better $E$ resolution
+
+:::
+:::
 
 
 ## The Upstream Tracker
