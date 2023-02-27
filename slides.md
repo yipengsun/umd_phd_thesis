@@ -2076,7 +2076,109 @@ TBD (3.07) & TBD (9.49) & TBD (-0.35) \\
 :::
 
 
+## Concept arts of the upgraded tracking system
+
+\centering
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[t]{0.6\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{./chapter/figs-lhcb-upgrade-overview/tracking/velo_upgrade.pdf}
+    \end{subfigure}
+
+    %%%%
+    \begin{subfigure}[t]{0.35\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{./chapter/figs-lhcb-upgrade-overview/tracking/ut_upgrade.pdf}
+    \end{subfigure}
+    \hspace{3em}
+    \begin{subfigure}[t]{0.35\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{./chapter/figs-lhcb-upgrade-overview/tracking/scifi_upgrade.pdf}
+    \end{subfigure}
+\end{figure}
+
+\begin{tikzpicture}[relative to page]
+    \node[anchor=west,
+          draw=PepsiBlueLt,rounded corners,
+          fill=PepsiBlueLt,fill opacity=.22,text opacity=1,
+        ]
+        at (page cs:0.58, 0.42) {\small Pixelated VELO};
+
+    \node[anchor=north east,
+          draw=PepsiBlueLt,rounded corners,
+          fill=PepsiBlueLt,fill opacity=.22,text opacity=1,
+        ]
+        at (page cs:-0.75, -0.5) {\small UT};
+
+    \node[anchor=north west,
+          draw=PepsiBlueLt,rounded corners,
+          fill=PepsiBlueLt,fill opacity=.22,text opacity=1,
+        ]
+        at (page cs:0.75, -0.5) {\small SciFi};
+\end{tikzpicture}
+
+
 ## The Upstream Tracker
+
+::: columns
+::: {.column width=60%}
+
+![](./slides-figures/ut_overview.pdf)
+
+![](./chapter/figs-ut-upgrade/stave/ut_stave.pdf){ width=15% }
+![](./chapter/figs-ut-upgrade/stave/ut_stave_near_beam_pipe.jpg){ width=32% }
+\hspace{0.5em}
+![](./chapter/figs-ut-upgrade/stave/stave_sensors.jpg){ width=45% }
+<!-- ![](./chapter/figs-ut-upgrade/stave/stave_hybrid_closeup.jpg){ width=45% } -->
+
+:::
+::: {.column width=40%}
+
+\tightmargin\small
+- UT: a silicon-strip detector
+    - 4 detection layers, $x$-$u$-$v$-$x$ configuration
+    - Better resolution near beam pipe
+    - Closer to beam pipe (circular cutout)
+
+- Detector box
+    - Staves
+        - Sensors & SALT readout ASIC
+- PEPI
+    - Backplane (BP)
+    - DCB
+- Service Bay
+    - LVR
+
+:::
+:::
+
+\begin{tikzpicture}[relative to page]
+    \node[anchor=north west,inner sep=0pt]
+        at (page cs:0.78, 0.75) {
+            \includegraphics[width=0.11\textwidth]{./slides-figures/xuvx_schematic.pdf}
+        };
+
+    \node[anchor=north west,inner sep=0pt]
+        at (page cs:0.54, -0.426) {
+            \includegraphics[width=0.23\textwidth]{./chapter/figs-ut-upgrade/stave/stave_hybrid_closeup.jpg}
+        };
+
+    \node[anchor=north,
+          draw=Green,rounded corners,inner sep=2pt,
+          fill=Green,fill opacity=.22,text opacity=1,text=white]
+        at (page cs:-0.49,-0.6) {\footnotesize stave};
+
+    \node[anchor=north,
+          draw=Green,rounded corners,inner sep=2pt,
+          fill=Green,fill opacity=.22,text opacity=1,text=white]
+        at (page cs:-0.02,-0.6) {\footnotesize sensor};
+
+    \node[anchor=north,
+          draw=Green,rounded corners,inner sep=2pt,
+          fill=Green,fill opacity=.22,text opacity=1,text=white]
+        at (page cs:0.66,-0.6) {\footnotesize SALT};
+\end{tikzpicture}
 
 
 ## Backplane & LVR
