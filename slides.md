@@ -1837,26 +1837,22 @@ $$
                {\bf Correlation} \\
 \midrule
 %%%%
-$B \rightarrow D^{(*)}\ellm\neulb$ form factors &
+\colorbox{yellow}{$B \rightarrow D^{(*)}\ellm\neulb$ form factors} &
 0.53 (0.58) & 0.79 (2.37) & -0.71 (-0.80) \\
 %%%%
-$B \rightarrow D^{**}\ellm\neulb$ form factors &
+\colorbox{yellow}{$B \rightarrow D^{**}\ellm\neulb$ form factors} &
 0.25 (0.78) & 0.62 (1.01) & -0.85 (-0.10) \\
 %%%%
-Control sample shape parameters\parnote{
-    \label{parnote:ctrl-shape-params}
-    This uncertainty is not part of the nominal uncertainties reported
-    by the fit.
-} &
+\colorbox{yellow}{Control sample shape parameters} &
 0.46 (0.87) & 0.96 (4.36) & (-0.49) \\
 %%%%
 $DD$ model dependence\parnoteref{parnote:ctrl-shape-params} &
 TBD (0.63) & TBD (0.74) & 0.00 (0.00) \\
 %%%%
-$B \rightarrow \Dstst\taum\neutb$ bkg &
+\colorbox{yellow}{$B \rightarrow \Dstst\taum\neutb$ bkg} &
 0.18 (0.17) & 0.49 (0.30) & -0.94 (0.78) \\
 %%%%
-$B \rightarrow D^{(*)} \Dstst_s (\rightarrow \taum\neutb) X$ bkg &
+\colorbox{yellow}{$B \rightarrow D^{(*)} \Dstst_s (\rightarrow \taum\neutb) X$ bkg} &
 0.18 (0.25) & 0.62 (1.21) & -0.79 (0.59) \\
 %%%%
 \muon misID unfolding algorithm\parnoteref{parnote:ctrl-shape-params} &
@@ -1865,7 +1861,7 @@ TBD (0.74) & TBD (1.19) & 1.00 (1.00) \\
 Coulomb correction to $\mathcal{R}(\Dstarp)$ vs. $\mathcal{R}(\Dstarz)$\parnoteref{parnote:ctrl-shape-params} &
 0.27 (0.17) & 0.21 (0.3) & -1.00 (-1.00) \\
 %%%%
-\muon misID decay-in-flight correction &
+\colorbox{yellow}{\muon misID decay-in-flight correction} &
 0.14 (0.06) & 0.73 (0.16) & -0.95 (0.29) \\
 %%%%
 Combinatorial background shape\parnoteref{parnote:ctrl-shape-params} &
@@ -1919,7 +1915,7 @@ TBD (3.07) & TBD (9.49) & TBD (-0.35) \\
 
 \tightmargin\small
 - General idea: perform alternative fits **w/ selected params fixed** or **different models**
-    - Subtract fitted result in quadrature $\rightarrow$ systematic uncertainty
+    - Subtract fitted uncertainties in quadrature $\rightarrow$ systematic uncertainty
 - Current status: Have mechanism to eval most sys uncert
     - Problem: Fit not very stable, sometimes fixing params $\rightarrow$ different minimum
         - Data stat uncert larger likely because **sys uncert underestimated**
@@ -1932,16 +1928,24 @@ TBD (3.07) & TBD (9.49) & TBD (-0.35) \\
           draw=PepsiBlueLt,rounded corners,
           fill=PepsiBlueLt,fill opacity=.22,text opacity=1,
         ]
-        at (page cs:-0.5, 0.7) {
-            \tiny All sys uncert are absolute, in unit of $10^{-2}$
+        at (page cs:-0.49, 0.73) {
+            \tiny All sys uncert absolute, in $10^{-2}$; \colorbox{yellow}{\phantom{XX}}: uncert scale w/ data
         };
 
     \node[anchor=north,
           draw=PepsiBlueLt,rounded corners,
           fill=PepsiBlueLt,fill opacity=.22,text opacity=1,
         ]
-        at (page cs:-0.5, -0.58) {
-            \tiny Total run 1 rel uncert: \RDst: 10\%, \RD: 20\%
+        at (page cs:-0.49, -0.63) {
+            \tiny Total run 1 rel uncert: \RDst: 10.0\%, \RD: 20.0\%
+        };
+
+    \node[anchor=north,
+          draw=PepsiBlueLt,rounded corners,
+          fill=PepsiBlueLt,fill opacity=.22,text opacity=1,
+        ]
+        at (page cs:-0.49, -0.76) {
+            \tiny Run 1 data rel stat uncert: \RDst: 6.4\%, \RD: 13.6\%
         };
 \end{tikzpicture}
 
