@@ -77,10 +77,10 @@ classoption: "aspectratio=169,dvipsnames"
       $\rightarrow$ **lepton flavor universality (LFU)**
     - **3 generations of leptons**: $e, \mu, \tau$
 
-- The SM doesn't explain every experimental observation
+- SM doesn't explain every experimental observation
     - Demand new physics (NP) beyond the SM
 
-- Testing the SM w/ **precision measurement**
+- Testing SM w/ **precision measurement**
     - Measure observables precisely
     - Obtain **precise theoretical predictions**
     - Deviations from SM predictions $\rightarrow$ hints to NP
@@ -96,12 +96,11 @@ classoption: "aspectratio=169,dvipsnames"
 
 ## Testing LFU with \RDX
 
-
 \tightmargin
-
 ::: columns
 ::: {.column width=50%}
 
+\small
 - $\RDX \equiv \frac{\BFDTau}{\BFDMu}$
     - Advantageous over measuring BF:
       cancellation of **th. and ex. uncert.**
@@ -111,10 +110,45 @@ classoption: "aspectratio=169,dvipsnames"
     - First anomaly reported in 2012 (BaBar)
     - LHCb run 1 measurement in 2022
 
+![](./chapter/figs-intro/hflav_2022_preliminary.pdf){ width=90% }
+
 :::
 ::: {.column width=50%}
 
-- This analysis: LHCb run 2 (2016--2018) data
+\small
+- **Matrix element** of $B \rightarrow D l \neul$ processes factorizable:
+
+\vspace{-2em}
+\tiny
+\begin{equation*}
+    \mathcal{M}^{\lambda_l}_{\lambda_D}(q^2, \theta_l) =
+    \frac{G_F}{\sqrt{2}} \frac{m^2_W}{m^2_W - q^2}
+    \sum_{\lambda_W} \eta_{\lambda_W}
+    \textcolor{Red}{L^{\lambda_l}_{\lambda_W}(q^2, \theta_l)}
+    \textcolor{Green}{H^{\lambda_D}_{\lambda_W}(q^2)}
+\end{equation*}
+\vspace{-3em}\small
+
+- **\textcolor{Red}{Leptonic currents}** analytically calculable
+- **\textcolor{Green}{Hadronic currents}** involves non-perturbative QCD
+  $\rightarrow$ can't calculate exactly
+    - **Expressed as form factors (FFs)**,
+      **parameterized & constrained** based on
+        - Dispersion relations (first principle),
+        - Heavy Quark Effective Theory (HQET)
+    - Numerical values of FF params obtained w/ **lattice QCD computation
+      & fit to data**
+
+:::
+:::
+
+
+## About this analysis
+
+::: columns
+::: {.column width=60%}
+
+- This analysis: measuring \RDX w/ LHCb run 2 (2016--2018) data
     - 2016 only for now, but easy to expand
     - **1.7x intg. lumi.** (3.1 \ifb $\rightarrow$ 5.4 \ifb)
     - **1.8x prod. xsec.** (7 TeV $\rightarrow$ 13 TeV)
@@ -123,16 +157,8 @@ classoption: "aspectratio=169,dvipsnames"
       (1,734,133 $\rightarrow$ 2,178,793)
 
 :::
-:::
-
-::: columns
-::: {.column width=50%}
-\vspace{1em}
-![](./chapter/figs-intro/hflav_2022_preliminary.pdf){ width=90% }
-:::
-::: {.column width=50%}
-\centering
-![](./slides-figures/illustration_b_sl_decay.png){ width=75% }
+::: {.column width=40%}
+![](./slides-figures/illustration_b_sl_decay.png)
 :::
 :::
 
@@ -975,54 +1001,34 @@ classoption: "aspectratio=169,dvipsnames"
 <!-- This looks like a covariance matrix problem! -->
 
 
-## Form factor (FF): theoretical recap
+## Relevant form factor parameterizations
 
 \tightmargin
 
 ::: columns
 ::: {.column width=50%}
 
-\footnotesize
-
-- **Matrix element** of $B \rightarrow D l \neul$ processes factorizable:
-    $$
-    \tiny
-    \mathcal{M} \propto f(q^2)
-    \sum_{\lambda_W} \eta_{\lambda_W}
-    L^{\lambda_l}_{\lambda_W}(q^2, \theta_l)
-    H^{\lambda_D}_{\lambda_W}(q^2)
-    $$
-
-- **Leptonic currents** analytically calculable
-- **Hadronic currents** involves non-perturbative QCD
-  $\rightarrow$ can't calculate exactly
-    - **Expressed as form factors (FFs)**
-      $\rightarrow$ **parameterized & constrained** based on
-      dispersion relations (first principle),
-      heavy quark effective theory (HQET), etc
-    - Numerical values obtained w/ **lattice QCD computation
-      & fit to data**
+\small
+- ISGW2
+    - Fully predictive (no free parameter)
+    - \textbf{Doesn't describe data well}
+- CLN
+    - Based on BGL, \textbf{apply HQET to reduce num. of params.}
+    - Some parameters too closely constrained
 
 :::
 ::: {.column width=50%}
 
-\footnotesize
+\small
+- BGL
+    - Based on dispersion relations
+    - Analytically continue FFs as complex functions $\rightarrow$ expandable
+    - \textbf{Model independent} until truncate series
+    - \textbf{Many free parameters} restricted from lattice QCD + data
+- BLR
+    - Apply HQET to \Dstst
+    - \textbf{Offer parameters fitted from data}
 
-- FF parameterizations
-    - ISGW2
-        - \tiny Fully predictive (no free parameter)
-        - \tiny \textbf{Doesn't describe data well}
-    - BGL
-        - \tiny Based on dispersion relations
-        - \tiny Analytically continue FFs as complex functions $\rightarrow$ expandable
-        - \tiny \textbf{Model independent} until truncate series
-        - \tiny \textbf{Many free parameters} restricted from lattice QCD + data
-    - CLN
-        - \tiny Based on BGL, \textbf{apply HQET to reduce num. of params.}
-        - \tiny Some parameters too closely constrained
-    - BLR
-        - \tiny Apply HQET to \Dstst
-        - \tiny \textbf{Offer parameters fitted from data}
 :::
 :::
 
