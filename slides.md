@@ -1916,7 +1916,7 @@ TBD (3.07) & TBD (9.49) & TBD (-0.35) \\
 \tightmargin\small
 - General idea: perform alternative fits **w/ selected params fixed** or **different models**
     - Subtract fitted uncertainties in quadrature $\rightarrow$ systematic uncertainty
-- Current status: Have mechanism to eval most sys uncert
+- Current status: have mechanism to eval most sys uncert
     - Problem: Fit not very stable, sometimes fixing params $\rightarrow$ different minimum
         - Data stat uncert larger likely because **sys uncert underestimated**
           (notably "ctrl sample shape params")
@@ -1954,25 +1954,21 @@ TBD (3.07) & TBD (9.49) & TBD (-0.35) \\
 
 \tightmargin
 ::: columns
-::: {.column width=50%}
+::: {.column width=60%}
 
-\vspace{2em}
 - Procedure to fit LHCb 2016 data developed
     - **Fully portable to 2017 & 2018 (run 2)**
     - **Perform data/MC correction separately** for each year
         - Each year has different trigger thresholds
     - Weight corrected templates by lumi & fit combined 2016--2018 data
-- Systematic uncertainty evaluation problematic
-    - Fitter stability problem under investigation
-
-:::
-::: {.column width=50%}
-
 - This analysis might still be statistically limited
-    - Stat uncert is the main uncertainty for run 1 analysis
+    - Stat uncert is the main uncertainty for run 1
     - **Need more data!**
 
-![](./slides-figures/rdx_total_uncert_perspective.pdf){ width=85% }
+:::
+::: {.column width=40%}
+
+![](./slides-figures/rdx_total_uncert_perspective.pdf)
 
 :::
 :::
@@ -2006,10 +2002,27 @@ TBD (3.07) & TBD (9.49) & TBD (-0.35) \\
 ## LHCb readout bottleneck in run 1 & 2
 
 ::: columns
-::: {.column width=50%}
+::: {.column width=60%}
+
+\tightmargin\small
+- LHCb doesn't utilize LHC's peak luminosity
+    - CMS: $1.5 \times 10^{34}$ \lumiInsta
+    - LHCb: $4 \times 10^{32}$ \lumiInsta, **~1/40 of CMS**
+        - Lumi levelling by de-focusing beams
+
+- **Main bottleneck: detector readout rate at 1 MHz**
+    - LHC bunch-crossing rate: 40 MHz, collision rate: ~30 MHz
+- Hardware triggers (cut on \pt, $E_T$) to
+  **keep readout rate constant**
+    - **Higher lumi** $\rightarrow$ **harder cuts**
+    - **Hadronic triggers saturate, no benefit from increase in lumi**
+- **Solution: readout at 40 MHz so hardware triggers can be removed**
+    - **LHCb run 3 lumi**: $2 \times 10^{33}$ \lumiInsta
 
 :::
-::: {.column width=50%}
+::: {.column width=40%}
+
+![](./slides-figures/trigger_efficiency_marking.pdf)
 
 :::
 :::
