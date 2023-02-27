@@ -1239,18 +1239,18 @@ classoption: "aspectratio=169,dvipsnames"
     - **Norm, sig, bkgs represented by fit templates**
         - 3D histos, correlation-preserving
 
-- Fit the control skims (1OS, 2OS, DD) **first**
+- Fit control skims (1OS, 2OS, DD) **first**
     - 3 control skims per channel $\rightarrow$ **simultaneous fit to 6 datasets**
     - **Derive shape correction params for bkgs**
         - FF variations & data-driven corrections
 
-- Fit the signal skim (ISO)
+- Fit signal skim (ISO)
     - **Simultaneous fit to \Dz & \Dstar ISO skim**
     - **Load bkg shape correction params** as constraints or fully fixed
         - **They can't be determined precisely in sig fit**
         - Compared to **\textcolor{Red}{nominal fit}**,
           **\textcolor{Green}{fit w/ 1 add. $DDX$ param floating}** has smaller pulls
-          but drives the signal yield to 0
+          but drives signal yield to 0
 
 :::
 ::: {.column width=30%}
@@ -1479,11 +1479,126 @@ $$
           fill=PepsiBlueLt,fill opacity=.22,text opacity=1,
           inner sep=3pt
         ]
-        at (page cs:-0.5, 0.785) {\tiny Norm. scheme for \Dz templates};
+        at (page cs:-0.5, 0.785) {\tiny Yield constraint scheme for \Dz ISO templates};
 \end{tikzpicture}
 
 
 ## Shape variations in the fit
+
+\vspace{1em}
+::: columns
+::: {.column width=25%}
+![](./section/figs-fit-fit-variations/histo-var/D0_iso_D1ststMu__vs__D0_iso_D1ststMu_u1m__vs__D0_iso_D1ststMu_u1p__q2.pdf)
+:::
+::: {.column width=25%}
+![](./section/figs-fit-fit-variations/histo-var/D0_iso_DststHMuD0__vs__D0_iso_DststHMuD0_q2m__vs__D0_iso_DststHMuD0_q2p__q2.pdf)
+:::
+::: {.column width=25%}
+![](./section/figs-fit-fit-variations/histo-var/D0_iso_uDDMu__vs__D0_iso_uDDMu_dal_lm__vs__D0_iso_uDDMu_dal_lp__vs__D0_iso_uDDMu_dal_qm__vs__D0_iso_uDDMu_dal_qp__q2.pdf)
+:::
+::: {.column width=25%}
+![](./section/figs-fit-fit-variations/histo-comp/D0_iso_misID__vs__D0_iso_misID_smr__m2miss.pdf)
+:::
+:::
+
+\vspace{1em}
+::: columns
+::: {.column width=33%}
+![](./appendix/figs-supplemental-plots/pre-ctrl-fit/stacked/fit_result-stacked-D0-2os-q2.pdf)
+:::
+::: {.column width=33%}
+![](./section/figs-fit-fit-results/ctrl-fit/stacked/fit_result-stacked-D0-2os-q2.pdf)
+:::
+::: {.column width=33%}
+\tightmargin\small
+- Shape variations are important to have **good fit quality**
+    - \Dz 2OS ctrl fit poor agreement to data w/o shape variations
+    - Fit quality mainly improved by $\Dstst_H$ \qSq vars
+:::
+:::
+
+\begin{tikzpicture}[relative to page]
+    \node[anchor=south,
+          execute at begin node=\setlength{\baselineskip}{7pt},
+          draw=normSig,rounded corners,
+          fill=normSig,fill opacity=.5,text opacity=1,
+          inner sep=2pt, text width=8em, align=center
+        ]
+        at (page cs:-0.72, 0.6) {\tiny \Dz (5), \Dstar (10), \Dstst (3+2) FF vars};
+
+    \node[anchor=south,
+          execute at begin node=\setlength{\baselineskip}{7pt},
+          draw=DststH,rounded corners,
+          fill=DststH,fill opacity=.5,text opacity=1,
+          inner sep=2pt, text width=8em, align=center
+        ]
+        at (page cs:-0.23, 0.6) {\tiny $\Dstst_H$ data-driven \qSq vars (2+1)};
+
+    \node[anchor=south,
+          execute at begin node=\setlength{\baselineskip}{7pt},
+          draw=DD,rounded corners,
+          fill=DD,fill opacity=.5,text opacity=1,
+          inner sep=2pt, text width=8em, align=center
+        ]
+        at (page cs:0.25, 0.6) {\tiny $DDX$ Dalitz-inspired data-driven vars (4)};
+
+    \node[anchor=south,
+          execute at begin node=\setlength{\baselineskip}{7pt},
+          draw=misID,rounded corners,
+          fill=misID,fill opacity=.5,text opacity=1,
+          inner sep=2pt, text width=8em, align=center
+        ]
+        at (page cs:0.75, 0.6) {\tiny misID decay-in-flight (1)};
+
+    % labels
+    \node[anchor=north west,
+          draw=gray,rounded corners,
+          fill=gray,fill opacity=.22,text opacity=1,
+          inner sep=2pt,
+        ]
+        at (page cs:-0.91, 0.57) {\tiny \qSq};
+    \node[anchor=north west,
+          draw=gray,rounded corners,
+          fill=gray,fill opacity=.22,text opacity=1,
+          inner sep=2pt,
+        ]
+        at (page cs:-0.42, 0.57) {\tiny \qSq};
+    \node[anchor=north west,
+          draw=gray,rounded corners,
+          fill=gray,fill opacity=.22,text opacity=1,
+          inner sep=2pt,
+        ]
+        at (page cs:0.07, 0.57) {\tiny \qSq};
+    \node[anchor=north east,
+          draw=gray,rounded corners,
+          fill=gray,fill opacity=.22,text opacity=1,
+          inner sep=2pt,
+        ]
+        at (page cs:0.93, 0.57) {\tiny \mmSq};
+
+    % FF var
+    \node[anchor=north,
+          execute at begin node=\setlength{\baselineskip}{7pt},
+          draw=Dstst,rounded corners,
+          fill=Dstst,fill opacity=.22,text opacity=1,
+          inner sep=2pt, text width=5em, align=center
+        ]
+        at (page cs:-0.72, 0.255) {\tiny $B \rightarrow D_1$ FF var for BLR $\tau'$};
+
+    % Fit
+    \node[anchor=north,
+          draw=gray,rounded corners,
+          fill=gray,fill opacity=.22,text opacity=1,
+          inner sep=2pt,
+        ]
+        at (page cs:-0.6, -0.82) {\tiny \Dz 2OS, no shape vars};
+    \node[anchor=north,
+          draw=gray,rounded corners,
+          fill=gray,fill opacity=.22,text opacity=1,
+          inner sep=2pt,
+        ]
+        at (page cs:0.03, -0.82) {\tiny \Dz 2OS, w/ shape vars};
+\end{tikzpicture}
 
 
 ## Fit result
@@ -1532,3 +1647,12 @@ $$
 
 
 ## \DstComb ($\Dz\pi$ comb)
+
+
+## FF parameters for \Dz
+
+
+## FF parameters for \Dstar
+
+
+## FF parameters for \Dstst
