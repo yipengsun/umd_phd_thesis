@@ -1305,11 +1305,11 @@ classoption: "aspectratio=169,dvipsnames"
     };
 
     \node[anchor=north,inner sep=3pt,rounded corners,
-          draw=gray,fill=gray,fill opacity=.22,text opacity=1] at (page cs:-0.32,0.62) {
+          draw=gray,fill=gray,fill opacity=.22,text opacity=1] at (page cs:-0.4,0.6) {
         \footnotesize \Dz, DD, \el
     };
 
-    \node[anchor=north west] at (page cs: 0.1,0.73) {
+    \node[anchor=north west] at (page cs: 0.1,0.75) {
         \scriptsize
         \begin{tabular}{l|c|c}
             & \Dz & \Dstar \\
@@ -1324,6 +1324,62 @@ classoption: "aspectratio=169,dvipsnames"
             \midrule
             \colorbox{white}{\phantom{XXX}} Total & 37 & 24 \\
         \end{tabular}
+    };
+\end{tikzpicture}
+
+\vspace{9em}
+::: columns
+::: {.column width=33%}
+\centering
+\vspace{4pt}
+![](./section/figs-fit-fit-templates/data-driven-plots/misid/D0_el.pdf)
+:::
+::: {.column width=33%}
+\vspace{3pt}
+![](./section/figs-fit-fit-templates/data-driven-plots/b_comb/fit_b_comb_d0_scaled.pdf)
+:::
+::: {.column width=33%}
+\vspace{2pt}
+![](./section/figs-fit-fit-templates/data-driven-plots/dst_comb/fit_dst_comb_scaled_comp_iso_log.pdf)
+:::
+:::
+
+\begin{tikzpicture}[relative to page]
+    % misID
+    \node (misIDNW) at (page cs:-0.95,-0.19) {};
+    \node (misIDSE) at (page cs:-0.32,-0.95) {};
+    \draw[misID,ultra thick] (misIDNW) rectangle (misIDSE);
+
+    \node[execute at begin node=\setlength{\baselineskip}{7pt},
+          anchor=north,inner sep=1pt,draw=misID,fill=misID,fill opacity=.4,text opacity=1,
+          rounded corners,text width=7em] at (page cs:-0.55,-0.23) {
+        \tiny misID: iterative unfolding \\
+        \colorbox{normSig}{\phantom{XX}} \pion
+        \colorbox{Dstst}{\phantom{XX}} ghost
+    };
+
+    % comb bkg
+    % block plot title
+    \node (combNW) at (page cs:-0.29,-0.19) {};
+    \node (combSE) at (page cs:0.95,-0.215) {};
+    \draw[fill=white,white] (combNW) rectangle (combSE);
+
+    \node (combNW) at (page cs:-0.29,-0.19) {};
+    \node (combSE) at (page cs:0.95,-0.95) {};
+    \draw[combBkg,ultra thick] (combNW) rectangle (combSE);
+
+    % BComb
+    \node[execute at begin node=\setlength{\baselineskip}{7pt},
+          anchor=north,inner sep=1pt,draw=combBkg,fill=combBkg,fill opacity=.4,text opacity=1,
+          rounded corners,text width=8em] at (page cs:0.07,-0.41) {
+        \tiny \DXmu comb: lin. rescale fac. (fit to $m_B$ USB)
+    };
+
+    % Dst comb
+    \node[execute at begin node=\setlength{\baselineskip}{7pt},
+          anchor=north,inner sep=1pt,draw=combBkg,fill=combBkg,fill opacity=.4,text opacity=1,
+          rounded corners,text width=6em] at (page cs:0.71,-0.60) {
+        \tiny $\Dz\pi$ comb: rescale to fitted yield
     };
 \end{tikzpicture}
 
@@ -1373,7 +1429,13 @@ classoption: "aspectratio=169,dvipsnames"
 ## \Dstst and $\Dstst_H$ cascade decays
 
 
+## $B$ vertex resolution correction
+
+
 ## Weights applied to MC
 
 
-## $B$ vertex resolution correction
+## \BComb (\DXmu comb)
+
+
+## \DstComb ($\Dz\pi$ comb)
