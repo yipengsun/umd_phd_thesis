@@ -115,6 +115,7 @@ classoption: "aspectratio=169,dvipsnames"
 \small
 
 \begin{itemize}
+\tightlist
 \item \textbf{Matrix element} of $B \rightarrow D l \neul$ processes factorizable:
 \end{itemize}
 
@@ -127,21 +128,23 @@ classoption: "aspectratio=169,dvipsnames"
     \textcolor{Red}{L^{\lambda_l}_{\lambda_W}(q^2, \theta_l)}
     \textcolor{Green}{H^{\lambda_D}_{\lambda_W}(q^2)}
 \end{equation*}
-\vspace{-1.5\baselineskip}\small
+\vspace{-2\baselineskip}\small
 
 \begin{itemize}
+\tightlist
 \item \textbf{\textcolor{Red}{Leptonic currents}} analytically calculable
 \item \textbf{\textcolor{Green}{Hadronic currents}} involves non-perturbative QCD
       $\rightarrow$ can't calculate exactly
-
     \begin{itemize}
+    \tightlist
     \item \textbf{Expressed as form factors (FFs), parameterized \& constrained} based on
-        \vspace{-\baselineskip}
+        \tightlist
         \begin{itemize}
+        \tightlist
+        \vspace{-\baselineskip}
         \item Dispersion relations (first principle)
         \item Heavy Quark Effective Theory (HQET)
         \end{itemize}
-
     \item Numerical values of FF params obtained w/ \textbf{lattice QCD computation \& fit to data}
     \end{itemize}
 \end{itemize}
@@ -535,12 +538,34 @@ classoption: "aspectratio=169,dvipsnames"
 :::
 ::: {.column width=50%}
 
-- **Mis-reconstructions**
-    - MisID
-        - "\muon" in the \DXmu pair is **not** a \muon
-    - Combinatorial bkgs
-        - Random combinations of \Dz\muon, \Dstarp\muon, or \Dz\pion
-          **not** from the same $B$
+\visible<2>{
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Mis-reconstructions}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    MisID
+
+    \begin{itemize}
+    \tightlist
+    \item
+      ``\muon'' in the \DXmu pair is \textbf{not} a \muon
+    \end{itemize}
+  \item
+    Combinatorial bkgs
+
+    \begin{itemize}
+    \tightlist
+    \item
+      Random combinations of \Dz\muon, \Dstarp\muon, or \Dz\pion
+      \textbf{not} from the same \(B\)
+    \end{itemize}
+  \end{itemize}
+\end{itemize}
+}
 
 \vspace{3em}
 
@@ -559,7 +584,7 @@ classoption: "aspectratio=169,dvipsnames"
         at (page cs:-0.5, -0.54) {
             \footnotesize\bfseries Modeled w/ MC, w/ shape corrections from ctrl samples
         };
-    \node[anchor=north,
+    \node<2>[anchor=north,
           draw=PepsiBlueLt,rounded corners,
           fill=PepsiBlueLt,fill opacity=.22,text opacity=1,
         ]
