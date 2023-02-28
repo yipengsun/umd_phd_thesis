@@ -2037,6 +2037,7 @@ $$
 ::: columns
 ::: {.column width=50%}
 
+\vspace{0.5\baselineskip}
 \resizebox{\textwidth}{!}{
 \begin{tabular}{r|c|c|c}
 \toprule
