@@ -1450,7 +1450,7 @@ classoption: "aspectratio=169,dvipsnames"
     3 control skims per channel \(\rightarrow\) \textbf{simultaneous fit
     to 6 datasets}
   \item
-    \textbf{Derive shape correction params for bkgs}
+    \textbf{Derive shape corrections for bkgs}
 
     \begin{itemize}
     \tightlist
@@ -1466,7 +1466,7 @@ classoption: "aspectratio=169,dvipsnames"
   \item
     \textbf{Simultaneous fit to \Dz \& \Dstar ISO skim}
   \item
-    \textbf{Load bkg shape correction params} as constraints or fully
+    \textbf{Load params for bkg shape corrections} as constraints or fully
     fixed
 
     \begin{itemize}
@@ -1732,20 +1732,35 @@ $$
 :::
 
 \vspace{1em}
-::: columns
-::: {.column width=33%}
-![](./appendix/figs-supplemental-plots/pre-ctrl-fit/stacked/fit_result-stacked-D0-2os-q2.pdf)
-:::
-::: {.column width=33%}
-![](./section/figs-fit-fit-results/ctrl-fit/stacked/fit_result-stacked-D0-2os-q2.pdf)
-:::
-::: {.column width=33%}
+\visible<2->{
+\begin{columns}[T]
+\begin{column}{0.33\textwidth}
+\includegraphics{./appendix/figs-supplemental-plots/pre-ctrl-fit/stacked/fit_result-stacked-D0-2os-q2.pdf}
+\end{column}
+
+\begin{column}{0.33\textwidth}
+\includegraphics{./section/figs-fit-fit-results/ctrl-fit/stacked/fit_result-stacked-D0-2os-q2.pdf}
+\end{column}
+
+\begin{column}{0.33\textwidth}
 \tightmargin\small
-- Shape variations are important to have **good fit quality**
-    - \Dz 2OS ctrl fit poor agreement to data w/o shape variations
-    - Fit quality mainly improved by $\Dstst_H$ \qSq vars
-:::
-:::
+
+\begin{itemize}
+\tightlist
+\item
+  Shape variations are important to have \textbf{good fit quality}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \Dz 2OS ctrl fit poor agreement to data w/o shape variations
+  \item
+    Fit quality mainly improved by \(\Dstst_H\) \qSq vars
+  \end{itemize}
+\end{itemize}
+\end{column}
+\end{columns}
+}
 
 \begin{tikzpicture}[relative to page]
     \node[anchor=south,
@@ -1805,13 +1820,15 @@ $$
           inner sep=2pt,
         ]
         at (page cs:0.93, 0.57) {\tiny \mmSq};
-    \node[anchor=north west,
+
+    % Label for bot
+    \node<2->[anchor=north west,
           draw=gray,rounded corners,
           fill=gray,fill opacity=.22,text opacity=1,
           inner sep=2pt,
         ]
         at (page cs:-0.435, -0.11) {\tiny \qSq};
-    \node[anchor=north west,
+    \node<2->[anchor=north west,
           draw=gray,rounded corners,
           fill=gray,fill opacity=.22,text opacity=1,
           inner sep=2pt,
@@ -1843,13 +1860,13 @@ $$
         at (page cs:0.445, 0.115) {\tiny $B \rightarrow \Dz D_q X$ lin/quad var};
 
     % Fit
-    \node[anchor=north,
+    \node<2->[anchor=north,
           draw=gray,rounded corners,
           fill=gray,fill opacity=.22,text opacity=1,
           inner sep=2pt,
         ]
         at (page cs:-0.6, -0.82) {\tiny \Dz 2OS, no shape vars};
-    \node[anchor=north,
+    \node<2->[anchor=north,
           draw=gray,rounded corners,
           fill=gray,fill opacity=.22,text opacity=1,
           inner sep=2pt,
