@@ -2158,21 +2158,28 @@ TBD (3.07) & TBD (9.49) & TBD (-0.35) \\
 
 \tightmargin
 ::: columns
-::: {.column width=60%}
+::: {.column width=55%}
 
-- Procedure to fit LHCb 2016 data developed
-    - **Fully portable to 2017 & 2018 (run 2)**
+\small
+- **Procedure to fit LHCb 2016 data developed**
+- **Fully portable to 2017 & 2018 (run 2)**
     - **Perform data/MC correction separately** for each year
         - Each year has different trigger thresholds
     - Weight corrected templates by lumi & fit combined 2016--2018 data
-- This analysis might still be statistically limited
-    - Stat uncert is the main uncertainty for run 1
-    - **Need more data!**
+- **All key elements** of \RDX measurement in run 2 data **developed**
+    - Some work on systematic uncertainties remaining
+    - Challenge to reduce systematics to level of small stat uncert
 
 :::
-::: {.column width=40%}
+::: {.column width=45%}
 
-![](./slides-figures/rdx_total_uncert_perspective.pdf)
+\centering
+![](./slides-figures/rdx_total_uncert_perspective.pdf){ width=80% }
+
+\small
+- This analysis might still be stat limited
+    - Stat uncert is the main uncertainty for run 1
+    - **Can use more data!**
 
 :::
 :::
