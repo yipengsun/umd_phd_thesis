@@ -2185,7 +2185,7 @@ TBD (3.07) & TBD (9.49) & TBD (-0.35) \\
 :::
 
 
-## UT upgrade
+## Overview of the LHCb upgrade
 
 ::: columns
 ::: {.column width=50%}
@@ -2202,9 +2202,8 @@ TBD (3.07) & TBD (9.49) & TBD (-0.35) \\
 ::: {.column width=50%}
 
 - Upgrade of the LHCb Upstream Tracker (UT)
-    - **UT upgrade**
-    \color{gray}
-    - The LHCb online system
+    - **Overview of the LHCb upgrade**
+    - \color{gray} The Upstream Tracker
 
 :::
 :::
@@ -2330,7 +2329,130 @@ TBD (3.07) & TBD (9.49) & TBD (-0.35) \\
 \end{tikzpicture}
 
 
+## The LHCb online system
+
+::: columns
+::: {.column width=45%}
+
+![](./chapter/figs-ut-upgrade/online/lhcb_online_sys_overview.pdf)
+
+:::
+::: {.column width=55%}
+
+\tightmargin\small
+- The LHCb online system controls detector & filters events w/ software triggers
+    - Clock distribution
+    - Collect data readout from detector
+    - **Filter events w/ software triggers (HLT1 & HLT2)**
+    - **Provide initialization, control & monitoring of detector**
+
+:::
+:::
+
+\vspace{0.5em}
+::: columns
+::: {.column width=60%}
+
+\tightmargin\small
+- SODIN40, SOL40, TELL40 implemented w/ **single hardware: PCIe40**
+    - SODIN40: Clock distribution
+    - SOL40: Slow control & monitoring
+    - TELL40: Data collection
+
+- They differ in **firmware only**
+    - **Load firmware to do triple duty** $\rightarrow$ **MiniDAQ**
+
+
+:::
+::: {.column width=40%}
+
+\tightmargin\small
+- Example: the UT online system
+    - 7 SOL40 (6 for DCBs, 1 for LVRs)
+    - 108 TELL40 (54 on each side)
+
+:::
+:::
+
+\begin{tikzpicture}[relative to page]
+    \node[anchor=north,inner sep=0pt] at (page cs:0.02,-0.27) {
+        \includegraphics[width=8em]{./chapter/figs-ut-upgrade/online/pcie40.pdf}
+    };
+
+    \node[anchor=north,
+          draw=gray,rounded corners,
+          fill=gray,fill opacity=.22,text opacity=1,text=white
+        ]
+        at (page cs:0.02, -0.39) {\small\bfseries PCIe40};
+\end{tikzpicture}
+
+
+## The upgraded trigger scheme
+
+::: columns
+::: {.column width=45%}
+:::
+::: {.column width=55%}
+
+![](./chapter/figs-lhcb-upgrade-overview/trigger/data_path_cpu.pdf){ height=10em }
+![](./chapter/figs-lhcb-upgrade-overview/trigger/data_path_gpu.pdf){ height=10em }
+
+\tightmargin\small
+- Upgraded LHCb removes HW trigger
+- High-level SW triggers: HLT1 & HLT2
+- HLT1 processes w/ TELL40
+    - Each server host **3 TELL40s**
+    - **2 GPUs for HLT1**
+        - Ideally suited for track reco
+        - **Save** inter-communication **bandwidth**
+
+:::
+:::
+
+\begin{tikzpicture}[relative to page]
+    \node[anchor=north west,inner sep=0pt] at (page cs:-0.99,0.5) {
+        \includegraphics[height=13em]{./chapter/figs-lhcb-upgrade-overview/trigger/trigger_scheme_run2.pdf}
+    };
+    \node[anchor=north west,inner sep=0pt] at (page cs:-0.54,0.5) {
+        \includegraphics[height=13em]{./chapter/figs-lhcb-upgrade-overview/trigger/trigger_scheme_run3.pdf}
+    };
+
+    \node[anchor=north west,
+          draw=PepsiBlueLt,rounded corners,
+          fill=PepsiBlueLt,fill opacity=.22,text opacity=1,
+          text width=7em,align=center
+        ]
+        at (page cs:0.56, 0.39) {
+            \footnotesize 30x reduction in bandwidth
+        };
+\end{tikzpicture}
+
+
 ## The Upstream Tracker
+
+::: columns
+::: {.column width=50%}
+
+- Preliminary measurement of \RDX
+    - Introduction
+    - Event selection
+    - Trigger emulation for MC
+    - Data/MC corrections
+    - Fit
+    - Systematics (WIP)
+
+:::
+::: {.column width=50%}
+
+- The upgrade of the LHCb detector
+    - Overview of the LHCb upgrade
+    - **The Upstream Tracker**
+
+:::
+:::
+
+
+## Overview of the Upstream Tracker
 
 ::: columns
 ::: {.column width=60%}
@@ -2484,129 +2606,6 @@ TBD (3.07) & TBD (9.49) & TBD (-0.35) \\
 \end{tikzpicture}
 
 
-## The LHCb online system
-
-::: columns
-::: {.column width=50%}
-
-- Preliminary measurement of \RDX
-    - Introduction
-    - Event selection
-    - Trigger emulation for MC
-    - Data/MC corrections
-    - Fit
-    - Systematics (WIP)
-
-:::
-::: {.column width=50%}
-
-- Upgrade of the LHCb Upstream Tracker (UT)
-    - UT upgrade
-    - **The LHCb online system**
-
-:::
-:::
-
-
-## Overview of the online system
-
-::: columns
-::: {.column width=45%}
-
-![](./chapter/figs-ut-upgrade/online/lhcb_online_sys_overview.pdf)
-
-:::
-::: {.column width=55%}
-
-\tightmargin\small
-- The LHCb online system controls detector & filters events w/ software triggers
-    - Clock distribution
-    - Collect data readout from detector
-    - **Filter events w/ software triggers (HLT1 & HLT2)**
-    - **Provide initialization, control & monitoring of detector**
-
-:::
-:::
-
-\vspace{0.5em}
-::: columns
-::: {.column width=60%}
-
-\tightmargin\small
-- SODIN40, SOL40, TELL40 implemented w/ **single hardware: PCIe40**
-    - SODIN40: Clock distribution
-    - SOL40: Slow control & monitoring
-    - TELL40: Data collection
-
-- They differ in **firmware only**
-    - **Load firmware to do triple duty** $\rightarrow$ **MiniDAQ**
-
-
-:::
-::: {.column width=40%}
-
-\tightmargin\small
-- Example: the UT online system
-    - 7 SOL40 (6 for DCBs, 1 for LVRs)
-    - 108 TELL40 (54 on each side)
-
-:::
-:::
-
-\begin{tikzpicture}[relative to page]
-    \node[anchor=north,inner sep=0pt] at (page cs:0.02,-0.27) {
-        \includegraphics[width=8em]{./chapter/figs-ut-upgrade/online/pcie40.pdf}
-    };
-
-    \node[anchor=north,
-          draw=gray,rounded corners,
-          fill=gray,fill opacity=.22,text opacity=1,text=white
-        ]
-        at (page cs:0.02, -0.39) {\small\bfseries PCIe40};
-\end{tikzpicture}
-
-
-## The upgraded trigger scheme
-
-::: columns
-::: {.column width=45%}
-:::
-::: {.column width=55%}
-
-![](./chapter/figs-lhcb-upgrade-overview/trigger/data_path_cpu.pdf){ height=10em }
-![](./chapter/figs-lhcb-upgrade-overview/trigger/data_path_gpu.pdf){ height=10em }
-
-\tightmargin\small
-- Upgraded LHCb removes HW trigger
-- High-level SW triggers: HLT1 & HLT2
-- HLT1 processes w/ TELL40
-    - Each server host **3 TELL40s**
-    - **2 GPUs for HLT1**
-        - Ideally suited for track reco
-        - **Save** inter-communication **bandwidth**
-
-:::
-:::
-
-\begin{tikzpicture}[relative to page]
-    \node[anchor=north west,inner sep=0pt] at (page cs:-0.99,0.5) {
-        \includegraphics[height=13em]{./chapter/figs-lhcb-upgrade-overview/trigger/trigger_scheme_run2.pdf}
-    };
-    \node[anchor=north west,inner sep=0pt] at (page cs:-0.54,0.5) {
-        \includegraphics[height=13em]{./chapter/figs-lhcb-upgrade-overview/trigger/trigger_scheme_run3.pdf}
-    };
-
-    \node[anchor=north west,
-          draw=PepsiBlueLt,rounded corners,
-          fill=PepsiBlueLt,fill opacity=.22,text opacity=1,
-          text width=7em,align=center
-        ]
-        at (page cs:0.56, 0.39) {
-            \footnotesize 30x reduction in bandwidth
-        };
-\end{tikzpicture}
-
-
 ## DCB functionality validation & QA
 
 ::: columns
@@ -2628,7 +2627,7 @@ TBD (3.07) & TBD (9.49) & TBD (-0.35) \\
 - QA at Maryland: **reverse-engineered** a cli program to init & ctrl DCB in batch
     - `dcbutil.py write 1c 1 -g 3`
     - 270 produced & tested at Maryland
-- QA at CERN: write a one-click panel for test
+- QA at CERN: wrote a one-click panel for test
     - 260 shipped to CERN
     - QA'ed them all, ensure no damage in shipping
 
