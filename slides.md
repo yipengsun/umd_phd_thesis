@@ -34,7 +34,16 @@ classoption: "aspectratio=169,dvipsnames"
 :::
 
 <!-- Notes -->
+
 <!-- http://flavor.physics.umd.edu/manuelf/talks/21-05-05_manuelf_LFU_JHU_UMD_seminar_nobackup.pdf -->
+<!-- include trigger in selection slide -->
+
+<!-- fit model: put colors for fixed/free/constrained -->
+<!-- shpae variation: quantify lack of knowledge of shape -->
+<!-- shape sys impl as tmpl vars in fit -->
+<!-- Run 1 sys% recompute -->
+<!-- shape var -> quantify our ignorance of bkg shape + let the fit to pick the best params within our uncertainty to fit data best -->
+combine online + trigger, remove large description, remove hlt1 show
 
 
 ## Introduction
@@ -161,12 +170,12 @@ classoption: "aspectratio=169,dvipsnames"
 
 - This analysis: measuring \RDX w/ LHCb run 2 (2016--2018) data
     - 2016 only for now, but easy to expand
+- **4+ times larger data sample in run 2**
     - **1.7x intg. lumi.** (3.1 \ifb $\rightarrow$ 5.4 \ifb)
     - **1.8x prod. xsec.** (7 TeV $\rightarrow$ 13 TeV)
     - **More efficient triggers**
     - **1.26x sig-like events for 2016 alone**
       (1,734,133 $\rightarrow$ 2,178,793)
-    - **4+ times larger data sample in run 2**
 
 :::
 ::: {.column width=40%}
@@ -465,7 +474,7 @@ classoption: "aspectratio=169,dvipsnames"
 - More efficient at rejecting \pion (**main source of misID**)
 - Efficiency flat in \pt: **sig & norm have similar selection eff.**
   $\rightarrow$ **no bias** in selection & easier to model
-- Remaining misID effect (non-\muon misID'ed as \muon) modeled w/ a data ctrl sample (later)
+- Remaining misID effect (non-\muon misID'ed as \muon) modeled w/ a data ctrl sample
 
 
 ## Feed down from \Dstarp\muon and \Dstarz\muon
@@ -523,7 +532,7 @@ classoption: "aspectratio=169,dvipsnames"
 ::: {.column width=50%}
 
 - **Partially reco'ed bkgs** (final states w/ \DXmu + more)
-    - 4 $1P$ \Dstst
+    - Four $1P$ \Dstst
         - $B \rightarrow \Dstst (\rightarrow D^{0|*|**} (\rightarrow D^{0|*}\pi) \pi) l\neul$
     - Highly excited \Dstst (\Dstst heavy, $\Dstst_H$):
         - $B \rightarrow \Dstst_H (\rightarrow D^{0|*} \pi\pi) \mu\neum$
@@ -2648,9 +2657,15 @@ TBD (3.07) & TBD (9.49) & TBD (-0.35) \\
 
 ## Conclusion
 
-- Finished main framework for \RDX run 2 analysis
-    - Use 2016 data for now, portable for 2017 & 18
-    - Investigating fit stability problem
+- Implemented main framework for \RDX run 2 analysis
+    - Created infrastructure to handle large simulated sample
+    - Developed data/MC corrections
+    - Fitted 2016 data
+    - Have the capability of evaluating most systematics
+    - Next steps
+        - Further study of systematics & fit convergence
+        - Expand to 2017--2018 data
+
 - Major contribution to LHCb UT upgrade
     - DCB development & QA
     - Installation effort at CERN
