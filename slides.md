@@ -727,7 +727,7 @@ classoption: "aspectratio=169,dvipsnames"
     - $\mmSq \equiv (p_B - p_{D^{(*)}} - p_l)^2$
     - $\el$: lepton energy in $B$ rest frame
     - $q^2 \equiv (p_B - p_{D^{(*)}})^2$
-- Not known exactly in hadron colliders ($pp$ and $B$ momenta unknown)
+- Not known exactly in hadron colliders ($B$ momenta not known exactly)
     - Can be approximated with rest frame approximation (RFA)
 
 \vspace{-1em}
@@ -787,6 +787,122 @@ classoption: "aspectratio=169,dvipsnames"
 
 
 ## Rest frame approximation
+
+\tightmargin
+::: columns
+::: {.column width=50%}
+
+\small
+- $e^- e^+$ collider
+    - $\sqrt{s}$ at $\Upsilon(4S)$ resonance (~10.58 GeV)
+    - $B$ meson production: $e^- e^+ \rightarrow \Upsilon(4S) \rightarrow B \Bbar$
+    - Tag fully reco'ed $B$ meson, $B_\text{tag}$
+    - $p_{B_\text{sig}} = p_{e^-} + p_{e^+} - p_{B_\text{tag}}$
+
+\resizebox{\textwidth}{!}{
+\begin{tikzpicture}[particle/.style={draw, ->, >=stealth, thick}]
+    \node (a0) at (0, 0) {};
+    \node[right=2.5em of a0] (a1) {$e^+$};
+    \node[left=2.5em of a0] (a2) {$e^-$};
+
+    \coordinate[above=2em of a1] (b1);
+    \coordinate[below=2em of a2] (b2);
+
+    \coordinate[below left=0.5em and 2em of b2] (c1);
+    \node[below left=2em and 1em of b2, blue] (c2) {hadronic particles};
+    \coordinate[below left=2em and 1em of b2] (c3);
+
+    \node[left=2em of b1, gray] (d1) {$\overline\nu_\tau$};
+    \coordinate[above right=1.5em and 1.5em of b1] (d2);
+    \coordinate[below right=0.5em and 2.5em of b1] (d3);
+
+    \node[above left=0.5em and 1em of d2, gray] (e1) {$\overline\nu_l$};
+    \node[above right=0.7em and 0.4em of d2, gray] (e2) {$\nu_\tau$};
+    \node[above right=0.1em and 2.3em of d2, red] (e3) {$l^-$};
+
+    \coordinate[above right=0.2em and 1.2em of d3] (f1);
+    \coordinate[below right=1em and 0.4em of d3] (f3);
+
+    \draw [particle] (a1) -- (a0);
+    \draw [particle] (a2) -- (a0);
+
+    \draw [particle, dashed, red] (a0) -- (b1) node[midway, left, xshift=-5pt] {$B_\text{sig}$};
+    \draw [particle, dashed, blue] (a0) -- (b2) node[midway, left, xshift=-5pt] {$B_\text{tag}$};
+
+    \draw [particle, blue] (b2) -- (c1);
+    \draw [particle, blue] (b2) -- (c2);
+    \draw [particle, blue] (b2) -- (c3);
+
+    \draw [particle, gray] (b1) -- (d1);
+    \draw [particle, red, dashed] (b1) -- (d2) node[midway, left] {$\tau^-$};
+    \draw [particle, red, dashed] (b1) -- (d3) node[midway, below] {$D^0$};
+
+    \draw[particle, gray] (d2) -- (e1);
+    \draw[particle, gray] (d2) -- (e2);
+    \draw[particle, red] (d2) -- (e3);
+
+    \draw[particle, red] (d3) -- (f1);
+    \draw[particle, red] (d3) -- (f3);
+\end{tikzpicture}
+}
+
+:::
+::: {.column width=50%}
+
+\small
+- $pp$ collider
+    - $\sqrt{s} \gg \Upsilon(4S)$ resonance (13 TeV)
+    - $B$ meson production:
+      $\text{partons} \rightarrow \bbbar \rightarrow B\Bbar$
+        - $p_\text{partons}$ unknown
+    - $B$ **vertex known to high precision**
+        - **Visible** part of $B$: $m_\text{vis}$, $p_\text{vis}$
+        - Angle between $B$ flight dir & $p_\text{vis}$: $\alpha$
+        - Assume $(p_B)_z = (p_\text{vis})_z$
+        - $|p_B| = \frac{m_B}{m_\text{vis}} (p_\text{vis})_z \frac{1}{\cos\alpha}$
+
+\resizebox{0.8\textwidth}{!}{
+\begin{tikzpicture}[particle/.style={draw, ->, >=stealth, thick}]
+    \node (a0) at (0, 0) {};
+    \node[right=2.5em of a0] (a1) {$p$};
+    \node[left=2.5em of a0] (a2) {$p$};
+
+    \coordinate[above=2em of a1] (b1);
+    \coordinate[below=2em of a2] (b2);
+    \coordinate[below=0.9em of b1] (b3);
+
+    \node[left=2em of b1, gray] (d1) {$\overline\nu_\tau$};
+    \coordinate[above right=1.5em and 1.5em of b1] (d2);
+    \coordinate[below right=0.5em and 2.5em of b1] (d3);
+
+    \node[above left=0.5em and 1em of d2, gray] (e1) {$\overline\nu_l$};
+    \node[above right=0.7em and 0.4em of d2, gray] (e2) {$\nu_\tau$};
+    \node[above right=0.1em and 2.3em of d2, red] (e3) {$l^-$};
+
+    \coordinate[above right=0.2em and 1.2em of d3] (f1);
+    \coordinate[below right=1em and 0.4em of d3] (f3);
+
+    \draw [particle] (a1) -- (a0);
+    \draw [particle] (a2) -- (a0);
+
+    \draw [particle, orange] (a0) -- (b1) node[midway, left, xshift=-5pt] {$B$ flight dir};
+    \draw [particle, red] (a0) -- (b3) node[midway, right, xshift=5pt] {visible};
+
+    \draw [particle, gray] (b1) -- (d1);
+    \draw [particle, red, dashed] (b1) -- (d2) node[midway, left] {$\tau^-$};
+    \draw [particle, red, dashed] (b1) -- (d3) node[midway, above, xshift=6pt] {$D^0$};
+
+    \draw[particle, gray] (d2) -- (e1);
+    \draw[particle, gray] (d2) -- (e2);
+    \draw[particle, red] (d2) -- (e3);
+
+    \draw[particle, red] (d3) -- (f1);
+    \draw[particle, red] (d3) -- (f3);
+\end{tikzpicture}
+}
+
+:::
+:::
 
 
 ## Trigger emulation for MC
@@ -2489,12 +2605,6 @@ TBD (3.07) & TBD (9.49) & TBD (-0.35) \\
 
 
 ## MisID background
-
-
-## \BComb (\DXmu comb)
-
-
-## \DstComb ($\Dz\pi$ comb)
 
 
 ## Relevant form factor parameterizations
