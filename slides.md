@@ -898,6 +898,11 @@ classoption: "aspectratio=169,dvipsnames"
 
     \draw[particle, red] (d3) -- (f1);
     \draw[particle, red] (d3) -- (f3);
+
+    \draw pic["\tiny$\textcolor{blue}{\alpha}$",
+              draw=blue,thick,-,angle eccentricity=1.6,angle radius=18pt,
+              fill=blue,fill opacity=.5,text opacity=1]
+        {angle=b3--a0--b1};
 \end{tikzpicture}
 }
 
@@ -2665,12 +2670,6 @@ TBD (3.07) & TBD (9.49) & TBD (-0.35) \\
             \tiny approximately
         };
 \end{tikzpicture}
-
-
-## FF parameters for \Dz & \Dstar
-
-
-## FF parameters for \Dstst
 
 
 ## Fit result: $D^0$ 1OS
