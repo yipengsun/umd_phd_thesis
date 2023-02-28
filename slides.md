@@ -788,7 +788,7 @@ classoption: "aspectratio=169,dvipsnames"
 
 ## Rest frame approximation
 
-\tightmargin
+\tightmargin\vspace{-1em}
 ::: columns
 ::: {.column width=50%}
 
@@ -857,14 +857,15 @@ classoption: "aspectratio=169,dvipsnames"
         - $p_\text{partons}$ unknown
     - $B$ **vertex known to high precision**
         - **Visible** part of $B$: $m_\text{vis}$, $p_\text{vis}$
-        - Angle between $B$ flight dir & $p_\text{vis}$: $\alpha$
-        - Assume $(p_B)_z = (p_\text{vis})_z$
-        - $|p_B| = \frac{m_B}{m_\text{vis}} (p_\text{vis})_z \frac{1}{\cos\alpha}$
+        - Angle between $B$ flight dir & $z$ axis: $\alpha$
+        - Assume: proper velocity ($\gamma\beta$) the same in $z$ for $B$ and vis
+          $\rightarrow$ $(p_B)_z = \frac{m_B}{m_\text{vis}}(p_\text{vis})_z$
+    - $|p_B| = \frac{m_B}{m_\text{vis}} (p_\text{vis})_z \sqrt{1 + \tan^2\alpha}$
 
-\resizebox{0.8\textwidth}{!}{
+\resizebox{0.75\textwidth}{!}{
 \begin{tikzpicture}[particle/.style={draw, ->, >=stealth, thick}]
     \node (a0) at (0, 0) {};
-    \node[right=2.5em of a0] (a1) {$p$};
+    \node[right=2.5em of a0] (a1) {$p$ ($z$ axis)};
     \node[left=2.5em of a0] (a2) {$p$};
 
     \coordinate[above=2em of a1] (b1);
@@ -886,7 +887,7 @@ classoption: "aspectratio=169,dvipsnames"
     \draw [particle] (a2) -- (a0);
 
     \draw [particle, orange] (a0) -- (b1) node[midway, left, xshift=-5pt] {$B$ flight dir};
-    \draw [particle, red] (a0) -- (b3) node[midway, right, xshift=5pt] {visible};
+    \draw [particle, red] (a0) -- (b3) node[midway, right, xshift=8pt] {visible};
 
     \draw [particle, gray] (b1) -- (d1);
     \draw [particle, red, dashed] (b1) -- (d2) node[midway, left] {$\tau^-$};
@@ -900,9 +901,9 @@ classoption: "aspectratio=169,dvipsnames"
     \draw[particle, red] (d3) -- (f3);
 
     \draw pic["\tiny$\textcolor{blue}{\alpha}$",
-              draw=blue,thick,-,angle eccentricity=1.6,angle radius=18pt,
+              draw=blue,thick,-,angle eccentricity=1.3,angle radius=18pt,
               fill=blue,fill opacity=.5,text opacity=1]
-        {angle=b3--a0--b1};
+        {angle=a1--a0--b1};
 \end{tikzpicture}
 }
 
