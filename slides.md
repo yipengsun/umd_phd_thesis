@@ -111,10 +111,14 @@ classoption: "aspectratio=169,dvipsnames"
 :::
 ::: {.column width=50%}
 
+\only<2>{
 \small
-- **Matrix element** of $B \rightarrow D l \neul$ processes factorizable:
 
-\vspace{-2em}
+\begin{itemize}
+\item \textbf{Matrix element} of $B \rightarrow D l \neul$ processes factorizable:
+\end{itemize}
+
+\vspace{-1.5\baselineskip}
 \tiny
 \begin{equation*}
     \mathcal{M}^{\lambda_l}_{\lambda_D}(q^2, \theta_l) =
@@ -123,17 +127,25 @@ classoption: "aspectratio=169,dvipsnames"
     \textcolor{Red}{L^{\lambda_l}_{\lambda_W}(q^2, \theta_l)}
     \textcolor{Green}{H^{\lambda_D}_{\lambda_W}(q^2)}
 \end{equation*}
-\vspace{-3em}\small
+\vspace{-1.5\baselineskip}\small
 
-- **\textcolor{Red}{Leptonic currents}** analytically calculable
-- **\textcolor{Green}{Hadronic currents}** involves non-perturbative QCD
-  $\rightarrow$ can't calculate exactly
-    - **Expressed as form factors (FFs)**,
-      **parameterized & constrained** based on
-        - Dispersion relations (first principle)
-        - Heavy Quark Effective Theory (HQET)
-    - Numerical values of FF params obtained w/ **lattice QCD computation
-      & fit to data**
+\begin{itemize}
+\item \textbf{\textcolor{Red}{Leptonic currents}} analytically calculable
+\item \textbf{\textcolor{Green}{Hadronic currents}} involves non-perturbative QCD
+      $\rightarrow$ can't calculate exactly
+
+    \begin{itemize}
+    \item \textbf{Expressed as form factors (FFs), parameterized \& constrained} based on
+        \vspace{-\baselineskip}
+        \begin{itemize}
+        \item Dispersion relations (first principle)
+        \item Heavy Quark Effective Theory (HQET)
+        \end{itemize}
+
+    \item Numerical values of FF params obtained w/ \textbf{lattice QCD computation \& fit to data}
+    \end{itemize}
+\end{itemize}
+}
 
 :::
 :::
