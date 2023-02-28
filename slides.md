@@ -1032,66 +1032,6 @@ classoption: "aspectratio=169,dvipsnames"
 <!-- This looks like a covariance matrix problem! -->
 
 
-## Relevant form factor parameterizations
-
-\tightmargin
-
-::: columns
-::: {.column width=50%}
-
-\small
-- ISGW2
-    - Fully predictive
-        - **No free parameter**
-    - \textbf{Doesn't describe data well}
-- CLN
-    - Based on BGL, \textbf{apply HQET to reduce num of params}
-        - \Dz: **3 params**
-        - \Dstar: **5 params**
-    - Some parameters too closely cross-constrained
-
-:::
-::: {.column width=50%}
-
-\small
-- BGL
-    - Based on dispersion relations
-        - \Dz: **5 params**
-        - \Dstar: **10 params**
-    - Analytically continue FFs as complex functions $\rightarrow$ expandable
-    - \textbf{Model independent} until truncate series
-    - \textbf{Many free parameters} restricted from lattice QCD + data
-- BLR
-    - Apply HQET to \Dstst
-        - $D^{1/2+} (D^*_0, D'_1)$: **3 params**, 1 overall norm
-        - $D^{3/2+} (D_1, D^*_2)$: **4 params**, 1 overall norm
-    - \textbf{Offer parameters fitted from data}
-
-:::
-:::
-
-\begin{tikzpicture}[relative to page]
-    \node[anchor=north west,
-          execute at begin node=\setlength{\baselineskip}{7pt},
-          draw=PepsiBlueLt,rounded corners,
-          fill=PepsiBlueLt,fill opacity=.22,text opacity=1,
-          text width=15em,align=center
-        ]
-        at (page cs:-0.95, -0.53) {
-            \footnotesize Only ISGW2 \& CLN implemented in MC simulation program \texttt{EvtGen}
-        };
-
-    \node[anchor=north west,
-          execute at begin node=\setlength{\baselineskip}{7pt},
-          draw=PepsiBlueLt,rounded corners,
-          fill=PepsiBlueLt,fill opacity=.22,text opacity=1,
-        ]
-        at (page cs:0.67, -0.38) {
-            \tiny approximately
-        };
-\end{tikzpicture}
-
-
 ## Form factor reweighting
 
 - **Change FF parameterization** $\xleftrightarrow{\text{\bfseries equivalent}}$ **reweighting**
@@ -2555,6 +2495,66 @@ TBD (3.07) & TBD (9.49) & TBD (-0.35) \\
 
 
 ## \DstComb ($\Dz\pi$ comb)
+
+
+## Relevant form factor parameterizations
+
+\tightmargin
+
+::: columns
+::: {.column width=50%}
+
+\small
+- ISGW2
+    - Fully predictive
+        - **No free parameter**
+    - \textbf{Doesn't describe data well}
+- CLN
+    - Based on BGL, \textbf{apply HQET to reduce num of params}
+        - \Dz: **3 params**
+        - \Dstar: **5 params**
+    - Some parameters too closely cross-constrained
+
+:::
+::: {.column width=50%}
+
+\small
+- BGL
+    - Based on dispersion relations
+        - \Dz: **5 params**
+        - \Dstar: **10 params**
+    - Analytically continue FFs as complex functions $\rightarrow$ expandable
+    - \textbf{Model independent} until truncate series
+    - \textbf{Many free parameters} restricted from lattice QCD + data
+- BLR
+    - Apply HQET to \Dstst
+        - $D^{1/2+} (D^*_0, D'_1)$: **3 params**, 1 overall norm
+        - $D^{3/2+} (D_1, D^*_2)$: **4 params**, 1 overall norm
+    - \textbf{Offer parameters fitted from data}
+
+:::
+:::
+
+\begin{tikzpicture}[relative to page]
+    \node[anchor=north west,
+          execute at begin node=\setlength{\baselineskip}{7pt},
+          draw=PepsiBlueLt,rounded corners,
+          fill=PepsiBlueLt,fill opacity=.22,text opacity=1,
+          text width=15em,align=center
+        ]
+        at (page cs:-0.95, -0.53) {
+            \footnotesize Only ISGW2 \& CLN implemented in MC simulation program \texttt{EvtGen}
+        };
+
+    \node[anchor=north west,
+          execute at begin node=\setlength{\baselineskip}{7pt},
+          draw=PepsiBlueLt,rounded corners,
+          fill=PepsiBlueLt,fill opacity=.22,text opacity=1,
+        ]
+        at (page cs:0.67, -0.38) {
+            \tiny approximately
+        };
+\end{tikzpicture}
 
 
 ## FF parameters for \Dz & \Dstar
