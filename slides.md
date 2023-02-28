@@ -788,7 +788,7 @@ classoption: "aspectratio=169,dvipsnames"
 
 ## Rest frame approximation
 
-\tightmargin\vspace{-1em}
+\tightmargin\vspace{-0.5em}
 ::: columns
 ::: {.column width=50%}
 
@@ -909,6 +909,27 @@ classoption: "aspectratio=169,dvipsnames"
 
 :::
 :::
+
+\begin{tikzpicture}[relative to page]
+    \node (recNW) at (page cs:-0.99, 0.78) {};
+    \node (recSE) at (page cs:-0.02, -0.98) {};
+    \draw<2>[fill=white,white] (recNW) rectangle (recSE);
+
+    \node<2>[anchor=north,inner sep=0pt] at (page cs: -0.49,0.65) {
+        \includegraphics[width=20em]{./slides-figures/rfa_resolution.pdf}
+    };
+
+    \node<2>[anchor=north,
+          execute at begin node=\setlength{\baselineskip}{7pt},
+          draw=PepsiBlueLt,rounded corners,
+          fill=PepsiBlueLt,fill opacity=.22,text opacity=1,
+          text width=18em,
+        ]
+        at (page cs:-0.46, -0.53) {
+            \small LHCb resolution worse than $B$ factories
+            $\rightarrow$ RFA resolution don't matter much as long as well-behaved
+        };
+\end{tikzpicture}
 
 
 ## Trigger emulation for MC
