@@ -765,17 +765,14 @@ classoption: "aspectratio=169,dvipsnames"
 
 ## Key kinematic variables: \mmSq, \el, \qSq
 
-\vspace{-2em}
 \small
 
 - Take advantage of \mmSq, \el, \qSq to separate sig, norm, and bkgs
     - $\mmSq \equiv (p_B - p_{D^{(*)}} - p_l)^2$
     - $\el$: lepton energy in $B$ rest frame
     - $q^2 \equiv (p_B - p_{D^{(*)}})^2$
-- Not known exactly in hadron colliders ($B$ momenta not known exactly)
-    - Can be approximated with rest frame approximation (RFA)
 
-\vspace{-1em}
+\vspace{-0.8em}
 ::: columns
 ::: {.column width=33%}
 ![](./section/figs-fit-fit-templates/histo-comp/D0_iso_D0Tau__vs__D0_iso_D0Mu__vs__D0_iso_DstMu__vs__D0_iso_Dst0Mu__m2miss.pdf)
@@ -788,37 +785,41 @@ classoption: "aspectratio=169,dvipsnames"
 :::
 :::
 
+\vspace{2.5em}
+- Not known exactly in hadron colliders ($B$ momenta not known exactly)
+    - Can be approximated with rest frame approximation (RFA)
+
 \begin{tikzpicture}[relative to page]
     \node[anchor=north west,
           draw=PepsiBlueLt,rounded corners,
           fill=PepsiBlueLt,fill opacity=.22,text opacity=1
         ]
-        at (page cs:0.02, 0.52) {These are fit variables!};
+        at (page cs:0.02, 0.575) {These are fit variables!};
 
     \node[anchor=north west,
           draw=PepsiBlueLt,rounded corners,
           fill=PepsiBlueLt,fill opacity=.22,text opacity=1
         ]
-        at (page cs:-0.52, 0.04) {\footnotesize \mmSq};
+        at (page cs:-0.515, 0.30) {\footnotesize \mmSq};
 
     \node[anchor=north west,
           draw=PepsiBlueLt,rounded corners,
           fill=PepsiBlueLt,fill opacity=.22,text opacity=1
         ]
-        at (page cs:0.18, 0.04) {\footnotesize \el};
+        at (page cs:0.175, 0.30) {\footnotesize \el};
 
     \node[anchor=north west,
           draw=PepsiBlueLt,rounded corners,
           fill=PepsiBlueLt,fill opacity=.22,text opacity=1
         ]
-        at (page cs:0.41, 0.04) {\footnotesize \qSq};
+        at (page cs:0.41, 0.30) {\footnotesize \qSq};
 
     \node[anchor=north,
           draw=PepsiBlueLt,rounded corners,
           fill=PepsiBlueLt,fill opacity=.22,text opacity=1,
           text width=30em
         ]
-        at (page cs:00, -0.70) {
+        at (page cs:00, -0.44) {
             \footnotesize
             $\textcolor{blue}{\Bm \rightarrow \Dz\taum\neutb}$
             vs
@@ -827,6 +828,7 @@ classoption: "aspectratio=169,dvipsnames"
             $\textcolor{orange}{\Bzb \rightarrow \Dstarp\mun\neumb}$ feed down
             vs
             $\textcolor{gray}{\Bm \rightarrow \Dstarz\mun\neumb}$ feed down
+            (RFA)
         };
 \end{tikzpicture}
 
