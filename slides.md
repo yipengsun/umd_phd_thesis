@@ -1423,44 +1423,87 @@ classoption: "aspectratio=169,dvipsnames"
 ::: {.column width=65%}
 
 \tightmargin
-- **Binned maximum likelihood fit**
-    - Fit vars: \mmSq, \el, \qSq
-    - **Norm, sig, bkgs represented by fit templates**
-        - 3D histos, correlation-preserving
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Binned maximum likelihood fit}
 
-- Fit control skims (1OS, 2OS, DD) **first**
-    - 3 control skims per channel $\rightarrow$ **simultaneous fit to 6 datasets**
-    - **Derive shape correction params for bkgs**
-        - FF variations (5) & data-driven corrections (12)
+  \begin{itemize}
+  \tightlist
+  \item
+    Fit vars: \mmSq, \el, \qSq
+  \item
+    \textbf{Norm, sig, bkgs represented by fit templates}
 
-- Fit signal skim (ISO)
-    - **Simultaneous fit to \Dz & \Dstar ISO skim**
-    - **Load bkg shape correction params** as constraints or fully fixed
-        - **They can't be determined precisely in sig fit**
-        - Compared to **\textcolor{Red}{nominal fit}**,
-          **\textcolor{Green}{fit w/ 1 add. $DDX$ param floating}** has smaller pulls
-          but drives signal yield to 0
+    \begin{itemize}
+    \tightlist
+    \item
+      3D histos, correlation-preserving
+    \end{itemize}
+  \end{itemize}
+\item<2->
+  Fit control skims (1OS, 2OS, DD) \textbf{first}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    3 control skims per channel \(\rightarrow\) \textbf{simultaneous fit
+    to 6 datasets}
+  \item
+    \textbf{Derive shape correction params for bkgs}
+
+    \begin{itemize}
+    \tightlist
+    \item
+      FF variations (5) \& data-driven corrections (12)
+    \end{itemize}
+  \end{itemize}
+\item<3->
+  Fit signal skim (ISO)
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \textbf{Simultaneous fit to \Dz \& \Dstar ISO skim}
+  \item
+    \textbf{Load bkg shape correction params} as constraints or fully
+    fixed
+
+    \begin{itemize}
+    \tightlist
+    \item
+      \textbf{They can't be determined precisely in sig fit}
+    \item
+      Compared to \textbf{\textcolor{Red}{nominal fit}},
+      \textbf{\textcolor{Green}{fit w/ 1 add. $DDX$ param floating}} has
+      smaller pulls but drives signal yield to 0
+    \end{itemize}
+  \end{itemize}
+\end{itemize}
 
 :::
 ::: {.column width=30%}
 
+\visible<3->{
 \vspace{1.1em}
-![](./chapter/figs-fit/fit_uvsd/fit_result-stacked-Dst-iso-q2.pdf)
 
-![](./chapter/figs-fit/fit_uvsd/fit_result-stacked-Dst-iso-q2-floating_uvsd.pdf)
+\includegraphics{./chapter/figs-fit/fit_uvsd/fit_result-stacked-Dst-iso-q2.pdf}
+
+\includegraphics{./chapter/figs-fit/fit_uvsd/fit_result-stacked-Dst-iso-q2-floating_uvsd.pdf}
+}
 
 :::
 :::
 
 \begin{tikzpicture}[relative to page]
-    \node[anchor=north,
+    \node<3->[anchor=north,
           draw=Red,rounded corners,
           fill=Red,fill opacity=.22,text opacity=1,
           inner sep=2pt
         ]
         at (page cs:0.66, 0.72) {\tiny Nominal fit for \Dstar ISO};
 
-    \node[anchor=north,
+    \node<3->[anchor=north,
           execute at begin node=\setlength{\baselineskip}{6pt},
           draw=Green,rounded corners,
           fill=Green,fill opacity=.22,text opacity=1,
