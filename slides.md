@@ -1025,7 +1025,7 @@ classoption: "aspectratio=169,dvipsnames"
     - **~85% computation time** spent on RICH and calorimeters
       $\rightarrow$ **~8x faster** turning them off
     - Requested ~7.3B MC (run 1: ~1B), w/ **~1,679M on disk** (run 1: ~65M)
-        - Huge problem logistically
+        - Huge challenge logistically
 - Use **Tracker-only (TO) MC** $\rightarrow$ **only tracking system turned on**
     - Triggers rely on calorimeters $\rightarrow$ **emulate trigger offline**
 
@@ -1138,93 +1138,94 @@ classoption: "aspectratio=169,dvipsnames"
 ## Procedure overview
 
 \tightmargin\small
-#. Apply known corrections (**initial reweighting**)
+@. Apply known corrections (**initial reweighting**)
     - **\textcolor{PepsiBlueLt}{Tracking efficiency}**
     - **\textcolor{PepsiRed}{$B$ kinematic and multiplicity}**
-#. **Update MC FF parameterizations** for \Dz, \Dstar, \Dstst
-#. Perform a fit to estimate yields of sig, norm, & bkgs
-#. Correct add. kinematic & geometric vars in low-\mmSq region (**final reweighting**)
+
+\vspace{11em}
+@. **Update MC FF parameterizations** for \Dz, \Dstar, \Dstst
+@. Perform a fit to estimate yields of sig, norm, & bkgs
+@. Correct add. kinematic & geometric vars in low-\mmSq region (**final reweighting**)
     - Enriched in **norm decays** ($B \rightarrow D^{(*)}\mu\neum$)
     - Diff. in that region due to **modelling of detector effects**
-\vspace{11em}
-
 
 \begin{tikzpicture}[relative to page]
     % Tracking
-    \node (trkNW) at (page cs:-0.96,-0.05) {};
-    \node (trkSE) at (page cs:-0.02,-0.95) {};
+    \node (trkNW) at (page cs:-0.91,0.44) {};
+    \node (trkSE) at (page cs:-0.02,-0.46) {};
 
-    \draw[PepsiBlueLt,ultra thick] (trkNW) rectangle (trkSE);
+    \draw[PepsiBlueLt,ultra thick] (trkNW) rectangle (trkSE) node[pos=.5] (trkCtn) {};
+    \node[xshift=-2pt,yshift=-7pt,inner sep=0pt] (trkFig) at (trkCtn) {
+        \includegraphics[width=0.44\textwidth]{./chapter/figs-mc-correction/reweighting-tracking/tracking_eff_2016.pdf}
+    };
+    % Remarks
+    \node[draw=PepsiBlueLt,rounded corners,
+          fill=PepsiBlueLt,fill opacity=.22,text opacity=1,
+        ]
+        at (trkFig) {
+        \tiny $\epsilon(\text{tracking, data}) / \epsilon(\text{tracking, MC})$
+        };
+    \draw[PepsiBlueLt,ultra thick] (trkNW) rectangle (trkSE) node[pos=.5] (trkCtn) {};
     \node[anchor=north west,fill=PepsiBlueLt,text=white,inner sep=3pt] (trkTitle) at (trkNW) {
         \scriptsize\bfseries Tracking efficiency
     };
-    \node[anchor=north,inner sep=0pt] at (page cs:-0.49,-0.19) {
-        \includegraphics[width=0.42\textwidth]{./chapter/figs-mc-correction/reweighting-tracking/tracking_eff_2016.pdf}
+    \node[anchor=north west,fill=PepsiBlueLt,text=white,inner sep=3pt] (trkTitle) at (trkNW) {
+        \scriptsize\bfseries Tracking efficiency
     };
 
-    % B prod kinematics
-    \node (prodNW) at (page cs:0.02,-0.05) {};
-    \node (prodSE) at (page cs:0.96,-0.95) {};
-
-    \draw[PepsiRed,ultra thick] (prodNW) rectangle (prodSE);
-    \node[anchor=north west,fill=PepsiRed,text=white,inner sep=3pt] (trkTitle) at (prodNW) {
-        \scriptsize\bfseries $B$ kinematics and multiplicity
-    };
-    \node[anchor=north,inner sep=0pt] at (page cs:0.24,-0.53) {
-        \includegraphics[width=0.17\textwidth]{./chapter/figs-mc-correction/reweighting-JpsiK/reweight-JpsiK/b_pt.pdf}
-    };
-    \node[anchor=north,inner sep=0pt] at (page cs:0.74,-0.53) {
-        \includegraphics[width=0.17\textwidth]{./chapter/figs-mc-correction/reweighting-JpsiK/reweight-JpsiK/b_eta.pdf}
-    };
-
-    \node[anchor=north,inner sep=0pt] at (page cs:0.24,-0.155) {
-        \includegraphics[width=0.17\textwidth]{./chapter/figs-mc-correction/reweighting-JpsiK/reweight-JpsiK/ntracks.pdf}
-    };
-    \node[anchor=north,inner sep=0pt] at (page cs:0.74,-0.155) {
-        \includegraphics[width=0.17\textwidth]{./chapter/figs-mc-correction/reweighting-JpsiK/reweight-JpsiK/b_ownpv_ndof.pdf}
-    };
-
-    % Remarks
-    \node[anchor=north,
-          execute at begin node=\setlength{\baselineskip}{7pt},
-          draw=PepsiBlueLt,rounded corners,
-          fill=PepsiBlueLt,fill opacity=.22,text opacity=1,
-        ]
-        at (page cs:-0.49, -0.49) {
-        \tiny $\epsilon(\text{tracking, data}) / \epsilon(\text{tracking, MC})$
-        };
-
-    \node[anchor=north,
-          execute at begin node=\setlength{\baselineskip}{7pt},
-          draw=PepsiRed,rounded corners,
-          fill=PepsiRed,fill opacity=.22,text opacity=1,
-          inner sep=2pt
-        ]
-        at (page cs:0.31, -0.29) {\tiny nTracks};
-
-    \node[anchor=north,
-          execute at begin node=\setlength{\baselineskip}{7pt},
-          draw=PepsiRed,rounded corners,
-          fill=PepsiRed,fill opacity=.22,text opacity=1,
-          inner sep=2pt
-        ]
-        at (page cs:0.78, -0.29) {\tiny PV NDOF};
-
-    \node[anchor=north,
-          execute at begin node=\setlength{\baselineskip}{7pt},
-          draw=PepsiRed,rounded corners,
-          fill=PepsiRed,fill opacity=.22,text opacity=1,
-          inner sep=2pt
-        ]
-        at (page cs:0.28, -0.66) {\tiny $B$ \pt};
-
-    \node[anchor=north,
-          execute at begin node=\setlength{\baselineskip}{7pt},
-          draw=PepsiRed,rounded corners,
-          fill=PepsiRed,fill opacity=.22,text opacity=1,
-          inner sep=2pt
-        ]
-        at (page cs:0.82, -0.66) {\tiny $B$ $\eta$};
+%    % B prod kinematics
+%    \node (prodNW) at (page cs:0.02,-0.05) {};
+%    \node (prodSE) at (page cs:0.96,-0.95) {};
+%
+%    \draw[PepsiRed,ultra thick] (prodNW) rectangle (prodSE);
+%    \node[anchor=north west,fill=PepsiRed,text=white,inner sep=3pt] (trkTitle) at (prodNW) {
+%        \scriptsize\bfseries $B$ kinematics and multiplicity
+%    };
+%    \node[anchor=north,inner sep=0pt] at (page cs:0.24,-0.53) {
+%        \includegraphics[width=0.17\textwidth]{./chapter/figs-mc-correction/reweighting-JpsiK/reweight-JpsiK/b_pt.pdf}
+%    };
+%    \node[anchor=north,inner sep=0pt] at (page cs:0.74,-0.53) {
+%        \includegraphics[width=0.17\textwidth]{./chapter/figs-mc-correction/reweighting-JpsiK/reweight-JpsiK/b_eta.pdf}
+%    };
+%
+%    \node[anchor=north,inner sep=0pt] at (page cs:0.24,-0.155) {
+%        \includegraphics[width=0.17\textwidth]{./chapter/figs-mc-correction/reweighting-JpsiK/reweight-JpsiK/ntracks.pdf}
+%    };
+%    \node[anchor=north,inner sep=0pt] at (page cs:0.74,-0.155) {
+%        \includegraphics[width=0.17\textwidth]{./chapter/figs-mc-correction/reweighting-JpsiK/reweight-JpsiK/b_ownpv_ndof.pdf}
+%    };
+%    % Remarks
+%    \node[anchor=north,
+%          execute at begin node=\setlength{\baselineskip}{7pt},
+%          draw=PepsiRed,rounded corners,
+%          fill=PepsiRed,fill opacity=.22,text opacity=1,
+%          inner sep=2pt
+%        ]
+%        at (page cs:0.31, -0.29) {\tiny nTracks};
+%
+%    \node[anchor=north,
+%          execute at begin node=\setlength{\baselineskip}{7pt},
+%          draw=PepsiRed,rounded corners,
+%          fill=PepsiRed,fill opacity=.22,text opacity=1,
+%          inner sep=2pt
+%        ]
+%        at (page cs:0.78, -0.29) {\tiny PV NDOF};
+%
+%    \node[anchor=north,
+%          execute at begin node=\setlength{\baselineskip}{7pt},
+%          draw=PepsiRed,rounded corners,
+%          fill=PepsiRed,fill opacity=.22,text opacity=1,
+%          inner sep=2pt
+%        ]
+%        at (page cs:0.28, -0.66) {\tiny $B$ \pt};
+%
+%    \node[anchor=north,
+%          execute at begin node=\setlength{\baselineskip}{7pt},
+%          draw=PepsiRed,rounded corners,
+%          fill=PepsiRed,fill opacity=.22,text opacity=1,
+%          inner sep=2pt
+%        ]
+%        at (page cs:0.82, -0.66) {\tiny $B$ $\eta$};
 \end{tikzpicture}
 
 <!-- A two-track vertex has one degree of freedom. A three-track vertex has three degrees of freedom.  -->
