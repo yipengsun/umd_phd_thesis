@@ -163,7 +163,7 @@ classoption: "aspectratio=169,dvipsnames"
 
 ::: columns
 ::: {.column width=70%}
-![](./slides-figures/the_lhc.png)
+![](./slides-figures/cern_lhc_full.jpg)
 :::
 ::: {.column width=30%}
 
