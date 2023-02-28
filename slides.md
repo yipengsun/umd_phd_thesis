@@ -2007,74 +2007,6 @@ $$
 \end{tikzpicture}
 
 
-## Fitted yields
-
-\vspace{0.5em}
-\begin{table}[H]
-\centering
-
-\begin{subtable}[b]{0.5\textwidth}
-    \centering
-
-\begin{tabular}[b]{lr}
-\hline
-\bfseries  Group               &    \bfseries Yields \\
-\hline
- norm. ($D^0\mu$)    &   445,095 \\
- norm. ($D^{*+}\mu$) &   115,124 \\
- norm. ($D^{*0}\mu$) & 1,176,363 \\
- sig.                & \colorbox{black}{XXX} \\
- $D^{**}$            &   167,968 \\
- $D^{**}$ heavy      &    38,147 \\
- $D_s$               &     5,285 \\
- $DD$                &    96,236 \\
- comb. bkg.          &    20,596 \\
- misID               &    56,596 \\
-\hline
-\end{tabular}
-\end{subtable}%
-%%%%
-\begin{subtable}[b]{0.5\textwidth}
-    \centering
-
-\begin{tabular}[b]{lr}
-\hline
-\bfseries Group               &   \bfseries Yields \\
-\hline
- norm. ($D^{*+}\mu$) &  427,783 \\
- sig.                & \colorbox{black}{XXX} \\
- $D^{**}$            &   37,181 \\
- $D^{**}$ heavy      &   12,804 \\
- $D_s$               &    3,730 \\
- $DD$                &   33,588 \\
- comb. bkg.          &   16,906 \\
- misID               &    8,175 \\
-\hline
-\end{tabular}
-\end{subtable}
-
-\end{table}
-
-\begin{tikzpicture}[relative to page]
-    \node[anchor=north,
-          draw=PepsiBlueLt,rounded corners,
-          fill=PepsiBlueLt,fill opacity=.22,text opacity=1,
-        ]
-        at (page cs:-0.45, -0.74) {\scriptsize \Dz channel};
-    \node[anchor=north,
-          draw=PepsiBlueLt,rounded corners,
-          fill=PepsiBlueLt,fill opacity=.22,text opacity=1,
-        ]
-        at (page cs:0.45, -0.74) {\scriptsize \Dstar channel};
-
-    \node[anchor=north,
-          draw=PepsiBlueLt,rounded corners,
-          fill=PepsiBlueLt,fill opacity=.22,text opacity=1,
-        ]
-        at (page cs:-0.45, 0.74) {\scriptsize Analysis blinded};
-\end{tikzpicture}
-
-
 ## Systematics (WIP)
 \addcontentsline{toc}{chapter}{Systematics (WIP)}
 
@@ -2165,17 +2097,11 @@ $\mathcal{B}(\taum \rightarrow \mun\neumb\neut)$
 1.00 (1.00) \\
 \midrule
 %%%%
-Raw uncertainty reported by the fit\parnote{
-    This includes the data statistical uncertainty and the additive
-    systematics without the asterisk (*).
-} &
-2.05 & 6.26 & -0.71 \\
-%%%%
 Total systematics &
 TBD (2.03) & TBD (6.16) & TBD (-0.22) \\
 %%%%
 MC statistical &
-TBD (1.33) & TBD (4.00) & TBD (-0.30) \\
+0.91 (1.33) & 2.62 (4.00) & -0.72 (-0.30) \\
 %%%%
 Statistical &
 1.94 (1.88) & 6.08 (6.01) & -0.07 (-0.53) \\
@@ -2190,8 +2116,9 @@ TBD (3.07) & TBD (9.49) & TBD (-0.35) \\
 ::: {.column width=50%}
 
 \tightmargin\small
-- General idea: perform alternative fits **w/ selected params fixed** or **different models**
-    - Subtract fitted uncertainties in quadrature $\rightarrow$ systematic uncertainty
+- Most sys uncert included in fit as nuisances
+    - General idea: perform alternative fits **w/ selected params fixed** or **different models**
+        - Subtract fitted uncertainties in quadrature $\rightarrow$ systematic uncertainty
 - Current status: have mechanism to eval most sys uncert
     - Problem: Fit not very stable, sometimes fixing params $\rightarrow$ different minimum
         - Data stat uncert larger likely because **sys uncert underestimated**
@@ -3067,3 +2994,72 @@ TBD (3.07) & TBD (9.49) & TBD (-0.35) \\
 ![](./section/figs-fit-fit-results/ctrl-fit/lines_q2_slices/fit_result-lines_q2_idx4-Dst-dd-el.pdf){ width=90% }
 :::
 :::
+
+
+## Fitted yields
+
+\vspace{0.5em}
+\begin{table}[H]
+\centering
+
+\begin{subtable}[b]{0.5\textwidth}
+    \centering
+
+\begin{tabular}[b]{lr}
+\hline
+\bfseries  Group               &    \bfseries Yields \\
+\hline
+ norm. ($D^0\mu$)    &   445,095 \\
+ norm. ($D^{*+}\mu$) &   115,124 \\
+ norm. ($D^{*0}\mu$) & 1,176,363 \\
+ sig.                & \colorbox{black}{XXX} \\
+ $D^{**}$            &   167,968 \\
+ $D^{**}$ heavy      &    38,147 \\
+ $D_s$               &     5,285 \\
+ $DD$                &    96,236 \\
+ comb. bkg.          &    20,596 \\
+ misID               &    56,596 \\
+\hline
+\end{tabular}
+\end{subtable}%
+%%%%
+\begin{subtable}[b]{0.5\textwidth}
+    \centering
+
+\begin{tabular}[b]{lr}
+\hline
+\bfseries Group               &   \bfseries Yields \\
+\hline
+ norm. ($D^{*+}\mu$) &  427,783 \\
+ sig.                & \colorbox{black}{XXX} \\
+ $D^{**}$            &   37,181 \\
+ $D^{**}$ heavy      &   12,804 \\
+ $D_s$               &    3,730 \\
+ $DD$                &   33,588 \\
+ comb. bkg.          &   16,906 \\
+ misID               &    8,175 \\
+\hline
+\end{tabular}
+\end{subtable}
+
+\end{table}
+
+\begin{tikzpicture}[relative to page]
+    \node[anchor=north,
+          draw=PepsiBlueLt,rounded corners,
+          fill=PepsiBlueLt,fill opacity=.22,text opacity=1,
+        ]
+        at (page cs:-0.45, -0.74) {\scriptsize \Dz channel};
+    \node[anchor=north,
+          draw=PepsiBlueLt,rounded corners,
+          fill=PepsiBlueLt,fill opacity=.22,text opacity=1,
+        ]
+        at (page cs:0.45, -0.74) {\scriptsize \Dstar channel};
+
+    \node[anchor=north,
+          draw=PepsiBlueLt,rounded corners,
+          fill=PepsiBlueLt,fill opacity=.22,text opacity=1,
+        ]
+        at (page cs:-0.45, 0.74) {\scriptsize Analysis blinded};
+\end{tikzpicture}
+
