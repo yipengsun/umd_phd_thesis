@@ -911,6 +911,15 @@ classoption: "aspectratio=169,dvipsnames"
 :::
 
 \begin{tikzpicture}[relative to page]
+    \node[anchor=north west,
+          execute at begin node=\setlength{\baselineskip}{7pt},
+          draw=PepsiBlueLt,rounded corners,
+          fill=PepsiBlueLt,fill opacity=.22,text opacity=1,
+        ]
+        at (page cs:-0.9, 0.06) {
+            \scriptsize No RFA needed at $B$ factories
+        };
+
     \node (recNW) at (page cs:-0.99, 0.78) {};
     \node (recSE) at (page cs:-0.02, -0.98) {};
     \draw<2>[fill=white,white] (recNW) rectangle (recSE);
