@@ -163,6 +163,7 @@ classoption: "aspectratio=169,dvipsnames"
     - **More efficient triggers**
     - **1.26x sig-like events for 2016 alone**
       (1,734,133 $\rightarrow$ 2,178,793)
+    - **4+ times larger data sample in run 2**
 
 :::
 ::: {.column width=40%}
@@ -249,32 +250,6 @@ classoption: "aspectratio=169,dvipsnames"
 ## Signal and normalization {.fragile}
 
 ::: columns
-::: {.column width=65%}
-
-- $\Bzb \rightarrow \Dstarp (\rightarrow \Dz (\rightarrow \textcolor{red}{\Km \pip})\textcolor{red}{\pip}) \taum (\rightarrow \textcolor{red}{\mun} \neumb \neut) \neutb)$
-- $\Bzb \rightarrow \Dstarp (\rightarrow \Dz (\rightarrow \textcolor{red}{\Km \pip})\textcolor{red}{\pip}) \textcolor{red}{\mun} \neumb$
-- $\Bm \rightarrow \Dz (\rightarrow \textcolor{red}{\Km \pip}) \taum (\rightarrow \textcolor{red}{\mun} \neumb \neut) \neutb)$
-- $\Bm \rightarrow \Dz (\rightarrow \textcolor{red}{\Km \pip}) \textcolor{red}{\mun} \neumb$
-
-:::
-::: {.column width=35%}
-
-\vspace{6pt}
-\RDst, sig
-
-\RDst, norm
-
-\RD, sig
-
-\RD, norm
-
-:::
-:::
-
-\centering
-![](./slides-figures/sig_decay_parton_level.pdf){ width=80% }
-
-::: columns
 ::: {.column width=90%}
 - Final visible particles (marked in \textcolor{red}{red}): \textcolor{red}{$D^{(*)}\mu$}
 :::
@@ -282,13 +257,46 @@ classoption: "aspectratio=169,dvipsnames"
 :::
 :::
 
+\centering
+![](./slides-figures/sig_decay_parton_level.pdf){ width=80% }
+
+\visible<2>{
+\begin{columns}[T]
+\begin{column}{0.65\textwidth}
+\begin{itemize}
+\tightlist
+\item
+  \(\Bzb \rightarrow \Dstarp (\rightarrow \Dz (\rightarrow \textcolor{red}{\Km \pip})\textcolor{red}{\pip}) \taum (\rightarrow \textcolor{red}{\mun} \neumb \neut) \neutb)\)
+\item
+  \(\Bzb \rightarrow \Dstarp (\rightarrow \Dz (\rightarrow \textcolor{red}{\Km \pip})\textcolor{red}{\pip}) \textcolor{red}{\mun} \neumb\)
+\item
+  \(\Bm \rightarrow \Dz (\rightarrow \textcolor{red}{\Km \pip}) \taum (\rightarrow \textcolor{red}{\mun} \neumb \neut) \neutb)\)
+\item
+  \(\Bm \rightarrow \Dz (\rightarrow \textcolor{red}{\Km \pip}) \textcolor{red}{\mun} \neumb\)
+\end{itemize}
+\end{column}
+
+\begin{column}{0.35\textwidth}
+\vspace{6pt}
+
+\RDst, sig
+
+\RDst, norm
+
+\RD, sig
+
+\RD, norm
+\end{column}
+\end{columns}
+}
+
 \begin{tikzpicture}[relative to page]
     \node[anchor=north west,
           execute at begin node=\setlength{\baselineskip}{7pt},
           draw=PepsiBlueLt,rounded corners,
           fill=PepsiBlueLt,fill opacity=.22,text opacity=1,
         ]
-        at (page cs:-0.86, 0.18) {
+        at (page cs:-0.86, 0.56) {
             \small $\RDX \equiv \frac{\BFDTau}{\BFDMu} = \frac{\text{BF(sig)}}{\text{BF(norm)}}$
         };
 \end{tikzpicture}
