@@ -476,7 +476,7 @@ classoption: "aspectratio=169,dvipsnames"
   \begin{itemize}
   \tightlist
   \item
-    No trigger requirement (\pt-bias)
+    No trigger requirement (high \pt-bias)
   \item
     PID: add. \UBDT to further reject misID while keeping eff. flat in
     \(p_T\)
