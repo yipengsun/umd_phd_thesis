@@ -2834,12 +2834,6 @@ TBD (3.07) & TBD (9.49) & TBD (-0.35) \\
 ## \Dstst and $\Dstst_H$ cascade decays
 
 
-## $B$ vertex resolution correction
-
-
-## Weights applied to MC
-
-
 ## MisID background
 
 
