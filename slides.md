@@ -145,10 +145,10 @@ classoption: "aspectratio=169,dvipsnames"
 }
 
 \setlength{\leftmargini}{12pt}
+\vspace{-0.5em}
 ::: columns
 ::: {.column width=50%}
 
-\vspace{-0.5em}
 \visible<2->{
 \begin{block}{LFU tests with $e, \mu$}
 \footnotesize
@@ -190,6 +190,45 @@ classoption: "aspectratio=169,dvipsnames"
 
 :::
 ::: {.column width=50%}
+
+\visible<2->{
+\begin{block}{LFU tests with $\mu, \tau$}
+\footnotesize
+\begin{itemize}
+\tightlist
+\item
+    To \textbf{0.32\%}: $Z$ decays
+\begin{itemize}
+  \tightlist
+  \item
+    $\frac{\Gamma_{Z \rightarrow \tau\tau}}{\Gamma_{Z \rightarrow \mu\mu}} = 1.0019 \pm 0.0032$
+  \item
+    LEP, \href{https://arxiv.org/abs/hep-ex/0509008}{\scriptsize\texttt{Phys. Rept. 427 (2006) 257}}
+\end{itemize}
+
+\item
+    To \textbf{1.3\%}: $W$ decays
+\begin{itemize}
+  \tightlist
+  \item
+    $\frac{\Gamma_{W \rightarrow \tau \neu_\tau}}{\Gamma_{W \rightarrow \mu \neu_\mu}} = 0.992 \pm 0.013$
+  \item
+    ATLAS, \href{https://arxiv.org/abs/2007.14040}{\scriptsize\texttt{arXiv:2007.14040}}
+\end{itemize}
+
+\item
+    To \textbf{6.1\%}: $D_s$ decays
+\begin{itemize}
+  \tightlist
+  \item
+    $\frac{\Gamma_{D_s \rightarrow \tau\nu_\tau}}{\Gamma_{D_s \rightarrow \mu\nu_\mu}} = 9.95 \pm 0.61$
+  \item
+    HFLAV, \href{https://link.springer.com/article/10.1140/epjc/s10052-017-5058-4}{\scriptsize\texttt{Eur. Phys. J. C77 (2017) 895}}
+\end{itemize}
+
+\end{itemize}
+\end{block}
+}
 
 :::
 :::
