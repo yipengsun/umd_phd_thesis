@@ -43,12 +43,6 @@ classoption: "aspectratio=169,dvipsnames"
 <!-- shape var -> quantify our ignorance of bkg shape + let the fit to pick the best params within our uncertainty to fit data best -->
 <!-- combine online + trigger, remove large description, remove hlt1 show -->
 
-<!-- 4: Flip -->
-<!-- 4: "with precision measurements" what do you gain with "w/"? -->
-<!-- 4: "obtain" → "compare with" -->
-<!-- 4: add subbullets with examples of observations the SM doesn't explain, move last bullet group (Testing SM) to a new slide with tests of LFU, including RK and RK* -->
-
-
 
 ## Introduction
 
@@ -416,6 +410,7 @@ classoption: "aspectratio=169,dvipsnames"
   \(\Bzb \rightarrow \Dstarp (\rightarrow \Dz (\rightarrow \textcolor{red}{\Km \pip})\textcolor{red}{\pip}) \taum (\rightarrow \textcolor{red}{\mun} \neumb \neut) \neutb)\)
 \item
   \(\Bzb \rightarrow \Dstarp (\rightarrow \Dz (\rightarrow \textcolor{red}{\Km \pip})\textcolor{red}{\pip}) \textcolor{red}{\mun} \neumb\)
+\vspace{0.4\baselineskip}
 \item
   \(\Bm \rightarrow \Dz (\rightarrow \textcolor{red}{\Km \pip}) \taum (\rightarrow \textcolor{red}{\mun} \neumb \neut) \neutb)\)
 \item
@@ -430,6 +425,7 @@ classoption: "aspectratio=169,dvipsnames"
 
 \RDst, norm
 
+\vspace{0.4\baselineskip}
 \RD, sig
 
 \RD, norm
@@ -446,6 +442,10 @@ classoption: "aspectratio=169,dvipsnames"
         at (page cs:-0.86, 0.56) {
             \small $\RDX \equiv \frac{\BFDTau}{\BFDMu} = \frac{\text{BF(sig)}}{\text{BF(norm)}}$
         };
+
+    \node (lineW) at (page cs:-0.95, -0.64) {};
+    \node (lineE) at (page cs:0.95, -0.64) {};
+    \draw<2->[ultra thick,PepsiRed] (lineW) -- (lineE);
 \end{tikzpicture}
 
 
