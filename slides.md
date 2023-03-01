@@ -26,14 +26,12 @@ classoption: "aspectratio=169,dvipsnames"
 :::
 ::: {.column width=50%}
 
-- Upgrade of the LHCb Upstream Tracker (UT)
-    - UT upgrade
-    - The LHCb online system
+- Upgrade of the LHCb detector
+    - Overview of the LHCb upgrade
+    - The Upstream Tracker
 
 :::
 :::
-
-<!-- Notes -->
 
 <!-- http://flavor.physics.umd.edu/manuelf/talks/21-05-05_manuelf_LFU_JHU_UMD_seminar_nobackup.pdf -->
 <!-- include trigger in selection slide -->
@@ -43,7 +41,13 @@ classoption: "aspectratio=169,dvipsnames"
 <!-- shape sys impl as tmpl vars in fit -->
 <!-- Run 1 sys% recompute -->
 <!-- shape var -> quantify our ignorance of bkg shape + let the fit to pick the best params within our uncertainty to fit data best -->
-combine online + trigger, remove large description, remove hlt1 show
+<!-- combine online + trigger, remove large description, remove hlt1 show -->
+
+<!-- 4: Flip -->
+<!-- 4: "with precision measurements" what do you gain with "w/"? -->
+<!-- 4: "obtain" → "compare with" -->
+<!-- 4: add subbullets with examples of observations the SM doesn't explain, move last bullet group (Testing SM) to a new slide with tests of LFU, including RK and RK* -->
+
 
 
 ## Introduction
@@ -63,7 +67,7 @@ combine online + trigger, remove large description, remove hlt1 show
 :::
 ::: {.column width=50%}
 
-- Upgrade of the LHCb Upstream Tracker (UT)
+- Upgrade of the LHCb detector
     - \color{gray}UT upgrade
     - The LHCb online system
 
@@ -82,18 +86,110 @@ combine online + trigger, remove large description, remove hlt1 show
       $\rightarrow$ **lepton flavor universality (LFU)**
     - **3 generations of leptons**: $e, \mu, \tau$
 
-- SM doesn't explain every experimental observation
-    - Demand new physics (NP) beyond the SM
-
-- Testing SM w/ **precision measurement**
-    - Measure observables precisely
-    - Obtain **precise theoretical predictions**
-    - Deviations from SM predictions $\rightarrow$ hints to NP
-
 :::
 ::: {.column width=35%}
+\centering
+![](./slides-figures/the_sm_particles.png){ width=80% }
+:::
+:::
 
-![](./slides-figures/the_sm_particles.png)
+\vspace{1em}
+::: columns
+::: {.column width=70%}
+\begin{itemize}
+
+\tightlist
+\item<2->
+  SM doesn't explain every experimental observation
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Matter-anti-matter asymmetry of the universe
+  \item
+    Evidence of dark matter from cosmological observations
+  \item
+    Demand new physics (NP) beyond the SM
+  \end{itemize}
+\end{itemize}
+
+:::
+::: {.column width=30%}
+
+\visible<2->{
+\vspace{0.5em}
+\includegraphics[width=0.85\textwidth]{./slides-figures/darkmatter.png}
+}
+
+:::
+:::
+
+
+## Precision measurements & tests of LFU
+
+\vspace{-0.5em}
+\small\tightmargin
+- Testing SM with **precision measurement**
+    - Measure observables precisely
+    - Compare with **precise theoretical predictions**
+    - Deviations from SM predictions $\rightarrow$ hints to NP
+
+\visible<2->{
+\vspace{-1.5\baselineskip}
+\begin{itemize}
+\tightlist
+\item
+    LFU has been tested to high precision, \textbf{no definite violation so far}
+\end{itemize}
+\vspace{-\baselineskip}
+}
+
+\setlength{\leftmargini}{12pt}
+::: columns
+::: {.column width=50%}
+
+\vspace{-0.5em}
+\visible<2->{
+\begin{block}{LFU tests with $e, \mu$}
+\footnotesize
+\begin{itemize}
+\tightlist
+\item
+    To \textbf{0.28\%}: $Z$ decays
+\begin{itemize}
+  \tightlist
+  \item
+    $\frac{\Gamma_{Z \rightarrow \mu\mu}}{\Gamma_{Z \rightarrow ee}} = 1.0009 \pm 0.0028$
+  \item
+    LEP, \href{https://arxiv.org/abs/hep-ex/0509008}{\scriptsize\texttt{Phys. Rept. 427 (2006) 257}}
+\end{itemize}
+
+\item
+    To \textbf{0.8\%}: $W$ decays
+\begin{itemize}
+  \tightlist
+  \item
+    $\frac{\mathcal{B}(W \rightarrow e \neu_e)}{\mathcal{B}(W \rightarrow \mu \neu_\mu)} = 1.004 \pm 0.008$
+  \item
+    CDF + LHC, \href{https://arxiv.org/abs/1809.06229}{\scriptsize\texttt{JPG: NPP, 46, 2 (2019)}}
+\end{itemize}
+
+\item
+    About \textbf{9.5\%} (low-\qSq): $R_{K^{(*)}}$
+\begin{itemize}
+  \tightlist
+  \item
+    $\frac{\Gamma_{B \rightarrow K \mu\mu}}{\Gamma_{B \rightarrow K ee}} = 0.994^{+0.094}_{-0.087}$ (low-\qSq)
+  \item
+    LHCb, \href{https://indico.cern.ch/event/1187945/}{\scriptsize LHCb seminar (2022)}
+\end{itemize}
+
+\end{itemize}
+\end{block}
+}
+
+:::
+::: {.column width=50%}
 
 :::
 :::
@@ -2210,7 +2306,7 @@ TBD (3.07) & TBD (9.49) & TBD (-0.35) \\
 :::
 ::: {.column width=50%}
 
-- Upgrade of the LHCb Upstream Tracker (UT)
+- Upgrade of the LHCb detector
     - **Overview of the LHCb upgrade**
     - \color{gray} The Upstream Tracker
 
