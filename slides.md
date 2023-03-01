@@ -2698,7 +2698,7 @@ TBD (3.07) & TBD (9.49) & TBD (-0.35) \\
 - Data Control Board (DCB), ~250
     - Clock distribution to SALT
     - Control command distribution to SALT
-    - Serialization of sensor readout
+    - Serialization of SALT readout
     - Transmission of serialized data
     - Telemetry (thermistor readouts)
 
