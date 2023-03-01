@@ -33,10 +33,6 @@ classoption: "aspectratio=169,dvipsnames"
 :::
 :::
 
-<!-- http://flavor.physics.umd.edu/manuelf/talks/21-05-05_manuelf_LFU_JHU_UMD_seminar_nobackup.pdf -->
-
-<!-- Run 1 sys% recompute -->
-<!-- shape var -> quantify our ignorance of bkg shape + let the fit to pick the best params within our uncertainty to fit data best -->
 <!-- combine online + trigger, remove large description, remove hlt1 show -->
 
 
@@ -2333,8 +2329,8 @@ TBD (3.07) & TBD (9.49) & TBD (-0.35) \\
           draw=PepsiBlueLt,rounded corners,
           fill=PepsiBlueLt,fill opacity=.22,text opacity=1,
         ]
-        at (page cs:-0.49, -0.76) {
-            \tiny Run 1 data rel stat uncert: \RDst: 6.4\%, \RD: 13.6\%
+        at (page cs:-0.49, 0.73) {
+            \tiny All sys uncert absolute, in $10^{-2}$; \colorbox{yellow}{uncert scale w/ data}
         };
 \end{tikzpicture}
 
@@ -2345,6 +2341,7 @@ TBD (3.07) & TBD (9.49) & TBD (-0.35) \\
 ::: columns
 ::: {.column width=55%}
 
+\vspace{1em}
 \small
 - **Procedure to fit LHCb 2016 data developed**
 - **Fully portable to 2017 & 2018 (run 2)**
@@ -2362,12 +2359,25 @@ TBD (3.07) & TBD (9.49) & TBD (-0.35) \\
 ![](./slides-figures/rdx_total_uncert_perspective.pdf){ width=80% }
 
 \small
-- This analysis might still be stat limited
-    - Stat uncert is the main uncertainty for run 1
+- Stat \& sys uncert comparable, some sys scales w/ data
     - **Can use more data!**
+
+\vspace{2.5em}
 
 :::
 :::
+
+\begin{tikzpicture}[relative to page]
+    \node[anchor=north] at (page cs:0.53, -0.60) {
+            \tiny
+            \begin{tabular}{r|c|c}
+                & run 1 & run 2 target \\
+                \midrule
+                \RD    & $\pm 14\%_\text{stat} \pm 15\%_\text{sys}$   & $\pm 7\%_\text{stat} \pm 8\%_\text{sys}$ \\
+                \RDst  & $\pm 6.4\%_\text{stat} \pm 8.2\%_\text{sys}$ & $\pm 3\%_\text{stat} \pm 4\%_\text{sys}$ \\
+            \end{tabular}
+        };
+\end{tikzpicture}
 
 
 ## Overview of the LHCb upgrade
@@ -2419,10 +2429,21 @@ TBD (3.07) & TBD (9.49) & TBD (-0.35) \\
 \centering
 ![](./slides-figures/trigger_efficiency_marking.pdf){ width=70% }
 
-\tightmargin\small
-- **Solution: readout at 40 MHz so hardware triggers can be removed**
-    - **LHCb run 3 lumi**: $2 \times 10^{33}$ \lumiInsta
-    - **First (hardware) triggers-less detector in a hadron collider**
+\begin{itemize}
+\tightlist\small
+\item<2->
+  \textbf{Solution: readout at 40 MHz so hardware triggers can be
+  removed}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \textbf{LHCb run 3 lumi}: \(2 \times 10^{33}\) \lumiInsta
+  \item
+    \textbf{First (hardware) triggers-less detector in a hadron
+    collider}
+  \end{itemize}
+\end{itemize}
 
 :::
 :::
