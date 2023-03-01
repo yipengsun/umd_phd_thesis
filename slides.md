@@ -686,23 +686,55 @@ classoption: "aspectratio=169,dvipsnames"
 ::: columns
 ::: {.column width=50%}
 
-- **Partially reco'ed bkgs** (final states w/ \DXmu + more)
-    - Four $1P$ \Dstst
-        - $B \rightarrow \Dstst (\rightarrow D^{0|*|**} (\rightarrow D^{0|*}\pi) \pi) l\neul$
-    - Highly excited \Dstst (\Dstst heavy, $\Dstst_H$):
-        - $B \rightarrow \Dstst_H (\rightarrow D^{0|*} \pi\pi) \mu\neum$
-    - \DststS
-        - $B_s \rightarrow (D'_{s1}|D_{s2}) (\rightarrow D^{(*)}K) l\neul$
-    - Double-charm backgrounds ($DDX$)
-        - $B \rightarrow D^{(*)} D_q X$
-        - $D_q \rightarrow \tauon\neut$ when $q = s$
-        - $D_q \rightarrow K \mu\neum$ when $q = u \text{ or } d$
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Partially reco'ed bkgs} (final states w/ \DXmu + more)
 
+  \begin{itemize}
+  \item
+    Four \(1P\) \Dstst
+
+    \begin{itemize}
+    \tightlist
+    \item
+      \(B \rightarrow \Dstst (\rightarrow D^{0|*|**} (\rightarrow D^{0|*}\pi) \pi) l\neul\)
+    \end{itemize}
+  \item<2->
+    Highly excited \Dstst (\Dstst heavy, \(\Dstst_H\)):
+
+    \begin{itemize}
+    \tightlist
+    \item
+      \(B \rightarrow \Dstst_H (\rightarrow D^{0|*} \pi\pi) \mu\neum\)
+    \end{itemize}
+  \item<3->
+    \DststS
+
+    \begin{itemize}
+    \tightlist
+    \item
+      \(B_s \rightarrow (D'_{s1}|D_{s2}) (\rightarrow D^{(*)}K) l\neul\)
+    \end{itemize}
+  \item<4->
+    Double-charm backgrounds (\(DDX\))
+
+    \begin{itemize}
+    \tightlist
+    \item
+      \(B \rightarrow D^{(*)} D_q X\)
+    \item
+      \(D_q \rightarrow \tauon\neut\) when \(q = s\)
+    \item
+      \(D_q \rightarrow K \mu\neum\) when \(q = u \text{ or } d\)
+    \end{itemize}
+  \end{itemize}
+\end{itemize}
 
 :::
 ::: {.column width=50%}
 
-\visible<2>{
+\visible<5->{
 \begin{itemize}
 \tightlist
 \item
@@ -734,13 +766,13 @@ classoption: "aspectratio=169,dvipsnames"
 \vspace{3em}
 
 \centering
-![](./chapter/figs-analysis-overview/d_meson_predicted_masses.pdf)
+![](./slides-figures/d_meson_states.pdf)
 
 :::
 :::
 
 \begin{tikzpicture}[relative to page]
-    \node[anchor=north,
+    \node<4->[anchor=north,
           draw=PepsiBlueLt,rounded corners,
           fill=PepsiBlueLt,fill opacity=.22,text opacity=1,
           text width=12em, align=center,
@@ -748,7 +780,7 @@ classoption: "aspectratio=169,dvipsnames"
         at (page cs:-0.5, -0.54) {
             \footnotesize\bfseries Modeled w/ MC, w/ shape corrections from ctrl samples
         };
-    \node<2>[anchor=north,
+    \node<5->[anchor=north,
           draw=PepsiBlueLt,rounded corners,
           fill=PepsiBlueLt,fill opacity=.22,text opacity=1,
         ]
@@ -759,7 +791,7 @@ classoption: "aspectratio=169,dvipsnames"
     \node[inner sep=0pt] (nw) at (page cs:0.02,-0.1) {};
     \node (se) at (page cs:0.92,-0.95) {};
 
-    \node (pt) at (page cs:-0.2,0.7) {};
+    \node (pt) at (page cs:-0.1,0.36) {};
 
     \draw[PepsiBlueLt,ultra thick] (nw) rectangle (se);
     \draw[PepsiBlueLt,->,>=stealth,ultra thick] (nw) -- (pt);
