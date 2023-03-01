@@ -1419,16 +1419,21 @@ classoption: "aspectratio=169,dvipsnames"
 
 ## Form factor reweighting
 
-- **Change FF parameterization** $\xleftrightarrow{\text{\bfseries equivalent}}$ **reweighting**
+\small\vspace{-1.2em}
+- Change FF parameterization $\xleftrightarrow{\text{\bfseries equivalent}}$ reweighting
     - FF parameterization **determines** differential decay rate
       $d\Gamma / d\PSpt$
     - For each MC event, weight $w$ given by:
+      \vspace{-0.4\baselineskip}
       $$
       \scriptsize
       w = \left.
               \frac{d\Gamma_\text{target} / d\PSpt}{d\Gamma_\text{source} / d\PSpt}
           \right|_\text{eval at phase space point}
       $$
+      \vspace{-1.1\baselineskip}
+- **BGL & BLR more flexible** $\rightarrow$ **derive shape corrections in fit**
+\vspace{-0.8\baselineskip}
 
 ::: columns
 ::: {.column width=33%}
