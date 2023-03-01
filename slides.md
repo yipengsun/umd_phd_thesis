@@ -2550,7 +2550,7 @@ TBD (3.07) & TBD (9.49) & TBD (-0.35) \\
 \small
 - Upgraded LHCb removes HW trigger
 - High-level SW triggers: HLT1 & HLT2
-- HLT1 processes w/ TELL40
+- HLT1 w/ event builder (resp. for collecting data from detector)
     - Each event builder hosts **2 GPUs for HLT1**
         - Ideally suited for track reco
         - **30x** reduction in inter-communication **bandwidth**
