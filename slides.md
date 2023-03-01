@@ -2787,6 +2787,32 @@ TBD (3.07) & TBD (9.49) & TBD (-0.35) \\
 \end{tikzpicture}
 
 
+## UMD members working on UT
+
+::: columns
+::: {.column width=50%}
+\centering
+![](./photos/dcb_assembly.jpg){ height=8em }
+:::
+::: {.column width=50%}
+\centering
+![](./photos/lvr_tests.jpg){ height=8em }
+:::
+:::
+
+\vspace{2em}
+::: columns
+::: {.column width=50%}
+\centering
+![](./photos/manuel_at_cern-1.jpg){ height=8em }
+:::
+::: {.column width=50%}
+\centering
+![](./photos/manuel_at_cern-2.jpg){ height=8em }
+:::
+:::
+
+
 ## Conclusion
 
 - Implemented main framework for \RDX run 2 analysis
