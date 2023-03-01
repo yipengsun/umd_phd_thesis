@@ -35,9 +35,6 @@ classoption: "aspectratio=169,dvipsnames"
 
 <!-- http://flavor.physics.umd.edu/manuelf/talks/21-05-05_manuelf_LFU_JHU_UMD_seminar_nobackup.pdf -->
 
-<!-- fit model: put colors for fixed/free/constrained -->
-<!-- shpae variation: quantify lack of knowledge of shape -->
-<!-- shape sys impl as tmpl vars in fit -->
 <!-- Run 1 sys% recompute -->
 <!-- shape var -> quantify our ignorance of bkg shape + let the fit to pick the best params within our uncertainty to fit data best -->
 <!-- combine online + trigger, remove large description, remove hlt1 show -->
@@ -1915,7 +1912,7 @@ $$
 \end{tikzpicture}
 
 
-## Shape variations in the fit
+## Shape variations: quantify lack of knowledge
 
 \vspace{1em}
 ::: columns
@@ -1950,7 +1947,7 @@ $$
 \begin{itemize}
 \tightlist
 \item
-  Shape variations are important to have \textbf{good fit quality}
+  Shape variations allow us to derive \textbf{phenomenological corrections}
 
   \begin{itemize}
   \tightlist
@@ -2254,8 +2251,11 @@ $$
 \colorbox{yellow}{$B \rightarrow D^{**}\ellm\neulb$ form factors} &
 0.25 (0.78) & 0.62 (1.01) & -0.85 (-0.10) \\
 %%%%
-\colorbox{yellow}{Control sample shape parameters} &
-0.46 (0.87) & 0.96 (4.36) & (-0.49) \\
+Control sample shape parameters &
+0.46 (0.87) & 0.96 (4.36) & TBD (-0.49) \\
+%%%%
+$\Lambda_b^0$ backgrounds &
+TBD (0.73) & TBD (1.16) & 0.00 (0.00) \\
 %%%%
 $DD$ model dependence\parnoteref{parnote:ctrl-shape-params} &
 TBD (0.63) & TBD (0.74) & 0.00 (0.00) \\
@@ -2323,29 +2323,12 @@ TBD (3.07) & TBD (9.49) & TBD (-0.35) \\
     - General idea: perform alternative fits **w/ selected params fixed** or **different models**
         - Subtract fitted uncertainties in quadrature $\rightarrow$ systematic uncertainty
 - Current status: have mechanism to eval most sys uncert
-    - Problem: Fit not very stable, sometimes fixing params $\rightarrow$ different minimum
+    - Problem: fit not very stable, sometimes fixing params $\rightarrow$ different minimum
         - Data stat uncert larger likely because **sys uncert underestimated**
-          (notably "ctrl sample shape params")
 :::
 :::
 
 \begin{tikzpicture}[relative to page]
-    \node[anchor=north,
-          draw=PepsiBlueLt,rounded corners,
-          fill=PepsiBlueLt,fill opacity=.22,text opacity=1,
-        ]
-        at (page cs:-0.49, 0.73) {
-            \tiny All sys uncert absolute, in $10^{-2}$; \colorbox{yellow}{\phantom{XX}}: uncert scale w/ data
-        };
-
-    \node[anchor=north,
-          draw=PepsiBlueLt,rounded corners,
-          fill=PepsiBlueLt,fill opacity=.22,text opacity=1,
-        ]
-        at (page cs:-0.49, -0.63) {
-            \tiny Total run 1 rel uncert: \RDst: 10.0\%, \RD: 20.0\%
-        };
-
     \node[anchor=north,
           draw=PepsiBlueLt,rounded corners,
           fill=PepsiBlueLt,fill opacity=.22,text opacity=1,
