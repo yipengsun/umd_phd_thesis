@@ -34,7 +34,6 @@ classoption: "aspectratio=169,dvipsnames"
 :::
 
 <!-- http://flavor.physics.umd.edu/manuelf/talks/21-05-05_manuelf_LFU_JHU_UMD_seminar_nobackup.pdf -->
-<!-- include trigger in selection slide -->
 
 <!-- fit model: put colors for fixed/free/constrained -->
 <!-- shpae variation: quantify lack of knowledge of shape -->
@@ -454,15 +453,35 @@ classoption: "aspectratio=169,dvipsnames"
 ::: columns
 ::: {.column width=50%}
 
+\tightmargin
+\setlength{\leftmargini}{12pt}
 ### \Dz\muon (\Dz channel)
 
-- \Dz ($\Km\pip$ pair)
-    - High $p_T$
-    - Invariant mass around \Dz ref. mass
-    - Displaced from $pp$ vertex
+\begin{itemize}
+\item
+  \Dz (\(\Km\pip\) pair)
 
-- \muon
-    - PID: add. \UBDT to further reject misID while keeping eff. flat in $p_T$
+  \begin{itemize}
+  \tightlist
+  \item
+    High \(p_T\) signature (L0Hadron trigger)
+  \item
+    Invariant mass around \Dz ref. mass
+  \item
+    Displaced from \(pp\) vertex
+  \end{itemize}
+\item
+  \muon
+
+  \begin{itemize}
+  \tightlist
+  \item
+    No trigger requirement (\pt-bias)
+  \item
+    PID: add. \UBDT to further reject misID while keeping eff. flat in
+    \(p_T\)
+  \end{itemize}
+\end{itemize}
 
 ### \Dstarp\muon (\Dstar channel)
 
@@ -472,6 +491,7 @@ classoption: "aspectratio=169,dvipsnames"
 :::
 ::: {.column width=50%}
 
+\vspace{1em}
 \resizebox{0.8\textwidth}{!}{
 \begin{tikzpicture}[
     particle/.style={draw, ->, >=stealth, thick},
@@ -583,7 +603,7 @@ classoption: "aspectratio=169,dvipsnames"
           draw=PepsiBlueLt,rounded corners,
           fill=PepsiBlueLt,fill opacity=.22,text opacity=1,
         ]
-        at (page cs:0.49, -0.72) {
+        at (page cs:0.49, -0.74) {
             \footnotesize \muon from sig decays are softer than \muon from norm
         };
 \end{tikzpicture}
