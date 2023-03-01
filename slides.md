@@ -1261,6 +1261,7 @@ classoption: "aspectratio=169,dvipsnames"
 \small
 - L0Hadron TOS
     - Trained a BDT (\xgboost) to predict the trigger probabilistically
+    - Based on tracker estimated $E_T$, calo-hitting projections & more
 
 :::
 ::: {.column width=50%}
