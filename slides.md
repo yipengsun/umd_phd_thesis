@@ -61,8 +61,8 @@ classoption: "aspectratio=169,dvipsnames"
 ::: {.column width=50%}
 
 - Upgrade of the LHCb detector
-    - \color{gray}UT upgrade
-    - The LHCb online system
+    - \color{gray}Overview of the LHCb upgrade
+    - The Upstream Tracker
 
 :::
 :::
@@ -379,9 +379,9 @@ classoption: "aspectratio=169,dvipsnames"
 :::
 ::: {.column width=50%}
 
-- Upgrade of the LHCb Upstream Tracker (UT)
-    - \color{gray}UT upgrade
-    - The LHCb online system
+- Upgrade of the LHCb detector
+    - \color{gray}Overview of the LHCb upgrade
+    - The Upstream Tracker
 
 :::
 :::
@@ -1201,9 +1201,9 @@ classoption: "aspectratio=169,dvipsnames"
 :::
 ::: {.column width=50%}
 
-- Upgrade of the LHCb Upstream Tracker (UT)
-    - \color{gray}UT upgrade
-    - The LHCb online system
+- Upgrade of the LHCb detector
+    - \color{gray}Overview of the LHCb upgrade
+    - The Upstream Tracker
 
 :::
 :::
@@ -1325,9 +1325,9 @@ classoption: "aspectratio=169,dvipsnames"
 :::
 ::: {.column width=50%}
 
-- Upgrade of the LHCb Upstream Tracker (UT)
-    - \color{gray}UT upgrade
-    - The LHCb online system
+- Upgrade of the LHCb detector
+    - \color{gray}Overview of the LHCb upgrade
+    - The Upstream Tracker
 
 :::
 :::
@@ -1611,9 +1611,9 @@ classoption: "aspectratio=169,dvipsnames"
 :::
 ::: {.column width=50%}
 
-- Upgrade of the LHCb Upstream Tracker (UT)
-    - \color{gray}UT upgrade
-    - The LHCb online system
+- Upgrade of the LHCb detector
+    - \color{gray}Overview of the LHCb upgrade
+    - The Upstream Tracker
 
 :::
 :::
@@ -2226,9 +2226,9 @@ $$
 :::
 ::: {.column width=50%}
 
-- Upgrade of the LHCb Upstream Tracker (UT)
-    - \color{gray}UT upgrade
-    - The LHCb online system
+- Upgrade of the LHCb detector
+    - \color{gray}Overview of the LHCb upgrade
+    - The Upstream Tracker
 
 :::
 :::
@@ -2646,7 +2646,7 @@ TBD (3.07) & TBD (9.49) & TBD (-0.35) \\
 :::
 ::: {.column width=50%}
 
-- The upgrade of the LHCb detector
+- Upgrade of the LHCb detector
     - Overview of the LHCb upgrade
     - **The Upstream Tracker**
 
