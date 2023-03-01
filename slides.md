@@ -401,10 +401,10 @@ classoption: "aspectratio=169,dvipsnames"
 \item
   \(\Bzb \rightarrow \Dstarp (\rightarrow \Dz (\rightarrow \textcolor{red}{\Km \pip})\textcolor{red}{\pip}) \taum (\rightarrow \textcolor{red}{\mun} \neumb \neut) \neutb)\)
 \item
-  \(\Bzb \rightarrow \Dstarp (\rightarrow \Dz (\rightarrow \textcolor{red}{\Km \pip})\textcolor{red}{\pip}) \textcolor{red}{\mun} \neumb\)
+  \(\Bm \rightarrow \Dz (\rightarrow \textcolor{red}{\Km \pip}) \taum (\rightarrow \textcolor{red}{\mun} \neumb \neut) \neutb)\)
 \vspace{0.4\baselineskip}
 \item
-  \(\Bm \rightarrow \Dz (\rightarrow \textcolor{red}{\Km \pip}) \taum (\rightarrow \textcolor{red}{\mun} \neumb \neut) \neutb)\)
+  \(\Bzb \rightarrow \Dstarp (\rightarrow \Dz (\rightarrow \textcolor{red}{\Km \pip})\textcolor{red}{\pip}) \textcolor{red}{\mun} \neumb\)
 \item
   \(\Bm \rightarrow \Dz (\rightarrow \textcolor{red}{\Km \pip}) \textcolor{red}{\mun} \neumb\)
 \end{itemize}
@@ -415,12 +415,12 @@ classoption: "aspectratio=169,dvipsnames"
 
 \RDst, sig
 
-\RDst, norm
+\RD\hspace{1.2pt}, sig
 
 \vspace{0.4\baselineskip}
-\RD, sig
+\RDst, norm
 
-\RD, norm
+\RD\hspace{1.2pt}, norm
 \end{column}
 \end{columns}
 }
@@ -1878,13 +1878,15 @@ classoption: "aspectratio=169,dvipsnames"
 
 \vspace{-15pt}\tiny
 $$
-\textcolor{PepsiBlueLt}{
 N_{D\mu} \times \left\{
-  \RD \times \underbrace{ \BRTauToMu \times
-      \frac{\epsilon{(\Bm \rightarrow \Dz \taum [\rightarrow \mun\neumb\neut] \neutb)}
-      }{\epsilon({\Bm \rightarrow \Dz \mun \neumb})
-  }}_{\equiv \fitRDEff} \right\}
-}
+  \RD \times \textcolor{red}{\underbrace{ \BRTauToMu \times
+      \frac{
+        \epsilon{(\Bm \rightarrow \Dz \taum [\rightarrow \mun\neumb\neut] \neutb)}
+      }{
+        \epsilon({\Bm \rightarrow \Dz \mun \neumb})
+      }
+  }_{\equiv \fitRDEff}
+  } \right\}
 $$
 \vspace{-15pt}
 
@@ -1905,6 +1907,14 @@ $$
           inner sep=3pt
         ]
         at (page cs:-0.5, 0.785) {\tiny Yield constraint scheme for \Dz ISO templates};
+
+    \node[anchor=north,
+          draw=PepsiBlueLt,rounded corners,
+          fill=PepsiBlueLt,fill opacity=.22,text opacity=1,
+        ]
+        at (page cs:-0.5, -0.88) {
+            \tiny \bfseries floating; \textcolor{red}{fixed}; \textcolor{blue}{constrained}
+        };
 \end{tikzpicture}
 
 
@@ -2330,7 +2340,7 @@ TBD (3.07) & TBD (9.49) & TBD (-0.35) \\
           fill=PepsiBlueLt,fill opacity=.22,text opacity=1,
         ]
         at (page cs:-0.49, 0.73) {
-            \tiny All sys uncert absolute, in $10^{-2}$; \colorbox{yellow}{uncert scale w/ data}
+            \tiny All uncert absolute, in $10^{-2}$; \colorbox{yellow}{uncert scale w/ data}
         };
 \end{tikzpicture}
 
