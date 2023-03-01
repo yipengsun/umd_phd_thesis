@@ -1103,7 +1103,7 @@ classoption: "aspectratio=169,dvipsnames"
         - Angle between $B$ flight dir & $z$ axis: $\alpha$
         - Assume: proper velocity ($\gamma\beta$) the same in $z$ for $B$ and vis
           $\rightarrow$ $(p_B)_z = \frac{m_B}{m_\text{vis}}(p_\text{vis})_z$
-    - $|p_B| = \frac{m_B}{m_\text{vis}} (p_\text{vis})_z \sqrt{1 + \tan^2\alpha}$
+    - RFA: $|p_B| = \frac{m_B}{m_\text{vis}} (p_\text{vis})_z \sqrt{1 + \tan^2\alpha}$
 
 \resizebox{0.75\textwidth}{!}{
 \begin{tikzpicture}[particle/.style={draw, ->, >=stealth, thick}]
@@ -1178,8 +1178,8 @@ classoption: "aspectratio=169,dvipsnames"
           text width=18em,
         ]
         at (page cs:-0.46, -0.53) {
-            \small LHCb resolution worse than $B$ factories
-            $\rightarrow$ RFA resolution don't matter much as long as well-behaved
+            \small LHCb resolution worse than $B$ factories,
+            RFA resolution comparable to LHCb's
         };
 \end{tikzpicture}
 
