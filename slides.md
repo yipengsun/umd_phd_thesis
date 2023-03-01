@@ -2535,65 +2535,28 @@ TBD (3.07) & TBD (9.49) & TBD (-0.35) \\
 \end{tikzpicture}
 
 
-## The LHCb online system & upgraded trigger scheme
+## The upgraded trigger scheme
 
 \tightmargin
 ::: columns
-::: {.column width=60%}
+::: {.column width=50%}
 
-\small
-- The LHCb online system controls detector & filters events w/ software triggers
-    - SODIN40, SOL40, TELL40 implemented w/ **single hardware: PCIe40**
-        - SODIN40: Clock distribution
-        - SOL40: Slow control & monitoring
-        - TELL40: Data collection
-    - They differ in **firmware only**
-        - **Load firmware to do triple duty** $\rightarrow$ **MiniDAQ**
+![](./chapter/figs-lhcb-upgrade-overview/trigger/trigger_scheme_run2.pdf){ height=12em }
+![](./chapter/figs-lhcb-upgrade-overview/trigger/trigger_scheme_run3.pdf){ height=12em }
 
 :::
-::: {.column width=40%}
-
-\small
-- Example: the UT online system
-    - 7 SOL40s (6 for DCBs, 1 for LVRs)
-    - 108 TELL40s (54 on each side)
-
-:::
-:::
-
-\vspace{1em}
-::: columns
-::: {.column width=35%}
-
-![](./chapter/figs-lhcb-upgrade-overview/trigger/trigger_scheme_run2.pdf){ height=8em }
-![](./chapter/figs-lhcb-upgrade-overview/trigger/trigger_scheme_run3.pdf){ height=8em }
-
-:::
-::: {.column width=65%}
+::: {.column width=50%}
 
 \small
 - Upgraded LHCb removes HW trigger
 - High-level SW triggers: HLT1 & HLT2
 - HLT1 processes w/ TELL40
-    - Each server host **3 TELL40s**
-    - **2 GPUs for HLT1**
+    - Each event builder hosts **2 GPUs for HLT1**
         - Ideally suited for track reco
         - **30x** reduction in inter-communication **bandwidth**
 
 :::
 :::
-
-\begin{tikzpicture}[relative to page]
-    \node[anchor=north,inner sep=0pt] (pcie40) at (page cs:0.4,0.3) {
-        \includegraphics[width=8em]{./chapter/figs-ut-upgrade/online/pcie40.pdf}
-    };
-
-    \node[anchor=north,yshift=-12pt,
-          draw=gray,rounded corners,
-          fill=gray,fill opacity=.22,text opacity=1,text=white
-        ]
-        at (pcie40) {\small\bfseries PCIe40};
-\end{tikzpicture}
 
 
 ## The Upstream Tracker
@@ -2834,11 +2797,51 @@ TBD (3.07) & TBD (9.49) & TBD (-0.35) \\
 
 ## The CKM matrix
 
+![](./slides-figures/ckm_matrix.pdf){ width=60% }
+
+\tightmargin\small
+\small
+- $\lambda \approx 0.04$ small compared to 1
+\small
+- $B$ meson has an unusually long life time
+
 
 ## \Dstst and $\Dstst_H$ cascade decays
 
+\centering
+![](./slides-figures/dstst_decays.pdf)
+
 
 ## MisID background
+
+\begin{equation*}
+    \begin{pmatrix*}[l]
+        \tilde{n}_{\hat{\pi}} \\
+        \tilde{n}_{\hat{K}}   \\
+        \tilde{n}_{\hat{p}}   \\
+        \tilde{n}_{\hat{e}}   \\
+        \tilde{n}_{\hat{g}}   \\
+    \end{pmatrix*}
+    =
+    \begin{pmatrix*}[l]
+        \misEff[\pi]{\hat{\pi}} & \misEff[K]{\hat{\pi}} & \misEff[p]{\hat{\pi}} & \misEff[e]{\hat{\pi}} & \misEff[g]{\hat{\pi}} \\
+        \misEff[\pi]{\hat{K}}   & \misEff[K]{\hat{K}}   & \misEff[p]{\hat{K}}   & \misEff[e]{\hat{K}}   & \misEff[g]{\hat{K}}   \\
+        \misEff[\pi]{\hat{p}}   & \misEff[K]{\hat{p}}   & \misEff[p]{\hat{p}}   & \misEff[e]{\hat{p}}   & \misEff[g]{\hat{p}}   \\
+        \misEff[\pi]{\hat{e}}   & \misEff[K]{\hat{e}}   & \misEff[p]{\hat{e}}   & \misEff[e]{\hat{e}}   & \misEff[g]{\hat{e}}   \\
+        \misEff[\pi]{\hat{g}}   & \misEff[K]{\hat{g}}   & \misEff[p]{\hat{g}}   & \misEff[e]{\hat{g}}   & \misEff[g]{\hat{g}}   \\
+    \end{pmatrix*}
+    \begin{pmatrix*}[l]
+        \tilde{n}_{{\pi}} \\
+        \tilde{n}_{{K}}   \\
+        \tilde{n}_{{p}}   \\
+        \tilde{n}_{{e}}   \\
+        \tilde{n}_{{g}}   \\
+    \end{pmatrix*}
+\end{equation*}
+
+- Know tagged yields (left) and true $\rightarrow$ tag eff from dedicated data samples
+- Can find true yields w/ unfolding
+    - Can't use matrix inversion b.c. sensitive to statistical fluctuations
 
 
 ## Relevant form factor parameterizations
