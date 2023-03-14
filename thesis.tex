@@ -289,14 +289,18 @@
 
 % pages from this point start at lower-case Roman number ii)
 \pagestyle{plain} \pagenumbering{roman} \setcounter{page}{2}
+% \phantomsection
 % \addcontentsline{toc}{chapter}{Preface}
-% \include{preface}  %(if present, start at lower-case Roman number ii)
+% \include{preface}  % (if present, start at lower-case Roman number ii)
+% \phantomsection
 % \addcontentsline{toc}{chapter}{Foreword}
-% \include{foreword} %(if present, lower-case Roman)
+% \include{foreword}  % (if present, lower-case Roman)
+\phantomsection
 \addcontentsline{toc}{chapter}{Dedication}
-\include{dedication}  %(if present, lower-case Roman)
+\include{dedication}  % (if present, lower-case Roman)
+\phantomsection
 \addcontentsline{toc}{chapter}{Acknowledgements}
-\include{acknowledgements}  %(if present, lower-case Roman)
+\include{acknowledgements}  % (if present, lower-case Roman)
 \cleardoublepage
 
 \normalsize \singlespacing
